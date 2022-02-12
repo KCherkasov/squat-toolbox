@@ -52,8 +52,11 @@
             </form>
         </div>
         {% if names %}
-        <div class="names-list">
+        <div>
             <h3> Имена </h3>
+        </div>
+        <span class="divider" role="separator"></span>
+        <div class="names-list">
             <ul>
             {% for name in names %}
                 <li class="list-item">{{ name }}</li>
