@@ -113,7 +113,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), '/home/kvcherk/projects/namegen/static/',)
+STATIC_ROOT = '/home/kvcherk/namegen-app/namegen/static'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), '/home/kvcherk/namegen-app/namegen/static',)
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',

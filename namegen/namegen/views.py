@@ -9,6 +9,10 @@ from .forms2 import NamegenForm
 import random
 
 
+def main(request):
+    return HttpResponseRedirect(reverse('index'))
+
+
 def index(request):
     if request.method == 'POST':
         form = NamegenForm(request.POST)
