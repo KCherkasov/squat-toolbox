@@ -8,16 +8,20 @@ class NameManager(models.Manager):
     def queryset(self):
         return models.QuerySet(self.model, using=self._db)
 
+    def get_first_parts_list(self):
+        return list(self.queryset().all().values_list('first_part'))
+
+    def get_second_parts_list(self):
+        return list(self.queryset().all().values_list('second_part'))
+
     def get_random_part(self, nameparts):
         return choice(nameparts)[0]
 
-    def get_random_name(self):
+    def get_random_name(self, first_parts, second_parts):
         first = ''
         second = ''
-        first_part = list(self.queryset().all().values_list('first_part'))
-        second_parts = list(self.queryset().all().values_list('second_part'))
         while first.lower() == second.lower():
-            first = self.get_random_part(first_part)
+            first = self.get_random_part(first_parts)
             second = self.get_random_part(second_parts)
         return first + second
 

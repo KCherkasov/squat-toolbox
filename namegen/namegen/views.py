@@ -23,10 +23,16 @@ def index(request):
             count = data['count']
             if lang == 'SC':
                 names = list()
+                first_parts_male = MaleScand.objects.get_first_parts_list()
+                second_parts_male = MaleScand.objects.get_second_parts_list()
+                first_parts_female = FemaleScand.objects.get_first_parts_list()
+                second_parts_female = FemaleScand.objects.get_second_parts_list()
                 if count == 1:
-                    names.append(generate_name_scand(gender))
+                    names.append(generate_name_scand(gender, first_parts_male, second_parts_male,
+                                                     first_parts_female, second_parts_female))
                 else:
-                    names = generate_names_scand(gender, count)
+                    names = generate_names_scand(gender, first_parts_male, second_parts_male,
+                                                 first_parts_female, second_parts_female, count)
                 return render(request, 'index.html', {'form': form, 'names': names, })
     else:
         form = NamegenForm()
@@ -37,7 +43,7 @@ def d100():
     return random.randint(1, 100)
 
 
-def generate_name_scand(gender):
+def generate_name_scand(gender, first_parts_male, second_parts_male, first_parts_female, second_parts_female):
     gender_tail = ''
     if gender == 'R':
         dice = d100()
@@ -48,15 +54,15 @@ def generate_name_scand(gender):
             gender = 'F'
             gender_tail = ' (жен.)'
     if gender == 'M':
-        name = MaleScand.objects.get_random_name()
+        name = MaleScand.objects.get_random_name(first_parts_male, second_parts_male)
     else:
-        name = FemaleScand.objects.get_random_name()
+        name = FemaleScand.objects.get_random_name(first_parts_female, second_parts_female)
     name += ' '
     dice = d100()
     if dice <= 50:
-        surname = MaleScand.objects.get_random_name()
+        surname = MaleScand.objects.get_random_name(first_parts_male, second_parts_male)
     else:
-        surname = FemaleScand.objects.get_random_name()
+        surname = FemaleScand.objects.get_random_name(first_parts_female, second_parts_female)
     dice = d100()
     if gender == 'M':
         if dice <= 50:
@@ -71,8 +77,10 @@ def generate_name_scand(gender):
     return name + surname + gender_tail
 
 
-def generate_names_scand(gender, count=10):
+def generate_names_scand(gender, first_parts_male, second_parts_male,
+                         first_parts_female, second_parts_female, count=10):
     names = list()
     for i in range(count):
-        names.append(generate_name_scand(gender))
+        names.append(generate_name_scand(gender, first_parts_male, second_parts_male,
+                                         first_parts_female, second_parts_female))
     return names
