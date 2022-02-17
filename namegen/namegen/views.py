@@ -9,7 +9,7 @@ from .forms2 import NamegenForm
 
 import random
 
-version = '1.2.5'
+version = '1.2.6'
 
 CONSONANTS = 'бвгджзйклмнпрстфхшщчц'
 RIGHT_CONSONANTS = 'йнрс'
@@ -290,7 +290,7 @@ def generate_name_spanish(gender, nobility,
             surname += 'ес'
     elif dice <= 75:
         if surname[-1:] != 'з':
-            if surname[-1:] != 'т':
+            if surname[-1:] not in 'тд':
                 surname += 'сия'
             else:
                 surname = surname[:-1] + 'ция'
@@ -334,7 +334,7 @@ def generate_name_spanish(gender, nobility,
                 surname += 'ес'
         elif dice <= 75:
             if surname[-1:] != 'з':
-                if surname[-1:] != 'т':
+                if surname[-1:] not in 'тд':
                     surname += 'сия'
                 else:
                     surname = surname[:-1] + 'ция'
