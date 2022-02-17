@@ -291,6 +291,8 @@ def generate_name_spanish(gender, nobility,
         if nobility == 'N':
             if d100() <= threshold:
                 surname += ' ла '
+            else:
+                surname += '-и-'
         else:
             surname += '-и-'
         if d100() <= 50:
