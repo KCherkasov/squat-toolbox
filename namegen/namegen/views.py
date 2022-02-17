@@ -9,7 +9,7 @@ from .forms2 import NamegenForm
 
 import random
 
-version = '1.2.4'
+version = '1.2.5'
 
 CONSONANTS = 'бвгджзйклмнпрстфхшщчц'
 RIGHT_CONSONANTS = 'йнрс'
