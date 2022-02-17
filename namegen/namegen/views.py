@@ -301,6 +301,9 @@ def generate_name_spanish(gender, nobility,
             surname += 'гес'
         else:
             surname += 'сия'
+    else:
+        if nobility == 'N':
+            surname = ' ла ' + surname
     surname += ' '
     return name + surname + gender_tail + noble_tail
 
