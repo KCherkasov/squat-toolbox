@@ -1,14 +1,18 @@
 # -*- coding: utf-8 -*-
+from random import choice
 
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, reverse
 
-from .models import MaleScand, FemaleScand, MaleLatin, FemaleLatin, CognomenLatin
+from .models import MaleScand, FemaleScand, MaleLatin, FemaleLatin, CognomenLatin, MaleSpanish, FemaleSpanish
 from .forms2 import NamegenForm
 
 import random
 
 version = '1.1.1'
+
+CONSONANTS = 'бвгджзйклмнпрстфхшщчц'
+VOWELS = 'аеёиоуыэюя'
 
 
 def main(request):
@@ -61,6 +65,21 @@ def index(request):
                                                  first_parts_female, second_parts_female,
                                                  cognomen_first_parts, cognomen_second_parts_male,
                                                  cognomen_second_parts_female)
+            elif lang == 'SP':
+                first_parts_male = MaleSpanish.objects.get_first_parts_list()
+                second_parts_male = MaleSpanish.objects.get_second_parts_list()
+
+                first_parts_female = FemaleSpanish.objects.get_first_parts_list()
+                second_parts_female = FemaleSpanish.objects.get_second_parts_list()
+
+                if count == 1:
+                    names.append(generate_name_spanish(gender, nobility,
+                                                       first_parts_male, second_parts_male,
+                                                       first_parts_female, second_parts_female))
+                else:
+                    names = generate_names_spanish(gender, nobility, count,
+                                                   first_parts_male, second_parts_male,
+                                                   first_parts_female, second_parts_female)
             return render(request, 'index.html', {'form': form, 'names': names, 'version': version, })
 
     else:
@@ -200,4 +219,89 @@ def generate_names_latin(gender, nobility, count,
                                          second_parts_male, first_parts_female,
                                          second_parts_female, cognomen_first_parts,
                                          cognomen_second_parts_male, cognomen_second_parts_female))
+    return names
+
+
+def generate_name_spanish(gender, nobility,
+                          first_parts_male, second_parts_male,
+                          first_parts_female, second_parts_female):
+    gender_tail = ''
+    if gender == 'R':
+        if d100() <= 50:
+            gender_tail = '(муж.)'
+            gender = 'M'
+        else:
+            gender_tail = '(жен.)'
+            gender = 'F'
+    noble_tail = ''
+    if nobility == 'R':
+        gender_tail += ' '
+        if d100() <= 50:
+            nobility = 'N'
+            noble_tail = u'(благородное)'
+        else:
+            nobility = 'S'
+            noble_tail = u'(простое)'
+    name = ''
+    if gender == 'M':
+        name = MaleSpanish.objects.get_random_name(first_parts_male, second_parts_male)
+    else:
+        name = FemaleSpanish.objects.get_random_name(first_parts_female, second_parts_female)
+    name += ' '
+    if nobility == 'N':
+        threshold = 75
+    else:
+        threshold = 50
+    for i in range(choice([1, 2, 3])):
+        if d100() <= threshold:
+            if gender == 'M':
+                name += MaleSpanish.objects.get_random_name(first_parts_male, second_parts_male)
+            else:
+                name += FemaleSpanish.objects.get_random_name(first_parts_female, second_parts_female)
+            name += ' '
+    surname = ''
+    if d100() <= 50:
+        surname = MaleSpanish.objects.get_random_name(first_parts_male, second_parts_male)
+    else:
+        surname = FemaleSpanish.objects.get_random_name(first_parts_female, second_parts_female)
+    if surname[-1:] in VOWELS:
+        surname = surname[:-1]
+    dice = d100()
+    if dice <= 33:
+        surname += 'гас'
+    elif dice <= 67:
+        surname += 'гес'
+    else:
+        surname += 'сия'
+    if d100() <= threshold:
+        if nobility == 'N':
+            if d100() <= threshold:
+                surname += ' ла '
+        else:
+            surname += '-и-'
+        if d100() <= 50:
+            surname = MaleSpanish.objects.get_random_name(first_parts_male, second_parts_male)
+        else:
+            surname = FemaleSpanish.objects.get_random_name(first_parts_female, second_parts_female)
+        if surname[-1:] in VOWELS:
+            surname = surname[:-1]
+        dice = d100()
+        if dice <= 33:
+            surname += 'гас'
+        elif dice <= 67:
+            surname += 'гес'
+        else:
+            surname += 'сия'
+    surname += ' '
+    return name + surname + gender_tail + noble_tail
+
+
+def generate_names_spanish(gender, nobility, count,
+                           first_parts_male, second_parts_male,
+                           first_parts_female, second_parts_female):
+    names = list()
+    for i in range(count):
+        names.append(generate_name_spanish(gender, nobility,
+                                           first_parts_male, second_parts_male,
+                                           first_parts_female, second_parts_female))
     return names

@@ -85,3 +85,17 @@ class CognomenLatin(models.Model):
     first_part = models.CharField(max_length=15)
     second_part_male = models.CharField(max_length=15)
     second_part_female = models.CharField(max_length=15)
+
+
+class MaleSpanish(models.Model):
+    objects = NameManager()
+
+    first_part = models.CharField(max_length=15)
+    second_part = models.CharField(max_length=15)
+
+
+class FemaleSpanish(models.Model):
+    objects = NameManager()
+
+    first_part = models.CharField(max_length=15)
+    second_part = models.CharField(max_length=15)

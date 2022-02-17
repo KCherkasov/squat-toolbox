@@ -6,6 +6,7 @@ from django import forms
 class NamegenForm(forms.Form):
     SCAND = 'SC'
     LATIN = 'LAT'
+    SPAIN = 'SP'
 
     MALE = 'M'
     FEMALE = 'F'
@@ -14,7 +15,7 @@ class NamegenForm(forms.Form):
     NOBLE = 'N'
     SIMPLE = 'S'
 
-    LANGS = (['SC', u'Скандинавия'], ['LAT', u'Латынь'],)
+    LANGS = (['SC', u'Скандинавия'], ['LAT', u'Латынь'], ['SP', u'Испания'], )
 
     GENDERS = (['M', u'Мужской'], ['F', u'Женский'], ['R', u'Случайно'],)
 
