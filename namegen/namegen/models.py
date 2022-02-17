@@ -58,6 +58,9 @@ class CognomenManager(models.Manager):
     def queryset(self):
         return models.QuerySet(self.model, using=self._db)
 
+    def get_random_part(self, nameparts):
+        return choice(nameparts)[0]
+
     def get_first_parts_list(self):
         return list(self.queryset().all().values_list('first_part'))
 
