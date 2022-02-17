@@ -9,7 +9,7 @@ from .forms2 import NamegenForm
 
 import random
 
-version = '1.2.1'
+version = '1.2.3'
 
 CONSONANTS = 'бвгджзйклмнпрстфхшщчц'
 RIGHT_CONSONANTS = 'йнрс'
@@ -290,7 +290,10 @@ def generate_name_spanish(gender, nobility,
             surname += 'ес'
     elif dice <= 75:
         if surname[-1:] != 'з':
-            surname += 'сия'
+            if surname[-1:] == 'т':
+                surname += 'сия'
+            else:
+                surname = surname[:-1] + 'ция'
         else:
             surname += 'ия'
     if d100() <= threshold:
@@ -302,9 +305,9 @@ def generate_name_spanish(gender, nobility,
         else:
             surname += '-и-'
         if d100() <= 50:
-            surname = MaleSpanish.objects.get_random_name(first_parts_male, second_parts_male)
+            surname += MaleSpanish.objects.get_random_name(first_parts_male, second_parts_male)
         else:
-            surname = FemaleSpanish.objects.get_random_name(first_parts_female, second_parts_female)
+            surname += FemaleSpanish.objects.get_random_name(first_parts_female, second_parts_female)
         if surname[-1:] in VOWELS:
             surname = surname[:-1]
         dice = d100()
@@ -330,7 +333,10 @@ def generate_name_spanish(gender, nobility,
                 surname += 'ес'
         elif dice <= 75:
             if surname[-1:] != 'з':
-                surname += 'сия'
+                if surname[-1:] == 'т':
+                    surname += 'сия'
+                else:
+                    surname = surname[:-1] + 'ция'
             else:
                 surname += 'ия'
     else:
