@@ -268,16 +268,25 @@ def generate_name_spanish(gender, nobility,
     if surname[-1:] in VOWELS:
         surname = surname[:-1]
     dice = d100()
-    if dice <= 33:
-        if surname[-1:] not in RIGHT_CONSONANTS:
-            surname += 'и'
-        surname += 'гас'
-    elif dice <= 67:
-        if surname[-1:] not in RIGHT_CONSONANTS:
-            surname += 'и'
-        surname += 'гес'
-    else:
-        surname += 'сия'
+    if dice <= 25:
+        if surname[-1:] != 'л':
+            if surname[-1:] not in RIGHT_CONSONANTS and surname[-1:] not in VOWELS:
+                surname += 'и'
+            surname += 'гас'
+        else:
+            surname += 'ас'
+    elif dice <= 50:
+        if surname[-1:] != 'л':
+            if surname[-1:] not in RIGHT_CONSONANTS and surname[-1:] not in VOWELS:
+                surname += 'и'
+            surname += 'гес'
+        else:
+            surname += 'ес'
+    elif dice <= 75:
+        if surname[-1:] != 'з':
+            surname += 'сия'
+        else:
+            surname += 'ия'
     if d100() <= threshold:
         if nobility == 'N':
             if d100() <= threshold:
