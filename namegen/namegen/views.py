@@ -9,7 +9,7 @@ from .forms2 import NamegenForm
 
 import random
 
-version = '1.2.3'
+version = '1.2.4'
 
 CONSONANTS = 'бвгджзйклмнпрстфхшщчц'
 RIGHT_CONSONANTS = 'йнрс'
@@ -298,12 +298,8 @@ def generate_name_spanish(gender, nobility,
             surname += 'ия'
     if d100() <= threshold:
         if nobility == 'N':
-            if d100() <= threshold:
-                surname += ' ла '
-            else:
-                surname += '-и-'
-        else:
-            surname += '-и-'
+            surname = ' ла ' + surname
+        surname += '-и-'
         if d100() <= 50:
             surname += MaleSpanish.objects.get_random_name(first_parts_male, second_parts_male)
         else:
