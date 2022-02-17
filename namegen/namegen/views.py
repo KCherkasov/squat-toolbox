@@ -298,7 +298,12 @@ def generate_name_spanish(gender, nobility,
             surname += 'ия'
     if d100() <= threshold:
         if nobility == 'N':
-            surname = ' ла ' + surname
+            if d100() <= 33:
+                surname = ' ла ' + surname
+            elif d100() <= 67:
+                surname = ' де ' + surname
+            else:
+                surname = ' де ла ' + surname
         surname += '-и-'
         if d100() <= 50:
             surname += MaleSpanish.objects.get_random_name(first_parts_male, second_parts_male)
@@ -337,7 +342,12 @@ def generate_name_spanish(gender, nobility,
                 surname += 'ия'
     else:
         if nobility == 'N':
-            surname = ' ла ' + surname
+            if d100() <= 33:
+                surname = ' ла ' + surname
+            elif d100() <= 67:
+                surname = ' де ' + surname
+            else:
+                surname = ' де ла ' + surname
     surname += ' '
     return name + surname + gender_tail + noble_tail
 
