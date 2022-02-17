@@ -41,14 +41,14 @@ class FemaleScand(models.Model):
 
 
 class MaleLatin(models.Model):
-    objects = NameManager
+    objects = NameManager()
 
     first_part = models.CharField(max_length=15)
     second_part = models.CharField(max_length=15)
 
 
 class FemaleLatin(models.Model):
-    objects = NameManager
+    objects = NameManager()
 
     first_part = models.CharField(max_length=15)
     second_part = models.CharField(max_length=15)
