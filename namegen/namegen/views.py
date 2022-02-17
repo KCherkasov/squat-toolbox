@@ -272,14 +272,20 @@ def generate_name_spanish(gender, nobility,
         if surname[-1:] != 'л':
             if surname[-1:] not in RIGHT_CONSONANTS and surname[-1:] not in VOWELS:
                 surname += 'и'
-            surname += 'гас'
+            if d100() <= 50:
+                surname += 'хас'
+            else:
+                surname += 'гас'
         else:
             surname += 'ас'
     elif dice <= 50:
         if surname[-1:] != 'л':
             if surname[-1:] not in RIGHT_CONSONANTS and surname[-1:] not in VOWELS:
                 surname += 'и'
-            surname += 'гес'
+            if d100() <= 50:
+                surname += 'хес'
+            else:
+                surname += 'гес'
         else:
             surname += 'ес'
     elif dice <= 75:
@@ -306,14 +312,20 @@ def generate_name_spanish(gender, nobility,
             if surname[-1:] != 'л':
                 if surname[-1:] not in RIGHT_CONSONANTS and surname[-1:] not in VOWELS:
                     surname += 'и'
-                surname += 'гас'
+                if d100() <= 50:
+                    surname += 'хас'
+                else:
+                    surname += 'гас'
             else:
                 surname += 'ас'
         elif dice <= 50:
             if surname[-1:] != 'л':
                 if surname[-1:] not in RIGHT_CONSONANTS and surname[-1:] not in VOWELS:
                     surname += 'и'
-                surname += 'гес'
+                if d100() <= 50:
+                    surname += 'хес'
+                else:
+                    surname += 'гес'
             else:
                 surname += 'ес'
         elif dice <= 75:
