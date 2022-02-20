@@ -7,6 +7,7 @@ class NamegenForm(forms.Form):
     SCAND = 'SC'
     LATIN = 'LAT'
     SPAIN = 'SP'
+    ITALY = 'IT'
 
     MALE = 'M'
     FEMALE = 'F'
@@ -15,7 +16,7 @@ class NamegenForm(forms.Form):
     NOBLE = 'N'
     SIMPLE = 'S'
 
-    LANGS = (['SC', u'Скандинавия'], ['LAT', u'Латынь'], ['SP', u'Испания'], )
+    LANGS = (['SC', u'Скандинавия'], ['LAT', u'Латынь'], ['SP', u'Испания'], ['IT', u'Италия'], )
 
     GENDERS = (['M', u'Мужской'], ['F', u'Женский'], ['R', u'Случайно'],)
 
