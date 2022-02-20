@@ -312,9 +312,9 @@ def generate_name(lang_male, lang_female, gender,
                   first_parts_male, second_parts_male,
                   first_parts_female, second_parts_female):
     if gender == 'M':
-        name = lang_male.objects.generate_random_name(first_parts_male, second_parts_male)
+        name = lang_male.objects.get_random_name(first_parts_male, second_parts_male)
     else:
-        name = lang_female.objects.generate_random_name(first_parts_female, second_parts_female)
+        name = lang_female.objects.get_random_name(first_parts_female, second_parts_female)
     return name
 
 
