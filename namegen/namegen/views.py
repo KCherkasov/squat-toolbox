@@ -241,11 +241,11 @@ def generate_name_italian(gender, nobility,
         if d100() <= 50:
             name += generate_name(MaleItalian, FemaleItalian, 'M',
                                   first_parts_male, second_parts_male,
-                                  first_parts_female, second_parts_female)
+                                  first_parts_female, second_parts_female) + ' '
         else:
             name += generate_name(MaleItalian, FemaleItalian, 'F',
                                   first_parts_male, second_parts_male,
-                                  first_parts_female, second_parts_female)
+                                  first_parts_female, second_parts_female) + ' '
     surname = generate_italian_surname(nobility, surnames_first_parts, surnames_second_part)
     surname += ' '
     return name + surname + gender_tail + noble_tail
