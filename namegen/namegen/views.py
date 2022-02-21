@@ -10,7 +10,7 @@ from .forms2 import NamegenForm, Constants
 
 import random
 
-version = '1.4.1'
+version = '1.4.2'
 
 CONSONANTS = 'бвгджзйклмнпрстфхшщчц'
 RIGHT_CONSONANTS = 'йнрс'
@@ -329,9 +329,15 @@ def generate_name_rand(gender, nobility,
     [nobility, gender, gender_tail, noble_tail] = resolve_randomness(gender, nobility)
     name = ''
     names_count = choice([1, 2, 3, 4])
+    if nobility == Constants.SIMPLE:
+        names_count = names_count // 2
+        if names_count < 1:
+            names_count += 1
     for i in range(names_count):
         lang = choice(LANG_IDS)
         [male, female] = determine_lang(lang)
+        if lang == Constants.SPAIN and name == '':
+            names_count += 1
         name += generate_name(male, female, gender,
                               first_parts_male.get(lang), second_parts_male.get(lang),
                               first_parts_female.get(lang), second_parts_female.get(lang)) + ' '
