@@ -326,7 +326,7 @@ def generate_name_rand(gender, nobility,
                        first_parts_female, second_parts_female,
                        cognomen_firsts, cognomen_seconds_male, cognomen_seconds_female,
                        surname_italian_firsts, surname_italian_seconds):
-    [gender, nobility, gender_tail, noble_tail] = resolve_randomness(gender, nobility)
+    [nobility, gender, gender_tail, noble_tail] = resolve_randomness(gender, nobility)
     name = ''
     names_count = choice([1, 2, 3, 4])
     for i in range(names_count):
