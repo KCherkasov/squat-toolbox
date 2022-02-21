@@ -10,7 +10,7 @@ from .forms2 import NamegenForm, Constants
 
 import random
 
-version = '1.4.0'
+version = '1.4.1'
 
 CONSONANTS = 'бвгджзйклмнпрстфхшщчц'
 RIGHT_CONSONANTS = 'йнрс'
@@ -19,6 +19,7 @@ VOWELS = 'аеёиоуыэюя'
 
 LANGS = NamegenForm.LANGS
 LANG_IDS = [Constants.SCAND, Constants.LATIN, Constants.SPAIN, Constants.ITALY, ]
+
 
 def main(request):
     return HttpResponseRedirect(reverse('index'))
@@ -348,7 +349,7 @@ def generate_name_rand(gender, nobility,
                                            first_parts_female.get(lang), second_parts_female.get(lang))
     elif lang == Constants.ITALY:
         surname = generate_italian_surname(nobility, surname_italian_firsts, surname_italian_seconds)
-    surname + ' '
+    surname += ' '
     return name + surname + gender_tail + noble_tail
 
 
