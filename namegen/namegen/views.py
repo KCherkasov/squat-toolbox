@@ -401,7 +401,7 @@ def generate_name_rand(gender, nobility,
     elif lang == Constants.ITALY:
         surname = generate_italian_surname(nobility, surname_italian_firsts, surname_italian_seconds)
     elif lang == Constants.POLAND:
-        surname = generate_polish_surname(gender, first_parts_male(lang), second_parts_male(lang),
+        surname = generate_polish_surname(gender, first_parts_male.get(lang), second_parts_male.get(lang),
                                           surname_polish_firsts, surname_polish_seconds,
                                           surname_polish_ends_male, surname_polish_ends_female)
     surname += ' '
