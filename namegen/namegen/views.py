@@ -702,7 +702,7 @@ def generate_polish_nb_surname(gender, first_parts, second_parts, male_endings, 
         ending = SurnamesPolishEnd.objects.random_ending(female_endings)
     if surname[-1:] == u'й':
         surname = surname[:-1]
-    if ending[0] in VOWELS:
+    if ending != u'' and ending[0] in VOWELS:
         while surname[-1:] in VOWELS:
             surname = surname[:-1]
     surname += ending
