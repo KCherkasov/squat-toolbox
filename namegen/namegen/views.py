@@ -705,7 +705,7 @@ def generate_polish_nb_surname(gender, first_parts, second_parts, male_endings, 
     if ending != u'' and ending[0] in VOWELS:
         while surname[-1:] in VOWELS:
             surname = surname[:-1]
-    if surname[-1:] == ending[0]:
+    if ending != '' and surname[-1:] == ending[0]:
         surname += ending[1:]
     else:
         surname += ending
