@@ -718,7 +718,7 @@ def generate_polish_misc_surname(gender, first_parts, second_parts, male_endings
         ending = SurnamesPolishEnd.objects.random_ending(female_endings)
     if surname[-1:] == u'й':
         surname = surname[:-1]
-    if ending[0] in VOWELS:
+    if ending != '' and ending[0] in VOWELS:
         while surname[-1:] in VOWELS:
             surname = surname[:-1]
     surname += ending
