@@ -120,3 +120,45 @@ class SurnamesItalian(models.Model):
 
     first_part = models.CharField(max_length=15)
     second_part = models.CharField(max_length=15)
+
+
+class MalePolish(models.Model):
+    objects = NameManager()
+
+    first_part = models.CharField(max_length=15)
+    second_part = models.CharField(max_length=15)
+
+
+class FemalePolish(models.Model):
+    objects = NameManager()
+
+    first_part = models.CharField(max_length=15)
+    second_part = models.CharField(max_length=15)
+
+
+class SurnamesPolish(models.Model):
+    objects = NameManager()
+
+    first_part = models.CharField(max_length=15)
+    second_part = models.CharField(max_length=15)
+
+
+class PolishEndingsManager(models.Manager):
+    def queryset(self):
+        return models.QuerySet(self.model, using=self._db)
+
+    def get_male_endings(self):
+        return self.queryset().all().values_list('male')
+
+    def get_female_endings(self):
+        return self.queryset().all().values_list('female')
+
+    def random_ending(self, endings):
+        return choice(endings)[0]
+
+
+class SurnamesPolishEnd(models.Model):
+    objects = PolishEndingsManager()
+
+    male = models.CharField(max_length=15)
+    female = models.CharField(max_length=15)
