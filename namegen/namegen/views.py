@@ -12,7 +12,7 @@ from .forms2 import NamegenForm, Constants
 
 import random
 
-version = '1.6.0'
+version = '1.6.1'
 
 CONSONANTS = 'бвгджзйклмнпрстфхшщчц'
 RIGHT_CONSONANTS = 'йнрс'
@@ -20,7 +20,7 @@ VOWELS = 'аеёиоуыэюя'
 
 
 LANGS = NamegenForm.LANGS
-LANG_IDS = [Constants.SCAND, Constants.LATIN, Constants.SPAIN, Constants.ITALY, Constants.POLAND, ]
+LANG_IDS = [Constants.SCAND, Constants.LATIN, Constants.SPAIN, Constants.ITALY, Constants.POLAND, Constants.JAPAN, ]
 
 
 def main(request):
