@@ -167,19 +167,19 @@ class SurnamesPolishEnd(models.Model):
 class MaleJapanese(models.Model):
     objects = NameManager()
 
-    male = models.CharField(max_length=15)
-    female = models.CharField(max_length=15)
+    first_part = models.CharField(max_length=15)
+    second_part = models.CharField(max_length=15)
 
 
 class FemaleJapanese(models.Model):
     objects = NameManager()
 
-    male = models.CharField(max_length=15)
-    female = models.CharField(max_length=15)
+    first_part = models.CharField(max_length=15)
+    second_part = models.CharField(max_length=15)
 
 
 class SurnamesJapanese(models.Model):
     objects = NameManager()
 
-    male = models.CharField(max_length=15)
-    female = models.CharField(max_length=15)
+    first_part = models.CharField(max_length=15)
+    second_part = models.CharField(max_length=15)
