@@ -9,22 +9,25 @@ class Constants:
     SPAIN = 'SP'
     ITALY = 'IT'
     POLAND = 'PL'
+    JAPAN = 'JP'
 
     MALE = 'M'
     FEMALE = 'F'
-    RANDOM = 'R'
 
     NOBLE = 'N'
     SIMPLE = 'S'
 
+    RANDOM = 'R'
+
 
 class NamegenForm(forms.Form):
-    LANGS = (['SC', u'Скандинавия'], ['LAT', u'Латынь'], ['SP', u'Испания'], ['IT', u'Италия'], ['PL', u'Польша'],
-             ['R', u'Микс'],)
+    LANGS = ([Constants.SCAND, u'Скандинавия'], [Constants.LATIN, u'Латынь'], [Constants.SPAIN, u'Испания'],
+             [Constants.ITALY, u'Италия'], [Constants.POLAND, u'Польша'], [Constants.JAPAN, u'Япония'],
+             [Constants.RANDOM, u'Микс'],)
 
-    GENDERS = (['M', u'Мужской'], ['F', u'Женский'], ['R', u'Случайно'],)
+    GENDERS = ([Constants.MALE, u'Мужской'], [Constants.FEMALE, u'Женский'], [Constants.RANDOM, u'Случайно'],)
 
-    NOBILITY = (['N', u'Благородный'], ['S', u'Простолюдин'], ['R', u'Случайно'],)
+    NOBILITY = ([Constants.NOBLE, u'Благородный'], [Constants.SIMPLE, u'Простолюдин'], [Constants.RANDOM, u'Случайно'],)
 
     lang = forms.ChoiceField(label=u'Языковая группа', required=True, choices=LANGS, initial=Constants.RANDOM)
     gender = forms.ChoiceField(label=u'Пол', required=True, choices=GENDERS, initial=Constants.RANDOM)

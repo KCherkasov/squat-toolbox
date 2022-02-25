@@ -162,3 +162,24 @@ class SurnamesPolishEnd(models.Model):
 
     male = models.CharField(max_length=15)
     female = models.CharField(max_length=15)
+
+
+class MaleJapanese(models.Model):
+    objects = NameManager()
+
+    male = models.CharField(max_length=15)
+    female = models.CharField(max_length=15)
+
+
+class FemaleJapanese(models.Model):
+    objects = NameManager()
+
+    male = models.CharField(max_length=15)
+    female = models.CharField(max_length=15)
+
+
+class SurnamesJapanese(models.Model):
+    objects = NameManager()
+
+    male = models.CharField(max_length=15)
+    female = models.CharField(max_length=15)
