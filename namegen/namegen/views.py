@@ -12,7 +12,7 @@ from .forms2 import NamegenForm, Constants
 
 import random
 
-version = '1.6.10'
+version = '1.6.11'
 
 CONSONANTS = 'бвгджзйклмнпрстфхшщчц'
 RIGHT_CONSONANTS = 'йнрс'
