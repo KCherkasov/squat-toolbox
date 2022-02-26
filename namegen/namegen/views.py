@@ -814,7 +814,10 @@ def correct_polish_name(first, second, surname=False):
     if second != u'':
         if first[-1:] == second[0]:
             second = second[1:]
-        pair = first[-1:] + second[0]
+        if second != u'':
+            pair = first[-1:] + second[0]
+        else:
+            pair = first[-1:]
         if not surname:
             if pair in SLAVIC_BLANK_CONNECTORS:
                 if d100() <= 50:
