@@ -36,7 +36,7 @@ SLAVIC_CONNECTORS = {u'бр': u'а',  u'бм': u'и',   u'вл': u'ио', u'вн
                      u'тл': u'ао', u'тс': u'ауы', u'тц': u'и',  u'тм': u'и',  u'тб': u'и',
                      u'фз': u'и',  u'фс': u'и',   u'хн': u'о',  u'цн': u'ие', u'цс': u'ие',
                      u'цр': u'е',  u'цб': u'и',   u'цш': u'еи', u'цх': u'е',  u'цт': u'и',
-                     u'цд': u'и',  u'цл': u'иеа', u'чс': u'е',  u'чн': u'и', }
+                     u'цд': u'и',  u'цл': u'иеа', u'чс': u'е',  u'чн': u'и',  u'шл': u'уе'}
 
 SLAVIC_BLANK_CONNECTORS = [u'бр', u'вд', u'дм', u'дв', u'жб', u'зб', u'сб', u'зв', u'йц', u'лр', u'лж',
                            u'нг', u'нк', u'нт', u'нц', u'рг', u'рк', u'рж', u'рц', u'тц', u'шк', ]
@@ -796,7 +796,7 @@ def correct_polish_name(first, second):
         if first[-1:] == second[0]:
             second = second[1:]
         pair = first[-1:] + second[0]
-        if pair not in SLAVIC_BLANK_CONNECTORS:
+        if pair in SLAVIC_BLANK_CONNECTORS:
             if d100() <= 50:
                 if pair in SLAVIC_CONNECTORS.keys():
                     first += SLAVIC_CONNECTORS.get(pair)
