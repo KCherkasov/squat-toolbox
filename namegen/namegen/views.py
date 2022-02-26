@@ -12,7 +12,7 @@ from .forms2 import NamegenForm, Constants
 
 import random
 
-version = '1.6.2'
+version = '1.6.3'
 
 CONSONANTS = 'бвгджзйклмнпрстфхшщчц'
 RIGHT_CONSONANTS = 'йнрс'
@@ -37,7 +37,8 @@ SLAVIC_CONNECTORS = {u'бр': u'а',   u'бм': u'и',   u'вл': u'ио',  u'в
                      u'фз': u'и',   u'фс': u'и',   u'хн': u'о',   u'цн': u'ие',  u'цс': u'ие',
                      u'цр': u'е',   u'цб': u'и',   u'цш': u'еи',  u'цх': u'е',   u'цт': u'и',
                      u'цд': u'и',   u'цл': u'иеа', u'чс': u'е',   u'чн': u'ие',  u'шл': u'уе',
-                     u'рв': u'оуа', u'нф': u'и',   u'шв': u'оеа', u'жх': u'и', }
+                     u'рв': u'оуа', u'нф': u'и',   u'шв': u'оеа', u'жх': u'и',   u'тг': u'ои',
+                     u'дл': u'иу',  u'чб': u'оие', u'рж': u'иуы', u'хв': u'о',   u'зп': u'и', }
 
 SLAVIC_BLANK_CONNECTORS = [u'бр', u'вд', u'дм', u'дв', u'жб', u'зб', u'сб', u'зв', u'йц', u'лр', u'лж',
                            u'нг', u'нк', u'нт', u'нц', u'рг', u'рк', u'рж', u'рц', u'тц', u'шк', u'рв',
@@ -463,6 +464,8 @@ def generate_name_rand(gender, nobility,
                                           surname_polish_ends_male, surname_polish_ends_female)
     elif lang == Constants.JAPAN:
         surname = generate_japanese_surname(surname_japanese_firsts, surname_japanese_seconds)
+        surname += ' '
+        return surname + name + gender_tail + noble_tail
     surname += ' '
     return name + surname + gender_tail + noble_tail
 
