@@ -803,7 +803,7 @@ def correct_polish_name(first, second):
                 if pair in SLAVIC_CONNECTORS.keys():
                     first += choice(SLAVIC_CONNECTORS.get(pair))
         elif pair in SLAVIC_CONNECTORS.keys():
-            first += SLAVIC_CONNECTORS.get(pair)
+            first += choice(SLAVIC_CONNECTORS.get(pair))
     return first + second
 
 
