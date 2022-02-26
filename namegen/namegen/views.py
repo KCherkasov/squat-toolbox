@@ -12,7 +12,7 @@ from .forms2 import NamegenForm, Constants
 
 import random
 
-version = '1.6.4'
+version = '1.6.5'
 
 CONSONANTS = 'бвгджзйклмнпрстфхшщчц'
 RIGHT_CONSONANTS = 'йнрс'
@@ -38,7 +38,8 @@ SLAVIC_CONNECTORS = {u'бр': u'а',   u'бм': u'и',   u'вл': u'ио',  u'в
                      u'цр': u'е',   u'цб': u'и',   u'цш': u'еи',  u'цх': u'е',   u'цт': u'и',
                      u'цд': u'и',   u'цл': u'иеа', u'чс': u'е',   u'чн': u'ие',  u'шл': u'уе',
                      u'рв': u'оуа', u'нф': u'и',   u'шв': u'оеа', u'жх': u'и',   u'тг': u'ои',
-                     u'дл': u'иу',  u'чб': u'оие', u'рж': u'иуы', u'хв': u'о',   u'зп': u'и', }
+                     u'дл': u'иу',  u'чб': u'оие', u'рж': u'иуы', u'хв': u'о',   u'зп': u'и',
+                     u'вд': u'ие', }
 
 SLAVIC_BLANK_CONNECTORS = [u'бр', u'вд', u'дм', u'дв', u'жб', u'зб', u'сб', u'зв', u'йц', u'лр', u'лж',
                            u'нг', u'нк', u'нт', u'нц', u'рг', u'рк', u'рж', u'рц', u'тц', u'шк', u'рв',
@@ -796,15 +797,18 @@ def generate_polish_name(gender,
     return correct_polish_name(first, second)
 
 
-def correct_polish_name(first, second):
+def correct_polish_name(first, second, surname=False):
     if second != u'':
         if first[-1:] == second[0]:
             second = second[1:]
         pair = first[-1:] + second[0]
-        if pair in SLAVIC_BLANK_CONNECTORS:
-            if d100() <= 50:
-                if pair in SLAVIC_CONNECTORS.keys():
-                    first += choice(SLAVIC_CONNECTORS.get(pair))
+        if not surname:
+            if pair in SLAVIC_BLANK_CONNECTORS:
+                if d100() <= 50:
+                    if pair in SLAVIC_CONNECTORS.keys():
+                        first += choice(SLAVIC_CONNECTORS.get(pair))
+            elif pair in SLAVIC_CONNECTORS.keys():
+                first += choice(SLAVIC_CONNECTORS.get(pair))
         elif pair in SLAVIC_CONNECTORS.keys():
             first += choice(SLAVIC_CONNECTORS.get(pair))
     return first + second
@@ -836,7 +840,7 @@ def generate_polish_nb_surname(gender, first_parts, second_parts, male_endings, 
             surname = surname[:-1]
     if ending != '' and surname[-1:] == ending[0]:
         ending = ending[1:]
-    return correct_polish_name(surname, ending)
+    return correct_polish_name(surname, ending, surname=True)
 
 
 def generate_polish_misc_surname(gender, first_parts, second_parts, male_endings, female_endings):
@@ -852,10 +856,8 @@ def generate_polish_misc_surname(gender, first_parts, second_parts, male_endings
         while surname[-1:] in VOWELS:
             surname = surname[:-1]
     if ending != '' and surname[-1:] == ending[0]:
-        surname += ending[1:]
-    else:
-        surname += ending
-    return surname
+        ending = ending[1:]
+    return correct_polish_name(surname, ending, surname=True)
 
 
 def generate_japanese_surname(first_parts, second_parts):
