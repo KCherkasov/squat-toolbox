@@ -804,6 +804,8 @@ def generate_polish_name(gender,
 
 
 def correct_polish_name(first, second, surname=False):
+    if surname and first[-1:] == u'ь':
+        first = first[:-1]
     if second != u'':
         if first[-1:] == second[0]:
             second = second[1:]
