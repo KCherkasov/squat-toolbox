@@ -833,11 +833,11 @@ def correct_polish_name(first, second, surname=False):
             if pair in SLAVIC_BLANK_CONNECTORS:
                 if d100() <= 50:
                     if pair in SLAVIC_CONNECTORS.keys():
-                        first += choice(SLAVIC_CONNECTORS.get(pair))
+                        first += choice(SLAVIC_CONNECTORS.get(pair.lower()))
             elif pair in SLAVIC_CONNECTORS.keys():
-                first += choice(SLAVIC_CONNECTORS.get(pair))
+                first += choice(SLAVIC_CONNECTORS.get(pair.lower()))
         elif pair in SLAVIC_CONNECTORS.keys():
-            first += choice(SLAVIC_CONNECTORS.get(pair))
+            first += choice(SLAVIC_CONNECTORS.get(pair.lower()))
     return first + second
 
 
