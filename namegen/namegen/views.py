@@ -12,12 +12,34 @@ from .forms2 import NamegenForm, Constants
 
 import random
 
-version = '1.6.1'
+version = '1.6.2'
 
 CONSONANTS = 'бвгджзйклмнпрстфхшщчц'
 RIGHT_CONSONANTS = 'йнрс'
 VOWELS = 'аеёиоуыэюя'
 
+
+SLAVIC_CONNECTORS = {u'бр': u'а',  u'бм': u'и',   u'вл': u'ио', u'вн': u'аи', u'вс': u'уы',
+                     u'вр': u'е',  u'вк': u'и',   u'вг': u'и',  u'гж': u'о',  u'гн': u'и',
+                     u'гт': u'и',  u'гл': u'е',   u'дн': u'и',  u'дс': u'ио', u'др': u'ие',
+                     u'дв': u'о',  u'дц': u'и',   u'дж': u'е',  u'дм': u'о',
+                     u'жн': u'еи', u'жт': u'а',   u'жс': u'еи', u'жш': u'и',
+                     u'жк': u'и',  u'жг': u'и',   u'жл': u'аи', u'зс': u'и',  u'зр': u'и',
+                     u'зл': u'ое', u'зт': u'и',   u'зщ': u'еи', u'кж': u'и',  u'лш': u'ие',
+                     u'лн': u'и',  u'лт': u'а',   u'лм': u'и',  u'лз': u'и',  u'лс': u'ио',
+                     u'лп': u'и',  u'лв': u'о',   u'мн': u'и',  u'мз': u'и',  u'нш': u'ие',
+                     u'нт': u'и',  u'нс': u'аи',  u'нр': u'а',  u'нм': u'и',  u'нл': u'и',
+                     u'нж': u'ие', u'нв': u'о',   u'пл': u'о',  u'рс': u'и',  u'рн': u'оие',
+                     u'рф': u'о',  u'рт': u'ио',  u'рд': u'иу', u'рм': u'и',  u'рц': u'о',
+                     u'рл': u'ое', u'рг': u'о',   u'сн': u'и',  u'ср': u'ие',
+                     u'сб': u'и',  u'см': u'и',   u'сл': u'е',  u'тн': u'и',  u'тр': u'о',
+                     u'тл': u'ао', u'тс': u'ауы', u'тц': u'и',  u'тм': u'и',  u'тб': u'и',
+                     u'фз': u'и',  u'фс': u'и',   u'хн': u'о',  u'цн': u'ие', u'цс': u'ие',
+                     u'цр': u'е',  u'цб': u'и',   u'цш': u'еи', u'цх': u'е',  u'цт': u'и',
+                     u'цд': u'и',  u'цл': u'иеа', u'чс': u'е',  u'чн': u'и', }
+
+SLAVIC_BLANK_CONNECTORS = [u'бр', u'вд', u'дм', u'дв', u'жб', u'зб', u'сб', u'зв', u'йц', u'лр', u'лж',
+                           u'нг', u'нк', u'нт', u'нц', u'рг', u'рк', u'рж', u'рц', u'тц', u'шк', ]
 
 LANGS = NamegenForm.LANGS
 LANG_IDS = [Constants.SCAND, Constants.LATIN, Constants.SPAIN, Constants.ITALY, Constants.POLAND, Constants.JAPAN, ]
@@ -495,19 +517,19 @@ def generate_name_polish(gender, nobility,
                          surname_polish_ends_male, surname_polish_ends_female):
     [nobility, gender, gender_tail, noble_tail] = resolve_randomness(gender, nobility)
     name = ''
-    name = generate_name(MalePolish, FemalePolish, gender,
-                         first_parts_male, second_parts_male,
-                         first_parts_female, second_parts_female)
+    name = generate_polish_name(gender,
+                                first_parts_male, second_parts_male,
+                                first_parts_female, second_parts_female)
     name += ' '
     if nobility == Constants.NOBLE:
         if d100() <= 50:
-            name += generate_name(MalePolish, FemalePolish, Constants.MALE,
-                                  first_parts_male, second_parts_male,
-                                  first_parts_female, second_parts_female)
+            name += generate_polish_name(Constants.MALE,
+                                         first_parts_male, second_parts_male,
+                                         first_parts_female, second_parts_female)
         else:
-            name += generate_name(MalePolish, FemalePolish, Constants.FEMALE,
-                                  first_parts_male, second_parts_male,
-                                  first_parts_female, second_parts_female)
+            name += generate_polish_name(Constants.FEMALE,
+                                         first_parts_male, second_parts_male,
+                                         first_parts_female, second_parts_female)
         name += ' '
     surname = generate_polish_surname(gender, first_parts_male, second_parts_male,
                                       surname_polish_firsts, surname_polish_seconds,
@@ -754,6 +776,34 @@ def generate_italian_surname(nobility, first_parts, second_parts):
     return surname
 
 
+def generate_polish_name(gender,
+                         first_parts_male, second_parts_male,
+                         first_parts_female, second_parts_female):
+    first = ''
+    second = ''
+    while first.lower() == second.lower():
+        if gender == Constants.MALE:
+            first = choice(first_parts_male)[0]
+            second = choice(second_parts_male)[0]
+        else:
+            first = choice(first_parts_female)[0]
+            second = choice(second_parts_female)[0]
+    return correct_polish_name(first, second)
+
+
+def correct_polish_name(first, second):
+    if first[-1:] == second[0]:
+        second = second[1:]
+    pair = first[-1:] + second[0]
+    if pair not in SLAVIC_BLANK_CONNECTORS:
+        if d100() <= 50:
+            if pair in SLAVIC_CONNECTORS.keys():
+                first += SLAVIC_CONNECTORS.get(pair)
+    elif pair in SLAVIC_CONNECTORS.keys():
+        first += SLAVIC_CONNECTORS.get(pair)
+    return first + second
+
+
 def generate_polish_surname(gender, first_parts_male, second_parts_male,
                             first_parts_surname, second_parts_surname,
                             male_endings, female_endings):
@@ -767,8 +817,8 @@ def generate_polish_surname(gender, first_parts_male, second_parts_male,
 
 def generate_polish_nb_surname(gender, first_parts, second_parts, male_endings, female_endings):
     surname = ''
-    surname = generate_name(MalePolish, FemalePolish, Constants.MALE, first_parts,
-                            second_parts, first_parts, second_parts)
+    surname = generate_polish_name(Constants.MALE, first_parts,
+                                   second_parts, first_parts, second_parts)
     if gender == Constants.MALE:
         ending = SurnamesPolishEnd.objects.random_ending(male_endings)
     else:
@@ -779,10 +829,8 @@ def generate_polish_nb_surname(gender, first_parts, second_parts, male_endings, 
         while surname[-1:] in VOWELS:
             surname = surname[:-1]
     if ending != '' and surname[-1:] == ending[0]:
-        surname += ending[1:]
-    else:
-        surname += ending
-    return surname
+        ending = ending[1:]
+    return correct_polish_name(surname, ending)
 
 
 def generate_polish_misc_surname(gender, first_parts, second_parts, male_endings, female_endings):
@@ -806,7 +854,6 @@ def generate_polish_misc_surname(gender, first_parts, second_parts, male_endings
 
 def generate_japanese_surname(first_parts, second_parts):
     return SurnamesJapanese.objects.get_random_name(first_parts, second_parts)
-
 
 
 # class Corrector:
