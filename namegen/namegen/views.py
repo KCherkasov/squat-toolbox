@@ -792,15 +792,16 @@ def generate_polish_name(gender,
 
 
 def correct_polish_name(first, second):
-    if second != u'' and first[-1:] == second[0]:
-        second = second[1:]
-    pair = first[-1:] + second[0]
-    if pair not in SLAVIC_BLANK_CONNECTORS:
-        if d100() <= 50:
-            if pair in SLAVIC_CONNECTORS.keys():
-                first += SLAVIC_CONNECTORS.get(pair)
-    elif pair in SLAVIC_CONNECTORS.keys():
-        first += SLAVIC_CONNECTORS.get(pair)
+    if second != u'':
+        if first[-1:] == second[0]:
+            second = second[1:]
+        pair = first[-1:] + second[0]
+        if pair not in SLAVIC_BLANK_CONNECTORS:
+            if d100() <= 50:
+                if pair in SLAVIC_CONNECTORS.keys():
+                    first += SLAVIC_CONNECTORS.get(pair)
+        elif pair in SLAVIC_CONNECTORS.keys():
+            first += SLAVIC_CONNECTORS.get(pair)
     return first + second
 
 
