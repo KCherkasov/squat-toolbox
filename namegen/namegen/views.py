@@ -467,9 +467,13 @@ def generate_name_rand(gender, nobility,
         [male, female] = determine_lang(lang)
         if lang == Constants.SPAIN and name == '':
             names_count += 1
-        name += generate_name(male, female, gender,
-                              first_parts_male.get(lang), second_parts_male.get(lang),
-                              first_parts_female.get(lang), second_parts_female.get(lang)) + ' '
+        if lang == Constants.POLAND:
+            name += generate_polish_name(gender, first_parts_male.get(lang), second_parts_male.get(lang),
+                                         first_parts_female.get(lang), second_parts_female.get(lang)) + ' '
+        else:
+            name += generate_name(male, female, gender,
+                                  first_parts_male.get(lang), second_parts_male.get(lang),
+                                  first_parts_female.get(lang), second_parts_female.get(lang)) + ' '
     surname = ''
     lang = choice(LANG_IDS)
     if lang == Constants.SCAND:
