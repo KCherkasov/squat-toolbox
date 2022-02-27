@@ -7,12 +7,13 @@ from django.shortcuts import render, reverse
 from .models import MaleScand, FemaleScand, MaleLatin, FemaleLatin, CognomenLatin,\
     MaleSpanish, FemaleSpanish, MaleItalian, FemaleItalian, SurnamesItalian,\
     MalePolish, FemalePolish, SurnamesPolish, SurnamesPolishEnd,\
-    MaleJapanese, FemaleJapanese, SurnamesJapanese
+    MaleJapanese, FemaleJapanese, SurnamesJapanese, TechDesignations,\
+    MechanicusRanksNCults
 from .forms2 import NamegenForm, Constants
 
 import random
 
-version = '1.6.15'
+version = '1.7.1'
 
 CONSONANTS = 'бвгджзйклмнпрстфхшщчц'
 RIGHT_CONSONANTS = 'йнрс'
@@ -65,11 +66,21 @@ SLAVIC_CONNECTORS = {u'бр': u'а',   u'бм': u'и',    u'вл': u'ио',  u'�
                      u'хт': u'е',   u'шт': u'е',    u'чм': u'ие',  u'хд': u'аио',   u'нщ': u'иеаы',
                      u'бц': u'еи',  u'вз': u'и',    u'мк': u'ие',  u'мв': u'о',     u'цч': u'аыеи',
                      u'ря': u'ьи',  u'чв': u'ео',   u'чл': u'е',   u'шц': u'иеы',   u'пя': u'и',
-                     u'мс': u'ыио', }
+                     u'мс': u'ыио', u'гя': u'ьеи',  u'ця': u'ьеи', u'вя': u'ьие',   u'ня': u'ьие',
+                     u'пд': u'иао', u'пт': u'иоа',  u'пв': u'ои',  u'пк': u'оа',    u'пн': u'иаео', }
 
 SLAVIC_BLANK_CONNECTORS = [u'бр', u'вд', u'дм', u'дв', u'жб', u'зб', u'сб', u'зв', u'йц', u'лр', u'лж',
                            u'нг', u'нк', u'нт', u'нц', u'рг', u'рк', u'рж', u'рц', u'шк', u'рв',
                            u'лв', u'шм', u'рц', u'рш', u'зм', u'кл', u'цк', u'дв', ]
+
+GENETOR = u'Генетор'
+CYBERNETICA = u'Легио Кибернетика'
+REDUCTOR = u'Ордо Редуктор'
+TITANICA = u'Коллегия Титаника'
+MYRMIDON = u'Ауксилия Мирмидон'
+MAGI = u'Механикум'
+LOGI = u'Логис'
+ARTISAN = u'Артизан'
 
 LANGS = NamegenForm.LANGS
 LANG_IDS = [Constants.SCAND, Constants.LATIN, Constants.SPAIN, Constants.ITALY, Constants.POLAND, Constants.JAPAN, ]
@@ -622,6 +633,71 @@ def generate_names_japanese(gender, nobility, count,
     return names
 
 
+def generate_name_techno(gender, nobility, letters, text_numbers,
+                         cults, ranks_simple, ranks_noble_magi,
+                         ranks_noble_genetor, ranks_noble_logi,
+                         rank_noble_artisan, rank_noble_myrmidon,
+                         first_parts_male, second_parts_male,
+                         first_parts_female, second_parts_female,
+                         cognomen_firsts, cognomen_seconds_male, cognomen_seconds_female,
+                         surname_italian_firsts, surname_italian_seconds,
+                         surname_polish_firsts, surname_polish_seconds,
+                         surname_polish_ends_male, surname_polish_ends_female,
+                         surname_japanese_firsts, surname_japanese_seconds):
+    [nobility, gender, gender_tail, noble_tail] = resolve_randomness(gender, nobility)
+    namelength = 1
+    title = u''
+    cult_tail = MechanicusRanksNCults.objects.get_random_element(cults)
+    if nobility == Constants.NOBLE:
+        namelength += choice(range(2)) + 1
+        if cult_tail == GENETOR:
+            title = MechanicusRanksNCults.objects.get_random_element(ranks_noble_genetor)
+        elif cult_tail == CYBERNETICA or cult_tail == REDUCTOR or TITANICA:
+            dice = d100()
+            if dice <= 20:
+                title = MechanicusRanksNCults.objects.get_random_element(rank_noble_artisan)
+            elif dice <= 40:
+                title = MechanicusRanksNCults.objects.get_random_element(ranks_noble_magi)
+            elif dice <= 60:
+                title = MechanicusRanksNCults.objects.get_random_element(ranks_noble_genetor)
+            elif dice <= 80:
+                title = MechanicusRanksNCults.objects.get_random_element(rank_noble_myrmidon)
+            else:
+                title = MechanicusRanksNCults.objects.get_random_element(ranks_noble_logi)
+            if cult_tail == TITANICA:
+                cult_tail = u'Коллегии Титаника'
+        elif cult_tail == MYRMIDON:
+            title = MechanicusRanksNCults.objects.get_random_element(rank_noble_myrmidon)
+        elif cult_tail == MAGI:
+            title = MechanicusRanksNCults.objects.get_random_element(ranks_noble_magi)
+        elif cult_tail == LOGI:
+            title = MechanicusRanksNCults.objects.get_random_element(ranks_noble_logi)
+        elif cult_tail == ARTISAN:
+            title = MechanicusRanksNCults.objects.get_random_element(rank_noble_artisan)
+    else:
+        title = MechanicusRanksNCults.objects.get_random_element(ranks_simple)
+    name = u''
+    for i in range(namelength):
+        if d100() <= 50:
+            lang = choice(LANG_IDS)
+            [male, female] = determine_lang(lang)
+            if lang == Constants.POLAND:
+                name += generate_polish_name(gender, first_parts_male.get(lang), second_parts_male.get(lang),
+                                             first_parts_female.get(lang), second_parts_female.get(lang)) + ' '
+            else:
+                name += generate_name(male, female, gender,
+                                      first_parts_male.get(lang), second_parts_male.get(lang),
+                                      first_parts_female.get(lang), second_parts_female.get(lang)) + ' '
+        else:
+            if d100() <= 50:
+                name += generate_cognomen(gender, cognomen_firsts,
+                                          cognomen_seconds_male, cognomen_seconds_female) + ' '
+            else:
+                name += generate_italian_surname(Constants.SIMPLE, surname_italian_firsts, surname_italian_seconds)
+        tech_name = generate_designation_tech(gender, nobility, letters, text_numbers)
+        return name + ' (' + tech_name + '), ' + title + ' из ' + cult_tail + gender_tail + noble_tail
+
+
 def determine_gender(gender):
     if gender == Constants.RANDOM:
         if d100() <= 50:
@@ -897,6 +973,63 @@ def generate_polish_misc_surname(gender, first_parts, second_parts, male_endings
 
 def generate_japanese_surname(first_parts, second_parts):
     return SurnamesJapanese.objects.get_random_name(first_parts, second_parts)
+
+
+def generate_designation_tech(gender, nobility,
+                              letters, text_numbers):
+    designation_length = choice(range(5)) + 2
+    if nobility == Constants.NOBLE:
+        designation_length += choice(range(3)) + 2
+    designation = u''
+    prev = ''
+    for i in range(designation_length):
+        if d100() <= 50:
+            if prev == 'L':
+                designation += '-'
+            else:
+                if designation[-1:] not in VOWELS:
+                    if gender == Constants.MALE:
+                        dice = d100()
+                        if dice <= 50:
+                            designation += u'ус '
+                        else:
+                            designation += u'иум '
+                    else:
+                        dice = d100()
+                        if dice <= 50:
+                            designation += u'а '
+                        else:
+                            designation += u'ина '
+            designation += TechDesignations.objects.get_random_element(letters)
+            prev = 'L'
+        elif d100() <= 50:
+            if prev == 'D':
+                designation += '-'
+            else:
+                designation += ' '
+            designation += TechDesignations.objects.get_random_element(text_numbers)
+            prev = 'D'
+        else:
+            if prev == 'N':
+                if d100() <= 50:
+                    designation += u'/'
+                else:
+                    designation += u'-'
+            else:
+                if d100() <= 50:
+                    designation += u' '
+                else:
+                    dice = d100()
+                    if dice <= 50:
+                        designation += u'-'
+                    else:
+                        designation += u'/'
+            number = str(random.randint(0, 9999))
+            while len(number) < 4:
+                number = u'0' + number
+            designation += number
+            prev = 'N'
+    return designation
 
 
 # class Corrector:

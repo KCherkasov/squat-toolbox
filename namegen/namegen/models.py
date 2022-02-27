@@ -183,3 +183,65 @@ class SurnamesJapanese(models.Model):
 
     first_part = models.CharField(max_length=15)
     second_part = models.CharField(max_length=15)
+
+
+class TechDesignationsManager(models.Manager):
+    def queryset(self):
+        return models.QuerySet(self.model, using=self._db)
+
+    def get_letters(self):
+        return self.queryset().all().values_list('letters')
+
+    def get_text_numbers(self):
+        return self.queryset().all().values_list('text_numbers')
+
+    def get_random_element(self, elements):
+        return choice(elements)[0]
+
+
+class TechDesignations(models.Model):
+    objects = TechDesignationsManager()
+
+    letters = models.CharField(max_length=15)
+    text_numbers = models.CharField(max_length=15)
+
+
+class RanksCultsManager(models.Manager):
+    def queryset(self):
+        return models.QuerySet(self.model, using=self._db)
+
+    def get_ranks_simple(self):
+        return self.queryset().all().values_list('rank_simple')
+
+    def get_ranks_noble_logi(self):
+        return self.queryset().all().values_list('rank_noble_logi')
+
+    def get_ranks_noble_artisan(self):
+        return self.queryset().all().values_list('rank_noble_artisan')
+
+    def get_ranks_noble_myrmidon(self):
+        return self.queryset().all().values_list('rank_noble_myrmidon')
+
+    def get_ranks_noble_genetor(self):
+        return self.queryset().all().values_list('rank_noble_genetor')
+
+    def get_ranks_noble_magi(self):
+        return self.queryset().all().values_list('rank_noble_magi')
+
+    def get_cults(self):
+        return self.queryset().all().values_list('cult')
+
+    def get_random_element(self, elements):
+        return choice(elements)[0]
+
+
+class MechanicusRanksNCults(models.Model):
+    objects = RanksCultsManager()
+
+    rank_simple = models.CharField(max_length=30)
+    rank_noble_magi = models.CharField(max_length=30)
+    rank_noble_genetor = models.CharField(max_length=30)
+    rank_noble_logi = models.CharField(max_length=30)
+    rank_noble_artisan = models.CharField(max_length=30)
+    rank_noble_myrmidon = models.CharField(max_length=30)
+    cult = models.CharField(max_length=30)
