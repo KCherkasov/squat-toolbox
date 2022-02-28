@@ -13,7 +13,7 @@ from .forms2 import NamegenForm, Constants
 
 import random
 
-version = '1.7.1'
+version = '1.7.2'
 
 CONSONANTS = 'бвгджзйклмнпрстфхшщчц'
 RIGHT_CONSONANTS = 'йнрс'
@@ -1073,7 +1073,7 @@ def generate_designation_tech(gender, nobility,
         if d100() <= 50:
             if prev == 'L' and i > 0:
                 designation += '-'
-            elif i > 0:
+            elif i > 0 and prev != 'D':
                 if designation[-1:] not in VOWELS:
                     if gender == Constants.MALE:
                         dice = d100()
