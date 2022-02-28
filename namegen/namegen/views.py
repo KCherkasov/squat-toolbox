@@ -215,6 +215,40 @@ def index(request):
                                                     first_parts_male, second_parts_male,
                                                     first_parts_female, second_parts_female,
                                                     surname_firsts, surname_seconds)
+            elif lang == Constants.TECH:
+                [first_parts_male, second_parts_male, first_parts_female, second_parts_female,
+                 cognomen_firsts, cognomen_seconds_male, cognomen_seconds_female,
+                 surname_italian_firsts, surname_italian_seconds,
+                 surname_polish_firsts, surname_polish_seconds,
+                 surname_polish_ends_male, surname_polish_ends_female,
+                 surname_japanese_firsts, surname_japanese_seconds] = prepare_data_rand_namegen()
+
+                [ranks_simple, ranks_noble_magi, ranks_noble_genetor,
+                 ranks_noble_logi, ranks_noble_artisan, ranks_noble_myrmidon,
+                 cults, letters, text_numbers] = prepare_lists_techno()
+
+                if count == 1:
+                    names.append(generate_name_techno(gender, nobility, letters, text_numbers, cults,
+                                                      ranks_simple, ranks_noble_magi, ranks_noble_genetor,
+                                                      ranks_noble_logi, ranks_noble_artisan, ranks_noble_myrmidon,
+                                                      first_parts_male, second_parts_male, first_parts_female,
+                                                      second_parts_female, cognomen_firsts, cognomen_seconds_male,
+                                                      cognomen_seconds_female, surname_italian_firsts,
+                                                      surname_italian_seconds, surname_polish_firsts,
+                                                      surname_polish_seconds, surname_polish_ends_male,
+                                                      surname_polish_ends_female, surname_japanese_firsts,
+                                                      surname_japanese_seconds))
+                else:
+                    names = generate_names_techno(gender, nobility, count, letters, text_numbers, cults,
+                                                  ranks_simple, ranks_noble_magi, ranks_noble_genetor,
+                                                  ranks_noble_logi, ranks_noble_artisan, ranks_noble_myrmidon,
+                                                  first_parts_male, second_parts_male, first_parts_female,
+                                                  second_parts_female, cognomen_firsts, cognomen_seconds_male,
+                                                  cognomen_seconds_female, surname_italian_firsts,
+                                                  surname_italian_seconds, surname_polish_firsts,
+                                                  surname_polish_seconds, surname_polish_ends_male,
+                                                  surname_polish_ends_female, surname_japanese_firsts,
+                                                  surname_japanese_seconds)
             elif lang == Constants.RANDOM:
                 [first_parts_male, second_parts_male, first_parts_female, second_parts_female,
                  cognomen_firsts, cognomen_seconds_male, cognomen_seconds_female,
@@ -240,10 +274,11 @@ def index(request):
                                                 surname_polish_firsts, surname_polish_seconds,
                                                 surname_polish_ends_male, surname_polish_ends_female,
                                                 surname_japanese_firsts, surname_japanese_seconds)
-            return render(request, 'index.html', {'form': form, 'names': names, 'version': version, })
 
+            return render(request, 'index.html', {'form': form, 'names': names, 'version': version, })
     else:
         form = NamegenForm()
+
         return render(request, 'index.html', {'form': form, 'version': version, })
 
 
@@ -683,19 +718,70 @@ def generate_name_techno(gender, nobility, letters, text_numbers,
             [male, female] = determine_lang(lang)
             if lang == Constants.POLAND:
                 name += generate_polish_name(gender, first_parts_male.get(lang), second_parts_male.get(lang),
-                                             first_parts_female.get(lang), second_parts_female.get(lang)) + ' '
+                                             first_parts_female.get(lang), second_parts_female.get(lang))
             else:
                 name += generate_name(male, female, gender,
                                       first_parts_male.get(lang), second_parts_male.get(lang),
-                                      first_parts_female.get(lang), second_parts_female.get(lang)) + ' '
+                                      first_parts_female.get(lang), second_parts_female.get(lang))
         else:
-            if d100() <= 50:
+            dice = d100()
+            if dice <= 33:
                 name += generate_cognomen(gender, cognomen_firsts,
-                                          cognomen_seconds_male, cognomen_seconds_female) + ' '
-            else:
+                                          cognomen_seconds_male, cognomen_seconds_female)
+            elif dice <= 66:
                 name += generate_italian_surname(Constants.SIMPLE, surname_italian_firsts, surname_italian_seconds)
+            else:
+                name += generate_japanese_surname(surname_japanese_firsts,surname_japanese_seconds)
+        if d100() <= 66:
+            name += ' '
+        else:
+            name += '-'
         tech_name = generate_designation_tech(gender, nobility, letters, text_numbers)
         return name + ' (' + tech_name + '), ' + title + ' из ' + cult_tail + gender_tail + noble_tail
+
+
+def generate_names_techno(gender, nobility, count, letters, text_numbers,
+                         cults, ranks_simple, ranks_noble_magi,
+                         ranks_noble_genetor, ranks_noble_logi,
+                         rank_noble_artisan, rank_noble_myrmidon,
+                         first_parts_male, second_parts_male,
+                         first_parts_female, second_parts_female,
+                         cognomen_firsts, cognomen_seconds_male, cognomen_seconds_female,
+                         surname_italian_firsts, surname_italian_seconds,
+                         surname_polish_firsts, surname_polish_seconds,
+                         surname_polish_ends_male, surname_polish_ends_female,
+                         surname_japanese_firsts, surname_japanese_seconds):
+    names = list()
+    for i in range(count):
+        names.append(generate_name_techno(gender, nobility, letters, text_numbers,
+                                          cults, ranks_simple, ranks_noble_magi,
+                                          ranks_noble_genetor, ranks_noble_logi,
+                                          rank_noble_artisan, rank_noble_myrmidon,
+                                          first_parts_male, second_parts_male,
+                                          first_parts_female, second_parts_female,
+                                          cognomen_firsts, cognomen_seconds_male,
+                                          cognomen_seconds_female, surname_italian_firsts,
+                                          surname_italian_seconds, surname_polish_firsts,
+                                          surname_polish_seconds, surname_polish_ends_male,
+                                          surname_polish_ends_female, surname_japanese_firsts,
+                                          surname_japanese_seconds))
+    return names
+
+
+def prepare_lists_techno():
+    ranks_simple = MechanicusRanksNCults.objects.get_ranks_simple()
+    ranks_noble_magi = MechanicusRanksNCults.objects.get_ranks_noble_magi()
+    ranks_noble_genetor = MechanicusRanksNCults.objects.get_ranks_noble_genetor()
+    ranks_noble_logi = MechanicusRanksNCults.objects.get_ranks_noble_logi()
+    ranks_noble_artisan = MechanicusRanksNCults.objects.get_ranks_noble_artisan()
+    ranks_noble_myrmidon = MechanicusRanksNCults.objects.get_ranks_noble_myrmidon()
+    cults = MechanicusRanksNCults.objects.get_cults()
+    letters = TechDesignations.objects.get_letters()
+    text_numbers = TechDesignations.objects.get_text_numbers()
+
+    return [ranks_simple, ranks_noble_magi, ranks_noble_genetor,
+            ranks_noble_logi, ranks_noble_artisan, ranks_noble_myrmidon,
+            cults, letters, text_numbers]
 
 
 def determine_gender(gender):
