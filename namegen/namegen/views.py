@@ -738,7 +738,7 @@ def generate_name_techno(gender, nobility, letters, text_numbers,
             name += '-'
     name = name[:-1]
     tech_name = generate_designation_tech(gender, nobility, letters, text_numbers)
-    return name + ' (' + tech_name + '), ' + title + ' из ' + cult_tail + gender_tail + noble_tail
+    return name + ' (' + tech_name + '), ' + title + ' из ' + cult_tail + ' ' + gender_tail + noble_tail
 
 
 def generate_names_techno(gender, nobility, count, letters, text_numbers,
