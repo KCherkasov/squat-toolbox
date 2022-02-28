@@ -736,21 +736,22 @@ def generate_name_techno(gender, nobility, letters, text_numbers,
             name += ' '
         else:
             name += '-'
-        tech_name = generate_designation_tech(gender, nobility, letters, text_numbers)
-        return name + ' (' + tech_name + '), ' + title + ' из ' + cult_tail + gender_tail + noble_tail
+    name = name[:-1]
+    tech_name = generate_designation_tech(gender, nobility, letters, text_numbers)
+    return name + ' (' + tech_name + '), ' + title + ' из ' + cult_tail + gender_tail + noble_tail
 
 
 def generate_names_techno(gender, nobility, count, letters, text_numbers,
-                         cults, ranks_simple, ranks_noble_magi,
-                         ranks_noble_genetor, ranks_noble_logi,
-                         rank_noble_artisan, rank_noble_myrmidon,
-                         first_parts_male, second_parts_male,
-                         first_parts_female, second_parts_female,
-                         cognomen_firsts, cognomen_seconds_male, cognomen_seconds_female,
-                         surname_italian_firsts, surname_italian_seconds,
-                         surname_polish_firsts, surname_polish_seconds,
-                         surname_polish_ends_male, surname_polish_ends_female,
-                         surname_japanese_firsts, surname_japanese_seconds):
+                          cults, ranks_simple, ranks_noble_magi,
+                          ranks_noble_genetor, ranks_noble_logi,
+                          rank_noble_artisan, rank_noble_myrmidon,
+                          first_parts_male, second_parts_male,
+                          first_parts_female, second_parts_female,
+                          cognomen_firsts, cognomen_seconds_male, cognomen_seconds_female,
+                          surname_italian_firsts, surname_italian_seconds,
+                          surname_polish_firsts, surname_polish_seconds,
+                          surname_polish_ends_male, surname_polish_ends_female,
+                          surname_japanese_firsts, surname_japanese_seconds):
     names = list()
     for i in range(count):
         names.append(generate_name_techno(gender, nobility, letters, text_numbers,
@@ -1070,9 +1071,9 @@ def generate_designation_tech(gender, nobility,
     prev = ''
     for i in range(designation_length):
         if d100() <= 50:
-            if prev == 'L':
+            if prev == 'L' and i > 0:
                 designation += '-'
-            else:
+            elif i > 0:
                 if designation[-1:] not in VOWELS:
                     if gender == Constants.MALE:
                         dice = d100()
@@ -1089,19 +1090,19 @@ def generate_designation_tech(gender, nobility,
             designation += TechDesignations.objects.get_random_element(letters)
             prev = 'L'
         elif d100() <= 50:
-            if prev == 'D':
+            if prev == 'D' and i > 0:
                 designation += '-'
-            else:
+            elif i > 0:
                 designation += ' '
             designation += TechDesignations.objects.get_random_element(text_numbers)
             prev = 'D'
         else:
-            if prev == 'N':
+            if prev == 'N' and i > 0:
                 if d100() <= 50:
                     designation += u'/'
                 else:
                     designation += u'-'
-            else:
+            elif i > 0:
                 if d100() <= 50:
                     designation += u' '
                 else:
