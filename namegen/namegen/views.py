@@ -1073,7 +1073,7 @@ def generate_designation_tech(gender, nobility,
         if d100() <= 50:
             if prev == 'L' and i > 0:
                 designation += '-'
-            elif i > 0 and prev != 'D':
+            elif i > 0 and prev != 'N':
                 if designation[-1:] not in VOWELS:
                     if gender == Constants.MALE:
                         dice = d100()
