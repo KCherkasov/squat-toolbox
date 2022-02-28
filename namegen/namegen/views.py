@@ -1087,6 +1087,8 @@ def generate_designation_tech(gender, nobility,
                             designation += u'а '
                         else:
                             designation += u'ина '
+            else:
+                designation += ' '
             designation += TechDesignations.objects.get_random_element(letters)
             prev = 'L'
         elif d100() <= 50:
