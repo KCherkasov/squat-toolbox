@@ -684,7 +684,7 @@ def generate_name_techno(gender, nobility, letters, text_numbers,
     title = u''
     cult_tail = MechanicusRanksNCults.objects.get_random_element(cults)
     if nobility == Constants.NOBLE:
-        namelength += choice(range(2)) + 1
+        namelength += choice(range(2))
         if cult_tail == GENETOR:
             title = MechanicusRanksNCults.objects.get_random_element(ranks_noble_genetor)
         elif cult_tail == CYBERNETICA or cult_tail == REDUCTOR or cult_tail == TITANICA:
