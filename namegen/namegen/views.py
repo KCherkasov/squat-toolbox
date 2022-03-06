@@ -14,7 +14,7 @@ from .forms2 import NamegenForm, Constants
 
 import random
 
-version = '1.9.0'
+version = '1.9.2'
 
 CONSONANTS = 'бвгджзйклмнпрстфхшщчц'
 RIGHT_CONSONANTS = 'йнрс'
@@ -106,7 +106,8 @@ ROMANIAN_CONNECTORS = {u'сн': u'а',    u'лн': u'иёае',  u'ра': u'ие
                        u'ся': u'ие',   u'зя': u'ие',    u'гм': u'иэеу', u'сп': u'и',    u'пс': u'и',
                        u'жч': u'и',    u'чж': u'еау',   u'мр': u'иеу',  u'рм': u'иеу',  u'гн': u'эиеа',
                        u'нг': u'иеаэ', u'вс': u'иеао',  u'св': u'иеао', u'сч': u'иеа',  u'чс': u'иеа',
-                       u'ьн': u'яаеи', u'вз': u'иеэ',   u'зв': u'иеэу', u'ьп': u'и',
+                       u'ьн': u'яаеи', u'вз': u'иеэ',   u'зв': u'иеэу', u'ьп': u'и',    u'жм': u'еи',
+                       u'мж': u'ие',
                        }
 
 
@@ -1340,12 +1341,12 @@ def generate_romanian_nb_surname(firsts_male, seconds_male,
                                   firsts_female, seconds_female)
     while name[-1:] in VOWELS:
         name = name[:-1]
-    return name + SurnamesRomanian.objects.get_random_element(surname_seconds)
+    return correct_romanian_name(name, SurnamesRomanian.objects.get_random_element(surname_seconds))
 
 
 def generate_romanian_misc_surname(firsts, seconds):
-    return SurnamesRomanian.objects.get_random_element(firsts)\
-           + SurnamesRomanian.objects.get_random_element(seconds)
+    return correct_romanian_name(SurnamesRomanian.objects.get_random_element(firsts),
+                                 SurnamesRomanian.objects.get_random_element(seconds))
 
 
 def generate_designation_tech(gender, nobility,
