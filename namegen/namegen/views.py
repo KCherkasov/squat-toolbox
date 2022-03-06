@@ -579,7 +579,9 @@ def generate_name_romanian(gender, nobility,
         else:
             surname = generate_cognomen(gender, cognomen_firsts, cognomen_seconds_male, cognomen_seconds_female)
     else:
-        surname = generate_cognomen(gender, cognomen_firsts, cognomen_seconds_male, cognomen_seconds_female)
+        surname = generate_romanian_surname(first_parts_male, second_parts_male,
+                                            first_parts_female, second_parts_female,
+                                            surname_firsts, surname_seconds)
     surname += ' '
     return name + surname + gender_tail + noble_tail
 
