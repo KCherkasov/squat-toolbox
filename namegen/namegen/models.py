@@ -245,3 +245,52 @@ class MechanicusRanksNCults(models.Model):
     rank_noble_artisan = models.CharField(max_length=30)
     rank_noble_myrmidon = models.CharField(max_length=30)
     cult = models.CharField(max_length=30)
+
+
+class MaleHungarian(models.Model):
+    objects = NameManager
+
+    first_part = models.CharField(max_length=15)
+    second_part = models.CharField(max_length=15)
+
+
+class FemaleHungarian(models.Model):
+    objects = NameManager
+
+    first_part = models.CharField(max_length=15)
+    second_part = models.CharField(max_length=15)
+
+
+class MaleRomanian(models.Model):
+    objects = NameManager
+
+    first_part = models.CharField(max_length=15)
+    second_part = models.CharField(max_length=15)
+
+
+class FemaleRomanian(models.Model):
+    objects = NameManager
+
+    first_part = models.CharField(max_length=15)
+    second_part = models.CharField(max_length=15)
+
+
+class SurnamesRomanianManager(models.Manager):
+    def queryset(self):
+        return models.QuerySet(self.model, using=self._db)
+
+    def get_random_element(self, elements):
+        return choice(elements)[0]
+
+    def get_firsts_list(self):
+        return self.queryset().all().values_list('first')
+
+    def get_seconds_list(self):
+        return self.queryset().all().values_list('second')
+
+
+class SurnamesRomanian(models.Model):
+    objects = SurnamesRomanianManager()
+
+    first = models.CharField(max_length=15)
+    second = models.CharField(max_length=15)

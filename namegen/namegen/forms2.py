@@ -10,6 +10,8 @@ class Constants:
     ITALY = 'IT'
     POLAND = 'PL'
     JAPAN = 'JP'
+    ROMANIA = 'RM'
+    HUNGARY = 'HG'
     TECH = 'TC'
 
     MALE = 'M'
@@ -24,6 +26,7 @@ class Constants:
 class NamegenForm(forms.Form):
     LANGS = ([Constants.SCAND, u'Скандинавия'], [Constants.LATIN, u'Латынь'], [Constants.SPAIN, u'Испания'],
              [Constants.ITALY, u'Италия'], [Constants.POLAND, u'Польша'], [Constants.JAPAN, u'Япония'],
+             [Constants.ROMANIA, u'Румыния'], [Constants.HUNGARY, u'Венгрия'],
              [Constants.TECH, u'Техно'], [Constants.RANDOM, u'Микс'],)
 
     GENDERS = ([Constants.MALE, u'Мужской'], [Constants.FEMALE, u'Женский'], [Constants.RANDOM, u'Случайно'],)
