@@ -248,28 +248,28 @@ class MechanicusRanksNCults(models.Model):
 
 
 class MaleHungarian(models.Model):
-    objects = NameManager
+    objects = NameManager()
 
     first_part = models.CharField(max_length=15)
     second_part = models.CharField(max_length=15)
 
 
 class FemaleHungarian(models.Model):
-    objects = NameManager
+    objects = NameManager()
 
     first_part = models.CharField(max_length=15)
     second_part = models.CharField(max_length=15)
 
 
 class MaleRomanian(models.Model):
-    objects = NameManager
+    objects = NameManager()
 
     first_part = models.CharField(max_length=15)
     second_part = models.CharField(max_length=15)
 
 
 class FemaleRomanian(models.Model):
-    objects = NameManager
+    objects = NameManager()
 
     first_part = models.CharField(max_length=15)
     second_part = models.CharField(max_length=15)
