@@ -14,7 +14,7 @@ from .forms2 import NamegenForm, Constants
 
 import random
 
-version = '1.9.3'
+version = '1.9.4'
 
 CONSONANTS = 'бвгджзйклмнпрстфхшщчц'
 RIGHT_CONSONANTS = 'йнрс'
@@ -115,7 +115,7 @@ ROMANIAN_CONNECTORS = {u'сн': u'а',      u'лн': u'иёае',  u'ра': u'и
                        u'жй': u'ие',     u'вй': u'иеэ',   u'зй': u'иеэ',   u'лй': u'иеэ',  u'сй': u'иеэ',
                        u'тй': u'иеэ',    u'фй': u'иеэ',   u'нп': u'иеэоу', u'пн': u'иеоа', u'сж': u'ие',
                        u'жс': u'иеа',    u'дк': u'иеоэ',  u'кд': u'иеэау', u'гж': u'ие',   u'жг': u'ие',
-                       u'зм': u'иеэ',    u'мз': u'эуеа',  u'сф': u'ие',    u'фс': u'оиеэ',
+                       u'зм': u'иеэ',    u'мз': u'эуеа',  u'сф': u'ие',    u'фс': u'оиеэ', u'кч': u'уоеиа',
                        }
 
 
@@ -123,11 +123,11 @@ HUNGARIAN_CONNECTORS = {}
 
 
 HUNGARIAN_BLANK_CONNECTORS = [u'ра', u'лз', u'нд', u'тр', u'кс',
-                              u'ле', u'нк', u'нз', u'ин', u'пк', u'', u'', u'', ]
+                              u'ле', u'нк', u'нз', u'ин', u'пк', u'кч', u'', u'', ]
 
 
 ROMANIAN_BLANK_CONNECTORS = [u'ра', u'лз', u'нд', u'тр', u'кс',
-                             u'ле', u'нк', u'нз', u'ин', u'пк', u'дм', u'', u'', ]
+                             u'ле', u'нк', u'нз', u'ин', u'пк', u'дм', u'кч', u'', ]
 
 
 SLAVIC_BLANK_CONNECTORS = [u'бр', u'вд', u'дм', u'дв', u'жб', u'зб', u'сб', u'зв', u'йц', u'лр', u'лж',
