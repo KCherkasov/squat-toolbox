@@ -1253,7 +1253,7 @@ def correct_romanian_name(first, second, surname=False):
 
 
 def correct_hungarian_name(first, second, surname=False):
-    return correct_name(first, second, HUNGARIAN_CONNECTORS, HUNGARIAN_BLANK_CONNECTORS, surname)
+    return correct_name(first, second, ROMANIAN_CONNECTORS, ROMANIAN_BLANK_CONNECTORS, surname)
 
 
 def generate_polish_surname(gender, first_parts_male, second_parts_male,
