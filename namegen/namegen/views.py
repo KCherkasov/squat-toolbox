@@ -1061,7 +1061,7 @@ def resolve_randomness(gender, nobility):
     return [nobility, gender, gender_tail, noble_tail]
 
 
-def correct_cognomen(first, second):
+def correct_name_lazy(first, second):
     if len(first) > 1 and first[-1:] == u'ь':
         first = first[:-1]
     while len(first) > 1 and first[-1:] in VOWELS:
@@ -1090,12 +1090,24 @@ def generate_cognomen(gender, first_parts, male, female):
             second = choice(male)[0]
         else:
             second = choice(female)[0]
-    return correct_cognomen(first, second)
+    return correct_name_lazy(first, second)
 
 
 def generate_name(lang_male, lang_female, gender,
                   first_parts_male, second_parts_male,
                   first_parts_female, second_parts_female):
+    if lang_male == MaleLatin and lang_female == FemaleLatin\
+       or lang_male == MaleSpanish and lang_female == FemaleSpanish:
+        first = u''
+        second = u''
+        while first.lower() == second.lower():
+            if gender == Constants.MALE:
+                first = choice(first_parts_male)[0]
+                second = choice(second_parts_male)[0]
+            else:
+                first = choice(first_parts_female)[0]
+                second = choice(second_parts_female)[0]
+            return correct_name_lazy(first, second)
     if gender == Constants.MALE:
         name = lang_male.objects.get_random_name(first_parts_male, second_parts_male)
     else:
