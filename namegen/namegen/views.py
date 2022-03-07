@@ -14,7 +14,7 @@ from .forms2 import NamegenForm, Constants
 
 import random
 
-version = '1.10.6'
+version = '1.10.7'
 
 CONSONANTS = 'бвгджзйклмнпрстфхшщчц'
 RIGHT_CONSONANTS = 'йнрс'
@@ -1040,6 +1040,15 @@ def generate_name_techno(gender, nobility, letters, text_numbers,
             if lang == Constants.POLAND:
                 name += generate_polish_name(gender, first_parts_male.get(lang), second_parts_male.get(lang),
                                              first_parts_female.get(lang), second_parts_female.get(lang))
+            elif lang == Constants.HUNGARY:
+                name += generate_hungarian_name(gender, first_parts_male.get(lang), second_parts_male.get(lang),
+                                                first_parts_female.get(lang), second_parts_female.get(lang))
+            elif lang == Constants.ROMANIA:
+                name += generate_romanian_name(gender, first_parts_male.get(lang), second_parts_male.get(lang),
+                                               first_parts_female.get(lang), second_parts_female.get(lang))
+            elif lang == Constants.CHINA:
+                name += generate_chinese_name(gender, first_parts_male.get(lang), second_parts_male.get(lang),
+                                              first_parts_female.get(lang), second_parts_female.get(lang))
             else:
                 name += generate_name(male, female, gender,
                                       first_parts_male.get(lang), second_parts_male.get(lang),
