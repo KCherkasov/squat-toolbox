@@ -14,7 +14,7 @@ from .forms2 import NamegenForm, Constants
 
 import random
 
-version = '1.10.3'
+version = '1.10.5'
 
 CONSONANTS = 'бвгджзйклмнпрстфхшщчц'
 RIGHT_CONSONANTS = 'йнрс'
@@ -551,19 +551,27 @@ def generate_name_italian(gender, nobility,
                           first_parts_female, second_parts_female,
                           surnames_first_parts, surnames_second_part):
     [nobility, gender, gender_tail, noble_tail] = resolve_randomness(gender, nobility)
-    name = generate_name(MaleItalian, FemaleItalian, gender,
-                         first_parts_male, second_parts_male,
-                         first_parts_female, second_parts_female)
-    name += ' '
-    for i in range(choice([1, 2, 3])):
-        if d100() <= 50:
-            name += generate_name(MaleItalian, FemaleItalian, Constants.MALE,
-                                  first_parts_male, second_parts_male,
-                                  first_parts_female, second_parts_female) + ' '
+    first = u''
+    second = u''
+    while first.lower() == second.lower():
+        if gender == Constants.MALE:
+            first = choice(first_parts_male)[0]
+            second = choice(second_parts_male)[0]
         else:
-            name += generate_name(MaleItalian, FemaleItalian, Constants.FEMALE,
-                                  first_parts_male, second_parts_male,
-                                  first_parts_female, second_parts_female) + ' '
+            first = choice(first_parts_female)[0]
+            second = choice(second_parts_female)[0]
+    name = correct_name_lazy(first, second) + ' '
+    for i in range(choice([1, 2, 3])):
+        first = u''
+        second = u''
+        while first.lower() == second.lower():
+            if d100() <= 50:
+                first = choice(first_parts_male)[0]
+                second = choice(second_parts_male)[0]
+            else:
+                first = choice(first_parts_female)[0]
+                second = choice(second_parts_female)[0]
+        name += correct_name_lazy(first, second) + ' '
     surname = generate_italian_surname(nobility, surnames_first_parts, surnames_second_part)
     surname += ' '
     return name + surname + gender_tail + noble_tail
@@ -1307,8 +1315,12 @@ def generate_spanish_surname(nobility, first_parts_male, second_parts_male,
 
 
 def generate_italian_surname(nobility, first_parts, second_parts):
-    surname = ''
-    surname = SurnamesItalian.objects.get_random_name(first_parts, second_parts)
+    first = u''
+    second = u''
+    while first.lower() == second.lower():
+        first = choice(first_parts)[0]
+        second = choice(second_parts)[0]
+    surname = correct_name_lazy(first, second)
     if nobility == Constants.NOBLE:
         if d100() <= 50:
             if surname[1:].lower() in VOWELS:
