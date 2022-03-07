@@ -14,7 +14,7 @@ from .forms2 import NamegenForm, Constants
 
 import random
 
-version = '1.9.8'
+version = '1.9.'
 
 CONSONANTS = 'бвгджзйклмнпрстфхшщчц'
 RIGHT_CONSONANTS = 'йнрс'
@@ -1156,29 +1156,29 @@ def generate_spanish_surname(nobility, first_parts_male, second_parts_male,
             if surname[-1:] not in RIGHT_CONSONANTS and surname[-1:] not in VOWELS:
                 surname += 'и'
             if d100() <= 50:
-                surname += 'хас'
+                surname = correct_name_lazy(surname, 'хас')
             else:
-                surname += 'гас'
+                surname = correct_name_lazy(surname, 'гас')
         else:
-            surname += 'ас'
+            surname = correct_name_lazy(surname, 'ас')
     elif dice <= 50:
         if surname[-1:] != 'л':
             if surname[-1:] not in RIGHT_CONSONANTS and surname[-1:] not in VOWELS:
                 surname += 'и'
             if d100() <= 50:
-                surname += 'хес'
+                surname = correct_name_lazy(surname, 'хес')
             else:
-                surname += 'гес'
+                surname = correct_name_lazy(surname, 'гес')
         else:
             surname += 'ес'
     elif dice <= 75:
         if surname[-1:] != 'з':
             if surname[-1:] not in 'тд':
-                surname += 'сия'
+                surname = correct_name_lazy(surname, 'сия')
             else:
-                surname = surname[:-1] + 'ция'
+                surname = correct_name_lazy(surname[:-1], 'ция')
         else:
-            surname += 'ия'
+            surname = correct_name_lazy(surname, 'ия')
     if d100() <= threshold:
         if nobility == 'N':
             if d100() <= 33:
@@ -1200,29 +1200,29 @@ def generate_spanish_surname(nobility, first_parts_male, second_parts_male,
                 if surname[-1:] not in RIGHT_CONSONANTS and surname[-1:] not in VOWELS:
                     surname += 'и'
                 if d100() <= 50:
-                    surname += 'хас'
+                    surname = correct_name_lazy(surname, 'хас')
                 else:
-                    surname += 'гас'
+                    surname = correct_name_lazy(surname, 'гас')
             else:
-                surname += 'ас'
+                surname += correct_name_lazy(surname, 'ас')
         elif dice <= 50:
             if surname[-1:] != 'л':
                 if surname[-1:] not in RIGHT_CONSONANTS and surname[-1:] not in VOWELS:
                     surname += 'и'
                 if d100() <= 50:
-                    surname += 'хес'
+                    surname = correct_name_lazy(surname, 'хес')
                 else:
-                    surname += 'гес'
+                    surname = correct_name_lazy(surname, 'гес')
             else:
-                surname += 'ес'
+                surname = correct_name_lazy(surname, 'ес')
         elif dice <= 75:
             if surname[-1:] != 'з':
                 if surname[-1:] not in 'тд':
-                    surname += 'сия'
+                    surname = correct_name_lazy(surname, 'сия')
                 else:
-                    surname = surname[:-1] + 'ция'
+                    surname = correct_name_lazy(surname[:-1], 'ция')
             else:
-                surname += 'ия'
+                surname = correct_name_lazy(surname, 'ия')
     else:
         if nobility == Constants.NOBLE:
             if d100() <= 33:
