@@ -14,7 +14,7 @@ from .forms2 import NamegenForm, Constants
 
 import random
 
-version = '1.9.7'
+version = '1.9.8'
 
 CONSONANTS = 'бвгджзйклмнпрстфхшщчц'
 RIGHT_CONSONANTS = 'йнрс'
@@ -1061,11 +1061,35 @@ def resolve_randomness(gender, nobility):
     return [nobility, gender, gender_tail, noble_tail]
 
 
+def correct_cognomen(first, second):
+    if len(first) > 1 and first[-1:] == u'ь':
+        first = first[:-1]
+    if second != u'' and first[-1:] == second[0] and first[-1:] in VOWELS:
+        second = second[1:]
+    if second != u'' and second[0] in CONSONANTS and first[-1:] in CONSONANTS:
+        dice = d100()
+        if dice <= 25:
+            first += u'и'
+        elif dice <= 50:
+            first += u'е'
+        elif dice <= 75:
+            first += u'а'
+        else:
+            first += u'у'
+    while len(first) > 1 and first[-1:] in VOWELS:
+        first = first[:-1]
+
+
 def generate_cognomen(gender, first_parts, male, female):
-    if gender == Constants.MALE:
-        return CognomenLatin.objects.get_random_cognomen(first_parts, male)
-    else:
-        return CognomenLatin.objects.get_random_cognomen(first_parts, female)
+    first = u''
+    second = u''
+    while first.lower() == second.lower():
+        first = choice(first_parts)[0]
+        if gender == Constants.MALE:
+            second = choice(male)[0]
+        else:
+            second = choice(female)[0]
+    return correct_cognomen(first, second)
 
 
 def generate_name(lang_male, lang_female, gender,
