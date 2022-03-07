@@ -14,7 +14,7 @@ from .forms2 import NamegenForm, Constants
 
 import random
 
-version = '1.10.0'
+version = '1.10.1'
 
 CONSONANTS = 'бвгджзйклмнпрстфхшщчц'
 RIGHT_CONSONANTS = 'йнрс'
@@ -801,6 +801,9 @@ def generate_name_rand(gender, nobility,
         elif lang == Constants.HUNGARY:
             name += generate_hungarian_name(gender, first_parts_male.get(lang), second_parts_male.get(lang),
                                             first_parts_female.get(lang), second_parts_female.get(lang)) + ' '
+        elif lang == Constants.CHINA:
+            name += generate_chinese_name(gender, first_parts_male.get(lang), second_parts_male.get(lang),
+                                          first_parts_female.get(lang), second_parts_female.get(lang))
         else:
             name += generate_name(male, female, gender,
                                   first_parts_male.get(lang), second_parts_male.get(lang),
