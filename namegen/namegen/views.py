@@ -1547,7 +1547,7 @@ def generate_chinese_name(gender, first_parts_male, second_parts_male,
         else:
             threshold = 50
         if d100() <= threshold:
-            name += choice(second_parts_male)[0]
+            name += choice(second_parts_male)[0].lower()
     else:
         name = choice(first_parts_female)[0]
         if len(name) > 4:
@@ -1555,7 +1555,7 @@ def generate_chinese_name(gender, first_parts_male, second_parts_male,
         else:
             threshold = 50
         if d100() <= threshold:
-            name += choice(second_parts_female)[0]
+            name += choice(second_parts_female)[0].lower()
     return name
 
 
