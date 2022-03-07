@@ -14,7 +14,7 @@ from .forms2 import NamegenForm, Constants
 
 import random
 
-version = '1.10.5'
+version = '1.10.6'
 
 CONSONANTS = 'бвгджзйклмнпрстфхшщчц'
 RIGHT_CONSONANTS = 'йнрс'
@@ -1144,13 +1144,13 @@ def resolve_randomness(gender, nobility):
 
 
 def correct_name_lazy(first, second):
-    if len(first) > 1 and first[-1:] == u'ь':
+    if len(first) > 1 and first[-1:].lower() == u'ь':
         first = first[:-1]
-    while len(first) > 1 and first[-1:] in VOWELS:
+    while len(first) > 1 and first[-1:].lower() in VOWELS:
         first = first[:-1]
-    if second != u'' and first[-1:] == second[0] and first[-1:] in VOWELS:
+    if second != u'' and first[-1:].lower() == second[0]:
         second = second[1:]
-    if second != u'' and second[0] in CONSONANTS and first[-1:] in CONSONANTS:
+    if second != u'' and second[0] in CONSONANTS and first[-1:].lower() in CONSONANTS:
         dice = d100()
         if dice <= 25:
             first += u'и'
