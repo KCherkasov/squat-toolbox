@@ -14,7 +14,7 @@ from .forms2 import NamegenForm, Constants
 
 import random
 
-version = '1.10.1'
+version = '1.10.2'
 
 CONSONANTS = 'бвгджзйклмнпрстфхшщчц'
 RIGHT_CONSONANTS = 'йнрс'
@@ -149,7 +149,7 @@ ARTISAN = u'Артизан'
 
 LANGS = NamegenForm.LANGS
 LANG_IDS = [Constants.SCAND, Constants.LATIN, Constants.SPAIN, Constants.ITALY, Constants.POLAND, Constants.JAPAN,
-            Constants.ROMANIA, Constants.HUNGARY]
+            Constants.ROMANIA, Constants.HUNGARY, Constants.CHINA]
 
 
 def main(request):
