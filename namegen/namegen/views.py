@@ -1064,6 +1064,8 @@ def resolve_randomness(gender, nobility):
 def correct_cognomen(first, second):
     if len(first) > 1 and first[-1:] == u'ь':
         first = first[:-1]
+    while len(first) > 1 and first[-1:] in VOWELS:
+        first = first[:-1]
     if second != u'' and first[-1:] == second[0] and first[-1:] in VOWELS:
         second = second[1:]
     if second != u'' and second[0] in CONSONANTS and first[-1:] in CONSONANTS:
@@ -1076,8 +1078,7 @@ def correct_cognomen(first, second):
             first += u'а'
         else:
             first += u'у'
-    while len(first) > 1 and first[-1:] in VOWELS:
-        first = first[:-1]
+    return first + second
 
 
 def generate_cognomen(gender, first_parts, male, female):
