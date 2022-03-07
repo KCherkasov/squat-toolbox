@@ -836,7 +836,7 @@ def generate_name_rand(gender, nobility,
                                             first_parts_female.get(lang), second_parts_female.get(lang),
                                             surname_romanian_firsts, surname_romanian_seconds)
     elif lang == Constants.CHINA:
-        surname = generate_chinese_surname(gender, nobility,
+        surname = generate_chinese_surname(nobility,
                                            first_parts_male.get(lang), second_parts_male.get(lang),
                                            first_parts_female.get(lang), second_parts_female.get(lang),
                                            surname_chinese_firsts, surname_chinese_seconds)
