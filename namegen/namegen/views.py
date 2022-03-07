@@ -14,7 +14,7 @@ from .forms2 import NamegenForm, Constants
 
 import random
 
-version = '1.10.2'
+version = '1.10.3'
 
 CONSONANTS = 'бвгджзйклмнпрстфхшщчц'
 RIGHT_CONSONANTS = 'йнрс'
@@ -120,6 +120,7 @@ ROMANIAN_CONNECTORS = {u'сн': u'а',      u'лн': u'иёае',  u'ра': u'и
                        u'пм': u'аеэ',    u'гф': u'иеоу',  u'фг': u'иеа',   u'жк': u'еиэ',  u'кж': u'ие',
                        u'жф': u'ие',     u'фж': u'иеуо',  u'гп': u'ие',    u'бч': u'еи',   u'йб': u'оуаэ',
                        u'нч': u'эие',    u'рп': u'иэе',   u'лс': u'оиуэе', u'вф': u'иеэ',  u'фв': u'иеэ',
+                       u'фн': u'эаиео',  u'хз': u'иеэ',   u'кз': u'иэе',
                        }
 
 
