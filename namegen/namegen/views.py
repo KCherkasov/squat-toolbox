@@ -803,7 +803,7 @@ def generate_name_rand(gender, nobility,
                                             first_parts_female.get(lang), second_parts_female.get(lang)) + ' '
         elif lang == Constants.CHINA:
             name += generate_chinese_name(gender, first_parts_male.get(lang), second_parts_male.get(lang),
-                                          first_parts_female.get(lang), second_parts_female.get(lang))
+                                          first_parts_female.get(lang), second_parts_female.get(lang)) + ' '
         else:
             name += generate_name(male, female, gender,
                                   first_parts_male.get(lang), second_parts_male.get(lang),
