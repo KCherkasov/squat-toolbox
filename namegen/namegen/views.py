@@ -289,6 +289,7 @@ def index(request):
                  surname_polish_firsts, surname_polish_seconds,
                  surname_polish_ends_male, surname_polish_ends_female,
                  surname_japanese_firsts, surname_japanese_seconds,
+                 surname_romanian_firsts, surname_romanian_seconds,
                  surname_chinese_firsts, surname_chinese_seconds] = prepare_data_rand_namegen()
 
                 [ranks_simple, ranks_noble_magi, ranks_noble_genetor,
