@@ -9,12 +9,13 @@ from .models import MaleScand, FemaleScand, MaleLatin, FemaleLatin, CognomenLati
     MalePolish, FemalePolish, SurnamesPolish, SurnamesPolishEnd,\
     MaleJapanese, FemaleJapanese, SurnamesJapanese, TechDesignations,\
     MechanicusRanksNCults, MaleRomanian, FemaleRomanian, MaleHungarian, FemaleHungarian,\
-    SurnamesRomanian, MaleChinese, FemaleChinese, SurnamesChinese
+    SurnamesRomanian, MaleChinese, FemaleChinese, SurnamesChinese,\
+    MaleGerman, FemaleGerman, SurnamesGerman
 from .forms2 import NamegenForm, Constants
 
 import random
 
-version = '1.10.7'
+version = '1.11.0'
 
 CONSONANTS = 'бвгджзйклмнпрстфхшщчц'
 RIGHT_CONSONANTS = 'йнрс'
@@ -122,6 +123,45 @@ ROMANIAN_CONNECTORS = {u'сн': u'а',      u'лн': u'иёае',  u'ра': u'и
                        u'нч': u'эие',    u'рп': u'иэе',   u'лс': u'оиуэе', u'вф': u'иеэ',  u'фв': u'иеэ',
                        u'фн': u'эаиео',  u'хз': u'иеэ',   u'кз': u'иэе',
                        }
+
+
+GERMAN_CONNECTORS = {u'дл': u'оаеиу', u'гн': u'ие',   u'лн': u'иоеа', u'лх': u'',    u'мл': u'аеи',
+                     u'лк': u'и',     u'нл': u'уоае', u'нм': u'ае',   u'сл': u'иое', u'тл': u'аиео',
+                     u'бл': u'аи',    u'бр': u'ае',   u'нд': u'ие',   u'жт': u'и',   u'нх': u'ие',
+                     u'нг': u'ие',    u'рн': u'еи',   u'бк': u'ие',   u'гб': u'е',   u'лд': u'ие',
+                     u'нв': u'о',     u'тт': u'',     u'сф': u'еи',   u'зф': u'еи',  u'рк': u'и',
+                     u'вн': u'о',     u'вт': u'е',    u'зл': u'оае',  u'лс': u'ие',  u'мк': u'ие',
+                     u'жб': u'е',     u'кл': u'ие',   u'лй': u'ае',   u'лт': u'оие', u'тр': u'аеио',
+                     u'тн': u'иеа',   u'рс': u'ие',   u'рм': u'иа',   u'дй': u'а',   u'дн': u'и',
+                     u'зн': u'е',     u'сн': u'е',    u'нб': u'ие',   u'сб': u'аеи', u'зб': u'аеи',
+                     u'гр': u'ае',    u'рй': u'е',    u'рл': u'ие',   u'св': u'ие',  u'хс': u'е',
+                     u'пр': u'е',     u'пн': u'ие',   u'пб': u'аи',   u'пв': u'ие',  u'пл': u'о',
+                     u'ня': u'иь',    u'мя': u'иь',   u'ля': u'ьи',   u'бя': u'ьи',  u'гя': u'ьи',
+                     u'вя': u'ьи',    u'дя': u'иь',   u'жя': u'иь',   u'зя': u'ьи',  u'ся': u'ьи',
+                     u'кя': u'ьи',    u'пя': u'ья',   u'ря': u'ья',   u'фя': u'ьи',  u'хя': u'ьи',
+                     u'шя': u'ьи',    u'чя': u'ьи',   u'мр': u'аие',  u'тя': u'ьи',  u'рз': u'е',
+                     u'лц': u'и',     u'бц': u'и',    u'вц': u'и',    u'гц': u'и',   u'дц': u'и',
+                     u'жц': u'ие',    u'зц': u'и',    u'кц': u'и',    u'мц': u'ие',  u'нц': u'и',
+                     u'пц': u'ие',    u'рц': u'ие',   u'сц': u'ие',   u'фц': u'ие',  u'хц': u'и',
+                     u'шц': u'и',     u'дг': u'ие',   u'лр': u'ая',   u'гс': u'уаи', u'лб': u'ь',
+                     u'лв': u'ь',     u'др': u'ае',   u'лл': u'оау',  u'дф': u'оау', u'гф': u'оау',
+                     u'лм': u'ь',     u'дм': u'е',    u'гм': u'е',    u'дс': u'и',   u'мс': u'и',
+                     u'гз': u'и',     u'лз': u'и',    u'мз': u'и',    u'вз': u'и',   u'дз': u'и',
+                     u'фс': u'еи',    u'фз': u'ие',   u'фр': u'иеа',  u'фм': u'иае', u'фв': u'еи',
+                     u'фл': u'уоаи',  u'фх': u'и',    u'ьл': u'уоаи', u'нк': u'ие',  u'дк': u'и',
+                     u'хл': u'оуаи',  u'тс': u'и',    u'тг': u'ие',   u'нф': u'и',   u'бс': u'а',
+                     u'цф': u'и',     u'цв': u'и',    u'цл': u'оуиа', u'лп': u'и',   u'рп': u'и',
+                     u'бп': u'и',     u'вп': u'и',    u'гп': u'и',    u'дп': u'и',   u'жп': u'и',
+                     u'зп': u'и',     u'мп': u'и',    u'ьп': u'и',    u'нп': u'и',   u'сп': u'и',
+                     u'тп': u'и',     u'фп': u'и',    u'хп': u'и',    u'шп': u'и',   u'чп': u'и',
+                     }
+
+
+GERMAN_BLANK_CONNECTORS = [u'мм', u'рм', u'нт', u'рт', u'лф', u'лл', u'нх', u'нг', u'рн', u'лв',
+                           u'лм', u'нр', u'лб', u'гл', u'см', u'зм', u'нн', u'гр', u'зб', u'сб',
+                           u'тр', u'мг', u'мх', u'рм', u'нз', u'нс', u'бр', u'лм', u'гб', u'гн',
+                           u'лх', u'лб', u'лв', u'др', u'гм', u'фх', u'фв', u'нк', u'нх', u'нг',
+                           u'н',  u'тг', u'св', u'', u'', u'', u'', u'', u'',]
 
 
 HUNGARIAN_CONNECTORS = {}
@@ -290,7 +330,8 @@ def index(request):
                  surname_polish_ends_male, surname_polish_ends_female,
                  surname_japanese_firsts, surname_japanese_seconds,
                  surname_romanian_firsts, surname_romanian_seconds,
-                 surname_chinese_firsts, surname_chinese_seconds] = prepare_data_rand_namegen()
+                 surname_chinese_firsts, surname_chinese_seconds,
+                 surname_german_firsts, surname_german_seconds] = prepare_data_rand_namegen()
 
                 [ranks_simple, ranks_noble_magi, ranks_noble_genetor,
                  ranks_noble_logi, ranks_noble_artisan, ranks_noble_myrmidon,
@@ -390,6 +431,26 @@ def index(request):
                                                    first_parts_male, second_parts_male,
                                                    first_parts_female, second_parts_female,
                                                    surname_firsts, surname_seconds)
+            elif lang == Constants.GERMANY:
+                first_parts_male = MaleGerman.objects.get_first_parts_list()
+                second_parts_male = MaleGerman.objects.get_second_parts_list()
+
+                first_parts_female = FemaleGerman.objects.get_first_parts_list()
+                second_parts_female = FemaleGerman.objects.get_second_parts_list()
+
+                surname_firsts = SurnamesGerman.objects.get_first_parts_list()
+                surname_seconds = SurnamesGerman.objects.get_second_parts_list()
+
+                if count == 1:
+                    names.append(generate_name_german(gender, nobility,
+                                                      first_parts_male, second_parts_male,
+                                                      first_parts_female, second_parts_female,
+                                                      surname_firsts, surname_seconds))
+                else:
+                    names = generate_names_german(gender, nobility, count,
+                                                  first_parts_male, second_parts_male,
+                                                  first_parts_female, second_parts_female,
+                                                  surname_firsts, surname_seconds)
             elif lang == Constants.RANDOM:
                 [first_parts_male, second_parts_male, first_parts_female, second_parts_female,
                  cognomen_firsts, cognomen_seconds_male, cognomen_seconds_female,
@@ -398,7 +459,8 @@ def index(request):
                  surname_polish_ends_male, surname_polish_ends_female,
                  surname_japanese_firsts, surname_japanese_seconds,
                  surname_romanian_firsts, surname_romanian_seconds,
-                 surname_chinese_firsts, surname_chinese_seconds] = prepare_data_rand_namegen()
+                 surname_chinese_firsts, surname_chinese_seconds,
+                 surname_german_firsts, surname_german_seconds] = prepare_data_rand_namegen()
                 if count == 1:
                     names.append(generate_name_rand(gender, nobility,
                                                     first_parts_male, second_parts_male,
@@ -409,7 +471,8 @@ def index(request):
                                                     surname_polish_ends_male, surname_polish_ends_female,
                                                     surname_japanese_firsts, surname_japanese_seconds,
                                                     surname_romanian_firsts, surname_romanian_seconds,
-                                                    surname_chinese_firsts, surname_chinese_seconds))
+                                                    surname_chinese_firsts, surname_chinese_seconds,
+                                                    surname_german_firsts, surname_german_seconds))
                 else:
                     names = generate_names_rand(gender, nobility, count,
                                                 first_parts_male, second_parts_male,
@@ -420,7 +483,8 @@ def index(request):
                                                 surname_polish_ends_male, surname_polish_ends_female,
                                                 surname_japanese_firsts, surname_japanese_seconds,
                                                 surname_romanian_firsts, surname_romanian_seconds,
-                                                surname_chinese_firsts, surname_chinese_seconds)
+                                                surname_chinese_firsts, surname_chinese_seconds,
+                                                surname_german_firsts, surname_german_seconds)
 
             return render(request, 'index.html', {'form': form, 'names': names, 'version': version, })
     else:
@@ -704,6 +768,37 @@ def generate_names_chinese(gender, nobility, count,
     return names
 
 
+def generate_name_german(gender, nobility,
+                         first_parts_male, second_parts_male,
+                         first_parts_female, second_parts_female,
+                         surname_firsts, surname_seconds):
+    [nobility, gender, gender_tail, noble_tail] = resolve_randomness(gender, nobility)
+    name = generate_german_name(gender, first_parts_male, second_parts_male,
+                                first_parts_female, second_parts_female) + ' '
+    if nobility == Constants.NOBLE and d100() <= 50:
+        if d100() <= 50:
+            name += generate_german_name(Constants.MALE, first_parts_male, second_parts_male,
+                                         first_parts_female, second_parts_female) + ' '
+        else:
+            name += generate_german_name(Constants.FEMALE, first_parts_male, second_parts_male,
+                                         first_parts_female, second_parts_female) + ' '
+    surname = generate_german_surname(nobility, surname_firsts, surname_seconds) + ' '
+    return name + surname + gender_tail + noble_tail
+
+
+def generate_names_german(gender, nobility, count,
+                          first_parts_male, second_parts_male,
+                          first_parts_female, second_parts_female,
+                          surname_firsts, surname_seconds):
+    names = list()
+    for i in range(count):
+        names.append(generate_name_german(gender, nobility,
+                                          first_parts_male, second_parts_male,
+                                          first_parts_female, second_parts_female,
+                                          surname_firsts, surname_seconds))
+    return names
+
+
 def prepare_data_rand_namegen():
     first_parts_male = dict()
     first_parts_male[Constants.SCAND] = MaleScand.objects.get_first_parts_list()
@@ -715,6 +810,7 @@ def prepare_data_rand_namegen():
     first_parts_male[Constants.ROMANIA] = MaleRomanian.objects.get_first_parts_list()
     first_parts_male[Constants.HUNGARY] = MaleHungarian.objects.get_first_parts_list()
     first_parts_male[Constants.CHINA] = MaleChinese.objects.get_first_parts_list()
+    first_parts_male[Constants.GERMANY] = MaleGerman.objects.get_first_parts_list()
 
     second_parts_male = dict()
     second_parts_male[Constants.SCAND] = MaleScand.objects.get_second_parts_list()
@@ -726,6 +822,7 @@ def prepare_data_rand_namegen():
     second_parts_male[Constants.ROMANIA] = MaleRomanian.objects.get_second_parts_list()
     second_parts_male[Constants.HUNGARY] = MaleHungarian.objects.get_second_parts_list()
     second_parts_male[Constants.CHINA] = MaleChinese.objects.get_second_parts_list()
+    second_parts_male[Constants.GERMANY] = MaleGerman.objects.get_second_parts_list()
 
     first_parts_female = dict()
     first_parts_female[Constants.SCAND] = FemaleScand.objects.get_first_parts_list()
@@ -737,6 +834,7 @@ def prepare_data_rand_namegen():
     first_parts_female[Constants.ROMANIA] = FemaleRomanian.objects.get_first_parts_list()
     first_parts_female[Constants.HUNGARY] = FemaleHungarian.objects.get_first_parts_list()
     first_parts_female[Constants.CHINA] = FemaleChinese.objects.get_first_parts_list()
+    first_parts_female[Constants.GERMANY] = FemaleGerman.objects.get_first_parts_list()
 
     second_parts_female = dict()
     second_parts_female[Constants.SCAND] = FemaleScand.objects.get_second_parts_list()
@@ -748,6 +846,7 @@ def prepare_data_rand_namegen():
     second_parts_female[Constants.ROMANIA] = FemaleRomanian.objects.get_second_parts_list()
     second_parts_female[Constants.HUNGARY] = FemaleHungarian.objects.get_second_parts_list()
     second_parts_female[Constants.CHINA] = FemaleChinese.objects.get_second_parts_list()
+    second_parts_female[Constants.GERMANY] = FemaleGerman.objects.get_second_parts_list()
 
     cognomen_firsts = CognomenLatin.objects.get_first_parts_list()
     cognomen_seconds_male = CognomenLatin.objects.get_second_parts_male_list()
@@ -771,6 +870,9 @@ def prepare_data_rand_namegen():
     surname_chinese_firsts = SurnamesChinese.objects.get_first_parts_list()
     surname_chinese_seconds = SurnamesChinese.objects.get_second_parts_list()
 
+    surname_german_firsts = SurnamesGerman.objects.get_first_parts_list()
+    surname_german_seconds = SurnamesGerman.objects.get_second_parts_list()
+
     return [first_parts_male, second_parts_male, first_parts_female, second_parts_female,
             cognomen_firsts, cognomen_seconds_male, cognomen_seconds_female,
             surname_italian_firsts, surname_italian_seconds,
@@ -778,7 +880,8 @@ def prepare_data_rand_namegen():
             surname_polish_ends_male, surname_polish_ends_female,
             surname_japanese_firsts, surname_japanese_seconds,
             surname_romanian_firsts, surname_romanian_seconds,
-            surname_chinese_firsts, surname_chinese_seconds]
+            surname_chinese_firsts, surname_chinese_seconds,
+            surname_german_firsts, surname_german_seconds]
 
 
 def generate_name_rand(gender, nobility,
@@ -790,7 +893,8 @@ def generate_name_rand(gender, nobility,
                        surname_polish_ends_male, surname_polish_ends_female,
                        surname_japanese_firsts, surname_japanese_seconds,
                        surname_romanian_firsts, surname_romanian_seconds,
-                       surname_chinese_firsts, surname_chinese_seconds):
+                       surname_chinese_firsts, surname_chinese_seconds,
+                       surname_german_firsts, surname_german_seconds):
     [nobility, gender, gender_tail, noble_tail] = resolve_randomness(gender, nobility)
     name = ''
     names_count = choice([1, 2, 3, 4])
@@ -815,6 +919,9 @@ def generate_name_rand(gender, nobility,
         elif lang == Constants.CHINA:
             name += generate_chinese_name(gender, first_parts_male.get(lang), second_parts_male.get(lang),
                                           first_parts_female.get(lang), second_parts_female.get(lang)) + ' '
+        elif lang == Constants.GERMANY:
+            name += generate_german_name(gender, first_parts_male.get(lang), second_parts_male.get(lang),
+                                         first_parts_female.get(lang), second_parts_female.get(lang))
         else:
             name += generate_name(male, female, gender,
                                   first_parts_male.get(lang), second_parts_male.get(lang),
@@ -851,6 +958,8 @@ def generate_name_rand(gender, nobility,
                                            first_parts_male.get(lang), second_parts_male.get(lang),
                                            first_parts_female.get(lang), second_parts_female.get(lang),
                                            surname_chinese_firsts, surname_chinese_seconds)
+    elif lang == Constants.GERMANY:
+        surname = generate_german_surname(nobility, surname_german_firsts, surname_german_seconds)
     surname += ' '
     return name + surname + gender_tail + noble_tail
 
@@ -885,6 +994,9 @@ def determine_lang(lang):
     elif lang == Constants.CHINA:
         male = MaleChinese
         female = FemaleChinese
+    elif lang == Constants.GERMANY:
+        male = MaleGerman
+        female = FemaleGerman
     return [male, female]
 
 
@@ -897,7 +1009,8 @@ def generate_names_rand(gender, nobility, count,
                         surname_polish_ends_male, surname_polish_ends_female,
                         surname_japanese_firsts, surname_japanese_seconds,
                         surname_romanian_firsts, surname_romanian_seconds,
-                        surname_chinese_firsts, surname_chinese_seconds):
+                        surname_chinese_firsts, surname_chinese_seconds,
+                        surname_german_firsts, surname_german_seconds):
     names = list()
     for i in range(count):
         names.append(generate_name_rand(gender, nobility,
@@ -909,7 +1022,8 @@ def generate_names_rand(gender, nobility, count,
                                         surname_polish_ends_male, surname_polish_ends_female,
                                         surname_japanese_firsts, surname_japanese_seconds,
                                         surname_romanian_firsts, surname_romanian_seconds,
-                                        surname_chinese_firsts, surname_chinese_seconds))
+                                        surname_chinese_firsts, surname_chinese_seconds,
+                                        surname_german_firsts, surname_german_seconds))
     return names
 
 
@@ -1049,6 +1163,9 @@ def generate_name_techno(gender, nobility, letters, text_numbers,
             elif lang == Constants.CHINA:
                 name += generate_chinese_name(gender, first_parts_male.get(lang), second_parts_male.get(lang),
                                               first_parts_female.get(lang), second_parts_female.get(lang))
+            elif lang == Constants.GERMANY:
+                name += generate_german_name(gender, first_parts_male.get(lang), second_parts_male.get(lang),
+                                             first_parts_female.get(lang), second_parts_female.get(lang))
             else:
                 name += generate_name(male, female, gender,
                                       first_parts_male.get(lang), second_parts_male.get(lang),
@@ -1584,6 +1701,32 @@ def generate_chinese_name(gender, first_parts_male, second_parts_male,
         if d100() <= threshold:
             name += choice(second_parts_female)[0].lower()
     return name
+
+
+def generate_german_name(gender, first_parts_male, second_parts_male,
+                         first_parts_female, second_parts_female):
+    first = u''
+    second = u''
+    while first == second:
+        if gender == Constants.MALE:
+            first = choice(first_parts_male)[0]
+            second = choice(second_parts_male)[0]
+        else:
+            first = choice(first_parts_female)[0]
+            second = choice(second_parts_female)[0]
+    return correct_name(first, second, GERMAN_CONNECTORS, GERMAN_BLANK_CONNECTORS)
+
+
+def generate_german_surname(nobility, first_parts, second_parts):
+    first = u''
+    second = u''
+    while first.lower() == second:
+        first = choice(first_parts)[0]
+        second = choice(second_parts)[0]
+    surname = correct_name(first, second, GERMAN_CONNECTORS, GERMAN_BLANK_CONNECTORS)
+    if nobility == Constants.NOBLE:
+        surname = 'фон ' + surname
+    return surname
 
 
 def generate_chinese_surname(nobility, first_parts_male, second_parts_male,
