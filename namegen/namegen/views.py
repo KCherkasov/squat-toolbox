@@ -1518,11 +1518,11 @@ def correct_name(first, second, connectors, blank_connectors, surname=False):
         if not surname:
             if pair in blank_connectors:
                 if d100() <= 50:
-                    if pair in connectors.keys():
+                    if pair in connectors.keys() and connectors.get(pair.lower()) != u'':
                         first += choice(connectors.get(pair.lower()))
-            elif pair in connectors.keys():
+            elif pair in connectors.keys() and connectors.get(pair.lower()) != u'':
                 first += choice(connectors.get(pair.lower()))
-        elif pair in connectors.keys():
+        elif pair in connectors.keys() and connectors.get(pair.lower()) != u'':
             first += choice(connectors.get(pair.lower()))
     return first + second
 
