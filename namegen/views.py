@@ -490,11 +490,11 @@ def index(request):
                                                 surname_chinese_firsts, surname_chinese_seconds,
                                                 surname_german_firsts, surname_german_seconds)
 
-            return render(request, 'index.html', {'form': form, 'names': names, 'version': version, })
+            return render(request, 'namegen.html', {'form': form, 'names': names, 'version': version, })
     else:
         form = NamegenForm()
 
-        return render(request, 'index.html', {'form': form, 'version': version, })
+        return render(request, 'namegen.html', {'form': form, 'version': version, })
 
 
 def d100():

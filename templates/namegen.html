@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Имягенератор &nbsp; ver.{{ version }} {% endblock %}
+
+{% block app_content %}
+        {% for err in form.non_field_errors %}
+        <div class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign"></span>
+            {{ err }}
+        </div>
+        {% endfor %}
+
+        <div class="custom-form">
+            <form class="form-horizontal" method="post" action="">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group">
+                    <label for={{ field.name }} class="col-sm2 control-label"><h4>{{ field.label }}</h4></label>
+                    <div class="col-sm5 form-control">
+                        {{ field }}
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="form-group">
+                    <div class="coll-sm-offset-2 col-sm2">
+                        <button type="submit" class="btn btn-primary">Сгенерировать</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        {% if names %}
+        <div>
+            <h3> Имена </h3>
+        </div>
+        <span class="divider" role="separator"></span>
+        <div class="names-list">
+            <ul>
+            {% for name in names %}
+                <li class="list-item">{{ name }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+{% endblock %}
