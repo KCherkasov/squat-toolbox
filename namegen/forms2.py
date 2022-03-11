@@ -26,10 +26,12 @@ class Constants:
 
 
 class NamegenForm(forms.Form):
-    LANGS = ([Constants.SCAND, u'Скандинавия'], [Constants.LATIN, u'Латынь'], [Constants.SPAIN, u'Испания'],
-             [Constants.ITALY, u'Италия'], [Constants.POLAND, u'Польша'], [Constants.JAPAN, u'Япония'],
-             [Constants.ROMANIA, u'Румыния'], [Constants.HUNGARY, u'Венгрия'], [Constants.CHINA, u'Китай'],
-             [Constants.GERMANY, u'Германия'], [Constants.TECH, u'Техно'], [Constants.RANDOM, u'Микс'],)
+    LANGS = ([Constants.SCAND, u'Готик Аурорика'], [Constants.LATIN, u'Высокий готик'],
+             [Constants.SPAIN, u'Готик Иберика'], [Constants.ITALY, u'Готик Аппенин'],
+             [Constants.POLAND, u'Готик Полоника'], [Constants.JAPAN, u'Готик Ниппон'],
+             [Constants.ROMANIA, u'Готик Сильваника'], [Constants.HUNGARY, u'Готик Магьярика'],
+             [Constants.CHINA, u'Готик Церес'], [Constants.GERMANY, u'Готик Тевтоника'],
+             [Constants.TECH, u'Лингва бинарика'], [Constants.RANDOM, u'Nomen mixta'],)
 
     GENDERS = ([Constants.MALE, u'Мужской'], [Constants.FEMALE, u'Женский'], [Constants.RANDOM, u'Случайно'],)
 
