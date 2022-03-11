@@ -114,8 +114,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),
-                    '/var/www/u1619712/data/www/squat-toolbox.ru/namegen-app/namegen/static', )
+STATICFILES_DIRS = ('/var/www/u1619712/data/www/squat-toolbox.ru/namegen-app/namegen/static', )
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
