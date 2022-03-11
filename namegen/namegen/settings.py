@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-k=60-8mwe(vm62aznzq7hc&duz6sa!z#&(!)z7g=v4t6p=ojoj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'kvcherk.pythonanywhere.com', ]
+ALLOWED_HOSTS = ['127.0.0.1', 'kvcherk.pythonanywhere.com', '*']
 
 # Application definition
 
@@ -113,7 +113,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/kvcherk/namegen-app/namegen/static'
+STATIC_ROOT = 'static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),
                     '/var/www/u1619712/data/www/squat-toolbox.ru/namegen-app/namegen/static', )
 
