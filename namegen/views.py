@@ -2,13 +2,12 @@
 
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, reverse
+from rest_framework import status
 from rest_framework.decorators import api_view, parser_classes
 from rest_framework.parsers import JSONParser
 from rest_framework.response import Response
-from rest_framework import status
 
 from .methods import *
-from .serializers import *
 
 version = '1.12.0'
 
@@ -160,7 +159,7 @@ GERMAN_BLANK_CONNECTORS = [u'мм', u'рм', u'нт', u'рт', u'лф', u'лл',
                            u'лм', u'нр', u'лб', u'гл', u'см', u'зм', u'нн', u'гр', u'зб', u'сб',
                            u'тр', u'мг', u'мх', u'рм', u'нз', u'нс', u'бр', u'лм', u'гб', u'гн',
                            u'лх', u'лб', u'лв', u'др', u'гм', u'фх', u'фв', u'нк', u'нх', u'нг',
-                           u'н',  u'тг', u'св', u'', u'', u'', u'', u'', u'',]
+                           u'н',  u'тг', u'св', u'', u'', u'', u'', u'', u'', ]
 
 
 HUNGARIAN_CONNECTORS = {}
@@ -519,7 +518,15 @@ def get_name(request, format=None):
     nobility = request.data.get('nobility', 'R')
     count = request.data.get('count', 1)
 
-    err = validate_data(lang, gender, nobility, count)
+    err = ''
+    if isinstance(count, str):
+        if count.isdigit():
+            count = int(count)
+        else:
+            err = 'names count must be an integer'
+    extra_errs = validate_data(lang, gender, nobility, count)
+    if err != '':
+        err += '; ' + extra_errs
     if err != '':
         return Response({'errors': err}, status=status.HTTP_400_BAD_REQUEST)
     names = list()
