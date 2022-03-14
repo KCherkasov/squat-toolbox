@@ -801,5 +801,5 @@ def get_name(request, format=None):
                                         surname_romanian_firsts, surname_romanian_seconds,
                                         surname_chinese_firsts, surname_chinese_seconds,
                                         surname_german_firsts, surname_german_seconds)
-    serializer = NARDSerializer(names, many=True)
+    serializer = NameSerializerSimple(names, many=True)
     return Response(serializer.data, status.HTTP_200_OK)
