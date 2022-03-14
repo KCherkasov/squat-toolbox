@@ -24,4 +24,6 @@ urlpatterns = [
     path(r'', views.main, name='main'),
     path(r'admin/', admin.site.urls),
     path(r'namegen/', views.index, name='index'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('api/namegen/get', views.get_name),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)\
+              + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
