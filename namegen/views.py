@@ -527,6 +527,8 @@ def get_name(request, format=None):
     extra_errs = validate_data(lang, gender, nobility, count)
     if err != '':
         err += '; ' + extra_errs
+    else:
+        err = extra_errs
     if err != '':
         return Response({'errors': err}, status=status.HTTP_400_BAD_REQUEST)
     names = list()
