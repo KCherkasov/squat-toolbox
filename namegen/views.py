@@ -806,3 +806,9 @@ def get_name(request, format=None):
     # return Response(serializer.data, status.HTTP_200_OK)
     json = {'names': names}
     return Response(json, status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+def get_namegen_version(request, format=None):
+    json = {'version': version}
+    return Response(json, status.HTTP_200_OK)

@@ -25,7 +25,9 @@ urlpatterns = [
     path(r'', views.main, name='main'),
     path(r'admin/', admin.site.urls),
     path(r'namegen/', views.index, name='index'),
+
     path('api/namegen/get', views.get_name),
+    path('api/namegen/ver', views.get_namegen_version),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)\
               + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns = format_suffix_patterns(urlpatterns)
