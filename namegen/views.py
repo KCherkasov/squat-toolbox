@@ -524,6 +524,7 @@ def get_name(request, format=None):
             count = int(count)
         else:
             err = 'names count must be an integer'
+            count = 1
     extra_errs = validate_data(lang, gender, nobility, count)
     if err != '':
         err += '; ' + extra_errs
