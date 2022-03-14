@@ -511,7 +511,7 @@ def validate_data(lang, gender, nobility, count):
     return error
 
 
-@api_view(['GET', ])
+@api_view(['GET', 'POST',])
 @parser_classes([JSONParser])
 def get_name(request, format=None):
     lang = request.data.get('lang', 'R')
