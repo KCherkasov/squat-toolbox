@@ -10,7 +10,7 @@ from rest_framework import status
 from .methods import *
 from .serializers import *
 
-version = '1.11.3'
+version = '1.12.0'
 
 CONSONANTS = 'бвгджзйклмнпрстфхшщчц'
 RIGHT_CONSONANTS = 'йнрс'
@@ -810,5 +810,5 @@ def get_name(request, format=None):
 
 @api_view(['GET'])
 def get_namegen_version(request, format=None):
-    json = {'version': version}
+    json = {'app': 'namegen', 'version': version}
     return Response(json, status.HTTP_200_OK)
