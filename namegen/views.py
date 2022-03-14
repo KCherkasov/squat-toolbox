@@ -511,7 +511,7 @@ def validate_data(lang, gender, nobility, count):
     return error
 
 
-@api_view(['GET', 'POST',])
+@api_view(['GET', 'POST'])
 @parser_classes([JSONParser])
 def get_name(request, format=None):
     lang = request.data.get('lang', 'R')
@@ -531,13 +531,11 @@ def get_name(request, format=None):
         second_parts_female = FemaleScand.objects.get_second_parts_list()
 
         if count == 1:
-            names.append(SimpleName(generate_name_scand(gender, nobility, first_parts_male, second_parts_male,
-                                                        first_parts_female, second_parts_female)))
+            names.append(generate_name_scand(gender, nobility, first_parts_male, second_parts_male,
+                                             first_parts_female, second_parts_female))
         else:
-            str_names = generate_names_scand(gender, nobility, first_parts_male, second_parts_male,
-                                             first_parts_female, second_parts_female, count)
-            for name in str_names:
-                names.append(SimpleName(name))
+            names = generate_names_scand(gender, nobility, first_parts_male, second_parts_male,
+                                         first_parts_female, second_parts_female, count)
     elif lang == Constants.LATIN:
         first_parts_male = MaleLatin.objects.get_first_parts_list()
         second_parts_male = MaleLatin.objects.get_second_parts_list()
@@ -550,19 +548,17 @@ def get_name(request, format=None):
         cognomen_second_parts_female = CognomenLatin.objects.get_second_parts_female_list()
 
         if count == 1:
-            names.append(SimpleName(generate_name_latin(gender, nobility,
-                                                        first_parts_male, second_parts_male,
-                                                        first_parts_female, second_parts_female,
-                                                        cognomen_first_parts, cognomen_second_parts_male,
-                                                        cognomen_second_parts_female)))
-        else:
-            str_names = generate_names_latin(gender, nobility, count,
+            names.append(generate_name_latin(gender, nobility,
                                              first_parts_male, second_parts_male,
                                              first_parts_female, second_parts_female,
                                              cognomen_first_parts, cognomen_second_parts_male,
-                                             cognomen_second_parts_female)
-            for name in str_names:
-                names.append(SimpleName(name))
+                                             cognomen_second_parts_female))
+        else:
+            names = generate_names_latin(gender, nobility, count,
+                                         first_parts_male, second_parts_male,
+                                         first_parts_female, second_parts_female,
+                                         cognomen_first_parts, cognomen_second_parts_male,
+                                         cognomen_second_parts_female)
     elif lang == Constants.SPAIN:
         first_parts_male = MaleSpanish.objects.get_first_parts_list()
         second_parts_male = MaleSpanish.objects.get_second_parts_list()
@@ -571,15 +567,13 @@ def get_name(request, format=None):
         second_parts_female = FemaleSpanish.objects.get_second_parts_list()
 
         if count == 1:
-            names.append(SimpleName(generate_name_spanish(gender, nobility,
-                                                          first_parts_male, second_parts_male,
-                                                          first_parts_female, second_parts_female)))
-        else:
-            str_names = generate_names_spanish(gender, nobility, count,
+            names.append(generate_name_spanish(gender, nobility,
                                                first_parts_male, second_parts_male,
-                                               first_parts_female, second_parts_female)
-            for name in str_names:
-                names.append(SimpleName(name))
+                                               first_parts_female, second_parts_female))
+        else:
+            names = generate_names_spanish(gender, nobility, count,
+                                           first_parts_male, second_parts_male,
+                                           first_parts_female, second_parts_female)
     elif lang == Constants.ITALY:
         first_parts_male = MaleItalian.objects.get_first_parts_list()
         second_parts_male = MaleItalian.objects.get_second_parts_list()
@@ -591,17 +585,15 @@ def get_name(request, format=None):
         surnames_second_part = SurnamesItalian.objects.get_second_parts_list()
 
         if count == 1:
-            names.append(SimpleName(generate_name_italian(gender, nobility,
-                                                          first_parts_male, second_parts_male,
-                                                          first_parts_female, second_parts_female,
-                                                          surnames_first_part, surnames_second_part)))
-        else:
-            str_names = generate_names_italian(gender, nobility, count,
+            names.append(generate_name_italian(gender, nobility,
                                                first_parts_male, second_parts_male,
                                                first_parts_female, second_parts_female,
-                                               surnames_first_part, surnames_second_part)
-            for name in str_names:
-                names.append(SimpleName(name))
+                                               surnames_first_part, surnames_second_part))
+        else:
+            names = generate_names_italian(gender, nobility, count,
+                                           first_parts_male, second_parts_male,
+                                           first_parts_female, second_parts_female,
+                                           surnames_first_part, surnames_second_part)
     elif lang == Constants.POLAND:
         first_parts_male = MalePolish.objects.get_first_parts_list()
         second_parts_male = MalePolish.objects.get_second_parts_list()
@@ -615,19 +607,18 @@ def get_name(request, format=None):
         surname_ends_male = SurnamesPolishEnd.objects.get_male_endings()
         surname_ends_female = SurnamesPolishEnd.objects.get_female_endings()
         if count == 1:
-            names.append(SimpleName(generate_name_polish(gender, nobility,
-                                                         first_parts_male, second_parts_male,
-                                                         first_parts_female, second_parts_female,
-                                                         surname_firsts, surname_seconds,
-                                                         surname_ends_male, surname_ends_female)))
-        else:
-            str_names = generate_names_polish(gender, nobility, count,
+            names.append(generate_name_polish(gender, nobility,
                                               first_parts_male, second_parts_male,
                                               first_parts_female, second_parts_female,
                                               surname_firsts, surname_seconds,
-                                              surname_ends_male, surname_ends_female)
-            for name in str_names:
-                names.append(SimpleName(name))
+                                              surname_ends_male, surname_ends_female))
+        else:
+            names = generate_names_polish(gender, nobility, count,
+                                          first_parts_male, second_parts_male,
+                                          first_parts_female, second_parts_female,
+                                          surname_firsts, surname_seconds,
+                                          surname_ends_male, surname_ends_female)
+
     elif lang == Constants.JAPAN:
         first_parts_male = MaleJapanese.objects.get_first_parts_list()
         second_parts_male = MaleJapanese.objects.get_second_parts_list()
@@ -639,17 +630,15 @@ def get_name(request, format=None):
         surname_seconds = SurnamesJapanese.objects.get_second_parts_list()
 
         if count == 1:
-            names.append(SimpleName(generate_name_japanese(gender, nobility,
-                                                           first_parts_male, second_parts_male,
-                                                           first_parts_female, second_parts_female,
-                                                           surname_firsts, surname_seconds)))
-        else:
-            str_names = generate_names_japanese(gender, nobility, count,
+            names.append(generate_name_japanese(gender, nobility,
                                                 first_parts_male, second_parts_male,
                                                 first_parts_female, second_parts_female,
-                                                surname_firsts, surname_seconds)
-            for name in str_names:
-                names.append(SimpleName(name))
+                                                surname_firsts, surname_seconds))
+        else:
+            names = generate_names_japanese(gender, nobility, count,
+                                            first_parts_male, second_parts_male,
+                                            first_parts_female, second_parts_female,
+                                            surname_firsts, surname_seconds)
     elif lang == Constants.TECH:
         [first_parts_male, second_parts_male, first_parts_female, second_parts_female,
          cognomen_firsts, cognomen_seconds_male, cognomen_seconds_female,
@@ -666,18 +655,7 @@ def get_name(request, format=None):
          cults, letters, text_numbers] = prepare_lists_techno()
 
         if count == 1:
-            names.append(SimpleName(generate_name_techno(gender, nobility, letters, text_numbers, cults,
-                                                         ranks_simple, ranks_noble_magi, ranks_noble_genetor,
-                                                         ranks_noble_logi, ranks_noble_artisan, ranks_noble_myrmidon,
-                                                         first_parts_male, second_parts_male, first_parts_female,
-                                                         second_parts_female, cognomen_firsts, cognomen_seconds_male,
-                                                         cognomen_seconds_female, surname_italian_firsts,
-                                                         surname_italian_seconds, surname_polish_firsts,
-                                                         surname_polish_seconds, surname_polish_ends_male,
-                                                         surname_polish_ends_female, surname_japanese_firsts,
-                                                         surname_japanese_seconds)))
-        else:
-            str_names = generate_names_techno(gender, nobility, count, letters, text_numbers, cults,
+            names.append(generate_name_techno(gender, nobility, letters, text_numbers, cults,
                                               ranks_simple, ranks_noble_magi, ranks_noble_genetor,
                                               ranks_noble_logi, ranks_noble_artisan, ranks_noble_myrmidon,
                                               first_parts_male, second_parts_male, first_parts_female,
@@ -686,9 +664,18 @@ def get_name(request, format=None):
                                               surname_italian_seconds, surname_polish_firsts,
                                               surname_polish_seconds, surname_polish_ends_male,
                                               surname_polish_ends_female, surname_japanese_firsts,
-                                              surname_japanese_seconds)
-            for name in str_names:
-                names.append(SimpleName(name))
+                                              surname_japanese_seconds))
+        else:
+            names = generate_names_techno(gender, nobility, count, letters, text_numbers, cults,
+                                          ranks_simple, ranks_noble_magi, ranks_noble_genetor,
+                                          ranks_noble_logi, ranks_noble_artisan, ranks_noble_myrmidon,
+                                          first_parts_male, second_parts_male, first_parts_female,
+                                          second_parts_female, cognomen_firsts, cognomen_seconds_male,
+                                          cognomen_seconds_female, surname_italian_firsts,
+                                          surname_italian_seconds, surname_polish_firsts,
+                                          surname_polish_seconds, surname_polish_ends_male,
+                                          surname_polish_ends_female, surname_japanese_firsts,
+                                          surname_japanese_seconds)
     elif lang == Constants.ROMANIA:
         first_parts_male = MaleRomanian.objects.get_first_parts_list()
         second_parts_male = MaleRomanian.objects.get_second_parts_list()
@@ -704,19 +691,17 @@ def get_name(request, format=None):
         cognomen_seconds_female = CognomenLatin.objects.get_second_parts_male_list()
 
         if count == 1:
-            names.append(SimpleName(generate_name_romanian(gender, nobility,
-                                                           first_parts_male, second_parts_male,
-                                                           first_parts_female, second_parts_female,
-                                                           surname_firsts, surname_seconds, cognomen_firsts,
-                                                           cognomen_seconds_male, cognomen_seconds_female)))
-        else:
-            str_names = generate_names_romanian(gender, nobility, count,
+            names.append(generate_name_romanian(gender, nobility,
                                                 first_parts_male, second_parts_male,
                                                 first_parts_female, second_parts_female,
                                                 surname_firsts, surname_seconds, cognomen_firsts,
-                                                cognomen_seconds_male, cognomen_seconds_female)
-            for name in str_names:
-                names.append(SimpleName(name))
+                                                cognomen_seconds_male, cognomen_seconds_female))
+        else:
+            names = generate_names_romanian(gender, nobility, count,
+                                            first_parts_male, second_parts_male,
+                                            first_parts_female, second_parts_female,
+                                            surname_firsts, surname_seconds, cognomen_firsts,
+                                            cognomen_seconds_male, cognomen_seconds_female)
     elif lang == Constants.HUNGARY:
         first_parts_male = MaleHungarian.objects.get_first_parts_list()
         second_parts_male = MaleHungarian.objects.get_second_parts_list()
@@ -732,19 +717,17 @@ def get_name(request, format=None):
         cognomen_seconds_female = CognomenLatin.objects.get_second_parts_male_list()
 
         if count == 1:
-            names.append(SimpleName(generate_name_hungarian(gender, nobility,
-                                                            first_parts_male, second_parts_male,
-                                                            first_parts_female, second_parts_female,
-                                                            surname_firsts, surname_seconds, cognomen_firsts,
-                                                            cognomen_seconds_male, cognomen_seconds_female)))
-        else:
-            str_names = generate_names_hungarian(gender, nobility, count,
+            names.append(generate_name_hungarian(gender, nobility,
                                                  first_parts_male, second_parts_male,
                                                  first_parts_female, second_parts_female,
                                                  surname_firsts, surname_seconds, cognomen_firsts,
-                                                 cognomen_seconds_male, cognomen_seconds_female)
-            for name in str_names:
-                names.append(SimpleName(name))
+                                                 cognomen_seconds_male, cognomen_seconds_female))
+        else:
+            names = generate_names_hungarian(gender, nobility, count,
+                                             first_parts_male, second_parts_male,
+                                             first_parts_female, second_parts_female,
+                                             surname_firsts, surname_seconds, cognomen_firsts,
+                                             cognomen_seconds_male, cognomen_seconds_female)
     elif lang == Constants.CHINA:
         first_parts_male = MaleChinese.objects.get_first_parts_list()
         second_parts_male = MaleChinese.objects.get_second_parts_list()
@@ -756,17 +739,15 @@ def get_name(request, format=None):
         surname_seconds = SurnamesChinese.objects.get_second_parts_list()
 
         if count == 1:
-            names.append(SimpleName(generate_name_chinese(gender, nobility,
-                                                          first_parts_male, second_parts_male,
-                                                          first_parts_female, second_parts_female,
-                                                          surname_firsts, surname_seconds)))
-        else:
-            str_names = generate_names_chinese(gender, nobility, count,
+            names.append(generate_name_chinese(gender, nobility,
                                                first_parts_male, second_parts_male,
                                                first_parts_female, second_parts_female,
-                                               surname_firsts, surname_seconds)
-            for name in str_names:
-                names.append(SimpleName(name))
+                                               surname_firsts, surname_seconds))
+        else:
+            names = generate_names_chinese(gender, nobility, count,
+                                           first_parts_male, second_parts_male,
+                                           first_parts_female, second_parts_female,
+                                           surname_firsts, surname_seconds)
     elif lang == Constants.GERMANY:
         first_parts_male = MaleGerman.objects.get_first_parts_list()
         second_parts_male = MaleGerman.objects.get_second_parts_list()
@@ -778,17 +759,15 @@ def get_name(request, format=None):
         surname_seconds = SurnamesGerman.objects.get_second_parts_list()
 
         if count == 1:
-            names.append(SimpleName(generate_name_german(gender, nobility,
-                                                         first_parts_male, second_parts_male,
-                                                         first_parts_female, second_parts_female,
-                                                         surname_firsts, surname_seconds)))
-        else:
-            str_names = generate_names_german(gender, nobility, count,
+            names.append(generate_name_german(gender, nobility,
                                               first_parts_male, second_parts_male,
                                               first_parts_female, second_parts_female,
-                                              surname_firsts, surname_seconds)
-            for name in str_names:
-                names.append(SimpleName(name))
+                                              surname_firsts, surname_seconds))
+        else:
+            names = generate_names_german(gender, nobility, count,
+                                          first_parts_male, second_parts_male,
+                                          first_parts_female, second_parts_female,
+                                          surname_firsts, surname_seconds)
     elif lang == Constants.RANDOM:
         [first_parts_male, second_parts_male, first_parts_female, second_parts_female,
          cognomen_firsts, cognomen_seconds_male, cognomen_seconds_female,
@@ -800,19 +779,7 @@ def get_name(request, format=None):
          surname_chinese_firsts, surname_chinese_seconds,
          surname_german_firsts, surname_german_seconds] = prepare_data_rand_namegen()
         if count == 1:
-            names.append(SimpleName(generate_name_rand(gender, nobility,
-                                                       first_parts_male, second_parts_male,
-                                                       first_parts_female, second_parts_female,
-                                                       cognomen_firsts, cognomen_seconds_male, cognomen_seconds_female,
-                                                       surname_italian_firsts, surname_italian_seconds,
-                                                       surname_polish_firsts, surname_polish_seconds,
-                                                       surname_polish_ends_male, surname_polish_ends_female,
-                                                       surname_japanese_firsts, surname_japanese_seconds,
-                                                       surname_romanian_firsts, surname_romanian_seconds,
-                                                       surname_chinese_firsts, surname_chinese_seconds,
-                                                       surname_german_firsts, surname_german_seconds)))
-        else:
-            str_names = generate_names_rand(gender, nobility, count,
+            names.append(generate_name_rand(gender, nobility,
                                             first_parts_male, second_parts_male,
                                             first_parts_female, second_parts_female,
                                             cognomen_firsts, cognomen_seconds_male, cognomen_seconds_female,
@@ -822,8 +789,20 @@ def get_name(request, format=None):
                                             surname_japanese_firsts, surname_japanese_seconds,
                                             surname_romanian_firsts, surname_romanian_seconds,
                                             surname_chinese_firsts, surname_chinese_seconds,
-                                            surname_german_firsts, surname_german_seconds)
-            for name in str_names:
-                names.append(SimpleName(name))
-    serializer = NameSerializerSimple(names, many=True)
-    return Response(serializer.data, status.HTTP_200_OK)
+                                            surname_german_firsts, surname_german_seconds))
+        else:
+            names = generate_names_rand(gender, nobility, count,
+                                        first_parts_male, second_parts_male,
+                                        first_parts_female, second_parts_female,
+                                        cognomen_firsts, cognomen_seconds_male, cognomen_seconds_female,
+                                        surname_italian_firsts, surname_italian_seconds,
+                                        surname_polish_firsts, surname_polish_seconds,
+                                        surname_polish_ends_male, surname_polish_ends_female,
+                                        surname_japanese_firsts, surname_japanese_seconds,
+                                        surname_romanian_firsts, surname_romanian_seconds,
+                                        surname_chinese_firsts, surname_chinese_seconds,
+                                        surname_german_firsts, surname_german_seconds)
+    # serializer = NameSerializerSimple(names, many=True)
+    # return Response(serializer.data, status.HTTP_200_OK)
+    json = {'names': names}
+    return Response(json, status.HTTP_200_OK)

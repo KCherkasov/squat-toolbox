@@ -61,8 +61,9 @@ class NameSerializerSplit(serializers.Serializer):
 
 
 class SimpleName:
-    def __init__(self, name):
+    def __init__(self, name, id=1):
         self.name = name
+        self.id = id
 
 
 class NameSerializerSimple(serializers.Serializer):
