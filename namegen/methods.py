@@ -1496,3 +1496,286 @@ def generate_chinese_surname(nobility, first_parts_male, second_parts_male,
                 else:
                     surname += choice(second_parts_male)[0].lower()
     return surname
+
+
+def create_names(lang, gender, nobility, count):
+    names = list()
+    if lang == Constants.SCAND:
+        first_parts_male = MaleScand.objects.get_first_parts_list()
+        second_parts_male = MaleScand.objects.get_second_parts_list()
+
+        first_parts_female = FemaleScand.objects.get_first_parts_list()
+        second_parts_female = FemaleScand.objects.get_second_parts_list()
+
+        if count == 1:
+            names.append(generate_name_scand(gender, nobility, first_parts_male, second_parts_male,
+                                             first_parts_female, second_parts_female))
+        else:
+            names = generate_names_scand(gender, nobility, first_parts_male, second_parts_male,
+                                         first_parts_female, second_parts_female, count)
+    elif lang == Constants.LATIN:
+        first_parts_male = MaleLatin.objects.get_first_parts_list()
+        second_parts_male = MaleLatin.objects.get_second_parts_list()
+
+        first_parts_female = FemaleLatin.objects.get_first_parts_list()
+        second_parts_female = FemaleLatin.objects.get_second_parts_list()
+
+        cognomen_first_parts = CognomenLatin.objects.get_first_parts_list()
+        cognomen_second_parts_male = CognomenLatin.objects.get_second_parts_male_list()
+        cognomen_second_parts_female = CognomenLatin.objects.get_second_parts_female_list()
+
+        if count == 1:
+            names.append(generate_name_latin(gender, nobility,
+                                             first_parts_male, second_parts_male,
+                                             first_parts_female, second_parts_female,
+                                             cognomen_first_parts, cognomen_second_parts_male,
+                                             cognomen_second_parts_female))
+        else:
+            names = generate_names_latin(gender, nobility, count,
+                                         first_parts_male, second_parts_male,
+                                         first_parts_female, second_parts_female,
+                                         cognomen_first_parts, cognomen_second_parts_male,
+                                         cognomen_second_parts_female)
+    elif lang == Constants.SPAIN:
+        first_parts_male = MaleSpanish.objects.get_first_parts_list()
+        second_parts_male = MaleSpanish.objects.get_second_parts_list()
+
+        first_parts_female = FemaleSpanish.objects.get_first_parts_list()
+        second_parts_female = FemaleSpanish.objects.get_second_parts_list()
+
+        if count == 1:
+            names.append(generate_name_spanish(gender, nobility,
+                                               first_parts_male, second_parts_male,
+                                               first_parts_female, second_parts_female))
+        else:
+            names = generate_names_spanish(gender, nobility, count,
+                                           first_parts_male, second_parts_male,
+                                           first_parts_female, second_parts_female)
+    elif lang == Constants.ITALY:
+        first_parts_male = MaleItalian.objects.get_first_parts_list()
+        second_parts_male = MaleItalian.objects.get_second_parts_list()
+
+        first_parts_female = FemaleItalian.objects.get_first_parts_list()
+        second_parts_female = FemaleItalian.objects.get_second_parts_list()
+
+        surnames_first_part = SurnamesItalian.objects.get_first_parts_list()
+        surnames_second_part = SurnamesItalian.objects.get_second_parts_list()
+
+        if count == 1:
+            names.append(generate_name_italian(gender, nobility,
+                                               first_parts_male, second_parts_male,
+                                               first_parts_female, second_parts_female,
+                                               surnames_first_part, surnames_second_part))
+        else:
+            names = generate_names_italian(gender, nobility, count,
+                                           first_parts_male, second_parts_male,
+                                           first_parts_female, second_parts_female,
+                                           surnames_first_part, surnames_second_part)
+    elif lang == Constants.POLAND:
+        first_parts_male = MalePolish.objects.get_first_parts_list()
+        second_parts_male = MalePolish.objects.get_second_parts_list()
+
+        first_parts_female = FemalePolish.objects.get_first_parts_list()
+        second_parts_female = FemalePolish.objects.get_second_parts_list()
+
+        surname_firsts = SurnamesPolish.objects.get_first_parts_list()
+        surname_seconds = SurnamesPolish.objects.get_second_parts_list()
+
+        surname_ends_male = SurnamesPolishEnd.objects.get_male_endings()
+        surname_ends_female = SurnamesPolishEnd.objects.get_female_endings()
+        if count == 1:
+            names.append(generate_name_polish(gender, nobility,
+                                              first_parts_male, second_parts_male,
+                                              first_parts_female, second_parts_female,
+                                              surname_firsts, surname_seconds,
+                                              surname_ends_male, surname_ends_female))
+        else:
+            names = generate_names_polish(gender, nobility, count,
+                                          first_parts_male, second_parts_male,
+                                          first_parts_female, second_parts_female,
+                                          surname_firsts, surname_seconds,
+                                          surname_ends_male, surname_ends_female)
+    elif lang == Constants.JAPAN:
+        first_parts_male = MaleJapanese.objects.get_first_parts_list()
+        second_parts_male = MaleJapanese.objects.get_second_parts_list()
+
+        first_parts_female = FemaleJapanese.objects.get_first_parts_list()
+        second_parts_female = FemaleJapanese.objects.get_second_parts_list()
+
+        surname_firsts = SurnamesJapanese.objects.get_first_parts_list()
+        surname_seconds = SurnamesJapanese.objects.get_second_parts_list()
+
+        if count == 1:
+            names.append(generate_name_japanese(gender, nobility,
+                                                first_parts_male, second_parts_male,
+                                                first_parts_female, second_parts_female,
+                                                surname_firsts, surname_seconds))
+        else:
+            names = generate_names_japanese(gender, nobility, count,
+                                            first_parts_male, second_parts_male,
+                                            first_parts_female, second_parts_female,
+                                            surname_firsts, surname_seconds)
+    elif lang == Constants.TECH:
+        [first_parts_male, second_parts_male, first_parts_female, second_parts_female,
+         cognomen_firsts, cognomen_seconds_male, cognomen_seconds_female,
+         surname_italian_firsts, surname_italian_seconds,
+         surname_polish_firsts, surname_polish_seconds,
+         surname_polish_ends_male, surname_polish_ends_female,
+         surname_japanese_firsts, surname_japanese_seconds,
+         surname_romanian_firsts, surname_romanian_seconds,
+         surname_chinese_firsts, surname_chinese_seconds,
+         surname_german_firsts, surname_german_seconds] = prepare_data_rand_namegen()
+
+        [ranks_simple, ranks_noble_magi, ranks_noble_genetor,
+         ranks_noble_logi, ranks_noble_artisan, ranks_noble_myrmidon,
+         cults, letters, text_numbers] = prepare_lists_techno()
+
+        if count == 1:
+            names.append(generate_name_techno(gender, nobility, letters, text_numbers, cults,
+                                              ranks_simple, ranks_noble_magi, ranks_noble_genetor,
+                                              ranks_noble_logi, ranks_noble_artisan, ranks_noble_myrmidon,
+                                              first_parts_male, second_parts_male, first_parts_female,
+                                              second_parts_female, cognomen_firsts, cognomen_seconds_male,
+                                              cognomen_seconds_female, surname_italian_firsts,
+                                              surname_italian_seconds, surname_polish_firsts,
+                                              surname_polish_seconds, surname_polish_ends_male,
+                                              surname_polish_ends_female, surname_japanese_firsts,
+                                              surname_japanese_seconds))
+        else:
+            names = generate_names_techno(gender, nobility, count, letters, text_numbers, cults,
+                                          ranks_simple, ranks_noble_magi, ranks_noble_genetor,
+                                          ranks_noble_logi, ranks_noble_artisan, ranks_noble_myrmidon,
+                                          first_parts_male, second_parts_male, first_parts_female,
+                                          second_parts_female, cognomen_firsts, cognomen_seconds_male,
+                                          cognomen_seconds_female, surname_italian_firsts,
+                                          surname_italian_seconds, surname_polish_firsts,
+                                          surname_polish_seconds, surname_polish_ends_male,
+                                          surname_polish_ends_female, surname_japanese_firsts,
+                                          surname_japanese_seconds)
+    elif lang == Constants.ROMANIA:
+        first_parts_male = MaleRomanian.objects.get_first_parts_list()
+        second_parts_male = MaleRomanian.objects.get_second_parts_list()
+
+        first_parts_female = FemaleRomanian.objects.get_first_parts_list()
+        second_parts_female = FemaleRomanian.objects.get_second_parts_list()
+
+        surname_firsts = SurnamesRomanian.objects.get_firsts_list()
+        surname_seconds = SurnamesRomanian.objects.get_seconds_list()
+
+        cognomen_firsts = CognomenLatin.objects.get_first_parts_list()
+        cognomen_seconds_male = CognomenLatin.objects.get_second_parts_male_list()
+        cognomen_seconds_female = CognomenLatin.objects.get_second_parts_male_list()
+
+        if count == 1:
+            names.append(generate_name_romanian(gender, nobility,
+                                                first_parts_male, second_parts_male,
+                                                first_parts_female, second_parts_female,
+                                                surname_firsts, surname_seconds, cognomen_firsts,
+                                                cognomen_seconds_male, cognomen_seconds_female))
+        else:
+            names = generate_names_romanian(gender, nobility, count,
+                                            first_parts_male, second_parts_male,
+                                            first_parts_female, second_parts_female,
+                                            surname_firsts, surname_seconds, cognomen_firsts,
+                                            cognomen_seconds_male, cognomen_seconds_female)
+    elif lang == Constants.HUNGARY:
+        first_parts_male = MaleHungarian.objects.get_first_parts_list()
+        second_parts_male = MaleHungarian.objects.get_second_parts_list()
+
+        first_parts_female = FemaleHungarian.objects.get_first_parts_list()
+        second_parts_female = FemaleHungarian.objects.get_second_parts_list()
+
+        surname_firsts = SurnamesRomanian.objects.get_firsts_list()
+        surname_seconds = SurnamesRomanian.objects.get_seconds_list()
+
+        cognomen_firsts = CognomenLatin.objects.get_first_parts_list()
+        cognomen_seconds_male = CognomenLatin.objects.get_second_parts_male_list()
+        cognomen_seconds_female = CognomenLatin.objects.get_second_parts_male_list()
+
+        if count == 1:
+            names.append(generate_name_hungarian(gender, nobility,
+                                                 first_parts_male, second_parts_male,
+                                                 first_parts_female, second_parts_female,
+                                                 surname_firsts, surname_seconds, cognomen_firsts,
+                                                 cognomen_seconds_male, cognomen_seconds_female))
+        else:
+            names = generate_names_hungarian(gender, nobility, count,
+                                             first_parts_male, second_parts_male,
+                                             first_parts_female, second_parts_female,
+                                             surname_firsts, surname_seconds, cognomen_firsts,
+                                             cognomen_seconds_male, cognomen_seconds_female)
+    elif lang == Constants.CHINA:
+        first_parts_male = MaleChinese.objects.get_first_parts_list()
+        second_parts_male = MaleChinese.objects.get_second_parts_list()
+
+        first_parts_female = FemaleChinese.objects.get_first_parts_list()
+        second_parts_female = FemaleChinese.objects.get_second_parts_list()
+
+        surname_firsts = SurnamesChinese.objects.get_first_parts_list()
+        surname_seconds = SurnamesChinese.objects.get_second_parts_list()
+
+        if count == 1:
+            names.append(generate_name_chinese(gender, nobility,
+                                               first_parts_male, second_parts_male,
+                                               first_parts_female, second_parts_female,
+                                               surname_firsts, surname_seconds))
+        else:
+            names = generate_names_chinese(gender, nobility, count,
+                                           first_parts_male, second_parts_male,
+                                           first_parts_female, second_parts_female,
+                                           surname_firsts, surname_seconds)
+    elif lang == Constants.GERMANY:
+        first_parts_male = MaleGerman.objects.get_first_parts_list()
+        second_parts_male = MaleGerman.objects.get_second_parts_list()
+
+        first_parts_female = FemaleGerman.objects.get_first_parts_list()
+        second_parts_female = FemaleGerman.objects.get_second_parts_list()
+
+        surname_firsts = SurnamesGerman.objects.get_first_parts_list()
+        surname_seconds = SurnamesGerman.objects.get_second_parts_list()
+
+        if count == 1:
+            names.append(generate_name_german(gender, nobility,
+                                              first_parts_male, second_parts_male,
+                                              first_parts_female, second_parts_female,
+                                              surname_firsts, surname_seconds))
+        else:
+            names = generate_names_german(gender, nobility, count,
+                                          first_parts_male, second_parts_male,
+                                          first_parts_female, second_parts_female,
+                                          surname_firsts, surname_seconds)
+    elif lang == Constants.RANDOM:
+        [first_parts_male, second_parts_male, first_parts_female, second_parts_female,
+         cognomen_firsts, cognomen_seconds_male, cognomen_seconds_female,
+         surname_italian_firsts, surname_italian_seconds,
+         surname_polish_firsts, surname_polish_seconds,
+         surname_polish_ends_male, surname_polish_ends_female,
+         surname_japanese_firsts, surname_japanese_seconds,
+         surname_romanian_firsts, surname_romanian_seconds,
+         surname_chinese_firsts, surname_chinese_seconds,
+         surname_german_firsts, surname_german_seconds] = prepare_data_rand_namegen()
+        if count == 1:
+            names.append(generate_name_rand(gender, nobility,
+                                            first_parts_male, second_parts_male,
+                                            first_parts_female, second_parts_female,
+                                            cognomen_firsts, cognomen_seconds_male, cognomen_seconds_female,
+                                            surname_italian_firsts, surname_italian_seconds,
+                                            surname_polish_firsts, surname_polish_seconds,
+                                            surname_polish_ends_male, surname_polish_ends_female,
+                                            surname_japanese_firsts, surname_japanese_seconds,
+                                            surname_romanian_firsts, surname_romanian_seconds,
+                                            surname_chinese_firsts, surname_chinese_seconds,
+                                            surname_german_firsts, surname_german_seconds))
+        else:
+            names = generate_names_rand(gender, nobility, count,
+                                        first_parts_male, second_parts_male,
+                                        first_parts_female, second_parts_female,
+                                        cognomen_firsts, cognomen_seconds_male, cognomen_seconds_female,
+                                        surname_italian_firsts, surname_italian_seconds,
+                                        surname_polish_firsts, surname_polish_seconds,
+                                        surname_polish_ends_male, surname_polish_ends_female,
+                                        surname_japanese_firsts, surname_japanese_seconds,
+                                        surname_romanian_firsts, surname_romanian_seconds,
+                                        surname_chinese_firsts, surname_chinese_seconds,
+                                        surname_german_firsts, surname_german_seconds)
+    return names
