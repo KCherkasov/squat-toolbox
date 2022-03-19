@@ -4,17 +4,17 @@ from django import forms
 
 
 class Constants:
-    SCAND = 'SC'
-    LATIN = 'LAT'
-    SPAIN = 'SP'
-    ITALY = 'IT'
-    POLAND = 'PL'
-    JAPAN = 'JP'
-    ROMANIA = 'RM'
-    HUNGARY = 'HG'
+    SCAND = 'AU'
+    LATIN = 'HG'
+    SPAIN = 'IB'
+    ITALY = 'AP'
+    POLAND = 'PO'
+    JAPAN = 'NI'
+    ROMANIA = 'SY'
+    HUNGARY = 'MA'
     TECH = 'TC'
-    CHINA = 'CH'
-    GERMANY = 'GER'
+    CHINA = 'CE'
+    GERMANY = 'TE'
 
     MALE = 'M'
     FEMALE = 'F'
