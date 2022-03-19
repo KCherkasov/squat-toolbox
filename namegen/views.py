@@ -133,7 +133,7 @@ def get_namegen_help(request, format=None):
             VERSION_KEY: version,
             API_ROOT_KEY: 'api/namegen/',
             API_KEY: {
-                'version': {
+                'ver': {
                     DESCRIPTION_KEY: 'узнать версию приложения',
                     METHOD_KEY: 'GET',
                     RETURN_KEY: 'строка, содержащая актуальную версию приложения'
