@@ -165,9 +165,10 @@ def get_namegen_help(request, format=None):
                     },
                 },
                 'help': {
-                    DESCRIPTION_KEY: 'вызвать помощь по API данного приложения',
+                    DESCRIPTION_KEY: 'вызвать справку по API данного приложения',
                     METHOD_KEY: 'GET',
-                    RETURN_KEY: 'JSON c информацией по API (вы уже вызвали данный метод, если это читаете)'
+                    RETURN_KEY: 'JSON c информацией по API (скорее всего, вы уже вызвали данный метод, если это '
+                                'читаете)'
                 },
             }
             }
