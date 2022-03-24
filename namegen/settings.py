@@ -86,8 +86,7 @@ CSP_SCRIPT_SRC = [
     "https://code.jquery.com"
 ]
 CSP_STYLE_SRC = ["'self'",
-                 "https://cdn.jsdelivr.net",
-                 "https://stackpath.bootstrapcdn.com"]
+                 "https://cdn.jsdelivr.net",]
 CSP_IMG_SRC = ["'self'"]
 
 WSGI_APPLICATION = 'namegen.wsgi.application'
