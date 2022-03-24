@@ -78,7 +78,7 @@ REST_FRAMEWORK = {
 
 
 CSRF_COOKIE_SECURE = True
-CSRF_COOKIE_SAMESITE = None
+CSRF_COOKIE_SAMESITE = 'None'
 CSRF_TRUSTED_ORIGINS = ['https://wiki.pandhammer.ru', 'https://kvcherk.pythonanywhere.com/']
 
 
