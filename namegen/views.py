@@ -7,6 +7,9 @@ from rest_framework.decorators import api_view, parser_classes
 from rest_framework.parsers import JSONParser
 from rest_framework.response import Response
 
+
+from csp.decorators import csp_update
+
 from .methods import *
 
 version = '1.13.1'
@@ -70,10 +73,12 @@ FIELD_VALUES = {
 }
 
 
+@csp_update(FRAME_ANCESTORS='https://wiki.pandhammer.ru/')
 def main(request):
     return HttpResponseRedirect(reverse('index'))
 
 
+@csp_update(FRAME_ANCESTORS='https://wiki.pandhammer.ru/')
 def index(request):
     if request.method == 'POST':
         form = NamegenForm(request.POST)

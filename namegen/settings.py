@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'csp.middleware.CSPMiddleware',
 ]
 
 ROOT_URLCONF = 'namegen.urls'
@@ -76,7 +77,7 @@ REST_FRAMEWORK = {
 }
 
 
-CSP_FRAME_ANCESTORS = ['https://wiki.pandhammer.ru']
+#CSP_FRAME_ANCESTORS = ['https://wiki.pandhammer.ru']
 
 
 WSGI_APPLICATION = 'namegen.wsgi.application'
