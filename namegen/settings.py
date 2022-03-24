@@ -75,6 +75,10 @@ REST_FRAMEWORK = {
     ]
 }
 
+
+CSP_FRAME_ANCESTORS = ['https://wiki.pandhammer.ru']
+
+
 WSGI_APPLICATION = 'namegen.wsgi.application'
 
 # Database
