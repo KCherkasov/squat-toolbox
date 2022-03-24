@@ -77,6 +77,9 @@ REST_FRAMEWORK = {
 }
 
 
+CSRF_COOKIE_SECURE = True
+
+
 CSP_FRAME_ANCESTORS = ['https://wiki.pandhammer.ru']
 CSP_DEFAULT_SRC = ["'none'"]
 CSP_SCRIPT_SRC = [
