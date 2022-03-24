@@ -77,8 +77,15 @@ REST_FRAMEWORK = {
 }
 
 
-#CSP_FRAME_ANCESTORS = ['https://wiki.pandhammer.ru']
-
+CSP_FRAME_ANCESTORS = ['https://wiki.pandhammer.ru']
+CSP_DEFAULT_SRC = ["'none'"]
+CSP_SCRIPT_SRC = [
+    "https://stackpath.bootstrapcdn.com",
+    "https://cdn.jsdelivr.net",
+    "https://code.jquery.com"
+]
+CSP_STYLE_SRC = ["https://stackpath.bootstrapcdn.com"]
+CSP_IMG_SRC = ["'self'"]
 
 WSGI_APPLICATION = 'namegen.wsgi.application'
 
