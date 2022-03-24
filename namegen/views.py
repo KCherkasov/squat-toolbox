@@ -89,12 +89,14 @@ def index(request):
             nobility = data['nobility']
             count = data['count']
             names = create_names(lang, gender, nobility, count)
-
-            return render(request, 'namegen.html', {'form': form, 'names': names, 'version': version, })
+            response = render(request, 'namegen.html', {'form': form, 'names': names, 'version': version, })
+            response['Access-Control-Allow-Origin'] = 'https://wiki.pandhammer.ru'
+            return response
     else:
         form = NamegenForm()
-
-        return render(request, 'namegen.html', {'form': form, 'version': version, })
+        response = render(request, 'namegen.html', {'form': form, 'version': version, })
+        response['Access-Control-Allow-Origin'] = 'https://wiki.pandhammer.ru'
+        return response
 
 
 @api_view(['GET', 'POST'])
