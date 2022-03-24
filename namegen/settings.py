@@ -80,6 +80,7 @@ REST_FRAMEWORK = {
 
 
 CORS_ALLOWED_ORIGINS = ['https://wiki.pandhammer.ru']
+CORS_ORIGIN_WHITELIST = ['https://wiki.pandhammer.ru']
 
 CSRF_COOKIE_SECURE = True
 CSRF_COOKIE_SAMESITE = 'None'
