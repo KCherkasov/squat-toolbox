@@ -12,7 +12,7 @@ from csp.decorators import csp_update
 
 from .methods import *
 
-version = '1.13.1'
+version = '1.13.2'
 
 LANG_KEY = 'lang'
 GENDER_KEY = 'gender'
