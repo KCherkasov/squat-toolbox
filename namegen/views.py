@@ -73,12 +73,10 @@ FIELD_VALUES = {
 }
 
 
-@csp_update(FRAME_ANCESTORS='https://wiki.pandhammer.ru/')
 def main(request):
     return HttpResponseRedirect(reverse('index'))
 
 
-@csp_update(FRAME_ANCESTORS='https://wiki.pandhammer.ru/')
 def index(request):
     if request.method == 'POST':
         form = NamegenForm(request.POST)
