@@ -8,7 +8,7 @@ from rest_framework.parsers import JSONParser
 from rest_framework.response import Response
 
 
-from csp.decorators import csp_update
+from django.views.decorators.clickjacking import xframe_options_sameorigin
 
 from .methods import *
 
@@ -73,10 +73,12 @@ FIELD_VALUES = {
 }
 
 
+@xframe_options_sameorigin
 def main(request):
     return HttpResponseRedirect(reverse('index'))
 
 
+@xframe_options_sameorigin
 def index(request):
     if request.method == 'POST':
         form = NamegenForm(request.POST)
