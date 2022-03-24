@@ -11,7 +11,6 @@ from .methods import *
 
 version = '1.13.1'
 
-
 LANG_KEY = 'lang'
 GENDER_KEY = 'gender'
 NOBILITY_KEY = 'nobility'
@@ -31,7 +30,6 @@ ALLOWED_JSON_KEY = 'опциональные JSON-поля'
 RETURN_KEY = 'возвращаемое значение'
 
 NAMEGEN_APP_JSON_KEYS = [LANG_KEY, GENDER_KEY, NOBILITY_KEY, COUNT_KEY]
-
 
 FIELD_VALUES = {
     LANG_KEY: {
@@ -177,13 +175,16 @@ def get_namegen_help(request, format=None):
 
 def validate_data(lang, gender, nobility, count):
     error = ''
-    if lang not in LANG_IDS and lang != Constants.TECH and lang != Constants.RANDOM:
+    if lang.uppercase() not in LANG_IDS and lang.uppercase() != Constants.TECH \
+            and lang.uppercase() != Constants.RANDOM:
         error += 'неизвестный ID языка'
-    if gender != Constants.RANDOM and gender != Constants.MALE and gender != Constants.FEMALE:
+    if gender.uppercase() != Constants.RANDOM and gender.uppercase() != Constants.MALE \
+            and gender.uppercase() != Constants.FEMALE:
         if error != '':
             error += '; '
         error += 'неизвестный ID пола'
-    if nobility != Constants.RANDOM and nobility != Constants.NOBLE and nobility != Constants.SIMPLE:
+    if nobility.uppercase() != Constants.RANDOM and nobility.uppercase() != Constants.NOBLE \
+            and nobility.uppercase() != Constants.SIMPLE:
         if error != '':
             error += '; '
         error += 'неизвестный ID благородства'
