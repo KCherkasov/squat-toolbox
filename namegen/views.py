@@ -12,7 +12,7 @@ from django.views.decorators.clickjacking import xframe_options_sameorigin
 
 from .methods import *
 
-version = '1.13.2'
+version = '1.14.0'
 
 LANG_KEY = 'lang'
 GENDER_KEY = 'gender'

@@ -15,6 +15,7 @@ class Constants:
     TECH = 'TC'
     CHINA = 'CE'
     GERMANY = 'TE'
+    FRANCE = 'BR'
 
     MALE = 'M'
     FEMALE = 'F'
@@ -31,7 +32,8 @@ class NamegenForm(forms.Form):
              [Constants.POLAND, u'Готик Полоника'], [Constants.JAPAN, u'Готик Ниппон'],
              [Constants.ROMANIA, u'Готик Сильваника'], [Constants.HUNGARY, u'Готик Магьярика'],
              [Constants.CHINA, u'Готик Церес'], [Constants.GERMANY, u'Готик Тевтоника'],
-             [Constants.TECH, u'Лингва бинарика'], [Constants.RANDOM, u'Nomen mixta'],)
+             [Constants.TECH, u'Лингва бинарика'], [Constants.FRANCE, u'Готик Бретоника'],
+             [Constants.RANDOM, u'Nomen mixta'],)
 
     GENDERS = ([Constants.MALE, u'Мужской'], [Constants.FEMALE, u'Женский'], [Constants.RANDOM, u'Случайно'],)
 

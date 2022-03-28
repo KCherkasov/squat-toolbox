@@ -336,3 +336,24 @@ class SurnamesGerman(models.Model):
 
     first_part = models.CharField(max_length=15)
     second_part = models.CharField(max_length=15)
+
+
+class MaleFrance(models.Model):
+    objects = NameManager()
+
+    first_part = models.CharField(max_length=15)
+    second_part = models.CharField(max_length=15)
+
+
+class FemaleFrance(models.Model):
+    objects = NameManager()
+
+    first_part = models.CharField(max_length=15)
+    second_part = models.CharField(max_length=15)
+
+
+class SurnamesFrance(models.Model):
+    objects = NameManager()
+
+    first_part = models.CharField(max_length=15)
+    second_part = models.CharField(max_length=15)

@@ -1,12 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from .models import MaleScand, FemaleScand, MaleLatin, FemaleLatin, CognomenLatin,\
-    MaleSpanish, FemaleSpanish, MaleItalian, FemaleItalian, SurnamesItalian,\
-    MalePolish, FemalePolish, SurnamesPolish, SurnamesPolishEnd,\
-    MaleJapanese, FemaleJapanese, SurnamesJapanese, TechDesignations,\
-    MechanicusRanksNCults, MaleRomanian, FemaleRomanian, MaleHungarian, FemaleHungarian,\
-    SurnamesRomanian, MaleChinese, FemaleChinese, SurnamesChinese,\
-    MaleGerman, FemaleGerman, SurnamesGerman
+from .models import *
 from .forms2 import NamegenForm, Constants
 
 
@@ -192,6 +186,123 @@ GERMAN_CONNECTORS = {u'дл': u'оаеиу', u'гн': u'ие',   u'лн': u'ио
                      }
 
 
+FRENCH_CONNECTORS = {
+    u'бб': [u'ье', u'ьи'],                         u'вб': [u'ье', u'ьи', u'и', u'е'],
+    u'гб': [u'и', u'е', u'ье', u'ьи'],             u'дб': [u'и', u'е', u'ье', u'ьи', u'а'],
+    u'жб': [u'ье', u'ье', u'и', u'е', u'а'],       u'зб': [u'е', u'о'],                     u'кб': [u'и', u'е', u'о'],
+    u'мб': [u'е'],
+    u'нб': [u'е'],                                 u'пб': [u'и', u'е', u'о'],               u'рб': [u'и', u'е', u'о'],
+    u'сб': [u'е', u'и', u'ьи', u'ье'],
+    u'тб': [u'о', u'е', u'и'],                     u'фб': [u'и', u'е'],                     u'хб': [u'и', u'е'],
+    u'шб': [u'и', u'е'],
+    u'бв': [u'и', u'е', u'ье', u'ьи'],             u'вв': [u'', u'и', u'е', u'ье', u'ьи'],
+    u'гв': [u'и', u'е', u'ьи', u'ье'],             u'дв': [u'и', u'е', u'ьи', u'ье', u''],
+    u'жв': [u'и', u'е', u'ьи', u'ье'],             u'зв': [u'е', u'ье'],
+    u'кв': [u'и', u'е', u'ьи', u'ье'],             u'мв': [u'и', u'е', u'ьи', u'ье'],
+    u'нв': [u'и', u'е', u'ьи', u'ье'],             u'пв': [u'и', u'е', u'ьи', u'ье'],       u'рв': [u'и', u'е', u'ье'],
+    u'св': [u'и', u'е', u'ьи', u'ье'],
+    u'тв': [u'и', u'е', u'ьи', u'ье'],             u'фв': [u'и', u'е', u'ьи', u'ье'],       u'хв': [u'е', u'и'],
+    u'шв': [u'и', u'е'],
+    u'бг': [u'и', u'е', u'ье'],                    u'вг': [u'и', u'е', u'ье'],              u'гг': [u'', u'ье'],
+    u'дг': [u'и', u'е', u'ьи', u'ье'],
+    u'жг': [u'и', u'е'],                           u'зг': [u'и', u'е'],
+    u'кг': [u'и', u'е', u'а', u'ье', u'ьи'],       u'мг': [u'и', u'е'],
+    u'нг': [u'и', u'е', u'ье', u'ьи'],             u'пг': [u'и', u'е'],                     u'рг': [u'и', u'е'],
+    u'сг': [u'и', u'е', u'ье', u'ьи'],
+    u'тг': [u'и', u'е', u'ье', u'ьи'],             u'фг': [u'и', u'е'],                     u'хг': [u'е', u'и'],
+    u'шг': [u'и', u'е', u'ье', u'ьи'],
+    u'бд': [u'е', u'е', u'о', u'а'],               u'вд': [u'и', u'е', u'ьи', u'ье'],
+    u'гд': [u'и', u'е', u'о', u'ье'],              u'дд': [u'', u'и', u'о', u'е', u''],
+    u'жд': [u'и', u'е', u'ьи', u'ье'],             u'зд': [u'и', u'е'],                     u'кд': [u'и', u'е', u'ье'],
+    u'мд': [u'и', u'е', u'ьи', u'ье'],
+    u'нд': [u'и', u'е', u'о', u'ье'],              u'пд': [u'и', u'е', u'ье'],              u'рд': [u'и', u'е', u'ье'],
+    u'сд': [u'и', u'е'],
+    u'тд': [u'и', u'е'],                           u'фд': [u'и', u'е'],                     u'хд': [u'и', u'е'],
+    u'шд': [u'и', u'е'],
+    u'бж': [u'и', u'е', u'ьи', u'о', u'ье'],       u'вж': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'дж': [u'и', u'е', u'ьи', u'ье'],             u'гж': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'жж': [u'', u'и', u'е', u'ьи', u'о', u'ье'],  u'зж': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'кж': [u'и', u'е', u'ьи', u'о', u'ье'],       u'мж': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'нж': [u'и', u'е', u'ьи', u'о', u'ье'],       u'пж': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'рж': [u'', u'и', u'е', u'ьи', u'о', u'ье'],  u'сж': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'тж': [u'и', u'е', u'ьи', u'о', u'ье'],       u'фж': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'хж': [u'и', u'е', u'ьи', u'о', u'ье'],       u'шж': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'бк': [u'и', u'е', u'ьи', u'о', u'ье'],       u'вк': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'гк': [u'и', u'е', u'ьи', u'о', u'ье'],       u'дк': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'жк': [u'и', u'е', u'ьи', u'о', u'ье'],       u'зк': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'кк': [u'', u'и', u'е', u'ьи', u'о', u'ье'],  u'мк': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'нк': [u'и', u'е', u'ьи', u'о', u'ье'],       u'пк': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'рк': [u'и', u'е', u'ьи', u'о', u'ье'],       u'ск': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'тк': [u'и', u'е', u'ьи', u'о', u'ье'],       u'фк': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'хк': [u'и', u'е', u'ьи', u'о', u'ье'],       u'шк': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'бл': [u'и', u'е', u'ьи', u'о', u'ье', u'а'], u'вл': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'гл': [u'и', u'е', u'ьи', u'о', u'ье', u''],  u'дл': [u'и', u'е', u'ьи', u'о', u'ье', u'а'],
+    u'жл': [u'и', u'е', u'ьи', u'о', u'ье'],       u'зл': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'кл': [u'и', u'е', u'ьи', u'о', u'ье', u'а'], u'мл': [u'е', u'а'],
+    u'нл': [u'и', u'е', u'ьи', u'о', u'ье'],       u'пл': [u'о', u'е', u'и'],
+    u'рл': [u'е', u'и', u'а'],                     u'сл': [u'и', u'е'],
+    u'тл': [u'и', u'е', u'а'],                     u'фл': [u'и', u'е'],
+    u'хл': [u'и', u'е'],                           u'шл': [u'и', u'е'],
+    u'бм': [u'и', u'е'],                           u'вм': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'гм': [u'и', u'е', u'ьи', u'о', u'ье'],       u'дм': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'жм': [u'и', u'е', u'ьи', u'о', u'ье'],       u'зм': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'км': [u'и', u'е', u'ьи', u'о', u'ье', u''],  u'мм': [u'и', u'е', u'ьи', u'о', u'ье', u''],
+    u'нм': [u'и', u'е', u'ьи', u'о', u'ье'],       u'пм': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'рм': [u'и', u'е', u'ьи', u'о', u'ье', u''],  u'см': [u'и', u'е', u'ьи', u'о', u'ье', u''],
+    u'тм': [u'и', u'е', u'ьи', u'о', u'ье'],       u'фм': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'хм': [u'и', u'е', u'ьи', u'о', u'ье'],       u'шм': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'бн': [u'и', u'е', u'ьи', u'о', u'ье'],       u'вн': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'гн': [u'и', u'е', u'ьи', u'о', u'ье'],       u'дн': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'жн': [u'и', u'е', u'ьи', u'о', u'ье'],       u'зн': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'кн': [u'и', u'е', u'ьи', u'о', u'ье'],       u'мн': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'нн': [u'', u'и', u'е', u'ьи', u'о', u'ье'],  u'пн': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'рн': [u'и', u'е', u'ьи', u'о', u'ье'],       u'сн': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'тн': [u'и', u'е', u'ьи', u'о', u'ье'],       u'фн': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'хн': [u'и', u'е', u'ьи', u'о', u'ье'],       u'шн': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'бр': [u'и', u'е', u'ьи', u'о', u'ье'],       u'вр': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'гр': [u'и', u'е', u'ьи', u'о', u'ье'],       u'др': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'жр': [u'и', u'е', u'ьи', u'о', u'ье'],       u'зр': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'кр': [u'и', u'е', u'ьи', u'о', u'ье'],       u'мр': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'нр': [u'', u'и', u'е', u'ьи', u'о', u'ье'],  u'пр': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'рр': [u'', u'и', u'е', u'ьи', u'о', u'ье'],  u'ср': [u'', u'и', u'е', u'ьи', u'о', u'ье'],
+    u'тр': [u'и', u'е', u'ьи', u'о', u'ье'],       u'фр': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'хр': [u'и', u'е', u'ьи', u'о', u'ье'],       u'шр': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'бс': [u'и', u'е', u'ьи', u'о', u'ье'],       u'вс': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'гс': [u'и', u'е', u'ьи', u'о', u'ье'],       u'дс': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'жс': [u'и', u'е', u'ьи', u'о', u'ье'],       u'зс': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'кс': [u'и', u'е', u'ьи', u'о', u'ье'],       u'мс': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'нс': [u'и', u'е', u'ьи', u'о', u'ье'],       u'пс': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'рс': [u'и', u'е', u'ьи', u'о', u'ье'],       u'сс': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'тс': [u'и', u'е', u'ьи', u'о', u'ье'],       u'фс': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'хс': [u'и', u'е', u'ьи', u'о', u'ье'],       u'шс': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'бф': [u'и', u'е', u'ьи', u'о', u'ье'],       u'вф': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'гф': [u'и', u'е', u'ьи', u'о', u'ье'],       u'дф': [u'', u'и', u'е', u'ьи', u'о', u'ье'],
+    u'жф': [u'и', u'е', u'ьи', u'о', u'ье'],       u'зф': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'кф': [u'и', u'е', u'ьи', u'о', u'ье'],       u'мф': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'нф': [u'и', u'е', u'ьи', u'о', u'ье'],       u'пф': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'рф': [u'и', u'е', u'ьи', u'о', u'ье'],       u'сф': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'тф': [u'и', u'е', u'ьи', u'о', u'ье'],       u'фф': [u'', u'и', u'е', u'ьи', u'о', u'ье'],
+    u'хф': [u'и', u'е', u'ьи', u'о', u'ье'],       u'шф': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'бт': [u'и', u'е', u'ьи', u'о', u'ье'],       u'вт': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'гт': [u'и', u'е', u'ьи', u'о', u'ье'],       u'дт': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'жт': [u'и', u'е', u'ьи', u'о', u'ье'],       u'зт': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'кт': [u'и', u'е', u'ьи', u'о', u'ье'],       u'мт': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'нт': [u'и', u'е', u'ьи', u'о', u'ье'],       u'пт': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'рт': [u'и', u'е', u'ьи', u'о', u'ье'],       u'ст': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'тт': [u'', u'и', u'е', u'ьи', u'о', u'ье'],  u'фт': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'хт': [u'и', u'е', u'ьи', u'о', u'ье'],       u'шт': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'лб': [u'и', u'е', u'ьи', u'о', u'ье'],       u'лв': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'лг': [u'и', u'е', u'ьи', u'о', u'ье'],       u'лд': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'лж': [u'и', u'е', u'ьи', u'о', u'ье'],       u'лз': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'лк': [u'и', u'е', u'ьи', u'о', u'ье'],       u'лм': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'лн': [u'и', u'е', u'ьи', u'о', u'ье'],       u'лл': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'лп': [u'и', u'е', u'ьи', u'о', u'ье'],       u'лр': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'лс': [u'и', u'е', u'ьи', u'о', u'ье'],       u'лт': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'лф': [u'и', u'е', u'ьи', u'о', u'ье'],       u'лх': [u'и', u'е', u'ьи', u'о', u'ье'],
+    u'лш': [u'и', u'е', u'ьи', u'о', u'ье'],
+}
+
+
 GERMAN_BLANK_CONNECTORS = [u'мм', u'рм', u'нт', u'рт', u'лф', u'лл', u'нх', u'нг', u'рн', u'лв',
                            u'лм', u'нр', u'лб', u'гл', u'см', u'зм', u'нн', u'гр', u'зб', u'сб',
                            u'тр', u'мг', u'мх', u'рм', u'нз', u'нс', u'бр', u'лм', u'гб', u'гн',
@@ -225,7 +336,7 @@ ARTISAN = u'Артизан'
 
 LANGS = NamegenForm.LANGS
 LANG_IDS = [Constants.SCAND, Constants.LATIN, Constants.SPAIN, Constants.ITALY, Constants.POLAND, Constants.JAPAN,
-            Constants.ROMANIA, Constants.HUNGARY, Constants.CHINA, Constants.GERMANY]
+            Constants.ROMANIA, Constants.HUNGARY, Constants.CHINA, Constants.GERMANY, Constants.FRANCE]
 
 
 def d100():
@@ -542,6 +653,37 @@ def generate_names_german(gender, nobility, count,
     return names
 
 
+def generate_name_french(gender, nobility,
+                         first_parts_male, second_parts_male,
+                         first_parts_female, second_parts_female,
+                         surname_firsts, surname_seconds):
+    [nobility, gender, gender_tail, noble_tail] = resolve_randomness(gender, nobility)
+    name = generate_french_name(gender, first_parts_male, second_parts_male, first_parts_female, second_parts_female)
+    if nobility == Constants.NOBLE:
+        if d100() <= 50:
+            if d100() <= 50:
+                name += ' ' + generate_french_name(Constants.MALE, first_parts_male, second_parts_male,
+                                                   first_parts_female, second_parts_female)
+            else:
+                name += ' ' + generate_french_name(Constants.FEMALE, first_parts_male, second_parts_male,
+                                                   first_parts_female, second_parts_female)
+    surname = generate_french_surname(nobility, surname_firsts, surname_seconds)
+    return name + surname + gender_tail + noble_tail
+
+
+def generate_names_french(gender, nobility, count,
+                          first_parts_male, second_parts_male,
+                          first_parts_female, second_parts_female,
+                          surname_firsts, surname_seconds):
+    names = list()
+    for i in range(count):
+        names.append(generate_name_french(gender, nobility,
+                                          first_parts_male, second_parts_male,
+                                          first_parts_female, second_parts_female,
+                                          surname_firsts, surname_seconds))
+    return names
+
+
 def prepare_data_rand_namegen():
     first_parts_male = dict()
     first_parts_male[Constants.SCAND] = MaleScand.objects.get_first_parts_list()
@@ -554,6 +696,7 @@ def prepare_data_rand_namegen():
     first_parts_male[Constants.HUNGARY] = MaleHungarian.objects.get_first_parts_list()
     first_parts_male[Constants.CHINA] = MaleChinese.objects.get_first_parts_list()
     first_parts_male[Constants.GERMANY] = MaleGerman.objects.get_first_parts_list()
+    first_parts_male[Constants.FRANCE] = MaleFrance.objects.get_first_parts_list()
 
     second_parts_male = dict()
     second_parts_male[Constants.SCAND] = MaleScand.objects.get_second_parts_list()
@@ -566,6 +709,7 @@ def prepare_data_rand_namegen():
     second_parts_male[Constants.HUNGARY] = MaleHungarian.objects.get_second_parts_list()
     second_parts_male[Constants.CHINA] = MaleChinese.objects.get_second_parts_list()
     second_parts_male[Constants.GERMANY] = MaleGerman.objects.get_second_parts_list()
+    second_parts_male[Constants.FRANCE] =  MaleFrance.objects.get_second_parts_list()
 
     first_parts_female = dict()
     first_parts_female[Constants.SCAND] = FemaleScand.objects.get_first_parts_list()
@@ -578,6 +722,7 @@ def prepare_data_rand_namegen():
     first_parts_female[Constants.HUNGARY] = FemaleHungarian.objects.get_first_parts_list()
     first_parts_female[Constants.CHINA] = FemaleChinese.objects.get_first_parts_list()
     first_parts_female[Constants.GERMANY] = FemaleGerman.objects.get_first_parts_list()
+    first_parts_female[Constants.FRANCE] = FemaleFrance.objects.get_first_parts_list()
 
     second_parts_female = dict()
     second_parts_female[Constants.SCAND] = FemaleScand.objects.get_second_parts_list()
@@ -590,6 +735,7 @@ def prepare_data_rand_namegen():
     second_parts_female[Constants.HUNGARY] = FemaleHungarian.objects.get_second_parts_list()
     second_parts_female[Constants.CHINA] = FemaleChinese.objects.get_second_parts_list()
     second_parts_female[Constants.GERMANY] = FemaleGerman.objects.get_second_parts_list()
+    second_parts_female[Constants.FRANCE] = FemaleFrance.objects.get_second_parts_list()
 
     cognomen_firsts = CognomenLatin.objects.get_first_parts_list()
     cognomen_seconds_male = CognomenLatin.objects.get_second_parts_male_list()
@@ -616,6 +762,9 @@ def prepare_data_rand_namegen():
     surname_german_firsts = SurnamesGerman.objects.get_first_parts_list()
     surname_german_seconds = SurnamesGerman.objects.get_second_parts_list()
 
+    surname_french_firsts = SurnamesFrance.objects.get_first_parts_list()
+    surname_french_seconds = SurnamesFrance.objects.get_second_parts_list()
+
     return [first_parts_male, second_parts_male, first_parts_female, second_parts_female,
             cognomen_firsts, cognomen_seconds_male, cognomen_seconds_female,
             surname_italian_firsts, surname_italian_seconds,
@@ -624,7 +773,8 @@ def prepare_data_rand_namegen():
             surname_japanese_firsts, surname_japanese_seconds,
             surname_romanian_firsts, surname_romanian_seconds,
             surname_chinese_firsts, surname_chinese_seconds,
-            surname_german_firsts, surname_german_seconds]
+            surname_german_firsts, surname_german_seconds,
+            surname_french_firsts, surname_french_seconds]
 
 
 def generate_name_rand(gender, nobility,
@@ -637,7 +787,8 @@ def generate_name_rand(gender, nobility,
                        surname_japanese_firsts, surname_japanese_seconds,
                        surname_romanian_firsts, surname_romanian_seconds,
                        surname_chinese_firsts, surname_chinese_seconds,
-                       surname_german_firsts, surname_german_seconds):
+                       surname_german_firsts, surname_german_seconds,
+                       surname_french_firsts, surname_french_seconds):
     [nobility, gender, gender_tail, noble_tail] = resolve_randomness(gender, nobility)
     name = ''
     names_count = choice([1, 2, 3, 4])
@@ -664,6 +815,9 @@ def generate_name_rand(gender, nobility,
                                           first_parts_female.get(lang), second_parts_female.get(lang)) + ' '
         elif lang == Constants.GERMANY:
             name += generate_german_name(gender, first_parts_male.get(lang), second_parts_male.get(lang),
+                                         first_parts_female.get(lang), second_parts_female.get(lang)) + ' '
+        elif lang == Constants.FRANCE:
+            name += generate_french_name(gender, first_parts_male.get(lang), second_parts_male.get(lang),
                                          first_parts_female.get(lang), second_parts_female.get(lang)) + ' '
         else:
             name += generate_name(male, female, gender,
@@ -703,6 +857,8 @@ def generate_name_rand(gender, nobility,
                                            surname_chinese_firsts, surname_chinese_seconds)
     elif lang == Constants.GERMANY:
         surname = generate_german_surname(nobility, surname_german_firsts, surname_german_seconds)
+    elif lang == Constants.FRANCE:
+        surname = generate_french_surname(nobility, surname_french_firsts, surname_french_seconds)
     surname += ' '
     return name + surname + gender_tail + noble_tail
 
@@ -740,6 +896,9 @@ def determine_lang(lang):
     elif lang == Constants.GERMANY:
         male = MaleGerman
         female = FemaleGerman
+    elif lang == Constants.FRANCE:
+        male = MaleFrance
+        female = FemaleFrance
     return [male, female]
 
 
@@ -753,7 +912,8 @@ def generate_names_rand(gender, nobility, count,
                         surname_japanese_firsts, surname_japanese_seconds,
                         surname_romanian_firsts, surname_romanian_seconds,
                         surname_chinese_firsts, surname_chinese_seconds,
-                        surname_german_firsts, surname_german_seconds):
+                        surname_german_firsts, surname_german_seconds,
+                        surname_french_firsts, surname_french_seconds):
     names = list()
     for i in range(count):
         names.append(generate_name_rand(gender, nobility,
@@ -766,7 +926,8 @@ def generate_names_rand(gender, nobility, count,
                                         surname_japanese_firsts, surname_japanese_seconds,
                                         surname_romanian_firsts, surname_romanian_seconds,
                                         surname_chinese_firsts, surname_chinese_seconds,
-                                        surname_german_firsts, surname_german_seconds))
+                                        surname_german_firsts, surname_german_seconds,
+                                        surname_french_firsts, surname_french_seconds))
     return names
 
 
@@ -1282,6 +1443,10 @@ def correct_hungarian_name(first, second, surname=False):
     return correct_name(first, second, ROMANIAN_CONNECTORS, ROMANIAN_BLANK_CONNECTORS, surname)
 
 
+def correct_french_name(first, second, surname=False):
+    return correct_name(first, second, FRENCH_CONNECTORS, [], surname)
+
+
 def generate_polish_surname(gender, first_parts_male, second_parts_male,
                             first_parts_surname, second_parts_surname,
                             male_endings, female_endings):
@@ -1472,6 +1637,46 @@ def generate_german_surname(nobility, first_parts, second_parts):
     return surname
 
 
+def generate_french_name(gender,
+                         first_parts_male, second_parts_male,
+                         first_parts_female, second_parts_female):
+    first_part = u'',
+    second_part = u''
+    while first_part == second_part:
+        if gender ==  Constants.MALE:
+            first_part = choice(first_parts_male)[0]
+            second_part = choice(second_parts_male)[0]
+        else:
+            first_part = choice(first_parts_female)[0]
+            second_part = choice(second_parts_female)[0]
+    return correct_french_name(first_part, second_part)
+
+
+def generate_french_surname(nobility, first_parts, second_parts):
+    surname = u''
+    threshold = 50
+    if nobility == Constants.NOBLE:
+        surname_prefixes = [u'де ', u'ди ', u'дю ', u'ла ', u'д\'', u'ле ', u'де ла ']
+        if d100() <= threshold:
+            surname += choice(surname_prefixes)
+        threshold = 70
+    first = u''
+    second = u''
+    while first == second:
+        first = choice(first_parts)[0]
+        second = choice(second_parts)[0]
+    surname += correct_french_name(first, second, True)
+    if d100() <= threshold:
+        surname += '-'
+        first = u''
+        second = u''
+        while first == second:
+            first = choice(first_parts)[0]
+            second = choice(second_parts)[0]
+        surname += correct_french_name(first, second, True)
+    return surname
+
+
 def generate_chinese_surname(nobility, first_parts_male, second_parts_male,
                              first_parts_female, second_parts_female,
                              surname_firsts, surname_seconds):
@@ -1659,7 +1864,8 @@ def create_names(lang, gender, nobility, count):
          surname_japanese_firsts, surname_japanese_seconds,
          surname_romanian_firsts, surname_romanian_seconds,
          surname_chinese_firsts, surname_chinese_seconds,
-         surname_german_firsts, surname_german_seconds] = prepare_data_rand_namegen()
+         surname_german_firsts, surname_german_seconds,
+         surname_french_firsts, surname_french_seconds] = prepare_data_rand_namegen()
 
         [ranks_simple, ranks_noble_magi, ranks_noble_genetor,
          ranks_noble_logi, ranks_noble_artisan, ranks_noble_myrmidon,
@@ -1779,6 +1985,26 @@ def create_names(lang, gender, nobility, count):
                                           first_parts_male, second_parts_male,
                                           first_parts_female, second_parts_female,
                                           surname_firsts, surname_seconds)
+    elif lang == Constants.FRANCE:
+        first_parts_male = MaleFrance.objects.get_first_parts_list()
+        second_parts_male = MaleFrance.objects.get_second_parts_list()
+
+        first_parts_female = FemaleFrance.objects.get_first_parts_list()
+        second_parts_female = FemaleFrance.objects.get_second_parts_list()
+
+        surname_firsts = SurnamesFrance.objects.get_first_parts_list()
+        surname_seconds = SurnamesFrance.objects.get_second_parts_list()
+
+        if count == 1:
+            names.append(generate_name_french(gender, nobility,
+                                              first_parts_male, second_parts_male,
+                                              first_parts_female, second_parts_female,
+                                              surname_firsts, surname_seconds))
+        else:
+            names = generate_names_french(gender, nobility, count,
+                                          first_parts_male, second_parts_male,
+                                          first_parts_female, second_parts_female,
+                                          surname_firsts, surname_seconds)
     elif lang == Constants.RANDOM:
         [first_parts_male, second_parts_male, first_parts_female, second_parts_female,
          cognomen_firsts, cognomen_seconds_male, cognomen_seconds_female,
@@ -1788,7 +2014,8 @@ def create_names(lang, gender, nobility, count):
          surname_japanese_firsts, surname_japanese_seconds,
          surname_romanian_firsts, surname_romanian_seconds,
          surname_chinese_firsts, surname_chinese_seconds,
-         surname_german_firsts, surname_german_seconds] = prepare_data_rand_namegen()
+         surname_german_firsts, surname_german_seconds,
+         surname_french_firsts, surname_french_seconds] = prepare_data_rand_namegen()
         if count == 1:
             names.append(generate_name_rand(gender, nobility,
                                             first_parts_male, second_parts_male,
@@ -1800,7 +2027,8 @@ def create_names(lang, gender, nobility, count):
                                             surname_japanese_firsts, surname_japanese_seconds,
                                             surname_romanian_firsts, surname_romanian_seconds,
                                             surname_chinese_firsts, surname_chinese_seconds,
-                                            surname_german_firsts, surname_german_seconds))
+                                            surname_german_firsts, surname_german_seconds,
+                                            surname_french_firsts, surname_french_seconds))
         else:
             names = generate_names_rand(gender, nobility, count,
                                         first_parts_male, second_parts_male,
@@ -1812,5 +2040,6 @@ def create_names(lang, gender, nobility, count):
                                         surname_japanese_firsts, surname_japanese_seconds,
                                         surname_romanian_firsts, surname_romanian_seconds,
                                         surname_chinese_firsts, surname_chinese_seconds,
-                                        surname_german_firsts, surname_german_seconds)
+                                        surname_german_firsts, surname_german_seconds,
+                                        surname_french_firsts, surname_french_seconds)
     return names
