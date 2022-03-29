@@ -1640,10 +1640,10 @@ def generate_german_surname(nobility, first_parts, second_parts):
 def generate_french_name(gender,
                          first_parts_male, second_parts_male,
                          first_parts_female, second_parts_female):
-    first_part = u'',
+    first_part = u''
     second_part = u''
     while first_part == second_part:
-        if gender ==  Constants.MALE:
+        if gender == Constants.MALE:
             first_part = choice(first_parts_male)[0]
             second_part = choice(second_parts_male)[0]
         else:
