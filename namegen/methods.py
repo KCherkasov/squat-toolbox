@@ -667,6 +667,8 @@ def generate_name_french(gender, nobility,
             else:
                 name += ' ' + generate_french_name(Constants.FEMALE, first_parts_male, second_parts_male,
                                                    first_parts_female, second_parts_female)
+        else:
+            name += ' '
     surname = generate_french_surname(nobility, surname_firsts, surname_seconds)
     return name + surname + gender_tail + noble_tail
 
