@@ -663,10 +663,10 @@ def generate_name_french(gender, nobility,
         if d100() <= 50:
             if d100() <= 50:
                 name += ' ' + generate_french_name(Constants.MALE, first_parts_male, second_parts_male,
-                                                   first_parts_female, second_parts_female)
+                                                   first_parts_female, second_parts_female) + ' '
             else:
                 name += ' ' + generate_french_name(Constants.FEMALE, first_parts_male, second_parts_male,
-                                                   first_parts_female, second_parts_female)
+                                                   first_parts_female, second_parts_female) + ' '
         else:
             name += ' '
     else:
