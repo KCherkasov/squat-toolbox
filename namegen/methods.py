@@ -1424,7 +1424,7 @@ def generate_arabic_name(gender,
             first_part = choice(first_parts_female)[0]
             second_part = choice(second_parts_female)[0]
     name = correct_arabic_name(first_part, second_part)
-    if d100() <= 50:
+    if d100() <= 20:
         first_part = u''
         second_part = u''
         while first_part.lower() == second_part.lower():
