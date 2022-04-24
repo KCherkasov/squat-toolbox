@@ -1449,11 +1449,14 @@ def generate_arabic_surname(gender, nobility,
     if nobility == Constants.NOBLE:
         dice = d100()
         if dice <= 40:
-            surname += 'дель '
+            surname += u'дель '
         elif dice <= 80:
-            surname += 'аль '
+            surname += u'аль '
         else:
-            surname += 'эр '
+            surname += u'эр '
+    else:
+        if d100() <= 40:
+            surname += u'ибн '
     surname += generate_arabic_name(Constants.MALE,
                                     first_parts_male, second_parts_male,
                                     first_parts_female, second_parts_female)
