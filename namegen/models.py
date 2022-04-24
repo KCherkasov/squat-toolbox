@@ -357,3 +357,17 @@ class SurnamesFrance(models.Model):
 
     first_part = models.CharField(max_length=15)
     second_part = models.CharField(max_length=15)
+
+
+class MaleArabic(models.Model):
+    objects = NameManager()
+
+    first_part = models.CharField(max_length=15)
+    second_part = models.CharField(max_length=15)
+
+
+class FemaleArabic(models.Model):
+    objects = NameManager()
+
+    first_part = models.CharField(max_length=15)
+    second_part = models.CharField(max_length=15)
