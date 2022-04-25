@@ -7,9 +7,9 @@ from django.shortcuts import render, reverse
 from .flyweights import *
 from .constants import *
 
-
-aptitudes = Aptitude.from_file(json.load(open('static/json/aptitudes.json', 'r')))
-print(aptitudes, file=sys.stdin)
+data=json.load(open('static/json/aptitudes.json', 'r'))
+aptitudes = Aptitude.from_file(data)
+print(data, file=sys.stdin)
 
 
 def aptitudes_test(request):
