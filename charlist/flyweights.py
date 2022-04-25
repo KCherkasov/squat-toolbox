@@ -18,7 +18,7 @@ class NamelessDescription(TaggedObject):
         self.__description = description
 
     def get_description(self,  lang=RU):
-        return self.__description[lang]
+        return self.__description.get(lang)
 
     def get_description_ru(self):
         return self.get_description(RU)
@@ -33,7 +33,7 @@ class ObjectDescription(NamelessDescription):
         self.__name = name
 
     def get_name(self, lang=RU):
-        return self.__name[lang]
+        return self.__name.get(lang)
 
     def get_name_ru(self):
         return self.get_name(RU)
