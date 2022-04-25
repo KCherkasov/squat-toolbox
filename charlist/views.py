@@ -7,10 +7,9 @@ from .flyweights import *
 from .constants import *
 
 
-def apts():
-    data = json.load(open('static/json/aptitudes.json', 'r', encoding='utf-8'))
-    return Aptitude.from_file(data)
+data = json.load(open('static/json/aptitudes.json', 'r', encoding='utf-8'))
+apts = Aptitude.from_file(data)
 
 
 def aptitudes_test(request):
-    return render(request, 'charlist_test.html', {'version': VERSION, 'apts': apts(), })
+    return render(request, 'charlist_test.html', {'version': VERSION, 'apts': apts, })
