@@ -55,7 +55,9 @@ class Aptitude(ObjectDescription):
 
     @classmethod
     def from_file(cls, fdata):
-        aptitudes = list(map(AptitudeModel.from_json, fdata['aptitudes']))
+        aptitudes = list()
+        for apt in fdata['aptitudes']:
+            aptitudes.append(AptitudeModel.from_json(apt))
         result = list()
         for apt in aptitudes:
             result.append(cls.from_model(apt))
