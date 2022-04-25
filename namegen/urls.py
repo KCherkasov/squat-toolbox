@@ -27,7 +27,8 @@ urlpatterns = [
     path(r'admin/', admin.site.urls),
     path(r'namegen/', views.index, name='index'),
 
-    path(r'dev/charlist/test/', charviews.aptitudes_test, name='charlist-test'),
+    path(r'dev/charsheet/test/', charviews.aptitudes_test, name='charsheet-test'),
+    path(r'dev/charsheet/mockup/', charviews.charsheet_mockup, name='charsheet-mockup'),
 
     path('api/namegen/get', views.get_name),
     path('api/namegen/ver', views.get_namegen_version),

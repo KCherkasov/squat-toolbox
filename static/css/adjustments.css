@@ -30,7 +30,7 @@ body {
     flex-direction: column;
 }
 
-.charlist-stat-inline {
+.charlist-inline {
     display: flex;
     flex-direction: row;
 }
