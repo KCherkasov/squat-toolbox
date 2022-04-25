@@ -7,9 +7,11 @@ import logging
 from .flyweights import *
 from .constants import *
 
+logging.debug('reading apts')
 data = json.load(open('static/json/aptitudes.json', 'r'))
-aptitudes = Aptitude.from_file(data)
+logging.debug('apts read, making apt objects from\n')
 logging.debug(data)
+aptitudes = Aptitude.from_file(data)
 
 
 def aptitudes_test(request):
