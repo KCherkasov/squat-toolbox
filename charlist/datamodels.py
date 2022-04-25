@@ -12,7 +12,7 @@ class AptitudeModel(object):
 
     @classmethod
     def from_json(cls, data):
-        return cls(**data)
+        return cls(data['tag'], data['name'], data['description'])
 
 
 class StatDescriptionModel(object):
