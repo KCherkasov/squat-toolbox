@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from typing import List, Dict
-import json
 
 
 class AptitudeModel(object):
@@ -12,7 +11,7 @@ class AptitudeModel(object):
 
     @classmethod
     def from_json(cls, data):
-        return cls(data['tag'], data['name'], data['description'])
+        return cls(**data)
 
 
 class StatDescriptionModel(object):

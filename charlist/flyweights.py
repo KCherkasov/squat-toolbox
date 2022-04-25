@@ -4,9 +4,6 @@ from .constants import *
 from .datamodels import *
 
 
-import json
-
-
 class TaggedObject(object):
     def __init__(self, tag=''):
         self.__tag = tag
