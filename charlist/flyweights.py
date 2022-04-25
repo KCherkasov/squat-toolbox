@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from constants import *
-from datamodels import *
+from .constants import *
+from .datamodels import *
 
 
 import json
