@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from typing import List
+from typing import List, Dict
 import json
 
 
 class AptitudeModel(object):
-    def __init__(self, tag: str, name: str, description: str):
+    def __init__(self, tag: str, name: Dict[str], description: Dict[str]):
         self.tag = tag
         self.name = name
         self.description = description
@@ -16,7 +16,7 @@ class AptitudeModel(object):
 
 
 class StatDescriptionModel(object):
-    def __init__(self, tag: str, name: str, description: str, upgradeable: bool, aptitudes: List[str]):
+    def __init__(self, tag: str, name: Dict[str], description: Dict[str], upgradeable: bool, aptitudes: List[str]):
         self.tag = tag
         self.name = name
         self.description = description
