@@ -6,10 +6,11 @@ from django.shortcuts import render, reverse
 from .flyweights import *
 from .constants import *
 
-data = json.load(open('static/json/aptitudes.json', 'r', encoding='utf-8'))
 
-aptitudes = Aptitude.from_file(data)
+def apts():
+    data = json.load(open('static/json/aptitudes.json', 'r', encoding='utf-8'))
+    return Aptitude.from_file(data)
 
 
 def aptitudes_test(request):
-    return render(request, 'charlist_test.html', {'version': VERSION, 'apts': aptitudes, })
+    return render(request, 'charlist_test.html', {'version': VERSION, 'apts': apts(), })
