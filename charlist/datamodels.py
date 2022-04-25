@@ -5,7 +5,7 @@ import json
 
 
 class AptitudeModel(object):
-    def __init__(self, tag: str, name: Dict[str], description: Dict[str]):
+    def __init__(self, tag: str, name: Dict[str, str], description: Dict[str, str]):
         self.tag = tag
         self.name = name
         self.description = description
@@ -16,7 +16,7 @@ class AptitudeModel(object):
 
 
 class StatDescriptionModel(object):
-    def __init__(self, tag: str, name: Dict[str], description: Dict[str], upgradeable: bool, aptitudes: List[str]):
+    def __init__(self, tag: str, name: Dict[str, str], description: Dict[str, str], upgradeable: bool, aptitudes: List[str]):
         self.tag = tag
         self.name = name
         self.description = description
