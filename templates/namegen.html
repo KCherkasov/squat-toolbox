@@ -15,7 +15,7 @@
                 {% csrf_token %}
                 {% for field in form %}
                 <div class="form-group">
-                    <label for={{ field.name }} class="col-sm2 control-label"><h4>{{ field.label }}</h4></label>
+                    <label for="{{ field.name }}" class="col-sm2 control-label"><h4>{{ field.label }}</h4></label>
                     <div class="col-sm5 form-control">
                         {{ field }}
                     </div>

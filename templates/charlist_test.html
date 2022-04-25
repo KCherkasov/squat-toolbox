@@ -1,0 +1,26 @@
+{% extends 'charlist_main.html' %}
+
+{% block app-content %}
+    {% for apt in apts %}
+        <div class="card">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#ru">?<i class="flag flag-russia"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#en"><i class="flag flag-united-kingdom"></i></a>
+                </li>
+            </ul>
+            <div class="card-body tab-content">
+                <div class="tab-pane fade show active" id="ru">
+                    <h5>{{ apt.get_name_ru }}</h5>
+                    <p>{{ apt.get_description_ru }}</p>
+                </div>
+                <div class="tab-pane fade show" id="en">
+                    <h5>{{ apt.get_name_en }}</h5>
+                    <p>{{ apt.get_description_en }}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

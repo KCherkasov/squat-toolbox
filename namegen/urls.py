@@ -20,11 +20,14 @@ from django.conf.urls.static import static
 from rest_framework.urlpatterns import format_suffix_patterns
 
 from . import views, settings
+from charlist import views as charviews
 
 urlpatterns = [
     path(r'', views.main, name='main'),
     path(r'admin/', admin.site.urls),
     path(r'namegen/', views.index, name='index'),
+
+    path(r'dev/charlist/test/', charviews.aptitudes_test, name='charlist-test'),
 
     path('api/namegen/get', views.get_name),
     path('api/namegen/ver', views.get_namegen_version),

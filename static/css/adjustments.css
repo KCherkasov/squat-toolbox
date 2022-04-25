@@ -24,3 +24,13 @@ body {
     max-height: 500px;
     overflow-y: auto;
 }
+
+.charlist-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.charlist-stat-inline {
+    display: flex;
+    flex-direction: row;
+}
