@@ -2,16 +2,11 @@
 import sys
 
 from django.shortcuts import render, reverse
-import logging
 
 from .flyweights import *
 from .constants import *
 
-logger = logging.getLogger('django')
-logger.info('reading apts')
-data = json.load(open('static/json/aptitudes.json', 'r'))
-logger.info('apts read, making apt objects from\n')
-logger.info(data)
+data = json.load(open('static/json/aptitudes.json', 'r', encoding='utf-8'))
 
 aptitudes = Aptitude.from_file(data)
 
