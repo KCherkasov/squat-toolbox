@@ -59,8 +59,11 @@ class Aptitudes(object):
         aptitudes = list()
         for apt in fdata['aptitudes']:
             aptitudes.append(AptitudeModel.from_json(apt))
-        for apt in aptitudes:
-            self.apts.append(Aptitude.from_model(apt))
+        if len(aptitudes) > 0:
+            for apt in aptitudes:
+                self.apts.append(Aptitude.from_model(apt))
+        else:
+            self.apts = None
 
 
 class StatDescription(ObjectDescription):
