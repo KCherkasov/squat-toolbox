@@ -92,6 +92,7 @@ CSP_FRAME_ANCESTORS = ['https://wiki.pandhammer.ru', 'https://kvcherk.pythonanyw
 CSP_DEFAULT_SRC = ["'none'"]
 CSP_SCRIPT_SRC = [
     "'self'",
+    "'unsafe-inline'",
     "https://stackpath.bootstrapcdn.com",
     "https://cdn.jsdelivr.net",
     "https://code.jquery.com"
