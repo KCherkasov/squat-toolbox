@@ -50,15 +50,17 @@ class Aptitude(ObjectDescription):
     def from_model(cls, model: AptitudeModel):
         return cls(model.tag, model.name, model.description)
 
-    @classmethod
-    def from_file(cls, fdata):
+
+class Aptitudes(object):
+    def __init__(self):
+        self.apts = list()
+
+    def from_file(self, fdata):
         aptitudes = list()
         for apt in fdata['aptitudes']:
             aptitudes.append(AptitudeModel.from_json(apt))
-        result = list()
         for apt in aptitudes:
-            result.append(cls.from_model(apt))
-        return result
+            self.apts.append(Aptitude.from_model(apt))
 
 
 class StatDescription(ObjectDescription):
