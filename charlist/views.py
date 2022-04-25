@@ -7,10 +7,12 @@ import logging
 from .flyweights import *
 from .constants import *
 
-logging.debug('reading apts')
+logger = logging.getLogger('django')
+logger.info('reading apts')
 data = json.load(open('static/json/aptitudes.json', 'r'))
-logging.debug('apts read, making apt objects from\n')
-logging.debug(data)
+logger.info('apts read, making apt objects from\n')
+logger.info(data)
+
 aptitudes = Aptitude.from_file(data)
 
 
