@@ -1,6 +1,7 @@
 {% extends 'charlist_main.html' %}
 
 {% block app-content %}
+    {% if apts %}
     {% for apt in apts %}
         <div class="card">
             <ul class="nav nav-tabs">
@@ -23,4 +24,7 @@
             </div>
         </div>
     {% endfor %}
+    {% else %}
+        <p>Empty</p>
+    {% endif %}
 {% endblock %}
