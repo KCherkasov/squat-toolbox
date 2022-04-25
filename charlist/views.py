@@ -10,12 +10,10 @@ from .constants import *
 import json
 
 
-data = json.load(open('static/json/aptitudes.json', 'r', encoding='utf-8'))
-apts = Aptitudes()
-apts.from_file(data)
+aptitudes = Aptitude.from_file(json.load(open('static/json/aptitudes.json', 'r', encoding='utf-8')))
 
 
 def aptitudes_test(request):
     logger = logging.getLogger('charlist_logger')
     logger.info('test')
-    return render(request, 'charlist_test.html', {'version': VERSION, 'apts': apts.apts, })
+    return render(request, 'charlist_test.html', {'version': VERSION, 'apts': aptitudes, })

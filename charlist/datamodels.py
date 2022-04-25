@@ -6,12 +6,8 @@ from typing import List, Dict
 class AptitudeModel(object):
     def __init__(self, tag: str, name: Dict[str, str], description: Dict[str, str]):
         self.tag = tag
-        self.name = dict()
-        for k in name.keys():
-            self.name[k] = name.get(k)
-        self.description = dict()
-        for k in description.keys():
-            self.description[k] = description.get(k)
+        self.name = name
+        self.description = description
 
     @classmethod
     def from_json(cls, data):
@@ -23,12 +19,8 @@ class StatDescriptionModel(object):
                  name: Dict[str, str], description: Dict[str, str],
                  upgradeable: bool, aptitudes: List[str]):
         self.tag = tag
-        self.name = dict()
-        for k in name.keys():
-            self.name[k] = name.get(k)
-        self.description = dict()
-        for k in description.keys():
-            self.description[k] = description.get(k)
+        self.name = name
+        self.description = description
         self.upgradeable = upgradeable
         self.aptitudes = aptitudes
 
