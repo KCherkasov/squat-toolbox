@@ -162,6 +162,7 @@ Character sheet mockup
                 <button class="btn btn-success">Потратить</button>
                 <button class="btn btn-danger">Сжечь</button>
             </div>
+            <br>
             <div class="charlist-content">
                 <div>
                     <h5>Очки опыта</h5>
@@ -178,6 +179,34 @@ Character sheet mockup
             <header class="text-center">
                 <h4>Характеристики и навыки</h4>
             </header>
+            <div>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" data-bs-toggle="tab" id="stats-tab" href="#stats" aria-current="page">Характеристики</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" data-bs-toggle="tab" id="skills-tab" href="#skills">Навыки</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="stats" role="tabpanel" aria-labelledby="stats-tag">
+                    <hr>
+                    <header class="text-center">
+                        <h4>
+                            Характеристики
+                        </h4>
+                    </header>
+                </div>
+                <div class="tab-pane fade show active" id="skills" role="tabpanel" aria-labelledby="skills-tag">
+                    <hr>
+                    <header class="text-center">
+                        <h4>
+                            Навыки
+                        </h4>
+                    </header>
+                </div>
+            </div>
         </div>
         <div class="tab-pane fade show" id="talents" role="tabpanel" aria-labelledby="talents-tag">
             <hr>
