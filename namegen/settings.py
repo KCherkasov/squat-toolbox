@@ -100,7 +100,7 @@ CSP_SCRIPT_SRC = [
 CSP_STYLE_SRC = ["'self'",
                  "https://cdn.jsdelivr.net",]
 CSP_IMG_SRC = ["'self'",
-               "http://www.w3.org",]
+               "http://www.w3.org/2000/svg",]
 
 WSGI_APPLICATION = 'namegen.wsgi.application'
 
