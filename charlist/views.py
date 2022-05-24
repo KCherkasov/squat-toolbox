@@ -11,6 +11,8 @@ import json
 
 
 aptitudes = Aptitude.from_file(json.load(open('static/json/aptitudes.json', 'r', encoding='utf-8')))
+stat_descriptions = StatDescription.from_file(json.load(open('static/json/stat_descriptions.json',
+                                                             'r', encoding='utf-8')))
 
 
 def aptitudes_test(request):

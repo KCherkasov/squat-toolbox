@@ -3,6 +3,8 @@
 from .constants import *
 from .datamodels import *
 
+from typing import List, Dict
+
 
 class TaggedObject(object):
     def __init__(self, tag=''):
@@ -13,7 +15,7 @@ class TaggedObject(object):
 
 
 class NamelessDescription(TaggedObject):
-    def __init__(self, tag, description):
+    def __init__(self, tag: str, description: Dict[str, str]):
         super().__init__(tag)
         self.__description = description
 
@@ -28,7 +30,7 @@ class NamelessDescription(TaggedObject):
 
 
 class ObjectDescription(NamelessDescription):
-    def __init__(self, tag, name, description):
+    def __init__(self, tag: str, name: Dict[str, str], description: Dict[str, str]):
         super().__init__(tag, description)
         self.__name = name
 
@@ -43,7 +45,7 @@ class ObjectDescription(NamelessDescription):
 
 
 class Aptitude(ObjectDescription):
-    def __init__(self, tag, name, description):
+    def __init__(self, tag: str, name: Dict[str, str], description: Dict[str, str]):
         super().__init__(tag, name, description)
 
     @classmethod
@@ -65,9 +67,9 @@ class Aptitude(ObjectDescription):
 
 
 class StatDescription(ObjectDescription):
-    def __init__(self, tag,
-                 name, description,
-                 upgradeable, aptitudes):
+    def __init__(self, tag: str,
+                 name: Dict[str, str], description: Dict[str, str],
+                 upgradeable: bool, aptitudes: List[str]):
         super().__init__(tag, name, description)
         self.__upgradeable = upgradeable
         self.__aptitudes = aptitudes
@@ -78,11 +80,28 @@ class StatDescription(ObjectDescription):
     def get_aptitudes(self):
         return self.__aptitudes
 
+    @classmethod
+    def from_model(cls, model: StatDescriptionModel):
+        return cls(model.tag, model.name, model.description, model.upgradeable, model.aptitudes)
+
+    @classmethod
+    def from_file(cls, fdata):
+        stat_descriptions = list()
+        for stat_description in fdata['descriptions']:
+            stat_descriptions.append(StatDescriptionModel.from_json(stat_description))
+        result_descriptions = list()
+        if len(stat_descriptions) > 0:
+            for stat_description in stat_descriptions:
+                result_descriptions.append(cls.from_model(stat_description))
+        else:
+            result_descriptions = None
+        return result_descriptions
+
 
 class SkillDescription(ObjectDescription):
-    def __init__(self, tag,
-                 name, description,
-                 aptitudes, stats):
+    def __init__(self, tag: str,
+                 name: Dict[str, str], description: Dict[str, str],
+                 aptitudes: List[str], stats: List[str]):
         super().__init__(tag, name, description)
         self.__aptitudes = aptitudes
         self.__stats = stats
@@ -101,7 +120,7 @@ class SkillDescription(ObjectDescription):
 
 
 class Hint(NamelessDescription):
-    def __init__(self, tag, description, target):
+    def __init__(self, tag: str, description: Dict[str, str], target: List[str]):
         super().__init__(tag, description)
         self.__target = target
 
@@ -110,7 +129,8 @@ class Hint(NamelessDescription):
 
 
 class HintedDescription(ObjectDescription):
-    def __init__(self, tag, name, description, hints):
+    def __init__(self, tag: str, name: Dict[str, str],
+                 description: Dict[str, str], hints: List[Hint]):
         super().__init__(tag, name, description)
         self.__hints = hints
 
@@ -131,8 +151,9 @@ class HintedDescription(ObjectDescription):
 
 
 class TalentDescription(HintedDescription):
-    def __init__(self, tag, name, description,
-                 hints, tier, aptitudes):
+    def __init__(self, tag: str, name: Dict[str, str],
+                 description: Dict[str, str], hints: List[Hint],
+                 tier: int, aptitudes: List[str]):
         super().__init__(tag, name, description, hints)
         self.__tier = tier
         self.__aptitudes = aptitudes
@@ -145,7 +166,9 @@ class TalentDescription(HintedDescription):
 
 
 class BonusDescription(HintedDescription):
-    def __init__(self, tag, name, description, hints, commands):
+    def __init__(self, tag: str, name: Dict[str, str],
+                 description: Dict[str, str], hints: List[Hint],
+                 commands):
         super().__init__(tag, name, description, hints)
         self.__commands = commands
 
@@ -154,8 +177,10 @@ class BonusDescription(HintedDescription):
 
 
 class HomeWorldDescription(HintedDescription):
-    def __init__(self, tag, name, description, hints, stat_mods,
-                 fate, blessing, bonus, aptitude, wounds):
+    def __init__(self, tag: str, name: Dict[str, str],
+                 description: Dict[str, str], hints: List[Hint],
+                 stat_mods: Dict[str, int], fate: int, blessing: int,
+                 bonus: BonusDescription, aptitude: str, wounds: int):
         super().__init__(tag, name, description, hints)
         self.__stat_mods = stat_mods
         self.__fate = fate
@@ -184,5 +209,8 @@ class HomeWorldDescription(HintedDescription):
 
 
 class RoleDescription(HintedDescription):
-    def __init__(self, tag, name, description, hints, aptitudes, apt_choices, skills, skill_choices):
+    def __init__(self, tag: str, name: Dict[str, str],
+                 description: Dict[str, str], hints: List[Hint],
+                 aptitudes: List[str], apt_choices,
+                 skills: List[str], skill_choices):
         super().__init__(tag, name, description, hints)

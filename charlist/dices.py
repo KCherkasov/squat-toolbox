@@ -8,7 +8,7 @@ D5 = 5
 
 
 def roll(dice=D100):
-    return random.randint(1, dice+1)
+    return random.randint(1, dice) + 1
 
 
 def d100():

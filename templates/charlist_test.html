@@ -4,6 +4,7 @@
 
 {% block app_content %}
     {% if apts %}
+        <h4>Склонности</h4>
     {% for apt in apts %}
         <div class="card">
             <ul class="nav nav-tabs" id="tab-{{ apt.get_tag }}" role="tablist">
@@ -23,6 +24,47 @@
                     <h5>{{ apt.get_name_en }}</h5>
                     <p>{{ apt.get_description_en }}</p>
                 </div>
+            </div>
+        </div>
+    {% endfor %}
+    {% else %}
+        <p>Empty</p>
+    {% endif %}
+    {% if stdescrs %}
+        <h4>Характеристики</h4>
+    {% for stdescr in stdescrs %}
+        <div class="card">
+            <ul class="nav nav-tabs" id="tab-{{ stdescr.get_tag }}" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="ru-{{stdescr.get_tag}}-tag" data-bs-toggle="tab" aria-current="page" href="#ru-{{ stdescr.get_tag }}">Русский</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="en-{{stdescr.get_tag}}-tag" data-bs-toggle="tab" href="#en-{{ stdescr.get_tag }}">English</a>
+                </li>
+            </ul>
+            <div class="card-body tab-content" id="tab-content-{{ stdescr.get_tag }}">
+                <div class="tab-pane fade show active" id="ru-{{ stdescr.get_tag }}" role="tabpanel" aria-labelledby="ru-{{ stdescr.get_tag }}-tag">
+                    <h5>{{ stdescr.get_name_ru }}</h5>
+                    <p>{{ stdescr.get_description_ru }}</p>
+                </div>
+                <div class="tab-pane fade show" id="en-{{ stdescr.get_tag }}" role="tabpanel" aria-labelledby="en-{{ stdescr.get_tag }}-tag">
+                    <h5>{{ stdescr.get_name_en }}</h5>
+                    <p>{{ stdescr.get_description_en }}</p>
+                </div>
+            </div>
+            <div class="card-text">
+                <p>
+                    {% if stat_descr.is_upgradeable %}
+                        Улучшаемо
+                    {% else %}
+                        Неулучшаемо
+                    {% endif %}
+                </p>
+            </div>
+            <div class="card-text">
+                {% for apt in stdescr.get_aptitudes %}
+                    <p>{{ apt }}</p>
+                {% endfor %}
             </div>
         </div>
     {% endfor %}
