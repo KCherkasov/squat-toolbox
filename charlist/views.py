@@ -18,7 +18,8 @@ stat_descriptions = StatDescription.from_file(json.load(open('static/json/stat_d
 def aptitudes_test(request):
     logger = logging.getLogger('charlist_logger')
     logger.info('test')
-    return render(request, 'charlist_test.html', {'version': VERSION, 'apts': aptitudes, })
+    return render(request, 'charlist_test.html', {'version': VERSION, 'apts': aptitudes,
+                                                  'stdescrs': stat_descriptions,})
 
 
 def charsheet_mockup(request):
