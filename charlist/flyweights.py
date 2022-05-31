@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import json
 
 from .constants import *
 from .datamodels import *
@@ -214,3 +215,21 @@ class RoleDescription(HintedDescription):
                  aptitudes: List[str], apt_choices,
                  skills: List[str], skill_choices):
         super().__init__(tag, name, description, hints)
+
+
+# resource paths order
+# 0 - aptitude models
+# 1 - stat description models
+class Facade:
+    def __init__(self, resources_paths):
+        prefix = 'static/json/'
+        self.__aptitudes = Aptitude.from_file(
+            json.load(open(prefix + resources_paths[0], 'r', encoding='utf-8')))
+        self.__stat_descriptions = StatDescription.from_file(
+            json.load(open(prefix + resources_paths[1], 'r', encoding='utf-8')))
+
+    def aptitudes(self):
+        return self.__aptitudes
+
+    def stat_descriptions(self):
+        return self.__stat_descriptions
