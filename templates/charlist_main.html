@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block loaders %}
+    {% load filters %}
+{% endblock %}
+
 {% block pg_title %} Character sheet {% endblock %}
 
 {% block title %} Лист персонажа &nbsp; ver.{{ version }} {% endblock %}
