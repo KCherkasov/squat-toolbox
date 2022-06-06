@@ -16,7 +16,9 @@ def aptitudes_test(request):
     logger.info('test')
     return render(request, 'charlist_test.html', {'version': VERSION,
                                                   'apts': flyweights.aptitudes(),
-                                                  'stdescrs': flyweights.stat_descriptions(), })
+                                                  'stdescrs': flyweights.stat_descriptions(),
+                                                  'skdescrs': flyweights.skill_descriptions(),
+                                                  })
 
 
 def charsheet_mockup(request):
