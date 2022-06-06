@@ -12,7 +12,7 @@ def get_by_dict_key(dictionary, key):
 
 
 @register.filter
-def get_member(obj, key: str):
+def member(obj, key: str):
     return getattr(obj, key, None)
 
 
