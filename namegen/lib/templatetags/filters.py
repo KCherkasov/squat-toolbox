@@ -45,7 +45,7 @@ def get_stdescr_name(stdescr: flyweights.StatDescription, lang='ru'):
 
 @register.filter
 def get_stdescr_description(stdescr: flyweights.StatDescription, lang='ru'):
-    return stdescr.get_name(lang)
+    return stdescr.get_description(lang)
 
 
 @register.filter
