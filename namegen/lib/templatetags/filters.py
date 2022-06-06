@@ -19,6 +19,7 @@ def member(obj, key: str):
 # charsheet filters
 
 
+# aptitudes
 @register.filter
 def get_aptitude(facade: flyweights.Facade, key: str):
     return get_by_dict_key(facade.aptitudes(), key)
@@ -33,6 +34,7 @@ def get_apt_description(apt: flyweights.Aptitude, lang='ru'):
     return apt.get_description(lang)
 
 
+# stat descriptions
 @register.filter
 def get_stat_description(facade: flyweights.Facade, key: str):
     return get_by_dict_key(facade.stat_descriptions(), key)
@@ -48,6 +50,7 @@ def get_stdescr_description(stdescr: flyweights.StatDescription, lang='ru'):
     return stdescr.get_description(lang)
 
 
+# skill descriptions
 @register.filter
 def get_skill_description(facade: flyweights.Facade, key: str):
     return get_by_dict_key(facade.skill_descriptions(), key)
