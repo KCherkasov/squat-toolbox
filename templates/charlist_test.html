@@ -5,7 +5,7 @@
 {% block title %} Тестовая сборка листа персонажа (загрузка аптитьюд) ver.{{version}} {% endblock %}
 
 {% block app_content %}
-    {% if apts %}
+    {% if facade.aptitudes %}
         <h4>Склонности</h4>
     {% for apt in facade.aptitudes %}
         <div class="card">
@@ -32,7 +32,7 @@
     {% else %}
         <p>Empty</p>
     {% endif %}
-    {% if stdescrs %}
+    {% if facade.stat_descriptions %}
         <h4>Характеристики</h4>
     {% for stdescr in facade.stat_descriptions %}
         <div class="card">
@@ -73,7 +73,7 @@
     {% else %}
         <p>Empty</p>
     {% endif %}
-    {% if skdescrs %}
+    {% if facade.skill_descriptions %}
         <h4>Навыки</h4>
         {% for skill in facade.skill_descriptions %}
             <div class="card">
