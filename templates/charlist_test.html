@@ -101,7 +101,7 @@
                         <p>Коды специализаций</p>
                         <ul>
                             {% for subtag in facade.spec_skills_subtags|get_by_dict_key:skill.get_tag %}
-                                <li>subtag</li>
+                                <li>{{ subtag }}</li>
                             {% endfor %}
                         </ul>
                     {% else %}
