@@ -388,7 +388,7 @@
         "ru": "Умение Ремесло позволяет аколиту совершать самые разнообразные действия, от приготовления прекрасного обеда, до консервации трупа. Кроме того, персонажи могут идентифицировать работу особенно прославленных или проклинаемых мастеров, а также обладать информацией о предметах своего ремесла.",
         "en": "Trade skills allow Acolytes to practice a craft, from cooking a fine dinner to preserving a corpse. They can identify the work of particularly famous or infamous artisans, or recall information concerning items of their trade."
       },
-      "aptitudes": ["A_INT", "A_GEM"],
+      "aptitudes": ["A_INT", "A_GEN"],
       "stats": ["ST_INT", "ST_AG", "ST_FEL"],
       "is_specialist": true
     }
