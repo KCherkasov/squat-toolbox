@@ -71,4 +71,48 @@
     {% else %}
         <p>Empty</p>
     {% endif %}
+    {% if skdescrs %}
+        <h4>Навыки</h4>
+        {% for skill in skdescrs %}
+            <div class="card">
+                <ul class="nav nav-tabs" id="tab-{{ skill.get_tag }}" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="ru-{{ skill.get_tag }}-tag" data-bs-toggle="tab" aria-current="page" href="#ru-{{ skill.get_tag }}">Русский</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="en-{{ skill.get_tag }}-tag" data-bs-toggle="tab" aria-current="page" href="#en-{{ skill.get_tag }}">English</a>
+                    </li>
+                </ul>
+                <div class="card-body tab-content" id="tab-content-{{ skill.get_tag }}">
+                    <div class="tab-pane fade show active" id="ru-{{ skill.get_tag }}" role="tabpanel" aria-labelledby="ru-{{ skill.get_tag }}-tag">
+                        <h5>{{ skill.get_name_ru }}</h5>
+                        <p>{{ skill.get_description_ru }}</p>
+                    </div>
+                    <div class="tab-pane fade show" id="en-{{ skill.get_tag }}" role="tabpanel" aria-labelledby="en-{{ skill.get_tag }}-tag">
+                        <h5>{{ skill.get_name_en }}</h5>
+                        <p>{{ skill.get_description_en }}</p>
+                    </div>
+                </div>
+                <div class="card-text">
+                    {% if skill.is_specialist %}
+                        <p>Специальный навык</p>
+                    {% else %}
+                        <p>Неспециальный навык</p>
+                    {% endif %}
+                </div>
+                <div class="card-text">
+                    {% for apt in skill.get_aptitudes %}
+                        <p>{{ apt }}</p>
+                    {% endfor %}
+                </div>
+                <div class="card-text">
+                    {% for stat in skill.get_stats %}
+                        <p>{{ stat }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Empty</p>
+    {% endif %}
 {% endblock %}
