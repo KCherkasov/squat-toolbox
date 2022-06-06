@@ -23,10 +23,29 @@ def member(obj, key: str):
 def get_aptitude(facade: flyweights.Facade, key: str):
     return get_by_dict_key(facade.aptitudes(), key)
 
+@register.filter
+def get_apt_name(apt: flyweights.Aptitude, lang='ru'):
+    return apt.get_name(lang)
+
+
+@register.filter
+def get_apt_description(apt: flyweights.Aptitude, lang='ru'):
+    return apt.get_description(lang)
+
 
 @register.filter
 def get_stat_description(facade: flyweights.Facade, key: str):
     return get_by_dict_key(facade.stat_descriptions(), key)
+
+
+@register.filter
+def get_stdescr_name(stdescr: flyweights.StatDescription, lang='ru'):
+    return stdescr.get_name(lang)
+
+
+@register.filter
+def get_stdescr_description(stdescr: flyweights.StatDescription, lang='ru'):
+    return stdescr.get_name(lang)
 
 
 @register.filter

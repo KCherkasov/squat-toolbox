@@ -113,8 +113,8 @@
                     <ul>
                     {% for apt in skill.get_aptitudes %}
                         <li>
-                            <p>{{ apt }} ({{ facade.aptitudes|get_by_dict_key:apt|member:'name'|get_by_dict_key:'ru' }})</p>
-                            <p> {{ facade.aptitudes|get_by_dict_key:apt|member:'description'|get_by_dict_key:'ru' }}</p>
+                            <p>{{ apt }} ({{ facade|get_aptitude:apt|get_apt_name:'ru' }})</p>
+                            <p> {{ facade|get_aptitude:apt|get_apt_description:'ru' }}</p>
                         </li>
                     {% endfor %}
                     </ul>
@@ -124,8 +124,8 @@
                     <ul>
                     {% for stat in skill.get_stats %}
                         <li>
-                            <p>{{ stat }} ({{ facade.stat_descriptions|get_by_dict_key:stat|member:'name'|get_by_dict_key:'ru' }})</p>
-                            <p>{{ facade.stat_descriptions|get_by_dict_key:stat|member:'description'|get_by_dict_key:'ru' }}</p>
+                            <p>{{ stat }} ({{ facade|get_stat_description:stat|get_stdescr_name:'ru' }})</p>
+                            <p>{{ facade|get_stat_description:stat|get_stdescr_description:'ru' }}</p>
                         </li>
                     {% endfor %}
                     </ul>
