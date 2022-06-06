@@ -250,12 +250,21 @@ class RoleDescription(HintedDescription):
 class Facade:
     def __init__(self, resources_paths):
         prefix = 'static/json/'
-        self.__aptitudes = Aptitude.from_file(
+        aptitudes = Aptitude.from_file(
             json.load(open(prefix + resources_paths[0], 'r', encoding='utf-8')))
-        self.__stat_descriptions = StatDescription.from_file(
+        self.__aptitudes = dict()
+        for apt in aptitudes:
+            self.__aptitudes[apt.get_tag()] = apt
+        stat_descriptions = StatDescription.from_file(
             json.load(open(prefix + resources_paths[1], 'r', encoding='utf-8')))
-        self.__skill_descriptions = SkillDescription.from_file(
+        self.__stat_descriptions = dict()
+        for sd in stat_descriptions:
+            self.__stat_descriptions[sd.get_tag()] = sd
+        skill_descriptions = SkillDescription.from_file(
             json.load(open(prefix + resources_paths[2], 'r', encoding='utf-8')))
+        self.__skill_descriptions = dict()
+        for sd in skill_descriptions:
+            self.__skill_descriptions[sd.get_tag()] = sd
         self.__spec_skills_subtags = SUBTAG_SKILLS_MAP
 
     def aptitudes(self):
