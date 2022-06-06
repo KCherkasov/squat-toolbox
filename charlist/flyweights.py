@@ -3,6 +3,7 @@ import json
 
 from .constants import *
 from .datamodels import *
+from .tags import *
 
 from typing import List, Dict
 
@@ -255,6 +256,7 @@ class Facade:
             json.load(open(prefix + resources_paths[1], 'r', encoding='utf-8')))
         self.__skill_descriptions = SkillDescription.from_file(
             json.load(open(prefix + resources_paths[2], 'r', encoding='utf-8')))
+        self.__spec_skills_subtags = SUBTAG_SKILLS_MAP
 
     def aptitudes(self):
         return self.__aptitudes
@@ -264,3 +266,6 @@ class Facade:
 
     def skill_descriptions(self):
         return self.__skill_descriptions
+
+    def spec_skills_subtags(self):
+        return self.__spec_skills_subtags

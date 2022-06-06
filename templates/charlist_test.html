@@ -5,7 +5,7 @@
 {% block app_content %}
     {% if apts %}
         <h4>Склонности</h4>
-    {% for apt in apts %}
+    {% for apt in facade.aptitudes %}
         <div class="card">
             <ul class="nav nav-tabs" id="tab-{{ apt.get_tag }}" role="tablist">
                 <li class="nav-item" role="presentation">
@@ -32,7 +32,7 @@
     {% endif %}
     {% if stdescrs %}
         <h4>Характеристики</h4>
-    {% for stdescr in stdescrs %}
+    {% for stdescr in facade.stat_descriptions %}
         <div class="card">
             <ul class="nav nav-tabs" id="tab-{{ stdescr.get_tag }}" role="tablist">
                 <li class="nav-item" role="presentation">
@@ -73,7 +73,7 @@
     {% endif %}
     {% if skdescrs %}
         <h4>Навыки</h4>
-        {% for skill in skdescrs %}
+        {% for skill in facade.skill_descriptions %}
             <div class="card">
                 <ul class="nav nav-tabs" id="tab-{{ skill.get_tag }}" role="tablist">
                     <li class="nav-item" role="presentation">
@@ -96,19 +96,37 @@
                 <div class="card-text">
                     {% if skill.is_specialist %}
                         <p>Специальный навык</p>
+                        <p>Коды специализаций</p>
+                        <ul>
+                            {% for subtag in facade.spec_skills_subtags|get_by_dict_key:skill.get_tag %}
+                                <li>subtag</li>
+                            {% endfor %}
+                        </ul>
                     {% else %}
                         <p>Неспециальный навык</p>
                     {% endif %}
                 </div>
                 <div class="card-text">
+                    <h5>Склонности</h5>
+                    <ul>
                     {% for apt in skill.get_aptitudes %}
-                        <p>{{ apt }}</p>
+                        <li>
+                            <p>{{ apt }} ({{ facade.aptitudes|get_by_dict_key:apt|member:'name'|get_by_dict_key:'ru' }})</p>
+                            <p> {{ facade.aptitudes|get_by_dict_key:apt|member:'description'|get_by_dict_key:'ru' }}</p>
+                        </li>
                     {% endfor %}
+                    </ul>
                 </div>
                 <div class="card-text">
+                    <h5>Характеристики</h5>
+                    <ul>
                     {% for stat in skill.get_stats %}
-                        <p>{{ stat }}</p>
+                        <li>
+                            <p>{{ stat }} ({{ facade.stat_descriptions|get_by_dict_key:stat|member:'name'|get_by_dict_key:'ru' }})</p>
+                            <p>{{ facade.stat_descriptions|get_by_dict_key:stat|member:'description'|get_by_dict_key:'ru' }}</p>
+                        </li>
                     {% endfor %}
+                    </ul>
                 </div>
             </div>
         {% endfor %}
