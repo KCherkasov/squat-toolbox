@@ -1,0 +1,3110 @@
+{
+  "talents": [
+    {
+      "tag": "TL_AMB",
+      "name": {
+        "ru": "Амбидекстрия",
+        "en": "Ambidextrous"
+      },
+      "description": {
+        "ru": "Этот талант отображает не природную обоюдорукость, но успешную тренировку во владении обоими руками без различий.",
+        "en": "This talent does not represent true ambidexterity so much as sufficient training with both hands to make the distinction moot."
+      },
+      "hints": [
+        {
+          "tag": "TL_AMB_H1",
+          "description": {
+            "ru": "В комбинации с талантом Обоерукий воин, штраф за совершение атак двумя оружиями в один ход падает до -10",
+            "en": "When combined with Two-Weapon Wielder talent, the penalty for making attacks with both weapons in the same turn drops to –10."
+          },
+          "targets": ["ST_WS"],
+          "bonus": 10,
+          "condition": "TL_TWW"
+        }
+      ],
+      "tier": 1,
+      "aptitudes": ["A_WS", "A_BS"],
+      "prerequisites": [
+        {
+          "tag": "ST_AG",
+          "value": 30
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_BF",
+      "name": {
+        "ru": "Бой вслепую",
+        "en": "Blind fighting"
+      },
+      "description": {
+        "ru": "Годы практики и оттачивания всех остальных чувств позволяют аколиту сражаться в ближнем бою без всех тех преимуществ, что дает зрение.",
+        "en": "Years of practice and development of his other senses allows the Acolyte to fight in close combat without the benefit of sight."
+      },
+      "hints": [
+        {
+          "tag": "TL_BF_H1",
+          "description": {
+            "ru": "Персонаж игнорирует все штрафы, получаемые в ближнем бою за плохую видимость (туман, дым, темнота и др.).",
+            "en": "Character ignores all penalties for fighting with a melee weapon while suffering from obscured vision, permitting him to fight in fog, smoke, or darkness more effectively"
+          },
+          "targets": ["ST_WS"]
+        }
+      ],
+      "tier": 1,
+      "aptitudes": ["A_PER", "A_FLD"],
+      "prerequisites": [
+        {
+          "tag": "ST_PER",
+          "value": 30
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_CF",
+      "name": {
+        "ru": "Мягкое приземление",
+        "en": "Catfall"
+      },
+      "description": {
+        "ru": "Навыки гимнаста и врожденное чувство равновесия позволяют аколиту падать с большей высоты без особого вреда для себя.",
+        "en": "Gymnastic ability and natural balance enables the Acolyte to fall great distances without harm."
+      },
+      "hints": [
+        {
+          "tag": "TL_CF_H1",
+          "description": {
+            "ru": "При подсчете получаемого урона от падения персонаж уменьшает значение высоты, с которой он падает, на $AGB метров.",
+            "en": "Character automatically reduces the effective distance of all falls by a number of metres equal to his $AGB, ignoring this distance as if it did not exist."
+          },
+          "targets": ["ST_AG"]
+        },
+        {
+          "tag": "TL_CF_H2",
+          "description": {
+            "ru": "Персонаж получает бонус +20 к тестам Акробатики при использовании Прыжка, если применение этого умения связано с уменьшением урона от падения с высоты.",
+            "en": "Character adds +20 to his Acrobatics skill tests when using the Jump special skill use, as it pertains to reducing damage from falling."
+          },
+          "targets": ["SK_ACR"]
+        }
+      ],
+      "tier": 1,
+      "aptitudes": ["A_AG", "A_FLD"],
+      "prerequisites": [
+        {
+          "tag": "ST_AG",
+          "value": 30
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_CFTC",
+      "name": {
+        "ru": "Разговор с толпой",
+        "en": "Clues from the crowds"
+      },
+      "description": {
+        "ru": "Извлечь нужные данные из таких групп, как банда ульев или кучка писцов Администратума, – непростая задача, ведь численность придаёт им уверенности и делает более устойчивыми к расспросам. Но опытный аколит знает, что такие группы людей могут обладать критически важной для его расследования информацией и умеет в ходе разговора расставить вербальные ловушки и заставить своих оппонентов проговориться.",
+        "en": "It is often difficult to extract information from groups such as hive gangs or Administratum scribes, as often numbers can bolster recalcitrance to questioning. A veteran Acolyte knows that such groups can hold critical information to complete an investigation, and can throw more effective nets when interrogating groups and reveal valued clues."
+      },
+      "hints": [
+        {
+          "tag": "TL_CFTC_H1",
+          "description": {
+            "ru": "Один раз в день персонаж может перебросить проваленную проверку, направленную на то, чтобы получить информацию от группы людей.",
+            "en": "Once per day, character can re-roll a test made to gather information from a group of people."
+          },
+          "targets": ["SK_INQ", "SK_CH"]
+        }
+      ],
+      "tier": 1,
+      "aptitudes": ["A_GEN", "A_SOC"],
+      "prerequisites": [
+        {
+          "tag": "ST_FEL",
+          "value": 30
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_DH",
+      "name": {
+        "ru": "Крепкий орешек",
+        "en": "Die hard"
+      },
+      "description": {
+        "ru": "Твердая психическая установка или абсолютное упорство не позволяют аколиту пасть.",
+        "en": "Through either mental resolve or sheer stubbornness, the Acolyte refuses to fall."
+      },
+      "hints": [
+        {
+          "tag": "TL_DH_H1",
+          "description": {
+            "ru": "Когда персонаж, страдающий от Кровотечения, должен получить 1 уровень Усталости, аколит может бросить Серьёзную проверку Силы Воли +0 и, в случае успеха, не получить Усталости.",
+            "en": "When this character would suffer a level of Fatigue due to the Blood Loss condition, he makes a +0 Willpower test; if he succeeds, he does not suffer a level of Fatigue."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
+      "tier": 1,
+      "aptitudes": ["A_WP", "A_DEF"],
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 40
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_DSRM",
+      "name": {
+        "ru": "Разоружение",
+        "en": "Disarm"
+      },
+      "description": {
+        "ru": "Хитрым приёмом или грубой силой аколит может выбить оружие из рук врага.",
+        "en": "The Acolyte can wrest weapons from his opponents’ hands through practised technique or brute force."
+      },
+      "hints": [
+        {
+          "tag": "TL_DSRM_H1",
+          "description": {
+            "ru": "В качестве Полного действия персонаж должен пройти Встречную проверку Навыка Рукопашной с врагом, в схватку с которым вовлечён. Если аколит выигрывает эту проверку, он выбивает оружие у противника из рук, и оно падает на землю. Если аколит выигрывает проверку с тремя или более степенями успеха, то он отбрасывает оружие врага прочь.",
+            "en": "As a Full Action, the character may make an Opposed Weapon Skill test against one target with whom he is engaged. If the Acolyte wins the test, the enemy drops his weapon to the ground. Should the Acolyte score three or more degrees of success, he can take the enemy’s weapon from him."
+          },
+          "targets": ["ST_WS"]
+        }
+      ],
+      "tier": 1,
+      "aptitudes": ["A_WS", "A_DEF"],
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 30
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_DT",
+      "name": {
+        "ru": "Плечом к плечу",
+        "en": "Double team"
+      },
+      "description": {
+        "ru": "Аколит имеет богатый опыт совместной атаки.",
+        "en": "The Acolyte has experience of fighting in paired teams that work together to take down their enemies."
+      },
+      "hints": [
+        {
+          "tag": "TL_DT_H1",
+          "description": {
+            "ru": "При Совместной Атаке одного противника вдвоём, персонаж получает дополнительный бонус +10 к проверкам Навыка Рукопашной. Если этот талант есть у обоих союзников, бонус увеличивается до +20. Эти бонусы добавляются к обычному для Совместной Атаки",
+            "en": "When Ganging Up on an opponent, he gains an additional +10 bonus to Weapon Skill tests. If both the characters that outnumber the enemy have this talent, then both gain an additional +10 bonus, for a total of +20. This bonus is in addition to the normal bonus gained from Ganging Up on an opponent"
+          }
+        }
+      ],
+      "tier": 1,
+      "aptitudes": ["A_GEN", "A_OFF"],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_ENM",
+      "name": {
+        "ru": "Враг",
+        "en": "Enemy"
+      },
+      "description": {
+        "ru": "У аколита сложные отношения с какой-либо социальной группой, организацией, культом или ксенорасой – для них он презренный изгой или даже враг, на которого объявлена охота.",
+        "en": "the Acolyte is particularly despised and possibly hunted by a specific social group or organisation, heretical cult, or xenos race."
+      },
+      "hints": [
+        {
+          "tag": "TL_ENM_H1",
+          "description": {
+            "ru": "Персонаж получает дополнительный штраф -10 на все проверки Общительности и Влияния, направленные на представителей группы $TL_SBT",
+            "en": "Character suffers an additional –10 penalty to Fellowship and Influence tests when dealing with following group: $TL_SBT."
+          },
+          "targets": ["ST_FEL", "ST_IFL"]
+        }
+      ],
+      "tier": 1,
+      "aptitudes": ["A_GEN", "A_SOC"],
+      "prerequisites": [],
+      "is_specialist": true,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_FS",
+      "name": {
+        "ru": "Железный призыв",
+        "en": "Ferric lure summons"
+      },
+      "description": {
+        "ru": "Аколит обучен более эффективному использованию своих имплантатов Железного Призыва.",
+        "en": "The Acolyte has trained himself in better use of his Ferric Lure Implants."
+      },
+      "hints": [
+        {
+          "tag": "TL_FS_H1",
+          "description": {
+            "ru": "He can summon to his hand an unsecured metal object weighing up to $MTP$BASE$WPB kg, and can summon such objects up to 40 metres distant.",
+            "en": "Персонаж может призывать в свою руку незакреплённые металлические объекты, массой до $MTP$BASE$WPB кг с дистанции до 40 метров."
+          },
+          "targets": ["ST_WP"],
+          "base": 2
+        }
+      ],
+      "tier": 1,
+      "aptitudes": ["A_WP", "A_TECH"],
+      "prerequisites": [
+        {
+          "tag": "I_FERR_SUMM_IMPL",
+          "value": 1
+        },
+        {
+          "tag": "TR_MECH_IMPL",
+          "value": 1
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_FRZ",
+      "name": {
+        "ru": "Неистовство",
+        "en": "Frenzy"
+      },
+      "description": {
+        "ru": "Лёгкий налет цивилизованности скрывает за собой яростную и вспыльчивую натуру, что легко может освободиться, когда это будет нужно.",
+        "en": "The Acolyte’s temper and passion boil just below the surface of his psyche, mostly held in check by his rational mind, but easily released when needed."
+      },
+      "hints": [
+        {
+          "tag": "TL_FRZ_H1",
+          "description": {
+            "ru": "Если аколит потратит один полный раунд на то, чтобы накрутить себя – рыча, колотя себя в грудь, впрыскивая себе специальные наркотики или применяя иные способы – то в следующем раунде он впадет в неконтролируемую ярость, получая бонус +10 к Навыку Рукопашной, Силе, Выносливости и Силе Воли.",
+            "en": "If he spends one full round fuelling his anger—by flagellation, drugs, or other means—on the next round,he goes into an uncontrolled rage, gaining a +10 bonus to Weapon Skill, Strength, Toughness, and Willpower."
+          },
+          "targets": ["ST_WS", "ST_STR", "ST_T", "ST_WP"],
+          "bonus": 10
+        },
+        {
+          "tag": "TL_FRZ_H2",
+          "description": {
+            "ru": "Если аколит потратит один полный раунд на то, чтобы накрутить себя – рыча, колотя себя в грудь, впрыскивая себе специальные наркотики или применяя иные способы – то в следующем раунде он впадет в неконтролируемую ярость, получая штраф -20 к Навыку Стрельбы, Интеллекту и Общительности. Эти штрафы не являются уроном в характеристику и не могут опустить ее значение ниже 1.",
+            "en": "If he spends one full round fuelling his anger—by flagellation, drugs, or other means—on the next round, he goes into an uncontrolled rage, gaining a –20 penalty to Ballistic Skill, Intelligence, and Fellowship. Note that characteristic penalties are different from characteristic damage , and cannot reduce a characteristic below 1."
+          },
+          "targets": ["ST_INT", "ST_FEL"],
+          "bonus": -20
+        },
+        {
+          "tag": "TL_FRZ_H2",
+          "description": {
+            "ru": "В состоянии Неистовства, аколит невосприимчив к эффектам Страха, Подавления, Оглушения и Усталости. Он не может Парировать атаки, убегать, отступать или применять психосилы. Состояние Неистовства сохраняется в течение всей боевой сцены.",
+            "en": "While Frenzied, character is immune to Fear, Pinning, Stunning effects, and the effects of Fatigue; he cannot Parry, retreat, or flee. He remains Frenzied for the duration of the combat, and cannot use psychic powers while Frenzied."
+          },
+          "targets": ["ST_WP"]
+        },
+        {
+          "tag": "TL_FRZ_H3",
+          "description": {
+            "ru": "Если по окончанию боя у персонажа больше не осталось целей, которые он мог бы атаковать, он должен пройти проверку Силы Воли, чтобы прийти в себя. Если проверка провалена, персонаж обязан атаковать дружественных НИП или, при их отсутствии, персонажей других игроков. Каждый последующий раунд он может совершать проверку Силы Воли с накопительным бонусом +10, чтобы выйти из состояния Неистовства. После этого персонаж не может вновь впасть в Неистовство в течение часа – он восстанавливает свои физические и ментальные силы.",
+            "en": "After combat ends, or if there are no more eligible enemy targets for the character to attack, he can make a Willpower test to snap out of his Frenzy. If he fails, he must continue to attack, favouring NPCs over PCs. Each successive round, however, he can make another Willpower test, with a cumulative +10 bonus to return to a stable state of mind and come out of Frenzy. After Frenzying, he cannot Frenzy again for at least an hour, as he recovers his mental and physical strength."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
+      "tier": 1,
+      "aptitudes": ["A_STR", "A_OFF"],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_IJ",
+      "name": {
+        "ru": "Железная челюсть",
+        "en": "Iron jaw"
+      },
+      "description": {
+        "ru": "Аколит принимал удары от орков и возвращал их, как мог, встречая ответные плюхи и тумаки безо всяких последствий.",
+        "en": "The Acolyte has taken blows from Orks and given back as good as he got, bouncing back from most strikes without ill effects."
+      },
+      "hints": [
+        {
+          "tag": "TL_IJ_H1",
+          "description": {
+            "ru": "Когда аколит оказывается Оглушён, он может за Свободное действие пройти проверку Выносливости +0, и игнорировать эффекты Оглушения в случае успеха.",
+            "en": "Whenever this character becomes Stunned, he may make a +0 Toughness test as a Free Action to ignore the effects."
+          },
+          "targets": ["ST_T"]
+        }
+      ],
+      "tier": 1,
+      "aptitudes": ["A_T", "A_DEF"],
+      "prerequisites": [
+        {
+          "tag": "ST_T",
+          "value": 40
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_JD",
+      "name": {
+        "ru": "Искушенный",
+        "en": "Jaded"
+      },
+      "description": {
+        "ru": "В своих путешествиях аколит повидал куда больше, как чудес, так и ужасов, чем многие другие. Галактика столкнула его с худшим, но он не дрогнул.",
+        "en": "The Acolyte’s wide travels have shown him both wonders and horrors beyond the ken of most. The galaxy has thrown its worst at him and he has yet to flinch."
+      },
+      "hints": [
+        {
+          "tag": "TL_JD_H1",
+          "description": {
+            "ru": "«Обыденные» ужасы, вроде созерцания жуткой сцены убийства или встречи с мерзкими ксеносами не оказывают влияния на персонажа, не могут принести персонажу очки Безумия или заставить сделать проверку Страха. Однако, встречи с демонами, проявления Варпа и другие сверхъестественные ужасы действуют на аколита по-прежнему.",
+            "en": "Mundane events, from death’s horrific visage to xenos abominations, do not force the character to gain Insanity points or make Fear tests. Daemons, Warp manifestations, and other unnatural effects still affect him normally."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
+      "tier": 1,
+      "aptitudes": ["A_WP", "A_DEF"],
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 40
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_KI",
+      "name": {
+        "ru": "Чуткая интуиция",
+        "en": "Keen intuition"
+      },
+      "description": {
+        "ru": "Глаз аколита наметан замечать вещи, что выглядят странно или необычно. Мельчайшее отклонение от нормы может выдать сокрытую гниль ереси.",
+        "en": "The Acolyte has trained extensively to notice objects that seem out of place or hidden. This can bring the smallest irregularity to prominence, revealing the heresy festering beneath the surface."
+      },
+      "hints": [
+        {
+          "tag": "TL_KI_H1",
+          "description": {
+            "ru": "После проваленной проверки Бдительности, персонаж может перебросить ее со штрафом -10.",
+            "en": "After failing an Awareness skill test, the character can re-roll the test with a –10 modifier"
+          },
+          "targets": ["SK_AWR"]
+        }
+      ],
+      "tier": 1,
+      "aptitudes": ["A_PER", "A_SOC"],
+      "prerequisites": [
+        {
+          "tag": "ST_INT",
+          "value": 35
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_LU",
+      "name": {
+        "ru": "Вскочить",
+        "en": "Leap up"
+      },
+      "description": {
+        "ru": "Физическая подготовка и скорость аколита позволяют ему, будучи поваленным на землю, вскочить в любых обстоятельствах.",
+        "en": "A combination of athletic ability and speed allows the Acolyte to spring to his feet in virtually any circumstance"
+      },
+      "hints": [
+        {
+          "tag": "TL_LU_H1",
+          "description": {
+            "ru": "Персонаж может подняться на ноги в качестве Свободного действия.",
+            "en": "Character can stand up as a Free Action."
+          },
+          "targets": ["ST_AG", "A_STAND_UP"]
+        }
+      ],
+      "tier": 1,
+      "aptitudes": ["A_AG", "A_GEN"],
+      "prerequisites": [
+        {
+          "tag": "ST_AG",
+          "value": 30
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_NTH",
+      "name": {
+        "ru": "Негде прятаться",
+        "en": "Nowhere to hide"
+      },
+      "description": {
+        "ru": "Острый глаз аколита найдет слабые места даже в самом надёжном укрытии.",
+        "en": "The Acolyte’s keen eye ensures he can spot soft points even in the most impregnable of protective cover."
+      },
+      "hints": [
+        {
+          "tag": "TL_NTH_H1",
+          "description": {
+            "ru": "Когда персонаж наносит урон укрытию, он может добавить количество степеней успеха своей атаки к сумме, на которую снижается уровень защиты, предоставляемый укрытием. Если аколит использует оружие, которое не предполагает проверки, к урону добавляется 1.",
+            "en": "When the character damages cover, the character adds his degrees of success from the attack to the reduction of the cover’s Armour value. If using a weapon that does not require a skill test, he adds 1 instead."
+          },
+          "targets": ["ST_BS"]
+        }
+      ],
+      "tier": 1,
+      "aptitudes": ["A_PER", "A_OFF"],
+      "prerequisites": [
+        {
+          "tag": "ST_PER",
+          "value": 30
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_PR",
+      "name": {
+        "ru": "Связи",
+        "en": "Peer"
+      },
+      "description": {
+        "ru": "Аколит знает, как вести себя с определённой группой, организацией или даже расой ксеносов.",
+        "en": "The Acolyte knows how to deal with a particular social group or organisation, or even xenos race."
+      },
+      "hints": [
+        {
+          "tag": "TL_PR_H1",
+          "description": {
+            "ru": "Персонаж получает бонус +10 ко всем проверкам Общительности и Влияния с представителями группы $TL_SBT и иногда может просить их об услугах.",
+            "en": "Character gains a +10 bonus to all Fellowship and Influence tests when interacting with group $TL_SBT, and can sometimes call upon them for favours."
+          },
+          "targets": ["ST_FEL", "ST_IFL"]
+        }
+      ],
+      "tier": 1,
+      "aptitudes": ["A_FEL", "A_SOC"],
+      "prerequisites": [
+        {
+          "tag": "ST_FEL",
+          "value": 30
+        }
+      ],
+      "is_specialist": true,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_QD",
+      "name": {
+        "ru": "Выхватить оружие",
+        "en": "Quick draw"
+      },
+      "description": {
+        "ru": "Аколит настолько часто практиковался в обращении со своим оружием, что теперь в самый ответственный момент оно вмиг может оказаться в его руках.",
+        "en": "The Acolyte has practised so frequently with his weapons that they practically leap into his hands in response to a simple thought."
+      },
+      "hints": [
+        {
+          "tag": "TL_QD_H1",
+          "description": {
+            "ru": "Персонаж может выхватить и приготовить к бою Пистолет, Основное оружие или одноручное оружие ближнего боя в качестве Свободного действия.",
+            "en": "As a Free Action, the character may draw and ready a Pistol or Basic weapon, or a one-handed Melee weapon."
+          },
+          "targets": ["ST_WS", "ST_BS"]
+        }
+      ],
+      "tier": 1,
+      "aptitudes": ["A_AG", "A_FIN"],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_RR",
+      "name": {
+        "ru": "Быстрая перезарядка",
+        "en": "Rapid reload"
+      },
+      "description": {
+        "ru": "Стрелковые полигоны и комнаты испытания оружия были постоянной обителью аколита. Часы, потраченные на перезарядку бесконечных магазинов и энергетических ячеек, не прошли даром – теперь аколит, даже в горячке боя, может перезарядить любое оружие быстро, не глядя на него и даже не задумываясь о том, что он делает.",
+        "en": "The firing ranges and weapon drill chambers are the Acolyte’s constant abode. Hours of reloading countless magazines or power cells means that he can replace them without looking and without thinking, even in the middle of combat."
+      },
+      "hints": [
+        {
+          "tag": "TL_RR_H1",
+          "description": {
+            "ru": "Персонаж тратит вдвое меньше времени на перезарядку (округлять вниз). Таким образом, Полудействие становиться Свободным, Полное – Полудействием и так далее.",
+            "en": "Character halves all reload times, rounding down. Thus a Half Action reload becomes a Free Action, a Full Action reload becomes a Half Action, and so on."
+          },
+          "targets": ["ST_BS"]
+        }
+      ],
+      "tier": 1,
+      "aptitudes": ["A_AG", "A_FLD"],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_SC",
+      "name": {
+        "ru": "Крепкое телосложение",
+        "en": "Sound constitution"
+      },
+      "description": {
+        "ru": "Персонаж получает дополнительную рану.",
+        "en": "The Acolyte gains an additional wound."
+      },
+      "hints": [
+        {
+          "tag": "TL_SC_H1",
+          "description": {
+            "ru": "Персонаж получает $TL_STACK дополнительных ран.",
+            "en": "The Acolyte gains an additional $TL_STACK wounds."
+          },
+          "targets": ["WND_MAX"],
+          "bonus": 1
+        }
+      ],
+      "tier": 1,
+      "aptitudes": ["A_T", "A_GEN"],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": true
+    },
+    {
+      "tag": "TL_TKD",
+      "name": {
+        "ru": "Нокдаун",
+        "en": "Takedown"
+      },
+      "description": {
+        "ru": "При совершении действий Натиск или Стандартная Атака, аколит может объявить, что пытается оглушить свою цель.",
+        "en": "When making a Standard Attack or Charge action, the Acolyte can declare that he is attempting a takedown his target."
+      },
+      "hints": [
+        {
+          "tag": "TL_TKD_H1",
+          "description": {
+            "ru": "При совершении действий Натиск или Стандартная Атака, аколит может объявить, что пытается оглушить свою цель. Персонаж совершает бросок на попадание (используя свой Навык Рукопашной) со всеми обычными модификаторами. Если атака достигла цели и нанесла хотя бы одно очко урона (после вычитания Брони и бонуса Выносливости), то нанесенный Урон не засчитывается, но цель должна преуспеть в проверке Выносливости +0. Если проверка пройдена, враг падает на землю, считается Упавшим и получает Оглушение на 1 Раунд.",
+            "en": "When making a Standard Attack or Charge action, the Acolyte can declare that he is attempting a takedown his target. He then rolls to hit (using his Weapon Skill) as normal, applying all the regular modifiers for the attack action. If the character hits and would have done at least 1 point of damage (after reduction for Armour and Toughness, no wounds are caused. Instead, the opponent must make a +0 Toughness test or be Stunned for 1 Round and knocked Prone."
+          },
+          "targets": ["ST_WS"]
+        },
+        {
+          "tag": "TL_TKD_H2",
+          "description": {
+            "ru": "При попытке совершить действие Оглушить против врага находящегося в Нокдауне, аколит не получает штрафа -20 на проверку Навыка Рукопашной",
+            "en": "When performing a Stun Action, the character does not suffer the normal –20 penalty to his Weapon Skill."
+          },
+          "targets": ["ST_WS"]
+        }
+      ],
+      "tier": 1,
+      "aptitudes": ["A_WS", "A_OFF"],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_TK",
+      "name": {
+        "ru": "Искусный стук",
+        "en": "Technical knock"
+      },
+      "description": {
+        "ru": "Благодаря долгой практике или знанию нужных ритуалов усмирения машинных духов оружия, аколит может устранить осечку простым постукиванием по нему или лёгким ударом руки.",
+        "en": "Either through the ease of long practice, or the proper ritual to appease a weapon’s machine spirit, the Acolyte can clear stoppages with a simple knock or solid smack of his hand to a weapon."
+      },
+      "hints": [
+        {
+          "tag": "TL_TK_H1",
+          "description": {
+            "ru": "Один раз за раунд аколит может снять Клин с оружия в качестве Полудействия, а не Полного. Чтобы использовать этот талант нужно иметь возможность дотронуться до необходимого оружия.",
+            "en": "Once per round, character may attempt to unjam a gun as a Half Action rather than a Full Action. He must touch the weapon to make use of this talent."
+          },
+          "targets": ["ST_BS"]
+        }
+      ],
+      "tier": 1,
+      "aptitudes": ["A_INT", "A_TECH"],
+      "prerequisites": [
+        {
+          "tag": "ST_INT",
+          "value": 30
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_WS",
+      "name": {
+        "ru": "Варп-чувство",
+        "en": "Warp sense"
+      },
+      "description": {
+        "ru": "Чувства аколита развиты так, что могут воспринимать как Варп, так и физический мир.",
+        "en": "The Acolyte’s senses have evolved to perceive the Warp in parallel with the physical world."
+      },
+      "hints": [
+        {
+          "tag": "TL_WS_H1",
+          "description": {
+            "ru": "Персонаж может использовать умение Психонаука как Свободное действие, вместо Полудействия. Также он может замечать психические эффекты или созданий, не концентрируясь на этом. Каждый раз, когда персонаж способен почуять какую-либо варп-сущность или энергию, МИ может разрешить ему сделать проверку Психонауки таким же образом, каким используется Бдительность, чтобы обнаружить засаду.",
+            "en": "The character can use the Psyniscience Skill as a Free Action instead of as a Half Action. He can also passively detect psychic effects and entities without the need to actively seek them out. Whenever the character could detect such a Warp signature or a creature, the GM can allow him to make a Psyniscience skill test to detect it, in the same way he could use Awareness to spot an ambush without knowing it is there."
+          },
+          "targets": ["SK_PSY"]
+        }
+      ],
+      "tier": 1,
+      "aptitudes": ["A_PER", "A_PSY"],
+      "prerequisites": [
+        {
+          "tag": "SK_PSY",
+          "value": 0
+        },
+        {
+          "tag": "ST_PER",
+          "value": 30
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_WTC",
+      "name": {
+        "ru": "Длань Омниссии",
+        "en": "Weapon tech"
+      },
+      "description": {
+        "ru": "Аколит взывает к Омниссии, направляя веру в своё оружие и совершая ритуалы, что помогут ему вернее поразить своих врагов.",
+        "en": "The Acolyte calls upon the blessings of the Omnissiah, channelling his faith into his weapon and performing armament rituals to more readily smite his foes."
+      },
+      "hints": [
+        {
+          "tag": "TL_WTC_H1",
+          "description": {
+            "ru": "Один раз за бой персонаж в качестве Свободного действия может улучшить одно оружие, находящееся у него. Это может быть плазменное, силовое, экзотическое или мельта-оружие которое он несёт лично. Наносимый оружием Урон и его Пробиваемость возрастают на количество единиц, равное бонусу Интеллекта аколита. Это улучшение действует до конца раунда.",
+            "en": "Once per combat encounter, as a Free Action, this character may enhance any Melta, Plasma, Power, or Exotic weapon he is personally wielding. This increases the weapon’s damage and penetration by an amount equal to the character’s Intelligence bonus until the end of the round."
+          },
+          "targets": ["ST_BS", "ST_WS", "ST_INT"]
+        }
+      ],
+      "tier": 1,
+      "aptitudes": ["A_INT", "A_TECH"],
+      "prerequisites": [
+        {
+          "tag": "SK_TECH",
+          "value": 10
+        },
+        {
+          "tag": "ST_INT",
+          "value": 40
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_WTR",
+      "name": {
+        "ru": "Выучка с оружием",
+        "en": "Weapon training"
+      },
+      "description": {
+        "ru": "Взяв талант из этой группы, персонаж получает возможность без штрафов использовать любое оружие, связанное с выбранной специализацией, за исключением Тяжелого.",
+        "en": "The Acolyte can use all weapons with Class: Pistol, Basic, Melee, Throwing, and Vehicle within the group he has selected with this talent."
+      },
+      "hints": [
+        {
+          "tag": "TL_WTR_H1",
+          "description": {
+            "ru": "Взяв талант из этой группы, персонаж получает возможность без штрафов использовать любое оружие, связанное с выбранной специализацией, за исключением Тяжелого. Если персонаж использует оружие, таланта обращения с которым он не имеет, то он получает штраф -20 на все проверки Навыка Рукопашной или Навыка Стрельбы, совершенные с применением этого оружия. Персонаж может использовать оружие класса Тяжёлое без штрафа -20, только если у него есть как талант Выучка с Оружием (Тяжёлое), так и талант Выучки с оружием, той группы, к которой принадлежит конкретный образец тяжелого оружия (например, для стрельбы из лазпушки без штрафа, нужно обладать талантами Выучка с Оружием (Тяжёлое) и Выучка с Оружием (Лазерное)). Этот талант можно брать несколько раз, каждый раз с новой специализацией. Заметьте, что персонаж, не имеющий таланта Выучка с Оружием (Низкотехнологичное) может без штрафа управляться с оружием, что в определенных обстоятельствах функционирует как Низкотехнологичное (например, силовой меч с выключенным силовым полем считается обычным мечом (низкотехнологичным)), но персонаж, имеющий навык Выучка с Оружием (Силовое) и не имеющий Выучка с Оружием (Низкотехнологичное) может использовать этот меч без штрафов).",
+            "en": "The Acolyte can use all weapons with Class: Pistol, Basic, Melee, Throwing, and Vehicle within the group he has selected with this talent. When a character attempts to use a weapon he does not have the correct Weapon Training talent for, he suffers a –20 penalty to any relevant Weapon Skill or Ballistic Skill test. The character can only use weapons with Class: Heavy without suffering the –20 penalty if he has both Weapon Training in the appropriate group and Weapon Training (Heavy). This talent can be taken more than once, each time with a different Specialisation. Note that a character without the Weapon Training (Low-Tech) talent operating a weapon that functions as a Low-Tech weapon in certain circumstances does not suffer this penalty, so long as he has the applicable Weapon Training talent for the weapon (Power for a power sword, for example)."
+          },
+          "targets": ["ST_BS"]
+        }
+      ],
+      "tier": 1,
+      "aptitudes": ["A_GEN", "A_FIN"],
+      "prerequisites": [],
+      "is_specialist": true,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_RST",
+      "name": {
+        "ru": "Сопротивление",
+        "en": "Resistance"
+      },
+      "description": {
+        "ru": "Прошлое аколита, его жизненный опыт, тренировки или просто природное упорство выработали в нем сопротивление к определенному виду воздействий.",
+        "en": "The Acolyte’s background, experience, training, exposure, or plain stubbornness has developed a resistance within him. Each time he selects this talent, choose one area of resistance."
+      },
+      "hints": [
+        {
+          "tag": "TL_RST_H1",
+          "description": {
+            "ru": "Персонаж получает бонус +10 ко всем проверкам, сделанным для сопротивления эффектам $TL_SUBTAG.",
+            "en": "Character gains a +10 bonus when making tests to resist effects of $TL_SUBTAG type."
+          },
+          "targets": ["ST_WP", "ST_T"]
+        }
+      ],
+      "tier": 1,
+      "aptitudes": ["A_DEF", "A_T"],
+      "prerequisites": [],
+      "is_specialist": true,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_ARMG",
+      "name": {
+        "ru": "",
+        "en": "Armour monger"
+      },
+      "description": {
+        "ru": "",
+        "en": "The Acolyte is a skilled armourer, and constantly tinkers and improves his armour, or keeps it in pristine shape by repairing the slightest damage it sustains. With years of training, he has even learned to enhance the protection afforded by his armour and how to use it to its optimum."
+      },
+      "hints": [
+        {
+          "tag": "TL_ARMG_H1",
+          "description": {
+            "ru": "",
+            "en": "The character gains an extra $INTB Armour points, which he can distribute to any locations that his armour would normally cover, as long as he has at least an hour each day to clean and repair it or make minor modifications. This bonus applies only to armour when the Acolyte is wearing it, as it combines his training with his skill at armoury."
+          },
+          "targets": ["ST_T", "SK_TRD"]
+        }
+      ],
+      "tier": 2,
+      "aptitudes": ["A_INT", "A_TECH"],
+      "prerequisites": [
+        {
+          "tag": "SK_TECH",
+          "value": 0
+        },
+        {
+          "tag": "SK_TRD",
+          "subtag": "Armourer",
+          "value": 0
+        },
+        {
+          "tag": "ST_INT",
+          "value": 35
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_BTRG",
+      "name": {
+        "ru": "",
+        "en": "Battle rage"
+      },
+      "description": {
+        "ru": "",
+        "en": "Long experience and indomitable will have allowed the character to master the beast within, directing its rage while keeping his head, despite the howling bloodlust in his mind."
+      },
+      "hints": [
+        {
+          "tag": "TL_BTRG_H1",
+          "description": {
+            "ru": "",
+            "en": "The Acolyte can Parry while Frenzied."
+          },
+          "targets": ["ST_WS", "SK_PAR"]
+        },
+        {
+          "tag": "TL_BTRG_H2",
+          "description": {
+            "ru": "",
+            "en": "The Acolyte can re-roll a failed test to snap out of Frenzy or resist entering Frenzy if he so chooses."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
+      "tier": 2,
+      "aptitudes": ["A_STR", "A_DEF"],
+      "prerequisites": [
+        {
+          "tag": "TL_FRZ",
+          "value": 1
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_BLBC",
+      "name": {
+        "ru": "",
+        "en": "Bulging biceps"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [
+        {
+          "tag": "TL_BLBC_H1",
+          "description": {
+            "ru": "",
+            "en": "Acolyte can fire a heavy weapon using Semi-Auto Burst or Full Auto Burst without bracing the weapon, and does not suffer the –30 penalty for failing to brace it."
+          },
+          "targets": ["ST_BS"]
+        },
+        {
+          "tag": "TL_BLBC_H2",
+          "description": {
+            "ru": "",
+            "en": "Whenever the Acolyte uses Heft special use of the Athletics skill he can add +20 to his Athletics skill test to reflect his powerful musculature."
+          },
+          "targets": ["ST_STR", "SK_ATHL"]
+        }
+      ],
+      "tier": 2,
+      "aptitudes": ["A_STR", "A_OFF"],
+      "prerequisites": [
+        {
+          "tag": "ST_STR",
+          "value": 45
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_CMST",
+      "name": {
+        "ru": "",
+        "en": "Combat master"
+      },
+      "description": {
+        "ru": "",
+        "en": "The Acolyte’s weapon seems to be everywhere at once, keeping many more opponents at bay in close combat than would seem possible."
+      },
+      "hints": [
+        {
+          "tag": "TL_CMST_H1",
+          "description": {
+            "ru": "",
+            "en": "Opponents fighting this Acolyte in hand-to-hand combat gain no bonuses for Ganging Up."
+          },
+          "targets": ["ST_WS"]
+        }
+      ],
+      "tier": 2,
+      "aptitudes": ["A_WS", "A_DEF"],
+      "prerequisites": [
+        {
+          "tag": "ST_WS",
+          "value": 30
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_CNVG",
+      "name": {
+        "ru": "",
+        "en": "Constant vigilance"
+      },
+      "description": {
+        "ru": "",
+        "en": "From years of surviving ambushes and surprise attacks, the Acolyte is always ready for battle. His subconscious is alert to the slightest footstep or activation of a lasgun pack, and he acts often before he is fully aware of the threat."
+      },
+      "hints": [
+        {
+          "tag": "TL_CNVG_H1",
+          "description": {
+            "ru": "",
+            "en": "The Acolyte can use chosen characteristic (Perception or Intelligence) when rolling for Initiative instead of Agility."
+          },
+          "targets": ["ST_PER", "ST_INT"]
+        },
+        {
+          "tag": "TL_CNVG_H2",
+          "description": {
+            "ru": "При броске на Инициативу этот аколит бросает два кубика и выбирает наибольшее значение из выпавших.",
+            "en": "The Acolyte rolls two dices when rolling for Initiative and picks the highest roll."
+          }
+        }
+      ],
+      "tier": 2,
+      "aptitudes": ["A_PER", "A_DEF"],
+      "prerequisites": [
+        {
+          "tag": "ST_PER",
+          "value": 35,
+          "alt": {
+            "tag": "ST_INT",
+            "value": 35
+          }
+        },
+        {
+          "tag": "SK_AWR",
+          "value": 10
+        }
+      ],
+      "is_specialist": true,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_CNNT",
+      "name": {
+        "ru": "",
+        "en": "Contact network"
+      },
+      "description": {
+        "ru": "",
+        "en": "Acolytes rely on a web of relationships, favours, debts, and obligations that can range from within a hab-block to spanning an entire system. Developing and exploiting this network properly allows them to gain access to weapons, travel berths, personnel, and other resources when needed; those who maximise their connections can ensure they are well-armed and well-prepared as they face a new heresy"
+      },
+      "hints": [
+        {
+          "tag": "TL_CWUP_H1",
+          "description": {
+            "ru": "Аколит может использовать свою Общительность вместо Влияния для проверок Реквизиции.",
+            "en": "This Acolyte can use his Fellowship characteristic instead of Influence when making Requisition rolls."
+          },
+          "targets": ["ST_FEL", "ST_IFL"]
+        }
+      ],
+      "tier": 2,
+      "aptitudes": ["A_FEL", "A_LDR"],
+      "prerequisites": [
+        {
+          "tag": "TL_CVUP",
+          "value": 1
+        },
+        {
+          "tag": "ST_INT",
+          "value": 35
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_CDNT",
+      "name": {
+        "ru": "",
+        "en": "Coordinated interrogation"
+      },
+      "description": {
+        "ru": "",
+        "en": "A trained Acolyte, especially when working in conjunction with fellow veteran Acolytes, can induce cooperation from even the most hardened of suspects and captured heretics."
+      },
+      "hints": [
+        {
+          "tag": "TL_CDNT_H1",
+          "description": {
+            "ru": "",
+            "en": "Acolyte gains +10 bonus to all Interrogation tests and additional +5 per each other character participating in the interrogation, who also has this talent (in addition to standard assistance bonus)."
+          },
+          "targets": ["ST_WP", "ST_STR", "SK_INTR"]
+        }
+      ],
+      "tier": 2,
+      "aptitudes": ["A_INT", "A_SOC"],
+      "prerequisites": [
+        {
+          "tag": "ST_STR",
+          "value": 40,
+          "alt": {
+            "tag": "ST_WP",
+            "value": 40
+          }
+        },
+        {
+          "tag": "TL_CFTC",
+          "value": 1
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_CNAT",
+      "name": {
+        "ru": "",
+        "en": "Counter attack"
+      },
+      "description": {
+        "ru": "",
+        "en": "The Acolyte’s lightning ripostes are things of deadly beauty; swift and invisible as the wind."
+      },
+      "hints": [
+        {
+          "tag": "TL_CNAT",
+          "description": {
+            "ru": "Один раз за раунд боя после успешного Парирования атаки Аколит может за Свободное Действие провести Обычную Атаку против нападавшего, используя оружие, которым он парировал атаку. Ответная атака проводится со штрафом -20 на бросок Ближнего Боя.",
+            "en": "Once per turn, after successfully Parrying an opponent’s attack, this character may immediately make a Standard Attack action as a Free Action against that opponent using the weapon with which he Parried. The character suffers a –20 penalty on the Weapon Skill test for this attack."
+          },
+          "targets": ["ST_WS", "SK_PAR"]
+        }
+      ],
+      "tier": 2,
+      "aptitudes": ["A_WS", "A_DEF"],
+      "prerequisites": [
+        {
+          "tag": "ST_WS",
+          "value": 40
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_CVUP",
+      "name": {
+        "ru": "",
+        "en": "Cover up"
+      },
+      "description": {
+        "ru": "",
+        "en": "Even the slightest whisper of the Inquisition’s presence can be enough to scatter suspected heretics and drive cults into hiding. To prevent the growth and spread of rumours, Acolytes use combinations of well-placed bribes, dire threats, and other means to keep their activities as secretive as possible."
+      },
+      "hints": [
+        {
+          "tag": "TL_CVUP_H1",
+          "description": {
+            "ru": "",
+            "en": "At the GM’s discretion, the character can reduce his Influence to increase his group’s Subtlety. For every point of Influence lost in this way, the Acolyte increases his warband’s Subtlety by 1d5."
+          },
+          "targets": ["ST_INT", "ST_IFL"]
+        }
+      ],
+      "tier": 2,
+      "aptitudes": ["A_INT", "A_KNG"],
+      "prerequisites": [
+        {
+          "tag": "ST_INT",
+          "value": 35
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_DTW",
+      "name": {
+        "ru": "",
+        "en": "Deny the witch"
+      },
+      "description": {
+        "ru": "",
+        "en": "The Acolyte draws on his faith and mental fortitude to act as his shield against those tainted by the Warp."
+      },
+      "hints": [
+        {
+          "tag": "TL_DTW",
+          "description": {
+            "ru": "",
+            "en": "The character may use his Willpower characteristic when making an Evasion Reaction against ranged or melee attacks against him made with psychic powers. When successfully evading an attack with an area of effect, the character does not move but instead is simply unaffected by the psychic power."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
+      "tier": 2,
+      "aptitudes": ["A_WP", "A_DEF"],
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 35
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_DVAS",
+      "name": {
+        "ru": "",
+        "en": "Devastating assault"
+      },
+      "description": {
+        "ru": "",
+        "en": "The Acolyte launches a furious attack on his foe, the rage of the Emperor powering his assault."
+      },
+      "hints": [
+        {
+          "tag": "TL_DVAS_H1",
+          "description": {
+            "ru": "",
+            "en": "Once per turn, after resolving an All Out Attack action that successfully hits, the character may make a second All Out Attack action against the same target as a Free Action, with the same bonuses and penalties as the first."
+          },
+          "targets": ["ST_WS"]
+        }
+      ],
+      "tier": 2,
+      "aptitudes": ["A_WS", "A_OFF"],
+      "prerequisites": [
+        {
+          "tag": "ST_WS",
+          "value": 35
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_DBTP",
+      "name": {
+        "ru": "",
+        "en": "Double tap"
+      },
+      "description": {
+        "ru": "",
+        "en": "The Acolyte is practiced in making dual attacks, and can almost subconsciously tell when his hits strike to best effect."
+      },
+      "hints": [
+        {
+          "tag": "TL_DBTP_H1",
+          "description": {
+            "ru": "",
+            "en": "When making a second ranged attack action in the same turn against the same target, he gains a +20 bonus to the attack test if his first attack scored one or more successful hits."
+          },
+          "targets": ["ST_BS"]
+        }
+      ],
+      "tier": 2,
+      "aptitudes": ["A_FIN", "A_OFF"],
+      "prerequisites": [
+        {
+          "tag": "TL_TWW",
+          "value": 1
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_EWT",
+      "name": {
+        "ru": "",
+        "en": "Exotic weapon training"
+      },
+      "description": {
+        "ru": "",
+        "en": "The Acolyte is trained to use a particularly obscure type of weapon, such as a graviton gun or needle pistol."
+      },
+      "hints": [
+        {
+          "tag": "TL_EWT_H1",
+          "description": {
+            "ru": "",
+            "en": "The character can use designated weapon without -20 penalty to Weapon Skill or Ballistic Skill."
+          },
+          "targets": ["ST_WS", "ST_BS"]
+        }
+      ],
+      "tier": 2,
+      "aptitudes": ["A_INT", "A_FIN"],
+      "prerequisites": [],
+      "is_specialist": true,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_FIC",
+      "name": {
+        "ru": "",
+        "en": "Face in a crowd"
+      },
+      "description": {
+        "ru": "",
+        "en": "A successful investigation often involves trailing suspects without their knowledge, the better to follow them to hidden dens of heretical worship or criminal activity. With training, the Acolyte can ensure none notice his presence, through careful replication of a crowd’s mannerisms or even joining gatherings while still keeping a careful eye on his quarry."
+      },
+      "hints": [
+        {
+          "tag": "TL_FTC_H1",
+          "description": {
+            "ru": "",
+            "en": "When employing the Shadowing special use of the Stealth skill, he can use his Fellowship characteristic instead of his Agility."
+          },
+          "targets": ["ST_FEL", "SK_STL"]
+        }
+      ],
+      "tier": 2,
+      "aptitudes": ["A_FEL", "A_SOC"],
+      "prerequisites": [
+        {
+          "tag": "TL_CFTC",
+          "value": 1
+        },
+        {
+          "tag": "ST_FEL",
+          "value": 35
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_HDTG",
+      "name": {
+        "ru": "",
+        "en": "Hard target"
+      },
+      "description": {
+        "ru": "",
+        "en": "Light on his feet, the Acolyte dodges and weaves as he moves, skills learned from long years in the line of fire."
+      },
+      "hints": [
+        {
+          "tag": "TL_HDTG_H1",
+          "description": {
+            "ru": "",
+            "en": "When the character performs a Charge or Run action, opponents suffer a –20 penalty to Ballistic Skill tests made to hit him with ranged attacks. This penalty continues until the start of his next turn."
+          },
+          "targets": ["ST_WS"]
+        }
+      ],
+      "tier": 2,
+      "aptitudes": ["A_AG", "A_DEF"],
+      "prerequisites": [
+        {
+          "tag": "ST_AG",
+          "value": 40
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_HRD",
+      "name": {
+        "ru": "",
+        "en": "Hardy"
+      },
+      "description": {
+        "ru": "",
+        "en": "The Acolyte’s constitution allows him to rebound quickly from shock or injury."
+      },
+      "hints": [
+        {
+          "tag": "TL_HRD_H1",
+          "description": {
+            "ru": "",
+            "en": "When undergoing medical treatment or healing from injuries, the character always recovers damage as if Lightly Damaged, regardless of the level of damage he sustained."
+          },
+          "targets": ["ST_T"]
+        }
+      ],
+      "tier": 2,
+      "aptitudes": ["A_T", "A_DEF"],
+      "prerequisites": [
+        {
+          "tag": "ST_T",
+          "value": 40
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_HTRD",
+      "name": {
+        "ru": "",
+        "en": "Hatred"
+      },
+      "description": {
+        "ru": "",
+        "en": "A group, organisation, or race has wronged the character in the past, fuelling this animosity."
+      },
+      "hints": [
+        {
+          "tag": "TL_HTRD_H1",
+          "description": {
+            "ru": "",
+            "en": "When fighting opponents of $TL_SUBTAG group in close combat, the Acolyte gains a +10 bonus to all Weapon Skill\ntests made against them."
+          },
+          "targets": ["ST_WS"]
+        },
+        {
+          "tag": "TL_HTRD_H2",
+          "description": {
+            "ru": "",
+            "en": "The character finds it difficult to back down from a fight with $TL_SUBTAG, and must make a Challenging (+0) Willpower test to retreat or surrender when fighting them, unless suicidally outnumbered or outclassed."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
+      "tier": 2,
+      "aptitudes": ["A_WS", "A_SOC"],
+      "prerequisites": [],
+      "is_specialist": true,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_HPS",
+      "name": {
+        "ru": "",
+        "en": "Hip shooting"
+      },
+      "description": {
+        "ru": "",
+        "en": "The Acolyte’s prowess with ranged weapons is such that he can still fire accurately without his eye behind the sights."
+      },
+      "hints": [
+        {
+          "tag": "TL_HPS",
+          "description": {
+            "ru": "",
+            "en": "As a Full Action, he can both move up to his Full Move rate and make a single attack with a ranged weapon. This attack can only be a single shot, and so cannot be a semi- or full-automatic ranged attack for example. Characters with the Two-Weapon Fighting talent can use this talent with Hip Shooting to make two single shots, if they are armed with a ranged weapon in each hand."
+          },
+          "targets": ["ST_BS"]
+        }
+      ],
+      "tier": 2,
+      "aptitudes": ["A_BS", "A_FIN"],
+      "prerequisites": [
+        {
+          "tag": "ST_AG",
+          "value": 40
+        },
+        {
+          "tag": "ST_BS",
+          "value": 40
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_INTG",
+      "name": {
+        "ru": "",
+        "en": "Independent targeting"
+      },
+      "description": {
+        "ru": "",
+        "en": "The Acolyte has developed his situational awareness to a point where he can fire in two directions within a split second."
+      },
+      "hints": [
+        {
+          "tag": "TL_INTG_H1",
+          "description": {
+            "ru": "",
+            "en": "When firing two weapons as part of a single action (using the Two-Weapon Fighting talent, for example), the character does not need his targets to be within 10 metres of each other."
+          },
+          "targets": ["ST_BS"]
+        }
+      ],
+      "tier": 2,
+      "aptitudes": ["A_BS", "A_FIN"],
+      "prerequisites": [
+        {
+          "tag": "ST_BS",
+          "value": 40
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_INAT",
+      "name": {
+        "ru": "",
+        "en": "Inescapable attack"
+      },
+      "description": {
+        "ru": "",
+        "en": "The Acolyte can anticipate his opponent’s reactions, and ensures his hits strike no matter how a foe tries to avoid them."
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": ["ST_BS", "ST_WS", "ST_FIN"],
+      "prerequisites": [
+        {
+          "tag": "ST_BS",
+          "value": 40,
+          "alt": {
+            "tag": "ST_WS",
+            "value": 40
+          }
+        },
+        {
+          "tag": "ST_PER",
+          "value": 35
+        }
+      ],
+      "is_specialist": true,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": [],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_BG",
+      "name": {
+        "ru": "",
+        "en": "Bodyguard"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 1,
+      "aptitudes": ["A_AG", "A_DEF"],
+      "prerequisites": [
+        {
+          "tag": "ST_AG",
+          "value": 35
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_BOF",
+      "name": {
+        "ru": "",
+        "en": "Bulwark of faith"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": ["A_WP", "A_DEF"],
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 45
+        },
+        {
+          "tag": "TL_IF",
+          "value": 1
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_DMH",
+      "name": {
+        "ru": "",
+        "en": "Daemonhunter"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": ["A_WP", "A_OFF"],
+      "prerequisites": [
+        {
+          "tag": "A_WP",
+          "value": 40
+        },
+        {
+          "tag": "SK_FBL",
+          "subtag": "Daemonology",
+          "value": 0
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_DDS",
+      "name": {
+        "ru": "",
+        "en": "Daemonic disruption"
+      },
+      "description": {
+        "ru": "",
+        "en": "The Untouchable’s very presence is anathema to Daemons, and only the strongest can threaten him. Creatures of the Warp that lay claw upon the Untouchable must struggle to maintain their hold in reality, lest mere contact hurl them back into the Immaterium."
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": ["A_GEN", "A_WP"],
+      "prerequisites": [
+        {
+          "tag": "EA_UNT",
+          "value": 1
+        },
+        {
+          "tag": "TL_BOD",
+          "value": 1
+        },
+        {
+          "tag": "ST_WP",
+          "value": 50
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_DML",
+      "name": {
+        "ru": "",
+        "en": "Daemonologist"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": ["A_PSY", "A_WP"],
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 45
+        },
+        {
+          "tag": "SK_FBL",
+          "subtag": "Daemonology",
+          "value": 0
+        },
+        {
+          "tag": "TR_PR",
+          "value": 3
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_DSL",
+      "name": {
+        "ru": "",
+        "en": "Dark soul"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": ["A_T", "A_WP"],
+      "prerequisites": [
+        {
+          "tag": "TL_HSL",
+          "value": 1
+        },
+        {
+          "tag": "CP",
+          "value": 20
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_HSL",
+      "name": {
+        "ru": "",
+        "en": "Hardened soul"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": ["A_DEF", "A_WP"],
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 35
+        },
+        {
+          "tag": "CP",
+          "value": 10
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_IAU",
+      "name": {
+        "ru": "",
+        "en": "Inspiring aura"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": ["A_LDR", "A_WP"],
+      "prerequisites": [
+        {
+          "tag": "TL_HOC",
+          "value": 1
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_IOHW",
+      "name": {
+        "ru": "",
+        "en": "Instrument of His will"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": ["A_WP", "A_OFF"],
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 50
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_IF",
+      "name": {
+        "ru": "",
+        "en": "Iron faith"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": ["A_DEF", "A_WP"],
+      "prerequisites": [
+        {
+          "tag": "TL_IR",
+          "value": 1
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_IR",
+      "name": {
+        "ru": "",
+        "en": "Iron resolve"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": ["A_DEF", "A_WP"],
+      "prerequisites": [
+        {
+          "tag": "TL_JD",
+          "value": 1
+        },
+        {
+          "tag": "TL_RST",
+          "subtag": "Fear",
+          "value": 1
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_OON",
+      "name": {
+        "ru": "",
+        "en": "One-on-one"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": ["A_FIN", "A_WS"],
+      "prerequisites": [
+        {
+          "tag": "ST_WS",
+          "value": 40
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_ROB",
+      "name": {
+        "ru": "",
+        "en": "Rites of banishment"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": ["A_OFF", "A_WP"],
+      "prerequisites": [
+        {
+          "tag": "SK_CML",
+          "subtag": "Imperial creed",
+          "value": 10,
+          "alt": {
+            "tag": "SK_FBL",
+            "subtag": "Daemonology",
+            "value": 0
+          }
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_SPR",
+      "name": {
+        "ru": "",
+        "en": "Sanctic Purity"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": ["A_WP", "A_PSY"],
+      "prerequisites": [
+        {
+          "tag": "TL_DML",
+          "value": 1
+        },
+        {
+          "tag": "TL_FBW",
+          "value": 1
+        },
+        {
+          "tag": "ST_WP",
+          "value": 50
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_SHW",
+      "name": {
+        "ru": "",
+        "en": "Shield wall"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": ["A_WS", "A_DEF"],
+      "prerequisites": [
+        {
+          "tag": "TL_AMB",
+          "value": 1
+        },
+        {
+          "tag": "ST_WS",
+          "value": 40
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_AROC",
+      "name": {
+        "ru": "",
+        "en": "Armour of contempt"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": ["A_DEF", "A_LDR"],
+      "prerequisites": [
+        {
+          "tag" : "TL_SHDS",
+          "value": 1
+        },
+        {
+          "tag": "TL_SHOC",
+          "value": 1
+        },
+        {
+          "tag": "TL_HTR",
+          "value": 1
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_DVP",
+      "name": {
+        "ru": "",
+        "en": "Divine protection"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": ["A_GEN", "A_FIN"],
+      "prerequisites": [
+        {
+          "tag": "ST_BS",
+          "value": 45
+        },
+        {
+          "tag": "ST_WP",
+          "value": 35
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_FLGT",
+      "name": {
+        "ru": "",
+        "en": "Flagellant"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 1,
+      "aptitudes": ["A_OFF", "A_T"],
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 30
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_IJOH",
+      "name": {
+        "ru": "",
+        "en": "Into the jaws of hell"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": ["A_WP", "A_LDR"],
+      "prerequisites": [
+        {
+          "tag": "TL_ADFT",
+          "value": 1
+        },
+        {
+          "tag": "TL_HOC",
+          "value": 1
+        },
+        {
+          "tag": "TL_WOI",
+          "value": 1
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_INCN",
+      "name": {
+        "ru": "",
+        "en": "Indomitable conviction"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": ["A_LDR", "A_WP"],
+      "prerequisites": [
+        {
+          "tag": "TL_STCN",
+          "value": 1
+        },
+        {
+          "tag": "TL_SHDS",
+          "value": 1
+        },
+        {
+          "tag": "TL_RST",
+          "subtag": "Fear",
+          "value": 1
+        },
+        {
+          "tag": "TL_JD",
+          "value": 1
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_MTWR",
+      "name": {
+        "ru": "",
+        "en": "Mounted warrior"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 1,
+      "aptitudes": ["A_WS", "A_BS", "A_OFF"],
+      "prerequisites": [
+        {
+          "tag": "SK_OPR",
+          "value": 10,
+          "alt": {
+            "tag": "SK_SRV",
+            "value": 10
+          }
+        },
+        {
+          "tag": "ST_BS",
+          "value": 30,
+          "alt": {
+            "tag": "ST_WS",
+            "value": 30
+          }
+        }
+      ],
+      "is_specialist": true,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_PNPS",
+      "name": {
+        "ru": "",
+        "en": "Penitent psyker"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": ["A_PSY", "A_DEF"],
+      "prerequisites": [
+        {
+          "tag": "TR_PR",
+          "value": 1
+        },
+        {
+          "tag": "TL_STM",
+          "value": 1
+        },
+        {
+          "tag": "ST_WP",
+          "value": 40
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_POH",
+      "name": {
+        "ru": "",
+        "en": "Purity of hatred"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": ["A_OFF", "A_WP"],
+      "prerequisites": [
+        {
+          "tag": "TL_HTR",
+          "value": 1
+        }
+      ],
+      "is_specialist": true,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_TNPS",
+      "name": {
+        "ru": "",
+        "en": "Tainted psyker"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": ["A_KNG", "A_PSY"],
+      "prerequisites": [
+        {
+          "tag": "TR_PR",
+          "value": 1
+        },
+        {
+          "tag": "SK_PSY",
+          "value": 10
+        },
+        {
+          "tag": "CP",
+          "value": 10
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_WTFN",
+      "name": {
+        "ru": "",
+        "en": "Witch finder"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": ["A_KNG", "A_PER"],
+      "prerequisites": [
+        {
+          "tag": "SK_FBL",
+          "subtag": "Psykers",
+          "value": 10
+        },
+        {
+          "tag": "ST_WP",
+          "value": 45
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_AMIM",
+      "name": {
+        "ru": "",
+        "en": "Ambassador Imperialis"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": ["A_PER", "A_SOC"],
+      "prerequisites": [
+        {
+          "tag": "ST_FEL",
+          "value": 35
+        },
+        {
+          "tag": "ST_INT",
+          "value": 35
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_ARCH",
+      "name": {
+        "ru": "",
+        "en": "Archivator"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": ["A_INT", "A_KNG"],
+      "prerequisites": [
+        {
+          "tag": "ST_INT",
+          "value": 40
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_FLVS",
+      "name": {
+        "ru": "",
+        "en": "Field vivisection"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": ["A_KNG", "A_WS", "A_BS"],
+      "prerequisites": [
+        {
+          "tag": "SK_FBL",
+          "subtag": "Xenos",
+          "value": 0
+        },
+        {
+          "tag": "SK_MED",
+          "value": 10
+        },
+        {
+          "tag": "ST_WS",
+          "value": 40,
+          "alt": {
+            "tag": "ST_BS",
+            "value": 40
+          }
+        }
+      ],
+      "is_specialist": true,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_HTPL",
+      "name": {
+        "ru": "",
+        "en": "Hotshot pilot"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": ["A_AG", "A_TECH"],
+      "prerequisites": [
+        {
+          "tag": "ST_AG",
+          "value": 35
+        },
+        {
+          "tag": "SK_SRV",
+          "value": 10,
+          "alt": {
+            "tag": "SK_OPR",
+            "value": 10
+          }
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_GRN",
+      "name": {
+        "ru": "",
+        "en": "Grenadier"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 1,
+      "aptitudes": ["A_BS", "A_FIN"],
+      "prerequisites": [
+        {
+          "tag": "ST_BS",
+          "value": 35
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_HLDN",
+      "name": {
+        "ru": "",
+        "en": "Hull down"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": ["A_AG", "A_FLD"],
+      "prerequisites": [
+        {
+          "tag": "SK_SRV",
+          "value": 10,
+          "alt": {
+            "tag": "SK_OPR",
+            "value": 10
+          }
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_LDG",
+      "name": {
+        "ru": "",
+        "en": "Leaping dodge"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 1,
+      "aptitudes": ["A_AG", "A_DEF"],
+      "prerequisites": [
+        {
+          "tag": "ST_AG",
+          "value": 35
+        },
+        {
+          "tag": "SK_DDG",
+          "value": 10
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_LXG",
+      "name": {
+        "ru": "",
+        "en": "Lexographer"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": ["A_INT", "A_KNG"],
+      "prerequisites": [
+        {
+          "tag": "SK_LNG",
+          "value": 20
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_PTL",
+      "name": {
+        "ru": "",
+        "en": "Push the limit"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": ["A_PER", "A_TECH"],
+      "prerequisites": [
+        {
+          "tag": "SK_SRV",
+          "value": 10,
+          "alt": {
+            "tag": "SK_OPR",
+            "value": 10
+          }
+        },
+        {
+          "tag": "SK_TECH",
+          "value": 0
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_SKRD",
+      "name": {
+        "ru": "",
+        "en": "Skilled rider"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 1,
+      "aptitudes": ["A_AG", "A_FLD"],
+      "prerequisites": [
+        {
+          "tag": "SK_OPR",
+          "value": 10
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_XNS",
+      "name": {
+        "ru": "",
+        "en": "Xenosavant"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": ["A_INT", "A_KNG"],
+      "prerequisites": [
+        {
+          "tag": "SK_FBL",
+          "subtag": "Xenos",
+          "value": 20
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_WPIN",
+      "name": {
+        "ru": "",
+        "en": "Weapon intuition"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": ["A_INT", "A_FIN"],
+      "prerequisites": [
+        {
+          "tag": "TL_EWT",
+          "value": 1
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    }
+  ]
+}

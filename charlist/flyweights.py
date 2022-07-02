@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 import json
+from typing import List, Dict
 
 from .constants import *
 from .datamodels import *
 from .tags import *
-
-from typing import List, Dict
 
 
 class TaggedObject(object):
@@ -154,6 +153,10 @@ class Hint(NamelessDescription):
     def get_target(self):
         return self.__target
 
+    @classmethod
+    def from_model(cls, model: HintModel):
+        return cls(model.tag, model.description, model.targets)
+
 
 class HintedDescription(ObjectDescription):
     def __init__(self, tag: str, name: Dict[str, str],
@@ -180,16 +183,41 @@ class HintedDescription(ObjectDescription):
 class TalentDescription(HintedDescription):
     def __init__(self, tag: str, name: Dict[str, str],
                  description: Dict[str, str], hints: List[Hint],
-                 tier: int, aptitudes: List[str]):
+                 tier: int, aptitudes: List[str], prerequisites: List[TalentPrerequisite]):
         super().__init__(tag, name, description, hints)
         self.__tier = tier
         self.__aptitudes = aptitudes
+        self.__prerequisites = prerequisites
 
     def get_tier(self):
         return self.__tier
 
     def get_aptitudes(self):
         return self.__aptitudes
+
+    def get_prerequisites(self):
+        return self.__prerequisites
+
+    @classmethod
+    def from_model(cls, model: TalentDescriptionModel):
+        hints = list()
+        for hint in model.hints:
+            hints.append(Hint.from_model(hint))
+        return cls(model.tag, model.name, model.description,
+                   hints, model.tier, model.aptitudes, model.prerequisites)
+
+    @classmethod
+    def from_file(cls, fdata):
+        talent_descriptions = list()
+        for description in fdata['talents']:
+            talent_descriptions.append(TalentDescriptionModel.from_json(description))
+        if len(talent_descriptions) > 0:
+            talents = list()
+            for talent in talent_descriptions:
+                talents.append(TalentDescription.from_model(talent))
+        else:
+            talents = None
+        return talents
 
 
 class BonusDescription(HintedDescription):
@@ -243,28 +271,41 @@ class RoleDescription(HintedDescription):
         super().__init__(tag, name, description, hints)
 
 
+class BackgroundDescription(HintedDescription):
+    def __init__(self, tag: str, name: Dict[str, str],
+                 description: Dict[str, str], hints: List[Hint],
+                 aptitudes: List[str], apt_choices,
+                 skills: List[str], skill_choices):
+        super().__init__(tag, name, description, hints)
+
+
+def to_map(lst):
+    res_map = dict()
+    for item in lst:
+        res_map[item.get_tag()] = item
+    return res_map
+
+
 # resource paths order
 # 0 - aptitude models
 # 1 - stat description models
 # 2 - skill description models
+# 3 - talent description models
 class Facade:
     def __init__(self, resources_paths):
         prefix = 'static/json/'
         aptitudes = Aptitude.from_file(
             json.load(open(prefix + resources_paths[0], 'r', encoding='utf-8')))
-        self.__aptitudes = dict()
-        for apt in aptitudes:
-            self.__aptitudes[apt.get_tag()] = apt
+        self.__aptitudes = to_map(aptitudes)
         stat_descriptions = StatDescription.from_file(
             json.load(open(prefix + resources_paths[1], 'r', encoding='utf-8')))
-        self.__stat_descriptions = dict()
-        for sd in stat_descriptions:
-            self.__stat_descriptions[sd.get_tag()] = sd
+        self.__stat_descriptions = to_map(stat_descriptions)
         skill_descriptions = SkillDescription.from_file(
             json.load(open(prefix + resources_paths[2], 'r', encoding='utf-8')))
-        self.__skill_descriptions = dict()
-        for sd in skill_descriptions:
-            self.__skill_descriptions[sd.get_tag()] = sd
+        self.__skill_descriptions = to_map(skill_descriptions)
+        talent_descriptions = TalentDescription.from_file(
+            json.load(open(prefix + resources_paths[3], 'r', encoding='utf-8')))
+        self.__talent_descriptions = to_map(talent_descriptions)
         self.__spec_skills_subtags = SUBTAG_SKILLS_MAP
 
     def aptitudes(self):
@@ -275,6 +316,9 @@ class Facade:
 
     def skill_descriptions(self):
         return self.__skill_descriptions
+
+    def talent_descriptions(self):
+        return self.__talent_descriptions
 
     def spec_skills_subtags(self):
         return self.__spec_skills_subtags
