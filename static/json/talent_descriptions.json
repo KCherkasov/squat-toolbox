@@ -261,8 +261,8 @@
         {
           "tag": "TL_FS_H1",
           "description": {
-            "ru": "He can summon to his hand an unsecured metal object weighing up to $MTP$BASE$WPB kg, and can summon such objects up to 40 metres distant.",
-            "en": "Персонаж может призывать в свою руку незакреплённые металлические объекты, массой до $MTP$BASE$WPB кг с дистанции до 40 метров."
+            "en": "He can summon to his hand an unsecured metal object weighing up to $MTP$BASE$WPB kg, and can summon such objects up to 40 metres distant.",
+            "ru": "Персонаж может призывать в свою руку незакреплённые металлические объекты, массой до $MTP$BASE$WPB кг с дистанции до 40 метров."
           },
           "targets": ["ST_WP"],
           "base": 2
@@ -309,7 +309,7 @@
             "ru": "Если аколит потратит один полный раунд на то, чтобы накрутить себя – рыча, колотя себя в грудь, впрыскивая себе специальные наркотики или применяя иные способы – то в следующем раунде он впадет в неконтролируемую ярость, получая штраф -20 к Навыку Стрельбы, Интеллекту и Общительности. Эти штрафы не являются уроном в характеристику и не могут опустить ее значение ниже 1.",
             "en": "If he spends one full round fuelling his anger—by flagellation, drugs, or other means—on the next round, he goes into an uncontrolled rage, gaining a –20 penalty to Ballistic Skill, Intelligence, and Fellowship. Note that characteristic penalties are different from characteristic damage , and cannot reduce a characteristic below 1."
           },
-          "targets": ["ST_INT", "ST_FEL"],
+          "targets": ["ST_INT", "ST_BS", "ST_FEL"],
           "bonus": -20
         },
         {
@@ -790,18 +790,18 @@
     {
       "tag": "TL_ARMG",
       "name": {
-        "ru": "",
+        "ru": "Мастер брони",
         "en": "Armour monger"
       },
       "description": {
-        "ru": "",
+        "ru": "Аколит – мастер в деле создания брони, он постоянно занят возней с ней, её улучшением или поддержанием в первозданном виде, ремонтируя при малейшем повреждении. Благодаря годам практики, персонаж научился даже увеличивать уровень защиты, предоставляемый своими доспехами и использовать её оптимальным образом.",
         "en": "The Acolyte is a skilled armourer, and constantly tinkers and improves his armour, or keeps it in pristine shape by repairing the slightest damage it sustains. With years of training, he has even learned to enhance the protection afforded by his armour and how to use it to its optimum."
       },
       "hints": [
         {
           "tag": "TL_ARMG_H1",
           "description": {
-            "ru": "",
+            "ru": "Он может получить дополнительные $INTB очков брони, которые аколит может распределить на те зоны, что обычно защищает доспех, до тех пор, пока он имеет как минимум один час в день на чистку, обслуживание и внесение незначительных модификаций. Бонус добавляется к броне, только когда персонаж носит её, ведь это результат его тренировок и мастерства в деле создания доспехов.",
             "en": "The character gains an extra $INTB Armour points, which he can distribute to any locations that his armour would normally cover, as long as he has at least an hour each day to clean and repair it or make minor modifications. This bonus applies only to armour when the Acolyte is wearing it, as it combines his training with his skill at armoury."
           },
           "targets": ["ST_T", "SK_TRD"]
@@ -830,18 +830,18 @@
     {
       "tag": "TL_BTRG",
       "name": {
-        "ru": "",
+        "ru": "Боевая ярость",
         "en": "Battle rage"
       },
       "description": {
-        "ru": "",
+        "ru": "Долгий опыт и неукротимая воля позволили персонажу взять верх над своим внутренним зверем, научившись управлять его яростью, не теряя собственной головы, несмотря на бушующую в нем жажду крови.",
         "en": "Long experience and indomitable will have allowed the character to master the beast within, directing its rage while keeping his head, despite the howling bloodlust in his mind."
       },
       "hints": [
         {
           "tag": "TL_BTRG_H1",
           "description": {
-            "ru": "",
+            "ru": "Аколит может парировать, находясь в Неистовстве.",
             "en": "The Acolyte can Parry while Frenzied."
           },
           "targets": ["ST_WS", "SK_PAR"]
@@ -849,7 +849,7 @@
         {
           "tag": "TL_BTRG_H2",
           "description": {
-            "ru": "",
+            "ru": "Аколит может перебрасывать провальные броски Силы Воли на выход из Неистовства или сопротивление вхождению в это состояние.",
             "en": "The Acolyte can re-roll a failed test to snap out of Frenzy or resist entering Frenzy if he so chooses."
           },
           "targets": ["ST_WP"]
@@ -869,18 +869,18 @@
     {
       "tag": "TL_BLBC",
       "name": {
-        "ru": "",
+        "ru": "Крепкие бицепсы",
         "en": "Bulging biceps"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Там, где отдача тяжелого оружия собьет с ног более слабого человека, физическая подготовка этого аколита позволяет ему стрелять, стоя во весь рост.",
+        "en": "Whereas a weaker man might be sent flying by the recoil of a heavy weapon, this Acolyte’s strong physique allows him to remain standing."
       },
       "hints": [
         {
           "tag": "TL_BLBC_H1",
           "description": {
-            "ru": "",
+            "ru": "Персонаж может вести огонь Длинной или Короткой очередью из тяжелого оружия, не устанавливая его на опору и не получая за это обычного штрафа -30.",
             "en": "Acolyte can fire a heavy weapon using Semi-Auto Burst or Full Auto Burst without bracing the weapon, and does not suffer the –30 penalty for failing to brace it."
           },
           "targets": ["ST_BS"]
@@ -888,7 +888,7 @@
         {
           "tag": "TL_BLBC_H2",
           "description": {
-            "ru": "",
+            "ru": "Обладающий этим талантом аколит получает бонус +20 при использовании Рывка (особое применение Атлетики), что отображает мощь мускулатуры персонажа.",
             "en": "Whenever the Acolyte uses Heft special use of the Athletics skill he can add +20 to his Athletics skill test to reflect his powerful musculature."
           },
           "targets": ["ST_STR", "SK_ATHL"]
@@ -906,37 +906,56 @@
       "is_stackable": false
     },
     {
-      "tag": "TL_",
+      "tag": "TL_MGTR",
       "name": {
-        "ru": "",
-        "en": ""
+        "ru": "Левитационная трансцендентность",
+        "en": "Maglev transcendence"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Аколит знаком с более эффективными способами использования своей левитационной катушки и может парить в воздухе некоторое время.",
+        "en": "The Acolyte has learned how to better use his implanted maglev coils, and can hover for a while."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_MGTR_H1",
+          "description": {
+            "ru": "Аколит знаком с более эффективными способами использования своей левитационной катушки и может парить в воздухе 1к10+$MTP$BASE$TB минут. Он может передвигаться со скоростью Бега в качестве Полудействия и не получает урона от падения до тех пор, пока левитационная катушка работает. Каждое применение этого таланта поглощает половину энергии из катушки (поэтому он может быть применен дважды до того, как катушке потребуется подзарядка).",
+            "en": "The Acolyte has learned how to better use his implanted maglev coils, and can hover for a number of minutes equal to 1d10+$MTP$BASE$TB. He can move his Run speed when making a Half Move action and suffers no damage from falling if the coils are active. Each use drains half the power stored in the coils (therefore he can use the coils twice before recharging them)."
+          },
+          "targets": ["ST_INT", "ST_AG"],
+          "base": 2
+        }
+      ],
       "tier": 2,
-      "aptitudes": [],
-      "prerequisites": [],
+      "aptitudes": ["A_INT", "A_TECH"],
+      "prerequisites": [
+        {
+          "tag": "TR_MECH_IMPL",
+          "value": 1
+        },
+        {
+          "tag": "I_MAG_COILS",
+          "value": 1
+        }
+      ],
       "is_specialist": false,
       "is_stackable": false
     },
     {
       "tag": "TL_CMST",
       "name": {
-        "ru": "",
+        "ru": "Мастер боя",
         "en": "Combat master"
       },
       "description": {
-        "ru": "",
+        "ru": "Кажется, что оружие сражающегося аколита может поразить любого из врагов, появляясь там, где оно просто не могло оказаться, и заставляя противников держаться подальше.",
         "en": "The Acolyte’s weapon seems to be everywhere at once, keeping many more opponents at bay in close combat than would seem possible."
       },
       "hints": [
         {
           "tag": "TL_CMST_H1",
           "description": {
-            "ru": "",
+            "ru": "Враги, сражающиеся с персонажем в ближнем бою, не получают бонусов за численное превосходство.",
             "en": "Opponents fighting this Acolyte in hand-to-hand combat gain no bonuses for Ganging Up."
           },
           "targets": ["ST_WS"]
@@ -956,18 +975,18 @@
     {
       "tag": "TL_CNVG",
       "name": {
-        "ru": "",
+        "ru": "Постоянная бдительность",
         "en": "Constant vigilance"
       },
       "description": {
-        "ru": "",
+        "ru": "Пережив множество засад и неожиданных нападений, аколит всегда готов к бою. Он настораживается, заслышав легчайшие шаги или тихий звук активации батареи для лазгана, и действует ещё до того, как полностью осознает угрозу.",
         "en": "From years of surviving ambushes and surprise attacks, the Acolyte is always ready for battle. His subconscious is alert to the slightest footstep or activation of a lasgun pack, and he acts often before he is fully aware of the threat."
       },
       "hints": [
         {
           "tag": "TL_CNVG_H1",
           "description": {
-            "ru": "",
+            "ru": "Аколит может использовать характеристику, соответствующую выбранной специализации (Восприятие или Интеллект), при бросках Инициативы (вместо Ловкости) и бросает два кубика, выбирая наилучший результат.",
             "en": "The Acolyte can use chosen characteristic (Perception or Intelligence) when rolling for Initiative instead of Agility."
           },
           "targets": ["ST_PER", "ST_INT"]
@@ -1002,12 +1021,12 @@
     {
       "tag": "TL_CNNT",
       "name": {
-        "ru": "",
+        "ru": "Сеть контактов",
         "en": "Contact network"
       },
       "description": {
-        "ru": "",
-        "en": "Acolytes rely on a web of relationships, favours, debts, and obligations that can range from within a hab-block to spanning an entire system. Developing and exploiting this network properly allows them to gain access to weapons, travel berths, personnel, and other resources when needed; those who maximise their connections can ensure they are well-armed and well-prepared as they face a new heresy"
+        "ru": "Аколиты в своей работе опираются на сеть контактов, сплетённую из доверия, благосклонности, долгов и обязательств. Такая сеть может охватывать один жилой блок улья или раскинуться на целую звёздную систему. Расширяя свою сеть, аколит может получить доступ к оружию, транспорту, персоналу и другим необходимым ресурсам. Те, кто вложил много усилий в построение своей сети, всегда будут лучше вооружены и лучше подготовлены к встрече с новой ересью.",
+        "en": "Acolytes rely on a web of relationships, favours, debts, and obligations that can range from within a hab-block to spanning an entire system. Developing and exploiting this network properly allows them to gain access to weapons, travel berths, personnel, and other resources when needed; those who maximise their connections can ensure they are well-armed and well-prepared as they face a new heresy."
       },
       "hints": [
         {
@@ -1037,18 +1056,18 @@
     {
       "tag": "TL_CDNT",
       "name": {
-        "ru": "",
+        "ru": "Скоординированный допрос",
         "en": "Coordinated interrogation"
       },
       "description": {
-        "ru": "",
+        "ru": "На допросе обученный аколит может действовать совместно с другими опытными дознавателями, объединяя свои усилия против самых упорных подозреваемых или пойманных еретиков.",
         "en": "A trained Acolyte, especially when working in conjunction with fellow veteran Acolytes, can induce cooperation from even the most hardened of suspects and captured heretics."
       },
       "hints": [
         {
           "tag": "TL_CDNT_H1",
           "description": {
-            "ru": "",
+            "ru": "Персонаж получает бонус +10 к проверкам Допроса и дополнительно +5 за каждого другого персонажа с таким талантом, принимающего участие в допросе. Это также считается Помощью и даёт все остальные обычные для Помощи бонусы.",
             "en": "Acolyte gains +10 bonus to all Interrogation tests and additional +5 per each other character participating in the interrogation, who also has this talent (in addition to standard assistance bonus)."
           },
           "targets": ["ST_WP", "ST_STR", "SK_INTR"]
@@ -1076,11 +1095,11 @@
     {
       "tag": "TL_CNAT",
       "name": {
-        "ru": "",
+        "ru": "Контратака",
         "en": "Counter attack"
       },
       "description": {
-        "ru": "",
+        "ru": "Удары аколита, подобно молнии, полны смертоносной красоты, неостановимы и стремительны, как ветер.",
         "en": "The Acolyte’s lightning ripostes are things of deadly beauty; swift and invisible as the wind."
       },
       "hints": [
@@ -1107,18 +1126,18 @@
     {
       "tag": "TL_CVUP",
       "name": {
-        "ru": "",
+        "ru": "Работа под прикрытием",
         "en": "Cover up"
       },
       "description": {
-        "ru": "",
+        "ru": "Даже легчайший признак присутствия Инквизиции заставляет подозреваемых в ереси разбегаться, а культы – уходить в подполье. Чтобы предотвратить рост и распространение слухов, аколиты должны не скупиться на взятки и угрозы или применять другие способы сохранить свои действия в тайне.",
         "en": "Even the slightest whisper of the Inquisition’s presence can be enough to scatter suspected heretics and drive cults into hiding. To prevent the growth and spread of rumours, Acolytes use combinations of well-placed bribes, dire threats, and other means to keep their activities as secretive as possible."
       },
       "hints": [
         {
           "tag": "TL_CVUP_H1",
           "description": {
-            "ru": "",
+            "ru": "По решению МИ, персонаж может уменьшить своё Влияние, для того чтобы увеличить Секретность работы группы. За каждое очко Влияния, потраченное таким образом, аколит увеличивает Секретность отряда на 1d5.",
             "en": "At the GM’s discretion, the character can reduce his Influence to increase his group’s Subtlety. For every point of Influence lost in this way, the Acolyte increases his warband’s Subtlety by 1d5."
           },
           "targets": ["ST_INT", "ST_IFL"]
@@ -1138,18 +1157,18 @@
     {
       "tag": "TL_DTW",
       "name": {
-        "ru": "",
+        "ru": "Отринь ведьмовство",
         "en": "Deny the witch"
       },
       "description": {
-        "ru": "",
+        "ru": "Из своей веры и психической стойкости аколит создаёт щит против всех затронутых Варпом.",
         "en": "The Acolyte draws on his faith and mental fortitude to act as his shield against those tainted by the Warp."
       },
       "hints": [
         {
           "tag": "TL_DTW",
           "description": {
-            "ru": "",
+            "ru": "Персонаж может использовать свою Силу Воли для Избегания (за Реакцию) стрелковых и рукопашных атак, наносимых с помощью психосил. В случае успешного Избегания воздействующего на область эффекта, персонаж не двигается, психосила просто на него не воздействует.",
             "en": "The character may use his Willpower characteristic when making an Evasion Reaction against ranged or melee attacks against him made with psychic powers. When successfully evading an attack with an area of effect, the character does not move but instead is simply unaffected by the psychic power."
           },
           "targets": ["ST_WP"]
@@ -1169,18 +1188,18 @@
     {
       "tag": "TL_DVAS",
       "name": {
-        "ru": "",
+        "ru": "Неостановимый натиск",
         "en": "Devastating assault"
       },
       "description": {
-        "ru": "",
+        "ru": "Преисполненный гнева Императора, аколит бросается в яростную атаку на своих врагов.",
         "en": "The Acolyte launches a furious attack on his foe, the rage of the Emperor powering his assault."
       },
       "hints": [
         {
           "tag": "TL_DVAS_H1",
           "description": {
-            "ru": "",
+            "ru": "Один раз за ход, после успешного разрешения действия Атака всеми силами при успешном попадании, персонаж может провести, в качестве Свободного действия, ещё одно действие Атака всеми силами против того же врага, с такими же бонусами и штрафами, как первая.",
             "en": "Once per turn, after resolving an All Out Attack action that successfully hits, the character may make a second All Out Attack action against the same target as a Free Action, with the same bonuses and penalties as the first."
           },
           "targets": ["ST_WS"]
@@ -1198,37 +1217,20 @@
       "is_stackable": false
     },
     {
-      "tag": "TL_",
-      "name": {
-        "ru": "",
-        "en": ""
-      },
-      "description": {
-        "ru": "",
-        "en": ""
-      },
-      "hints": [],
-      "tier": 2,
-      "aptitudes": [],
-      "prerequisites": [],
-      "is_specialist": false,
-      "is_stackable": false
-    },
-    {
       "tag": "TL_DBTP",
       "name": {
-        "ru": "",
+        "ru": "Двойной выстрел",
         "en": "Double tap"
       },
       "description": {
-        "ru": "",
+        "ru": "Аколит много практиковался и способен почти подсознательно определить наилучший момент для стрельбы.",
         "en": "The Acolyte is practiced in making dual attacks, and can almost subconsciously tell when his hits strike to best effect."
       },
       "hints": [
         {
           "tag": "TL_DBTP_H1",
           "description": {
-            "ru": "",
+            "ru": "Если в ходе первой атаки он попал во врага хотя бы один раз, то при проведении второй стрелковой атаки в тот же ход, против той же цели, аколит получает бонус +20 к проверке атаки.",
             "en": "When making a second ranged attack action in the same turn against the same target, he gains a +20 bonus to the attack test if his first attack scored one or more successful hits."
           },
           "targets": ["ST_BS"]
@@ -1248,18 +1250,18 @@
     {
       "tag": "TL_EWT",
       "name": {
-        "ru": "",
+        "ru": "Выучка с экзотическим оружием",
         "en": "Exotic weapon training"
       },
       "description": {
-        "ru": "",
+        "ru": "Аколит обучен использованию одного из особенно непостижимых видов оружия, таких как гравитонная пушка или игольный пистолет.",
         "en": "The Acolyte is trained to use a particularly obscure type of weapon, such as a graviton gun or needle pistol."
       },
       "hints": [
         {
           "tag": "TL_EWT_H1",
           "description": {
-            "ru": "",
+            "ru": "Персонаж может пользоваться указанным оружием без штрафа в -20 к Навыку Рукопашной или Навыку Стрельбы.",
             "en": "The character can use designated weapon without -20 penalty to Weapon Skill or Ballistic Skill."
           },
           "targets": ["ST_WS", "ST_BS"]
@@ -1274,18 +1276,18 @@
     {
       "tag": "TL_FIC",
       "name": {
-        "ru": "",
+        "ru": "Лицо в толпе",
         "en": "Face in a crowd"
       },
       "description": {
-        "ru": "",
+        "ru": "Успешное расследование часто включает в себя слежку за подозреваемым, в ходе которой аколит передвигается по незнакомому ему району – он не знает, где найти укрытие, как спрятаться от глаз еретиков или преступников. С опытом аколит научится избегать чужого внимания, искусно смешиваясь с толпой или даже незаметно присоединяясь к нужной ему группе людей.",
         "en": "A successful investigation often involves trailing suspects without their knowledge, the better to follow them to hidden dens of heretical worship or criminal activity. With training, the Acolyte can ensure none notice his presence, through careful replication of a crowd’s mannerisms or even joining gatherings while still keeping a careful eye on his quarry."
       },
       "hints": [
         {
           "tag": "TL_FTC_H1",
           "description": {
-            "ru": "",
+            "ru": "Персонаж, использующий Слежку (особое применение Скрытности) может использовать для проверок свою Общительность вместо Ловкости.",
             "en": "When employing the Shadowing special use of the Stealth skill, he can use his Fellowship characteristic instead of his Agility."
           },
           "targets": ["ST_FEL", "SK_STL"]
@@ -1309,18 +1311,18 @@
     {
       "tag": "TL_HDTG",
       "name": {
-        "ru": "",
+        "ru": "Трудная мишень",
         "en": "Hard target"
       },
       "description": {
-        "ru": "",
+        "ru": "Долгая жизнь, проведенная на линии огня, научила аколита уклоняться и петлять на бегу, избегая вражеской стрельбы.",
         "en": "Light on his feet, the Acolyte dodges and weaves as he moves, skills learned from long years in the line of fire."
       },
       "hints": [
         {
           "tag": "TL_HDTG_H1",
           "description": {
-            "ru": "",
+            "ru": "Когда персонаж совершает действие Бег или Натиск, враги получают штраф -20 на все проверки Навыка Стрельбы, сделанные для того, чтобы попасть в него из дистанционного оружия. Этот штраф действует до начала следующего хода аколита.",
             "en": "When the character performs a Charge or Run action, opponents suffer a –20 penalty to Ballistic Skill tests made to hit him with ranged attacks. This penalty continues until the start of his next turn."
           },
           "targets": ["ST_WS"]
@@ -1340,18 +1342,18 @@
     {
       "tag": "TL_HRD",
       "name": {
-        "ru": "",
+        "ru": "Семижильный",
         "en": "Hardy"
       },
       "description": {
-        "ru": "",
+        "ru": "Крепкое телосложение аколита позволяет ему быстрее восстанавливаться после травм и ранений.",
         "en": "The Acolyte’s constitution allows him to rebound quickly from shock or injury."
       },
       "hints": [
         {
           "tag": "TL_HRD_H1",
           "description": {
-            "ru": "",
+            "ru": "При лечении или исцелении от травм, персонаж всегда устраняет урон как еслибы был Легко Раненым, независимо от реально имеющегося урона.",
             "en": "When undergoing medical treatment or healing from injuries, the character always recovers damage as if Lightly Damaged, regardless of the level of damage he sustained."
           },
           "targets": ["ST_T"]
@@ -1371,26 +1373,26 @@
     {
       "tag": "TL_HTRD",
       "name": {
-        "ru": "",
+        "ru": "Ненависть",
         "en": "Hatred"
       },
       "description": {
-        "ru": "",
+        "ru": "У аколита есть причины ненавидеть ту или иную группу, организацию или расу, причины, которые подпитывают эту вражду и сейчас.",
         "en": "A group, organisation, or race has wronged the character in the past, fuelling this animosity."
       },
       "hints": [
         {
           "tag": "TL_HTRD_H1",
           "description": {
-            "ru": "",
-            "en": "When fighting opponents of $TL_SUBTAG group in close combat, the Acolyte gains a +10 bonus to all Weapon Skill\ntests made against them."
+            "ru": "В сражении в ближнем бою с врагом, принадлежащим к группе, заслужившей его  ненависть, аколит получает бонус +10 к проверкам Навыка Рукопашной, направленным против этого врага.",
+            "en": "When fighting opponents of $TL_SUBTAG group in close combat, the Acolyte gains a +10 bonus to all Weapon Skill tests made against them."
           },
           "targets": ["ST_WS"]
         },
         {
           "tag": "TL_HTRD_H2",
           "description": {
-            "ru": "",
+            "ru": "Его ненависть настолько велика, что персонаж вынужден пройти Серьёзную (+0) проверку Силы Воли, чтобы попытаться отступить или сдаться в плен, если только противник не имеет существенного численного или качественного превосходства.",
             "en": "The character finds it difficult to back down from a fight with $TL_SUBTAG, and must make a Challenging (+0) Willpower test to retreat or surrender when fighting them, unless suicidally outnumbered or outclassed."
           },
           "targets": ["ST_WP"]
@@ -1405,18 +1407,18 @@
     {
       "tag": "TL_HPS",
       "name": {
-        "ru": "",
+        "ru": "Стрельба от бедра",
         "en": "Hip shooting"
       },
       "description": {
-        "ru": "",
+        "ru": "Искусство аколита в обращении со стрелковым оружием таково, что он может метко поражать цель, даже не глядя на неё.",
         "en": "The Acolyte’s prowess with ranged weapons is such that he can still fire accurately without his eye behind the sights."
       },
       "hints": [
         {
           "tag": "TL_HPS",
           "description": {
-            "ru": "",
+            "ru": "В качестве Полного действия, аколит может совершить перемещение на Полную дистанцию и провести одну атаку из дистанционного оружия. Эта атака может быть только одиночным выстрелом, и не может быть Длинной или Короткой очередью. Персонажи с талантом Обоерукий воин могут использовать этот талант вместе с талантом Стрельба от Бедра для того, чтобы совершить два одиночных выстрела, если они держат по одному дистанционному оружию в каждой руке.",
             "en": "As a Full Action, he can both move up to his Full Move rate and make a single attack with a ranged weapon. This attack can only be a single shot, and so cannot be a semi- or full-automatic ranged attack for example. Characters with the Two-Weapon Fighting talent can use this talent with Hip Shooting to make two single shots, if they are armed with a ranged weapon in each hand."
           },
           "targets": ["ST_BS"]
@@ -1440,18 +1442,18 @@
     {
       "tag": "TL_INTG",
       "name": {
-        "ru": "",
+        "ru": "Независимое прицеливание",
         "en": "Independent targeting"
       },
       "description": {
-        "ru": "",
+        "ru": "Аколит развил своё искусство обращения с оружием настолько, что он может метко стрелять в двух направлениях одновременно.",
         "en": "The Acolyte has developed his situational awareness to a point where he can fire in two directions within a split second."
       },
       "hints": [
         {
           "tag": "TL_INTG_H1",
           "description": {
-            "ru": "",
+            "ru": "При стрельбе из двух оружий одновременно (например, используя талант Обоерукий воин) аколит может вести огонь по целям, которые разделяет больше 10 метров.",
             "en": "When firing two weapons as part of a single action (using the Two-Weapon Fighting talent, for example), the character does not need his targets to be within 10 metres of each other."
           },
           "targets": ["ST_BS"]
@@ -1471,14 +1473,23 @@
     {
       "tag": "TL_INAT",
       "name": {
-        "ru": "",
+        "ru": "Неотразимая атака",
         "en": "Inescapable attack"
       },
       "description": {
-        "ru": "",
+        "ru": "Аколит умеет предвидеть реакции своего противника и наносить удары так, что враг не сможет упредить их.",
         "en": "The Acolyte can anticipate his opponent’s reactions, and ensures his hits strike no matter how a foe tries to avoid them."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_INAT_H1",
+          "description": {
+            "ru": "После успешной проверки атаки во время совершения действия Атака всеми силами, Меткая атака, Натиск, Стандартная Атака или Оглушение персонаж накладывает штраф на все предпринимаемые противником проверки Избегания (т. е. проверки Парирования и Уклонения). Размер штрафа равен количеству достигнутых атакой степеней успеха, умноженному на 10 (например, одна ступень успеха означает штраф -10, две – штраф -20, и так далее).",
+            "en": "After making a successful attack test of the appropriate type as part of an All Out Attack, Called Shot, Charge, Standard Attack, or Stun action, the character imposes a penalty on all evasion attempts (Dodge or Parry tests) made against this attack equal to 10 times the total degrees of success scored on the attack test."
+          },
+          "targets": ["ST_BS", "ST_WS"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["ST_BS", "ST_WS", "ST_FIN"],
       "prerequisites": [
@@ -1499,645 +1510,1361 @@
       "is_stackable": false
     },
     {
-      "tag": "TL_",
+      "tag": "TL_KLST",
       "name": {
-        "ru": "",
-        "en": ""
+        "ru": "Убийственный удар",
+        "en": "Killing strike"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "С убийственной точностью аколит может нанести врагу неотразимый удар, что пройдет через его защиту как силовой меч – сквозь плоть.",
+        "en": "With expert precision, the Acolyte can land blows which defy his opponent’s ability to counter, slicing through defences as surely as a powerblade cuts flesh."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_KLST_H1",
+          "description": {
+            "ru": "В начале каждого своего хода персонаж может потратить очко Судьбы для того, чтобы до конца раунда его атак в ближнем бою нельзя было избежать Парированием или Уклонением. Этот талант не влияет на другие способы избежать атаки – например, отражающие силовые поля или защитные ксеноустройства.",
+            "en": "At the beginning of each of his turns, the character may spend a Fate point to make his melee attacks unavoidable with the Dodge and Parry skills until the end of the round. Other means of avoiding or stopping attacks (such as displacer fields or alien protective devices) are unaffected."
+          }
+        }
+      ],
       "tier": 2,
-      "aptitudes": [],
-      "prerequisites": [],
+      "aptitudes": ["A_WS", "A_OFF"],
+      "prerequisites": [
+        {
+          "tag": "ST_WS",
+          "value": 50
+        }
+      ],
       "is_specialist": false,
       "is_stackable": false
     },
     {
-      "tag": "TL_",
+      "tag": "TL_LMSH",
       "name": {
-        "ru": "",
-        "en": ""
+        "ru": "Шок люминена",
+        "en": "Luminen shock"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Аколит может поражать своих врагов разрядами энергии из своих конденсаторов.",
+        "en": "The energies charged in the Acolyte’s Luminen Capacitors can be expelled by touching a foe."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_LMSH_H1",
+          "description": {
+            "ru": "Персонаж всегда считается имеющим при себе оружие ближнего боя, наносящее 1к10+$WPB Энергетического урона, Пробиваемость 0 и имеющего качество Шоковое. Персонаж считается имеющим талант обращения с этим оружием. После применения этого таланта аколит должен преуспеть в проверке Выносливости или получить 1 уровень Усталости.",
+            "en": "The character always counts as being equipped with a melee weapon that inflicts 1d10 plus his $WPB in Energy damage, with Pen 0 and the Shocking quality. He always counts as having Weapon Training for it and after making this attack, he must pass a Toughness test or suffer 1 level of Fatigue."
+          },
+          "targets": ["ST_WS"]
+        }
+      ],
       "tier": 2,
-      "aptitudes": [],
-      "prerequisites": [],
+      "aptitudes": ["A_WS", "A_TECH"],
+      "prerequisites": [
+        {
+          "tag": "TR_MECH_IMPL",
+          "value": 1
+        },
+        {
+          "tag": "I_LUM_CAP",
+          "value": 1
+        }
+      ],
       "is_specialist": false,
       "is_stackable": false
     },
     {
-      "tag": "TL_",
+      "tag": "TL_MKMN",
       "name": {
-        "ru": "",
-        "en": ""
+        "ru": "Меткий стрелок",
+        "en": "Marksman"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Твердая рука и зоркий глаз позволяют аколиту удерживать цель на мушке, независимо от того, насколько далеко она находится.",
+        "en": "The Acolyte’s steady hand and eagle eye allow him to keep crosshairs steady on any target, regardless of range."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_MKMN_H1",
+          "description": {
+            "ru": "Расстояние – не помеха. Аколит не получает штрафов на проверки Навыка Стрельбы, стреляя на дальнюю или сверхдальнюю дистанцию.",
+            "en": "Distance is no protection against the character’s marksmanship, and he suffers no penalties for making Ballistic Skill tests at Long or Extreme range."
+          },
+          "targets": ["ST_BS"]
+        }
+      ],
       "tier": 2,
-      "aptitudes": [],
-      "prerequisites": [],
+      "aptitudes": ["A_BS", "A_FIN"],
+      "prerequisites": [
+        {
+          "tag": "ST_BS",
+          "value": 35
+        }
+      ],
       "is_specialist": false,
       "is_stackable": false
     },
     {
-      "tag": "TL_",
+      "tag": "TL_MDTU",
       "name": {
-        "ru": "",
-        "en": ""
+        "ru": "Использование механодендритов",
+        "en": "Mechadendrite use"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Аколит обучен использованию одного из типов механодендритов.",
+        "en": "The Acolyte is trained in the use of a particular kind of mechadendrite."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_MDTU_H1",
+          "description": {
+            "ru": "Аколит обучен использованию одного из типов механодендритов во многом сообразно тому, как Выучка с оружием позволяет пользоваться оружием определенного типа.",
+            "en": "The Acolyte is trained in the use of a particular kind of mechadendrite in much the same way as Weapon Training allows the use of weapons."
+          },
+          "targets": ["ST_INT", "ST_WS", "ST_BS"]
+        }
+      ],
       "tier": 2,
-      "aptitudes": [],
-      "prerequisites": [],
-      "is_specialist": false,
+      "aptitudes": ["A_INT", "A_TECH"],
+      "prerequisites": [
+        {
+          "tag": "TR_MECH_IMPL",
+          "value": 1
+        }
+      ],
+      "is_specialist": true,
       "is_stackable": false
     },
     {
-      "tag": "TL_",
+      "tag": "TL_PRKL",
       "name": {
-        "ru": "",
-        "en": ""
+        "ru": "Убийственная точность",
+        "en": "Precision killer"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Глаза, руки и оружие аколита действуют как единое целое, нанося удары точно туда, куда он их нацелил.",
+        "en": "The Acolyte’s eye, hand, and weapon act seamlessly together, placing his attacks exactly where he intends."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_PRKL_H1",
+          "description": {
+            "ru": "Выбирая этот талант, персонаж определяет свою специализацию (рукопашную или стрелковую с соответствующей Склонностью). При совершении действия Меткая атака персонаж не получает обычного штрафа -20.",
+            "en": "When making a Called Shot with a melee or ranged attack (depending on the Specialisation), the character does not suffer the usual –20 penalty."
+          }
+        }
+      ],
       "tier": 2,
-      "aptitudes": [],
-      "prerequisites": [],
-      "is_specialist": false,
+      "aptitudes": ["A_WS", "A_BS", "A_FIN"],
+      "prerequisites": [
+        {
+          "tag": "ST_BS",
+          "value": 40,
+          "alt": {
+            "tag": "ST_WS",
+            "value": 40
+          }
+        }
+      ],
+      "is_specialist": true,
       "is_stackable": false
     },
     {
-      "tag": "TL_",
+      "tag": "TL_PRSN",
       "name": {
-        "ru": "",
-        "en": ""
+        "ru": "Просангвина",
+        "en": "Prosanguine"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Усилиями железной воли аколит может ускорять работу имплантированных ему автосангвинаторов.",
+        "en": "Through the Acolyte’s iron will, he is able to speed the function of his Autosanguinator."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_PRSN_H1",
+          "description": {
+            "ru": "Персонаж должен медитировать в течение 10 минут и сделать проверку Техпользования. В случае успеха, он убирает 1d5 единиц урона. Если на кубиках выпал результат 96 или выше, персонаж теряет возможность пользоваться своими автосангвинаторами на одну неделю.",
+            "en": "The Acolyte must spend 10 minutes in meditation and make a Tech-Use test. If he succeeds, he removes 1d5 points of damage. If he rolls a 96 or higher, he loses the ability to use his Autosanguinator for one week."
+          },
+          "targets": ["ST_INT", "SK_TECH"]
+        }
+      ],
       "tier": 2,
-      "aptitudes": [],
-      "prerequisites": [],
+      "aptitudes": ["A_T", "A_TECH"],
+      "prerequisites": [
+        {
+          "tag": "TR_MECH_IMPL",
+          "value": 1
+        },
+        {
+          "tag": "I_AUSANG_IMPL",
+          "value": 1
+        }
+      ],
       "is_specialist": false,
       "is_stackable": false
     },
     {
-      "tag": "TL_",
+      "tag": "TL_STMN",
       "name": {
-        "ru": "",
-        "en": ""
+        "ru": "Непреклонный",
+        "en": "Strong minded"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Разум аколита подобен крепости, защищенной от психических атак.",
+        "en": "The Acolyte’s mind acts as a fortress against psychic attacks."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_STMN_H1",
+          "description": {
+            "ru": "Персонаж может перебрасывать проваленные проверки Силы Воли, сделанные для того, чтобы сопротивляться психическим силам, воздействующим на разум. Этот талант не оказывает влияния на психосилы, имеющие физический эффект, таким как Разрывающий Разряд или Швыряние.",
+            "en": "The character can re-roll failed Willpower tests to resist any psychic powers that affect his mind. This talent does not affect psychic powers that have a physical effect, such as Smite or Assail."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
       "tier": 2,
-      "aptitudes": [],
-      "prerequisites": [],
+      "aptitudes": ["A_WP", "A_DEF"],
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 30
+        },
+        {
+          "tag": "TL_RST",
+          "subtag": "Psychic powers",
+          "value": 1
+        }
+      ],
       "is_specialist": false,
       "is_stackable": false
     },
     {
-      "tag": "TL_",
+      "tag": "TL_SWAT",
       "name": {
-        "ru": "",
-        "en": ""
+        "ru": "Быстрая атака",
+        "en": "Swift attack"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Фехтовальные навыки аколита позволяют ему сражаться в ближнем бою с впечатляющей скоростью.",
+        "en": "The Acolyte’s ability with weapons is legendary, allowing him to attack with amazing speed in melee."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_SWAT_H1",
+          "description": {
+            "ru": "Персонаж может применять действие Быстрая Атака.",
+            "en": "The character can make the Swift Attack action."
+          },
+          "targets": ["ST_WS"]
+        }
+      ],
       "tier": 2,
-      "aptitudes": [],
-      "prerequisites": [],
+      "aptitudes": ["A_WS", "A_FIN"],
+      "prerequisites": [
+        {
+          "tag": "ST_WS",
+          "value": 30
+        }
+      ],
       "is_specialist": false,
       "is_stackable": false
     },
     {
-      "tag": "TL_",
+      "tag": "TL_TWW",
       "name": {
-        "ru": "",
-        "en": ""
+        "ru": "Обоерукий воин",
+        "en": "Two-weapon wielder"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Интенсивные тренировки позволили аколиту вести бой, держа в каждой руке по оружию.",
+        "en": "Intensive training allows the Acolyte to use a weapon in each hand when needed."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_TWW_H1",
+          "description": {
+            "ru": "Будучи вооружен двумя одноручными оружиями (рукопашными или стрелковыми), после совершения действия атаки, занимающего Полудействие (для рукопашного оружия это может быть Стандартная Атака, Быстрая или Молниеносная Атака, а для стрелкового оружия — одиночный выстрел, Длинная или Короткая Очередь), персонаж может, в качестве Свободного действия совершить одну дополнительную атаку, которая в обычных условиях заняла бы Полудействие, но атаки другим оружием подвергаются тем же ограничениям что и реакции. Фактически персонаж атакует дважды в раунд, по одному разу каждым оружием. Обе эти атаки считаются занимающими одно Полудействие и получают штраф -20 на проверку навыка.",
+            "en": "When armed with two one-handed weapons (ether melee or ranged weapons), after making a Half Action attack (this can be a Single Attack, a Swift Attack, or a Lightning Attack with a melee weapon, or it can be a single shot, semi-auto burst, or full auto burst with a ranged weapon), he can make a single additional Half Action attack following the same restrictions with the other weapon as a Free Action. In effect, this allows him to attack twice in a round, once from each of his weapons. Both of these attacks count as being part of the same Half Action, and both tests made to attack with the weapons suffer a –20 penalty."
+          },
+          "targets": ["ST_WS", "ST_BS"]
+        }
+      ],
       "tier": 2,
-      "aptitudes": [],
+      "aptitudes": ["A_WS", "A_BS", "A_FIN"],
       "prerequisites": [],
-      "is_specialist": false,
+      "is_specialist": true,
       "is_stackable": false
     },
     {
-      "tag": "TL_",
+      "tag": "TL_UNSP",
       "name": {
-        "ru": "",
-        "en": ""
+        "ru": "Костолом",
+        "en": "Unarmed specialist"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Долгие тренировки сделали тело аколита таким же опасным, как любое оружие, что использует Муниторум.",
+        "en": "After extensive training, the Acolyte has made his body as dangerous as any Munitorum-issued weapon."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_UNSP_H1",
+          "description": {
+            "ru": "Персонаж получает черту Смертоносное Природное Оружие и считается имеющим его, даже стоя с голыми руками против толпы вооруженных врагов. Сражаясь голыми руками, персонаж может перебрасывать кости, определяющие нанесенный его ударами Урон.",
+            "en": "He gains the Deadly Natural Weapon trait, and counts as armed even when facing weapon-wielding opponents while barehanded. While fighting barehanded, he can also re-roll the damage he inflicts."
+          },
+          "command": {
+            "command": "GainTrait",
+            "tag": "TR_DNWP"
+          }
+        }
+      ],
       "tier": 2,
-      "aptitudes": [],
+      "aptitudes": ["A_STR", "A_OFF"],
+      "prerequisites": [
+        {
+          "tag": "ST_AG",
+          "value": 35
+        },
+        {
+          "tag": "TL_AMB",
+          "value": 1
+        },
+        {
+          "tag": "ST_WS",
+          "value": 35
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_WPCD",
+      "name": {
+        "ru": "Варп-канал",
+        "en": "Warp conduit"
+      },
+      "description": {
+        "ru": "Мощь разума аколита позволяет ему создать канал чистой энергии Варпа.",
+        "en": "The sheer power of the Acolyte’s mind allows him to channel vast amounts of Warp energy when he chooses."
+      },
+      "hints": [
+        {
+          "tag": "TL_WPCD_H1",
+          "description": {
+            "ru": "При Усилении перед тем, как бросать кости на проверку Фокусировки Силы, персонаж может потратить одно очко Судьбы, чтобы увеличить свой фактический пси-рейтинг для совершения этой психосилы на дополнительные 1d5. Использование таких приёмов очень опасно, и персонаж получает +30 к броскам на Психические Феномены, если феномен вызван психической силой, примененной с использованием этого таланта.",
+            "en": "When Pushing, before rolling the Focus Power test, the character may spend one Fate Point to add an additional 1d5 to the effective psy rating of the power. Channelling such vast amounts of power is dangerous, however, and so he adds +30 to rolls on Psychic Phenomena when he makes as a result of this talent."
+          },
+          "targets": ["PR", "ST_WP"]
+        }
+      ],
+      "tier": 2,
+      "aptitudes": ["A_WP", "A_PSY"],
+      "prerequisites": [
+        {
+          "tag": "PR",
+          "value": 1
+        },
+        {
+          "tag": "TL_STMN",
+          "value": 1
+        },
+        {
+          "tag": "ST_WP",
+          "value": 50
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_WWOD",
+      "name": {
+        "ru": "Вихрь смерти",
+        "en": "Whirlwind of death"
+      },
+      "description": {
+        "ru": "Встречая многочисленных врагов в тесных пространствах, аколит превращается в ураган ударов, рубящих, режущих и обезглавливающих своих врагов с неиссякаемой яростью.",
+        "en": "When facing massed opponents in close quarters, the Acolyte becomes a streak of blows, moving, hacking, gutting, and beheading his enemies with ceaseless fury."
+      },
+      "hints": [
+        {
+          "tag": "TL_WWOD_H1",
+          "description": {
+            "ru": "В качестве Полудействия персонаж может провести одно действие Стандартная Атака оружием ближнего боя против одного врага, плюс дополнительную Стандартную Атаку тем же оружием, нацеленную в другого врага, участвующего в той же схватке, что и первый (максимальное количество дополнительных атак равно $WSB).",
+            "en": "As a Half Action, the character may make one Standard Attack action with a melee weapon against a foe, plus one additional Standard Attack action with the same weapon targeting each other foe also engaged in melee combat with the character beyond the first (to a maximum number of $WSB attacks)."
+          },
+          "targets": ["ST_WS"]
+        }
+      ],
+      "tier": 2,
+      "aptitudes": ["A_WS", "A_FIN"],
+      "prerequisites": [
+        {
+          "tag": "ST_WS",
+          "value": 40
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_ADFT",
+      "name": {
+        "ru": "Несокрушимая вера",
+        "en": "Adamantium faith"
+      },
+      "description": {
+        "ru": "Аколит невосприимчив к ужасам, что могли бы сломить более слабого человека. Причиной тому стали годы, проведенные под вражеским огнем, созерцание ужасов Варпа или просто абсолютная вера в Императора.",
+        "en": "The Acolyte has become inured to horrors that would cripple lesser men. This might come from years of facing incoming fire, staring down the terrors of the Warp, or simply his absolute faith in the Emperor."
+      },
+      "hints": [
+        {
+          "tag": "TL_ADFT_H1",
+          "description": {
+            "ru": "Персонаж может уменьшить количество степеней провала проваленной проверке на Страх или Подавление на $WPB. Если итоговое количество степеней провала будет равно нулю или меньше, аколит считается прошедшим эту проверку с одной степенью успеха.",
+            "en": "The character can lower degrees of failure on a failed Fear or Pinning test by $WPB. If this reduces the result to zero or less, he counts as having passed the Fear test with 1 degree of success."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
+      "tier": 3,
+      "aptitudes": ["A_WP", "A_DEF"],
+      "prerequisites": [
+        {
+          "tag": "TL_JD",
+          "value": 1
+        },
+        {
+          "tag": "TL_RST",
+          "subtag": "Fear",
+          "value": 1
+        },
+        {
+          "tag": "ST_WP",
+          "value": 45
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_ASST",
+      "name": {
+        "ru": "Удар асассина",
+        "en": "Assassin's strike"
+      },
+      "description": {
+        "ru": "Природная ловкость персонажа и изящество его боевого стиля превращают аколита в вихрь смерти.",
+        "en": "The character’s natural agility and graceful martial form turn him into a dervish of death in combat."
+      },
+      "hints": [
+        {
+          "tag": "TL_ASST_H1",
+          "description": {
+            "ru": "Атакуя противника в ближнем бою, аколит может пройти  проверку Акробатики +0, чтобы совершить перемещение на расстояние Половинного движения за Свободное действие. Эту способность можно применять один раз за раунд, а противник не получает свободной атаки против перемещающегося рядом с ним аколита.",
+            "en": "After making a melee attack, a successful +0 Acrobatics skill test allows the Acolyte to move at half rate as a Free Action. He may only make this move once per round, and the character’s opponent does not receive a free attack resulting from this move."
+          },
+          "targets": ["ST_WS"]
+        }
+      ],
+      "tier": 3,
+      "aptitudes": ["A_WS", "A_FLD"],
+      "prerequisites": [
+        {
+          "tag": "SL_ACR",
+          "value": 0
+        },
+        {
+          "tag": "ST_AG",
+          "value": 40
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_BOIW",
+      "name": {
+        "ru": "Бастион железной воли",
+        "en": "Bastion of iron will"
+      },
+      "description": {
+        "ru": "После долгих лет практик и тренировок огромная сила воли аколита и искусство его психической концентрации становятся единым целым, и их совместное применение для персонажа – совершенно обычное дело.",
+        "en": "The Acolyte’s sheer willpower and psychic focus have become one and the same, over years of practice and training, such that their combined use is second nature."
+      },
+      "hints": [
+        {
+          "tag": "TL_BOIW_H1",
+          "description": {
+            "ru": "Он получает +$MTP$BASE$PR ко всем Встречным проверкам, направленным на защиту от психических сил.",
+            "en": "The character adds +$MTP$BASE$PR to any Opposed test he makes when defending against psychic powers."
+          },
+          "targets": ["PR", "ST_WP"],
+          "base": 5
+        }
+      ],
+      "tier": 3,
+      "aptitudes": ["A_WP", "A_PSY"],
+      "prerequisites": [
+        {
+          "tag": "PR",
+          "value": 1
+        },
+        {
+          "tag": "TL_STMN",
+          "value": 1
+        },
+        {
+          "tag": "ST_WP",
+          "value": 40
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_BLDM",
+      "name": {
+        "ru": "Мастер клинка",
+        "en": "Blademaster"
+      },
+      "description": {
+        "ru": "Мастерство аколита во владении клинком не знает себе равных.",
+        "en": "The Acolyte’s mastery of bladed weapons and their martial disciplines has no peer."
+      },
+      "hints": [
+        {
+          "tag": "TL_BLDM_H1",
+          "description": {
+            "ru": "Атакуя любым клинковым оружием, включая цепные мечи, топоры и силовые мечи, персонаж может перебрасывать одну проваленную атаку за раунд.",
+            "en": "When attacking with any bladed weapon, including chainswords, axes, and power swords, the character can re-roll one missed attack per round."
+          },
+          "targets": ["ST_WS"]
+        }
+      ],
+      "tier": 3,
+      "aptitudes": ["A_WS", "A_FIN"],
+      "prerequisites": [
+        {
+          "tag": "ST_WS",
+          "value": 30
+        },
+        {
+          "tag": "TL_WTR",
+          "value": 1
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_CRBL",
+      "name": {
+        "ru": "Сокрушительный удар",
+        "en": "Crushing blow"
+      },
+      "description": {
+        "ru": "Аколит способен наносить могучие удары в схватке с врагом.",
+        "en": "The Acolyte has the ability to focus his entire body into close combat attacks."
+      },
+      "hints": [
+        {
+          "tag": "TL_CRBL_H1",
+          "description": {
+            "ru": "Персонаж добавляет $MTP$BASE$WSB к урону, наносимому в ближнем бою.",
+            "en": "The Acolyte adds $MTP$BASE$WSB to damage he inflicts with melee attacks."
+          },
+          "targets": ["ST_WS"],
+          "base": 0.5
+        }
+      ],
+      "tier": 3,
+      "aptitudes": ["A_WS", "A_OFF"],
+      "prerequisites": [
+        {
+          "tag": "ST_WS",
+          "value": 40
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_DTDL",
+      "name": {
+        "ru": "Несущий смерть",
+        "en": "Deathdealer"
+      },
+      "description": {
+        "ru": "Аколит может направлять свои удары туда, где они причинят больше всего вреда — например, в зазоры или стыки в доспехах.",
+        "en": "The Acolyte can place his hits where they inflict maximum harm, such as gaps or joints in armour."
+      },
+      "hints": [
+        {
+          "tag": "TL_DTDL_H1",
+          "description": {
+            "ru": "Когда атака персонажа в ближнем или дальнем бою (в зависимости от выбранной специализации) наносит Критический урон, персонаж добавляет $PERB к нанесенному урону.",
+            "en": "When the character’s close combat or ranged attack (depending on chosen specialization) inflicts Critical damage, he adds his $PERB to the damage result."
+          },
+          "targets": ["ST_WS", "ST_BS"]
+        }
+      ],
+      "tier": 3,
+      "aptitudes": ["A_PER", "A_FIN"],
+      "prerequisites": [
+        {
+          "tag": "ST_WS",
+          "value": 45,
+          "alt": {
+            "tag": "ST_BS",
+            "value": 45
+          }
+        }
+      ],
+      "is_specialist": true,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_DLIN",
+      "name": {
+        "ru": "Аккуратный Допрос",
+        "en": "Delicate interrogation"
+      },
+      "description": {
+        "ru": "Расспросы подозреваемых и свидетелей часто бывают важной частью расследования. Подобные действия должны оставаться в тайне, и для этого аколиты прибегают к массе уловок, чтобы отвадить тех, кого заинтересовало присутствие Инквизиции – подкупу, обманам, угрозам.",
+        "en": "Questioning suspects and witnesses is always a necessary part of any investigation. Such sessions must remain secretive or obscured, however, lest others learn of the Inquisition’s interest, and a variety of subterfuges, deceptions, and outright threats come into play to aid this effort."
+      },
+      "hints": [
+        {
+          "tag": "TL_DLIN_H1",
+          "description": {
+            "ru": "Всякий раз, когда аколит уменьшает Секретность отряда из-за допроса кого-либо, общие потери Секретности отряда уменьшаются на 1d5. Если при этом в результате выходит отрицательное число, Секретность аколитов возрастает на 1.",
+            "en": "Whenever the Acolyte would decrease his warband’s Subtlety due to an interrogation, the amount of Subtlety lost is reduced by 1d5. If this results in a negative number, the Acolyte’s skilled efforts increase the warband’s Subtlety by 1."
+          },
+          "targets": ["SK_INTR"]
+        }
+      ],
+      "tier": 3,
+      "aptitudes": ["A_INT", "A_FIN"],
+      "prerequisites": [
+        {
+          "tag": "TL_CDNT",
+          "value": 1
+        },
+        {
+          "tag": "ST_FEL",
+          "value": 50
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_EOVN",
+      "name": {
+        "ru": "Глаз мстителя",
+        "en": "Eye of vengeance"
+      },
+      "description": {
+        "ru": "Аколит может сосредоточить свои намерения на том, чтобы сразить врага одним выстрелом.",
+        "en": "The Acolyte can focus his intent on where it is likely to do most damage to his enemy and then strike his foe down with a single shot."
+      },
+      "hints": [
+        {
+          "tag": "TL_EOVN_H1",
+          "description": {
+            "ru": "Перед тем, как проводить стрелковое действие Стандартная Атака, персонаж может потратить Очко Судьбы. Если он это сделал, то при успешной атаке, он добавляет количество степеней успеха к Урону и Пробиваемости для этого попадания.",
+            "en": "Before making a ranged Standard Attack action, he can spend a Fate point. If he does so, he adds the number of degrees of success scored on the attack test to both his damage and penetration for the hit."
+          },
+          "targets": ["ST_BS"]
+        }
+      ],
+      "tier": 3,
+      "aptitudes": ["A_BS", "A_OFF"],
+      "prerequisites": [
+        {
+          "tag": "ST_BS",
+          "value": 50
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_FVBW",
+      "name": {
+        "ru": "Благоволение Варпа",
+        "en": "Favoured by the Warp"
+      },
+      "description": {
+        "ru": "Когда персонаж бросает кости на определение Психических феноменов и не получает результат Опасности Варпа, он может бросить кости ещё раз и выбрать, какой результат он получит.",
+        "en": "Whenever this character rolls on Psychic Phenomena, so long as he does not receive the Perils of the Warp result, he may roll a second time and choose which result he receives."
+      },
+      "hints": [
+        {
+          "tag": "TL_FVBW_H1",
+          "description": {
+            "ru": "Когда персонаж бросает кости на определение Психических феноменов и не получает результат Опасности Варпа, он может бросить кости ещё раз и выбрать, какой результат он получит.",
+            "en": "Whenever this character rolls on Psychic Phenomena, so long as he does not receive the Perils of the Warp result, he may roll a second time and choose which result he receives."
+          },
+          "targets": ["ST_WP", "PR"]
+        }
+      ],
+      "tier": 3,
+      "aptitudes": ["A_WP", "A_PSY"],
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 35
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_FOIN",
+      "name": {
+        "ru": "Вспышка озарения",
+        "en": "Flash of insight"
+      },
+      "description": {
+        "ru": "Несмотря на упорные логические рассуждения и тщательный анализ, некоторые загадки остаются неразгаданными, но ответ можно искать и другим способом – пытаясь увидеть его в дымных узорах тлеющего лхо, или взывая к Императору с просьбой о наставлении. Аколит, что опирается не только на прямые умозаключения, но и на вспышки подсознательного понимания, может больше преуспеть в своём деле и справиться даже с самой скрытой ересью.",
+        "en": "Despite steady application of logic and careful analysis, some conundrums remain insoluble, but inspiration could come from outside sources, such as reading patterns from wisps of lho smoke or even making direct appeals to the Emperor for guidance. An Acolyte who has trained his mind to process such lateral data can leap to conclusions that direct thinking cannot provide, and thus quash even the most hidden of heresies."
+      },
+      "hints": [
+        {
+          "tag": "TL_FOIN_H1",
+          "description": {
+            "ru": "Зайдя в тупик в расследовании, персонаж может потратить Очко Судьбы, чтобы получить одну подсказку или какую-либо иную помощь.",
+            "en": "When stuck in an investigation, the Acolyte can spend one Fate point to reveal a single clue or lead to aid in the progression of his efforts."
+          },
+          "targets": ["FP", "ST_INT", "ST_PER"]
+        }
+      ],
+      "tier": 3,
+      "aptitudes": ["A_PER", "A_KNG"],
+      "prerequisites": [
+        {
+          "tag": "ST_INT",
+          "value": 40
+        },
+        {
+          "tag": "TL_CDNT",
+          "value": 1
+        },
+        {
+          "tag": "TL_CNNT",
+          "value": 1
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_HOCM",
+      "name": {
+        "ru": "Аура власти",
+        "en": "Halo of command"
+      },
+      "description": {
+        "ru": "Аколит лучше других умеет вести людей за собой или склонять их на свою сторну, убеждая или угрожая.",
+        "en": "The Acolyte has trained himself to better to lead and sway others, either motivating or terrifying those around him to greater levels."
+      },
+      "hints": [
+        {
+          "tag": "TL_HOCM_H1",
+          "description": {
+            "ru": "При применении умения, связанного со склонностью Общение или Лидерство (такого как Обольщение, Командование или Запугивание) на дружественного НИП, радиус его применения увеличивается на расстояние, равное 100 x $FELB метров, вместо обычных 10 x $FELB метров.",
+            "en": "When targeting friendly NPCs through skills that have either the Social or Leadership Aptitudes (such as Charm, Command, and Intimidate), he can affect those within 100 times his $FELB in metres rather than 10 times $FELB."
+          },
+          "targets": ["SK_CH", "SK_CMD", "SK_INTM"]
+        }
+      ],
+      "tier": 3,
+      "aptitudes": ["A_FEL", "A_LDR"],
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 40
+        },
+        {
+          "tag": "ST_FEL",
+          "value": 40
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_HMBL",
+      "name": {
+        "ru": "Пробивающий удар",
+        "en": "Hammer blow"
+      },
+      "description": {
+        "ru": "Аколит, вкладывая всю свою силу, наносит единственный удар, раскалывающий броню и рассекающий плоть врага.",
+        "en": "The Acolyte strikes a single blow with such focus and force that it breaks armour and pulps flesh as it strikes."
+      },
+      "hints": [
+        {
+          "tag": "TL_HMBL_H1",
+          "description": {
+            "ru": "Когда персонаж использует действие Атака всеми силами для нанесения одной атаки в ближнем бою, он может добавить $MTP$BASE$STRB к Пробиваемости оружия. Помимо\nэтого, для этой атаки оружие также считается имеющим качество Оглушающее (2), оно отображает всю сокрушительную мощь этого удара.",
+            "en": "When he uses an All Out Attack action to make a single melee attack, he can add $MTP$BASE$STRB to the weapon’s penetration. The attack also counts as having the Concussive (2) weapon quality, to represent the shocking force of the blow’s impact."
+          },
+          "targets": ["ST_WS", "ST_STR"],
+          "base": 0.5
+        }
+      ],
+      "tier": 3,
+      "aptitudes": ["A_STR", "A_OFF"],
+      "prerequisites": [
+        {
+          "tag": "TL_CRBL",
+          "value": 1
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_INKN",
+      "name": {
+        "ru": "Вложенное знание",
+        "en": "Infused knowledge"
+      },
+      "description": {
+        "ru": "Аколит обладает весьма широкими познаниями, благодаря беспощадным ноэтическим практикам или мистическим методикам, хранимыми в тайне стражами технологии и знаний.",
+        "en": "The Acolyte has been imbued with a great breadth of lore, either through punishing noetic techniques or by arcane methods kept secret by the guardians of technology and learning."
+      },
+      "hints": [
+        {
+          "tag": "TL_INKN_H1",
+          "description": {
+            "ru": "Считается, что аколит имеет все умения Общих и Учёных Знаний на уровне 1 (Знает), т.е. знает обо всём по чуть-чуть. Если позже он захочет улучшить одно из этих умений, то эти улучшения должны быть куплены за очки опыта, как обычно, начиная с уровня 1. Кроме того, персонаж получает дополнительную ступень успеха к любой успешно пройденной проверке Общих и Учёных Знаний – это результат его укоренившихся знаний.",
+            "en": "He counts as having all Common Lore and Scholastic Lore skills at rank 1 (Known)—basically, he knows something about everything. If he wishes to later improve his Lore skills, these advances must be bought using experience points (from rank 1) as normal. He also adds one degree of success to any successful Common or Scholastic Lore tests, due to his ingrained training."
+          },
+          "targets": ["ST_INT", "SK_CML", "SK_SCL"]
+        }
+      ],
+      "tier": 3,
+      "aptitudes": ["A_INT", "A_KNG"],
+      "prerequisites": [
+        {
+          "tag": "ST_INT",
+          "value": 40
+        },
+        {
+          "tag": "SK_CML",
+          "value": 1,
+          "alt": [
+            {
+              "tag": "SK_SCL",
+              "value": 1
+            },
+            {
+              "tag": "SK_FBL",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_LMBL",
+      "name": {
+        "ru": "Взрыв люминена",
+        "en": "Luminen blast"
+      },
+      "description": {
+        "ru": "Энергия, накопленная в конденсаторах аколита, может быть использована для поражения врагов на расстоянии.",
+        "en": "The energies charged in the Acolyte’s Luminen Capacitors can be expelled in a ranged attack."
+      },
+      "hints": [
+        {
+          "tag": "TL_LMBL_H1",
+          "description": {
+            "ru": "Персонаж всегда считается имеющим при себе оружие типа Пистолет с дальностью выстрела 10 м., стреляющий только в одиночном режиме и наносящий 1к10+$MTP$BASE$WPB Энергетического урона, имеющего Пробиваемость 0 и качество Шоковое. Персонаж считается имеющим талант обращения с этим оружием. После применения этого таланта аколит должен пройти проверку Выносливости или получить 1 уровень Усталости.",
+            "en": "The character always counts as being equipped with a Pistol weapon with a 10m range. This can only be used in single shot mode, and deals 1d10 plus $MTP$BASE$WPB bonus in Energy damage, with Pen 0 and the Shocking quality. The character always counts as having Weapon Training for this weapon and after making an attack with it, he must pass a Toughness test or suffer 1 level of Fatigue."
+          },
+          "targets": ["ST_BS"],
+          "base": 2
+        }
+      ],
+      "tier": 3,
+      "aptitudes": ["A_BS", "A_TECH"],
+      "prerequisites": [
+        {
+          "tag": "TL_LMSH",
+          "value": 1
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_MSTR",
+      "name": {
+        "ru": "Мастерство",
+        "en": "Mastery"
+      },
+      "description": {
+        "ru": "Аколит достиг мастерства в отдельном навыке.",
+        "en": "The Acolyte has mastered a single skill."
+      },
+      "hints": [
+        {
+          "tag": "TL_MSTR_H1",
+          "description": {
+            "ru": "Аколит может потратить очко Судьбы, чтобы автоматически пройти проверку выбранного умения, облегчая проверку до +0 или проще. Количество степеней успеха считается равным бонусу связанной с умением характеристики. Этот талант можно взять несколько раз, каждый раз для другого умения.",
+            "en": "The Acolyte can spend a Fate point to automatically pass a skill test with his chosen skill, provided the final modifier to his skill test is Challenging (+0) or better. He scores a number of degrees of success equal to the characteristic bonus of the skill’s associated characteristic. This talent may be taken more than once, each time for a different skill."
+          }
+        }
+      ],
+      "tier": 3,
+      "aptitudes": ["A_INT", "A_KNG"],
+      "prerequisites": [
+        {
+          "tag": "SK_ANY",
+          "value": 30
+        }
+      ],
+      "is_specialist": true,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_MTSH",
+      "name": {
+        "ru": "Мощный выстрел",
+        "en": "Mighty shot"
+      },
+      "description": {
+        "ru": "Аколит знает слабые места во всех видах брони и направляет свои выстрелы туда, где они нанесут наибольший урон.",
+        "en": "The Acolyte knows the weak points in every type of armour and material, and has the skill to ensure that his shots land exactly where they can do the most damage."
+      },
+      "hints": [
+        {
+          "tag": "TL_MTSH_H1",
+          "description": {
+            "ru": "Персонаж добавляет $MTP$BASE$BSB к урону от своих стрелковых атак.",
+            "en": "He adds $MTP$BASE$BSB to damage he inflicts with ranged weapons."
+          },
+          "targets": ["ST_BS"],
+          "base": 0.5
+        }
+      ],
+      "tier": 3,
+      "aptitudes": ["A_BS", "A_OFF"],
+      "prerequisites": [
+        {
+          "tag": "ST_BS",
+          "value": 40
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_NVRD",
+      "name": {
+        "ru": "Неубиваемый",
+        "en": "Never die"
+      },
+      "description": {
+        "ru": "Воля аколита или его преданность Императору поддерживают его даже тогда, когда его смертное тело вот-вот падет.",
+        "en": "The Acolyte’s will or devotion to the Emperor can sustain him when his mortal body fails."
+      },
+      "hints": [
+        {
+          "tag": "TL_NVRD_H1",
+          "description": {
+            "ru": "Персонаж может потратить одно очко Судьбы, чтобы игнорировать эффекты увечья (в том числе от Критического урона), Усталости и Оглушения в течение боя. Это не распространяется на те эффекты Урона, Усталости или Оглушения, что убивают персонажа немедленно. Этот талант не предотвращает урон, а лишь позволяет не замечать его на время боя. Когда боевая сцена заканчивается, эффекты действуют в обычном порядке.",
+            "en": "The character may spend one Fate point to ignore the effects of injury (such as those from Critical damage), Fatigue, and Stunning for a single combat, so long as they would not kill him immediately. This talent does not prevent the damage, but allows him to temporarily ignore its effects for the duration of the combat. Once the encounter ends, the effects trigger as normal."
+          },
+          "targets": ["ST_T", "FP", "ST_WP"]
+        }
+      ],
+      "tier": 3,
+      "aptitudes": ["A_T", "A_DEF"],
+      "prerequisites": [
+        {
+          "tag": "ST_T",
+          "value": 50
+        },
+        {
+          "tag": "ST_WP",
+          "value": 50
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_PRSP",
+      "name": {
+        "ru": "Нечеловеческая скорость",
+        "en": "Preternatural speed"
+      },
+      "description": {
+        "ru": "В бою аколит стремителен и смертоносен, подобно живой кровавой косе, перед которой враги ложатся, как колосья перед жнецом.",
+        "en": "The Acolyte is a swift-moving bringer of death, a living, bloody scythe before whom foes die like corn before the reaper."
+      },
+      "hints": [
+        {
+          "tag": "TL_PRSP_H1",
+          "description": {
+            "ru": "При совершении аколитом действия Натиск, его возможная дистанция удваивается.",
+            "en": "When making a Charge action, the character doubles his normal Charge movement."
+          },
+          "targets": ["ST_AG", "ST_WS"]
+        }
+      ],
+      "tier": 3,
+      "aptitudes": ["A_AG", "A_OFF"],
+      "prerequisites": [
+        {
+          "tag": "ST_WS",
+          "value": 40
+        },
+        {
+          "tag": "ST_AG",
+          "value": 50
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_STAS",
+      "name": {
+        "ru": "Шаг в сторону",
+        "en": "Step aside"
+      },
+      "description": {
+        "ru": "Ловким маневром аколит может заставить пулю просвистеть мимо него, а клинком так отклонить удар противника, что тот рассечёт лишь воздух.",
+        "en": "Swaying his body out of the path of an attack, the Acolyte causes the shot to pass through thin air, or turns his blade mid-swing to deflect a blow."
+      },
+      "hints": [
+        {
+          "tag": "TL_STAS_H1",
+          "description": {
+            "ru": "Персонаж получает одну дополнительную реакцию Избегание в раунд, которую можно потратить на дополнительное Парирование или Уклонение, что позволяет совершить два Парирования или два Уклонения или одно Парирование и одно Уклонение в ход. Однако, от одной конкретной атаки можно пытаться защититься Парированием или Уклонением только один раз.",
+            "en": "The character can make an additional Evasion attempt (either a Dodge or a Parry) once per round. In effect, this gives him a second Reaction that can only be used for Dodge or Parry attempts, allowing two Dodges, two Parries, or a Dodge and a Parry in each turn. However, he can still only attempt a single Dodge or Parry against each individual attack."
+          },
+          "targets": ["ST_WS"]
+        }
+      ],
+      "tier": 3,
+      "aptitudes": ["A_AG", "A_DEF"],
+      "prerequisites": [
+        {
+          "tag": "ST_AG",
+          "value": 40
+        },
+        {
+          "tag": "SK_PAR",
+          "value": 0,
+          "alt": {
+            "tag": "SK_DDG",
+            "value": 0
+          }
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_SPRN",
+      "name": {
+        "ru": "Спринт",
+        "en": "Sprint"
+      },
+      "description": {
+        "ru": "Аколит способен двигаться очень быстро",
+        "en": "The Acolyte moves at great speeds."
+      },
+      "hints": [
+        {
+          "tag": "TL_SPRN_H1",
+          "description": {
+            "ru": "Каждый раз при совершении действия Полное Движение, персонаж может дополнительно пройти $AGB метров. Кроме того, расстояние Бега аколита удваивается. Персонаж получает 1 уровень Усталости, если применяет этот талант два раунда подряд.",
+            "en": "When taking a Full Move action, the character can move an extra $AGB metres. Additionally, whenever he takes a Run action, he may move double the normal distance. If he did so in the previous round, however, he suffers 1 level of Fatigue."
+          },
+          "targets": ["ST_AG"]
+        }
+      ],
+      "tier": 3,
+      "aptitudes": ["A_AG", "A_FLD"],
       "prerequisites": [],
       "is_specialist": false,
       "is_stackable": false
     },
     {
-      "tag": "TL_",
+      "tag": "TL_SPCH",
       "name": {
-        "ru": "",
-        "en": ""
+        "ru": "Превосходный хирургеон",
+        "en": "Superior Chirurgeon"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Глубокая медицинская подготовка аколита позволяет ему искусно зашивать любые раны, что очень важно в боевой обстановке. Умелое применение нартециума, медпакета и различных препаратов сильно увеличивает шансы его пациентов.",
+        "en": "The Acolyte’s advanced medical training enables him to knit flesh with deft mastery, essential for treating combat casualties. His exceptional education in use of the Narthecium, Med-Slate, and supplemental drugs give his patients an enormous advantage."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_SPCH_H1",
+          "description": {
+            "ru": "Персонаж получает бонус +20 ко всем проверкам Медики. При оказании первой помощи он не получает штрафов при работе с Тяжело Ранеными пациентами, а исцеляя Критический урон получает штраф только -10.",
+            "en": "He gains a +20 bonus on all Medicae skill tests. When providing first aid, he ignores the penalties for Heavily Damaged patients and only suffers a –10 penalty for those suffering Critical damage."
+          },
+          "targets": ["SK_MED"],
+          "bonus": 20
+        }
+      ],
       "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
+      "aptitudes": ["A_INT", "A_FLD"],
+      "prerequisites": [
+        {
+          "tag": "SK_MED",
+          "value": 10
+        }
+      ],
       "is_specialist": false,
       "is_stackable": false
     },
     {
-      "tag": "TL_",
+      "tag": "TL_TGSL",
       "name": {
-        "ru": "",
-        "en": ""
+        "ru": "Выбор цели",
+        "en": "Target selection"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Даже сумятица ближнего боя не может скрыть врага от смертоносного взгляда аколита, что уже наметил свою жертву.",
+        "en": "The Acolyte’s dread gaze marks out his chosen victim, and not even the riotous confusion of close combat interferes."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_TGSL_H1",
+          "description": {
+            "ru": "Персонаж может стрелять в ближний бой без штрафов. Совершение действия Прицелиться перед таким выстрелом предотвращает вероятность попасть в своих.",
+            "en": "The character can shoot into melee with no penalty. If he also makes an Aim action beforehand, he prevents any chance of hitting friendly targets as well."
+          },
+          "targets": ["ST_BS"]
+        }
+      ],
       "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
+      "aptitudes": ["A_BS", "A_FIN"],
+      "prerequisites": [
+        {
+          "tag": "ST_BS",
+          "value": 50
+        }
+      ],
       "is_specialist": false,
       "is_stackable": false
     },
     {
-      "tag": "TL_",
+      "tag": "TL_LTAT",
       "name": {
-        "ru": "",
-        "en": ""
+        "ru": "Молниеносная атака",
+        "en": "Lighting attack"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Скорость аколита в бою не знает себе равных, позволяя ему обрушить на своих врагов шквал ударов.",
+        "en": "The Acolyte’s speed with weapons is unmatched, allowing him to launch flurries of attacks in melee."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_LTAT_H1",
+          "description": {
+            "ru": "Персонаж может применять специальное действие Молниеносная Атака.",
+            "en": "The character can make the Lightning Attack action."
+          },
+          "targets": ["ST_WS"]
+        }
+      ],
       "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
+      "aptitudes": ["A_WS", "A_FIN"],
+      "prerequisites": [
+        {
+          "tag": "TL_SWAT",
+          "value": 1
+        }
+      ],
       "is_specialist": false,
       "is_stackable": false
     },
     {
-      "tag": "TL_",
+      "tag": "TL_THCH",
       "name": {
-        "ru": "",
-        "en": ""
+        "ru": "Яростный натиск",
+        "en": "Thunder charge"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Аколит бросается в бой, используя своё тело как ещё одно оружие. Ведомый своей яростью, он врезается во врага с такой силой, что может отправить его в полет или швырнуть на колени.",
+        "en": "The Acolyte charges into combat using his body as an additional weapon. Driven by his rage and momentum, the impact of such a charge can knock foes flying or bring them to their knees."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_THCH_H1",
+          "description": {
+            "ru": "При совершении действия Натиск, персонаж может расшвыривать своих врагов, добираясь до цели. Аколит должен предпринять Встречную проверку Силы против того, кто оказался у него на пути (то есть того, кто преградил путь к цели Натиска). Любой враг, проваливший проверку, считается Упавшим. После бросков этих проверок, Натиск персонажа против его первоначальной цели отыгрывается как обычно.",
+            "en": "When he makes a Charge action, he can barrel through enemies to get to his target. The character makes an Opposed Strength test against each foe in his way (those who his movement would take him past or through). Each foe that loses the Opposed test is knocked Prone. After resolving these Opposed tests, the character’s Charge action resolves against his original target as normal."
+          },
+          "targets": ["ST_STR", "ST_WS"]
+        }
+      ],
       "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
+      "aptitudes": ["A_STR", "A_OFF"],
+      "prerequisites": [
+        {
+          "tag": "ST_STR",
+          "value": 50
+        }
+      ],
       "is_specialist": false,
       "is_stackable": false
     },
     {
-      "tag": "TL_",
+      "tag": "TL_TRGT",
       "name": {
-        "ru": "",
-        "en": ""
+        "ru": "Истинная стойкость",
+        "en": "True grit"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Аколит способен не обращать внимания на раны, которые свалили бы менее выносливого человека.",
+        "en": "The Acolyte is able to shrug off wounds that would fell lesser men."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_TRGT_H1",
+          "description": {
+            "ru": "Каждый раз, получая Критический урон, персонаж уменьшает его значение на $TB (до минимума в 1).",
+            "en": "Whenever he suffers Critical damage (after reduction for Armour and Toughness), reduce the amount by his $TB (to a minimum of 1 damage)."
+          },
+          "targets": ["ST_T"]
+        }
+      ],
       "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
+      "aptitudes": ["A_T", "A_DEF"],
+      "prerequisites": [
+        {
+          "tag": "ST_T",
+          "value": 40
+        }
+      ],
       "is_specialist": false,
       "is_stackable": false
     },
     {
-      "tag": "TL_",
+      "tag": "TL_TWM",
       "name": {
-        "ru": "",
-        "en": ""
+        "ru": "Обоерукий мастер",
+        "en": "Two-weapon master"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Аколит – мастер сложного искусства ведения боя с оружием в каждой руке, что делает его смертоносным врагом, как в рукопашной схватке, так и в перестрелке.",
+        "en": "The Acolyte has mastered the difficult ability of wielding a weapon in each hand, making him deadly both in personal and short-ranged attacks"
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_TWM_H1",
+          "description": {
+            "ru": "Будучи вооружен одним одноручным оружием в каждой руке (таким как, меч или пистолет), аколит не получает штраф -20 за ведения боя двумя руками одновременно.",
+            "en": "When armed with two single-handed weapons (such as a pistol or sword in either hand), the character ignores the –20 penalty for Two-Weapon Fighting"
+          }
+        }
+      ],
       "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
-      "is_specialist": false,
+      "aptitudes": ["A_FIN", "A_OFF"],
+      "prerequisites": [
+        {
+          "tag": "ST_WS",
+          "value": 40,
+          "alt": {
+            "tag": "ST_BS",
+            "value": 40
+          }
+        },
+        {
+          "tag": "TL_AMB",
+          "value": 1
+        },
+        {
+          "tag": "TL_TWW",
+          "value": 1
+        },
+        {
+          "tag": "ST_AG",
+          "value": 45
+        }
+      ],
+      "is_specialist": true,
       "is_stackable": false
     },
     {
-      "tag": "TL_",
+      "tag": "TL_WPLK",
       "name": {
-        "ru": "",
-        "en": ""
+        "ru": "Варп-блок",
+        "en": "Warp lock"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Аколит обучен быстро отсекать свой разум от Варпа в попытке избежать его пагубного влияния.",
+        "en": "The Acolyte has learned to swiftly cut himself off from the Warp to protect himself from harm."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_WPLK",
+          "description": {
+            "ru": "Один раз за игровую сессию персонаж может избежать выпавшего ему Психического Феномена или Опасностей Варпа. Феномен не оказывает эффекта, это распространяется и на эффекты Опасностей Варпа. Однако столь быстрый рывок прочь из Варпа очень опасен для разума. Персонаж получает 1d5 Энергетического урона в голову, который не уменьшается ни Броней, ни бонусом Выносливости, и не может использовать психосилы или поддерживать уже активные до конца хода.",
+            "en": "Once per game session, the character may ignore the Psychic Phenomena he has rolled (including the Perils of the Warp result), completely negating its effects. Such rapid dislocation from the Warp, though, is stressful and traumatic to his mind. He suffers 1d5 Energy damage to the Head location (not reduced by Armour or Toughness) as a result, and cannot make any Focus Power tests or sustain other psychic powers until the beginning of his next turn."
+          },
+          "targets": ["PR", "ST_WP"]
+        }
+      ],
       "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
-      "is_specialist": false,
-      "is_stackable": false
-    },
-    {
-      "tag": "TL_",
-      "name": {
-        "ru": "",
-        "en": ""
-      },
-      "description": {
-        "ru": "",
-        "en": ""
-      },
-      "hints": [],
-      "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
-      "is_specialist": false,
-      "is_stackable": false
-    },
-    {
-      "tag": "TL_",
-      "name": {
-        "ru": "",
-        "en": ""
-      },
-      "description": {
-        "ru": "",
-        "en": ""
-      },
-      "hints": [],
-      "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
-      "is_specialist": false,
-      "is_stackable": false
-    },
-    {
-      "tag": "TL_",
-      "name": {
-        "ru": "",
-        "en": ""
-      },
-      "description": {
-        "ru": "",
-        "en": ""
-      },
-      "hints": [],
-      "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
-      "is_specialist": false,
-      "is_stackable": false
-    },
-    {
-      "tag": "TL_",
-      "name": {
-        "ru": "",
-        "en": ""
-      },
-      "description": {
-        "ru": "",
-        "en": ""
-      },
-      "hints": [],
-      "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
-      "is_specialist": false,
-      "is_stackable": false
-    },
-    {
-      "tag": "TL_",
-      "name": {
-        "ru": "",
-        "en": ""
-      },
-      "description": {
-        "ru": "",
-        "en": ""
-      },
-      "hints": [],
-      "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
-      "is_specialist": false,
-      "is_stackable": false
-    },
-    {
-      "tag": "TL_",
-      "name": {
-        "ru": "",
-        "en": ""
-      },
-      "description": {
-        "ru": "",
-        "en": ""
-      },
-      "hints": [],
-      "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
-      "is_specialist": false,
-      "is_stackable": false
-    },
-    {
-      "tag": "TL_",
-      "name": {
-        "ru": "",
-        "en": ""
-      },
-      "description": {
-        "ru": "",
-        "en": ""
-      },
-      "hints": [],
-      "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
-      "is_specialist": false,
-      "is_stackable": false
-    },
-    {
-      "tag": "TL_",
-      "name": {
-        "ru": "",
-        "en": ""
-      },
-      "description": {
-        "ru": "",
-        "en": ""
-      },
-      "hints": [],
-      "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
-      "is_specialist": false,
-      "is_stackable": false
-    },
-    {
-      "tag": "TL_",
-      "name": {
-        "ru": "",
-        "en": ""
-      },
-      "description": {
-        "ru": "",
-        "en": ""
-      },
-      "hints": [],
-      "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
-      "is_specialist": false,
-      "is_stackable": false
-    },
-    {
-      "tag": "TL_",
-      "name": {
-        "ru": "",
-        "en": ""
-      },
-      "description": {
-        "ru": "",
-        "en": ""
-      },
-      "hints": [],
-      "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
-      "is_specialist": false,
-      "is_stackable": false
-    },
-    {
-      "tag": "TL_",
-      "name": {
-        "ru": "",
-        "en": ""
-      },
-      "description": {
-        "ru": "",
-        "en": ""
-      },
-      "hints": [],
-      "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
-      "is_specialist": false,
-      "is_stackable": false
-    },
-    {
-      "tag": "TL_",
-      "name": {
-        "ru": "",
-        "en": ""
-      },
-      "description": {
-        "ru": "",
-        "en": ""
-      },
-      "hints": [],
-      "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
-      "is_specialist": false,
-      "is_stackable": false
-    },
-    {
-      "tag": "TL_",
-      "name": {
-        "ru": "",
-        "en": ""
-      },
-      "description": {
-        "ru": "",
-        "en": ""
-      },
-      "hints": [],
-      "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
-      "is_specialist": false,
-      "is_stackable": false
-    },
-    {
-      "tag": "TL_",
-      "name": {
-        "ru": "",
-        "en": ""
-      },
-      "description": {
-        "ru": "",
-        "en": ""
-      },
-      "hints": [],
-      "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
-      "is_specialist": false,
-      "is_stackable": false
-    },
-    {
-      "tag": "TL_",
-      "name": {
-        "ru": "",
-        "en": ""
-      },
-      "description": {
-        "ru": "",
-        "en": ""
-      },
-      "hints": [],
-      "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
-      "is_specialist": false,
-      "is_stackable": false
-    },
-    {
-      "tag": "TL_",
-      "name": {
-        "ru": "",
-        "en": ""
-      },
-      "description": {
-        "ru": "",
-        "en": ""
-      },
-      "hints": [],
-      "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
-      "is_specialist": false,
-      "is_stackable": false
-    },
-    {
-      "tag": "TL_",
-      "name": {
-        "ru": "",
-        "en": ""
-      },
-      "description": {
-        "ru": "",
-        "en": ""
-      },
-      "hints": [],
-      "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
-      "is_specialist": false,
-      "is_stackable": false
-    },
-    {
-      "tag": "TL_",
-      "name": {
-        "ru": "",
-        "en": ""
-      },
-      "description": {
-        "ru": "",
-        "en": ""
-      },
-      "hints": [],
-      "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
-      "is_specialist": false,
-      "is_stackable": false
-    },
-    {
-      "tag": "TL_",
-      "name": {
-        "ru": "",
-        "en": ""
-      },
-      "description": {
-        "ru": "",
-        "en": ""
-      },
-      "hints": [],
-      "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
-      "is_specialist": false,
-      "is_stackable": false
-    },
-    {
-      "tag": "TL_",
-      "name": {
-        "ru": "",
-        "en": ""
-      },
-      "description": {
-        "ru": "",
-        "en": ""
-      },
-      "hints": [],
-      "tier": 3,
-      "aptitudes": [],
-      "prerequisites": [],
+      "aptitudes": ["A_WP", "A_PSY"],
+      "prerequisites": [
+        {
+          "tag": "PR",
+          "value": 1
+        },
+        {
+          "tag": "TL_STMN",
+          "value": 1
+        },
+        {
+          "tag": "ST_WP",
+          "value": 50
+        }
+      ],
       "is_specialist": false,
       "is_stackable": false
     },
     {
       "tag": "TL_BG",
       "name": {
-        "ru": "",
+        "ru": "Телохранитель",
         "en": "Bodyguard"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Аколит обучен защищать союзников или повелителей, если необходимо он готов встать на пути болтерного снаряда или ревущего цепного клинка.",
+        "en": "The Acolyte has trained to protect his allies or superiors, prepared to even throw himself in the way of a bolt shell or whirring chain blade if necessary."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_BG_H1",
+          "description": {
+            "ru": "После того как враг успешно атакует союзника, персонаж может использовать Реакцию для перемещения на расстояние своего Полудвижения чтобы встать между атакующим и его целью. После этого атака разрешается против персонажа вместо изначальной цели. В случае атаки в ближнем бою, персонаж также может попробовать Парировать атаку как часть своей Реакции.",
+            "en": "After an enemy makes a successful attack against an ally, the character may use a Reaction to move up to his Half Move distance in order to interpose himself between the attacker and target. The attack is then resolved against the character instead of the original target. In the case of a melee attack, the character may also attempt to Parry the attack as part of his Reaction."
+          },
+          "targets": ["ST_WS", "SK_PAR"]
+        }
+      ],
       "tier": 1,
       "aptitudes": ["A_AG", "A_DEF"],
       "prerequisites": [
@@ -2152,14 +2879,23 @@
     {
       "tag": "TL_BOF",
       "name": {
-        "ru": "",
+        "ru": "Оплот веры",
         "en": "Bulwark of faith"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Для аколита вера и щит, и меч. Он настолько наполнен праведной страстью, что демоны отшатываются от ослепительного света его веры, а их нечестивые формы распадаются.",
+        "en": "The Acolyte’s faith is both a shield and a weapon. So filled with righteous fervour is he that Daemons recoil from the blinding light of his faith, their unholy forms sundered."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_BOF_H1",
+          "description": {
+            "ru": "Когда персонаж приходит вызванную демоном проверку Страха, демон получает 1 очко энергетического урона (игнорирующего броню и бонус Выносливости) за каждую степень успеха проверки.",
+            "en": "When the character passes a Fear test caused by a Daemon, the Daemon suffers 1 Energy damage ignoring armour and Toughness bonus for each degree of success on the Fear test."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_WP", "A_DEF"],
       "prerequisites": [
@@ -2178,14 +2914,31 @@
     {
       "tag": "TL_DMH",
       "name": {
-        "ru": "",
+        "ru": "Демоноборец",
         "en": "Daemonhunter"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Благодаря многолетнему опыту и многочисленным схваткам, что погубили бы здравомыслие и душу более слабого человека, аколит отточил свои способности обнаружения и истребления демонов, где бы те ни скрывались. Он распознает и выследит демона, а праведный гнев гарантирует, что удар аколита настигнет богохульного врага.",
+        "en": "Through years of experience and countless encounters that would blast the sanity and soul of a lesser man, the Acolyte has honed his abilities to uncover and destroy the Daemon wherever it may be found. He knows and recognises the spoor of the Daemon, and his righteous anger ensures that his blows land squarely on the unholy adversary."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_DMH_H1",
+          "description": {
+            "ru": "Аколит может перебросить проваленные проверки Бдительности и Психонауки, совершённые для обнаружения демонического присутствия.",
+            "en": "The Acolyte may re-roll failed Awareness and Psyniscience tests to detect the presence of Daemons."
+          },
+          "targets": ["SK_AWR", "SK_PSY"]
+        },
+        {
+          "tag": "TL_DMH_H2",
+          "description": {
+            "ru": "Атаки аколита против демонов получают качество Проверенное (3).",
+            "en": "The acolyte's attacks against Daemons gain the Proven (3) quality."
+          },
+          "targets": ["ST_WS"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_WP", "A_OFF"],
       "prerequisites": [
@@ -2195,7 +2948,7 @@
         },
         {
           "tag": "SK_FBL",
-          "subtag": "Daemonology",
+          "subtag": ["Daemonology", "Демонология"],
           "value": 0
         }
       ],
@@ -2205,14 +2958,23 @@
     {
       "tag": "TL_DDS",
       "name": {
-        "ru": "",
+        "ru": "Разрушение демонов",
         "en": "Daemonic disruption"
       },
       "description": {
-        "ru": "",
+        "ru": "Само присутствие неприкасаемого — анафема для демонов и только самые сильные порождения Варпа могут ему угрожать. Касающиеся неприкасаемого создания Варпа должны приложить все усилия чтобы удержаться в реальности, иначе одно прикосновение отбросит их в Имматериум.",
         "en": "The Untouchable’s very presence is anathema to Daemons, and only the strongest can threaten him. Creatures of the Warp that lay claw upon the Untouchable must struggle to maintain their hold in reality, lest mere contact hurl them back into the Immaterium."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_DDS_H1",
+          "description": {
+            "ru": "Всякий рз, когда существо с чертой Варп-нестабильность проходит проверку атаки против этого персонажа, оно должно совершить проверку на Варп-нестабильность после разрешения атаки.",
+            "en": "Whenever a creature with the Warp Instability trait makes a successful attack test against this character, it must immediately test for Warp Instability after resolving the attack."
+          },
+          "targets": ["ST_WS"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_GEN", "A_WP"],
       "prerequisites": [
@@ -2235,14 +2997,23 @@
     {
       "tag": "TL_DML",
       "name": {
-        "ru": "",
+        "ru": "Демонолог",
         "en": "Daemonologist"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Аколит разбирается в тёмных искусствах и знает, как сильные стороны, так и слабости варп-существ. Особенно он искусен в изгнании, или укрощении, демонов с помощью своих психических способностей.",
+        "en": "The Acolyte is practiced in the dark arts, and knowledgeable in the strengths and vulnerabilities of Warp creatures. He is especially skilled at banishing Daemons—or harnessing them—through the use of his psychic abilities."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_DML_H1",
+          "description": {
+            "ru": "Когда персонаж совершает действие Фокусировка Силы и целью психосилы является демон, то персонаж получает бонус +10 к проверке Фокусировки Силы. На усмотрение МИ этот бонус применяется и к другим проверкам, например, при вызове или связывании демона.",
+            "en": "When the character takes the Focus Power action and the target of the psychic power is a Daemon, he gains a +10 bonus to the Focus Power test. At the GM’s discretion, this bonus may apply to other tests, such as rituals to summon or bind a Daemon."
+          },
+          "targets": ["ST_WP", "PR"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_PSY", "A_WP"],
       "prerequisites": [
@@ -2252,7 +3023,7 @@
         },
         {
           "tag": "SK_FBL",
-          "subtag": "Daemonology",
+          "subtag": ["Daemonology", "Демонология"],
           "value": 0
         },
         {
@@ -2266,14 +3037,23 @@
     {
       "tag": "TL_DSL",
       "name": {
-        "ru": "",
+        "ru": "Темная душа",
         "en": "Dark soul"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Будь тому причиной преданность Императору, чистая сила воли, верность долгу или благословение некой тёмной силы, но внутренняя порча аколита остаётся внешне невидимой. В отсутствии мутаций, клеймящих его как проклятого, аколит может продолжать творить радикальные деяния без раскрытия.",
+        "en": "Whether through devotion to the Emperor, sheer willpower, single-minded dedication to his duty, or the blessing of some dark power, the Acolyte’s internal corruption remains outwardly invisible. With no mutations to mark him as accursed, the Acolyte can continue his radical work without detection."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_DSL_H1",
+          "description": {
+            "ru": "Когда персонаж будет совершать проверку на получение мутации при достижении порогового значения очков Порчи он может автоматически пройти проверку. В таком случае он получает Пагубу и увеличивает Порчу на 1d10.",
+            "en": "When the character would test to gain a mutation as a result of increasing Corruption, he may choose to automatically pass the test. If he does, he also gains a Malignancy and increases his Corruption total by 1d10."
+          },
+          "targets": ["CP", "ST_WP"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_T", "A_WP"],
       "prerequisites": [
@@ -2292,14 +3072,23 @@
     {
       "tag": "TL_HSL",
       "name": {
-        "ru": "",
+        "ru": "Закаленная душа",
         "en": "Hardened soul"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Аколит знает, что должен пожертвовать своим спасением ради защиты человечества, но он сопротивляется порче до последнего. Практикуя медитацию, самобичевание, молитву и пост, силу воли и даже колдовские ритуалы, персонаж избавляется от последствий захлёстывающей порчи, оттягивая неизбежное.",
+        "en": "The Acolyte knows that he must sacrifice his own salvation in order to safeguard humanity, but that he must resist the corruption for as long as possible. Through practiced meditation, self-flagellation, prayer and fasting, force of will, or even sorcerous rites, the character staves off the effects of his growing corruption, delaying the inevitable."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_HSL_H1",
+          "description": {
+            "ru": "Всякий раз, когда персонаж получает очки Порчи, он может уменьшить получаемое количество вдвое (с округлением в верх) и получить столько очков Безумия сколько не получил очков Порчи.",
+            "en": "Whenever the character would gain Corruption points, he may reduce the amount gained by half (rounded up) and gain Insanity points equal to the amount reduced."
+          },
+          "targets": ["ST_WP", "CP", "IP"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_DEF", "A_WP"],
       "prerequisites": [
@@ -2318,19 +3107,28 @@
     {
       "tag": "TL_IAU",
       "name": {
-        "ru": "",
+        "ru": "Вдохновляющая аура",
         "en": "Inspiring aura"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Сила воли аколита в равной мере вдохновляет подчинённых и соратников. Видя его пример союзники могут побороть страх и исполнить свой долг перед Императором.",
+        "en": "The Acolyte’s strength of will inspires those under his command and his comrades in equal measure. Looking to his faithful example, his allies can overcome their own fear in order to do the Emperor’s work."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_IAU_H1",
+          "descripiton": {
+            "ru": "Персонаж может влиять специальным использованием умения Командование Устрашить, не только на подчинённых, но и на союзников. Это не обязательно могут быть угрозы и запугивание, вполне возможны вдохновляющие речи, слова ободрения или просто проявление стойкости перед ужасающими врагами.",
+            "en": "The character can affect allies of any kind—not only subordinates—with the Terrify special use for the Command skill. This need not represent threats and intimidation, but might represent inspiring words, encouragement, or sheer steadfastness in the face of terrifying foes."
+          },
+          "targets": ["ST_FEL", "ST_WP", "SK_CMD"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_LDR", "A_WP"],
       "prerequisites": [
         {
-          "tag": "TL_HOC",
+          "tag": "TL_HOCM",
           "value": 1
         }
       ],
@@ -2340,14 +3138,24 @@
     {
       "tag": "TL_IOHW",
       "name": {
-        "ru": "",
+        "ru": "Орудие Его воли",
         "en": "Instrument of His will"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Аколит со священной яростью поражает демонов, его удары словно направляет рука Императора. Отточенное сочетание веры и ненависти является большей угрозой для демонов, нежели физическая сила или мощь оружия.",
+        "en": "The Acolyte strikes down daemonic foes with holy fury, his blows landing as if guided by the hand of the Emperor Himself. The keen edge of his faith and hatred presents the true threat to the Daemon, not his physical strength or the potency of his weapon."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_IOHW_H1",
+          "description": {
+            "ru": "После успешной атаки демона (в том числе попадание психической силой) персонаж может потратить очко Судьбы чтобы увеличить урон первого попадания, которое наносится в рамках этой атаки, на $MTP$BASE$WPB очков. Этот дополнительный урон игнорирует броню и бонус Выносливости.",
+            "en": "After making a successful attack against a Daemon (this can include striking it with a psychic power), the character may spend a Fate point to increase the damage of the first hit he inflicts as part of that attack by $MTP$BASE$WPB. This additional damage ignores armour and Toughness bonus."
+          },
+          "targets": ["ST_WS", "ST_WP"],
+          "base": 2
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_WP", "A_OFF"],
       "prerequisites": [
@@ -2362,14 +3170,23 @@
     {
       "tag": "TL_IF",
       "name": {
-        "ru": "",
+        "ru": "Железная вера",
         "en": "Iron faith"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Вера аколита крепка как пласталь и защищает его от противоестественной ауры порождений Варпа. Силой своей убеждённости он противостоит богохульным ужасам Варпа, в тех ситуациях, когда менее стойкий человек давно бы убил себя.",
+        "en": "The Acolyte’s faith is as unyielding as plasteel, and it protects him against the unnatural aura of the daemonic. With the strength of his conviction, he faces down the otherworldly terrors of the Warp the way a lesser man might look down the barrel of a lasgun."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_IF_H1",
+          "description": {
+            "ru": "Персонаж невосприимчив к эффектам черты Ужасающее Присутствие.",
+            "en": "The character is immune to the effects of the Baneful Presence trait."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_DEF", "A_WP"],
       "prerequisites": [
@@ -2384,14 +3201,23 @@
     {
       "tag": "TL_IR",
       "name": {
-        "ru": "",
+        "ru": "Железная решимость",
         "en": "Iron resolve"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Аколит привык как к ужасам боя, так и к кошмарам Варпа, ибо он знает, что лишь контролируя свой страх можно противостоять вракам, равно опасным для тела и души. Решимость аколита не поколеблют ни происки еретиков, ни угроза жизни, ни потеря конечности, ни даже омерзительнейшие порождения Варпа.",
+        "en": "The Acolyte is inured to the terrors of both combat and the Warp, knowing that he must control his fear in order to face foes that threaten both body and soul. When confronted with the machinations of heretics, threats to life and limb, and even the otherworldly creatures of the Warp, the Acolyte stands firm."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_IR_H1",
+          "description": {
+            "ru": "Персонаж может перебросить проваленные проверки на Страх и Подавление со штрафом -10.",
+            "en": "After failing a Fear or Pinning test, the character can re-roll the test with a –10 modifier."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_DEF", "A_WP"],
       "prerequisites": [
@@ -2401,7 +3227,7 @@
         },
         {
           "tag": "TL_RST",
-          "subtag": "Fear",
+          "subtag": ["Fear", "Страх"],
           "value": 1
         }
       ],
@@ -2411,14 +3237,23 @@
     {
       "tag": "TL_OON",
       "name": {
-        "ru": "",
+        "ru": "Один на один",
         "en": "One-on-one"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Мастерство аколита в поединке несравненно. Не отвлекаясь на многочисленных противников, он не упускает ни одной прорехи в защите врага и не даёт ему ни единого шанса поразить себя.",
+        "en": "The Acolyte is a master of single combat. Without the distractions of multiple opponents, he fights at his best, taking every opening and leaving none."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_OON_H1",
+          "description": {
+            "ru": "При ближнем бое с одним противником (т.е. в этой схватке участвуют только два персонажа, а также ни один из них не был целью стрелковой атаки в течении последнего раунда) персонаж получает дополнительно $MTP$BASE$WSB степени успеха к пройденным проверкам Навыка Рукопашной.",
+            "en": "When fighting a single enemy in melee combat, the character scores extra $MTP$BASE$WSB degrees of success on successful Weapon Skill tests."
+          },
+          "targets": ["ST_WS"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_FIN", "A_WS"],
       "prerequisites": [
@@ -2433,24 +3268,33 @@
     {
       "tag": "TL_ROB",
       "name": {
-        "ru": "",
+        "ru": "Ритуалы изгнания",
         "en": "Rites of banishment"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Сражаясь против демонов аколит непрерывно поёт священные гимны и заклинания против демонов, призывая Императора вышвырнуть мерзость обратно в Варп. Эти святые слова подрывают силы демона в материальной вселенной, ослабляя его богохульную форму.",
+        "en": "In battle against the daemonic, the Acolyte ceaselessly intones sacred rites and invocations against the Daemon, calling on the Emperor to cast the abominations back into the Warp. These holy words disrupt the Daemon’s hold in the material universe, weakening its malefic form."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_ROB_H1",
+          "description": {
+            "ru": "Один раз за раунд персонаж может за Полудействие провозгласить литании и воззвания, которые ослабляют демонов. До начала следующего хода демоны на расстоянии $WPB метров получают штраф -10 на проверки Силы Воли.",
+            "en": "Once per round as a Half Action, the character may speak the litanies and invocations to disrupt Daemons. Until the beginning of his next turn, Daemons within a $WPB metres distance suffer a –10 penalty to Willpower tests."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_OFF", "A_WP"],
       "prerequisites": [
         {
           "tag": "SK_CML",
-          "subtag": "Imperial creed",
+          "subtag": ["Imperial creed", "Имперское кредо"],
           "value": 10,
           "alt": {
             "tag": "SK_FBL",
-            "subtag": "Daemonology",
+            "subtag": ["Daemonology", "Демонология"],
             "value": 0
           }
         }
@@ -2461,23 +3305,32 @@
     {
       "tag": "TL_SPR",
       "name": {
-        "ru": "",
+        "ru": "Святая праведность",
         "en": "Sanctic Purity"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Демонология-Санктик часто считается самой чистой из психических дисциплин. Практикующие её могут казаться выше опасностей Варпа, что слишком часто преследуют прочих псайкеров. Такой контроль даётся нелегко, но опытный демонолог может противостоять влиянию Варпа там, где иной псайкер бы сломался.",
+        "en": "Sanctic Daemonology is often considered the most pure of psychic disciplines. Practitioners can seem beyond the dangers of the Warp that all too often plague other psykers. Such mastery is taxing, but an experienced Daemonologist can resist the influence of the Warp where other psykers would succumb."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_SPR_H1",
+          "description": {
+            "ru": "Когда персонаж вызывает психический феномен при проявлении силы из дисциплины Демонологии-Санктик он может потратить очко Судьбы, чтобы полностью избавиться от результата.",
+            "en": "When the character triggers Psychic Phenomena when manifesting a power from the Sanctic Daemonology discipline, he may spend a Fate point in order to negate the result entirely."
+          },
+          "targets": ["ST_WP", "PR"]
+        }
+      ],
       "tier": 3,
-      "aptitudes": ["A_WP", "A_PSY"],
+      "aptitudes": ["A_WP", "A_PSY", "FP"],
       "prerequisites": [
         {
           "tag": "TL_DML",
           "value": 1
         },
         {
-          "tag": "TL_FBW",
+          "tag": "TL_FVBW",
           "value": 1
         },
         {
@@ -2491,14 +3344,23 @@
     {
       "tag": "TL_SHW",
       "name": {
-        "ru": "",
+        "ru": "Щитоносец",
         "en": "Shield wall"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Аколит достиг вершин искусства владения щитом. Отказавшись от атакующих возможностей второго оружия или преимуществ стрельбы, он доказывает превосходство древнейшего и почётнейшего боевого стиля. Кажется, что его щит всегда находится в правильном положении чтобы блокировать удар врага, оставляя того открытым для неизбежной контратаки.",
+        "en": "The Acolyte is a master of the art of weapon-and-shield combat. Forgoing the offensive abilities of a second weapon or the advantages of ranged weaponry, he proves the superiority of this most ancient and honourable of fighting styles. His shield seems to always be in the right position to block his foe’s strike, leaving his target open for the inevitable counter."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_SHW_H1",
+          "description": {
+            "ru": "Экипированный щитом персонаж может перебросить одну проваленную проверку Избегания при Парировании атаки за раунд.",
+            "en": "When armed with a shield, the character can re-roll one failed Evasion test to Parry an attack per round."
+          },
+          "targets": ["ST_WS"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_WS", "A_DEF"],
       "prerequisites": [
@@ -2515,16 +3377,25 @@
       "is_stackable": false
     },
     {
-      "tag": "TL_AROC",
+      "tag": "TL_AGOC",
       "name": {
-        "ru": "",
-        "en": "Armour of contempt"
+        "ru": "Эгида презрения",
+        "en": "Aegis of contempt"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Инквизитор защищает свой разум и душу, чтобы противостоять влиянию Архиврага Человечества. Подобно тому, как его аколиты помогают ему защищать человечество от такого проклятия, он также охраняет их, укрепляя их решимость литаниями ненависти и очищающими молитвами.",
+        "en": "The Inquisitor wards his mind and soul to withstand the inluence of the Archenemy of Mankind. Just as his Acolytes help him to guard Mankind against such damnation, so does he guard them, strengthening their resolve with benedictions of hatred and cleansing prayers."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_AGOC_H1",
+          "description": {
+            "ru": "Всякий раз, когда этот персонаж или союзник в пределах 10 метров получает Порчу, уменьшите полученную сумму на 1 до минимума 0. Кроме того, союзник в пределах 10 метров может потратить очко Судьбы, чтобы получить 0 Порчи вместо полагающегося числа. Эти эффекты не складываются, когда в пределах диапазона находятся несколько персонажей с этим талантом.",
+            "en": "Whenever this character or an ally within 10 metres gains Corruption, reduce the amount gained by 1 to a minimum of 0. In addition, an ally within 10 metres can spend a Fate point to gain 0 Corruption instead. These effects do not stack when there are multiple characters with this talent within range."
+          },
+          "targets": ["FP", "CP"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_DEF", "A_LDR"],
       "prerequisites": [
@@ -2547,14 +3418,23 @@
     {
       "tag": "TL_DVP",
       "name": {
-        "ru": "",
+        "ru": "Божественная защита",
         "en": "Divine protection"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Те, кто охотятся на ведьм и мутантов, часто предпочитают использовать святое пламя, чтобы очистить своих нечистых врагов. Для демонстрации очищающей силы пламени, некоторые такие благословенные воины даже используют огнемёты и подобное оружие, когда их союзники находятся на линии огня, но чудесным образом их не задевают. Если предполагаемый союзник поддастся пламени, то это, безусловно, только свидетельство скрытой ереси.",
+        "en": "Those who hunt the witch and mutant often prefer to use cleansing ire to purify their unclean enemies. As if to further demonstrate the cleansing power of flame, some such blessed warriors even use flamers and similar weapons when their allies are in the line of fire, yet miraculously leave them unaffected. If a supposed ally does succumb to the flames, surely that is only evidence of concealed heresy."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_DVP_H1",
+          "description": {
+            "ru": "Когда аколит атакует, используя оружие с качеством Распыляющее, он поражает только врагов в зоне действия; атака не вредит союзникам.",
+            "en": "When the Acolyte attacks using a weapon with the Spray quality, it only strikes enemies within the area of effect; the attack does not harm allies."
+          },
+          "targets": ["ST_BS"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_GEN", "A_FIN"],
       "prerequisites": [
@@ -2573,14 +3453,23 @@
     {
       "tag": "TL_FLGT",
       "name": {
-        "ru": "",
+        "ru": "Флагеллянт",
         "en": "Flagellant"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Аколит знает, что боль очищает, и регулярно бичует собственную плоть, чтобы искупить свои грехи.",
+        "en": "The Acolyte knows that pain is cleansing, and regularly mortifies his own flesh to atone for his sins."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_FLGT_H1",
+          "description": {
+            "ru": "Как Полное Действие, персонаж может применить некоторое подходящее наказание к своему телу, получая 1к5-2 уровня Усталости (минимум до 1). Затем он получает +10 бонус проверки Силы Воли, чтобы противостоять Страху, Подавлению, психосилам или получению Порчи в течение одного часа или до конца текущего столкновения. Если аколит также обладает талантом Неистовство, то находясь под воздействием этого таланта он может войти в состояние Неистовства за Свободное Действие.",
+            "en": "As a Full Action, the character can inflict some suitable punishment on his own body, suffering 1d5–2 levels of Fatigue (to a minimum of 1). He then gains a +10 bonus on Willpower tests to resist Fear, Pinning, psychic powers, or suffering Corruption, for one hour or until the end of the current encounter. If the Acolyte also possesses the Frenzy talent, he can enter a Frenzied state as a Free Action while under the effects of this talent."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
       "tier": 1,
       "aptitudes": ["A_OFF", "A_T"],
       "prerequisites": [
@@ -2595,14 +3484,23 @@
     {
       "tag": "TL_IJOH",
       "name": {
-        "ru": "",
+        "ru": "К демону в пасть",
         "en": "Into the jaws of hell"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Сила убеждений и веры инквизитора в Императора — или, возможно, страх перед его возмездием — вдохновляют тех, кто на его стороне, сражаться, даже несмотря на серьёзные трудности и ужасы галактики.",
+        "en": "The Inquisitor’s strength of conviction and faith in the Emperor—or perhaps the fear of his retribution—inspire those at his side to fight on, even in the face of overwhelming odds and the terrors of the galaxy."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_IJOH_H1",
+          "description": {
+            "ru": "Аколиты и союзники в радиусе 10 метров могут вычесть бонус Общительности инквизитора из степени их провала проверок Страха или Подавления, если инквизитор прошёл проверку. Если это снижает степень неудачи до 0 или меньше, персонаж считается прошедшим проверку с 1 степенью успеха. Эффекты этого таланта относятся к аколитам в отряде инквизитора и к другим служителям Империума, сражающимся по приказу инквизитора, а также к остальным на усмотрение МИ.",
+            "en": "Servants and allies within 10 metres can subtract the Inquisitor’s Fellowship bonus from their degrees of failure on a failed Fear or Pinning test, so long as the Inquisitor passes the test. If this reduces the degrees of failure to 0 or less, a character counts as having passed the test with 1 degree of success. The effects of this talent apply to Acolytes in the Inquisitor’s warband and to other servants of the Imperium fighting under the Inquisitor’s orders, as well as others at the GM’s discretion."
+          },
+          "targets": ["ST_FEL", "ST_WP"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_WP", "A_LDR"],
       "prerequisites": [
@@ -2611,7 +3509,7 @@
           "value": 1
         },
         {
-          "tag": "TL_HOC",
+          "tag": "TL_HOCM",
           "value": 1
         },
         {
@@ -2625,14 +3523,23 @@
     {
       "tag": "TL_INCN",
       "name": {
-        "ru": "",
+        "ru": "Ревностные убеждения",
         "en": "Indomitable conviction"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Инквизитор должен регулярно делиться частью своего бремени знаний и понимания с теми, кто служит рядом с ним. Хотя некоторые аколиты могут поддаться безумию и отчаянию, но те, кто пройдёт такие ментальные испытания со здоровой душой, станут ещё сильнее. Инквизитор также может извлечь выгоду из такого опыта, черпая силы у своих товарищей и возобновляя свою веру в долг перед Человечеством.",
+        "en": "An Inquisitor must often share a part of his burden of knowledge and understanding with those who serve alongside him. Although some Acolytes might succumb to madness and despair, those who undergo such mental trials with their sanity intact come out stronger for it. An Inquisitor can also benefit from such an experience, drawing strength from his comrades and renewing his faith in his duty to Mankind."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_INCN_H1",
+          "description": {
+            "ru": "Всякий раз, когда этот персонаж или союзник в радиусе 10 метров получает Безумие, уменьшите сумму, полученную на 1. Кроме того, союзник в пределах 10 метров может потратить очко Судьбы, чтобы получить 0 очков Безумия вместо обычного количества. Эти эффекты не складываются, когда в пределах диапазона находятся несколько персонажей с этим талантом.",
+            "en": "Whenever this character or an ally within 10 metres gains Insanity, reduce the amount gained by 1. In addition, an ally within 10 metres can spend a Fate point to gain 0 Insanity instead. These effects do not stack when there are multiple characters with this talent within range."
+          },
+          "targets": ["IP", "FP", "ST_WP"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_LDR", "A_WP"],
       "prerequisites": [
@@ -2646,7 +3553,7 @@
         },
         {
           "tag": "TL_RST",
-          "subtag": "Fear",
+          "subtag": ["Fear", "Страх"],
           "value": 1
         },
         {
@@ -2660,14 +3567,23 @@
     {
       "tag": "TL_MTWR",
       "name": {
-        "ru": "",
+        "ru": "Всадник",
         "en": "Mounted warrior"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "С трудом полученный опыт боя в седле или с сиденья транспортного средства научил аколита приспосабливаться к движению верхового боя, двигаясь вместе с транспортным средством, а не сражаясь с ним.",
+        "en": "Hard-won experience fighting from the saddle or seat of a vehicle has trained the Acolyte to adjust for the motion of mounted combat, moving with the vehicle instead of fighting against it."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_MTWR_H1",
+          "description": {
+            "ru": "Когда персонаж приобретает этот талант, он выбирает специализацию, соответствующую характеристике и склонности, используемым при покупке. Затем он уменьшает все штрафы за соответствующие атаки (ближний бой или стрельба) с движущегося транспортного средства или монстра на 10 каждый раз, когда талант приобретается в этой специализации. Это относится как к обычным атакам, так и к боевым действиям транспортных средств, таким как Удар и Отход.",
+            "en": "When a character purchases this talent, he selects the specialisation that matches the characteristic prerequisite and aptitude used in purchase. He then reduces any penalty for making corresponding attacks (Melee or Ranged) from a moving vehicle or mount by 10 for each time the talent has been purchased in that specialisation. This applies to both ordinary attack actions and vehicle combat actions, such as Hit and Run."
+          },
+          "targets": ["ST_BS", "ST_WS"]
+        }
+      ],
       "tier": 1,
       "aptitudes": ["A_WS", "A_BS", "A_OFF"],
       "prerequisites": [
@@ -2689,19 +3605,28 @@
         }
       ],
       "is_specialist": true,
-      "is_stackable": false
+      "is_stackable": true
     },
     {
       "tag": "TL_PNPS",
       "name": {
-        "ru": "",
+        "ru": "Кающийся псайкер",
         "en": "Penitent psyker"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Псайкеров ненавидят и избегают по всему Империуму, и даже те псайкеры, которые служат Императору, часто борются со своим проклятием. Независимо от того, является ли он нечистым псайкером, взятым под крыло инквизитора, или санкционированным псайкером, чья вера осуждает его способности, такой человек может развить способность действовать как своего рода психический громоотвод, жертвуя собственной плотью, чтобы защитить своих союзников от силы ведьм и вирдов, порождённых Варпом.",
+        "en": "Psykers are hated and shunned throughout the Imperium, and even those psykers who serve the Emperor often struggle with their curse. Whether a rogue psyker taken under an Inquisitor’s wing or a sanctioned psyker whose faith condemns his abilities, such an individual might develop the ability to act as a kind of psychic lightning rod, sacrificing his own flesh in order to protect his allies from the Warp-spawned powers of the witch and wyrd."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_PNPS_H1",
+          "description": {
+            "ru": "Когда псайкер или союзник в пределах 10 метров становится целью психической силы, он может добровольно получить любое количество уровней Усталости. Каждый полученный уровень усталости дает цели +10 бонус на любую Встречную проверку, чтобы противостоять губительным силам или проверке Избегания, чтобы избежать их эффектов. Если при проверке цели на сопротивление или избежание выпадает дубль, псайкер генерирует психический феномен, как если бы он использовал действие Фокусировка Силы.",
+            "en": "When the psyker or an ally within 10 metres becomes the target of a psychic power, the psyker may voluntarily suffer any number of levels of Fatigue. Each level of Fatigue suffered grants the target a +10 bonus on any Opposed test to resist the power or Evasion test to avoid its effects. If the target’s test to resist or avoid the power results in a roll of doubles, the psyker generates Psychic Phenomena, just as if he had used the Focus Power action."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_PSY", "A_DEF"],
       "prerequisites": [
@@ -2724,14 +3649,23 @@
     {
       "tag": "TL_POH",
       "name": {
-        "ru": "",
+        "ru": "Чистота ненависти",
         "en": "Purity of hatred"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Аколит оттачивал свою ненависть подобное лезвию клинка: чистому и незапятнанному милостью или сомнением. Столкнувшись с объектом своей ненависти, будь то ведьма, мутант, еретик или предатель, аколит является орудием воли Императора, направляя Его суд на врагов человечества, будто бы ведомый Его праведной рукой.",
+        "en": "The Acolyte has honed his hatred to a razor’s edge, pure and unsullied by mercy or doubt. When facing the object of his hatred, whether it be the witch, mutant, heretic, or traitor, the Acolyte is an instrument of the Emperor’s Will, dispatching His judgement upon the enemies of humanity as if guided by His very hand."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_POH_H1",
+          "description": {
+            "ru": "При выборе этого таланта персонаж выбирает одну особую группу, на которую распространяется талант Ненависть. Против противников этой группы атаки аколита приобретают качество Отмщающее (9). Если оружие или атаки аколита уже обладают этим качеством, уменьшите его на единицу (минимум до 1).",
+            "en": "When selecting this talent, the character chooses one specific group for which he possesses the Hatred talent. Against opponents of this group, the Acolyte’s attacks gain the Vengeful (9) quality. If the Acolyte’s weapon or attacks already possess this quality, decrease the value by one (to a minimum of 1)."
+          },
+          "targets": ["ST_WS"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_OFF", "A_WP"],
       "prerequisites": [
@@ -2746,14 +3680,23 @@
     {
       "tag": "TL_TNPS",
       "name": {
-        "ru": "",
+        "ru": "Порченый псайкер",
         "en": "Tainted psyker"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Хотя все псайкеры черпают свою силу из Варпа, Схоластика Псайкана учит, что Варпа стоит бояться. Некоторые псайкеры игнорируют эти предупреждения, будь то, вирды спасшиеся от Черных Кораблей, знатоки богохульного знания или даже санкционированные псайкеры, попавшие в опалу. Такие порченые псайкеры охватывают истинный потенциал Варпа и даже прислушиваются к нашёптываемыми им обещаниям о великой силе.",
+        "en": "Though all psykers draw their power from the Warp, the Scholastica Psykana teaches that the Warp is something to fear. Some psykers ignore these warnings, whether wyrds who escaped the Black Ships, scholars of malefic lore, or even sanctioned psykers fallen from grace. Such tainted psykers embrace the true potential the Warp offers, and even heed its denizens’ whispered promises of greater power."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_TNPS_H1",
+          "description": {
+            "ru": "Совершая проверку Фокусировки Силы, персонаж может получить количество очков Порчи вплоть до его пси-рейтинга. За каждое очко, которое он получает таким образом, он получает бонус +10 к проверке Фокусировки Силы, но добавляет +5 к броскам на Психические Феномены.",
+            "en": "When making a Focus Power test, the character may gain a number of Corruption points up to his psy rating. For each point he gains in this way, he gains a +10 bonus to the Focus Power test but adds +5 to rolls on Psychic Phenomena."
+          },
+          "targets": ["CP", "PR", "ST_WP"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_KNG", "A_PSY"],
       "prerequisites": [
@@ -2776,20 +3719,33 @@
     {
       "tag": "TL_WTFN",
       "name": {
-        "ru": "",
+        "ru": "Искатель ведьм",
         "en": "Witch finder"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Чтобы искоренить ведьм, вирдов и колдунов, инквизитор или аколит должны быть в состоянии обнаружить и следовать по следам и знакам псайкера. Хотя некоторые из них сами являются псайкерами или пользуются их услугами, другие тренируют свои собственные чувства и ум, чтобы обнаружить даже самые тонкие следы психической деятельности.",
+        "en": "In order to root out the witch, wyrd, and sorcerer, an Inquisitor or Acolyte must be able to detect and follow the sign and spoor of the psyker. Although some are themselves psykers, or employ the services of such, others train their own senses and mind to detect even the subtlest traces of psychic activity."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_WTFN_H1",
+          "description": {
+            "ru": "Персонаж считается обладателем умения Психонаука уровня 1, хотя он и не псайкер. Обратите внимание, что он не может тратить опыт, чтобы получить дополнительные уровни в этом умении.",
+            "en": "The character counts as possessing the Psyniscience skill at Rank 1 (Known), even though he is not a psyker. Note that he cannot spend experience to gain additional ranks in the skill."
+          },
+          "targets": ["SK_PSY"],
+          "command": {
+            "command": "GainSkill",
+            "tag": "SK_PSY"
+          }
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_KNG", "A_PER"],
       "prerequisites": [
         {
           "tag": "SK_FBL",
-          "subtag": "Psykers",
+          "subtag": ["Psykers", "Псайкеры"],
           "value": 10
         },
         {
@@ -2803,14 +3759,23 @@
     {
       "tag": "TL_AMIM",
       "name": {
-        "ru": "",
+        "ru": "Посол Империума",
         "en": "Ambassador Imperialis"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Независимо от того, работал ли он во флотилии вольного торговца или имел дело с наемниками ксеносов в пограничных мирах, у аколита есть опыт работы с чужеродными и самыми разнообразными неимперскими культурами, и он способен аккуратно избегать неверных шагов, которые так легко могут превратить переговоры в кровопролитие.",
+        "en": "Whether from serving in the fleet of a Rogue Trader or dealing with xenos mercenaries on frontier worlds, the Acolyte is experienced in dealing with alien and the most divergent of non-Imperial cultures, able to avoid the subtle faux pas that can so easily cause a negotiation to deteriorate into bloodshed."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_AMIM_H1",
+          "description": {
+            "ru": "Персонаж уменьшает любой штраф умений Взаимодействия при общении с ксеносами или неимперскими НИП на 20. Кроме того, один раз за столкновение он может перебросить неудачную проверку умения Взаимодействия при общении с таким НИП.",
+            "en": "The character reduces any penalty to Interaction skill tests for dealing with xenos or non-Imperial NPCs by 20. In addition, once per encounter, he can reroll a failed Interaction skill test when interacting with such an NPC."
+          },
+          "targets": ["ST_FEL", "SK_CH", "SK_DCV", "SK_CMD", "SK_INTR", "SK_INTM"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_PER", "A_SOC"],
       "prerequisites": [
@@ -2829,14 +3794,23 @@
     {
       "tag": "TL_ARCH",
       "name": {
-        "ru": "",
+        "ru": "Архивист",
         "en": "Archivator"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Благодаря многолетнему опыту или специальному обучению аколит является мастером добычи информации из бесчисленных архивов Империума. Забираясь в глубины инфо-крипт, чтобы найти трухлявые библиотечные стеллажи и расшифровать древние дата-планшеты, аколит может заново открыть давно потерянные знания.",
+        "en": "Whether through years of experience or specialised training, the Acolyte is a master of mining information from the Imperium’s countless archives. From delving into deep info-crypts to searching mouldering librarium stacks and deciphering ancient tech-slabs, the Acolyte can uncover knowledge thought long lost."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_ARCH_H1",
+          "description": {
+            "ru": "При проведении проверок Ученых Знаний или Запретных Знаний с использованием источников записанной информации любого типа, таких, как когитаторы, книги, инфо-сети и дата-планшеты, персонаж может один раз повторно выполнить неудачную проверку со штрафом -10. Кроме того, проверки для проведения исследований или поиска информации в этих условиях занимают половину обычного времени.",
+            "en": "When making a Scholastic Lore or Forbidden Lore test utilising sources of recorded information of any sort, such as cogitators, tomes, info-nets, and data-slates, the character can reroll a failed test once with a –10 penalty. In addition, tests to perform research or find information in these circumstances take half the usual time."
+          },
+          "targets": ["SK_SCL", "SK_FBL"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_INT", "A_KNG"],
       "prerequisites": [
@@ -2851,20 +3825,29 @@
     {
       "tag": "TL_FLVS",
       "name": {
-        "ru": "",
+        "ru": "Полевая вивисекция",
         "en": "Field vivisection"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Аколит хорошо разбирается в богохульной анатомии своих врагов-ксеносов и использует это знание для максимального эффекта как в лаборатории, так и на поле битвы.",
+        "en": "The Acolyte is well-versed in the blasphemous anatomy of his xenos foes, and uses this knowledge to utmost effect, both in the laboratorium and on the battlefield."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_FLVS_H1",
+          "description": {
+            "ru": "Каждый раз, когда этот талант берется, персонаж выбирает специализацию, которая соответствует паре Характеристики и Склонности (Навык Рукопашной или Навык Стрельбы), используемой при покупке. При использовании действия Объявленный Выстрел с атакой ближнего или дальнего боя (в зависимости от специализации) против цели, для которой персонаж имеет соответствующее умение Запретных Знаний (Ксеносы), он делает проверку Медики (Навык Рукопашной) или Медики (Навык Стрельбы) вместо обычной проверки Навыка Рукопашной или Навыка Стрельбы.",
+            "en": "Each time this talent is taken, the character selects the Specialisation that matches the Characteristic and Aptitude pair (Ballistic Skill or Weapon Skill) used in purchase. When using the Called Shot action with a melee or ranged attack (depending on the Specialisation) against a target for which the character has the appropriate Forbidden Lore (Xenos) skill, he makes a Medicae(WS) or Medicae (BS) test in place of the normal Weapon Skill or Ballistic Skill test."
+          },
+          "targets": ["ST_WS", "ST_BS"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_KNG", "A_WS", "A_BS"],
       "prerequisites": [
         {
           "tag": "SK_FBL",
-          "subtag": "Xenos",
+          "subtag": ["Xenos", "Ксеносы"],
           "value": 0
         },
         {
@@ -2884,16 +3867,57 @@
       "is_stackable": false
     },
     {
+      "tag": "TL_GRN",
+      "name": {
+        "ru": "Гренадер",
+        "en": "Grenadier"
+      },
+      "description": {
+        "ru": "Аколит знает, что гранаты и другая взрывчатка являются одними из самых эффективных способов прикончить чуждых хищных тварей или быстро проредить орды мелких ксеночудовищ.",
+        "en": "The Acolyte knows that grenades and other explosives are amongst the most effective ways to bring down marauding alien beasts, or to quickly thin out hordes of lesser xenos monstrosities."
+      },
+      "hints": [
+        {
+          "tag": "TL_GRN_H1",
+          "description": {
+            "ru": "Когда персонаж промахивается метательным оружием или оружием с чертой Взрыв, он может уменьшить расстояние, на которое оно отбрасывается, на $MTP$BASE$BSB метров.",
+            "en": "When the character misses with a thrown weapon or weapon with the Blast quality, he may reduce the distance it scatters by $MTP$BASE$BSB metres."
+          },
+          "targets": ["ST_BS"],
+          "base": 0.5
+        }
+      ],
+      "tier": 1,
+      "aptitudes": ["A_BS", "A_FIN"],
+      "prerequisites": [
+        {
+          "tag": "ST_BS",
+          "value": 35
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
       "tag": "TL_HTPL",
       "name": {
-        "ru": "",
+        "ru": "Бесстрашный пилот",
         "en": "Hotshot pilot"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Когда ситуация требует этого, пилот выходит за пределы своих способностей, демонстрируя впечатляющие подвиги маневрирования. Этот опыт также научил аколита, как можно справиться с тем, что может стать фатальной неудачей для менее квалифицированного пилота, предпринимающего такие маневры.",
+        "en": "When the situation calls for it, the operator stretches the bounds of his abilities, displaying impressive feats of manoeuvring. This experience has also taught the Acolyte how to recover from what might become fatal mishaps for a less skilled operator attempting such manoeuvres."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_HTPL_H1",
+          "description": {
+            "ru": "Когда аколиту удается пройти проверку Управления (или, в случае живого скакуна, Выживания), он может добровольно получить 1 уровень Усталости, чтобы добавить количество степеней успеха, равное половине его бонуса Ловкости. Когда Аколиту не удаётся пройти проверку Управление (или, в случае живого скакуна, Выживания), он может добровольно пострадать от 1 уровня Усталости, чтобы уменьшить степени провала на количество, равное его бонусу Ловкости до минимума в 1.",
+            "en": "When the Acolyte succeeds on an Operate test (or Survival test in the case of a living steed), he may voluntarily suffer 1 level of Fatigue to add $MTP$BASE$AGB degrees of success. When the Acolyte fails an Operate test (or Survival test in the case of a living steed), he may voluntarily suffer 1 level of Fatigue in order to reduce the degrees of failure by $AGB, to a minimum of 1."
+          },
+          "targets": ["ST_AG", "SK_OPR", "SK_SRV"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_AG", "A_TECH"],
       "prerequisites": [
@@ -2914,38 +3938,25 @@
       "is_stackable": false
     },
     {
-      "tag": "TL_GRN",
-      "name": {
-        "ru": "",
-        "en": "Grenadier"
-      },
-      "description": {
-        "ru": "",
-        "en": ""
-      },
-      "hints": [],
-      "tier": 1,
-      "aptitudes": ["A_BS", "A_FIN"],
-      "prerequisites": [
-        {
-          "tag": "ST_BS",
-          "value": 35
-        }
-      ],
-      "is_specialist": false,
-      "is_stackable": false
-    },
-    {
       "tag": "TL_HLDN",
       "name": {
-        "ru": "",
+        "ru": "Постоянное маневрирование",
         "en": "Hull down"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Аколит продолжает внимательно следить за врагами весь бой, тщательно поворачивая свою машину или скакуна так, чтобы быть более узкой частью ко всем нападающим, а также получить наилучшее преимущество от любого способного дать укрытие ландшафта.",
+        "en": "The Acolyte remains aware of his foes at all times in combat, carefully angling his vehicle or steed at each moment to present a narrower silhouette to all attackers, as well as taking the best advantage of any intervening terrain to gain cover."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_HLDN_H1",
+          "description": {
+            "ru": "Когда персонаж предпринимает боевое действие техники с подтипом Движение, его техника или скакун считает значение размера на одну ступень меньше для модификатора атак и укрытий до начала его следующего хода.",
+            "en": "When the character takes a vehicle combat action with the Movement subtype, his vehicle or steed counts the value of its Size trait as being one lower for purposes of attack modifiers and the benefits of cover until the start of his next turn."
+          },
+          "targets": ["SK_OPR", "SK_SRV", "ST_AG"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_AG", "A_FLD"],
       "prerequisites": [
@@ -2964,14 +3975,23 @@
     {
       "tag": "TL_LDG",
       "name": {
-        "ru": "",
+        "ru": "Отточенные рефлексы",
         "en": "Leaping dodge"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Аколит набрался опыта в уворотах от смертоносного оружия, бьющего по площади: от огнеметов до странных устройств ксеносов.",
+        "en": "The Acolyte has become practiced at escaping weapons that cover an area to deadly effect, from flamers to strange xenos devices."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_LDG_H1",
+          "description": {
+            "ru": "Когда он проходит проверку Ловкости, чтоб избежать атак оружия с чертой Распыляющее, он может вместо этого пройти проверку Уклонения (Ловкость).",
+            "en": "When he would make an Agility test to avoid attacks from weapons with the Spray quality, he may make the test using his Dodge (Ag) skill instead."
+          },
+          "targets": ["SK_DDG", "ST_AG"]
+        }
+      ],
       "tier": 1,
       "aptitudes": ["A_AG", "A_DEF"],
       "prerequisites": [
@@ -2990,14 +4010,23 @@
     {
       "tag": "TL_LXG",
       "name": {
-        "ru": "",
+        "ru": "Лексограф",
         "en": "Lexographer"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Годами, заглядывая в пыльные тома и изучая древние руины на забытых мирах, и, возможно, даже разговаривая лицом к лицу с нечеловеческими существами, аколит стал экспертом в расшифровке потерянных человеческих языков, а также языков ксеносов.",
+        "en": "From years poring over dusty tomes and examining ancient ruins on forgotten worlds—and perhaps even speaking face-to-face with inhuman beings—the Acolyte has become an expert in deciphering lost human languages as well as those of xenos."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_LXG_H1",
+          "description": {
+            "ru": "Персонаж может применить любое умение Лингвистики, которому он не обучен, нетренированным умением, как если бы оно не было Специальным.",
+            "en": "The character can attempt any Linguistics skill in which he is not trained as an untrained skill test as if it were not a Specialist skill."
+          },
+          "targets": ["ST_INT", "SK_LNG"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_INT", "A_KNG"],
       "prerequisites": [
@@ -3012,14 +4041,23 @@
     {
       "tag": "TL_PTL",
       "name": {
-        "ru": "",
+        "ru": "До предела",
         "en": "Push the limit"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Благодаря обучению, практике или чистой интуиции, аколит знает предел своего скакуна или машины, и знает, как довести их до предела и за него. Хотя перенапряжение зверя или выполнение поворотов, рвущих колеса, способно обеспечить большое преимущество в бою или преследовании, одно неправильное движение может оказаться катастрофическим, травмировать пилота или даже разбить его машину.",
+        "en": "Whether through study, practice, or sheer intuition, the Acolyte is aware of the limits of his vehicle or steed, and knows how to push it to those limits and beyond. Although overtaxing a beast or executing wheel-tearing turns can provide a great advantage in combat or pursuit, a single wrong move can prove catastrophic, injuring the pilot or even ripping his vehicle apart."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_PTL_H1",
+          "description": {
+            "ru": "Один раз за раунд персонаж может добавить +20 к проверке Управления (или к проверке Выживания в случае живых скакунов); однако, если он провалил её на 4 или более степеней, немедленно бросайте 1к5 на эффекты Критических Попаданий по Ходовой части и примените результат. Если он едет на живом скакуне, бросайте 1к5 на эффекты по Критические эффекты ударного урона – Нога и примените результат.",
+            "en": "Once per round, the character may add +20 to an Operate test (or Survival test in the case of living steeds); however, if he fails the test by 4 or more degrees of failure, immediately roll 1d5 on Motive Systems Critical Hit Effects and apply the result. If he is riding a living mount, roll 1d5 on Impact Critical Effects – Leg and apply the result."
+          },
+          "targets": ["SK_OPR", "SK_SRV", "ST_AG"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_PER", "A_TECH"],
       "prerequisites": [
@@ -3042,14 +4080,23 @@
     {
       "tag": "TL_SKRD",
       "name": {
-        "ru": "",
+        "ru": "Умелый наездник",
         "en": "Skilled rider"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Часто лучший способ одолеть еретика — беспощадная скорость, поэтому многие аколиты широко используют технику и скакунов в погоне за врагами человечества. Независимо от того, использовал ли персонаж свой любимый байк, пока тот не стал продолжением его собственного тела, или у него есть опыт, необходимый для мгновенной адаптации к странным скакунам и технике, которых можно найти в секторе Аскеллон, перемещение в седле или кресле пилота — его вторая натура.",
+        "en": "Often, the best way to overcome the heretic is with merciless speed, and so many Acolytes make extensive use of vehicles and mounts in their pursuit of humanity’s enemies. Whether the character has used his prized bike until it feels like an extension of his own body, or he has the experience necessary to instantly adjust to the strange mounts and vehicles, moving to or from the saddle or pilot’s seat is second nature."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_SKRD_H1",
+          "description": {
+            "ru": "Всякий раз, когда персонаж будет вышвырнут или сброшен со своей машин, он делает проверку Ловкости +10. Если он преуспеет, персонаж может безопасно приземлиться на ноги или сохранить исходное положение на технике. Кроме того, один раз за раунд персонаж может попытаться выполнить Ординарную (+10) проверку Ловкости, чтоб сесть в машину или вылезти из нее в качестве свободного действия.",
+            "en": "Whenever the character would be thrown from or tossed about within his vehicle, he makes an Ordinary (+10) Agility test. If he succeeds, the character may choose to either land safely on his feet or retain in his original position in the vehicle. In addition, once per round the character can attempt an Ordinary (+10) Agility test to Mount or Dismount a vehicle as a Free Action."
+          },
+          "targets": ["ST_AG", "SK_OPR", "SK_SRV"]
+        }
+      ],
       "tier": 1,
       "aptitudes": ["A_AG", "A_FLD"],
       "prerequisites": [
@@ -3064,20 +4111,29 @@
     {
       "tag": "TL_XNS",
       "name": {
-        "ru": "",
+        "ru": "Ксеносавант",
         "en": "Xenosavant"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "В своих изучении и противостоянии угрозам ксеносов аколит стал хорошо разбираться в привычках и формах бесчисленных чуждых рас, угрожающих человечеству.",
+        "en": "In his study and prosecution of the xenos threat, the Acolyte has become well-versed in the ways and forms of the myriad alien races that menace humanity."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_XNS_H1",
+          "description": {
+            "ru": "Персонаж может применить любое умение Запретных Знаний (Ксеносы), которому он не обучен, нетренированным умением, как если бы оно не было Специальным.",
+            "en": "The character can attempt any Forbidden Lore (Xenos) test in which he is not trained as an untrained skill test with -20 penalty, as if it were not a Specialist skill."
+          },
+          "targets": ["ST_INT", "SK_FBL"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_INT", "A_KNG"],
       "prerequisites": [
         {
           "tag": "SK_FBL",
-          "subtag": "Xenos",
+          "subtag": ["Xenos", "Ксеносы"],
           "value": 20
         }
       ],
@@ -3087,14 +4143,22 @@
     {
       "tag": "TL_WPIN",
       "name": {
-        "ru": "",
+        "ru": "Интуитивное владение оружием",
         "en": "Weapon intuition"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Выполняя свой долг против ксеносов, аколит владеет самым тайным и редким оружием, которое могут сотворить Адептус Механикус, и, возможно, даже захватывает само вооружение ксеносов, чтобы лучше сражаться с ними. Благодаря многолетнему опыту персонаж может быстро распознать механизмы стрельбы и баланс даже самого странного оружия, независимо от его происхождения.",
+        "en": "In the prosecution of his duties against the alien, the Acolyte wields the most arcane and rare weapons the Adeptus Mechanicus can craft, and perhaps even takes up the very armaments of the xenos to better combat it. From years of experience, the character can quickly discern the firing mechanisms and balance of even the strangest weapons, regardless of its origin."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_WPIN_H1",
+          "description": {
+            "ru": "Персонаж уменьшает штраф за использование оружия без надлежащего обучения на 10.",
+            "en": "The character reduces the penalty for using a weapon without the proper training by 10."
+          }
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_INT", "A_FIN"],
       "prerequisites": [

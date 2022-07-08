@@ -1,0 +1,1106 @@
+{
+  "traits": [
+    {
+      "tag": "TR_AMRP",
+      "name": {
+        "ru": "Аморфный",
+        "en": "Amorphous"
+      },
+      "description": {
+        "ru": "Отнюдь не каждый организм имеет скелет, обеспечивающий постоянную форму тела. Некоторые твари обладают огромной гибкостью или имеют множество сочленений или просто могут менять форму своего тела, подстраиваясь под условия среды.",
+        "en": "Not every entity is constrained by a rigid skeleton; some organisms possess a malleable shape, or are made of a host of smaller beings, and can alter their forms as desired or due to changing environmental conditions."
+      },
+      "hints": [
+        {
+          "tag": "TR_AMRP_H1",
+          "description": {
+            "ru": "Существо с этой чертой может увеличить или уменьшить свой Размер на 1 шаг в качестве Свободного действия. Изменение Размера не меняет параметры движения существа. Кроме того, имеющий эту черту, также считается Ползучим.",
+            "en": "A creature with this trait may increase or decrease its Size trait value by 1 as a Free Action (though doing so does not change its movement values). A creature with this trait also has the Crawler trait."
+          },
+          "targets": ["TR_SZ"],
+          "command": {
+            "command": "GainTrait",
+            "tag": "TR_CRWL"
+          }
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_AMPH",
+      "name": {
+        "ru": "Амфибия",
+        "en": "Amphibious"
+      },
+      "description": {
+        "ru": "Существо может дышать под водой так же хорошо, как и вне её, и может оставаться под водой сколько захочет.",
+        "en": "The creature can breathe water as well as air and can stay underwater indefinitely without the need to surface."
+      },
+      "hints": [
+        {
+          "tag": "TR_AMPH_H1",
+          "description": {
+            "ru": "Если эту черту получает существо, которое может дышать чем-либо помимо воздуха, оно также получает возможность дышать воздухом.",
+            "en": "If this trait is taken by a creature with the ability to breathe another substance other than air (i.e., water, ammonia, carbon-dioxide, etc.) then it can breathe air as well as its native atmosphere."
+          },
+          "targets": ["ST_T"]
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_ATST",
+      "name": {
+        "ru": "",
+        "en": "Auto-stabilised"
+      },
+      "description": {
+        "ru": "",
+        "en": "For exceptionally large creatures, even the most unstable of heavy weapons mean little compared to their huge limbs, gripping talons, or sheer bulk."
+      },
+      "hints": [
+        {
+          "tag": "TR_ATST_H1",
+          "description": {
+            "ru": "",
+            "en": "These beings always count as braced when firing heavy weapons and therefore may fire a weapon on full or semi-automatic without taking the Brace action first, and not suffer any penalties to hit."
+          },
+          "targets": ["ST_BS"]
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_BNPR",
+      "name": {
+        "ru": "Ужасающее присутствие",
+        "en": "Baneful presence"
+      },
+      "description": {
+        "ru": "Само присутствие этого существа грозит проклятием простым смертным и пронизывает скверной все вокруг.",
+        "en": "The creature’s very existence is anathema to nearby mortals, and permeates its surroundings with the taint of the unnatural."
+      },
+      "hints": [
+        {
+          "tag": "TR_BNPR_H1",
+          "description": {
+            "ru": "Все персонажи получают штраф -10 к проверкам Силы Воли, который действует на расстоянии $TR_TAKEN метров от существа.",
+            "en": "All characters suffer a –10 penalty to Willpower tests taken while within $TR_TAKEN metres of the creature."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
+      "is_stackable": true,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_BSTL",
+      "name": {
+        "ru": "Зверь",
+        "en": "Bestial"
+      },
+      "description": {
+        "ru": "Существо с этой чертой звероподобно и склонно руководствоваться более инстинктами, нежели разумом.",
+        "en": "A creature with this trait is animalistic, tending to behave instinctively rather than rationally."
+      },
+      "hints": [
+        {
+          "tag": "TR_BSTL_H1",
+          "description": {
+            "ru": "Независимо от того, насколько высоко значение Интеллекта существа, это все равно интеллект животного.",
+            "en": "No matter how high its Intelligence score is, it is still bestial."
+          },
+          "targets": ["ST_INT"]
+        },
+        {
+          "tag": "TR_BSTL_H2",
+          "description": {
+            "ru": "Носитель этой черты никогда не обязан совершать проверки Выживания, находясь в привычной для себя среде обитания.",
+            "en": "A creature with this trait never needs to make a Survival test whilst in its natural habitat"
+          },
+          "targets": ["SK_SRV"]
+        },
+        {
+          "tag": "TR_BSTL_H3",
+          "description": {
+            "ru": "Если это существо не загнано в угол и не умирает от голода, оно обязано пройти проверку Силы Воли +0 при ранении, испуге или если оно было застигнуто врасплох. В случае провала проверки, существо пытается убежать.",
+            "en": "Unless starving or desperate, a Bestial creature must make a +0 Willpower test when frightened, startled, or injured. If it fails, the creature flees."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_BLND",
+      "name": {
+        "ru": "Слепой",
+        "en": "Blind"
+      },
+      "description": {
+        "ru": "Это существо слепо. Оно или утратило свое зрение при определенных обстоятельствах, или родилось таким.",
+        "en": "This creature is blind due to some reason, either lost its sight, or being born like that."
+      },
+      "hints": [
+        {
+          "tag": "TR_BLND_H1",
+          "description": {
+            "ru": "Слепые существа всегда автоматически проваливают все проверки, основанные на зрении и все проверки Навыка Стрельбы.",
+            "en": "Blind creatures automatically fail all tests based on vision, and automatically fail all Ballistic Skill tests."
+          },
+          "targets": ["ST_PER", "SK_AWR", "SK_SCR", "ST_BS"]
+        },
+        {
+          "tag": "TR_BLND_H2",
+          "description": {
+            "ru": "Кроме того, они получают штраф -30 на все проверки Навыка Рукопашной и другие, связанные с необходимостью видеть противника. Заметьте, что эта черта означает не только, что существо не может видеть, но и то, что оно не имеет никаких других органов чувств, что могли бы заменить зрение (как в случае со Сверхъестественными чувствами).",
+            "en": "Such creatures take a –30 penalty to Weapon Skill tests and most other tests that ordinarily involve or are benefited by vision. Note that this trait indicates not only that the creature cannot see but that it also has no other senses which would provide the same benefit as eyes (such as Unnatural Senses). The Blind Fighting talent reduces the penalty to Weapon Skill tests as normal for Blind creatures, from –30 to –15."
+          },
+          "targets": ["ST_WS"]
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_BRCH",
+      "name": {
+        "ru": "Жестокий натиск",
+        "en": "Brutal charge"
+      },
+      "description": {
+        "ru": "Существа, обладающие этой чертой, часто массивны, могучи и почти неостановимы в ближнем бою.",
+        "en": "A creature with this trait is often massive and powerful, nearly unstoppable in combat."
+      },
+      "hints": [
+        {
+          "tag": "TR_BRCH_H1",
+          "description": {
+            "ru": "При совершении Натиска такие существа наносят дополнительно $TR_TAKEN очков урона.",
+            "en": "When Charging, the creature deals an extra $TR_TAKEN points of damage on each hit it inflicts that turn."
+          },
+          "targets": ["ST_WS", "ST_STR"]
+        }
+      ],
+      "is_stackable": true,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_BRWR",
+      "name": {
+        "ru": "Копатель",
+        "en": "Burrower"
+      },
+      "description": {
+        "ru": "Существа, обладающие этой чертой, могут передвигаться через твёрдые объекты, прокапывая себе путь.",
+        "en": "A creature with this trait can move through solid objects by burrowing through them."
+      },
+      "hints": [
+        {
+          "tag": "TR_BRWR_H1",
+          "description": {
+            "ru": "Некоторые твари могут прокапываться через почву, камень, песок, а иные – даже через металл со скоростью $TR_TAKEN метров в раунд. При копании существо оставляет за собой тоннель. Персонажи, обладающие Размером меньше, чем копатель, могут свободно двигаться по тоннелю. В конце каждого раунда бросайте d10 – при выпадении 5 или ниже тоннель за копателем обрушивается.",
+            "en": "Such creatures can burrow through soil, rock, sand, and so on with $TR_TAKEN speed, though some (expressed in the creature entry) can even burrow through metal with speed of $TR_TAKEN metres. When a creature burrows, it leaves behind a tunnel. Characters with a Size trait value lower than the burrower can enter these areas without impediment. A the end of each round after the burrower passes, roll 1d10; on a result of 5 or lower, the tunnel collapses behind the creature."
+          },
+          "targets": ["ST_AG"]
+        }
+      ],
+      "is_stackable": true,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_CRWL",
+      "name": {
+        "ru": "Ползун",
+        "en": "Crawler"
+      },
+      "description": {
+        "ru": "Черви, змеи и прочие подобные им существа, не ходят, а ползают или скользят.",
+        "en": "Worms, serpents, and similar creatures crawl and slither along the surface rather than walk upright."
+      },
+      "hints": [
+        {
+          "tag": "TR_CRWL_H1",
+          "description": {
+            "ru": "Скорость таких существ снижена вдвое (округлять вверх) ($MTP$BASE$AGB), но они никогда не получают штрафов за передвижение по сложному ландшафту.",
+            "en": "The base move for a creature with this trait is half its normal movement rate (round up) as determined by its Agility bonus ($MTP$BASE$AGB metres), but it does not take penalties for moving over difficult terrain."
+          },
+          "targets": ["ST_AG"]
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_DMNC",
+      "name": {
+        "ru": "Демонический",
+        "en": "Daemonic"
+      },
+      "description": {
+        "ru": "Демонические существа – порождения Варпа, способные проявлять себя в реальном мире при помощи чистой силы воли, непостижимого голода или оккультных ритуалов.",
+        "en": "Daemonic creatures are denizens of the Warp, but can manifest in real space either through sheer strength of will, hunger, or occult rituals."
+      },
+      "hints": [
+        {
+          "tag": "TR_DMNC_H1",
+          "description": {
+            "ru": "Против всего входящего урона, существа с этой чертой увеличивают свой бонус Выносливости на $TR_TAKEN, так же как в случае со Сверхъестественными Характеристиками. Эта прибавка складывается с другими возможными. Действие этой черты не распространяется на урон, нанесённый психосиловым оружием, психическими силами, другими существами с чертой Демоническое и святыми атаками.",
+            "en": "Creatures with this trait increase their Toughness bonus against all damage by $TR_TAKEN, in the same manner as an Unnatural Characteristic, and stack if the latter also increases Toughness. This increase is negated by damage inflicted from force weapons, psychic powers, holy attacks, or other creatures with this trait."
+          },
+          "targets": ["ST_T"]
+        },
+        {
+          "tag": "TR_DMNC_H2",
+          "description": {
+            "ru": "Демонические создания имеют имеют иммунитет к болезням и ядам, а также имеют черту Неумирающий. Кроме того, они получают особые преимущества при сотворении психических сил.",
+            "en": "Daemonic creatures also have the Undying trait, and gain benefits when using psychic powers."
+          },
+          "targets": ["ST_WP", "PR"],
+          "command": {
+            "command": "GainTrait",
+            "tag": "TR_UNDN"
+          }
+        }
+      ],
+      "is_stackable": true,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_DRST",
+      "name": {
+        "ru": "Ночное зрение",
+        "en": "Dark sight"
+      },
+      "description": {
+        "ru": "Некоторые существа видят в иных диапазонах световых волн и, таким образом, могут замечать то, что невидимо остальным.",
+        "en": "Some species are sensitive to different wavelengths of light than man, and can detect sights otherwise invisible."
+      },
+      "hints": [
+        {
+          "tag": "TR_DRST_H1",
+          "description": {
+            "ru": "Существа с этой чертой нормально видят даже в полной темноте и никогда не получают штрафов за ведение боя в слабо освещенных или вовсе неосвещенных местах.",
+            "en": "A creature with this trait sees normally even in areas of total darkness, and never takes a penalty for fighting in areas of dim or no lighting."
+          },
+          "targets": ["ST_PER", "SK_AWR", "SK_SCR", "ST_BS", "ST_WS"]
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_DNWP",
+      "name": {
+        "ru": "Смертоносное природное оружие",
+        "en": "Deadly natural weapons"
+      },
+      "description": {
+        "ru": "Голыми руками это существо может ломать пласталь и пробивать чужие доспехи.",
+        "en": "This creature’s natural attacks are powerful enough to crush plasteel or punch through armour."
+      },
+      "hints": [
+        {
+          "tag": "TR_DNWP_H1",
+          "description": {
+            "ru": "Существо считается имеющим Природное Оружие, которе не имеет качества Примитивное.",
+            "en": "The creature gains all the benefits of the Natural Weapons trait, except that its attacks no longer have the Primitive weapon quality."
+          },
+          "targets": ["ST_WS"],
+          "command": {
+            "command": "GainTrait",
+            "tag": "TR_NTWP"
+          }
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_FR",
+      "name": {
+        "ru": "Страх",
+        "en": "Fear"
+      },
+      "description": {
+        "ru": "Существо с этой чертой обладает жутким внешним видом, вызванным природой или разлагающим влиянием Варпа.",
+        "en": "A creature with this trait has an unnerving appearance. Some prey upon humanity’s visceral terrors, while others depend on the inherent corruptive power of the Warp."
+      },
+      "hints": [
+        {
+          "tag": "TR_FR_H1",
+          "description": {
+            "ru": "Черта Страх имеет рейтинг (1-4), показывающий, насколько пугающе существо ($TR_TAKEN). Чем выше рейтинг Страха, тем сложнее не повредиться рассудком, столкнувшись с этим созданием. Когда персонаж встречает существо, обладающие этой чертой, он должен пройти проверку Силы Воли, модифицированную в соответствии с Рейтингом Страха существа. В случае успеха проверки, на персонажа не оказывается никакого эффекта. При провале персонаж должен бросить на эффект Шока, прибавив 10 к результату за каждую степень провала.",
+            "en": "The Fear trait always has an associated rating (1–4) to reflect how awful the creature is to behold; this is indicated by the fear rating ($TR_TAKEN). The higher the Fear rating, the harder it is for others to resist going insane from the encounter. When a character encounters a creature with this trait, the character must make a Willpower test with a penalty based on the creature’s Fear rating. If he succeeds, the character suffers no ill effects; if he fails, he must roll on Shock, adding +10 to the roll for every degree of failure on the test."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
+      "is_stackable": true,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_FLR",
+      "name": {
+        "ru": "Летающий",
+        "en": "Flyer"
+      },
+      "description": {
+        "ru": "Существо с этой чертой обладает природными способностями к полету, которую дают ему огромные кожистые крылья, странные энергии Варпа или газовые мешки.",
+        "en": "A creature with this trait has the natural ability to fly, whether with broad leathery wings, strange warp energies, or inflatable gas sacks."
+      },
+      "hints": [
+        {
+          "tag": "TR_FLR_H1",
+          "description": {
+            "ru": "Существо способно летать со скоростью $TR_TAKEN метров в раунд. Это число заменяет бонус Ловкости существа при вычислении его скорости во время полета.",
+            "en": "The creature can fly around with $TR_TAKEN metres speed. This number replaces the creature’s Agility bonus for movement actions while airborne."
+          }
+        }
+      ],
+      "is_stackable": true,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_FRBN",
+      "name": {
+        "ru": "Потусторонний",
+        "en": "From beyond"
+      },
+      "description": {
+        "ru": "Некоторые создания свободны от множества ограничений человеческой психологии – например те, что появляются в мире, приходя из царства Варпа или те, чье тело состоит из холодного металла и шестеренок. Разум таких существ не скован мелочными человеческими пристрастиями и давно покинул зыбкую почву здравомыслия.",
+        "en": "Some creatures are free from the limitations of normal physiology, having emerged from the impossible realm of the Warp or perhaps using bodies forged from cold metal and circuitry. Their minds are beyond the petty frailties and precarious sanity of a mortal mind."
+      },
+      "hints": [
+        {
+          "tag": "TR_FRBN_H1",
+          "description": {
+            "ru": "Существо невосприимчиво в эффектам Страха, Подавления, эффектам Безумия и психическим силам, способным затуманить разум, смутить его или взять под контроль.",
+            "en": "Such a creature is immune to Fear, Pinning, Insanity points, and psychic powers used to cloud, control, or delude its mind."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_HVR",
+      "name": {
+        "ru": "Парящий",
+        "en": "Hoverer"
+      },
+      "description": {
+        "ru": "Существо с данной особенностью может парить над землей на высоте до двух метров.",
+        "en": "Creatures with this trait have a limited capability for flight, flying no higher than two metres."
+      },
+      "hints": [
+        {
+          "tag": "TR_HVR_H1",
+          "description": {
+            "ru": "Существо может парить над землей со скоростью $TR_TAKEN метров в раунд. Оно заменяет бонус Ловкости существа при вычислении его скорости во время полета.",
+            "en": "The creature can hover around with $TR_TAKEN speed; this number replaces its Agility bonus for purposes of calculating Movement while airborne."
+          },
+          "targets": ["ST_AG"]
+        }
+      ],
+      "is_stackable": true,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_INCP",
+      "name": {
+        "ru": "Бесплотный",
+        "en": "Incorporeal"
+      },
+      "description": {
+        "ru": "Такие существа нематериальны и невесомы, способны проходить сквозь предметы, в том числе сквозь стены и оружие.",
+        "en": "This creature is insubstantial and weightless, able to pass through solid objects such as walls and weapons."
+      },
+      "hints": [
+        {
+          "tag": "TR_INCP_H1",
+          "description": {
+            "ru": "Бестелесные получают черту Парящий (6).",
+            "en": "Incorporeal creatures gain the Hoverer (6) trait."
+          },
+          "targets": ["TR_HVR"],
+          "command": {
+            "command": "GainTrait",
+            "tag": "TR_HVR",
+            "taken": 6
+          }
+        },
+        {
+          "tag": "TR_INCP_H2",
+          "description": {
+            "ru": "Бестелесные получают +$BONUS к Скрытности, что отражает их способность прятаться внутри предметов и передвигаться практически бесшумно.",
+            "en": "Incorporeal creatures gain +$BONUS bonus on Stealth tests due to their ability to merge with objects and nearly silent movement."
+          },
+          "targets": ["SK_STL"],
+          "bonus": 30
+        },
+        {
+          "tag": "TR_INCP_H3",
+          "description": {
+            "ru": "Бестелесные существа невосприимчивы к обычному оружию, которое просто проходит сквозь них. Демоны, создания Варпа, другие бестелесные, психосилы и противники с психосиловым оружием могут нанести бестелесному свой обычный урон.",
+            "en": "An Incorporeal creature is also immune to normal weapons, which simply pass ineffectually through its body. Daemons, psychic powers, Warp creatures, other Incorporeal creatures, and opponents armed with force weapons can all injure an Incorporeal creature normally."
+          },
+          "targets": ["ST_T"]
+        },
+        {
+          "tag": "TR_INCP_H4",
+          "description": {
+            "ru": "В свою очередь, Бестелесное существо неспособно воздействовать на материальный мир, и потому также не может наносить урон «материальным» противникам, если у него нет особых способностей или талантов. Некоторые устройства способны удерживать бестелесных существ, наиболее распространенный пример – корабельные поля Геллера или пустотные щиты. Сквозь него существа с этой чертою пройти не могут.",
+            "en": "An Incorporeal creature cannot usually affect the mortal world, and thus cannot damage normal opponents unless it has a suitable special ability or talent. Certain devices can keep these creatures at bay, though, most notably a Void Shield or a spaceship’s Gellar Field, which acts as an impenetrable barrier to them."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_MCN",
+      "name": {
+        "ru": "Машина",
+        "en": "Machine"
+      },
+      "description": {
+        "ru": "Существа с этой чертой состоят из неорганических материалов, более прочных, чем слабая и податливая плоть.",
+        "en": "A creature with this trait is fashioned from inorganic materials and is generally more rigorous then fleshy beings."
+      },
+      "hints": [
+        {
+          "tag": "TR_MCN_H1",
+          "description": {
+            "ru": "Машины не дышат, имеют иммунитет к вакууму, экстремально низкой температуре и любым психическим эффектам, имеющим влияние на разум.",
+            "en": "Machines do not breathe, are immune to vacuum, extremes of cold, and mind-influencing psychic effects."
+          },
+          "targets": ["ST_T", "ST_WP"]
+        },
+        {
+          "tag": "TR_MCN_H2",
+          "description": {
+            "ru": "Также машины имеют $TR_TAKEN дополнительных очков Брони на всех зонах попадания. Эти очки складываются с носимым защитным снаряжением, но не с Природной Бронёй, зато дают сопротивление урону от огня",
+            "en": "Machines have $TR_TAKEN Armour points. This armour stacks with worn armour, but not with the Natural Armour trait, and can damage from Fire."
+          },
+          "targets": ["ST_T", "AP"]
+        }
+      ],
+      "is_stackable": true,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_MNLK",
+      "name": {
+        "ru": "Мыслеблок",
+        "en": "Mind lock"
+      },
+      "description": {
+        "ru": "Многие биоконструкты или не имеющие достаточной степени разумности существа оснащаются контролирующими имплантатами, в которые заложены нужные поведенческие программы. Это помогает существу уверенно действовать в рамках установленного, но ставит его в тупик при столкновении с непредвиденными обстоятельствами.",
+        "en": "Many flesh-constructs or mindless creatures are implanted with control mechanisms, complete with programmed behavioural instructions. This helps ensure the creature acts properly within its designed parameters, but also can lead to stalled actions when it faces circumstances for which it has no guidance."
+      },
+      "hints": [
+        {
+          "tag": "TR_MNLK_H1",
+          "description": {
+            "ru": "Оказавшись в ситуации, выходящей за рамки своей программы, и не имея прямых приказов от хозяина, существо обязано пройти проверку Интеллекта +20 или получить Оглушение на 1 раунд.",
+            "en": "If faced with a situation outside of its programming and with no recognised master to issue orders, the creature must pass a +20 Intelligence test or be Stunned for 1 round."
+          },
+          "targets": ["ST_INT"]
+        },
+        {
+          "tag": "TR_MNLK_H2",
+          "description": {
+            "ru": "По решению МИ совершенно безмозглые существа также могут быть невосприимчивы любым Встречным Социальным проверкам.",
+            "en": "Due to the creature's essentially mindless nature, at the GM’s discretion it is immune to all Opposed Social tests."
+          },
+          "targets": ["ST_FEL", "ST_WP", "SK_CH", "SK_DCV", "SK_INTM", "SK_INTR", "SK_INQ"]
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_MTAR",
+      "name": {
+        "ru": "Многорукий",
+        "en": "Multiple arms"
+      },
+      "description": {
+        "ru": "У существа больше одной пары рук.",
+        "en": "This creature has more than one pair of arms."
+      },
+      "hints": [
+        {
+          "tag": "TR_MTAR_H1",
+          "description": {
+            "ru": "Существо получает бонус +10 к проверкам Атлетики, касающимся плавания или лазанья. Кроме того, за каждую пару рук сверх изначальных двух существо получает дополнительную атаку, как если бы имело ещё одно оружие. Что-бы это приносило эффект, существо должно обладать природным оружием или иметь оружие ближнего боя. Помните, что существу все так же требуется талант Обоерукий воин (Рукопашное или Стрелковое), чтобы наносить несколько атак в один ход.",
+            "en": "This creature has more than one pair of arms.The exact number of arms is $TR_TAKEN. It gains a +10 bonus on Athletics tests involving climbing and swimming. In addition, for each full pair of arms it has (the Multiple Arms value divided by 2) it can make an additional attack as if wielding multiple melee weapons ($DIV$TR_TAKEN$BASE-1 additional attack). In this case, the creature must either have natural weapons or actual melee weapons to wield for this to take effect. Note that a creature still requires the Two-Weapon Wielder (Melee or Ranged) talent to make multiple attacks in the same turn."
+          },
+          "targets": ["ST_WS", "SK_ATHL"],
+          "base": 2
+        }
+      ],
+      "is_stackable": true,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_NTAR",
+      "name": {
+        "ru": "Природная броня",
+        "en": "Natural armour"
+      },
+      "description": {
+        "ru": "Это существо обладает жесткой шкурой или экзоскелетом, защищающим его от некоторых атак.",
+        "en": "This creature has a naturally tough hide or an exoskeleton, affording it some protection against attacks."
+      },
+      "hints": [
+        {
+          "tag": "TR_NTAR_H1",
+          "description": {
+            "ru": "Это существо обладает жесткой шкурой или экзоскелетом, защищающим его от некоторых атак ($TR_TAKEN дополнительных Очков брони во всех зонах).",
+            "en": "This creature has a naturally tough hide or an exoskeleton, affording it some protection against attacks ($TR_TAKEN). Natural Armour stacks with worn armour, but not with the Machine trait."
+          },
+          "targets": ["AP"]
+        }
+      ],
+      "is_stackable": true,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_NTWP",
+      "name": {
+        "ru": "Природное оружие",
+        "en": "Natural weapons"
+      },
+      "description": {
+        "ru": "Это существо обладает острыми когтями, клыками, иглами или иным природным оружием, которым может терзать своих врагов.",
+        "en": "This creature has sharp claws, teeth, spines or some other natural weapon with which it can tear apart its foes."
+      },
+      "hints": [
+        {
+          "tag": "TR_NTWP_H1",
+          "description": {
+            "ru": "Существо всегда считается вооруженным оружием ближнего боя, что наносит 1d10+$STRB урона. Существо наносит свои атаки, совершая проверку Навыка Рукопашной, но не может Парировать своим Природным Оружием. Кроме того, обладателя Природного Оружия нельзя лишить его путем Разоружения, его нельзя сломать силовым оружием – предполагается, что у существа достаточно клыков или когтей, чтобы не обращать внимания на парочку потерянных. Природное оружие считается имеющим качество Примитивное (7), если не указано обратное.",
+            "en": "It counts as being armed even when not wielding weapons, with attacks that deal 1d10+$STRB points of damage. The creature can make attacks with its Natural Weapons using its Weapon Skill, though it cannot Parry with its natural weapons, nor can it be disarmed unless, of course, its limbs are hacked off. In general, creatures with Natural Weapons are immune to the Power Field quality, as it is assumed they have enough teeth, claws, or spines to ignore a few being removed. Natural weapons have the Primitive(7) weapon quality unless stated otherwise in the profile."
+          },
+          "targets": ["ST_WS", "SK_PAR"]
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_MECH_IMPL",
+      "name": {
+        "ru": "Импланты Механикус",
+        "en": "Mechanicus implants"
+      },
+      "description": {
+        "ru": "Персонаж служит Богу-Машине и, благодаря этому, он получил набор специализированных имплантатов",
+        "en": "The character is a servant of the Machine-God, and has been entrusted with a suite of specialised implants."
+      },
+      "hints": [
+        {
+          "tag": "TR_MECH_IMPL_H1",
+          "description": {
+            "ru": "Черепной контур: Последовательность взаимосвязанных процессоров, имплантатов и кортикальных микросхем, призванных улучшить ментальные возможности носителя. Большая часть деталей расположена снаружи, в кожухах, привинченных к черепу, но некоторые вживляются непосредственно в мозг.",
+            "en": "Cranial circuitry: a series of linked processors, implants, and cortical circuits that enhances mental capacities. Most sit within a housing bolted onto the skull, whilst others nestle within the brain itself."
+          },
+          "targets": ["SK_TECH"]
+        },
+        {
+          "tag": "TR_MECH_IMPL_H2",
+          "description": {
+            "ru": "Кибер-мантия: Конструкция из металла, кабелей и импульсных трансмиттеров, вживлённых в позвоночник и нижнюю часть грудной клетки. По мере подключения новых имплантатов она действует как подкожное крепление. Многие из членов культа Механикус относятся к кибер-мантии как к «истинной плоти».",
+            "en": "Cyber-mantle: a framework of metal, wires, and impulse transmitters bolted onto the spine and lower ribcage. As the initiate gains further cybernetics such as mechadendrites, the mantle acts as a sub-dermal anchorage point. Many in the Mechanicum often refer to it as 'the true flesh'."
+          },
+          "targets": ["SK_TECH"]
+        },
+        {
+          "tag": "TR_MECH_IMPL_H3",
+          "description": {
+            "ru": "Электропривой: Небольшой порт, подключенный к нервной системе носителя, позволяющий ему подключаться к священным механизмам напрямую. Электропривой может выглядеть очень по-разному – как черепной шунт, пальцевый щуп или позвоночный разъем – это зависит от мира-кузницы.",
+            "en": "Electro-graft: a small device is grafted into the nervous system, allowing the adept to better commune with the many holy mechanisms that are now part of his life. It comes in many forms, such as skull shunts, finger probes, or spine jacks, depending on the forge world."
+          },
+          "targets": ["SK_TECH"]
+        },
+        {
+          "tag": "TR_MECH_IMPL_H4",
+          "description": {
+            "ru": "Электу: Металлические кожные имплантаты, размером примерно с ладонь, для непосвященного кажущиеся обычными татуировками. Электротатуировки внедрены в нервную систему носителя, где их питает энергия эманаций плоти и священных механизмов Конденсаторной катушки. Специальное обучение позволит применять эту энергию разными способами.",
+            "en": "Electoo Inductors: palm-sized metal skin grafts that appear much like tattoos to the uninitiated. They are wired into the nervous system, where they derive power from the bioelectrical emanations of the flesh and the sacred mysteries of the Potentia Coil. With training, they can be used to emit or siphon power in many ways."
+          },
+          "targets": ["SK_TECH"]
+        },
+        {
+          "tag": "TR_MECH_IMPL_H5",
+          "description": {
+            "ru": "Конденсаторная катушка: Накопитель энергии, внедрённый в кибер-мантию. Он способен хранить энергию и создавать различные виды полей. Катушки бывают различных типов – от небольших кристаллических стеков до громоздких гальванаторов. Обученный носитель катушки умеет применять накопленную в ней энергию множеством способов.",
+            "en": "Potentia Coil: a power unit cradled within the cyber-mantle. This mass can store energy and produce various types of fields. Coils come in many types, from small crystal stack affairs to bulky electrical galvinators, and a trained user can manipulate the stored energy into a variety of attacks and unique effects."
+          },
+          "targets": ["SK_TECH"]
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_PHS",
+      "name": {
+        "ru": "Фазовый",
+        "en": "Phase"
+      },
+      "description": {
+        "ru": "Существо с этой чертой может переходить в бестелесное состояние, превращаясь в подобие парящего призрака, что может проходить через твердые объекты и преграды любых типов.",
+        "en": "A creature with this trait can transform its body into an insubstantial state, passing ghost-like through solid objects or barriers of any sort."
+      },
+      "hints": [
+        {
+          "tag": "TR_PHS_H1",
+          "description": {
+            "ru": "В качестве Полудействия, существо может получить черту Бестелесный или, наоборот, вернуться в материальное состояние.",
+            "en": "As a Half Action, the creature may gain or remove the Incorporeal trait, becoming insubstantial or solid."
+          },
+          "targets": ["TR_INCP"]
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_PSY",
+      "name": {
+        "ru": "Псайкер",
+        "en": "Psyker"
+      },
+      "description": {
+        "ru": "Это существо – псайкер. Оно стало им из-за неестественных влияний Варпа, изучения запретных знаний или просто могучей силы воли.",
+        "en": "Whether due to unnatural influences, the study of forbidden lore, or simply sheer force of will, this individual is a psyker."
+      },
+      "hints": [
+        {
+          "tag": "TR_PSY_H1",
+          "description": {
+            "ru": "Это существо может получать и использовать психические силы и умение Психонаука",
+            "en": "This character is able to purchase and use the Psyniscience skill and psychic powers."
+          },
+          "targets": ["SK_PSY", "PR"],
+          "command": {
+            "command": "GainPR",
+            "value": 1
+          }
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_QDPD",
+      "name": {
+        "ru": "Многоногий",
+        "en": "Quadruped"
+      },
+      "description": {
+        "ru": "Существа с большим количеством ног могут передвигаться быстрее своих двуногих собратьев.",
+        "en": "Quadrupeds are much quicker over a distance than their bipedal counterparts."
+      },
+      "hints": [
+        {
+          "tag": "TR_QDPD_H1",
+          "description": {
+            "ru": "Существа с большим количеством ног могут передвигаться\nбыстрее своих двуногих собратьев. Рейтинг перемещения этого существа составляет $MTP$BASE$AGB. Их дистанция перемещения удваивается по сравнению с той, что предоставляет им их бонус Ловкости. Эта черта предназначена и для тех существ, что передвигаются на задних лапах, а передними помогают себе, раздвигая высокую растительность или очищая путь. Существа с количеством ног большим четырех, также получают эту черту, дополнительно увеличивая свою дальности перемещения на +2 за каждую пару ног после второй (т.е. +2 для шести ног, +4 для восьми и так далее).",
+            "en": "Quadrupeds are much quicker over a distance than their bipedal counterparts, and their movement rating is $MTP$BASE$AGB. This trait is intended to cover creatures that travel on their hind legs and forepaws, rapidly crossing surface terrain or tall foliage. Creatures with more than four legs may gain this trait as well, increasing their movement as indicated above but adding an additional 2 (after doubling) to their final movement rate for each set of legs beyond the first two pairs (i.e., +2 for 6 legs, +4 for 8 legs, etc.)."
+          },
+          "targets": ["ST_AG"]
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_RGN",
+      "name": {
+        "ru": "Регенерация",
+        "en": "Regeneration"
+      },
+      "description": {
+        "ru": "Телесные усовершенствования, мутации, чуждые человеку черты физиологии или воздействие Варпа позволяют существу исцеляться от ранений невероятно быстро.",
+        "en": "Physiological enhancements, mutations, xenos physiology, and even Warp-corruption can all result in organisms that heal from injury at an inconceivable pace."
+      },
+      "hints": [
+        {
+          "tag": "TR_RGN_H1",
+          "description": {
+            "ru": "Каждый раунд в начале своего хода существо может совершить проверку Выносливости, чтобы восстановить себе $TR_TAKEN ран.",
+            "en": "Each round, at the start of its turn, the creature can make a Toughness test to remove $TR_TAKEN damage points."
+          },
+          "targets": ["ST_T"]
+        }
+      ],
+      "is_stackable": true,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_SNC",
+      "name": {
+        "ru": "Санкционат",
+        "en": "Sanctioned"
+      },
+      "description": {
+        "ru": "Частью дани, выплачиваемой всеми мирами Империума, является отлов и отправка всех проявляющих какие-либо признаки психических способностей на Чёрные Корабли, что отвезут тех на Терру. Там члены Адептус Астра Телепатика подвергнут одарённых множеству испытаний, которые выявят уровень их психических способностей и ментальной стойкости, эти важнейшие вещи, что определяют судьбу каждого псайкера. Выжив и пережив эти обряды, псайкер начинает свою службу Императору.",
+        "en": "As part of the tithes every world owes the Imperium, each must collect all who show any sign of psychic abilities for the Black Ships to carry to Terra. There, the Adeptus Astra Telepathica conduct fearsome testing known as sanctioning for power levels, mental strength, and other factors that decide each psyker’s fate. To survive is to have passed these tests, and gone on to serve the Emperor as a Sanctioned Psyker."
+      },
+      "hints": [
+        {
+          "tag": "TR_SNC_H1",
+          "description": {
+            "ru": "Если Санкционированный персонаж берет себе элитное улучшение Псайкер, он не получает очков Порчи и начинает игру с пси-рейтингом 2, а не 1.",
+            "en": "If a Sanctioned character gains the Psyker elite advance, he does not gain the Corruption normally inflicted with that advance and starts at psy rating of 2 instead of 1."
+          },
+          "targets": ["PR"],
+          "command": {
+            "command": "IncreasePR",
+            "value": 1
+          }
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_SZ",
+      "name": {
+        "ru": "Размер",
+        "en": "Size"
+      },
+      "description": {
+        "ru": "Любое существо обладает определенным размером.",
+        "en": "Every creature has its size."
+      },
+      "hints": [
+        {
+          "tag": "TR_SZ_H1",
+          "description": {
+            "ru": "Размер предоставляет модификатор, показывающий насколько существу легко прятаться и передвигаться незаметно и насколько легко или тяжело врагу будет попасть по нему в бою. При подсчете Передвижения существа, сначала примените модификатор размера и только потом – остальные (если они есть, например, от черты Четвероногое). Помните, что дистанция перемещения существа не может упасть ниже 1.",
+            "en": "Size affects movement, how well the creature can hide and move undetected, and how easy or hard it is to strike in combat. When calculating movement, apply the size modifier first, and then other modifiers from other traits or talents (such as Quadruped). Note that a creature’s movement cannot be reduced to less than 1."
+          },
+          "targets": ["ST_AG", "ST_WS", "ST_BS", "SK_STL"]
+        },
+        {
+          "tag": "TR_SZ_H2",
+          "description": {
+            "ru": "За каждый уровень Размера ниже 4 существо получает +10 к Скрытности, -1 к его базовому Рейтингу движения и -10 на тесты Навыка Рукопашной и Навыка Стрельбы на попадание по этому существу.",
+            "en": "Per every Size point below 4 the creature gains +10 to Stealth, -1 to its Base movement rating and -10 to WS and BS tests made to hit it."
+          },
+          "targets": ["ST_AG", "ST_WS", "ST_BS", "SK_STL"]
+        },
+        {
+          "tag": "TR_SZ_H3",
+          "description": {
+            "ru": "За каждый уровень Размера выше 4 существо получает -10 к Скрытности, +1 к его базовому Рейтингу движения и +10 на тесты Навыка Рукопашной и Навыка Стрельбы на попадание по этому существу.",
+            "en": "Per every Size point above 4 the creature gains -10 to Stealth, +1 to its Base movement rating and +10 to WS and BS tests made to hit it."
+          },
+          "targets": ["ST_AG", "ST_WS", "ST_BS", "SK_STL"]
+        }
+      ],
+      "is_stackable": true,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_SNSS",
+      "name": {
+        "ru": "Сонар",
+        "en": "Sonar sense"
+      },
+      "description": {
+        "ru": "Существо с этой чертой воспринимает окружающее, испуская высокочастотный звук.",
+        "en": "A creature with this trait perceives its surroundings by emitting uniquely toned pulses."
+      },
+      "hints": [
+        {
+          "tag": "TR_SNSS_H1",
+          "description": {
+            "ru": "Существо с этой чертой воспринимает окружающее, испуская высокочастотный звук, отражение которого позволяет точно определять положение любого твердого объекта в радиусе 30 метров. Другие существа, оказавшись в зоне действия сонара, способны при помощи Проверки Бдительности -10 расслышать его как некий тонкий писк.",
+            "en": "A creature with this trait perceives its surroundings by emitting uniquely toned pulses, allowing the creature to locate the position of any solid object within 30 metres. Other creatures within this 30 metres range that succeed on a –10 Awareness skill can detect the oddly-pitched sounds echoing around them."
+          },
+          "target": ["ST_PER", "SK_AWR", "SK_SCR"]
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_SLBN",
+      "name": {
+        "ru": "Духовная связь",
+        "en": "Soul bound"
+      },
+      "description": {
+        "ru": "Душа этого существа связана с какой-то высшей сущностью или существом, в обмен на определённую степень защиты. Когда существо получает эту черту, необходимо выбрать, с кем будет связана его душа. Многие имперские псайкеры, особенно астропаты, духовно связаны с Императором, а колдуны Хаоса – с одной из Губительных Сил.",
+        "en": "The soul of this creature is bound to a higher power or being, in return for a measure of protection. When this trait is first gained, the entity to which the soul is bound must be decided. Many Imperial psykers, especially Astropaths, are soul bound to the Emperor, for example, whereas Chaos Sorcerers may be bound to one of the Ruinous Powers."
+      },
+      "hints": [
+        {
+          "tag": "TR_SLBN_H1",
+          "description": {
+            "ru": "Когда существо с этой чертой вынуждено делать броски на Опасности Варпа, оно бросает дополнительный d10. Значением, выпавшим на этом дополнительном кубе, существо может заменить куб десятков либо куб единиц, брошенный для определения результата.",
+            "en": "A soul bound psyker rolls an extra die when forced to roll on Perils of the Warp, then replaces either the ones die or the tens die with the extra die he rolled to determine the final result."
+          },
+          "targets": ["PR", "ST_WP"]
+        },
+        {
+          "tag": "TR_SLBN_H2",
+          "description": {
+            "ru": "Каждый псайкер с Духовной Связью должен выбрать один из следующих эффектов: получение 3d10 очков Безумия, постоянную утрату зрения, постоянную потерю 1d10 очков одной характеристики или случайную мутацию.",
+            "en": "Upon becoming soul-bound, the psyker must choose one of the following effects: 3d10 Insanity points, the permanent loss of his sight, permanent loss of 1d10 points from one characteristic, or a random mutation. In addition, a soul bound character is permanently indebted to the entity, which undoubtedly entails all manner of other duties and consequences."
+          },
+          "targets": ["PR", "ST_WP"]
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_STMP",
+      "name": {
+        "ru": "Паникер",
+        "en": "Stampede"
+      },
+      "description": {
+        "ru": "Каждый раз, когда существо с этой чертой проваливает проверку Силы Воли, оно бросается вперед, уничтожая все на своём пути до тех пор, пока источник опасности не сбежит или не будет раздавлен под натиском паникующей твари.",
+        "en": "Whenever a creature with this trait fails a Willpower test, it automatically moves in a straight line forwards as far as possible, overrunning anything in its path until the source of danger is escaped or crushed under hoof."
+      },
+      "hints": [
+        {
+          "tag": "TR_STMP_H1",
+          "description": {
+            "ru": "Каждый раз, когда существо с этой чертой проваливает проверку Силы Воли, оно бросается вперед, уничтожая все на своём пути до тех пор, пока источник опасности не сбежит или не будет раздавлен под натиском паникующей твари. Каждый, кто окажется на её пути получает одно попадание Природным Оружием существа (или 1d5+$STRB Ударного урона, если у существа нет этой черты). Одно впавшее в панику существо провоцирует других носителей этой черты на аналогичное поведение. Это состояние продолжается до тех пор, пока источник опасности не скроется с глаз паникера или по истечении 1d10 минут (в зависимости от того, что случится раньше).",
+            "en": "Whenever a creature with this trait fails a Willpower test, it automatically moves in a straight line forwards as far as possible, overrunning anything in its path until the source of danger is escaped or crushed under hoof. Anyone in the way suffers a single hit from the creature’s Natural Weapons (or 1d5+$STRB Impact damage if it does not have that trait). One stampeding creature automatically causes all other creatures with the same trait within sight to stampede as well. The stampede lasts until the source of danger is no longer visible or for 1d10 minutes, whichever occurs last."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_STON",
+      "name": {
+        "ru": "Порождение кошмаров",
+        "en": "Stuff of nightmares"
+      },
+      "description": {
+        "ru": "Некоторые варп-сущности настолько чудовищно могущественны, что их воплощенным в материальном мире телам практически невозможно нанести урон.",
+        "en": "Some Warp entities are so terribly powerful that the willpower perpetuating their bodies in reality is almost impossible to break or disrupt."
+      },
+      "hints": [
+        {
+          "tag": "TR_STON",
+          "description": {
+            "ru": "Некоторые варп-сущности настолько чудовищно могущественны, что их воплощенным в материальном мире телам практически невозможно нанести урон. Такие существа обладают чертой Неумирающий, они невосприимчивые к эффектам окружающей среды, Кровотечения и Оглушения. Также они игнорируют эффекты Критического урона, кроме тех, что убивают на месте, если они не были вызваны психическими силами, психосиловым оружием или святыми атаками.",
+            "en": "Some Warp entities are so terribly powerful that the willpower perpetuating their bodies in reality is almost impossible to break or disrupt. Such creatures count as having the Undying trait, and are completely immune to most environmental hazards, Blood Loss, and Stunning. They also ignore any Critical Effect other than one that would destroy them outright, unless it was caused by a psychic power, force weapon, or holy attack."
+          },
+          "targets": ["ST_T", "ST_WP"],
+          "command": {
+            "command": "GainTrait",
+            "tag": "TR_UNDN"
+          }
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_STRD",
+      "name": {
+        "ru": "Коренастый",
+        "en": "Sturdy"
+      },
+      "description": {
+        "ru": "Коренастое существо трудно сдвинуть с места.",
+        "en": "Sturdy creatures are hard to move."
+      },
+      "hints": [
+        {
+          "tag": "TR_STRD_H1",
+          "description": {
+            "ru": "Коренастое существо трудно сдвинуть с места. Оно получает +20 к проверкам, сделанным для того, чтобы сопротивляться действиям Захват и Сбивание, а также таланту Нокдаун.",
+            "en": "Sturdy creatures are hard to move, and thus gain a +20 bonus to tests made to resist Grappling and Knock Down actions, and uses of the Takedown talent."
+          },
+          "targets": ["ST_WS", "ST_STR", "SK_ATHL"]
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_TBFT",
+      "name": {
+        "ru": "Затронутый судьбой",
+        "en": "Touched by the Fates"
+      },
+      "description": {
+        "ru": "Там, где наивные видят одну лишь удачу, те, кто знают истинную природу галактики, понимают, что силы, существующие за гранью обычного мира, сделали свой выбор.",
+        "en": "Where the naive might see only luck, those who have glimpsed the true nature of the galaxy can see when powers outside this realm have made their favour known."
+      },
+      "hints": [
+        {
+          "tag": "TR_TBFT",
+          "description": {
+            "ru": "НИП обладает $TR_TAKEN Очков судьбы. Он может использовать их так же, как живой игрок, и может даже сжигать их, чтобы избежать смерти, по решению МИ. Также атаки этого НИП подчиняются правилам Праведной Ярости.",
+            "en": "The NPC has $TR_TAKEN Fate points. It can use these Fate points in exactly the same way as Player Characters and can even burn a Fate point to survive death and destruction at the GM’s discretion. The NPC’s attacks also use the rules for Righteous Fury."
+          },
+          "targets": ["FP"]
+        }
+      ],
+      "is_stackable": true,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_TXC",
+      "name": {
+        "ru": "Токсичный",
+        "en": "Toxic"
+      },
+      "description": {
+        "ru": "Существо с этим талантом имеет кислотную кровь или иной экзотический способ, что заставит противников страдать от яда.",
+        "en": "A creature with this trait has corrosive blood or other exotic defensive mechanisms that inflict harm when it is struck."
+      },
+      "hints": [
+        {
+          "tag": "TR_TXC_H1",
+          "description": {
+            "ru": "Персонаж, что успешно нанес урон существу в ближнем бою, должен пройти проверку Выносливости в конце своего хода со штрафом $MTP$BASE$TR_TAKEN или получить 1d10 очков Энергетического урона, не блокируемого Броней или бонусом Выносливости. Токсины некоторых существ наносят больший урон или обладают иным эффектом – он указан в описании каждого конкретного существа.",
+            "en": "A character that successfully deals damage to a Toxic creature in melee combat must make a Toughness test at the end of his turn with a $MTP$BASE$TR_TAKEN penalty or suffer 1d10 points of Energy damage not reduced by Armour or Toughness. Some creatures carry additional effects with their toxins, or inflict more damage as indicated in their individual descriptions."
+          },
+          "target": ["ST_WS", "ST_T"]
+        }
+      ],
+      "is_stackable": true,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_UNDN",
+      "name": {
+        "ru": "Неумирающий",
+        "en": "Undying"
+      },
+      "description": {
+        "ru": "Существо имеет странную и непостижимую физиологию.",
+        "en": "This creature has a strange and barely understood physiology."
+      },
+      "hints": [
+        {
+          "tag": "TR_UNDN_H1",
+          "description": {
+            "ru": "На него не оказывают эффекта болезни, яды и токсины. Ему не нужно дышать, и оно может выжить даже в вакууме.",
+            "en": "The creature cannot be harmed by diseases, poisons, or toxic effects. It also has no need to breathe, and thus can survive unaided in a vacuum."
+          },
+          "targets": ["ST_T"]
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_UNCH",
+      "name": {
+        "ru": "Сверхъестественная характеристика",
+        "en": "Unnatural characteristic"
+      },
+      "description": {
+        "ru": "Одна или несколько характеристик существа очень высоки.",
+        "en": "One or more of the creature’s characteristics is unnaturally enhanced."
+      },
+      "hints": [
+        {
+          "tag": "TR_UNCH_H1",
+          "description": {
+            "ru": "Бонус характеристики $TR_SUBTAG персонажа увеличен на $TR_TAKEN. Успешные проверки, задействующие эту характеристики приносят $MTP$BASE$TR_TAKEN дополнительных степеней успеха.",
+            "en": "Character's $TR_SUBTAG bonus is increased by $TR_TAKEN. Successful tests using a characteristic tied to this trait gain $MTP$BASE$TR_TAKEN bonus degrees of success."
+          },
+          "targets": [],
+          "base": 0.5
+        }
+      ],
+      "is_stackable": true,
+      "is_specialist": true
+    },
+    {
+      "tag": "TR_UNSN",
+      "name": {
+        "ru": "Сверхъестественные чувства",
+        "en": "Unnatural senses"
+      },
+      "description": {
+        "ru": "Существо может воспринимать окружающую реальность, используя не только зрение или слух, но и иные, более совершенные органы чувств – например, чувствительные волоски на коже или другие, не менее необычные штуки.",
+        "en": "The creature can perceive its surroundings using senses other than sight or hearing, such as special organs, fine hairs, or some other disturbing ability."
+      },
+      "hints": [
+        {
+          "tag": "TR_UNSN_H1",
+          "description": {
+            "ru": "Существо может воспринимать окружающую реальность, используя не только зрение или слух, но и иные, более совершенные органы чувств – например, чувствительные волоски на коже или другие, не менее необычные штуки, в радиусе $TR_TAKEN метров.",
+            "en": "The creature can perceive its surroundings using senses other than sight or hearing, such as special organs, fine hairs, or some other disturbing ability in $TR_TAKEN metres range."
+          },
+          "targets": ["ST_PER"]
+        }
+      ],
+      "is_stackable": true,
+      "is_specialist": true
+    },
+    {
+      "tag": "TR_WPIN",
+      "name": {
+        "ru": "Варп-нестабильность",
+        "en": "Warp instability"
+      },
+      "description": {
+        "ru": "Большинство варп-сущностей имеет крайне ненадежный контакт с нашей реальностью, который зачастую поддерживается лишь страхом и кровью, а потому их можно изгнать обратно в Имматериум, если нанести достаточно сильную рану их телесной оболочке.",
+        "en": "Most Warp-entities have a tenuous hold on reality, often maintained only by horror and bloodshed, and can be disrupted if sufficient harm can be done to their manifested forms."
+      },
+      "hints": [
+        {
+          "tag": "TR_WPIN_H1",
+          "description": {
+            "ru": "Если существо с этой чертой получает урон и не наносит урона или очков Безумия другим существам до конца своего следующего хода, оно должно пройти проверку Силы Воли. В результате провала оно получает 1 единицу урона плюс дополнительно 1 единицу урона за каждую степень провала. Если при этом накопленный урон достигнет показателя Ран этого существа или превысит его, сущность изгоняется обратно в варп.",
+            "en": "If a creature with this trait takes damage and does not deal any damage or Insanity points to another creature by the end of its next turn, it must make a Willpower test. The creature suffers 1 point of damage for failing, plus 1 additional point of damage for each degree of failure. If this would deal damage equal to (or in excess of) the creature’s wounds, it is cast back into the Warp."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
+    },
+    {
+      "tag": "TR_WPWP",
+      "name": {
+        "ru": "Варп-оружие",
+        "en": "Warp weapons"
+      },
+      "description": {
+        "ru": "Существо с этой чертой обладает оружием, которое частично является нематериальным и потому способно игнорировать такие мирские вещи как доспехи или укрытие.",
+        "en": "Creatures with this trait have weapons that are partially insubstantial, able to ignore such mundane things as armour or cover."
+      },
+      "hints": [
+        {
+          "tag": "TR_WPWP_H1",
+          "description": {
+            "ru": "Атаки существа с этой чертой не обращают внимания на физическую броню, если она не выполнена из психоактивных материалов или иным образом не защищена от Варпа. Силовые поля действуют как обычно.",
+            "en": "Natural weapons and attacks made by a creature with this trait ignore physical armour, unless the armour is created from psychoactive materials or is somehow warded against the Warp. Force fields still work against these attacks normally."
+          },
+          "targets": ["ST_WS"]
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
+    }
+  ]
+}
