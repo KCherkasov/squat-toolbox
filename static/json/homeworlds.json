@@ -1,0 +1,652 @@
+{
+  "homeworlds": [
+    {
+      "tag": "HW_FERW",
+      "name": {
+        "ru": "Дикий мир",
+        "en": "Feral world"
+      },
+      "description": {
+        "ru": "",
+        "en": "Feral worlds are planets where the dominant culture is trapped in a primitive state, often much lower technologically than that of other Imperial worlds. This can range from nomadic human tribes, with little more than spears and a mastery over fire, to once-advanced planets now reduced to barbarism from environmental catastrophes, xenos predations, or other worldshattering events. Natives are likely to have grown up without technology, and had to survive by hunting or farming with primitive tools and their own two hands. This makes feral worlders hardy, strong, tough, and able to survive in the worst of conditions."
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_STR": 5,
+        "ST_T": 5,
+        "ST_IFL": -5
+      },
+      "fate": 2,
+      "blessing": 3,
+      "bonus": {
+        "tag": "HW_FERW_BONUS",
+        "name": {
+          "ru": "",
+          "en": "The old ways"
+        },
+        "description": {
+          "ru": "",
+          "en": "In the hands of a feral world character, any Low-Tech weapon loses the Primitive quality (if it had it) and gains the Proven (3) quality."
+        },
+        "hints": [
+          {
+            "tag": "HW_FERW_BONUS_H1",
+            "description": {
+              "ru": "",
+              "en": "In the hands of a feral world character, any Low-Tech weapon loses the Primitive quality (if it had it) and gains the Proven (3) quality."
+            },
+            "targets": ["ST_WS", "ST_BS"]
+          }
+        ],
+        "commands": []
+      },
+      "aptitude": "A_T",
+      "wounds": 9
+    },
+    {
+      "tag": "HW_FORW",
+      "name": {
+        "ru": "Мир-кузня",
+        "en": "Forge world"
+      },
+      "description": {
+        "ru": "",
+        "en": "Forge worlds are the main armouries and assembly lines of the Imperium. On these densely-populated worlds, citizens toil endlessly to craft weaponry for the armies of the Emperor, their bodies often enhanced with technology so that they might better fulfil their tasks or survive the toxic conditions of the factories. The denizens are likely to have been born to do a specific task, like their parents before them and their children that will come after, focusing their entire lives on a single job. It is a rigid society from which few escape, where the great Machine Cult and Tech-Priest overlords enforce the construction and toil of the teeming billions working below."
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_INT": 5,
+        "ST_T": 5,
+        "ST_FEL": -5
+      },
+      "fate": 3,
+      "blessing": 8,
+      "bonus": {
+        "tag": "HW_FORW_BONUS",
+        "name": {
+          "ru": "",
+          "en": "Omnissiah's chosen"
+        },
+        "description": {
+          "ru": "",
+          "en": "A forge world character starts with either the Technical Knock or Weapon-Tech talent."
+        },
+        "hints": [],
+        "commands": [
+          {
+            "command": "GainTalentAlt",
+            "tags": ["TL_TK", "TL_WTC"]
+          }
+        ]
+      },
+      "aptitude": "A_INT",
+      "wounds": 8
+    },
+    {
+      "tag": "HW_HGBN",
+      "name": {
+        "ru": "Высокорожденный",
+        "en": "Highborn"
+      },
+      "description": {
+        "ru": "",
+        "en": "Highborn are the elite of Imperial worlds, the nobles, princes, and lords of cities, systems, and worlds who rule over boundless populations alongside other equally-privileged scions. To be born into such a setting is to have been given the best the planet has to offer, raised apart from the struggling ranks of Mankind, and destined to take on positions of great import and power. These luxuries might be the finest pelts and grox meat of a feudal world, or the most potent of narcotics and offworld delights on a mainstay hive world. To be a highborn is also to enter into a world of deadly politics and ancient feuds, where children grow up with terrible enemies and sleep knowing there are those that would cut their throats for a taste of their hereditary position. Highborn often live their lives apart from the rest of their world, sometimes never leaving the high castles, spire cities, and sky palaces far above the swarming masses. They are content in the knowledge that they are the instruments of Imperial dominance on their world and the voice of the Emperor to their people, and anything that would disrupt such a state is unthinkable anathema."
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_FEL": 5,
+        "ST_IFL": 5,
+        "ST_T": -5
+      },
+      "fate": 4,
+      "blessing": 10,
+      "bonus": {
+        "tag": "HW_HGBN_BONUS",
+        "name": {
+          "ru": "",
+          "en": "Breeding counts"
+        },
+        "description": {
+          "ru": "",
+          "en": "Any time a highborn character would reduce his Influence, he reduces it by 1 less (to a minimum reduction of 1)."
+        },
+        "hints": [
+          {
+            "tag": "HW_HGBN_BONUS_H1",
+            "description": {
+              "ru": "",
+              "en": "Any time a highborn character would reduce his Influence, he reduces it by 1 less (to a minimum reduction of 1)."
+            },
+            "targets": ["ST_IFL"]
+          }
+        ]
+      },
+      "aptitude": "A_FEL",
+      "wounds": 9
+    },
+    {
+      "tag": "HW_HVWL",
+      "name": {
+        "ru": "Мир-улей",
+        "en": "Hive world"
+      },
+      "description": {
+        "ru": "",
+        "en": "Hive worlders exist in cities that reach kilometres into the sky from the wasted surface of toxic, hostile environments, ruined through many centuries of industry. Sealed off from the planet outside, they live stacked on hundreds of levels, each one packed with millions of souls working, eating, and dying without ever venturing beyond the steel caverns of their birth. To be a hive worlder is to have grown up among overpopulation and artifice, where the sun is only a myth. Unfortunates know only a desperate existence, barely surviving in the dank depths far below the surface, in underworlds where the very air cannot be counted on from one day to the next. For a hive worlder, his life is but one cog in a gigantic citymachine, living and dying in the same few cubic kilometres in which he was born."
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_AG": 5,
+        "ST_PER": 5,
+        "ST_WP": -5
+      },
+      "fate": 2,
+      "blessing": 6,
+      "bonus": {
+        "tag": "HW_HVWL_BONUS",
+        "name": {
+          "ru": "",
+          "en": "Teeming masses in metal mountains"
+        },
+        "description": {
+          "ru": "",
+          "en": "A hive world character ignores crowds for purposes of movement, treating them as open terrain. When in enclosed spaces, he also gains a +20 bonus to Navigate (Surface) tests."
+        },
+        "hints": [
+          {
+            "tag": "HW_HVWL_BONUS_H1",
+            "description": {
+              "ru": "",
+              "en": "A hive world character ignores crowds for purposes of movement, treating them as open terrain. When in enclosed spaces, he also gains a +20 bonus to Navigate (Surface) tests."
+            },
+            "targets": ["ST_AG", "SK_NVG"]
+          }
+        ],
+        "commands": []
+      },
+      "aptitude": "A_PER",
+      "wounds": 8
+    },
+    {
+      "tag": "HW_SHRW",
+      "name": {
+        "ru": "Мир-святыня",
+        "en": "Shrine world"
+      },
+      "description": {
+        "ru": "",
+        "en": "Shrine worlders grow up on worlds that the Imperium has deemed holy places, where the Cult of the Emperor’s power is omnipresent. While their birthplace might range from cluttered, decaying cities to scattered farmlands, or their planet from a green paradise to a forbidding rock, the power of the Emperor saturates it. Perhaps some great deed was committed here, a bold hero turning back the alien tide, or because it is the resting place for a saint with a hallowed grave dominating the surface of the world and drawing pilgrims from far and wide to gaze upon its glory. While all citizens of the Imperium are taught to venerate the glory of the Emperor in one form or another, it is the shrine worlders who perhaps have the greatest understanding nand reverence of the teachings of the Imperial Cult."
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_FEL": 5,
+        "ST_WP": 5,
+        "ST_PER": -5
+      },
+      "fate": 3,
+      "blessing": 6,
+      "bonus": {
+        "tag": "HW_SHRW_BONUS",
+        "name": {
+          "ru": "Вера в Кредо",
+          "en": "Faith in the Creed"
+        },
+        "description": {
+          "ru": "",
+          "en": "Whenever a shrine world character spends a Fate point, he rolls 1d10. On a result of 1, the character’s total number of Fate points is not reduced."
+        },
+        "hints": [
+          {
+            "tag": "HW_SHRW_BONUS_H1",
+            "description": {
+              "ru": "",
+              "en": "Whenever a shrine world character spends a Fate point, he rolls 1d10. On a result of 1, the character’s total number of Fate points is not reduced."
+            },
+            "targets": ["FP"]
+          }
+        ]
+      },
+      "aptitude": "A_WP",
+      "wounds": 7
+    },
+    {
+      "tag": "HW_VDBN",
+      "name": {
+        "ru": "Пустотник",
+        "en": "Voidborn"
+      },
+      "description": {
+        "ru": "",
+        "en": "Voidborn spend their lives in the expanses of space, growing up on ancient orbital stations, generation vessels, merchant freighters, or remote asteroid outposts. They spend much of their lives without the stability of a real world beneath their feet, knowing the cold, deadly grasp of empty space is only a few metres of bulkhead away. This makes them exceptionally skilled when it comes to living on voidships and space stations, more so than any who have spent their lives crawling around in the dirt of a world. It also often makes them strange even amidst other Imperial subjects, tall and willowy, hairless, or with large dark eyes. Living so close to the still blackness of the void also touches their souls. There is something deeply odd about the voidborn, something intangible that lurks below the surface, writhing in the dark like the Warp lurks below space itself, waiting and watching for its moment to surface."
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_INT": 5,
+        "ST_WP": 5,
+        "ST_STR": -5
+      },
+      "fate": 3,
+      "blessing": 5,
+      "bonus": {
+        "tag": "HW_VDBN_BONUS",
+        "name": {
+          "ru": "Дитя тьмы",
+          "en": "Child of the dark"
+        },
+        "description": {
+          "ru": "",
+          "en": "A voidborn character starts with the Strong Minded talent, and gains a +30 bonus to tests for moving in a zero gravity environment."
+        },
+        "hints": [
+          {
+            "tag": "HW_VDBN_BONUS_H1",
+            "description": {
+              "ru": "",
+              "en": "A voidborn character starts with the Strong Minded talent, and gains a +30 bonus to tests for moving in a zero gravity environment."
+            },
+            "targets": ["ST_AG", "ST_WP"]
+          }
+        ],
+        "commands": [
+          {
+            "command": "GainTalent",
+            "tag": "TL_STMN"
+          }
+        ]
+      },
+      "aptitude": "A_INT",
+      "wounds": 7
+    },
+    {
+      "tag": "HW_DTWL",
+      "name": {
+        "ru": "Мир смерти",
+        "en": "Death world"
+      },
+      "description": {
+        "ru": "",
+        "en": "Death worlds represent the harshest environments the Imperium has to offer that nevertheless require human occupation. Though the kinds of threats to the natives vary greatly, all of these planets share one important characteristic: human life is often short. Those who live on and survive these planets are some of the grittiest and, in some cases, battle-hardened citizens of the Imperium. Death worlds are not strictly limited to having deadly flora and fauna; in some cases the danger lies in unpredictable weather or stellar phenomena that render the planet horribly unsuited for normal habitation. Therein lies the difficulty for its inhabitants, for these worlds might contain essential resources or occupy a strategic location, and thus the Imperium has deemed that no sacrifice is too great to maintain a hold on them."
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_AG": 5,
+        "ST_PER": 5,
+        "ST_FEL": -5
+      },
+      "fate": 2,
+      "blessing": 5,
+      "bonus": {
+        "tag": "HW_DTWL_BONUS",
+        "name": {
+          "ru": "Паранойя выживальщика",
+          "en": "Survivor's paranoia"
+        },
+        "description": {
+          "ru": "",
+          "en": "While a death world character is Surprised, non-Surprised attackers do not gain the normal +30 bonus to their Weapon Skill and Ballistic Skill tests when targeting this character."
+        },
+        "hints": [
+          {
+            "tag": "HW_DTWL_BONUS_H1",
+            "description": {
+              "ru": "",
+              "en": "While a death world character is Surprised, non-Surprised attackers do not gain the normal +30 bonus to their Weapon Skill and Ballistic Skill tests when targeting this character."
+            },
+            "targets": ["ST_WS", "ST_BS"]
+          }
+        ],
+        "commands": []
+      },
+      "aptitude": "A_FLD",
+      "wounds": 9
+    },
+    {
+      "tag": "HW_GDNW",
+      "name": {
+        "ru": "Мир-сад",
+        "en": "Garden world"
+      },
+      "description": {
+        "ru": "",
+        "en": "Garden worlds hold a unique position within the Imperium, in that they are one of the few kinds of planets with minimal technological development. Tithes from these planets are often lower than usual or are entirely non-existent, as many are lightly populated and may have no readily available resources. Instead, garden worlds offer the Imperium a multitude of idyllic settings, ranging from recuperative locales to private estates, in exchange for protection. They are tranquil environments, though worrisome considerations still dangle like loose threads on a beautiful tapestry. Some are rumoured to have been ancient terraforming experiments from the Dark Age of Technology, and could be unstable. Others are believed rediscovered after abating Warp storms, and so could disappear again without warning. Still more are thought to be the lost homes of alien species, and woe to any living there should the xenos return or reawaken."
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_FEL": 5,
+        "ST_AG": 5,
+        "ST_T": -5
+      },
+      "fate": 2,
+      "blessing": 4,
+      "bonus": {
+        "tag": "HW_GDNW_BONUS",
+        "name": {
+          "ru": "",
+          "en": "Serenity of the green"
+        },
+        "description": {
+          "ru": "",
+          "en": "A garden world character halves the duration (rounded up) of any Shocks and Mental Traumas, and can remove Insanity points for 50xp per point rather than the normal 100xp."
+        },
+        "hints": [
+          {
+            "tag": "HW_GDNW_BONUS_H1",
+            "description": {
+              "ru": "",
+              "en": "A garden world character halves the duration (rounded up) of any Shocks and Mental Traumas, and can remove Insanity points for 50xp per point rather than the normal 100xp."
+            },
+            "targets": ["IP", "ST_WP"]
+          }
+        ],
+        "commands": []
+      },
+      "aptitude": "A_SOC",
+      "wounds": 7
+    },
+    {
+      "tag": "HW_RSST",
+      "name": {
+        "ru": "Исследовательская станция",
+        "en": "Research station"
+      },
+      "description": {
+        "ru": "",
+        "en": "The Imperium and the Adeptus Mechanicus have many research stations across the stars to collect data in an often vain attempt to better control Mankind’s surroundings. The aims of such stations vary, with researchers studying planetary storm patterns, dissecting captured xenos corpses, charting the stability of Warp entry locations, or probing the remains of ancient civilisations. Research stations provide a stable base of operations to Tech-Priests, scribes, adepts, servitors, and the small armies sometimes necessary to support them in these often remote locations. Most researchers never live to see any conclusive results. Once committed to a station, few ever leave, and their tasks are passed on through generations without end. Useful results might never occur, or be lost in the impossible depths of Imperial bureaucracies, but sometimes glimmers do emerge and catch the eye of those looking for aids in defending Mankind."
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_INT": 5,
+        "ST_PER": 5,
+        "ST_FEL": -5
+      },
+      "fate": 3,
+      "blessing": 8,
+      "bonus": {
+        "tag": "HW_RSST_BONUS",
+        "name": {
+          "ru": "",
+          "en": "Pursuit of data"
+        },
+        "description": {
+          "ru": "",
+          "en": "Whenever a research station character reaches Rank 2 (Trained) in a Scholastic Lore skill, he also gains Rank 1 (Known) in one related or identical Forbidden Lore skill specialisation of his choice. The GM is the final arbiter of whether the two specialisations are related."
+        },
+        "hints": [
+          {
+            "tag": "HW_RSST_BONUS_H1",
+            "description": {
+              "ru": "",
+              "en": "Whenever a research station character reaches Rank 2 (Trained) in a Scholastic Lore skill, he also gains Rank 1 (Known) in one related or identical Forbidden Lore skill specialisation of his choice. The GM is the final arbiter of whether the two specialisations are related."
+            },
+            "targets": ["SK_SCL", "SK_FBL"]
+          }
+        ],
+        "commands": []
+      },
+      "aptitude": "A_KNG",
+      "wounds": 8
+    },
+    {
+      "tag": "HW_AGWL",
+      "name": {
+        "ru": "Агромир",
+        "en": "Agri world"
+      },
+      "description": {
+        "ru": "",
+        "en": "Those who toil on agri-worlds provide the Imperium’s countless billions of subjects one of their essential resources: food. The Adeptus Administratum classifies planets to this task often based on the desirable climates, native livestock, or other natural factors. On other agri-worlds, artificial aspects dominate, such as sheltered hydroponic lakes, loathing fields suspended in hollowed-out planetoids, or algae vats buried deep within irradiated mountains. In all cases, their populations are devoted to a single cause: feeding the Imperium. Even the slightest crop failure or livestock plague can doom other worlds to horriic starvation or collapse an Imperial warfront, thus making their often-overlooked eforts vital for humanity’s survival."
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_STR": 5,
+        "ST_FEL": 5,
+        "ST_AG": -5
+      },
+      "fate": 2,
+      "blessing": 7,
+      "bonus": {
+        "tag": "HW_AGWL_BONUS",
+        "name": {
+          "ru": "",
+          "en": "Strength from the land"
+        },
+        "description": {
+          "ru": "",
+          "en": "An agri-world character starts with the Brutal Charge(2) trait"
+        },
+        "hints": [],
+        "commands": [
+          {
+            "command": "GainTrait",
+            "tag": "TR_BRCH",
+            "taken": 2
+          }
+        ]
+      },
+      "aptitude": "A_STR",
+      "wounds": 8
+    },
+    {
+      "tag": "HW_FDWL",
+      "name": {
+        "ru": "Феодальный мир",
+        "en": "Feudal world"
+      },
+      "description": {
+        "ru": "",
+        "en": "Feudal worlders live on planets defined by two pronounced aspects, the first and most dominant being a technological level suspended far below many other Imperial societies. On many of these worlds, gunpowder-based devices represent the extent of advancement. Ranks of crude blackpowder firearms and legions of mounted warriors on the charge might make for the ultimate weapons on their battlefields. The other defining aspect of feudal worlds is how their natives live, all part of networks of obligations and allegiances throughout a tribe or other societal grouping. These ties remain throughout generations, all members born, raised, and dying within their fixed stations. Like their technology, feudal worlders exist in a stagnated state. In many ways their society is similar to the Imperium itself, a welcome familiarity after the shock many natives of such worlds face as they become aware of the wider society of Mankind."
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_WS": 5,
+        "ST_PER": 5,
+        "ST_INT": -5
+      },
+      "fate": 3,
+      "blessing": 6,
+      "bonus": {
+        "tag": "HW_FDWL_BONUS",
+        "name": {
+          "ru": "В броне как дома",
+          "en": "At home in armour"
+        },
+        "description": {
+          "ru": "",
+          "en": "A feudal world character ignores the maximum Agility value imposed by any armour he is wearing."
+        },
+        "hints": [
+          {
+            "tag": "HW_FDWL_BONUS_H1",
+            "description": {
+              "ru": "",
+              "en": "A feudal world character ignores the maximum Agility value imposed by any armour he is wearing."
+            },
+            "targets": ["ST_AG", "SK_DDG"]
+          }
+        ],
+        "commands": []
+      },
+      "aptitude": "A_WS",
+      "wounds": 9
+    },
+    {
+      "tag": "HW_FRWL",
+      "name": {
+        "ru": "Мир-фронтир",
+        "en": "Frontier world"
+      },
+      "description": {
+        "ru": "",
+        "en": "Frontier worlds occupy the desperate, lawless fringes of the Imperium. Inhabitants quickly learn self-reliance by necessity, knowing that they cannot expect outside aid against marauding humans or ravenous aliens. As always, where there is little Imperial attention, heresy and mutation festers unchecked. Frontier worlds swarm with the violent dregs of humanity, with pirates, bandits, outlaws, and worse ruling many areas. These planets easily become breeding grounds for rogue psykers, misguided heresies, and vile cults, and can threaten Mankind across the wider Imperium should their contagion spread."
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_BS": 5,
+        "ST_PER": 5,
+        "ST_FEL": -5
+      },
+      "fate": 3,
+      "blessing": 7,
+      "bonus": {
+        "tag": "HW_FRWL_BONUS",
+        "name": {
+          "ru": "",
+          "en": ""
+        },
+        "description": {
+          "ru": "",
+          "en": "Rely on none but yourself"
+        },
+        "hints": [
+          {
+            "tag": "HW_FRWL_BONUS_H1",
+            "description": {
+              "ru": "",
+              "en": "A frontier world character gains a +20 bonus to Tech-Use tests when applying personal weapon modifications, and a +10 bonus when repairing damaged items."
+            },
+            "targets": ["SK_TECH", "ST_INT"]
+          }
+        ],
+        "commands": []
+      },
+      "aptitude": "A_BS",
+      "wounds": 7
+    },
+    {
+      "tag": "HW_DMNW",
+      "name": {
+        "ru": "Демонический мир",
+        "en": "Daemon world"
+      },
+      "description": {
+        "ru": "",
+        "en": "Citizens of the Imperium hail from all manner of dangerous planets and locations, but none rival the horrors of Daemon worlds. Chaos rules in these locations, and creatures of the Warp roam twisted landscapes made of nightmare and insanity. These hell-worlds are created by immersion in the Immaterium from Warp Storms. Some are even brought into life through deliberate machinations, the acts of those who keep the Left Hand of the Emperor ever watchful. Daemon worlds require investigation to seek the seeds of the Ruinous Powers’ evil harvest, so that it can be prevented elsewhere—for once a world has been steeped in the stuff of Chaos, it is never the same again. Regardless of their origins, these planets are twisted parodies of reality, where the improbable is often made manifest and corruption infuses the land. Those who live there are often reduced to amusing prey or tortured slaves for the Ruinous Powers, and survival is more than just staying alive—it is also a struggle to stay human."
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_WP": 5,
+        "ST_PER": 5,
+        "ST_FEL": -5
+      },
+      "fate": 3,
+      "blessing": 4,
+      "bonus": {
+        "tag": "HW_DMNW_BONUS",
+        "name": {
+          "ru": "Тронутый варпом",
+          "en": "Touched by the Warp"
+        },
+        "description": {
+          "ru": "",
+          "en": "A Daemon world native begins with one Rank in the Psyniscience skill. Should he gain this skill again in a later step of character creation, he instead gains one additional Rank in the skill. Note that he cannot purchase more Ranks of this skill unless he acquires the Psyker aptitude. This character also begins with 1d10+5 Corruption points."
+        },
+        "hints": [],
+        "commands": [
+          {
+            "command": "GainSkill",
+            "tag": "SK_PSY"
+          },
+          {
+            "command": "GainCorruption",
+            "dice": 10,
+            "bonus": 5
+          }
+        ]
+      },
+      "aptitude": "A_WP",
+      "wounds": 7
+    },
+    {
+      "tag": "HW_PNCL",
+      "name": {
+        "ru": "Мир-тюрьма",
+        "en": "Penal colony"
+      },
+      "description": {
+        "ru": "",
+        "en": "Where most world classifications stem from the types of terrain or lifeforms found there, penal colonies are defined by strict Imperial Law. In every expansion, there are recidivists, looters, murderers, and thieves who appear in its wake. The most violent or persistent offenders, if not granted summary execution at the time of apprehension, may be shipped off-world to facilities designed to house them permanently. These purgatories made real are often ruined worlds left forgotten due to their lack of strategic importance or natural resources. Buildings are repurposed and retrofitted to accommodate massive numbers of inmates, and automated defences are brought in to keep the new residents in line. It is here that the lawbreakers are left to wither and die—though some survive to escape their sentence, and fight for the Emperor on other fronts."
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_T": 5,
+        "ST_PER": 5,
+        "ST_IFL": -5
+      },
+      "fate": 3,
+      "blessing": 8,
+      "bonus": {
+        "tag": "HW_PNCL_BONUS",
+        "name": {
+          "ru": "",
+          "en": "Finger on the pulse"
+        },
+        "description": {
+          "ru": "",
+          "en": "One survives a penal colony by instinctively knowing who is in charge and who is a threat. A penal colony character begins with one Rank in the Common Lore (Underworld) and Scrutiny skills, and starts with the Peer (Criminal Cartels) talent."
+        },
+        "hints": [],
+        "commands": [
+          {
+            "command": "GainSkill",
+            "tag": "SK_CML",
+            "subtag": "Underworld"
+          },
+          {
+            "command": "GainSkill",
+            "tag": "SK_SCR"
+          },
+          {
+            "command": "GainTalent",
+            "tag": "TL_PR",
+            "subtag": "Criminal cartels"
+          }
+        ]
+      },
+      "aptitude": "A_T",
+      "wounds": 10
+    },
+    {
+      "tag": "HW_QNWL",
+      "name": {
+        "ru": "Карантинный мир",
+        "en": "Quarantine world"
+      },
+      "description": {
+        "ru": "",
+        "en": "Quarantine worlds are marked as forbidden for visitation, settlement, or contact of any kind. Some might be seemingly benign verdant spheres, others might be foreboding rocks, but the Imperium has determined there is some terrible threat that outweighs any possible usefulness they might contain. Such threats range from biological agents to xenos species infiltration, and even to possible Warp-taint and other unholy threats. Whatever the catastrophe, potential or historical, it is viewed as a far greater risk than any reward it could bring. Once the edict is given, the Imperial Navy provides the military and defence systems the situation requires, from message buoys at the outskirts of the system to patrolling ships and orbiting weapons platforms. No unauthorised craft is allowed anywhere near the space and any found are generally destroyed without question. In case of extreme risk to the sector, the human population is often annihilated to prevent any potential escape attempts. Regardless of whether anyone survives this culling, no one is allowed to set foot on those planets without proper authorisation. To be discovered breaking a writ of quarantine is a death sentence."
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_BS": 5,
+        "ST_INT": 5,
+        "ST_STR": -5
+      },
+      "fate": 3,
+      "blessing": 9,
+      "bonus": {
+        "tag": "HW_PNCL_BONUS",
+        "name": {
+          "ru": "",
+          "en": "Secretive by nature"
+        },
+        "description": {
+          "ru": "",
+          "en": "Those who manage to leave a quarantine world learn how to keep secrets. Whenever the warband’s Subtlety would decrease, it decreases by 2 less (to a minimum reduction of 1)."
+        },
+        "hints": [
+          {
+            "tag": "HW_PNCL_BONUS_H1",
+            "description": {
+              "ru": "",
+              "en": "Those who manage to leave a quarantine world learn how to keep secrets. Whenever the warband’s Subtlety would decrease, it decreases by 2 less (to a minimum reduction of 1)."
+            },
+            "targets": ["ST_IFL"]
+          }
+        ],
+        "commands": []
+      },
+      "aptitude": "A_FLD",
+      "wounds": 8
+    }
+  ]
+}
