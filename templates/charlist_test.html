@@ -135,4 +135,107 @@
     {% else %}
         <p>Empty</p>
     {% endif %}
+    {% if facade.talent_descriptions %}
+        <h4>Таланты</h4>
+        {% for key, talent in facade.talent_descriptions.items %}
+            <div class="card">
+                <ul class="nav nav-tabs" id="tab-{{ talent.get_tag }}" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="ru-{{ talent.get_tag }}-tag" data-bs-toggle="tab" aria-current="page" href="#ru-{{ talent.get_tag }}">Русский</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="en-{{ talent.get_tag }}-tag" data-bs-toggle="tab" aria-current="page" href="#en-{{ talent.get_tag }}">Русский</a>
+                    </li>
+                    <div class="card-body tab-content" id="tab-content-{{ talent.get_tag }}">
+                        <div class="tab-pane fade show active" id="ru-{{ talent.get_tag }}" role="tabpanel" aria-labelledby="ru-{{ talent.get_tag }}-tag">
+                            <h5>{{ talent.get_name_ru }}</h5>
+                            <p>Краткое описание</p>
+                            <p>{{ talent.get_short_description_ru }}</p>
+                            <p>Полное описание</p>
+                            <p>{{ talent.get_short_description_ru }}</p>
+                            <h5>Стикеры</h5>
+                            <ul>
+                                {% for hint in talent.get_hints %}
+                                    <li>
+                                        <p>{{ hint.get_name_ru }}</p>
+                                        <p>{{ hint.get_description_ru }}</p>
+                                        <ul>
+                                            {% for tgt in self.get_target %}
+                                                <li>{{ tgt }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade show" id="en-{{ talent.get_tag }}" role="tabpanel" aria-labelledby="en-{{ talent.get_tag }}-tag">
+                            <h5>{{ talent.get_name_en }}</h5>
+                            <p>Short description</p>
+                            <p>{{ talent.get_short_description_en }}</p>
+                            <p>Full description</p>
+                            <p>{{ talent.get_full_description_en }}</p>
+                            <h5>Hints</h5>
+                            <ul>
+                                {% for hint in talent.get_hints %}
+                                    <li>
+                                        <p>{{ hint.get_name_en }}</p>
+                                        <p>{{ hint.get_description_en }}</p>
+                                        <ul>
+                                            {% for tgt in self.get_target %}
+                                                <li>{{ tgt }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-text">
+                        {% if talent.has_prerequisites %}
+                            <h5>Требования</h5>
+                            <ul>
+                                {% for prereq in talent.get_prerequisites %}
+                                    <li>
+                                        <p>{{ prereg.tag }} {% if prereg.has_subtag %}{% for st in prereg.subtag %}{{ st }}/{% endfor%}{% endif %}: {{ prereq.value }}</p>
+                                        {% if prereg.has_alt %}
+                                            <p>{{ prereg.get_alt_tag }} {% if  prereg.alt_has_subtag %}{% for st in prereg.get_alt_subtag %}{{ st }}/{% endfor%}{% endif% }: {{ prereg.get_alt_value }}</p>
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <h5>Требований не имеет</h5>
+                        {% endif %}
+                    </div>
+                    <div class="card-text">
+                        <h5>Тир: {{ talent.get_tier }}</h5>
+                    </div>
+                    <div class="card-text">
+                        <h5>Склонности</h5>
+                        <ul>
+                            {% for apt in talent.get_apts %}
+                                <li>{{ facade|get_aptitude:apt|get_apt_name:'ru' }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="card-text">
+                        <p>
+                        {% if talent.is_specialits %}
+                            Имеет специализации
+                        {% else %}
+                            Не имеет специализаций
+                        {% endif %}
+                        </p>
+                    </div>
+                    <div class="card-text">
+                        <p>
+                            Берется {% if talent.is_stackable %} несколько {% else %} один {% endif %} раз
+                        </p>
+                    </div>
+                </ul>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Empty</p>
+    {% endif %}
 {% endblock %}

@@ -179,15 +179,30 @@ class HintedDescription(ObjectDescription):
     def get_short_description(self, lang=RU):
         return super().get_description(lang)
 
+    def get_full_description_ru(self):
+        return self.get_description(RU)
+
+    def get_full_description_en(self):
+        return self.get_description(EN)
+
+    def get_short_description_ru(self):
+        return self.get_short_description(RU)
+
+    def get_short_description_en(self):
+        return self.get_short_description(EN)
+
 
 class TalentDescription(HintedDescription):
     def __init__(self, tag: str, name: Dict[str, str],
                  description: Dict[str, str], hints: List[Hint],
-                 tier: int, aptitudes: List[str], prerequisites: List[TalentPrerequisite]):
+                 tier: int, aptitudes: List[str], prerequisites: List[TalentPrerequisite],
+                 is_specialist: bool, is_stackable: bool):
         super().__init__(tag, name, description, hints)
         self.__tier = tier
         self.__aptitudes = aptitudes
         self.__prerequisites = prerequisites
+        self.__is_specialist = is_specialist
+        self.__is_stackable = is_stackable
 
     def get_tier(self):
         return self.__tier
@@ -195,8 +210,17 @@ class TalentDescription(HintedDescription):
     def get_aptitudes(self):
         return self.__aptitudes
 
+    def has_prerequisites(self):
+        return len(self.__prerequisites) > 0
+
     def get_prerequisites(self):
         return self.__prerequisites
+
+    def is_specialist(self):
+        return self.__is_specialist
+
+    def is_stackable(self):
+        return self.__is_stackable
 
     @classmethod
     def from_model(cls, model: TalentDescriptionModel):
@@ -204,7 +228,8 @@ class TalentDescription(HintedDescription):
         for hint in model.hints:
             hints.append(Hint.from_model(hint))
         return cls(model.tag, model.name, model.description,
-                   hints, model.tier, model.aptitudes, model.prerequisites)
+                   hints, model.tier, model.aptitudes, model.prerequisites,
+                   model.is_specialist, model.is_stackable)
 
     @classmethod
     def from_file(cls, fdata):
@@ -293,7 +318,7 @@ class BackgroundDescription(HintedDescription):
                  aptitudes: List[str], apt_choices: List[str],
                  skills: List[Dict[str, str]], skill_choices: List[List[Dict[str, str]]],
                  talents: List[Dict[str, str]], talent_choices: List[Dict[str, str]],
-                 traits: List[str], traist_choices: List[Dict[str, str]], equipment: List[str], bonus: BonusDescription):
+                 traits: List[str], trait_choices: List[Dict[str, str]], equipment: List[str], bonus: BonusDescription):
         super().__init__(tag, name, description, hints)
         self.__aptitudes  = aptitudes
         self.__apt_choices = apt_choices
@@ -302,7 +327,7 @@ class BackgroundDescription(HintedDescription):
         self.__talents = talents
         self.__talent_choices = talent_choices
         self.__traits = traits
-        self.__traits_choices = traist_choices
+        self.__traits_choices = trait_choices
         self.__equipment = equipment
         self.__bonus = bonus
 

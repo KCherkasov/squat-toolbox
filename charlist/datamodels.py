@@ -66,6 +66,24 @@ class TalentPrerequisite(object):
         self.value = value
         self.alt = alt
 
+    def has_subtag(self):
+        return not (self.subtag is None)
+
+    def has_alt(self):
+        return not (self.alt is None)
+
+    def get_alt_tag(self):
+        return self.alt['tag']
+
+    def alt_has_subtag(self):
+        return 'subtag' in self.alt.keys()
+
+    def get_alt_subtag(self):
+        return self.alt['subtag']
+
+    def get_alt_value(self):
+        return self.alt['value']
+
     @classmethod
     def from_json(cls, data):
         return cls(**data)
@@ -76,7 +94,9 @@ class TalentDescriptionModel(object):
                  description: Dict[str, str],
                  hints: List[HintModel], tier: int,
                  aptitudes: List[str],
-                 prerequisites: List[TalentPrerequisite]):
+                 prerequisites: List[TalentPrerequisite],
+                 is_specialist: bool,
+                 is_stackable: bool):
         self.tag = tag
         self.name = name
         self.description = description
@@ -84,6 +104,8 @@ class TalentDescriptionModel(object):
         self.tier = tier
         self.aptitudes = aptitudes
         self.prerequisites = prerequisites
+        self.is_specialist = is_specialist
+        self.is_stackable = is_stackable
 
     @classmethod
     def from_json(cls, data):
