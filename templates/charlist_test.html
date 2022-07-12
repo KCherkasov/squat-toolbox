@@ -205,15 +205,15 @@
                                     {% for st in prereq.get_alt_subtag %}
                                         {{ st }}/
                                     {% endfor %}
-                                {% endif% }
-                                : {{ prereq.get_alt_value }}</p>
+                                {% else %}
+                                {% endif% }: {{ prereq.get_alt_value }}</p>
                             {% else %}
                             {% endif %}
-                        </li>
-                        {% endfor %}
-                    </ul>
+                            </li>
+                            {% endfor %}
+                        </ul>
                     {% else %}
-                    <h5>Требований не имеет</h5>
+                        <h5>Требований не имеет</h5>
                     {% endif %}
                 </div>
                 <div class="card-text">
