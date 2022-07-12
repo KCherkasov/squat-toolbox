@@ -212,7 +212,8 @@
           "description": {
             "ru": "При Совместной Атаке одного противника вдвоём, персонаж получает дополнительный бонус +10 к проверкам Навыка Рукопашной. Если этот талант есть у обоих союзников, бонус увеличивается до +20. Эти бонусы добавляются к обычному для Совместной Атаки",
             "en": "When Ganging Up on an opponent, he gains an additional +10 bonus to Weapon Skill tests. If both the characters that outnumber the enemy have this talent, then both gain an additional +10 bonus, for a total of +20. This bonus is in addition to the normal bonus gained from Ganging Up on an opponent"
-          }
+          },
+          "targets": ["ST_WS"]
         }
       ],
       "tier": 1,
@@ -996,7 +997,8 @@
           "description": {
             "ru": "При броске на Инициативу этот аколит бросает два кубика и выбирает наибольшее значение из выпавших.",
             "en": "The Acolyte rolls two dices when rolling for Initiative and picks the highest roll."
-          }
+          },
+          "targets": ["ST_PER", "ST_INT", "ST_AG"]
         }
       ],
       "tier": 2,
@@ -1525,7 +1527,8 @@
           "description": {
             "ru": "В начале каждого своего хода персонаж может потратить очко Судьбы для того, чтобы до конца раунда его атак в ближнем бою нельзя было избежать Парированием или Уклонением. Этот талант не влияет на другие способы избежать атаки – например, отражающие силовые поля или защитные ксеноустройства.",
             "en": "At the beginning of each of his turns, the character may spend a Fate point to make his melee attacks unavoidable with the Dodge and Parry skills until the end of the round. Other means of avoiding or stopping attacks (such as displacer fields or alien protective devices) are unaffected."
-          }
+          },
+          "targets": ["ST_WS", "FP"]
         }
       ],
       "tier": 2,
@@ -1652,7 +1655,8 @@
           "description": {
             "ru": "Выбирая этот талант, персонаж определяет свою специализацию (рукопашную или стрелковую с соответствующей Склонностью). При совершении действия Меткая атака персонаж не получает обычного штрафа -20.",
             "en": "When making a Called Shot with a melee or ranged attack (depending on the Specialisation), the character does not suffer the usual –20 penalty."
-          }
+          },
+          "targets": ["ST_WS", "ST_BS", "AC_CLSH"]
         }
       ],
       "tier": 2,
@@ -1815,6 +1819,7 @@
             "ru": "Персонаж получает черту Смертоносное Природное Оружие и считается имеющим его, даже стоя с голыми руками против толпы вооруженных врагов. Сражаясь голыми руками, персонаж может перебрасывать кости, определяющие нанесенный его ударами Урон.",
             "en": "He gains the Deadly Natural Weapon trait, and counts as armed even when facing weapon-wielding opponents while barehanded. While fighting barehanded, he can also re-roll the damage he inflicts."
           },
+          "targets": [],
           "command": {
             "command": "GainTrait",
             "tag": "TR_DNWP"
@@ -2423,7 +2428,8 @@
           "description": {
             "ru": "Аколит может потратить очко Судьбы, чтобы автоматически пройти проверку выбранного умения, облегчая проверку до +0 или проще. Количество степеней успеха считается равным бонусу связанной с умением характеристики. Этот талант можно взять несколько раз, каждый раз для другого умения.",
             "en": "The Acolyte can spend a Fate point to automatically pass a skill test with his chosen skill, provided the final modifier to his skill test is Challenging (+0) or better. He scores a number of degrees of success equal to the characteristic bonus of the skill’s associated characteristic. This talent may be taken more than once, each time for a different skill."
-          }
+          },
+          "targets": ["FP"]
         }
       ],
       "tier": 3,
@@ -2776,7 +2782,8 @@
           "description": {
             "ru": "Будучи вооружен одним одноручным оружием в каждой руке (таким как, меч или пистолет), аколит не получает штраф -20 за ведения боя двумя руками одновременно.",
             "en": "When armed with two single-handed weapons (such as a pistol or sword in either hand), the character ignores the –20 penalty for Two-Weapon Fighting"
-          }
+          },
+          "targets": ["ST_WS", "ST_BS"]
         }
       ],
       "tier": 3,
@@ -4156,7 +4163,8 @@
           "description": {
             "ru": "Персонаж уменьшает штраф за использование оружия без надлежащего обучения на 10.",
             "en": "The character reduces the penalty for using a weapon without the proper training by 10."
-          }
+          },
+          "targets": ["ST_WS", "ST_BS"]
         }
       ],
       "tier": 3,
