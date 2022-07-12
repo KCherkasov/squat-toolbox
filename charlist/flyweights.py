@@ -201,7 +201,11 @@ class HintedDescription(ObjectDescription):
         return res
 
     def get_description(self, lang=RU):
-        return super().get_description(lang).join('\n\n').join(self.get_hints_str(lang))
+        res = super().get_description(lang)
+        for hint in self.__hints:
+            res += '\n\n'
+            res += hint.get_description(lang)
+        return res
 
     def get_short_description(self, lang=RU):
         return super().get_description(lang)
