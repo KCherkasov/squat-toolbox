@@ -47,7 +47,8 @@ class SkillDescriptionModel(object):
 
 
 class HintModel(object):
-    def __init__(self, tag: str, description: Dict[str, str], targets: List[str], bonus: int, condition: str = None):
+    def __init__(self, tag: str, description: Dict[str, str], targets: List[str],
+                 bonus: int = None, condition: str = None):
         self.tag = tag
         self.description = description
         self.targets = targets
