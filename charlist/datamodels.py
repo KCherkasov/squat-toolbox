@@ -109,8 +109,8 @@ class TalentDescriptionModel(object):
 
     @classmethod
     def from_json(cls, data):
-        # hints = list()
-        # for model in data['hints']:
-        #     hints.append(HintModel.from_json(model))
-        # data['hints'] = hints
+        hints = list()
+        for model in data['hints']:
+            hints.append(HintModel.from_json(model))
+        data['hints'] = hints
         return cls(**data)
