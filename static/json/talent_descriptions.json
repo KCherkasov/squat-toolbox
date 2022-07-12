@@ -446,7 +446,7 @@
             "ru": "Персонаж может подняться на ноги в качестве Свободного действия.",
             "en": "Character can stand up as a Free Action."
           },
-          "targets": ["ST_AG", "A_STAND_UP"]
+          "targets": ["ST_AG", "AC_STAND_UP"]
         }
       ],
       "tier": 1,
@@ -2986,7 +2986,7 @@
       "aptitudes": ["A_GEN", "A_WP"],
       "prerequisites": [
         {
-          "tag": "EA_UNT",
+          "tag": "EA_UNTC",
           "value": 1
         },
         {
@@ -3326,11 +3326,11 @@
             "ru": "Когда персонаж вызывает психический феномен при проявлении силы из дисциплины Демонологии-Санктик он может потратить очко Судьбы, чтобы полностью избавиться от результата.",
             "en": "When the character triggers Psychic Phenomena when manifesting a power from the Sanctic Daemonology discipline, he may spend a Fate point in order to negate the result entirely."
           },
-          "targets": ["ST_WP", "PR"]
+          "targets": ["ST_WP", "PR", "FP"]
         }
       ],
       "tier": 3,
-      "aptitudes": ["A_WP", "A_PSY", "FP"],
+      "aptitudes": ["A_WP", "A_PSY"],
       "prerequisites": [
         {
           "tag": "TL_DML",
