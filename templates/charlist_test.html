@@ -158,10 +158,9 @@
                         <ul>
                             {% for hint in talent.get_hints %}
                             <li>
-                                <p>{{ hint.get_name_ru }}</p>
                                 <p>{{ hint.get_description_ru }}</p>
                                 <ul>
-                                    {% for tgt in self.get_target %}
+                                    {% for tgt in hint.get_target %}
                                     <li>{{ tgt }}</li>
                                     {% endfor %}
                                 </ul>
@@ -182,7 +181,7 @@
                                 <p>{{ hint.get_name_en }}</p>
                                 <p>{{ hint.get_description_en }}</p>
                                 <ul>
-                                    {% for tgt in self.get_target %}
+                                    {% for tgt in hint.get_target %}
                                     <li>{{ tgt }}</li>
                                     {% endfor %}
                                 </ul>
@@ -210,7 +209,7 @@
                                     {% for st in prereq.get_alt_subtag %}
                                         {{ st }}/
                                     {% endfor %}
-                                {% else %}{% endif% }: {{ prereq.get_alt_value }}
+                                {% else %}{% endif % }: {{ prereq.get_alt_value }}
                                 </p>
                                 {% endif %}
                             {% endif %}
