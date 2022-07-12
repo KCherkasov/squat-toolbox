@@ -3124,7 +3124,7 @@
       "hints": [
         {
           "tag": "TL_IAU_H1",
-          "descripiton": {
+          "description": {
             "ru": "Персонаж может влиять специальным использованием умения Командование Устрашить, не только на подчинённых, но и на союзников. Это не обязательно могут быть угрозы и запугивание, вполне возможны вдохновляющие речи, слова ободрения или просто проявление стойкости перед ужасающими врагами.",
             "en": "The character can affect allies of any kind—not only subordinates—with the Terrify special use for the Command skill. This need not represent threats and intimidation, but might represent inspiring words, encouragement, or sheer steadfastness in the face of terrifying foes."
           },
