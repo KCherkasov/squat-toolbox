@@ -75,6 +75,9 @@ class TalentPrerequisite(object):
     def has_alt(self):
         return not (self.alt is None)
 
+    def is_alt_list(self):
+        return isinstance(self.alt, list)
+
     def get_alt_tag(self):
         return self.alt.get('tag')
 
@@ -86,6 +89,9 @@ class TalentPrerequisite(object):
 
     def get_alt_value(self):
         return self.alt.get('value')
+
+    def get_alt(self):
+        return self.alt
 
     @classmethod
     def from_json(cls, data):

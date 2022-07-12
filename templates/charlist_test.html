@@ -200,6 +200,11 @@
                             <p>{{ prereq.tag }} {% if prereq.has_subtag %}{% for st in prereq.subtag %}{{ st }}/{% endfor %}{% else %}{% endif %}: {{ prereq.value }}</p>
                             {% if prereq.has_alt %}
                                 <p>Или</p>
+                                {% if prereg.is_alt_list %}
+                                {% for alt in prereg.get_alt %}
+                                <p>{% for key, value in alt.items %}{% if key == 'tag' %}{{ value }}{% elif key == 'subtag' %}{% for v in value %} {{ v }}/ {% endfor %} {% else %}: {{ value }}{% endif %}{% endfor %}</p>
+                                {% endfor %}
+                                {%  else %}
                                 <p>
                                 {{ prereq.get_alt_tag }} {% if prereq.alt_has_subtag %}
                                     {% for st in prereq.get_alt_subtag %}
@@ -207,6 +212,7 @@
                                     {% endfor %}
                                 {% else %}{% endif% }: {{ prereq.get_alt_value }}
                                 </p>
+                                {% endif %}
                             {% endif %}
                         </li>
                         {% endif %}
