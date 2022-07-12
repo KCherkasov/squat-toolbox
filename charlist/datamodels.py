@@ -82,10 +82,10 @@ class TalentPrerequisite(object):
         return 'subtag' in self.alt.keys()
 
     def get_alt_subtag(self):
-        return self.alt['subtag']
+        return self.alt.get('subtag')
 
     def get_alt_value(self):
-        return self.alt['value']
+        return self.alt.get('value')
 
     @classmethod
     def from_json(cls, data):
