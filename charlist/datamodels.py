@@ -76,7 +76,7 @@ class TalentPrerequisite(object):
         return not (self.alt is None)
 
     def get_alt_tag(self):
-        return self.alt['tag']
+        return self.alt.get('tag')
 
     def alt_has_subtag(self):
         return 'subtag' in self.alt.keys()
