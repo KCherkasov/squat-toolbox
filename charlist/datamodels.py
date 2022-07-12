@@ -63,7 +63,7 @@ class HintModel(object):
 
 
 class TalentPrerequisite(object):
-    def __init__(self, tag: str, value: int, subtag: List[str], alt: Dict = None):
+    def __init__(self, tag: str, value: int, subtag: List[str] = None, alt: Dict = None):
         self.tag = tag
         self.subtag = subtag
         self.value = value
@@ -116,4 +116,8 @@ class TalentDescriptionModel(object):
         for model in data['hints']:
             hints.append(HintModel.from_json(model))
         data['hints'] = hints
+        prerequisites = list()
+        for model in data['prerequisites']:
+            prerequisites.append(TalentPrerequisite.from_json(model))
+        data['prerequisites'] = prerequisites
         return cls(**data)

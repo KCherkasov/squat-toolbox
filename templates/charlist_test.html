@@ -144,7 +144,7 @@
                         <a class="nav-link active" id="ru-{{ talent.get_tag }}-tag" data-bs-toggle="tab" aria-current="page" href="#ru-{{ talent.get_tag }}">Русский</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="en-{{ talent.get_tag }}-tag" data-bs-toggle="tab" aria-current="page" href="#en-{{ talent.get_tag }}">Русский</a>
+                        <a class="nav-link" id="en-{{ talent.get_tag }}-tag" data-bs-toggle="tab" aria-current="page" href="#en-{{ talent.get_tag }}">English</a>
                     </li>
                 </ul>
                 <div class="card-body tab-content" id="tab-content-{{ talent.get_tag }}">
@@ -153,7 +153,7 @@
                         <p>Краткое описание</p>
                         <p>{{ talent.get_short_description_ru }}</p>
                         <p>Полное описание</p>
-                        <p>{{ talent.get_short_description_ru }}</p>
+                        <p>{{ talent.get_full_description_ru }}</p>
                         <h5>Стикеры</h5>
                         <ul>
                             {% for hint in talent.get_hints %}
@@ -222,7 +222,7 @@
                 <div class="card-text">
                     <h5>Склонности</h5>
                     <ul>
-                        {% for apt in talent.get_apts %}
+                        {% for apt in talent.get_aptitudes %}
                         <li>{{ facade|get_aptitude:apt|get_apt_name:'ru' }}</li>
                         {% endfor %}
                     </ul>
