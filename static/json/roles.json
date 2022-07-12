@@ -7,7 +7,7 @@
         "en": "Assassin"
       },
       "description": {
-        "ru": "",
+        "ru": "Даже в переполненной кровью и смертью вселенной есть те, кто превратил убийство в возвышенную форму искусства. Ассасин провёл жизнь, оттачивая талант убийцы, совершенствуясь с каждой отнятой жизнью. Хотя многие слуги Императора опытны в бою, Ассасина привлекает только сам акт убийства и мало волнуют банальность сражения. Ведомые нездоровой жаждой чужой крови или холодной безжалостной отрешённостью, они могут быть самых разных типов, связанных с друг-другом лишь желанием нести смерть наиболее грандиозным или эффективным образом. Такие люди неизбежно вступают в одну из организаций, где почитаются убийства или есть нужда в подобных специалистах. Многие вступают в Культы Смерти — общества восхищающихся смертями. Других могут рекрутировать загадочные имперские организации, занятые санкционированными убийствами. Но во всех случаях Ассасина определяет аналогичный подход к жизни и желание развивать свой талант, страсть к убийствам, которая не угаснет пока ему самому не подарят смерть.",
         "en": "Even in a universe saturated with blood and death, there are those which turn murder into a sublime art form. The Assassin is such a being, spending their lives perfecting talents in the kill, rising to greater heights with each life they take. While many who serve the Emperor are proficient in battle, Assassins revel only in the act of killing and often care little for commonplace combat. Driven with either an unhealthy thirst for the blood of others or a cold detachment leaving them bereft of their humanity, they can come in a variety of forms, linked together only by their desire to deliver death in the most efficient or grandiose way possible. They are inevitably drawn to those organisations which revere killing as much as they do or are in need of such artful killers. Many join death cults, societies devoted to the act of murder. Others might be recruited to mysterious Imperial organisations devoted to the art of sanctioned killing. In all cases it is the desire to take life and develop the skills of doing so which defines the Assassin, a journey which will end only when they themselves succumb to death."
       },
       "hints": [],
@@ -24,18 +24,18 @@
       "bonus": {
         "tag": "RL_ASSN_BONUS",
         "name": {
-          "ru": "",
+          "ru": "Гарантированное убийство",
           "en": "Sure kill"
         },
         "description": {
-          "ru": "",
+          "ru": "В дополнение к обычным использованиям очков Судьбы когда Ассасин успешно попадает атакой он может потратить очко Судьбы на нанесение первым попаданием дополнительного урона равного количеству степеней успеха проверки атаки.",
           "en": "In addition to the normal uses of Fate points, when an Assassin successfully hits with an attack, he may spend a Fate point to inflict additional damage equal to his degrees of success on the attack roll on the first hit the attack inflicts."
         },
         "hints": [
           {
             "tag": "RL_ASSN_BONUS_H1",
             "description": {
-              "ru": "",
+              "ru": "В дополнение к обычным использованиям очков Судьбы когда Ассасин успешно попадает атакой он может потратить очко Судьбы на нанесение первым попаданием дополнительного урона равного количеству степеней успеха проверки атаки.",
               "en": "In addition to the normal uses of Fate points, when an Assassin successfully hits with an attack, he may spend a Fate point to inflict additional damage equal to his degrees of success on the attack roll on the first hit the attack inflicts."
             },
             "targets": ["ST_WS", "ST_BS", "FP"]
@@ -51,7 +51,7 @@
         "en": "Chirurgeon"
       },
       "description": {
-        "ru": "",
+        "ru": "Секреты плоти тщательно охраняются Империумом. Подобно Адептус Механикус, ревностно защищающим обряды и ритуалы технологии, иные также охраняют знания о человеческом теле. Хирургеонам были открыты эти тайные пути, шаг за шагом они открывали тайны биологии и осматривали влажные сырые извлечённые органы. Они понимают благословенную форму Человека и других видов жизни, и способны сохранить или контролировать её. Некоторые Хирургеоны могут выйти из рядов Адептус Механикус Биологис, другие из полевых медиков Астра Милитарум или сестёр Адептус Сороритас орденов Госпитальер. Прочие могли быть врачами в нелегальных хаб-клиниках, шаманами-целителями или личными медлордами правителей шпилей. Способности вознесли их к вершинам Империума, ведь Хирургеоны могут лечить или мучить согласно собственному желанию или приказу господина. Так что умелый Хирургеон всегда найдёт должность палача или мастера пыток, ведь его способность вызывать боль жизненно важный товар для иерархов имперского общества. Однако, больше чем талантом палача или целителя, Хирургеон характерен жаждой знаний и экспериментаторством, часто за счёт здоровья своих пациентов. Это навязчивое стремление может привести к великому открытию и триумфу, или созданию такой мерзости, которая не должна была существовать.",
         "en": "The secrets of the flesh are closely-guarded lore within the Imperium. Just as the Adeptus Mechanicus jealously protects the rites and rituals governing its technology, so too do others hoard knowledge about the human form. Chirurgeons have been ushered into these hidden ways, peeling back the skin of biological science to gaze upon its wet, raw, beating organs. They see the understanding of the blessed form of Man and other biologics as paramount to life, either to preserve it or control it, and can become obsessed with perfecting their understanding of such matters. Some may come from the ranks of the Adeptus Mechanicus Biologis, others serving as Imperial Guard medicae or Adepta Sororitas Sisters of the Orders Hospitaller. Some may have operated as unguilded hab-docs, feral shaman-healers, or personal medilords to spire rulers. Their abilities place them in a position of great power within the Imperium, gifted as they are with the talent to either heal or harm depending on their own whims and those of their lords. As such, a good Chirurgeon can always find a place as a torturer or excoriator, his ability to cause pain a vital commodity within the hierarchy of Imperial society. More than a talent for torture or a skill at mending mangled bodies, the Chirurgeon is defined by his thirst for knowledge and a drive for experimentation, often at the expense of his patients and their wellbeing. It is an obsessive drive that can lead to great discovery and triumph, but also to the creation of abominations which were never meant to be."
       },
       "hints": [],
@@ -69,18 +69,18 @@
       "bonus": {
         "tag": "RL_CHR_BONUS",
         "name": {
-          "ru": "",
+          "ru": "Самоотверженный лекарь",
           "en": "Dedicated healer"
         },
         "description": {
-          "ru": "",
+          "ru": "В дополнение к обычным использованиям очков Судьбы (см. стр. 357) когда персонаж-Хирургеон проваливает проверку Первой Помощи, он может потратить очко Судьбы чтобы добиться автоматического успеха; степени успеха этой «проверки» равны бонусу Интеллекта Хирургеона.",
           "en": "In addition to the normal uses of Fate points, when a Chirurgeon character fails a test to provide First Aid, he can spend a Fate point to automatically succeed instead with the degrees of success equal to his Intelligence bonus."
         },
         "hints": [
           {
             "tag": "RL_CHR_BONUS_H1",
             "description": {
-              "ru": "",
+              "ru": "В дополнение к обычным использованиям очков Судьбы (см. стр. 357) когда персонаж-Хирургеон проваливает проверку Первой Помощи, он может потратить очко Судьбы чтобы автоматически пройти данную проверку с $INTB степенями успеха.",
               "en": "In addition to the normal uses of Fate points, when a Chirurgeon character fails a test to provide First Aid, he can spend a Fate point to automatically succeed instead with $INTB degrees of success"
             },
             "targets": ["SK_MED", "FP"]
@@ -92,11 +92,11 @@
     {
       "tag": "RL_DSPR",
       "name": {
-        "ru": "",
+        "ru": "Десперадо",
         "en": "Desperado"
       },
       "description": {
-        "ru": "",
+        "ru": "На каждом мире есть мужчины и женщины, выживающие на окраине или живущие сдачей своих талантов тем, кому нужны мышцы и пушки, а не вопросы. Десперадо, это пёстрая группа объединяющая мерзавцев, охотников за головами, работорговцев, пиратов и ренегатов, то есть всех, кто существует на границе закона или полностью вне его. Они могут быть очаровательными мошенниками или суровыми людьми, не знающими иного языка, кроме языка насилия. Большая часть из них крайние индивидуалисты, не преданные никому, кроме текущего нанимателя. Обнаружив в себе талант трясти как богачей, так и бедняков, некоторые дрейфуют от полузаконных заработков, как телохранители и силовики, до откровенного воровства и убийств. Прожившие достаточно долго становятся мастерами предчувствия опасности, общения с другими представителями своего рода и познаний когда нужно бросить всё и валить. Также они могут быть талантливыми ганслингерами, используя оружие для самозащиты или убийства вставших на пути. Сущность Десперадо определяется эгоистичностью их натур и презрением к властям, они выбирают путь вне закона, особенно если он позволит жить свободно и богато.",
         "en": "Every world has men and women that live out on its fringes or survive by their skills with a gun, selling their talents to those in need of a bit more muscle with no questions asked. Desperados are a motley group, comprising scum, bounty hunters, slavers, pirates, and renegades, all people who exist on the border or beyond the law. They can be charmers using roguish appeal to further their latest con, or harsh men who know nothing but violence. Most are singular individuals who know no allegiance other than the current best offer. Having found a talent for shaking down the rich and poor alike, some drift between semi-legitimate jobs as bodyguards and enforcers to outright theft and murder. Those that survive long enough become adept at sensing danger, dealing with others of their kind and knowing well when to cut and run. They can also become talented gunslingers, frequently using their weapons to protect their lives or take the lives of those in their way. Desperados are defined by their selfish natures and scorn for authority, choosing the path of the outlaw if it means living free and getting a quick score to see them though another day."
       },
       "hints": [],
@@ -113,18 +113,18 @@
       "bonus": {
         "tag": "RL_DSPR_BONUS",
         "name": {
-          "ru": "",
+          "ru": "Беги и стреляй",
           "en": "Move and shoot"
         },
         "description": {
-          "ru": "",
+          "ru": "Один раз в раунд, после совершения действия Движения, персонаж-Десперадо может выполнить одну Стандартную Атаку с имеющимся у него оружием типа Пистолет как Свободное действие.",
           "en": "Once per round, after performing a Move action, a Desperado character may perform a single Standard Attack with a Pistol weapon he is currently wielding as a Free Action."
         },
         "hints": [
           {
             "tag": "RL_DSPR_BONUS_H1",
             "description": {
-              "ru": "",
+              "ru": "Один раз в раунд, после совершения действия Движения, персонаж-Десперадо может выполнить одну Стандартную Атаку с имеющимся у него оружием типа Пистолет как Свободное действие.",
               "en": "Once per round, after performing a Move action, a Desperado character may perform a single Standard Attack with a Pistol weapon he is currently wielding as a Free Action."
             },
             "targets": ["ST_BS"]
@@ -140,7 +140,7 @@
         "en": "Hierophant"
       },
       "description": {
-        "ru": "",
+        "ru": "Культ Императора действует по всему Империуму. Слава владыки Человечества, древние тайны Бога-Машины и более миллиона религий — всё связано с почитанием божественного Императора. Иерофанты посвящены Имперским Кредо как священники и исповедники, клирики и мудрецы, ораторы и демагоги, что несут Его слово и обеспечивают соблюдение догматов веры бесчисленным населением. В каждом Иерофанте как в человеке Императора есть аспект божественного, искра пламенной убеждённости, что поднимает их против тьмы и хранит живой душу Империума, даже если тело раскалывают извне и изнутри. С огнём, быстрым правосудием и десятью тысячами лет истории Иерофант готов сразить любого, кто выступит против него и его бога. Иерофанта характеризуют, прежде всего, убеждённость и отношение к Императору — это его меч и щит от всех врагов Империума, и там, где другие поддадутся страху и сомнению, Иерофант атакует со словом Императора на губах и непоколебимой верой в сердце.",
         "en": "The Cult of the Emperor exists throughout the Imperium. The glory of the master of Mankind is found in the teachings of the Ministorum, the ancient secrets of the Machine God, and a million more faiths all linked to the veneration of the blessed Emperor. Hierophants are those dedicated to the Imperial Creed, as priests and confessors, clerics and wise men, or as orators and demagogues spreading His word and enforcing the tenets of the faith upon the teeming masses of humanity. As men of the Emperor, there is an aspect of the divine in all Hierophants, a spark of fervent conviction that drives them against the darkness and keeps the spirit of the Imperium alive even as it crumbles from without and within. With fire and swift justice, the Hierophant stands with ten thousand years of faith at his back, ready to strike down any who would oppose him and his god. He is defined above all else by his certitude and his relationship to the Emperor; this is his shield and his sword against the enemies of the Imperium, and where others succumb to doubt and fear, the Hierophant charges on, the word of the Emperor on his lips and an unshakable truth in his heart."
       },
       "hints": [],
@@ -158,18 +158,18 @@
       "bonus": {
         "tag": "RL_HRPT_BONUS",
         "name": {
-          "ru": "",
+          "ru": "Власть над толпами",
           "en": "Sway the masses"
         },
         "description": {
-          "ru": "",
+          "ru": "В дополнение к обычным использованиям очков Судьбы персонаж-Иерофант может потратить очко Судьбы на автоматический успех проверки умения Обаяние, Командование или Запугивание, степени успеха равны бонусу Силы Воли Иерофанта.",
           "en": "In addition to the normal uses of Fate points, a Hierophant character may spend a Fate point to automatically succeed at a Charm, Command, or Intimidate skill test with a number of degrees of success equal to his Willpower bonus."
         },
         "hints": [
           {
             "tag": "RL_HRPT_BONUS_H1",
             "description": {
-              "ru": "",
+              "ru": "В дополнение к обычным использованиям очков Судьбы, персонаж-Иерофант может потратить очко Судьбы на автоматически пройти проверку умения Обаяние, Командование или Запугивание с $WPB степенями успеха.",
               "en": "In addition to the normal uses of Fate points, a Hierophant character may spend a Fate point to automatically succeed at a Charm, Command, or Intimidate skill test with $WPB degrees of success."
             },
             "targets": ["ST_WP", "FP", "SK_CH", "SK_CMD", "SK_INTM"]
@@ -185,7 +185,7 @@
         "en": "Mystic"
       },
       "description": {
-        "ru": "",
+        "ru": "Тысячи лет эволюции породили в Империуме целые поколения псайкеров, душ, одарённых талантом манипулировать могучими, но непредсказуемыми силами. Мистиков, так или иначе, коснулся Варп и те получили некоторый контроль над его приливами и проблески понимания как его использовать. Будучи псайкерами примарис, примитивными варп-провидцами или мятежными колдунами, Мистики дают Человечеству связь с Морем Душ, а также его силами и обитателями. Эти проклятые дары позволяют Мистикам смотреть на многие вещи как на связанные между собой. Даже малейшее происшествие может быть признаком потустороннего влияния, а технологии крайне мало помогают против невидимого врага. Даже проблеска потустороннего существования достаточно, чтобы познать хрупкость реальности, и от этого знания необходимо защитить обычного подданного Империума. Имматериум и его использование могут дать человеку спасение в самый опасный момент, оружие против врагов или проблеск грядущего. Однако он — как древние моря Терры — непредсказуем, неукротим и способен измениться за один миг. Такова опасность, с которой Мистики проведут всю жизнь — знание того, что все дары и положение, что приносит им сила, она же, скорее всего, и уничтожит вместе с их жизнью. Мистиков определяет их связь с Варпом, она наделяет их знанием за пределами доступного обычному человеку и единственной стоящей защитой от ужасающих сущностей, жаждущих прорваться в реальность.",
         "en": "Millennia of human evolution have given rise to whole generations of psykers within the Imperium, gifted souls with a talent for manipulating potent yet unpredictable power. Mystics are those the Warp has touched in some way, gaining a measure of control over its unnatural tides and a glimmer of insight into its use. Either as Primaris Psykers, primitive Warp-seers, or renegade sorcerers, Mystics represents Mankind’s connection to the Sea of Souls and the powers and denizens which dwell within. Their cursed gifts lead many of them to view all things as interconnected. Even the slightest occurrence can be seen as signs from beyond, and technology as an unreliable prop against the terrors unseen. To even glimpse what exists beyond the veil is to see the fragile nature of reality, and know of horrors no ordinary Imperial citizen can be allowed to see. The Immaterium and its use can offer a man salvation when he needs it most, a weapon to use against his enemies, or a glimpse of the future to guide his actions. However, like the ancient Terran sea of old, it is unpredictable, untameable, and can change in an instant. This is the peril that all Mystics must live with, the knowledge that for all the power their gifts might bring and the position it might grant them, eventually it will likely destroy them. Mystics are defined by their connection to the Warp, providing them with knowledge beyond that which man was meant to know, and of humanity’s only true defence against the terrible entities which hungrily wait across this gulf in reality."
       },
       "hints": [],
@@ -203,11 +203,11 @@
       "bonus": {
         "tag": "RL_MST_BONUS",
         "name": {
-          "ru": "",
+          "ru": "Вглядывающийся в варп",
           "en": "Stare into the Warp"
         },
         "description": {
-          "ru": "",
+          "ru": "Персонаж-Мистик начинает игру с элитным улучшением Псайкер. Желательно, чтобы Сила Воли персонажа была не менее 35.",
           "en": "A Mystic character starts the game with the Psyker elite advance. It is recommended that a character who wishes to be a Mystic have a Willpower of at least 35."
         },
         "hints": [],
@@ -226,7 +226,7 @@
         "en": "Sage"
       },
       "description": {
-        "ru": "",
+        "ru": "В Империуме накоплен столь огромный объём информации, что лишь специально обученные или аугментированные аколиты способны более ли менее в нём ориентироваться. Мудрецы — это талантливые люди, известные под многими именами: автосаванты, лексмеханики и калькулюс логи. Зачастую они состоят в Адептус Администратум или Адептус Механикус, где им доверяют хранение и каталогизацию огромных объёмов данных. Объединяющий миллионы миров и миллиарды душ Империум во многих отношения существует только на пожелтевших пергаментных листах архивов, пыльных инфопланшетов и, в крупнейших городах, гигантских инфокриптах. Мудрецы каждый день записывают, хранят и ориентируются в ежедневно увеличивающихся терриконах данных. Они способны разглядеть недоступные большинству закономерности, получить доступ или восстановить данные, считавшиеся утерянными или непостижимыми, после чего донести нужные знания до товарищей. Такой труд требует великой умственной мощи и мастерства, а зачастую и имплантированных когитаторных массивов и логис-цепей, дарующих большую скорость мышления и объём памяти. Мудрецы могут получить доступ к многотысячелетнему объёму отсортированных имперских данных и найти там пропавшие секреты, а также совершать логические переходы, если этих данных не хватит.",
         "en": "Such is the unimaginable depth of information the Imperium deals with that only Acolytes specially trained or augmented to understand can hope to use it with any degree of skill. Sages are talented individuals known by many names, such as Autosavants, Lexmechanics, and Calculus Logi. They are often members of the Adeptus Administratum or Adeptus Mechanicus, and trusted with the storing and cataloguing of huge amounts of data. Comprising millions of worlds and billions of souls, the Imperium exists in many ways only on the yellowing parchments of a scrivener’s tally sheets, dusty dataslates piled in forgotten shelves, and gigantic data-crypts larger than many cities. Sages record, store, and navigate the mountains of data the Imperium accumulates each day. They can see patterns that others cannot, making connections to either retrieve or uncover data considered lost or unattainable, and translating it into useful knowledge for those around them. It is a process that takes great mental strength and skill, and often the implanted aid of artificial cogitator arrays or logis circuits that provide swifter reasoning and retention of facts. Sages have the ability to access the thousands of years of sorted Imperial data to find missing secrets, or making leaps of logic to identify them when they remain elusive."
       },
       "hints": [],
@@ -243,18 +243,18 @@
       "bonus": {
         "tag": "RL_SG_BONUS",
         "name": {
-          "ru": "",
+          "ru": "Погоня за знаниями",
           "en": "Quest for knowledge"
         },
         "description": {
-          "ru": "",
+          "ru": "В дополнение к обычным использованиям очков Судьбы, персонаж-Мудрец может потратить очко Судьбы на автоматический успех проверки умения Логика или умений Знания, степени успеха равны бонусу Интеллекта Мудреца.",
           "en": "In addition to the normal uses of Fate points, a Sage character may spend a Fate point to automatically succeed at a Logic or any Lore skill test with a number of degrees of success equal to his Intelligence bonus."
         },
         "hints": [
           {
             "tag": "RL_SG_BONUS_H1",
             "description": {
-              "ru": "",
+              "ru": "В дополнение к обычным использованиям очков Судьбы, персонаж-Мудрец может потратить очко Судьбы, чтобы автоматически пройти проверку умения Логика или любого подвида умения Знания с $INTB степенями успеха.",
               "en": "In addition to the normal uses of Fate points, a Sage character may spend a Fate point to automatically succeed at a Logic or any Lore skill test with $INTB degrees of success."
             },
             "targets": ["ST_INT", "FP", "SK_CML", "SK_SCL", "SK_FBL", "SK_LOG"]
@@ -270,7 +270,7 @@
         "en": "Seeker"
       },
       "description": {
-        "ru": "",
+        "ru": "Аколит, идущий путём Искателя, живёт охотой и неустанен в своих расследованиях. Там где другие выбирают простой путь насилия или отказываются от преследования, Искатель находит следы добычи, будь то еретик, скрывающийся от имперского закона, или тайна, окутанная паутиной лжи. Он зациклен на неизвестном, никогда не отдыхая, пока загадка не будет разгадана, а погоня закончена. Иногда тайна может оказаться для Искателя важнее искоренения выявленной ереси или поимки беглого псайкера, и когда подходит время решения или захвата, персонаж теряет интерес. Искатель, прирождённый детектив и следователь, вынюхивающий правду где бы она не пряталась, как среди византийского интриганства властей Империума, так и в лабиринте городов и сообществ. Там, где другие найдут только тупики и ложные следы, Искатель, используя свою проницательность и острые чувства, обнаружит жизненно важные улики, разоблачит интриги и откроет тайны. Именно внимание и одержимость деталями характеризуют Искателя, и независимо от того, использует ли он их для становления охотником или следователем, они постоянно толкают Искателя на раскрытие следующего секрета, разоблачение очередной лжи и поимку самого неуловимого хищника.",
         "en": "An Acolyte that treads the path of the Seeker is driven by the hunt, relentless in his investigations. Where others might choose easy violence or give up the pursuit, the Seeker sees signs and clues to the passage of the prey, whether it is an individual fleeing from Imperial justice, or a secret hidden behind a web of lies. He can obsess over the unknown, never resting until a puzzle is solved or a chase completed. Sometimes the mystery or the manhunt can become more important to him than the actual eradication of a revealed heresy or capture of an escaped psyker, and he loses interest once he arrives at a solution or detains his prey. A Seeker is a natural detective and interrogator, ferreting out the truth wherever it might hide among the byzantine power structures of the Imperium and its labyrinth of cities and societies. Where others find only dead ends and false leads, the Seeker uses his perceptive senses and keen insight to discover vital clues, decipher plots, and resolve mysteries. It is this attention and obsession with detail which defines the Seeker, and whether or not he uses it to become a hunter or investigator, it continually haunts him, pushing him on to uncover the next truth, unravel the next lie, and catch the most elusive of prey."
       },
       "hints": [],
@@ -287,18 +287,18 @@
       "bonus": {
         "tag": "RL_SKR_BONUS",
         "name": {
-          "ru": "",
+          "ru": "Ничто не укроется от моего взора",
           "en": "Nothing escapes my sight"
         },
         "description": {
-          "ru": "",
+          "ru": "В дополнение к обычным использованиям очков Судьбы персонаж-Искатель может потратить очко Судьбы на автоматический успех проверки умения Бдительность или Дознание, степени успеха равны бонусу Восприятия Искателя.",
           "en": "In addition to the normal uses of Fate points, a Seeker character may spend a Fate point to automatically succeed at an Awareness or Inquiry skill test with a number of degrees of success equal to his Perception bonus."
         },
         "hints": [
           {
             "tag": "RL_SKR_BONUS_H1",
             "description": {
-              "ru": "",
+              "ru": "В дополнение к обычным использованиям очков Судьбы персонаж-Искатель может потратить очко Судьбы, чтобы автоматически пройти проверку умения Бдительность или Дознание с $PERB степенями успеха.",
               "en": "In addition to the normal uses of Fate points, a Seeker character may spend a Fate point to automatically succeed at an Awareness or Inquiry skill test with $PERB degrees of success."
             },
             "targets": ["ST_PER", "FP", "SK_AWR", "SK_INQ"]
@@ -314,7 +314,7 @@
         "en": "Warrior"
       },
       "description": {
-        "ru": "",
+        "ru": "Единственная константа в 41-ом тысячелетии — война. Хищные ксеносы и враждебные силы осаждают Империум со всех сторон, и каждый аспект промышленности, в конечном итоге, работает на войну. Воитель является результатом этого титанического конфликта, он прибыл с фронта или разрушенного войной мира. Он мог быть солдатом Астра Милитарум, искалеченным многими годами, проведёнными на чужом поле боя, жестоким арбитратором, закалённым улицами родного города, или бандитом из осквернённого подулья. Он приучен к виду страшных ран и треску лазганов. Для Воителя жизнь есть конфликт, и большинство решений сводится к прямому и брутальному применению силы, обычно им самим. В любом случае, он опытный боец с обширными познаниями о природе битвы. Также он прожил достаточно долго, чтобы узнать пару способов остаться в живых даже в пекле самого безнадёжного сражения. Воитель прекрасно подготовлен для боя и считает его лучшим способом решения проблем, а самыми надёжными способами общения — цепной меч и ручная пушка. После боя он остаётся раненым, но живым, а враги остывают в лужах крови. Поскольку немногие цели инквизиторского расследования уклоняются от прямого столкновения, помощь Воителя неоценима, несмотря на то, что он редко может гарантировать выживание кого-то кроме себя.",
         "en": "The one constant of life in the 41st Millennium is war. Ravenous xenos and hostile powers besiege the Imperium on all sides, and every facet of industry is turned to supporting armed combat. A Warrior is the result of this constant conflict, either drawn from the frontlines or worlds racked with violence. One might be an Imperial Guardsman scarred by long years on a cursed alien battlefield, a brutal Arbitrator tempered by the mean streets of his home world, or a ganger eking out a living in the foul underhive. He has become inured to the sight of bloody wounds and the crack of lasgun fire. For a Warrior, life is conflict, and most solutions can be found through the direct and brutal application of force, usually at his own hands. In every case, he is a skilled fighter with an extensive understanding of the nature of battle. He is also a survivor, having lived long enough to learn a thing or two about getting out alive from even the most violent of situations. A Warrior has a talent for combat, and finds it his most effective means of resolving matters; chainsword and hand cannon are his most reliable forms of communication. He leaves a battle ragged but alive, his foes lying in pools of blood. As few targets of Inquisitorial investigation shy away from violent confrontation, a Warrior makes for an invaluable Acolyte, even though he can rarely guarantee anyone’s survival but his own."
       },
       "hints": [],
@@ -331,18 +331,18 @@
       "bonus": {
         "tag": "RL_WRR_BONUS",
         "name": {
-          "ru": "",
+          "ru": "Эксперт в насилии",
           "en": "Expert at violence"
         },
         "description": {
-          "ru": "",
+          "ru": "В дополнение к обычным использованиям очков Судьбы, после успешного прохождения проверки атаки, но до определения места попаданий, персонаж-Воитель может потратить очко Судьбы на замену полученных степеней успеха проверки на свой бонус Навыка Стрельбы (для стрелковой атаки) или Навыка Рукопашной (для рукопашной атаки).",
           "en": "In addition to the normal uses of Fate points, after making a successful attack test, but before determining hits, a Warrior character may spend a Fate point to substitute his Weapon Skill (for melee) or Ballistic Skill (for ranged) bonus for the degrees of success scored on the attack test."
         },
         "hints": [
           {
             "tag": "RL_WRR_BONUS_H1",
             "description": {
-              "ru": "",
+              "ru": "В дополнение к обычным использованиям очков Судьбы, после успешного прохождения проверки атаки, но до определения места попаданий, персонаж-Воитель может потратить очко Судьбы на замену полученных степеней успеха проверки на свой бонус Навыка Стрельбы (для стрелковой атаки - $BSB) или Навыка Рукопашной (для рукопашной атаки - $WSB).",
               "en": "In addition to the normal uses of Fate points, after making a successful attack test, but before determining hits, a Warrior character may spend a Fate point to substitute his Weapon Skill (for melee - $WSB) or Ballistic Skill (for ranged - $BSB) bonus for the degrees of success scored on the attack test."
             },
             "targets": ["ST_WS", "ST_BS", "FP"]
@@ -354,11 +354,11 @@
     {
       "tag": "RL_CRS",
       "name": {
-        "ru": "Храмовник",
+        "ru": "Крестоносец",
         "en": "Crusader"
       },
       "description": {
-        "ru": "",
+        "ru": "Против демонических хищников, вера — абсолютная защита. Крестоносцы – стойкие защитники от обитателей варпа, праведные воины, сражающиеся с нечистью, мечом и щитом. И хоть они умелы и с клинком, и с молотом, их сила воли это то, что позволяет Крестоносцам выстоять против демонов, против которых падут остальные. Хотя выкованные в аду клинки и порченые когти могут разорвать плоть и окончить жизнь, величайшую угрозу демон представляет для души. Чтобы вступить в борьбу с обитателями варпа, Крестоносец должен обладать верой несокрушимой как адамантий. Крестоносец обладает верой и силой достаточной, чтобы сражаться с нечестивыми силами Архиврага человечества в героическом бою, вдохновляя союзников своей отвагой и умением обращаться с оружием.",
         "en": "Against the predations of the Daemon, faith is the ultimate bulwark. Crusaders are stalwart defenders against the denizens of the Warp, righteous warriors who battle against the unholy with sword and shield. Skilled as they are with a blade or hammer, it is their strength of will that allows Crusaders to stand against the Daemon where others falter. While hell-forged blades and wicked claws can rend flesh and end lives, the greatest threat the Daemon poses is to the soul. To enter the fray against the denizens of the Warp, Crusaders must have faith as unyielding as adamantium. Crusaders possess such faith and the strength to battle the unholy forces of the Archenemies of Mankind in heroic combat, inspiring their allies with their courage and skill at arms."
       },
       "hints": [],
@@ -375,18 +375,18 @@
       "bonus": {
         "tag": "RL_CRS_BONUS",
         "name": {
-          "ru": "",
+          "ru": "Сокруши нечисть",
           "en": "Smite the unholy"
         },
         "description": {
-          "ru": "",
+          "ru": "В дополнение к обычному использованию очков Судьбы, персонаж-Крестоносец может также потратить очко Судьбы чтобы автоматически пройти проверку на Страх с количеством успехов равных его бонусу Силы Воли. В дополнение, когда он наносит удар рукопашной атакой по цели с чертой Страх (Х), он наносит Х дополнительного урона и считает что пробиваемость его оружия на Х выше.",
           "en": "In addition to the normal uses of Fate points, a Crusader character can also spend a Fate Point to automatically pass a Fear test with a number of degrees of success equal to his Willpower bonus. In addition, whenever he inflicts a hit with a melee attack against a target with the Fear (X) trait, he inflicts X additional damage and counts his weapon’s penetration as being X higher."
         },
         "hints": [
           {
             "tag": "RL_CRS_BONUS_H1",
             "description": {
-              "ru": "",
+              "ru": "В дополнение к обычному использованию очков Судьбы, персонаж-Крестоносец может также потратить очко Судьбы, чтобы автоматически пройти проверку на Страх с $WPB степеней успеха.",
               "en": "In addition to the normal uses of Fate points, a Crusader character can also spend a Fate Point to automatically pass a Fear test with $WPB degrees of success."
             },
             "targets": ["FP", "ST_WP"]
@@ -394,7 +394,7 @@
           {
             "tag": "RL_CRS_BONUS_H2",
             "description": {
-              "ru": "",
+              "ru": "В дополнение, когда Крестоносец наносит удар рукопашной атакой по цели с чертой Страх (Х), он наносит Х дополнительного урона и считает что пробиваемость его оружия на Х выше.",
               "en": "In addition, whenever the Crusader inflicts a hit with a melee attack against a target with the Fear (X) trait, he inflicts X additional damage and counts his weapon’s penetration as being X higher."
             },
             "targets": ["ST_WS"]
@@ -410,7 +410,7 @@
         "en": "Fanatic"
       },
       "description": {
-        "ru": "",
+        "ru": "Империум зиждется на вере. Вера направляет Адептус Министорум в его усилиях по объединению человечества в поклонении Императору. Для большинства граждан вера может быть простой, как безнадежная идея о том, что завтра будет лучше, или что оно для них вообще настанет. Для фанатиков, однако, вера это все. Она поглощает его целиком, и глубина его убеждений делает его абсолютно уверенным в своих действиях и одержимым своими целями. Он легко может возненавидеть любого, кто не согласился с ним в ненависти и сжечь друга, равно как и врага. Смерть ему не страшна, а любая неудача лишь заставит его удвоить свои усилия. Убежденный в праведности своих действий, независимо от того, каковы они, он бесстрашно шагает по трупам врагов с непреодолимой силой, и горе кому или чему-либо кто осмелится встать у него на пути.",
         "en": "The Imperium thrives on belief. Belief drives the Adeptus Ministorum in its efforts to unite Mankind in worship of the Emperor. For most citizens, belief might be as simple as the forlorn idea that tomorrow might be a better day, or that they can expect a tomorrow at all. For a Fanatic, though, belief is all. It consumes his life, and the depth of his conviction creates the purity of utter certainty in his actions and utter obsessiveness towards his goals. He might easily hate anyone not agreeing with him as much as he hates the target of his beliefs, and burn friend as well as foe in his quest. Death holds no fear, and any setbacks only make him redouble his efforts. Convinced in the righteousness of his beliefs, no matter what they are, he strides fearlessly against his foes as an unstoppable force, and woe unto anyone or anything that dares bar his way."
       },
       "hints": [],
@@ -427,18 +427,18 @@
       "bonus": {
         "tag": "RL_FNTC_BONUS",
         "name": {
-          "ru": "",
+          "ru": "Смерть всем, кто противостоит мне",
           "en": "Death to all who oppose me"
         },
         "description": {
-          "ru": "",
+          "ru": "В дополнение к обычным способам использования очков судьбы, персонаж-фанатик может потратить очко Судьбы и получить талант Ненависть против своего нынешнего врага на время столкновения. Если он решит оставить битву против ненавистного врага в этом столкновении, он получит 1 очко безумия.",
           "en": "In addition to the normal uses of Fate points, a Fanatic character may spend a Fate point to count as having the Hatred talent against his current foe for the duration of the encounter. Should he choose to leave combat against a Hated foe in that encounter, however, he gains 1 Insanity point."
         },
         "hints": [
           {
             "tag": "RL_FNTC_BONUS_H1",
             "description": {
-              "ru": "",
+              "ru": "В дополнение к обычным способам использования очков судьбы, персонаж-фанатик может потратить очко Судьбы и получить талант Ненависть против своего нынешнего врага на время столкновения. Если он решит оставить битву против ненавистного врага в этом столкновении, он получит 1 очко безумия.",
               "en": "In addition to the normal uses of Fate points, a Fanatic character may spend a Fate point to count as having the Hatred talent against his current foe for the duration of the encounter. Should he choose to leave combat against a Hated foe in that encounter, however, he gains 1 Insanity point."
             },
             "targets": ["ST_WS", "FP", "IP"]
@@ -454,7 +454,7 @@
         "en": "Penitent"
       },
       "description": {
-        "ru": "",
+        "ru": "Большинство еретиков заканчивают свою обманутую жизнь, сожженными на праведном костре, съеденные демонами или растерзанными лояльными гражданами, но для небольшой части есть судьбы, возможно, ещё хуже. Кающийся должен продолжать жить, осознавая свои ужасающие преступления против своих соплеменников и отвергать очищающую смерть до тех пор, пока не искупит свою душу. Даже этих ментальных мук недостаточно — для многих соответствующие наказание плоти столь же также необходимо. Он может навязчиво полосовать свою кожу маленьким хлыстом, который он носит руке, или если он смиренный даже в своем истязании, то он может использовать такие устройства, как внутренний жилет в виде крошечной колючей кольчуги или перчатки, пропитанной изнутри горящими химикатами. Кающийся полностью верит в свое горестное состояние, и его грехи доминируют над его мыслями. Он может делиться ими с другими, но наибольшие грехи это всегда сугубо личное. Он знает, что он согрешил в глазах Императора, и этого достаточно в его пылком стремлении к полному очищению. Кающийся знает о своих ужасных грехах, будь они реальными или выдуманными, и посвящает себя использованию боли, отрицания и других способов бичевания ума и тела в поисках искупления.",
         "en": "Most heretics end their deluded lives burnt on righteous pyres, devoured by Daemons, or torn apart by loyal citizens, but for a small portion there are fates perhaps worse. A Penitent must continue living, both knowing his damnable transgressions against his fellow humans and denying himself cleansing death until he redeems his soul. Even this mental suffering is not enough—for many, similar punishment of the flesh is also necessary. He might obsessively lacerate his own skin with a small whip he carries in one hand, or he — humble even in his suffering — might employ such devices as an inner waistcoat of tiny barbed chainmail or gloves lined with burning chems. The Penitent fully believes in his woeful state, and his sins dominate his thoughts. He might share them with others, but most keep such transgressions private. He knows he has erred in the eyes of the Emperor, and that is enough in his fervent desire for utter purity. The Penitent knows of his terrible sins, be they real or imagined, and devotes himself to using pain, denial, and other mortifications of the mind and body in his quest for redemption."
       },
       "hints": [],
@@ -471,18 +471,18 @@
       "bonus": {
         "tag": "RL_PNT_BONUS",
         "name": {
-          "ru": "",
+          "ru": "Очищение через боль",
           "en": "Cleansing pain"
         },
         "description": {
-          "ru": "",
+          "ru": "Всякий раз, когда Кающийся получает 1 или больше очков урона (после вычитания бонуса Выносливости и брони), он получает бонус +10 к первой проверке, которую он сделает до конца своего следующего хода.",
           "en": "Whenever a Penitent character suffers 1 or more points of damage (after reductions for Toughness bonus and Armour), he gains a +10 bonus to the first test he makes before the end of his next turn."
         },
         "hints": [
           {
             "tag": "RL_PNT_BONUS",
             "description": {
-              "ru": "",
+              "ru": "Всякий раз, когда Кающийся получает 1 или больше очков урона (после вычитания бонуса Выносливости и брони), он получает бонус +10 к первой проверке, которую он сделает до конца своего следующего хода.",
               "en": "Whenever a Penitent character suffers 1 or more points of damage (after reductions for Toughness bonus and Armour), he gains a +10 bonus to the first test he makes before the end of his next turn."
             },
             "targets": ["ST_BS", "ST_WS", "SK_DDG", "SK_PAR"]
@@ -498,7 +498,7 @@
         "en": "Ace"
       },
       "description": {
-        "ru": "",
+        "ru": "В Империуме транспортные средства, подобные всем машинам, являют собой гораздо больше, чем просто утилитарные устройства для обслуживания людей. Каждый из них является священным артефактом Бога-Машины, наполненный духом и целью. Те, кто преуспевает в обращении с транспортом, должны это понимать. Чтобы получить наилучшие результаты от любой техники, водитель должен чествовать и успокаивать дух и всегда относиться к нему с должным уважением. Разница между просто опытным водителем и настоящим асом — сверхъестественная способность общаться с духом машины, позволяя ему почти предсказывать свои действия, а не отвечать на них. Некоторые говорят, что такому умению нельзя научить, ибо это — дар Омниссии. Хотя в Империуме есть много опытных пилотов и водителей, асы отличаются особой способностью к, казалось бы, невозможным маневрам. Такие навыки пользуются большим спросом в Империуме, от летчиков-истребителей Имперского флота на «Громе» до имперских гвардейцев, которые мчатся на своих танках «Леман Русс» в сердце вражеских сил, от мотобандитов в глубинах городов-ульев до благородных феодальных воителей, восседающих на чудовищных одоспешенных рептилиях. Этим разнородным людям всё это придает сходство с управляемыми ими машинами, что, по вполне понятным причинам, часто подаётся с изрядной бравадой.",
         "en": "In the Imperium, vehicles—like all machines—are much more than simple utilitarian devices to serve humans. Each is a sacred artefact of the Machine God, imbued with a spirit and a purpose. Those who excel in the operation of vehicles must understand this. To obtain the best results from any vehicle, the operator must honour and placate its spirit, and always treat it with the due respect. The difference between a merely skilled driver and a true Ace is a nigh-preternatural ability to commune with the spirit of a vehicle, allowing it to almost predict his actions, rather than respond to them. Some say such an ability cannot be taught, but is a gift from the Omnissiah. Although there are many skilled pilots and drivers in the Imperium, Aces are those of singular aptitude, whose seemingly impossible feats of manoeuvring set them apart. Such skills are in high demand across the Imperium, from Lightning Strike Fighter pilots of the Imperial Navy, to Imperial Guardsmen racing their Leman Russ tanks into the heart of enemy forces, to bike-mounted gangers in the depths of hive cities, to noble feudal warriors mounted atop reptilian beasts barded in plate. What these disparate individuals have in common is a peerless affinity for operating vehicles, one which—quite understandably—often lends itself to an air of bravado."
       },
       "hints": [],
@@ -515,18 +515,18 @@
       "bonus": {
         "tag": "RL_ACE_BONUS",
         "name": {
-          "ru": "",
+          "ru": "Идеально",
           "en": "Right stuff"
         },
         "description": {
-          "ru": "",
+          "ru": "В дополнение к нормальному использованию очков Судьбы персонаж-Ас может потратить очко Судьбы и автоматически пройти проверку умения Пилотирование или Выживание, связанного с транспортными средствами или живыми скакунами, с количеством степеней успеха, равным его бонусу Ловкости.",
           "en": "In addition to the normal uses of Fate points, an Ace character may spend a Fate point to automatically succeed at an Operate or Survival skill test involving vehicles or living steeds with a number of degrees of success equal to his Agility bonus."
         },
         "hints": [
           {
             "tag": "RL_ACE_BONUS_H1",
             "description": {
-              "ru": "",
+              "ru": "В дополнение к нормальному использованию очков Судьбы персонаж-Ас может потратить очко Судьбы и автоматически пройти проверку умения Пилотирование или Выживание, связанного с транспортными средствами или живыми скакунами, с $AGB степенями успеха.",
               "en": "In addition to the normal uses of Fate points, an Ace character may spend a Fate point to automatically succeed at an Operate or Survival skill test involving vehicles or living steeds with $AGB degrees of success."
             },
             "targets": ["ST_AG", "SK_OPR", "SK_SRV"]

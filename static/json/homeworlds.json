@@ -638,7 +638,7 @@
           {
             "tag": "HW_PNCL_BONUS_H1",
             "description": {
-              "ru": "Те, кто умудряются покинуть карантинные мир, хорошо учатся хранить секреты. Когда Секретность отряда должна уменьшиться, она изменяется на две единицы меньше (до минимума в 1).",
+              "ru": "Те, кто умудряются покинуть карантинные миры, хорошо учатся хранить секреты. Когда Секретность отряда должна уменьшиться, она изменяется на две единицы меньше (до минимума в 1).",
               "en": "Those who manage to leave a quarantine world learn how to keep secrets. Whenever the warband’s Subtlety would decrease, it decreases by 2 less (to a minimum reduction of 1)."
             },
             "targets": ["ST_IFL"]
