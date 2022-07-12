@@ -1,0 +1,38 @@
+{
+  "schools": [
+    {
+      "tag": "PS_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      }
+    }
+  ],
+  "powers": [
+    {
+      "tag": "PP_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "school": "PS_",
+      "cost": 100,
+      "prerequisites": [],
+      "sustainable": "",
+      "focus_check": "ST_WP",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": "",
+      "action": "",
+      "keywords": ["Concentration"]
+    }
+  ]
+}

@@ -1054,7 +1054,7 @@
         }
       ],
       "is_stackable": true,
-      "is_specialist": true
+      "is_specialist": false
     },
     {
       "tag": "TR_WPIN",

@@ -1,0 +1,679 @@
+{
+  "actions": [
+    {
+      "tag": "AC_AIM",
+      "name": {
+        "ru": "Прицеливание",
+        "en": "Aim"
+      },
+      "description": {
+        "ru": "",
+        "en": "The active character takes extra time to make a more precise attack. Aiming as a Half Action grants a +10 bonus to the character’s Weapon Skill or Ballistic Skill test for his next attack, while aiming as a Full Action grants a +20 bonus to the character’s next attack. The next action the Aiming character performs must be an attack (Standard Attack, Semi-Auto Burst, Lightning Attack, and so on) or the benefits of Aiming are lost. Aiming benefits are also lost if the character performs a Reaction before making his attack. Aiming can be used with both melee and ranged attacks, but not with attacks made with psychic powers."
+      },
+      "stats": [],
+      "bonus": [],
+      "length": ["AL_FULL", "AL_HALF"],
+      "keywords": ["Concentration"],
+      "hints": []
+    },
+    {
+      "tag": "AC_AOA",
+      "name": {
+        "ru": "",
+        "en": "All out attack"
+      },
+      "description": {
+        "ru": "",
+        "en": "The character makes a furious melee attack at the expense of personal safety. He attacks by making a +30 Weapon Skill test, and if he succeeds, the character inflicts 1 hit on his target. However, whether he succeeds or fails, the character cannot attempt Evasion reactions until the beginning of his next turn. A character cannot combine an Aim action with an All Out Attack."
+      },
+      "stats": ["ST_WS"],
+      "bonus": [30],
+      "length": ["AL_FULL"],
+      "keywords": ["Attack", "Melee"],
+      "hints": [
+        {
+          "tag": "AC_AOA_H1",
+          "description": {
+            "ru": "",
+            "en": "After making an All oui attack character can't use Evasion actions until his next turn."
+          },
+          "targets": ["AC_DDG", "AC_PAR"]
+        }
+      ]
+    },
+    {
+      "tag": "AC_BHV",
+      "name": {
+        "ru": "",
+        "en": "Brace heavy weapon"
+      },
+      "description": {
+        "ru": "",
+        "en": "Heavy weapons must be braced before they can be fired accurately. This can involve using a bipod or tripod, propping the weapon up, or simply assuming a wide stance or kneeling. When a character fires an unbraced Heavy weapon, he suffers a –30 penalty to his Ballistic Skill test. He can use this action to secure the weapon in place, after which point it is braced and remains so until it is moved. Once it has been braced, it cannot be moved without losing the benefit of bracing. However, the user can still pivot it 45° (or sometimes more) depending on the type of bracing. For example, a weapon braced in the notch of a broken wall would have a limited field of fire, while one on a full tripod could potentially pivot up to 180°. Note that a character can leave a braced weapon behind, assuming that he was bracing the weapon against something other than himself — it only ceases being braced when relocated."
+      },
+      "stats": [],
+      "bonus": [],
+      "length": ["AL_HALF"],
+      "keywords": ["Miscellaneous"],
+      "hints": [
+        {
+          "tag": "AC_BHV_H1",
+          "description": {
+            "ru": "",
+            "en": "If firing from non-braced Heavy weapon, the character suffers -30 penalty to his Ballistic Skill."
+          },
+          "targets": ["AC_CLSH", "AC_SNSH", "AC_SABR", "AC_FABR", "AC_SPFR"]
+        }
+      ]
+    },
+    {
+      "tag": "AC_CLSH",
+      "name": {
+        "ru": "",
+        "en": "Called shot"
+      },
+      "description": {
+        "ru": "",
+        "en": "The active character attempts to attack a specific or vulnerable area on his target. The attacker declares a location on his target (e.g. Head, Body, Left Arm, Right Arm, Left Leg, or Right Leg) and makes an attack following all the rules for Standard Attacks, except the test is either a –20 Weapon Skill or -20 Ballistic Skill test (depending on whether the attack is melee or ranged). If he succeeds, he skips the Determine Hit Location step of the attack and instead inflicts one hit on the declared location. At the GM’s discretion, this attack can be used to aim at specific locations on creatures or within the environment, such as shooting a door lock from across the room or disabling a wall-mounted vid-recorder. This attack does not gain the usual +10 bonus for Standard Attacks."
+      },
+      "stats": ["ST_WS", "ST_BS"],
+      "bonus": [-20, 10, 0],
+      "length": ["AL_FULL"],
+      "keywords": ["Attack", "Concentration", "Melee", "Ranged"],
+      "hints": []
+    },
+    {
+      "tag": "AC_CHR",
+      "name": {
+        "ru": "Натиск",
+        "en": "Charge"
+      },
+      "description": {
+        "ru": "",
+        "en": "The character rushes at his foe and delivers a single melee attack. The target must be at least four metres away, but still within the attacker’s Charge Move. The last four metres of the Charge must be in a straight line so the attacker can build speed and line up with his target. Once the attacker reaches his target, he makes a single melee attack by making a +20 Weapon Skill test. Success inflicts one hit on the target. If the Charging character has no weapons or other items currently readied, he can attempt to Grapple his opponent instead of inflicting damage or to knock him down."
+      },
+      "stats": ["ST_WS"],
+      "bonus": [20],
+      "length": ["AL_FULL"],
+      "keywords": ["Attack", "Melee", "Movement"],
+      "hints": [
+        {
+          "tag": "AC_CHR_H1",
+          "description": {
+            "ru": "",
+            "en": "If the Charging character has no weapons or other items currently readied, he can attempt to Grapple his opponent instead of inflicting damage."
+          },
+          "targets": ["AC_GRPL"]
+        },
+        {
+          "tag": "AC_CHR_H2",
+          "description": {
+            "ru": "",
+            "en": "If the Charging character has no weapons or other items currently readied, he can attempt to Knock down his opponent instead of inflicting damage."
+          },
+          "targets": ["AC_KNDN"]
+        }
+      ]
+    },
+    {
+      "tag": "AC_DFST",
+      "name": {
+        "ru": "Защитная стойка",
+        "en": "Defensive stance"
+      },
+      "description": {
+        "ru": "",
+        "en": "The character makes no attacks and instead concentrates entirely on self-defence. Until the start of his next turn, the character can only use his Reactions to make the Evasion Reaction, but may make one additional Reaction, and all opponents suffer a –20 penalty to Weapon Skill tests made to attack him."
+      },
+      "stats": [],
+      "bonus": [],
+      "length": ["AL_FULL"],
+      "keywords": ["Concentration", "Melee"],
+      "hints": []
+    },
+    {
+      "tag": "AC_DL",
+      "name": {
+        "ru": "Отложенное действие",
+        "en": "Delay"
+      },
+      "description": {
+        "ru": "",
+        "en": "Instead of acting hastily, the character waits for a better opportunity. When he chooses Delay, his turn immediately ends. Any time before the start of his next turn, the character can perform a Half Action of his choice—even though it is not currently his turn. This later action counts as being part of his turn, though — so, for example, he cannot use it to make another action with the Attack or Concentration subtype if he made one before taking the Delay action. The later Half Action cannot interrupt another character’s turn already in progress, and if it is not used before the start of the character’s next turn, it is lost. If two or more characters both attempt to perform a Half Action gained from Delay at the same time, they must make an Opposed Agility test to see who acts first."
+      },
+      "stats": [],
+      "bonus": [],
+      "length": ["AL_FULL"],
+      "keywords": ["Miscellaneous"],
+      "hints": []
+    },
+    {
+      "tag": "AC_DSNG",
+      "name": {
+        "ru": "Отход",
+        "en": "Disengage"
+      },
+      "description": {
+        "ru": "",
+        "en": "The character breaks off from melee combat and may take a Half Move. Opponents that were engaged with the character cannot make the usual immediate Standard Attack actions against the withdrawing character as a result of this movement."
+      },
+      "stats": [],
+      "bonus": [],
+      "length": ["AL_FULL"],
+      "keywords": ["Movement"],
+      "hints": []
+    },
+    {
+      "tag": "AC_DDG",
+      "name": {
+        "ru": "Уклонение",
+        "en": "Dodge"
+      },
+      "description": {
+        "ru": "",
+        "en": "After a character is hit from an attack, but before damage is rolled, he can attempt to negate the hit by making a Dodge or Parry test. A character must be aware of the attack in order to make the test (and cannot be Surprised). If he succeeds on the test, he gets out of the way at the last moment; the hit is negated and the attack is considered to have missed (and thus no damage is rolled). If the Evasion test fails, the attack connects and deals damage normally. If the attack is a ranged attack, he must test his Dodge skill. If the attack is a melee attack, he may test either his Dodge or his Parry skill. The default difficulty for this test is +0 before any applicable modifiers. Reactions cannot be used during the his own turn, so he cannot Dodge attacks made via Overwatch or when he flees from combat during his own turn, and so on."
+      },
+      "stats": ["SK_DDG"],
+      "bonus": [0],
+      "length": ["AL_REAC"],
+      "keywords": ["Movement"],
+      "hints": []
+    },
+    {
+      "tag": "AC_PAR",
+      "name": {
+        "ru": "Парирование",
+        "en": "Parry"
+      },
+      "description": {
+        "ru": "",
+        "en": "After a character is hit from an attack, but before damage is rolled, he can attempt to negate the hit by making a Dodge or Parry test. A character must be aware of the attack in order to make the test (and cannot be Surprised). If he succeeds on the test, he gets out of the way at the last moment; the hit is negated and the attack is considered to have missed (and thus no damage is rolled). If the Evasion test fails, the attack connects and deals damage normally. The character cannot Parry a ranged attack, unless it's made in melee. If the attack is a melee attack, he may test either his Dodge or his Parry skill. The default difficulty for this test is +0 before any applicable modifiers. Reactions cannot be used during the his own turn, so he cannot Parry attacks made via Overwatch or when he flees from combat during his own turn, and so on."
+      },
+      "stats": ["SK_PAR"],
+      "bonus": [0],
+      "length": ["AL_REAC"],
+      "keywords": ["Melee"],
+      "hints": []
+    },
+    {
+      "tag": "AC_FNT",
+      "name": {
+        "ru": "Финт",
+        "en": "Feint"
+      },
+      "description": {
+        "ru": "",
+        "en": "The character attempts to use guile and combat training to trick his opponent into a mistake. The character and his target make an Opposed Weapon Skill test. If the character wins, his next melee Standard Attack action against that same target during this turn cannot be Evaded. If the character’s next action is any other action, the advantage of Feinting is lost."
+      },
+      "stats": ["ST_WS"],
+      "bonus": [0],
+      "length": ["AL_HALF"],
+      "keywords": ["Melee"],
+      "hints": []
+    },
+    {
+      "tag": "AC_FCPW",
+      "name": {
+        "ru": "Фокусировка силы",
+        "en": "Focus power"
+      },
+      "description": {
+        "ru": "",
+        "en": "This action is used to manifest psychic powers in combat. Every psychic power specifies an action type and one or more subtypes."
+      },
+      "stats": ["ST_WP", "SK_PSY"],
+      "bonus": [0],
+      "length": ["AL_FULL", "AL_HALF", "AL_REAC"],
+      "keywords": ["Varies"],
+      "hints": []
+    },
+    {
+      "tag": "AC_FABR",
+      "name": {
+        "ru": "Длинная очередь",
+        "en": "Full auto burst"
+      },
+      "description": {
+        "ru": "",
+        "en": "The character grips his gun tightly and unleashes a furious burst of fully automatic gunfire at his enemies. The attacker must be wielding a ranged weapon capable of fully automatic fire to take this action. If the character has such a weapon in each hand, both capable of fully automatic fire, he can fire both with this action (see Two-Weapon Fighting, page 228). If he is wielding a Heavy weapon, it must be braced as normal. The attacker makes a Ballistic Skill test with a –10 penalty to his attack; a dice result of 94 or higher indicates the weapon has jammed. If he succeeds, he scores one hit with his weapon per degree of success. The number of total hits scored in this manner cannot exceed the weapon’s fully automatic rate of fire. Extra hits can either be allocated to the original target or any other targets within two metres, provided none of the new targets would have been harder to hit than the original target. If extra hits are allocated to the same target, use Multiple Hits table to determine the extra Hit Locations. The first hit is always determined by reversing the numbers of the dice result made to perform the test. If the character is armed with two weapons, and has the appropriate talents, he can make a secondary attack with his other weapon as part of this action."
+      },
+      "stats": ["ST_BS"],
+      "bonus": [-10, 0, 10],
+      "length": ["AL_HALF"],
+      "keywords": ["Attack", "Ranged"],
+      "hints": []
+    },
+    {
+      "tag": "AC_GRPL",
+      "name": {
+        "ru": "",
+        "en": "Grapple"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    },
+    {
+      "tag": "AC_ ",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    },
+    {
+      "tag": "AC_ ",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    },
+    {
+      "tag": "AC_ ",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    },
+    {
+      "tag": "AC_ ",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    },
+    {
+      "tag": "AC_ ",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    },
+    {
+      "tag": "AC_ ",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    },
+    {
+      "tag": "AC_ ",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    },
+    {
+      "tag": "AC_ ",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    },
+    {
+      "tag": "AC_ ",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    },
+    {
+      "tag": "AC_ ",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    },
+    {
+      "tag": "AC_ ",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    },
+    {
+      "tag": "AC_ ",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    },
+    {
+      "tag": "AC_ ",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    },
+    {
+      "tag": "AC_ ",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    },
+    {
+      "tag": "AC_ ",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    },
+    {
+      "tag": "AC_ ",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    },
+    {
+      "tag": "AC_ ",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    },
+    {
+      "tag": "AC_ ",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    },
+    {
+      "tag": "AC_ ",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    },
+    {
+      "tag": "AC_ ",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    },
+    {
+      "tag": "AC_ ",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    },
+    {
+      "tag": "AC_ ",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    },
+    {
+      "tag": "AC_ ",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    },
+    {
+      "tag": "AC_ ",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    },
+    {
+      "tag": "AC_ ",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    },
+    {
+      "tag": "AC_ ",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "stats": [],
+      "bonus": [],
+      "length": [],
+      "keywords": [],
+      "hints": []
+    }
+  ]
+}

@@ -7,7 +7,8 @@ from .flyweights import *
 from .constants import *
 
 
-resources = ['aptitudes.json', 'stat_descriptions.json', 'skill_descriptions.json']
+resources = ['aptitudes.json', 'stat_descriptions.json', 'skill_descriptions.json', 'talent_descriptions.json',
+             'traits.json', 'homeworlds.json', 'backgrounds.json', 'roles.json', 'elite_advances.json', 'psy.json']
 flyweights = Facade(resources)
 
 

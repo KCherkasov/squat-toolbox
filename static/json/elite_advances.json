@@ -1,0 +1,231 @@
+{
+  "elite_advances": [
+    {
+      "tag": "EA_PSY",
+      "name": {
+        "ru": "Псайкер",
+        "en": "Psyker"
+      },
+      "description": {
+        "ru": "",
+        "en": "Psykers are humans able to access the terrible energies of the Warp and wield powers beyond those of other beings. Some claim them to be the next stage in humanity’s evolution, a terrible curse that surely dooms it to damnation, or both. Without proper training, each might unknowingly rip apart reality in a fountain of rapacious Daemons or burn a world to bedrock, and they are rightly feared for the terrors they might unleash in a fit of weakness or insanity. The Imperium realises both the dangers and usefulness that psykers represent, and demands each world scour its peoples for anyone showing signs of psychic abilities; those found are to be taken on the Black Ships of the Adeptus Astra Telepathica to Terra for sanctioning. The testing they undergo reveals their future. Immediate death comes for those judged too inferior or dangerous to exist. Many become soul-fodder to the Emperor if they have power but lack control. Countless more are trained to offer their power to the Astronomican, the shining light in the Warp that allows navigation across the stars, and thousands perish each day as their souls are drained away to power the beacon. Psykers can also serve as Astropaths, their powers strengthened through soul-binding to the Emperor in a process that steals their sight forever. The most powerful and exceptional psykers might go on to become Primaris Psykers serving on battlefields across the Imperium, or even join the Adeptus Astartes as mighty Space Marine Librarians. Some escape this net, either carefully hiding themselves away or never actively displaying their powers. Many might live out their lives never realising they are psykers, feeling only they are lucky at gambling, or able to walk through fire and death unscathed, or cursed with foul weather no matter where they travel. Inquisitors are keen judges of exceptional individuals, and might seek such a one out knowing (or even themselves not knowing) psychic abilities are present."
+      },
+      "hints": [],
+      "cost": 300,
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 40
+        },
+        {
+          "tag": "EA_UNTC",
+          "value": 0
+        }
+      ],
+      "commands": [
+        {
+          "command": "GainTrait",
+          "tag": "TR_PSY"
+        },
+        {
+          "command": "GainTrait",
+          "tag": "TR_SNC",
+          "condition": {
+            "tag": "BG_ASTL",
+            "value": 1
+          }
+        },
+        {
+          "command": "GainCorruption",
+          "dice": 10,
+          "bonus": 3,
+          "condition": {
+            "tag": "TR_SNC",
+            "value": 0
+          }
+        },
+        {
+          "command": "GainAptitude",
+          "tag": "A_PSY"
+        }
+      ]
+    },
+    {
+      "tag": "EA_INQV",
+      "name": {
+        "ru": "Инквизитор",
+        "en": "Inquisitor"
+      },
+      "description": {
+        "ru": "",
+        "en": "To be an Inquisitor is to know tremendous power and responsibilities impossible to imagine. An Inquisitor acts not to save a world, or a sector, or even the institutions of the Imperium; his actions are in the defence of humanity as a whole. He can condemn a world to death lest it contaminate surrounding regions, or raze a hive to rubble to prevent a daemonic outbreak. He does these terrible deeds and more, for the only thing more dreadful than such actions are the repercussions should he shy away from the immense burdens of his position. Inquisitors are separate from Mankind, for they alone possess the strength to live with the awful truths of the 41st Millennium—that Mankind is beset on all sides by threats that may end its existence, that the Warp harbours souldevouring Daemons, and that psykers may lead to the doom of humanity. Few minds can comprehend such horrible knowledge; even Acolytes might not be fully aware of them, told only what their master deems necessary. Inquisitors not only know these truths, but also act on them. They serve none but the Emperor of Mankind, and account for their actions to no one. Though an Inquisitor need not be individually powerful in arms, his authority is supreme. Each is unique and fights to defend Mankind in his own manner, and without them humanity would surely perish."
+      },
+      "hints": [],
+      "cost": 1000,
+      "prerequisites": [
+        {
+          "tag": "ST_IFL",
+          "value": 75
+        }
+      ],
+      "commands": [
+        {
+          "command": "GainTalent",
+          "tag": "TL_PR",
+          "subtag": "Inquisition"
+        },
+        {
+          "command": "GainSkill",
+          "tag": "SK_FBL",
+          "subtag": "SK_ANY"
+        },
+        {
+          "command": "GainAptitude",
+          "tag": "A_LDR"
+        }
+      ]
+    },
+    {
+      "tag": "EA_UNTC",
+      "name": {
+        "ru": "Пария",
+        "en": "Untouchable"
+      },
+      "description": {
+        "ru": "",
+        "en": "Untouchables are those soulless unfortunates who cast no shadow in the Warp, and represent an impossibly small fraction of humanity, far smaller even than the minuscule fraction with psychic abilities. They might subconsciously know they are different, noticing the way others treat them. Bereft of such an essential part of their humanity, they might look, think, and act as normal men, but few are comfortable in their presence. Those around them often sense a miasma of nausea or grating sound to their voices; nothing an auspex would detect, but something other humans subconsciously feel. Untouchables are anathema to psykers and others who call on the Warp for their powers. Those nearby might experience debilitating pain or worse, for such is an Untouchable’s soul-void. Many Untouchables cancel a psyker’s powers, either nullifying or negating all psychic abilities in a region. They are pariahs of humanity, shunned by their fellow men and living a wretched existence."
+      },
+      "hints": [
+        {
+          "tag": "EA_UNTC_H1",
+          "description": {
+            "ru": "",
+            "en": "Fellowship characteristic always counts as one-half ($MTP$FEL$BASE) its value for tests or other game usage. When interacting with anyone who has a psy rating or the Psyniscience skill, the Fellowship characteristic counts as 1."
+          },
+          "targets": ["ST_FEL"],
+          "base": 0.5
+        },
+        {
+          "tag": "EA_UNTC_H2",
+          "description": {
+            "ru": "",
+            "en": "Can never gain nor benefit from the positive effects of Psychic Powers or any other related unnatural talents, traits, or abilities that call on the Warp for power."
+          },
+          "targets": ["PR"]
+        },
+        {
+          "tag": "EA_UNTC_H3",
+          "description": {
+            "ru": "",
+            "en": "Automatically ignores any effects resulting from Psychic Phenomena, and gains a +30 bonus on any tests to resist effects from a Perils of the Warp result."
+          },
+          "targets": ["ST_WP", "PR"]
+        }
+      ],
+      "cost": 300,
+      "prerequisites": [
+        {
+          "tag": "EA_PSY",
+          "value": 0
+        }
+      ],
+      "commands": [
+        {
+          "command": "GainTalent",
+          "tag": "TL_RST",
+          "subtag": "Psychic powers"
+        }
+      ]
+    },
+    {
+      "tag": "EA_BTSS",
+      "name": {
+        "ru": "Сестра битвы",
+        "en": "Battle sister"
+      },
+      "description": {
+        "ru": "",
+        "en": "The Sisters of Battle represent some of the deadliest and most fanatical warriors humanity can muster, and any members of the Adepta Sororitas who reach this lofty rank are fighters of renown amongst their order. Clad in power armour and adamantine faith, they smite the foes of the Ecclesiarchy, driven on by their unwavering zeal. While few can stand in the path of these holy warriors, the effect their actions have on the populace is as great as their strength of arms. The might of the Sisters of Battle lies not only in their martial prowess, but also in the sacred dread they evoke in all who bear witness to their crusades. Though few Inquisitors have direct ties to the Adepta Sororitas, those who work closely with the Ecclesiarchy sometimes call upon a Battle Sister to join their warband of Acolytes, bringing down the wrath of the Emperor upon the enemies of humanity. To some, her blessed its of divinely-inspired passion might be terrifying, but none can deny the efficacy of this mighty warrior in the battle for humanity’s very soul."
+      },
+      "hints": [],
+      "cost": 750,
+      "prerequisites": [
+        {
+          "tag": "ST_IFL",
+          "value": 50
+        },
+        {
+          "tag": "ST_WP",
+          "value": 40
+        },
+        {
+          "tag": "BG_ADSR",
+          "value": 1
+        }
+      ],
+      "commands": [
+        {
+          "command": "GainTalent",
+          "tag": "TL_PR",
+          "subtag": "Adepta Sororitas"
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_WPT",
+          "subtag": "Bolt"
+        },
+        {
+          "command": "GainSkill",
+          "tag": "SK_SCL",
+          "subtag": "Tactica Imperialis"
+        },
+        {
+          "command": "GainAptitude",
+          "tag": "A_WP"
+        }
+      ]
+    },
+    {
+      "tag": "EA_ASPT",
+      "name": {
+        "ru": "Астропат",
+        "en": "Astropath"
+      },
+      "description": {
+        "ru": "",
+        "en": "Though starships often act as courier vessels and carry vital messages requiring personal delivery, Astropaths provide the Imperium’s only viable means of interstellar communication. As such, they are vital to the Imperium’s survival, and their services are in high demand by the Imperial Adeptus. Even an Inquisitor cannot always count on ready access to an Astropath. Consequently, some Inquisitors see fit to permanently requisition the services of an Astropath, ensuring that they or their Acolytes are able to communicate with and warn each other regarding the threats to the Imperium they uncover. Astropaths are rare among sanctioned psykers in that they have undergone the Soul Binding, an ancient and hallowed ritual whereby the individual is imbued with a small portion of the Emperor’s power. This enhances their abilities and grants the strength necessary to communicate telepathically between the stars, while also protecting Astropaths against the attacks of Warp entities. They must transmit critical messages and dark secrets, and so must be strong of will to fulfil their duties. Although Astropaths suffers the permanent loss of their sight as a result of the Soul Binding, their psychic senses are increased. To Astropaths, though, it is those who rely on their eyes who are truly blind."
+      },
+      "hints": [],
+      "cost": 300,
+      "prerequisites": [
+        {
+          "tag": "EA_PSY",
+          "value": 1
+        },
+        {
+          "tag": "TR_SNC",
+          "value": 1
+        },
+        {
+          "tag": "BG_ASTL",
+          "value": 1
+        }
+      ],
+      "commands": [
+        {
+          "command": "GainTrait",
+          "tag": "TR_SLBN"
+        },
+        {
+          "command": "GainTrait",
+          "tag": "TR_BLND"
+        },
+        {
+          "command": "GainTrait",
+          "tag": "TR_UNSN",
+          "taken": "$WPB"
+        }
+      ]
+    }
+  ]
+}

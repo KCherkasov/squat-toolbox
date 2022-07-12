@@ -1,0 +1,1098 @@
+{
+  "backgrounds": [
+    {
+      "tag": "BG_ADAD",
+      "name": {
+        "ru": "",
+        "en": "Adeptus Administratum"
+      },
+      "description": {
+        "ru": "",
+        "en": "Such is the size and scope of the Imperium that it takes an innumerable legion of scribes, officials, and bureaucrats to maintain it. Connected across the stars on a web of scribbled notes and secret data caches, the Administratum is a lumbering behemoth, churning at a speed only slightly higher than deathly rest as it ensures that every planet has paid its due and contributed to the Imperium’s continuation. Without the Administratum, the Imperium would dissolve into madness and mayhem. It would be cut off not only from those hidden hands that guide its wealth and resources, but also from its history and the centuries of secrets kept deep within the data vaults of the Imperium’s largest organisation."
+      },
+      "skills": [
+        {
+          "tag":"SK_CML",
+          "subtag": "Adeptus Administratum"
+        },
+        {
+          "tag": "SK_LNG",
+          "subtag": "High gothic"
+        },
+        {
+          "tag": "SK_LOG"
+        },
+        {
+          "tag": "SK_SCL",
+          "subtag": "SK_ANY"
+        }
+      ],
+      "skill_choices": [
+        [
+          {
+            "tag": "SK_CMR"
+          },
+          {
+            "tag": "SK_MED"
+          }
+        ]
+      ],
+      "talents": [],
+      "talent_choices": [
+        {
+          "tag": "TL_WPT",
+          "subtag": "Las"
+        },
+        {
+          "tag": "TL_WPT",
+          "subtag": "Solid Projectile"
+        }
+      ],
+      "aptitudes": [],
+      "apt_choices": ["A_KNG", "A_SOC"],
+      "traits": [],
+      "traits_choices": [],
+      "equipment": [],
+      "bonus": {
+        "tag": "BG_ADAD_BONUS",
+        "name": {
+          "ru": "",
+          "en": "Master of paperwork"
+        },
+        "description": {
+          "ru": "",
+          "en": "An Adeptus Administratum character counts the Availability of all items as one level more available (Very Rare items count as Rare, Average items count as Common, etc.)."
+        },
+        "hints": [
+          {
+            "tag": "BG_ADAD_BONUS_H1",
+            "description": {
+              "ru": "",
+              "en": "An Adeptus Administratum character counts the Availability of all items as one level more available (Very Rare items count as Rare, Average items count as Common, etc.)."
+            },
+            "targets": ["ST_IFL"]
+          }
+        ],
+        "commands": []
+      }
+    },
+    {
+      "tag": "BG_ADAR",
+      "name": {
+        "ru": "",
+        "en": "Adeptus Arbites"
+      },
+      "description": {
+        "ru": "",
+        "en": "Only through constant vigilance and the execution of brutal law can the Imperium survive, and the Adeptus Arbites carries out this function. While the armies of the Imperial Guard struggle to hold back the aggression of alien empires and protect worlds from without, the Adeptus Arbites roots out rebels, recidivists, and threats to the stability of the Imperium from within. Its agents, collectively known as Arbitrators, operate as they best see fit, using their greater training and weaponry to tackle foes that might be beyond the scope of local agencies, or in many cases to deal with a government which has itself become corrupted. Remorseless and single-minded, they do not forgive or forget any crime, and pursue their quarry relentlessly until the Emperor’s Justice has been served."
+      },
+      "skills": [
+        {
+          "tag": "SK_AWR"
+        },
+        {
+          "tag": "SK_CML",
+          "subtag": "Adeptus Arbitres"
+        },
+        {
+          "tag": "SK_CML",
+          "subtag": "Underworld"
+        },
+        {
+          "tag": "SK_INTM"
+        },
+        {
+          "tag": "SK_SCR"
+        }
+      ],
+      "skill_choices": [
+        [
+          {
+            "tag": "SK_INQ"
+          },
+          {
+            "tag": "SK_INTR"
+          }
+        ]
+      ],
+      "talents": [],
+      "talent_choices": [
+        {
+          "tag": "TL_WPT",
+          "subtag": "Shock"
+        },
+        {
+          "tag": "TL_WPT",
+          "subtag": "Solid projectile"
+        }
+      ],
+      "aptitudes": [],
+      "apt_choices": ["A_OFF", "A_DEF"],
+      "traits": [],
+      "traits_choices": [],
+      "equipment": [],
+      "bonus": {
+        "tag": "BG_ADAR_BONUS",
+        "name": {
+          "ru": "",
+          "en": "The face of the law"
+        },
+        "description": {
+          "ru": "",
+          "en": "An Arbitrator can re-roll any Intimidation and Interrogation test, and can substitute his Willpower bonus for his degrees of success on these tests."
+        },
+        "hints": [
+          {
+            "tag": "BG_ADAR_BONUS_H1",
+            "description": {
+              "ru": "",
+              "en": "An Arbitrator can re-roll any Intimidation and Interrogation test, and can substitute his Willpower bonus for his degrees of success on these tests."
+            },
+            "targets": ["ST_WP", "SK_INTR", "SK_INTM"]
+          }
+        ],
+        "commands": []
+      }
+    },
+    {
+      "tag": "BG_ASTL",
+      "name": {
+        "ru": "",
+        "en": "Adeptus Astra Telepathica"
+      },
+      "description": {
+        "ru": "",
+        "en": "Psykers are a vital part of the Imperium, linking its worlds together, aiding its soldiers in battle, and guiding its ships across the stars. They are also dangerous, for the very gift that allows them to draw power from the Warp, that otherworldly realm that exists beneath reality, can also make them conduits for its unholy power and gateways for Daemons. An untrained psyker can bring doom upon an entire world if his abilities are not kept in check. The Imperium has a rigid structure in place to watch for any who display even a hint of psychic talent and remove them from society, usually through force. Once in custody, they are trained to serve the Emperor or, if they prove too unstable, destroyed for the good of Mankind. The Adeptus Astra Telepathica oversees psykers within the Imperium, scouring the galaxy for new psykers and then examining and training their catches. Those that are not worthy to live must instead serve the Emperor directly, their life energies sustaining His continued existence for one more day."
+      },
+      "skills": [
+        {
+          "tag": "SK_AWR"
+        },
+        {
+          "tag": "SK_CML",
+          "subtag": "Adeptus Astra Telepathica"
+        },
+        {
+          "tag": "SK_FBL",
+          "subtag": "The Warp"
+        }
+      ],
+      "skill_choices": [
+        [
+          {
+            "tag": "SK_DCV"
+          },
+          {
+            "tag": "SK_INTR"
+          }
+        ],
+        [
+          {
+            "tag": "SK_PSY"
+          },
+          {
+            "tag": "SK_SCR"
+          }
+        ]
+      ],
+      "talents": [
+        {
+          "tag": "TL_WPT",
+          "subtag": "Las"
+        },
+        {
+          "tag": "TL_WPT",
+          "subtag": "Low-tech"
+        }
+      ],
+      "talent_choices": [],
+      "aptitudes": [],
+      "apt_choices": ["A_DEF", "A_PSY"],
+      "traits": [],
+      "traits_choices": [],
+      "equipment": [],
+      "bonus": {
+        "tag": "BG_ASTL_BONUS",
+        "name": {
+          "ru": "",
+          "en": "The constant threat"
+        },
+        "description": {
+          "ru": "",
+          "en": "When the character or an ally within 10 metres triggers a roll on Psychic Phenomenon, the Adeptus Astra Telepathica character can increase or decrease the result by amount equal to his Willpower bonus."
+        },
+        "hints": [
+          {
+            "tag": "BG_ASTL_BONUS_H1",
+            "description": {
+              "ru": "",
+              "en": "When the character or an ally within 10 metres triggers a roll on Psychic Phenomenon, the Adeptus Astra Telepathica character can increase or decrease the result by amount equal to his Willpower bonus."
+            },
+            "targets": ["ST_WP", "PR"]
+          }
+        ],
+        "commands": []
+      }
+    },
+    {
+      "tag": "BG_ADMC",
+      "name": {
+        "ru": "",
+        "en": "Adeptus Mechanicus"
+      },
+      "description": {
+        "ru": "",
+        "en": "Much of Mankind’s mastery over technology has been forgotten, and what remains are closely guarded secrets, held in jealous hands of the Adeptus Mechanicus. Wrapped up in superstitious beliefs and rites, the knowledge of how to operate the Imperium’s most advanced devices falls to these followers of the Machine God. The Adeptus Mechanicus guards and oversees the ancient knowledge and the mysteries of making technology function, for even its dogmatic and superstitious understandings are far beyond those of anyone else in the Imperium. They embrace technology to such a degree that they try to transcend the flesh of their bodies with the purity of metal. To those outside the Mechanicum, they can appear unfeeling and emotionless, more akin to their blessed machines than to other humans, and most would welcome such views."
+      },
+      "skills": [
+        {
+          "tag": "SK_CML",
+          "subtag": "Adeptus Mechanicus"
+        },
+        {
+          "tag": "SK_LOG"
+        },
+        {
+          "tag": "SK_SEC"
+        },
+        {
+          "tag": "SK_TECH"
+        }
+      ],
+      "skill_choices": [
+        [
+          {
+            "tag": "SK_AWR"
+          },
+          {
+            "tag": "SK_OPR",
+            "subtag": "SK_ANY"
+          }
+        ]
+      ],
+      "talents": [
+        {
+          "tag": "TL_MCDU",
+          "subtag": "Utility"
+        },
+        {
+          "tag": "TL_WPT",
+          "subtag": "Solid projectile"
+        }
+      ],
+      "talent_choices": [],
+      "aptitudes": [],
+      "apt_choices": ["A_KNG", "A_TECH"],
+      "traits": ["TR_MECH_IMPL"],
+      "traits_choices": [],
+      "equipment": [],
+      "bonus": {
+        "tag": "BG_ADMC_BONUS",
+        "name": {
+          "ru": "",
+          "en": "Replace the weak flesh"
+        },
+        "description": {
+          "ru": "",
+          "en": "An Adeptus Mechanicus character counts the Availability of all cybernetics as two levels more available (Rare items count as Average, Very Rare items count as Scarce, etc.)."
+        },
+        "hints": [
+          {
+            "tag": "BG_ADMC_BONUS_H1",
+            "description": {
+              "ru": "",
+              "en": "An Adeptus Mechanicus character counts the Availability of all cybernetics as two levels more available (Rare items count as Average, Very Rare items count as Scarce, etc.)."
+            },
+            "targets": ["ST_IFL"]
+          }
+        ],
+        "commands": []
+      }
+    },
+    {
+      "tag": "BG_ADMN",
+      "name": {
+        "ru": "",
+        "en": "Adeptus Ministorum"
+      },
+      "description": {
+        "ru": "",
+        "en": "The Adeptus Ministorum, also known as the Ecclesiarchy, is the religion that venerates the Emperor of Mankind. Powerful and ancient, it embodies the Imperial Creed, the myriad systems of belief that bind humanity together, gives it purpose, and keeps it safe from soul-imperilling threats both within and without. Its members are devoted servants of the Emperor, dedicated to bringing His word to the faithful, and rooting out any which would stand against Him. Whether with words or deeds, a member of the Adeptus Ministorum never forgets his earlier service. Even should he fall from grace, the teachings of the church remain branded upon his soul, and the fire of the Emperor’s faith still burns strong in his belly."
+      },
+      "skills": [
+        {
+          "tag": "SK_CH"
+        },
+        {
+          "tag": "SK_CMD"
+        },
+        {
+          "tag": "SK_CML",
+          "subtag": "Adeptus Ministorum"
+        },
+        {
+          "tag": "SK_LNG",
+          "subtag": "High gothic"
+        }
+      ],
+      "skill_choices": [
+        [
+          {
+            "tag": "SK_INQ"
+          },
+          {
+            "tag": "SK_SCR"
+          }
+        ]
+      ],
+      "talents": [],
+      "talent_choices": [
+        {
+          "tag": "TL_WPT",
+          "subtag": "Flame"
+        },
+        {
+          "tag": "TL_WPT",
+          "subtag1": "Low-tech",
+          "subtag2": "Solid projectile"
+        }
+      ],
+      "aptitudes": [],
+      "apt_choices": ["A_LDR", "A_SOC"],
+      "traits": [],
+      "traits_choices": [],
+      "equipment": [],
+      "bonus": {
+        "tag": "BG_ADMN_BONUS",
+        "name": {
+          "ru": "",
+          "en": "Faith is all"
+        },
+        "description": {
+          "ru": "",
+          "en": "When spending a Fate point to gain a +10 bonus to any one test, an Adeptus Ministorum character gains a +20 bonus instead."
+        },
+        "hints": [
+          {
+            "tag": "BG_ADMN_BONUS_H1",
+            "description": {
+              "ru": "",
+              "en": "When spending a Fate point to gain a +10 bonus to any one test, an Adeptus Ministorum character gains a +20 bonus instead."
+            },
+            "targets": ["FP"]
+          }
+        ],
+        "commands": []
+      }
+    },
+    {
+      "tag": "BG_IMGD",
+      "name": {
+        "ru": "",
+        "en": "Imperial guard"
+      },
+      "description": {
+        "ru": "",
+        "en": "To protect the Imperium from its many enemies, the Imperium maintains a massive fighting force known as the Imperial Guard. Tithed from the worlds across the galaxy, the Imperial Guard is an immense force of countless billions, always at constant war, and always recruiting more soldiers to replace the fallen. No accurate records exist as to its exact size and strength, and such is its nature that it is in constant flux, troops moving from system to system or scattered across the stars fighting wars long forgotten. Many Guardsmen do not live even a full day after entering battle, but those who survive become hardened combat veterans skilled in the bringing of death and facing the worst foes the galaxy has to offer. Scarred and broken, such veterans can hope for little comfort beyond the battlefield, but may find service in other parts of the Imperial war machine or more secretive duties in less overt wars."
+      },
+      "skills": [
+        {
+          "tag": "SK_ATHL"
+        },
+        {
+          "tag": "SK_CMD"
+        },
+        {
+          "tag": "SK_CML",
+          "subtag": "Imperial guard"
+        },
+        {
+          "tag": "SK_NVG",
+          "subtag": "Surface"
+        }
+      ],
+      "skill_choices": [
+        [
+          {
+            "tag": "SK_MED"
+          },
+          {
+            "tag": "SK_OPR",
+            "subtag": "Surface"
+          }
+        ]
+      ],
+      "talents": [
+        {
+          "tag": "TL_WPT",
+          "subtag": "Las"
+        },
+        {
+          "tag": "TL_WPT",
+          "subtag": "Low-tech"
+        }
+      ],
+      "talent_choices": [],
+      "aptitudes": [],
+      "apt_choices": ["A_FLD", "A_LDR"],
+      "traits": [],
+      "traits_choices": [],
+      "equipment": [],
+      "bonus": {
+        "tag": "BG_IMGD_BONUS",
+        "name": {
+          "ru": "Молот Императора",
+          "en": "Hammer of the Emperor"
+        },
+        "description": {
+          "ru": "",
+          "en": "When attacking a target that an ally attacked since the end of the Guardsman’s last turn, the Guardsman can re-roll any results of 1 or 2 on damage rolls."
+        },
+        "hints": [
+          {
+            "tag": "BG_IMGD_BONUS_H1",
+            "description": {
+              "ru": "",
+              "en": "When attacking a target that an ally attacked since the end of the Guardsman’s last turn, the Guardsman can re-roll any results of 1 or 2 on damage rolls."
+            },
+            "targets": ["ST_WS", "ST_BS"]
+          }
+        ],
+        "commands": []
+      }
+    },
+    {
+      "tag": "BG_OUT",
+      "name": {
+        "ru": "",
+        "en": "Outcast"
+      },
+      "description": {
+        "ru": "",
+        "en": "Even within the Imperium, where most are born into the same position for life, there are those that work their way free to make a life on their own terms. Some may have deliberately forsaken the role they were given, or slipped between the cracks of their ossified civilisation. They exist as criminals, vagabonds, and renegades on the fringes of Imperial life. These Outcasts live in the shadows of society, living by their wits and charm. They are able thieves, assassins, and bounty hunters; suspicion and fear often dogs their steps, as others know that where they tread, crime follows. Despite the epithet, Outcasts can be connected to all levels of Imperial life, and while their concerns are primarily for themselves, they can be enlisted to larger pursuits. They have connections, knowledge, and skills unheard of for proper Imperial citizens, and the willingness to use them through bribery, coercion, or other base appeals often more effective than simple calls to Imperial duty. They can also retain associations and bonds with their previous lives and organisations that allow them to operate across many strata of Imperial life."
+      },
+      "skills": [
+        {
+          "tag": "SK_CML",
+          "subtag": "Underworld"
+        },
+        {
+          "tag": "SK_DCV"
+        },
+        {
+          "tag": "SK_DDG"
+        },
+        {
+          "tag": "SK_STL"
+        }
+      ],
+      "skill_choices": [
+        [
+          {
+            "tag": "SK_ACR"
+          },
+          {
+            "tag": "SK_SOH"
+          }
+        ]
+      ],
+      "talents": [
+        {
+          "tag": "TL_WPT",
+          "subtag": "Chain"
+        }
+      ],
+      "talent_choices": [
+        {
+          "tag": "TL_WPT",
+          "subtag": "Las"
+        },
+        {
+          "tag": "TL_WPT",
+          "subtag": "Solid projectile"
+        }
+      ],
+      "aptitudes": [],
+      "apt_choices": ["A_FLD", "A_SOC"],
+      "traits": [],
+      "traits_choices": [],
+      "equipment": [],
+      "bonus": {
+        "tag": "BG_OUT_BONUS",
+        "name": {
+          "ru": "",
+          "en": "Never quit"
+        },
+        "description": {
+          "ru": "",
+          "en": "An Outcast character counts his Toughness bonus as two higher for purposes of determining Fatigue."
+        },
+        "hints": [
+          {
+            "tag": "BG_OUT_BONUS_H1",
+            "description": {
+              "ru": "",
+              "en": "An Outcast character counts his Toughness bonus as two higher for purposes of determining Fatigue."
+            },
+            "targets": ["ST_T", "FTG"]
+          }
+        ],
+        "commands": []
+      }
+    },
+    {
+      "tag": "BG_HRTK",
+      "name": {
+        "ru": "Еретех",
+        "en": "Heretek"
+      },
+      "description": {
+        "ru": "",
+        "en": "Not all roads to knowledge are illuminated by the Emperor’s Light or constructed by the Tech-Priests of the Adeptus Mechanicus. Despite the many laws that forbid it, there are those who travel alternate avenues to enlightenment. They do not heed the warnings that faith and obedience, not alien knowledge or foreign technology, can save them from doom. For Hereteks, the potential rewards of fashioning unconsecrated technologies, reading from ancient and forbidden texts, of tracing the secret designs of older races, and of studying the bizarre creations of alien minds far outweigh any risks. Their galaxy is a series of treasure chests, and they eagerly seek to pick locks and lift lids to discover the marvels and terrors found within."
+      },
+      "skills": [
+        {
+          "tag": "SK_FBL",
+          "subtag": "SK_ANY"
+        },
+        {
+          "tag": "SK_TECH"
+        },
+        {
+          "tag": "SK_TRD",
+          "subtag": "SK_ANY"
+        }
+      ],
+      "skill_choices": [
+        [
+          {
+            "tag": "SK_DCV"
+          },
+          {
+            "tag": "SK_INQ"
+          }
+        ],
+        [
+          {
+            "tag": "SK_MED"
+          },
+          {
+            "tag": "SK_SEC"
+          }
+        ]
+      ],
+      "talents": [
+        {
+          "tag": "TL_WPT",
+          "subtag": "Solid projectile"
+        }
+      ],
+      "talent_choices": [],
+      "aptitudes": [],
+      "apt_choices": [],
+      "traits": ["TR_MECH_IMPL"],
+      "traits_choices": [],
+      "equipment": [],
+      "bonus": {
+        "tag": "BG_HRTK_BONUS",
+        "name": {
+          "ru": "",
+          "en": "Master of hidden lores"
+        },
+        "description": {
+          "ru": "",
+          "en": "When a Heretek makes a Tech-Use test to comprehend, use, repair, or modify an unfamiliar device, he gains a +20 bonus if he has one or more relevant Forbidden Lore skill specialisations at Rank 1 (Known) or higher."
+        },
+        "hints": [
+          {
+            "tag": "BG_HRTK_BONUS_H1",
+            "description": {
+              "ru": "",
+              "en": "When a Heretek makes a Tech-Use test to comprehend, use, repair, or modify an unfamiliar device, he gains a +20 bonus if he has one or more relevant Forbidden Lore skill specialisations at Rank 1 (Known) or higher."
+            },
+            "targets": ["SK_FBL"]
+          }
+        ],
+        "commands": []
+      }
+    },
+    {
+      "tag": "BG_IMNV",
+      "name": {
+        "ru": "",
+        "en": "Imperial Navy"
+      },
+      "description": {
+        "ru": "",
+        "en": "The Imperium is made of untold of worlds across a vast galaxy, each separated by more space than it would seem possible to defend; in truth, it is impossible. It is the job of the Imperial Navy to fly in the face of this impossibility and carry the Emperor’s Truth, and His troops, to where they are needed most. For all living aboard the vessels of the Navy, life is a neverending series of wars, broken up only by the horrors of travelling through the Warp to the next battlezone. Though brutal, it is a life of duty, filled with a sense of purpose that comparatively few humans in the galaxy ever have the privilege to know."
+      },
+      "skills": [
+        {
+          "tag": "SK_ATHL"
+        },
+        {
+          "tag": "SK_CML",
+          "subtag": "Imperial Navy"
+        },
+        {
+          "tag": "SK_NVG",
+          "subtag": "Stellar"
+        }
+      ],
+      "skill_choices": [
+        [
+          {
+            "tag": "SK_CMD"
+          },
+          {
+            "tag": "SK_INTM"
+          }
+        ],
+        [
+          {
+            "tag": "SK_OPR",
+            "subtag": "Aeronautica"
+          },
+          {
+            "tag": "SK_OPR",
+            "subtag": "Voidship"
+          }
+        ]
+      ],
+      "talents": [
+        {
+          "tag": "TL_WPT",
+          "subtag": "Solid projectile"
+        }
+      ],
+      "talent_choices": [
+        {
+          "tag": "TL_WPT",
+          "subtag": "Shock"
+        },
+        {
+          "tag": "TL_WPT",
+          "subtag": "Chain"
+        }
+      ],
+      "aptitudes": [],
+      "apt_choices": ["A_OFF", "A_TECH"],
+      "traits": [],
+      "traits_choices": [],
+      "equipment": [],
+      "bonus": {
+        "tag": "BG_IMNV_BONUS",
+        "name": {
+          "ru": "",
+          "en": "Close quarters discipline"
+        },
+        "description": {
+          "ru": "",
+          "en": "An Imperial Navy character scores one additional degree of success on successful Ballistic Skill tests he makes against targets at Point-Blank range, at Short range, and with whom he is engaged in melee."
+        },
+        "hints": [
+          {
+            "tag": "BG_IMNV_BONUS_H1",
+            "description": {
+              "ru": "",
+              "en": "An Imperial Navy character scores one additional degree of success on successful Ballistic Skill tests he makes against targets at Point-Blank range, at Short range, and with whom he is engaged in melee."
+            },
+            "targets": ["ST_BS"]
+          }
+        ],
+        "commands": []
+      }
+    },
+    {
+      "tag": "BG_RTFL",
+      "name": {
+        "ru": "",
+        "en": "Rogue Trader fleet"
+      },
+      "description": {
+        "ru": "",
+        "en": "Armed with their prized Warrant of Trade, Rogue Traders command starships throughout the Imperium and—most importantly—outside its borders into Wilderness Space. Those serving aboard these fleets have lives unimaginable for even those who also travel the void. Where others might crave the comforting drudgery of forging munitions or assembling ration packs, these men and women journey to distant and unexplored worlds with no protection or law other than what they bring with them. Some might desire only to spread the Emperor’s Light into these dark reaches, or are obsessed over the violent extermination of alien races wherever they may be found, but for most, exploiting the riches from newly discovered planets and ancient civilisations dominates all else. Many die unknown and unmourned in these efforts, but through them Mankind expands even further across an ever-hostile galaxy."
+      },
+      "skills": [
+        {
+          "tag": "SK_CMR"
+        },
+        {
+          "tag": "SK_CML",
+          "subtag": "Rogue Traders"
+        },
+        {
+          "tag": "SK_LNG",
+          "subtag": "SK_ANY"
+        }
+      ],
+      "skill_choices": [
+        [
+          {
+            "tag": "SK_CH"
+          },
+          {
+            "tag": "SK_SCR"
+          }
+        ],
+        [
+          {
+            "tag": "SK_OPR",
+            "subtag": "Surface"
+          },
+          {
+            "tag": "SK_OPR",
+            "subtag": "Aeronautica"
+          }
+        ]
+      ],
+      "talents": [
+        {
+          "tag": "TL_WPT",
+          "subtag": "Shock"
+        }
+      ],
+      "talent_choices": [
+        {
+          "tag": "TL_WPT",
+          "subtag": "Las"
+        },
+        {
+          "tag": "TL_WPT",
+          "subtag": "Solid projectile"
+        }
+      ],
+      "aptitudes": [],
+      "apt_choices": ["A_FIN", "A_SOC"],
+      "traits": [],
+      "traits_choices": [],
+      "equipment": [],
+      "bonus": {
+        "tag": "BG_RTFL_BONUS",
+        "name": {
+          "ru": "",
+          "en": "Inured to the Xenos"
+        },
+        "description": {
+          "ru": "",
+          "en": "A character from a Rogue Trader Fleet gains a +10 bonus to Fear tests caused by aliens and a +20 bonus to Interaction skill tests with alien characters."
+        },
+        "hints": [
+          {
+            "tag": "BG_RTFL_BONUS_H1",
+            "description": {
+              "ru": "",
+              "en": "A character from a Rogue Trader Fleet gains a +10 bonus to Fear tests caused by aliens."
+            },
+            "targets": ["ST_WP"]
+          },
+          {
+            "tag": "BG_RTFL_BONUS_H2",
+            "description": {
+              "ru": "",
+              "en": "A character from a Rogue Trader Fleet gains a +20 bonus to Interaction skill tests with alien characters."
+            },
+            "targets": ["SK_CH", "SK_INQ", "SK_INTM", "SK_INTR", "SK_DCV", "SK_SCR"]
+          }
+        ],
+        "commands": []
+      }
+    },
+    {
+      "tag": "BG_ADSR",
+      "name": {
+        "ru": "",
+        "en": "Adepta Sororitas"
+      },
+      "description": {
+        "ru": "",
+        "en": "Legends say that in the final moments of the Reign of Blood, Alicia Dominica, leader of the warrior Daughters of the Emperor, stood before the Golden Throne with a select few trusted of her order. There they received the Light of the Emperor, filling them with terrible purpose to defy the tyrant who had taken control of the Ecclesiarchy and instigated the worst civil war since the Horus Heresy. When they emerged from that most holy chamber, they carried His righteous fire within them. Dominica descended upon the treacherous High Lord Vandire and ended his terrible Reign along with his life. In the Reformation that followed, the Decree Passive was enacted to forbid the Adeptus Ministorum from controlling any men under arms, and thus prevent the Ecclesiarchy from threatening the Adeptus Administratum’s rule over the Imperium. The all female Daughters were deemed exempt, though, and became the Orders Militant of the Adepta Sororitas — a powerful presence to ensure the will of the Ecclesiarchy was enacted faithfully. The fierce devotion of the Sisters to their Emperor has ended many a threat from within the Imperium since those dark days. No heretic can stand against their zeal in enacting the judgement of the Ecclesiarchy, but the Sisters have also grown into a number of Non-Militant Orders devoted to the healing arts, communications, and diplomacy. In all ways, though, they are supremely loyal to the Emperor, utterly incorruptible and ready to purge all heresies with hymns and fire."
+      },
+      "skills": [
+        {
+          "tag": "SK_ATHL"
+        },
+        {
+          "tag": "SK_CML",
+          "subtag": "Adepta Sororitas"
+        },
+        {
+          "tag": "SK_LNG",
+          "subtag": "High gothic"
+        }
+      ],
+      "skill_choices": [
+        [
+          {
+            "tag": "SK_CH"
+          },
+          {
+            "tag": "SK_INTM"
+          }
+        ],
+        [
+          {
+            "tag": "SK_MED"
+          },
+          {
+            "tag": "SK_PAR"
+          }
+        ]
+      ],
+      "talents": [
+        {
+          "tag": "TL_WPT",
+          "subtag": "Chain"
+        }
+      ],
+      "talent_choices": [
+        {
+          "tag": "TL_WPT",
+          "subtag": "Flame"
+        },
+        {
+          "tag": "TL_WPT",
+          "subtag": "Las"
+        }
+      ],
+      "aptitudes": [],
+      "apt_choices": ["A_OFF", "A_SOC"],
+      "traits": [],
+      "traits_choices": [],
+      "equipment": [],
+      "bonus": {
+        "tag": "BG_ADSR_BONUS",
+        "name": {
+          "ru": "",
+          "en": "Incorruptible devotion"
+        },
+        "description": {
+          "ru": "",
+          "en": "Whenever an Adepta Sororitas character would gain 1 or more Corruption Points, she gains that many Insanity Points minus 1 (to a minimum of 0) instead."
+        },
+        "hints": [
+          {
+            "tag": "BG_ADSR_BONUS_H1",
+            "description": {
+              "ru": "",
+              "en": "Whenever an Adepta Sororitas character would gain 1 or more Corruption Points, she gains that many Insanity Points minus 1 (to a minimum of 0) instead."
+            },
+            "targets": ["CP", "IP"]
+          }
+        ],
+        "commands": []
+      }
+    },
+    {
+      "tag": "BG_MTNT",
+      "name": {
+        "ru": "",
+        "en": "Mutant"
+      },
+      "description": {
+        "ru": "",
+        "en": "For all but the most privileged of Imperial citizens, there is little hope for anything but lives of misery and death. The difficulties presented by the insurmountable constraints of station and birthplace, and the punishing cruelties of disease, xenos raiders, and endless war are enough to sap the will of most men, but there are wretches who have been pushed deeper into the well of hopelessness. Afflicted by abhorrent deformities of the flesh, mutants are denied even the comparative paradise of drudgery as forge workers or faceless soldiers. Marked by inhuman deformity, they are shunned by those around them at best, branded as living vessels of corruption and destroyed at worst."
+      },
+      "skills": [
+        {
+          "tag": "SK_AWR"
+        },
+        {
+          "tag": "SK_FBL",
+          "subtag": "Mutants"
+        },
+        {
+          "tag": "SK_SRV"
+        }
+      ],
+      "skill_choices": [
+        [
+          {
+            "tag": "SK_ACR"
+          },
+          {
+            "tag": "SK_ATHL"
+          }
+        ],
+        [
+          {
+            "tag": "SK_DCV"
+          },
+          {
+            "tag": "SK_INTM"
+          }
+        ]
+      ],
+      "talents": [
+        {
+          "tag": "TL_WPT",
+          "subtag": "Low-tech"
+        },
+        {
+          "tag": "TL_WPT",
+          "subtag": "Solid projectile"
+        }
+      ],
+      "talent_choices": [],
+      "aptitudes": [],
+      "apt_choices": ["A_FLD", "A_OFF"],
+      "traits": [],
+      "traits_choices": [
+        {
+          "tag": "TR_AMPH"
+        },
+        {
+          "tag": "TR_DRST"
+        },
+        {
+          "tag": "TR_NTWP"
+        },
+        {
+          "tag": "TR_SNSS"
+        },
+        {
+          "tag": "TR_STRD"
+        },
+        {
+          "tag": "TR_TXC",
+          "taken": 1
+        },
+        {
+          "tag": "TR_UNCH",
+          "subtag": "ST_AG",
+          "taken": 1
+        },
+        {
+          "tag": "TR_UNCH",
+          "subtag": "ST_STR",
+          "taken": 1
+        },
+        {
+          "tag": "TR_UNCH",
+          "subtag": "ST_T",
+          "taken": 1
+        }
+      ],
+      "equipment": [],
+      "bonus": {
+        "tag": "BG_MTNT_BONUS",
+        "name": {
+          "ru": "",
+          "en": "Twisted flesh"
+        },
+        "description": {
+          "ru": "",
+          "en": "Mutant character can always choose to fail any test associated with resisting malignancy or mutation. Whenever he would gain a Malignancy, he may roll to gain a Mutation instead."
+        },
+        "hints": [
+          {
+            "tag": "BG_MTNT_BONUS_H1",
+            "description": {
+              "ru": "",
+              "en": "Mutant character can always choose to fail any test associated with resisting malignancy or mutation. Whenever he would gain a Malignancy, he may roll to gain a Mutation instead."
+            },
+            "targets": ["CP"]
+          }
+        ],
+        "commands": [
+          {
+            "command": "GainCorruption",
+            "value": 10
+          },
+          {
+            "command": "GainRndMutation",
+            "dices": 5
+          }
+        ]
+      }
+    },
+    {
+      "tag": "BG_EXRC",
+      "name": {
+        "ru": "",
+        "en": "Exorcised"
+      },
+      "description": {
+        "ru": "",
+        "en": "Even in a galaxy where the natural order is routinely mocked by warping influences from beyond and rendered near meaningless to those who suffer each cruel twist of fate, some circumstances have outcomes that are seemingly immutable. Possession by a Daemon is such a doom, perhaps the most terrible of any imagined. Though possession nearly always results in the death and eternal damnation of the mortal who is dominated by the Daemon, it is not always the case. Some few—perhaps fortunately, perhaps not—are freed from their torment as the Daemon is cast out of them, only to face lifetimes of horrors remembered from the experience. These rare mortals are constant reminders of the terrors that await Mankind should the Ordo Malleus fail and Chaos triumph."
+      },
+      "skills": [
+        {
+          "tag": "SK_AWR"
+        },
+        {
+          "tag": "SK_DDG"
+        },
+        {
+          "tag": "SK_FBL",
+          "subtag": "Daemonology"
+        }
+      ],
+      "skill_choices": [
+        [
+          {
+            "tag": "SK_DCV"
+          },
+          {
+            "tag": "SK_INQ"
+          }
+        ],
+        [
+          {
+            "tag": "SK_INTM"
+          },
+          {
+            "tag": "SK_SCR"
+          }
+        ]
+      ],
+      "talents": [
+        {
+          "tag": "TL_HTRD",
+          "subtag": "Daemons"
+        },
+        {
+          "tag": "TL_WPT",
+          "subtag": "Chain"
+        },
+        {
+          "tag": "TL_WPT",
+          "subtag": "Solid projectile"
+        }
+      ],
+      "talent_choices": [],
+      "aptitudes": [],
+      "apt_choices": ["A_DEF", "A_KNG"],
+      "traits": [],
+      "traits_choices": [],
+      "equipment": [],
+      "bonus": {
+        "tag": "BG_EXRC_BONUS",
+        "name": {
+          "ru": "",
+          "en": "Touched by a Daemon"
+        },
+        "description": {
+          "ru": "",
+          "en": "An Exorcised character counts his Insanity bonus as 2 higher for purposes of avoiding Fear tests. Additionally, he can never again become possessed by the same Daemon that once possessed him."
+        },
+        "hints": [
+          {
+            "tag": "BG_EXRC_BONUS_H1",
+            "description": {
+              "ru": "",
+              "en": "An Exorcised character counts his Insanity bonus as 2 higher for purposes of avoiding Fear tests. Additionally, he can never again become possessed by the same Daemon that once possessed him."
+            },
+            "targets": ["IP", "ST_WP"]
+          }
+        ],
+        "commands": [
+          {
+            "command": "GainMalignancy",
+            "tag": "ML_ANY"
+          }
+        ]
+      }
+    }
+  ]
+}

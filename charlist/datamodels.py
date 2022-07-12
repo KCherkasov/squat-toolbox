@@ -47,11 +47,12 @@ class SkillDescriptionModel(object):
 
 
 class HintModel(object):
-    def __init__(self, tag: str, description: Dict[str, str], targets: List[str], bonus):
+    def __init__(self, tag: str, description: Dict[str, str], targets: List[str], bonus: int, condition: str = None):
         self.tag = tag
         self.description = description
         self.targets = targets
         self.bonus = bonus
+        self.condition = condition
 
     @classmethod
     def from_json(cls, data):
@@ -59,9 +60,11 @@ class HintModel(object):
 
 
 class TalentPrerequisite(object):
-    def __init__(self, tag: str, value: int):
+    def __init__(self, tag: str, value: int, subtag: str = None, alt: Dict = None):
         self.tag = tag
+        self.subtag = subtag
         self.value = value
+        self.alt = alt
 
     @classmethod
     def from_json(cls, data):

@@ -7,7 +7,7 @@
         "en": "Feral world"
       },
       "description": {
-        "ru": "",
+        "ru": "Дикие миры, это планеты, чьи доминирующие культуры заперты в примитивном состоянии и, обычно, уступают в технологическом развитии другими имперским мирам. Конкретика может варьироваться от кочевых человеческих племён, умеющих обращаться с копьями и огнём, до, в прошлом, передовых планет, впавших в варварство из-за экологической катастрофы, хищничества ксеносов или иных ужасающих событий. Местные жители, вероятно, лишены технологий и ради выживания овладели охотой и земледелием, в котором используют примитивные инструменты и собственные руки. Это делает уроженцев диких миров выносливыми, сильными, крепкими и способными выжить в худших условиях.",
         "en": "Feral worlds are planets where the dominant culture is trapped in a primitive state, often much lower technologically than that of other Imperial worlds. This can range from nomadic human tribes, with little more than spears and a mastery over fire, to once-advanced planets now reduced to barbarism from environmental catastrophes, xenos predations, or other worldshattering events. Natives are likely to have grown up without technology, and had to survive by hunting or farming with primitive tools and their own two hands. This makes feral worlders hardy, strong, tough, and able to survive in the worst of conditions."
       },
       "hints": [],
@@ -21,18 +21,18 @@
       "bonus": {
         "tag": "HW_FERW_BONUS",
         "name": {
-          "ru": "",
+          "ru": "Старые пути",
           "en": "The old ways"
         },
         "description": {
-          "ru": "",
+          "ru": "В руках выходца с дикого мира любое Низкотехнологичное оружие теряет качество Примитивное (если имеет его) и получает качество Проверенное (3).",
           "en": "In the hands of a feral world character, any Low-Tech weapon loses the Primitive quality (if it had it) and gains the Proven (3) quality."
         },
         "hints": [
           {
             "tag": "HW_FERW_BONUS_H1",
             "description": {
-              "ru": "",
+              "ru": "В руках выходца с дикого мира любое Низкотехнологичное оружие теряет качество Примитивное (если имеет его) и получает качество Проверенное (3).",
               "en": "In the hands of a feral world character, any Low-Tech weapon loses the Primitive quality (if it had it) and gains the Proven (3) quality."
             },
             "targets": ["ST_WS", "ST_BS"]
@@ -50,7 +50,7 @@
         "en": "Forge world"
       },
       "description": {
-        "ru": "",
+        "ru": "Миры-кузницы являются основными оружейными и сборочными линиями Империума. На этих густонаселённых планетах население беспрерывно трудится над созданием оружия для армий Императора, а тела рабочих модернизируются для большей трудовой эффективности и выживания в тяжелых условиях фабрик. Вероятно, местные обитатели, а также их предки и потомки, были рождены для выполнения конечной задачи и всю жизнь занимаются именно ей. Это косное общество, где великий Культ Машины и властвующие техно-жрецы навязывают структуру общества и каторжный труд миллиардам обитателей, лишь немногие из которых решаются на побег.",
         "en": "Forge worlds are the main armouries and assembly lines of the Imperium. On these densely-populated worlds, citizens toil endlessly to craft weaponry for the armies of the Emperor, their bodies often enhanced with technology so that they might better fulfil their tasks or survive the toxic conditions of the factories. The denizens are likely to have been born to do a specific task, like their parents before them and their children that will come after, focusing their entire lives on a single job. It is a rigid society from which few escape, where the great Machine Cult and Tech-Priest overlords enforce the construction and toil of the teeming billions working below."
       },
       "hints": [],
@@ -64,11 +64,11 @@
       "bonus": {
         "tag": "HW_FORW_BONUS",
         "name": {
-          "ru": "",
+          "ru": "Избранный Омниссии",
           "en": "Omnissiah's chosen"
         },
         "description": {
-          "ru": "",
+          "ru": "Выходец с мира-кузницы начинает игру с талантом Искусный Стук или Длань Омниссии.",
           "en": "A forge world character starts with either the Technical Knock or Weapon-Tech talent."
         },
         "hints": [],
@@ -89,7 +89,7 @@
         "en": "Highborn"
       },
       "description": {
-        "ru": "",
+        "ru": "Высокородные составляют элиту имперских миров, они аристократы, принцы и владыки городов, систем и миров, правящие бесчисленными подданными, и другие, но не менее привилегированные отпрыски. Родившиеся в таких семьях получают лучшее, что может дать планета, возносятся над нуждающимся Человечеством и обрекаются на посты великой важности и власти. Предметами роскоши могут быть лучшие шкуры и мясо грокса на диких мирах или лучшие наркотики и внемировые деликатесы в центре мира-улья. Быть высокородным значит жить в мире смертоносной политики и древних распрей, где дети вырастают заклятыми врагами и ложась спать знают, что существуют те, кто готов перегрызть им горло за наследную должность. Высокородные зачастую живут собственной жизнью, отличной от жизней остальных обитателей планеты, иногда вовсе не покидая высоких замков, городов-шпилей и небесных дворцов, вознесённых над бесчисленными массами. Они живут, зная, что являются инструментами имперского владычества над миром и голосом Императора своему народу, а всё что подрывает эту ситуацию — анафема.",
         "en": "Highborn are the elite of Imperial worlds, the nobles, princes, and lords of cities, systems, and worlds who rule over boundless populations alongside other equally-privileged scions. To be born into such a setting is to have been given the best the planet has to offer, raised apart from the struggling ranks of Mankind, and destined to take on positions of great import and power. These luxuries might be the finest pelts and grox meat of a feudal world, or the most potent of narcotics and offworld delights on a mainstay hive world. To be a highborn is also to enter into a world of deadly politics and ancient feuds, where children grow up with terrible enemies and sleep knowing there are those that would cut their throats for a taste of their hereditary position. Highborn often live their lives apart from the rest of their world, sometimes never leaving the high castles, spire cities, and sky palaces far above the swarming masses. They are content in the knowledge that they are the instruments of Imperial dominance on their world and the voice of the Emperor to their people, and anything that would disrupt such a state is unthinkable anathema."
       },
       "hints": [],
@@ -103,18 +103,18 @@
       "bonus": {
         "tag": "HW_HGBN_BONUS",
         "name": {
-          "ru": "",
+          "ru": "Бессчетное богатство",
           "en": "Breeding counts"
         },
         "description": {
-          "ru": "",
+          "ru": "Каждый раз, когда Влияние персонажа уменьшается, оно уменьшается на 1 очко меньше чем должно было бы (до минимума в 1).",
           "en": "Any time a highborn character would reduce his Influence, he reduces it by 1 less (to a minimum reduction of 1)."
         },
         "hints": [
           {
             "tag": "HW_HGBN_BONUS_H1",
             "description": {
-              "ru": "",
+              "ru": "Каждый раз, когда Влияние персонажа уменьшается, оно уменьшается на 1 очко меньше чем должно было бы (до минимума в 1).",
               "en": "Any time a highborn character would reduce his Influence, he reduces it by 1 less (to a minimum reduction of 1)."
             },
             "targets": ["ST_IFL"]
@@ -131,7 +131,7 @@
         "en": "Hive world"
       },
       "description": {
-        "ru": "",
+        "ru": "Жители улья рождаются и живут, как ни странно, в ульях — титанических городах возвышающихся на километровую высоту над опустевшей поверхностью планеты, загубленной многими веками промышленного производства. Отгороженные от остальной планеты ульевики живут на сотнях уровней, каждый из которых заполнен миллионами рождающихся, работающих и умирающих здесь, и не покидающих родную стальную каверну. Ульевики вырастают среди перенаселённости и искусственности, здесь солнце лишь миф. Ещё более несчастные знают только отчаянное существование у сырых глубинах гораздо ниже поверхности планеты, где завтра не гарантировано даже наличие воздуха. Для жителя улья его жизнь — лишь один винтик в машине города, существование в пределах кубического километра его рождения.",
         "en": "Hive worlders exist in cities that reach kilometres into the sky from the wasted surface of toxic, hostile environments, ruined through many centuries of industry. Sealed off from the planet outside, they live stacked on hundreds of levels, each one packed with millions of souls working, eating, and dying without ever venturing beyond the steel caverns of their birth. To be a hive worlder is to have grown up among overpopulation and artifice, where the sun is only a myth. Unfortunates know only a desperate existence, barely surviving in the dank depths far below the surface, in underworlds where the very air cannot be counted on from one day to the next. For a hive worlder, his life is but one cog in a gigantic citymachine, living and dying in the same few cubic kilometres in which he was born."
       },
       "hints": [],
@@ -145,18 +145,18 @@
       "bonus": {
         "tag": "HW_HVWL_BONUS",
         "name": {
-          "ru": "",
+          "ru": "Бесчисленные толпы в металлических горах",
           "en": "Teeming masses in metal mountains"
         },
         "description": {
-          "ru": "",
+          "ru": "Персонажи с мира-улья игнорируют толпы при движении, считая их за открытую местность. Кроме того, когда персонаж находится в закрытом помещении, он получает бонус +20 к проверкам Навигация (Наземная).",
           "en": "A hive world character ignores crowds for purposes of movement, treating them as open terrain. When in enclosed spaces, he also gains a +20 bonus to Navigate (Surface) tests."
         },
         "hints": [
           {
             "tag": "HW_HVWL_BONUS_H1",
             "description": {
-              "ru": "",
+              "ru": "Персонажи с мира-улья игнорируют толпы при движении, считая их за открытую местность. Кроме того, когда персонаж находится в закрытом помещении, он получает бонус +20 к проверкам Навигация (Наземная).",
               "en": "A hive world character ignores crowds for purposes of movement, treating them as open terrain. When in enclosed spaces, he also gains a +20 bonus to Navigate (Surface) tests."
             },
             "targets": ["ST_AG", "SK_NVG"]
@@ -170,11 +170,11 @@
     {
       "tag": "HW_SHRW",
       "name": {
-        "ru": "Мир-святыня",
+        "ru": "Мир-храм",
         "en": "Shrine world"
       },
       "description": {
-        "ru": "",
+        "ru": "Рождённые здесь знают, что растут на мирах, считающихся священными и на которых Культ Императора вездесущ. Хотя внешность этих миров разнится от суматошных задыхающихся городов до полупустынных сельскохозяйственных равнин, и от воплощённого рая до запретной скалы, всех их пропитывает сила Императора. Возможно здесь было совершено великое деяние, смелый герой отбросил ксеносское вторжение или здесь покоится святой, могила которого доминирует над всей поверхностью мира, а паломники тратят целые жизни на путешествие сюда. Хотя всех жителей Империума учат, так или иначе, чтить славу Императора, жители миров-храмов, возможно, обладают наибольшим пониманием и почитанием Имперского Культа.",
         "en": "Shrine worlders grow up on worlds that the Imperium has deemed holy places, where the Cult of the Emperor’s power is omnipresent. While their birthplace might range from cluttered, decaying cities to scattered farmlands, or their planet from a green paradise to a forbidding rock, the power of the Emperor saturates it. Perhaps some great deed was committed here, a bold hero turning back the alien tide, or because it is the resting place for a saint with a hallowed grave dominating the surface of the world and drawing pilgrims from far and wide to gaze upon its glory. While all citizens of the Imperium are taught to venerate the glory of the Emperor in one form or another, it is the shrine worlders who perhaps have the greatest understanding nand reverence of the teachings of the Imperial Cult."
       },
       "hints": [],
@@ -192,14 +192,14 @@
           "en": "Faith in the Creed"
         },
         "description": {
-          "ru": "",
+          "ru": "Всякий раз когда персонаж с мира-храма тратит очко Судьбы, игрок бросает 1к10. При выпадении 1 общее количество очков Судьбы персонажа не уменьшается.",
           "en": "Whenever a shrine world character spends a Fate point, he rolls 1d10. On a result of 1, the character’s total number of Fate points is not reduced."
         },
         "hints": [
           {
             "tag": "HW_SHRW_BONUS_H1",
             "description": {
-              "ru": "",
+              "ru": "Всякий раз когда персонаж с мира-храма тратит очко Судьбы, игрок бросает 1к10. При выпадении 1 общее количество очков Судьбы персонажа не уменьшается.",
               "en": "Whenever a shrine world character spends a Fate point, he rolls 1d10. On a result of 1, the character’s total number of Fate points is not reduced."
             },
             "targets": ["FP"]
@@ -216,7 +216,7 @@
         "en": "Voidborn"
       },
       "description": {
-        "ru": "",
+        "ru": "Жизнь пустоторождённого проходит на просторах космоса: на древних станциях, кораблях поколений, торговых судах и дальних астероидных заставах. Они проводят большую часть жизни без стабильности настоящей планеты под ногами, зная, что от холода и безжалостных объятий дикой пустоты отделяют лишь несколько метров переборки. Это делает их исключительно хорошими специалистами в космических кораблях и станциях, такие знания не снились ползающим по грязи миров. Но и цена велика — облик пустоторождённых отличен от имперского стандарта, они высокие и тонкие, безволосые или с большими абсолютно чёрными глазами. Жизнь рядом с темнейшей пустотой оставляет след в душе. В пустоторождённых есть нечто очень странное, нечто нематериальное, вьющееся в темноте подобно Варпу, скрывающееся под поверхностью самого космоса, ждущее и ожидающее подходящего момента.",
         "en": "Voidborn spend their lives in the expanses of space, growing up on ancient orbital stations, generation vessels, merchant freighters, or remote asteroid outposts. They spend much of their lives without the stability of a real world beneath their feet, knowing the cold, deadly grasp of empty space is only a few metres of bulkhead away. This makes them exceptionally skilled when it comes to living on voidships and space stations, more so than any who have spent their lives crawling around in the dirt of a world. It also often makes them strange even amidst other Imperial subjects, tall and willowy, hairless, or with large dark eyes. Living so close to the still blackness of the void also touches their souls. There is something deeply odd about the voidborn, something intangible that lurks below the surface, writhing in the dark like the Warp lurks below space itself, waiting and watching for its moment to surface."
       },
       "hints": [],
@@ -230,21 +230,21 @@
       "bonus": {
         "tag": "HW_VDBN_BONUS",
         "name": {
-          "ru": "Дитя тьмы",
+          "ru": "Дитя темноты",
           "en": "Child of the dark"
         },
         "description": {
-          "ru": "",
+          "ru": "Пустоторождённый персонаж начинает игру с талантом Непреклонный и в условиях нулевой гравитации получает бонус +30 к проверкам перемещения.",
           "en": "A voidborn character starts with the Strong Minded talent, and gains a +30 bonus to tests for moving in a zero gravity environment."
         },
         "hints": [
           {
             "tag": "HW_VDBN_BONUS_H1",
             "description": {
-              "ru": "",
+              "ru": "Пустоторождённый персонаж начинает игру с талантом Непреклонный и в условиях нулевой гравитации получает бонус +30 к проверкам перемещения.",
               "en": "A voidborn character starts with the Strong Minded talent, and gains a +30 bonus to tests for moving in a zero gravity environment."
             },
-            "targets": ["ST_AG", "ST_WP"]
+            "targets": ["ST_AG", "ST_WP", "SK_ACR", "SK_DDG"]
           }
         ],
         "commands": [
@@ -264,7 +264,7 @@
         "en": "Death world"
       },
       "description": {
-        "ru": "",
+        "ru": "Миры смерти отмечены самыми суровыми условиями, какие только есть в Империуме, но всё же они нуждаются в человеческом присутствии. Хотя виды угроз для местных сильно различаются, все эти планеты имеют одну важную характеристику — человеческая жизнь часто оказывается короткой. Те, кто живет и выживает на этих планетах — одни из самых крепких, а в некоторых случаях и опытных ветеранов, среди жителей Империума. Миры смерти не ограничиваются исключительно смертельными флорой и фауной; в некоторых случаях опасность заключается в непредсказуемых погодных или звёздных явлениях, которые делают планету ужасно непригодной для нормальной жизни. В этом беда их жителей — поскольку миры могут содержать существенные ресурсы или занимать стратегическое место, Империум полагает, что нет жертвы слишком великой, чтобы удержать их.",
         "en": "Death worlds represent the harshest environments the Imperium has to offer that nevertheless require human occupation. Though the kinds of threats to the natives vary greatly, all of these planets share one important characteristic: human life is often short. Those who live on and survive these planets are some of the grittiest and, in some cases, battle-hardened citizens of the Imperium. Death worlds are not strictly limited to having deadly flora and fauna; in some cases the danger lies in unpredictable weather or stellar phenomena that render the planet horribly unsuited for normal habitation. Therein lies the difficulty for its inhabitants, for these worlds might contain essential resources or occupy a strategic location, and thus the Imperium has deemed that no sacrifice is too great to maintain a hold on them."
       },
       "hints": [],
@@ -282,14 +282,14 @@
           "en": "Survivor's paranoia"
         },
         "description": {
-          "ru": "",
+          "ru": "Когда персонаж с мира смерти Ошеломлен, не ошеломленные атакующие лишены обычного +30 бонуса к Навыку Рукопашной или Навыку Стрельбы при атаке этого персонажа.",
           "en": "While a death world character is Surprised, non-Surprised attackers do not gain the normal +30 bonus to their Weapon Skill and Ballistic Skill tests when targeting this character."
         },
         "hints": [
           {
             "tag": "HW_DTWL_BONUS_H1",
             "description": {
-              "ru": "",
+              "ru": "Когда персонаж с мира смерти Ошеломлен, не ошеломленные атакующие лишены обычного +30 бонуса к Навыку Рукопашной или Навыку Стрельбы при атаке этого персонажа.",
               "en": "While a death world character is Surprised, non-Surprised attackers do not gain the normal +30 bonus to their Weapon Skill and Ballistic Skill tests when targeting this character."
             },
             "targets": ["ST_WS", "ST_BS"]
@@ -307,7 +307,7 @@
         "en": "Garden world"
       },
       "description": {
-        "ru": "",
+        "ru": "Миры-сады занимают уникальное положение в Империуме, поскольку они являются одним из немногих видов планет с минимальным технологическим развитием. Десятины для этих планет часто ниже, чем обычно, или полностью отсутствуют, поскольку многие из них слабо заселены и могут не иметь доступных ресурсов. Вместо этого, в обмен на защиту, миры сады предоставляют Империуму множество идиллических ландшафтов, начиная от укрепляющих силы мест и заканчивая частными имениями. Это тихие гавани, хотя тревожные пересуды все ещё болтаются, как выбившиеся нити на красивом гобелене. Некоторые, по слухам, были древними экспериментами по терраформированию из Темной эры технологии и могут быть нестабильными. Другие, как полагают, вновь открыты после прекращения варп-штормов, и поэтому могут исчезнуть снова без предупреждения. Ещё больше настораживают потерянные родины чужеродных видов, и горе любому жителю, если ксеносы возвращаются или пробуждаются.",
         "en": "Garden worlds hold a unique position within the Imperium, in that they are one of the few kinds of planets with minimal technological development. Tithes from these planets are often lower than usual or are entirely non-existent, as many are lightly populated and may have no readily available resources. Instead, garden worlds offer the Imperium a multitude of idyllic settings, ranging from recuperative locales to private estates, in exchange for protection. They are tranquil environments, though worrisome considerations still dangle like loose threads on a beautiful tapestry. Some are rumoured to have been ancient terraforming experiments from the Dark Age of Technology, and could be unstable. Others are believed rediscovered after abating Warp storms, and so could disappear again without warning. Still more are thought to be the lost homes of alien species, and woe to any living there should the xenos return or reawaken."
       },
       "hints": [],
@@ -321,18 +321,18 @@
       "bonus": {
         "tag": "HW_GDNW_BONUS",
         "name": {
-          "ru": "",
+          "ru": "Безмятежность зелени",
           "en": "Serenity of the green"
         },
         "description": {
-          "ru": "",
+          "ru": "Персонажи с мира-сада вдвое (округляя в большую сторону) сокращают продолжительность любого результата бросков на Шок или Умственные Травмы, и могут удалять Очки Безумия за 50 очков опыта, а не обычные 100.",
           "en": "A garden world character halves the duration (rounded up) of any Shocks and Mental Traumas, and can remove Insanity points for 50xp per point rather than the normal 100xp."
         },
         "hints": [
           {
             "tag": "HW_GDNW_BONUS_H1",
             "description": {
-              "ru": "",
+              "ru": "Персонажи с мира-сада вдвое (округляя в большую сторону) сокращают продолжительность любого результата бросков на Шок или Умственные Травмы, и могут удалять Очки Безумия за 50 очков опыта, а не обычные 100.",
               "en": "A garden world character halves the duration (rounded up) of any Shocks and Mental Traumas, and can remove Insanity points for 50xp per point rather than the normal 100xp."
             },
             "targets": ["IP", "ST_WP"]
@@ -350,7 +350,7 @@
         "en": "Research station"
       },
       "description": {
-        "ru": "",
+        "ru": "У Империума и Адептус Механикус есть множество исследовательских станций среди звезд для сбора данных в нередко тщетной попытке лучше контролировать окружение человечества. Цели таких станций различны: исследователи изучают динамику планетарных штормов, препарируют захваченные трупы ксеносов, наносят на карту местоположения стабильных проходов в варп или разведывают останки древних цивилизаций. Исследовательские станции обеспечивают стабильную базу операций для техножрецов, писцов, адептов, сервиторов и небольших армий, которые иногда необходимы для помощи им в этих зачастую далеких местах. Впрочем, большинство исследователей не живёт так долго, чтоб увидеть какие-либо существенные результаты. Среди когда-то зачисленных на станции мало кто когда-либо их покидает, и задачи бесконечно передаются из поколения в поколение. Полезные результаты могут быть никогда не достигнуты или потеряться в невообразимых глубинах имперской бюрократии, но иногда возникают проблески и бросаются в глаза тем, кто ищет помощь в защите человечества.",
         "en": "The Imperium and the Adeptus Mechanicus have many research stations across the stars to collect data in an often vain attempt to better control Mankind’s surroundings. The aims of such stations vary, with researchers studying planetary storm patterns, dissecting captured xenos corpses, charting the stability of Warp entry locations, or probing the remains of ancient civilisations. Research stations provide a stable base of operations to Tech-Priests, scribes, adepts, servitors, and the small armies sometimes necessary to support them in these often remote locations. Most researchers never live to see any conclusive results. Once committed to a station, few ever leave, and their tasks are passed on through generations without end. Useful results might never occur, or be lost in the impossible depths of Imperial bureaucracies, but sometimes glimmers do emerge and catch the eye of those looking for aids in defending Mankind."
       },
       "hints": [],
@@ -364,18 +364,18 @@
       "bonus": {
         "tag": "HW_RSST_BONUS",
         "name": {
-          "ru": "",
+          "ru": "Охота за информацией",
           "en": "Pursuit of data"
         },
         "description": {
-          "ru": "",
+          "ru": "Всякий раз, когда персонаж с исследовательской станции достигает уровня 2 (обучен) в умении Ученые Знания, он также получает уровень 1 (знает) в одной из связанных или идентичных специализаций умения Запретных Знаний по своему выбору. МИ является окончательным арбитром в вопросе того, связаны ли две специализации.",
           "en": "Whenever a research station character reaches Rank 2 (Trained) in a Scholastic Lore skill, he also gains Rank 1 (Known) in one related or identical Forbidden Lore skill specialisation of his choice. The GM is the final arbiter of whether the two specialisations are related."
         },
         "hints": [
           {
             "tag": "HW_RSST_BONUS_H1",
             "description": {
-              "ru": "",
+              "ru": "Всякий раз, когда персонаж с исследовательской станции достигает уровня 2 (обучен) в умении Ученые Знания, он также получает уровень 1 (знает) в одной из связанных или идентичных специализаций умения Запретных Знаний по своему выбору. МИ является окончательным арбитром в вопросе того, связаны ли две специализации.",
               "en": "Whenever a research station character reaches Rank 2 (Trained) in a Scholastic Lore skill, he also gains Rank 1 (Known) in one related or identical Forbidden Lore skill specialisation of his choice. The GM is the final arbiter of whether the two specialisations are related."
             },
             "targets": ["SK_SCL", "SK_FBL"]
@@ -393,7 +393,7 @@
         "en": "Agri world"
       },
       "description": {
-        "ru": "",
+        "ru": "Те, кто неустанно трудится на агро-мирах снабжают Империум бессчетным количеством, одного из самых необходимых ресурсов — еды. Адептус Администратум подбирает миры для этой задачи чаще всего основываясь на климате, эндемичном скоте и других природных факторах. На других агро-мирах преобладают искусственные элементы, такие как: как защищенные гидропонные озера, плавающие поля, подвешенные в полых планетоидах, или чаны с водорослями запрятанных глубоко внутри облучённых гор. Во всех случаях их жители предназначены для одной цели — кормить Империум. Даже малейший неурожай или чума скота могут обречь другие миры на страшный голод или крах военной кампании, потому их часто недооцениваемые усилия жизненно важны для выживания человечества.",
         "en": "Those who toil on agri-worlds provide the Imperium’s countless billions of subjects one of their essential resources: food. The Adeptus Administratum classifies planets to this task often based on the desirable climates, native livestock, or other natural factors. On other agri-worlds, artificial aspects dominate, such as sheltered hydroponic lakes, loathing fields suspended in hollowed-out planetoids, or algae vats buried deep within irradiated mountains. In all cases, their populations are devoted to a single cause: feeding the Imperium. Even the slightest crop failure or livestock plague can doom other worlds to horriic starvation or collapse an Imperial warfront, thus making their often-overlooked eforts vital for humanity’s survival."
       },
       "hints": [],
@@ -407,11 +407,11 @@
       "bonus": {
         "tag": "HW_AGWL_BONUS",
         "name": {
-          "ru": "",
+          "ru": "Сила земли",
           "en": "Strength from the land"
         },
         "description": {
-          "ru": "",
+          "ru": "Персонажи с агро-миров начинают с чертой Жестокий Натиск (2).",
           "en": "An agri-world character starts with the Brutal Charge(2) trait"
         },
         "hints": [],
@@ -433,7 +433,7 @@
         "en": "Feudal world"
       },
       "description": {
-        "ru": "",
+        "ru": "Феодальные миры отличны двумя ярко выраженными аспектами. Первый, и наиболее явный, это уровень технологий, значительно отстающий от большинства имперских миров. На многих из феодальных мирах пороховое оружие является немалым преимуществом. Ряды суровых стрелков с мушкетами и натиск легионов всадников могут послужить ультимативным оружием на их полях сражений. Другой определяющий аспект феодальных миров — это то как живёт коренное население, всех их связывает сеть обязательств, вассальной зависимости, даже дикие племена и другие социальные группировки. Эти связи сохраняются на протяжении поколений, все члены рождаются, растут и умирают на предназначенных им местах. Подобно их технологиям феодальные миры находятся в состоянии постоянного застоя. Во многих отношениях общественная структура таких миров достаточно обычна для Империума, так что отойдя от первоначального шока уроженцы феодальных миров чувствуют себя вполне знакомо.",
         "en": "Feudal worlders live on planets defined by two pronounced aspects, the first and most dominant being a technological level suspended far below many other Imperial societies. On many of these worlds, gunpowder-based devices represent the extent of advancement. Ranks of crude blackpowder firearms and legions of mounted warriors on the charge might make for the ultimate weapons on their battlefields. The other defining aspect of feudal worlds is how their natives live, all part of networks of obligations and allegiances throughout a tribe or other societal grouping. These ties remain throughout generations, all members born, raised, and dying within their fixed stations. Like their technology, feudal worlders exist in a stagnated state. In many ways their society is similar to the Imperium itself, a welcome familiarity after the shock many natives of such worlds face as they become aware of the wider society of Mankind."
       },
       "hints": [],
@@ -451,14 +451,14 @@
           "en": "At home in armour"
         },
         "description": {
-          "ru": "",
+          "ru": "Персонаж с феодального мира игнорирует ограничения на максимум Ловкости, налагаемые любой бронёй, которую он носит.",
           "en": "A feudal world character ignores the maximum Agility value imposed by any armour he is wearing."
         },
         "hints": [
           {
             "tag": "HW_FDWL_BONUS_H1",
             "description": {
-              "ru": "",
+              "ru": "Персонаж с феодального мира игнорирует ограничения на максимум Ловкости, налагаемые любой бронёй, которую он носит.",
               "en": "A feudal world character ignores the maximum Agility value imposed by any armour he is wearing."
             },
             "targets": ["ST_AG", "SK_DDG"]
@@ -476,7 +476,7 @@
         "en": "Frontier world"
       },
       "description": {
-        "ru": "",
+        "ru": "Пограничные миры занимают отчаянные, беззаконные уголки Империума. Жители быстро становятся самостоятельными, ибо это необходимо, учитывая, что они не дождутся внешней помощи против мародеров- людей или хищных ксеносов. Как всегда, там куда Империум не смотрит, там никто не контролирует ересь и мутации. Пограничные миры кишат отбросами человечества, целые регионы там контролируются пиратами, бандитами, преступниками или чем-то ещё более худшим. Эти планеты легко становятся гнездом для нечистых псайкеров, еретиков и мерзких культов, и могут угрожать Человечеству распространением этой заразы по всему Империуму.",
         "en": "Frontier worlds occupy the desperate, lawless fringes of the Imperium. Inhabitants quickly learn self-reliance by necessity, knowing that they cannot expect outside aid against marauding humans or ravenous aliens. As always, where there is little Imperial attention, heresy and mutation festers unchecked. Frontier worlds swarm with the violent dregs of humanity, with pirates, bandits, outlaws, and worse ruling many areas. These planets easily become breeding grounds for rogue psykers, misguided heresies, and vile cults, and can threaten Mankind across the wider Imperium should their contagion spread."
       },
       "hints": [],
@@ -490,18 +490,18 @@
       "bonus": {
         "tag": "HW_FRWL_BONUS",
         "name": {
-          "ru": "",
-          "en": ""
+          "ru": "Полагайся только на себя",
+          "en": "Rely on none but yourself"
         },
         "description": {
-          "ru": "",
-          "en": "Rely on none but yourself"
+          "ru": "Персонажи с пограничного мира получают бонус +20 к умению Техпользование когда модифицируют своё оружие и +10 когда чинят предметы.",
+          "en": "A frontier world character gains a +20 bonus to Tech-Use tests when applying personal weapon modifications, and a +10 bonus when repairing damaged items."
         },
         "hints": [
           {
             "tag": "HW_FRWL_BONUS_H1",
             "description": {
-              "ru": "",
+              "ru": "Персонажи с пограничного мира получают бонус +20 к умению Техпользование когда модифицируют своё оружие и +10 когда чинят предметы.",
               "en": "A frontier world character gains a +20 bonus to Tech-Use tests when applying personal weapon modifications, and a +10 bonus when repairing damaged items."
             },
             "targets": ["SK_TECH", "ST_INT"]
@@ -519,7 +519,7 @@
         "en": "Daemon world"
       },
       "description": {
-        "ru": "",
+        "ru": "Жители Империума происходят из всевозможных опасных мест, но ни одно из них не превзойдет ужаса демонических миров. Хаос правит в тех местах и создания Варпа бродят по перекрученным ландшафтам, сплетённым из кошмаров и безумия. Эти адские миры создаются погружением в Имматериум варп-штормами. Некоторые даже рождаются в результате преднамеренных махинаций тех, чьи действия держат Левую Руку Императора вечно бдительной. Исследование демонических миров в поисках семян собираемых в порочной жатве Разрушительных Сил необходимо, дабы предотвратить повторение подобного где-либо ещё, ибо мир, единожды погруженный в мерзость Хаоса, никогда не станет прежним. Вне зависимости от своего происхождения, эти планеты – скрученные пародии на реальность, где невероятное происходит повсюду и порча наполняет землю. Жить там, часто значит быть занятной добычей или замученным рабом Разрушительных Сил, а выживание не только сохранение жизни, но и постоянная борьба за то, чтобы остаться человеком.",
         "en": "Citizens of the Imperium hail from all manner of dangerous planets and locations, but none rival the horrors of Daemon worlds. Chaos rules in these locations, and creatures of the Warp roam twisted landscapes made of nightmare and insanity. These hell-worlds are created by immersion in the Immaterium from Warp Storms. Some are even brought into life through deliberate machinations, the acts of those who keep the Left Hand of the Emperor ever watchful. Daemon worlds require investigation to seek the seeds of the Ruinous Powers’ evil harvest, so that it can be prevented elsewhere—for once a world has been steeped in the stuff of Chaos, it is never the same again. Regardless of their origins, these planets are twisted parodies of reality, where the improbable is often made manifest and corruption infuses the land. Those who live there are often reduced to amusing prey or tortured slaves for the Ruinous Powers, and survival is more than just staying alive—it is also a struggle to stay human."
       },
       "hints": [],
@@ -533,11 +533,11 @@
       "bonus": {
         "tag": "HW_DMNW_BONUS",
         "name": {
-          "ru": "Тронутый варпом",
+          "ru": "Затронутый варпом",
           "en": "Touched by the Warp"
         },
         "description": {
-          "ru": "",
+          "ru": "Персонаж с демонического мира начинает с одним рангом в умении Психонаука. Если он получит это умение снова на следующих шагах генерации персонажа, он взамен получает один дополнительный ранг этого умения. Учтите, что он не может покупать больше рангов в этом умении, если только он не получит склонность Псайкер. Этот персонаж также начинает с 1к10+5 очков Порчи.",
           "en": "A Daemon world native begins with one Rank in the Psyniscience skill. Should he gain this skill again in a later step of character creation, he instead gains one additional Rank in the skill. Note that he cannot purchase more Ranks of this skill unless he acquires the Psyker aptitude. This character also begins with 1d10+5 Corruption points."
         },
         "hints": [],
@@ -547,7 +547,8 @@
             "tag": "SK_PSY"
           },
           {
-            "command": "GainCorruption",
+            "command": "Gain",
+            "tag": "CP",
             "dice": 10,
             "bonus": 5
           }
@@ -563,7 +564,7 @@
         "en": "Penal colony"
       },
       "description": {
-        "ru": "",
+        "ru": "В то время как большинство миров классифицируется по типу поверхности или имеющихся жизненных форм, миры-тюрьмы определяются строгим Имперским Законом. В след за каждой экспансией появляются рецидивисты, грабители, убийцы и воры. Наиболее горячие или последовательные нарушители, если их не казнят сразу при задержании по совокупности преступлений, могут быть отправлены с планеты на объекты, предназначенные для их постоянного содержания. Эти воплощенные чистилища зачастую являются разрушенными мирами, позабытыми за отсутствием стратегической важности или естественных ресурсов. Здания переназначаются и переоборудуются, чтобы вместить огромные количества заключенных, а для усмирения новых жильцов строятся автоматические защитные системы. Здесь нарушители закона остаются чахнуть и умирать — хотя некоторые выживают чтобы выйти из заключения и сражаться за Императора на других фронтах.",
         "en": "Where most world classifications stem from the types of terrain or lifeforms found there, penal colonies are defined by strict Imperial Law. In every expansion, there are recidivists, looters, murderers, and thieves who appear in its wake. The most violent or persistent offenders, if not granted summary execution at the time of apprehension, may be shipped off-world to facilities designed to house them permanently. These purgatories made real are often ruined worlds left forgotten due to their lack of strategic importance or natural resources. Buildings are repurposed and retrofitted to accommodate massive numbers of inmates, and automated defences are brought in to keep the new residents in line. It is here that the lawbreakers are left to wither and die—though some survive to escape their sentence, and fight for the Emperor on other fronts."
       },
       "hints": [],
@@ -577,11 +578,11 @@
       "bonus": {
         "tag": "HW_PNCL_BONUS",
         "name": {
-          "ru": "",
+          "ru": "Рука на пульсе",
           "en": "Finger on the pulse"
         },
         "description": {
-          "ru": "",
+          "ru": "На мире-тюрьме выживает тот, кто инстинктивно знает кто здесь всем заправляет и кто представляет угрозу. Персонаж с мира-тюрьмы начинает с одним уровнем в умениях Общие знания (Преступность) и Проницательность, а также талантом Связи (Криминальные Картели).",
           "en": "One survives a penal colony by instinctively knowing who is in charge and who is a threat. A penal colony character begins with one Rank in the Common Lore (Underworld) and Scrutiny skills, and starts with the Peer (Criminal Cartels) talent."
         },
         "hints": [],
@@ -612,7 +613,7 @@
         "en": "Quarantine world"
       },
       "description": {
-        "ru": "",
+        "ru": "Карантинные миры отмечены как запрещенные для посещения, поселения или контактов любого рода. Одни могут прикидываться неопасными зелеными сферами, другие могут выглядеть предвещающими беду камнями, но Империум постановил, что исходящая от них опасность перевешивает любую возможную пользу. Такая угроза может исходить от биологических агентов или внедрения ксеносов, даже возможной варп-порчи и других нечестивых угроз. Какой бы ни была катастрофа, потенциальной или уже проявившейся, она считается несущей гораздо больший риск, чем любая возможная награда.\nКак только эдикт объявлен, Имперский Флот предоставляет необходимые по ситуации силы и защитные системы, они разнятся от сигнальных буёв на внешних границах системы до патрульных кораблей и орбитальных орудийных платформ. Ни одно неавторизованное судно не будет допущено в ближний космос и любые обнаруженные обычно уничтожаются не задавая вопросов. В случаях чрезвычайной угрозы сектору человеческое население зачастую уничтожается, чтобы предотвратить потенциальные попытки побега. Вне зависимости от того выживает ли кто-то в бойне, никому не разрешается ступать на поверхность этих планет без подобающего разрешения. Быть пойманным за нарушением декрета о карантине это смертный приговор.",
         "en": "Quarantine worlds are marked as forbidden for visitation, settlement, or contact of any kind. Some might be seemingly benign verdant spheres, others might be foreboding rocks, but the Imperium has determined there is some terrible threat that outweighs any possible usefulness they might contain. Such threats range from biological agents to xenos species infiltration, and even to possible Warp-taint and other unholy threats. Whatever the catastrophe, potential or historical, it is viewed as a far greater risk than any reward it could bring. Once the edict is given, the Imperial Navy provides the military and defence systems the situation requires, from message buoys at the outskirts of the system to patrolling ships and orbiting weapons platforms. No unauthorised craft is allowed anywhere near the space and any found are generally destroyed without question. In case of extreme risk to the sector, the human population is often annihilated to prevent any potential escape attempts. Regardless of whether anyone survives this culling, no one is allowed to set foot on those planets without proper authorisation. To be discovered breaking a writ of quarantine is a death sentence."
       },
       "hints": [],
@@ -626,18 +627,18 @@
       "bonus": {
         "tag": "HW_PNCL_BONUS",
         "name": {
-          "ru": "",
+          "ru": "Скрытный по натуре",
           "en": "Secretive by nature"
         },
         "description": {
-          "ru": "",
+          "ru": "Те, кто умудряются покинуть карантинные мир, хорошо учатся хранить секреты. Когда Секретность отряда должна уменьшиться, она изменяется на две единицы меньше (до минимума в 1).",
           "en": "Those who manage to leave a quarantine world learn how to keep secrets. Whenever the warband’s Subtlety would decrease, it decreases by 2 less (to a minimum reduction of 1)."
         },
         "hints": [
           {
             "tag": "HW_PNCL_BONUS_H1",
             "description": {
-              "ru": "",
+              "ru": "Те, кто умудряются покинуть карантинные мир, хорошо учатся хранить секреты. Когда Секретность отряда должна уменьшиться, она изменяется на две единицы меньше (до минимума в 1).",
               "en": "Those who manage to leave a quarantine world learn how to keep secrets. Whenever the warband’s Subtlety would decrease, it decreases by 2 less (to a minimum reduction of 1)."
             },
             "targets": ["ST_IFL"]

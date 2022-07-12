@@ -266,17 +266,75 @@ class HomeWorldDescription(HintedDescription):
 class RoleDescription(HintedDescription):
     def __init__(self, tag: str, name: Dict[str, str],
                  description: Dict[str, str], hints: List[Hint],
-                 aptitudes: List[str], apt_choices,
-                 skills: List[str], skill_choices):
+                 aptitudes: List[str], apt_choices: List[str],
+                 talent_choices: List[str], bonus: BonusDescription):
         super().__init__(tag, name, description, hints)
+        self.__aptitudes = aptitudes
+        self.__apt_choices = apt_choices
+        self.__talent_choices = talent_choices
+        self.__bonus = bonus
+
+    def get_aptitudes(self):
+        return self.__aptitudes
+
+    def get_apt_choices(self):
+        return self.__apt_choices
+
+    def get_talent_choices(self):
+        return self.__talent_choices
+
+    def get_bonus(self):
+        return self.__bonus
 
 
 class BackgroundDescription(HintedDescription):
     def __init__(self, tag: str, name: Dict[str, str],
                  description: Dict[str, str], hints: List[Hint],
-                 aptitudes: List[str], apt_choices,
-                 skills: List[str], skill_choices):
+                 aptitudes: List[str], apt_choices: List[str],
+                 skills: List[Dict[str, str]], skill_choices: List[List[Dict[str, str]]],
+                 talents: List[Dict[str, str]], talent_choices: List[Dict[str, str]],
+                 traits: List[str], traist_choices: List[Dict[str, str]], equipment: List[str], bonus: BonusDescription):
         super().__init__(tag, name, description, hints)
+        self.__aptitudes  = aptitudes
+        self.__apt_choices = apt_choices
+        self.__skills = skills
+        self.__skill_choices = skill_choices
+        self.__talents = talents
+        self.__talent_choices = talent_choices
+        self.__traits = traits
+        self.__traits_choices = traist_choices
+        self.__equipment = equipment
+        self.__bonus = bonus
+
+    def get_aptitudes(self):
+        return self.__aptitudes
+
+    def get_apt_choices(self):
+        return self.__apt_choices
+
+    def get_skills(self):
+        return self.__skills
+
+    def get_skill_choices(self):
+        return self.__skill_choices
+
+    def get_talents(self):
+        return self.__talents
+
+    def get_talent_choices(self):
+        return self.__talent_choices
+
+    def get_traits(self):
+        return self.__traits
+
+    def get_traits_choices(self):
+        return self.__traits_choices
+
+    def get_equipment(self):
+        return self.__equipment
+
+    def get_bonus(self):
+        return self.__bonus
 
 
 def to_map(lst):
