@@ -1493,7 +1493,7 @@
         }
       ],
       "tier": 2,
-      "aptitudes": ["ST_BS", "ST_WS", "ST_FIN"],
+      "aptitudes": ["A_BS", "A_WS", "A_FIN"],
       "prerequisites": [
         {
           "tag": "ST_BS",
