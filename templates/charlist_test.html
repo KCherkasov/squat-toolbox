@@ -199,19 +199,18 @@
                         <li>
                             <p>{{ prereq.tag }} {% if prereq.has_subtag %}{% for st in prereq.subtag %}{{ st }}/{% endfor %}{% else %}{% endif %}: {{ prereq.value }}</p>
                             {% if prereq.has_alt %}
+                                <p>Или</p>
                             <p>
-                                {{ prereq.get_alt_tag }}
-                                {% if prereq.alt_has_subtag %}
+                                {{ prereq.get_alt_tag }} {% if prereq.alt_has_subtag %}
                                     {% for st in prereq.get_alt_subtag %}
                                         {{ st }}/
                                     {% endfor %}
-                                {% else %}
-                                {% endif% }: {{ prereq.get_alt_value }}</p>
-                            {% else %}
+                                {% else %}{% endif% }: {{ prereq.get_alt_value }}
+                            </p>
                             {% endif %}
                             </li>
-                            {% endfor %}
-                        </ul>
+                        {% endfor %}
+                    </ul>
                     {% else %}
                         <h5>Требований не имеет</h5>
                     {% endif %}
