@@ -63,7 +63,7 @@ class HintModel(object):
 
 
 class TalentPrerequisite(object):
-    def __init__(self, tag: str, value: int, subtag: str = None, alt: Dict = None):
+    def __init__(self, tag: str, value: int, subtag: List[str], alt: Dict = None):
         self.tag = tag
         self.subtag = subtag
         self.value = value

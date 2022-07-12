@@ -200,15 +200,15 @@
                             <p>{{ prereq.tag }} {% if prereq.has_subtag %}{% for st in prereq.subtag %}{{ st }}/{% endfor %}{% else %}{% endif %}: {{ prereq.value }}</p>
                             {% if prereq.has_alt %}
                                 <p>Или</p>
-                            <p>
+                                <p>
                                 {{ prereq.get_alt_tag }} {% if prereq.alt_has_subtag %}
                                     {% for st in prereq.get_alt_subtag %}
                                         {{ st }}/
                                     {% endfor %}
                                 {% else %}{% endif% }: {{ prereq.get_alt_value }}
-                            </p>
+                                </p>
                             {% endif %}
-                            </li>
+                        </li>
                         {% endfor %}
                     </ul>
                     {% else %}
