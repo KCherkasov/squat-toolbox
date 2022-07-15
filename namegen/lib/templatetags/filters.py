@@ -441,3 +441,13 @@ def get_stat_bonus(character: CharacterModel, stat: str):
 @register.filter
 def get_stat_residual(character: CharacterModel, stat: str):
     return character.stats().get(stat).residue()
+
+
+@register.filter
+def get_short_stat(facade: flyweights.Facade, stat: str):
+    return facade.stat_shorts().get(stat)
+
+
+@register.filter
+def get_short_stat_name(short: Dict[str, str], lang: str = 'ru'):
+    return short.get(lang)
