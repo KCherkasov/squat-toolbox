@@ -569,24 +569,29 @@ class CharacterModel(object):
     # TODO - add maligns and mutations
     def make_hookups(self, facade: Facade):
         hookups = dict()
-        tmp_name = dict()
+        hw_name = dict()
         for lang in ['ru', 'en']:
-            tmp_name[lang] = facade.homeworlds().get(self.__hw_id).get_bonus().get_name(lang)
-        map_hints(hookups, facade.homeworlds().get(self.__hw_id).get_bonus().get_hints(), tmp_name)
+            hw_name[lang] = facade.homeworlds().get(self.__hw_id).get_bonus().get_name(lang)
+        map_hints(hookups, facade.homeworlds().get(self.__hw_id).get_bonus().get_hints(), hw_name)
+        bg_name = dict()
         for lang in ['ru', 'en']:
-            tmp_name[lang] = facade.backgrounds().get(self.__bg_id).get_bonus().get_name(lang)
-        map_hints(hookups, facade.backgrounds().get(self.__bg_id).get_bonus().get_hints(), tmp_name)
+            bg_name[lang] = facade.backgrounds().get(self.__bg_id).get_bonus().get_name(lang)
+        map_hints(hookups, facade.backgrounds().get(self.__bg_id).get_bonus().get_hints(), bg_name)
+        role_name = dict()
         for lang in ['ru', 'en']:
-            tmp_name[lang] = facade.roles().get(self.__role_id).get_bonus().get_name(lang)
-        map_hints(hookups, facade.roles().get(self.__role_id).get_bonus().get_hints(), tmp_name)
+            role_name[lang] = facade.roles().get(self.__role_id).get_bonus().get_name(lang)
+        map_hints(hookups, facade.roles().get(self.__role_id).get_bonus().get_hints(), role_name)
+        div_name = dict()
         for lang in ['ru', 'en']:
-            tmp_name[lang] = facade.divinations().get(self.__div_id).get_name(lang)
-        map_hints(hookups, facade.divinations().get(self.__div_id).get_hints(), tmp_name)
+            div_name[lang] = facade.divinations().get(self.__div_id).get_name(lang)
+        map_hints(hookups, facade.divinations().get(self.__div_id).get_hints(), div_name)
         for tl_tag in self.__talents.keys():
+            tmp_name = dict()
             for lang in ['ru', 'en']:
                 tmp_name[lang] = facade.talent_descriptions().get(tl_tag).get_name(lang)
             map_hints(hookups, facade.talent_descriptions().get(tl_tag).get_hints(), tmp_name)
         for tr_tag in self.__traits.keys():
+            tmp_name = dict()
             for lang in ['ru', 'en']:
                 tmp_name[lang] = facade.trait_descriptions().get(tr_tag).get_name(lang)
             map_hints(hookups, facade.trait_descriptions().get(tr_tag).get_hints(), tmp_name)
