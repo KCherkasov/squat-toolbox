@@ -37,7 +37,7 @@
                         <ul class="nav nav-tabs" id="tab-{{ skill_key }}-{{ subskill }}" role="tablist">
                             {% for stat in skill.get_stats %}
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link active" id="{{skill_key}}-{{ stat }}-{{ subskill }}-tag" data-bs-toggle="tab" aria-current="page" href="#{{ skill_key }}-{{ subskill }}-{{ stat }}">{{ facade|get_stat_short:stat|get_short_stat_name:lang }}</a>
+                                <a class="nav-link active" id="{{skill_key}}-{{ stat }}-{{ subskill }}-tag" data-bs-toggle="tab" aria-current="page" href="#{{ skill_key }}-{{ subskill }}-{{ stat }}">{{ facade|get_short_stat:stat|get_short_stat_name:lang }}</a>
                             </li>
                         {% endfor %}
                         </ul>
@@ -83,13 +83,13 @@
         <ul class="nav nav-tabs" id="tab-{{ skill_key }}" role="tablist">
             {% for stat in skill.get_stats %}
             <li class="nav-item" role="presentation">
-                <a class="nav-link active" id="{{skill_key}}-{{ stat }}-tag" data-bs-toggle="tab" aria-current="page" href="#{{ skill_key }}-{{ stat }}">{{ facade|get_stat_short:stat|get_short_stat_name:lang }}</a>
+                <a class="nav-link active" id="{{skill_key}}-{{ stat }}-tag" data-bs-toggle="tab" aria-current="page" href="#{{ skill_key }}-{{ stat }}">{{ facade|get_short_stat:stat|get_short_stat_name:lang }}</a>
             </li>
             {% endfor %}
         </ul>
         <div class="card-body tab-content" id="tab-content-{{ skill_key }}">
             {% for stat in skill_key.get_stats %}
-            <div class="tab-pane fade show active" id="{{ skill_key }}-{{ stat }}" role="tabpanel" aria-labelledby="ru-{{ stdescr.get_tag }}-tag">
+            <div class="tab-pane fade show active" id="{{ skill_key }}-{{ stat }}" role="tabpanel" aria-labelledby="{{ skill_key }}-{{ stat-key }}-tag">
                 <div class="charlist-inline">
                     <button class="btn btn-danger btn-lg disabled align-self-center">
                         {{ character|get_stat_bonus:stat }}
