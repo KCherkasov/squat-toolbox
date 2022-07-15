@@ -3,7 +3,7 @@
     <div class="charlist-inline justify-content-between">
         <div>
             <h5>
-                {% if lang == 'ru' %}Очки Судьбы{% else %}Fate points{% endif %}:&nbsp;{{ character.fate_current }} из {{ character.fate_cap }} &nbsp;
+                {% if lang == 'ru' %}Очки Судьбы{% else %}Fate points{% endif %}:
             </h5>
         </div>
         {% if hookups|get_by_dict_key:'FP' %}
