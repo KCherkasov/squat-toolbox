@@ -12,14 +12,14 @@
 </div>
 <div class="collapse" id="roleInfo">
     <div class="card card-body">
-        <b class="card-title">{{ facade|get_role_description:character.role_id|get_role_name:lang }}</b>
+        <b class="card-title">{{ facade|get_role_description_big:character.role_id|get_role_name:lang }}</b>
         <hr>
-        <p class="card-text">{{ facade|get_role_description:character.role_id|get_role_description:lang }}</p>
+        <p class="card-text">{{ facade|get_role_description_big:character.role_id|get_role_description:lang }}</p>
         <br>
         <b class="card-title">{% if lang == 'ru' %}Бонус роли{% else %}Role bonus{% endif %}:</b>
         <p class="card-text">
-            <em>{{ facade|get_role_description:character.role_id|get_role_bonus|get_bonus_name:lang }}</em>
-            {{ facade|get_role_description:character.role_id|get_role_bonus|get_bonus_description:lang }}
+            <em>{{ facade|get_role_description_big:character.role_id|get_role_bonus|get_bonus_name:lang }}</em>
+            {{ facade|get_role_description_big:character.role_id|get_role_bonus|get_bonus_description:lang }}
         </p>
     </div>
 </div>

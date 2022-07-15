@@ -302,7 +302,7 @@ def get_bg_bonus(bg: flyweights.BackgroundDescription):
 
 # roles
 @register.filter
-def get_role_description(facade: flyweights.Facade, key: str):
+def get_role_description_big(facade: flyweights.Facade, key: str):
     return get_by_dict_key(facade.roles(), key)
 
 
