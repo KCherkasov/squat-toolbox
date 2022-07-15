@@ -3,7 +3,7 @@
     <div>
         <div class="charlist-inline justify-content-between">
             <div>
-                <p class="fs-4">{{ facade|get_stat_description:skill_key|get_skdescr_name:lang }}</p>
+                <p class="fs-4">{{ facade|get_skill_description:skill_key|get_skdescr_name:lang }}</p>
             </div>
             {% if hookups|get_by_dict_key:skill_key %}
             <div class="btn-group dropend">
