@@ -87,10 +87,7 @@ class Skill(object):
         return self.__tag in SUBTAGGED_SKILLS
 
     def advances(self):
-        if self.is_specialist():
-            return None
-        else:
-            return self.__advances
+        return self.__advances
 
     def get_subskill_advance(self, subtag: str):
         if self.is_specialist() and (subtag in self.__advances.keys()):
