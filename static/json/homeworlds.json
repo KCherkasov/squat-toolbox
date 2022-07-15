@@ -119,7 +119,8 @@
             },
             "targets": ["ST_IFL"]
           }
-        ]
+        ],
+        "commands": []
       },
       "aptitude": "A_FEL",
       "wounds": 9
@@ -204,7 +205,8 @@
             },
             "targets": ["FP"]
           }
-        ]
+        ],
+        "commands": []
       },
       "aptitude": "A_WP",
       "wounds": 7
