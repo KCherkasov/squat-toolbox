@@ -578,7 +578,7 @@ class CharacterModel(object):
         map_hints(hookups, facade.backgrounds().get(self.__bg_id).get_bonus().get_hints(), tmp_name)
         for lang in ['ru', 'en']:
             tmp_name[lang] = facade.roles().get(self.__role_id).get_bonus().get_name(lang)
-        map_hints(hookups, facade.roles().get_bonus().get_hints(), tmp_name)
+        map_hints(hookups, facade.roles().get(self.__role_id).get_bonus().get_hints(), tmp_name)
         for lang in ['ru', 'en']:
             tmp_name[lang] = facade.divinations().get(self.__div_id).get_bonus().get_name(lang)
         map_hints(hookups, facade.divinations().get(self.__div_id).get_hints(), tmp_name)
