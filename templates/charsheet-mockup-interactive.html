@@ -146,7 +146,9 @@ Character sheet interactive mockup
                     </h4>
                 </header>
                 <div class="">
-
+                    {% for talent_key, talent in character.talents.items %}
+                        {% include 'talent_widget.html' %}
+                    {% endfor %}
                 </div>
             </div>
 

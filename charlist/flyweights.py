@@ -644,6 +644,8 @@ class Facade:
             json.load(open(prefix + resources_paths[9], 'r', encoding='utf-8')))
         self.__divinations = to_map(divinations)
         self.__spec_skills_subtags = SUBTAG_SKILLS_MAP
+        self.__st_adv_range = range(1, 6)
+        self.__sk_adv_range = range(1, 5)
         self.__stat_shorts = STAT_SHORTS
         self.__langs = ['ru', 'en']
 
@@ -685,3 +687,9 @@ class Facade:
 
     def langs(self):
         return self.__langs
+
+    def sk_adv_range(self):
+        return self.__sk_adv_range
+
+    def st_adv_range(self):
+        return self.__st_adv_range

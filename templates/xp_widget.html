@@ -3,6 +3,6 @@
     <div>
         <h5>{% if lang == 'ru' %}Очки опыта{% else %}Experience points{% endif %} &nbsp;</h5>
     </div>
-    <button class="btn btn-primary">{% if lang == 'ru' %}Доступно{% else %}Available{% endif %}: {{ character.xp_available }}</button>
+    <button class="btn btn-primary">{% if lang == 'ru' %}Доступно{% else %}Available{% endif %}: {{ character.xp_current }}</button>
     <button class="btn btn-dark disabled">{% if lang == 'ru' %}Потрачено{% else %}Spent{% endif %}: {{ character.xp_spent }} </button>
 </div>
