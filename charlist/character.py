@@ -93,25 +93,20 @@ class Skill(object):
     def advances(self):
         return self.__advances
 
-    def get_subskill_advance(self, subtag: str, facade: Facade):
-        if not self.is_specialist(facade):
-            return None
-        elif subtag in self.__advances.keys():
+    def get_subskill_advance(self, subtag: str):
+        if subtag in self.__advances.keys():
             return self.__advances.get(subtag)
         else:
             return None
 
-    def get_adv_bonus(self, facade: Facade):
-        if not self.is_specialist(facade):
-            if self.__advances > 0:
-                return self.__advances * SKILL_POINTS_PER_UPG - 10
-            else:
-                return UNTRAINED_SKILL
+    def get_adv_bonus(self):
+        if self.__advances > 0:
+            return self.__advances * SKILL_POINTS_PER_UPG - 10
         else:
-            return None
+            return UNTRAINED_SKILL
 
-    def get_adv_bonus_subtag(self, facade: Facade, subtag: str):
-        adv = self.get_subskill_advance(subtag, facade)
+    def get_adv_bonus_subtag(self, subtag: str):
+        adv = self.get_subskill_advance(subtag)
         if adv is None:
             return None
         else:
@@ -478,34 +473,33 @@ class CharacterModel(object):
     def skills(self):
         return self.__skills
 
-    def improve_skill(self, sk_tag: str, facade: Facade):
+    def improve_skill(self, sk_tag: str):
         if sk_tag in self.__skills.keys():
-            if not (self.__skills.get(sk_tag).is_specialist(facade)) \
-                    and (self.__skills.get(sk_tag).upgradeable(facade)):
-                self.__skills.get(sk_tag).upgrade(facade)
+            if not (self.__skills.get(sk_tag).is_specialist()) \
+                    and (self.__skills.get(sk_tag).upgradeable()):
+                self.__skills.get(sk_tag).upgrade()
 
     def improve_skill_subtag(self, sk_tag: str, sk_subtag: str, facade: Facade):
         if sk_tag in self.__skills.keys():
-            if self.__skills.get(sk_tag).is_specialist(facade) \
-                    and self.__skills.get(sk_tag).upgradeable_subtag(facade, sk_subtag):
-                self.__skills.get(sk_tag).upgrade_subtag(facade, sk_subtag)
+            if self.__skills.get(sk_tag).upgradeable_subtag(sk_subtag):
+                self.__skills.get(sk_tag).upgrade_subtag(sk_subtag)
         elif sk_tag in facade.skill_descriptions().keys() \
                 and facade.skill_descriptions().get(sk_tag).is_specialist():
             skill = Skill(sk_tag, {sk_subtag: 1})
             self.__skills[sk_tag] = skill
 
-    def get_skill_diff(self, facade: Facade, sk_tag: str, stat: str):
+    def get_skill_diff(self, sk_tag: str, stat: str):
         if (sk_tag not in self.__skills.keys()) or (stat not in self.__stats.keys()):
             return None
-        diff = self.__stats.get(stat).value() + self.__skills.get(sk_tag).get_adv_bonus(facade)
+        diff = self.__stats.get(stat).value() + self.__skills.get(sk_tag).get_adv_bonus()
         return diff
 
-    def get_subskill_diff(self, facade: Facade, sk_tag: str, subskill: str, stat: str):
+    def get_subskill_diff(self, sk_tag: str, subskill: str, stat: str):
         if (sk_tag not in self.__skills.keys()) \
                 or (subskill not in self.__skills.get(sk_tag).advances().keys()) \
                 or (stat not in self.__stats.keys()):
             return None
-        diff = self.__stats.get(stat).value() + self.__skills.get(sk_tag).get_subskill_advance(subskill, facade)
+        diff = self.__stats.get(stat).value() + self.__skills.get(sk_tag).get_subskill_advance(subskill)
         return diff
 
     def talents(self):

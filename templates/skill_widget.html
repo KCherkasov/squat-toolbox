@@ -20,14 +20,14 @@
             {% endif %}
         </div>
         {% if facade|get_skill_description:skill_key|get_skdescr_is_specialist %}
-        <div class="charlist-inline">
+        <div class="charlist-content">
             {% for subskill, adv in skill.advances.items %}
             <div class="charlist-content">
                 <div>
                     <p class="fs-5">{{ subskill }}</p>
                 </div>
                 <div>
-                {% for upg_no in sk_adv_range %}
+                {% for upg_no in facade.sk_adv_range %}
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="upg-{{ upg_no }}-{{ skill_key }}-{{ subskill }}" value="{{ upg_no }}" {% if upg_no <= adv %}checked{% endif %} disabled>
                     </div>
@@ -56,13 +56,13 @@
                                 <p class="fs-4">+</p>
                             </div>
                             <button class="btn btn-info btn-lg disabled align-self-center">
-                                {{ skill.get_adv_bonus }}
+                                {{ adv|get_by_dict_key:subskill }}
                             </button>
                             <div class="align-self-center">
                                 <p class="fs-4">=</p>
                             </div>
                             <button class="btn btn-danger btn-lg disabled align-self-center">
-                                {% get_subskill_diff character facade skill_key subskill stat %}
+                                {% get_subskill_diff character skill_key subskill stat %}
                             </button>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
                         <p class="fs-4">=</p>
                     </div>
                     <button class="btn btn-danger btn-lg disabled align-self-center">
-                        {% get_skill_diff character facade skill_key stat %}
+                        {% get_skill_diff character skill_key stat %}
                     </button>
                 </div>
             </div>

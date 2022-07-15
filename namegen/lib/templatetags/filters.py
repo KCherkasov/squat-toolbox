@@ -419,13 +419,13 @@ def get_stat_short_name(stat_short: Dict[str, str], lang: str = 'ru'):
 
 # character
 @register.simple_tag
-def get_skill_diff(character: CharacterModel, facade: flyweights.Facade, sk_tag: str, stat: str):
-    return character.get_skill_diff(facade, sk_tag, stat)
+def get_skill_diff(character: CharacterModel, sk_tag: str, stat: str):
+    return character.get_skill_diff(sk_tag, stat)
 
 
 @register.simple_tag
-def get_subskill_diff(character: CharacterModel, facade: flyweights.Facade, sk_tag: str, subskill: str, stat: str):
-    return character.get_subskill_diff(facade, sk_tag, subskill, stat)
+def get_subskill_diff(character: CharacterModel, sk_tag: str, subskill: str, stat: str):
+    return character.get_subskill_diff(sk_tag, subskill, stat)
 
 
 @register.filter
