@@ -83,23 +83,24 @@ class Skill(object):
     def tag(self):
         return self.__tag
 
-    def is_specialist(self, facade: Facade):
-        skills = facade.skill_descriptions()
-        if skills and (self.__tag in skills.keys()):
-            return skills.get(self.__tag).is_specialist()
-        else:
-            return None
+    def is_specialist(self):
+        return self.__tag in SUBTAGGED_SKILLS
 
     def advances(self):
-        return self.__advances
+        if self.is_specialist():
+            return None
+        else:
+            return self.__advances
 
     def get_subskill_advance(self, subtag: str):
-        if subtag in self.__advances.keys():
+        if self.is_specialist() and (subtag in self.__advances.keys()):
             return self.__advances.get(subtag)
         else:
             return None
 
     def get_adv_bonus(self):
+        if self.is_specialist():
+            return None
         if self.__advances > 0:
             return self.__advances * SKILL_POINTS_PER_UPG - 10
         else:
@@ -115,33 +116,25 @@ class Skill(object):
             else:
                 return UNTRAINED_SKILL
 
-    def upgradeable(self, facade: Facade):
-        if not self.is_specialist(facade):
-            return self.__advances < SKILL_UPGRADES_CAP
-        else:
-            return None
+    def upgradeable(self):
+        return (self.__advances < SKILL_UPGRADES_CAP) and (self.__tag != ST_INFLUENCE)
 
-    def upgradeable_subtag(self, facade: Facade, subtag: str):
-        if self.is_specialist(facade):
-            if subtag not in self.__advances.keys():
-                return True
+    def upgradeable_subtag(self, subtag: str):
+        if subtag not in self.__advances.keys():
+            return True
+        else:
+            return self.__advances.get(subtag) < SKILL_UPGRADES_CAP
+
+    def upgrade(self):
+        if not self.is_specialist() and self.upgradeable():
+            self.__advances += 1
+
+    def upgrade_subtag(self, subtag: str):
+        if self.is_specialist() and self.upgradeable_subtag(subtag):
+            if subtag in self.__advances.keys():
+                self.__advances[subtag] += 1
             else:
-                return self.__advances.get(subtag) < SKILL_UPGRADES_CAP
-        else:
-            return None
-
-    def upgrade(self, facade: Facade):
-        if not self.is_specialist(facade):
-            if self.upgradeable(facade):
-                self.__advances += 1
-
-    def upgrade_subtag(self, facade: Facade, subtag: str):
-        if self.is_specialist(facade):
-            if self.upgradeable_subtag(facade, subtag):
-                if subtag in self.__advances.keys():
-                    self.__advances[subtag] += 1
-                else:
-                    self.__advances[subtag] = 1
+                self.__advances[subtag] = 1
 
     @classmethod
     def from_json(cls, data):
@@ -475,8 +468,7 @@ class CharacterModel(object):
 
     def improve_skill(self, sk_tag: str):
         if sk_tag in self.__skills.keys():
-            if not (self.__skills.get(sk_tag).is_specialist()) \
-                    and (self.__skills.get(sk_tag).upgradeable()):
+            if self.__skills.get(sk_tag).upgradeable():
                 self.__skills.get(sk_tag).upgrade()
 
     def improve_skill_subtag(self, sk_tag: str, sk_subtag: str, facade: Facade):
