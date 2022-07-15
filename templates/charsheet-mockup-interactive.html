@@ -147,15 +147,19 @@ Character sheet interactive mockup
                 </header>
                 <div class="">
                     <h5>{% if lang == 'ru' %}Таланты{% else %}Talents{% endif %}</h5>
+                    <hr>
                     {% for talent_key, talent in character.talents.items %}
                         {% include 'talent_widget.html' %}
+                    <hr>
                     {% endfor %}
                 </div>
                 <hr>
                 <div class="">
                     <h5>{% if lang == 'ru' %}Черты{% else %}Traits{% endif %}</h5>
+                    <hr>
                     {% for trait_key, trait in character.traits.items %}
                         {% include 'trait_widget.html' %}
+                    <hr>
                     {% endfor %}
                 </div>
             </div>
