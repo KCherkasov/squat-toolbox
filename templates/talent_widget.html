@@ -4,7 +4,7 @@
         <div class="charlist-inline justify-content-between">
             <div>
                 <p class="fs-4">
-                    {{ facade|get_talent_description:talent_key|get_tldescr_name:lang }}{% if not facade|get_talent_description:talent_key|get_tl_is_specialist %}{% if facade|get_talent_description:talent_key|get_tldescr_is_stackable %}({{ talent.taken }}){% endif %}{%endif%}
+                    {{ facade|get_talent_description:talent_key|get_tldescr_name:lang }}{% if not facade|get_talent_description:talent_key|get_tldescr_is_specialist %}{% if facade|get_talent_description:talent_key|get_tldescr_is_stackable %}({{ talent.taken }}){% endif %}{%endif%}
                 </p>
             </div>
         </div>
