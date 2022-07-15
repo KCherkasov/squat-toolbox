@@ -35,16 +35,16 @@
                 </div>
             </div>
             <div>
-                <ul class="nav nav-tabs" id="tab-{{ skill_key }}-{{ subskill }}" role="tablist">
+                <ul class="nav nav-tabs" id="tab-{{ skill_key }}-{{ subskill }}-{{ lang }}" role="tablist">
                     {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link {% if forloop.first %}active{% endif %}" id="{{skill_key}}-{{ stat }}-{{ subskill|escape_spaces }}-tag" data-bs-toggle="tab" aria-current="page" href="#{{ skill_key }}-{{ subskill|escape_spaces }}-{{ stat }}">{{ facade|get_short_stat:stat|get_short_stat_name:lang }}</a>
+                        <a class="nav-link {% if forloop.first %}active{% endif %}" id="{{skill_key}}-{{ stat }}-{{ subskill|escape_spaces }}-{{ lang }}-tag" data-bs-toggle="tab" aria-current="page" href="#{{ skill_key }}-{{ subskill|escape_spaces }}-{{ stat }}-{{ lang }}">{{ facade|get_short_stat:stat|get_short_stat_name:lang }}</a>
                     </li>
                     {% endfor %}
                 </ul>
-                <div class="card-body tab-content" id="tab-content-{{ skill_key }}-{{ subskill }}">
+                <div class="card-body tab-content" id="tab-content-{{ skill_key }}-{{ subskill }}-{{ lang }}">
                     {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
-                    <div class="tab-pane fade show {% if forloop.first %}active{% endif %}" id="{{ skill_key }}-{{ subskill|escape_spaces }}-{{ stat }}" role="tabpanel" aria-labelledby="{{ skill_key }}-{{ subskill|escape_spaces }}-{{ stat }}-tag">
+                    <div class="tab-pane fade show {% if forloop.first %}active{% endif %}" id="{{ skill_key }}-{{ subskill|escape_spaces }}-{{ stat }}-{{ lang }}" role="tabpanel" aria-labelledby="{{ skill_key }}-{{ subskill|escape_spaces }}-{{ stat }}-{{ lang }}-tag">
                         <div class="charlist-inline">
                             <button class="btn btn-danger btn-lg disabled align-self-center">
                                 {{ character|get_stat_bonus:stat }}
@@ -81,16 +81,16 @@
     </div>
     {% if not skill.is_specialist %}
     <div>
-        <ul class="nav nav-tabs" id="tab-{{ skill_key }}" role="tablist">
+        <ul class="nav nav-tabs" id="tab-{{ skill_key }}-{{ lang }}" role="tablist">
             {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
             <li class="nav-item" role="presentation">
-                <a class="nav-link {% if forloop.first %}active{% endif %}" id="{{skill_key}}-{{ stat }}-tag" data-bs-toggle="tab" aria-current="page" href="#{{ skill_key }}-{{ stat }}">{{ facade|get_short_stat:stat|get_short_stat_name:lang }}</a>
+                <a class="nav-link {% if forloop.first %}active{% endif %}" id="{{skill_key}}-{{ stat }}-{{ lang }}-tag" data-bs-toggle="tab" aria-current="page" href="#{{ skill_key }}-{{ stat }}-{{ lang }}">{{ facade|get_short_stat:stat|get_short_stat_name:lang }}</a>
             </li>
             {% endfor %}
         </ul>
-        <div class="card-body tab-content" id="tab-content-{{ skill_key }}">
+        <div class="card-body tab-content" id="tab-content-{{ skill_key }}-{{ lang }}">
             {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
-            <div class="tab-pane fade show {% if forloop.first %}active{% endif %}" id="{{ skill_key }}-{{ stat }}" role="tabpanel" aria-labelledby="{{ skill_key }}-{{ stat }}-tag">
+            <div class="tab-pane fade show {% if forloop.first %}active{% endif %}" id="{{ skill_key }}-{{ stat }}-{{ lang }}" role="tabpanel" aria-labelledby="{{ skill_key }}-{{ stat }}-{{ lang }}-tag">
                 <div class="charlist-inline">
                     <button class="btn btn-danger btn-lg disabled align-self-center">
                         {{ character|get_stat_bonus:stat }}

@@ -3,14 +3,14 @@
     <div>
         <h5 class="collapse-toggler">
             {% if lang == 'ru' %}Родной мир{% else %}Homeworld{% endif %}:&nbsp;
-            <a class="text-dark text-decoration-none" data-bs-toggle="collapse" href="#worldInfo"
-               role="button" aria-expanded="false" aria-controls="worldInfo">
+            <a class="text-dark text-decoration-none" data-bs-toggle="collapse" href="#worldInfo-{{ lang }}"
+               role="button" aria-expanded="false" aria-controls="worldInfo-{{ lang }}">
                 <i>{{ facade|get_homeworld_description:character.hw_id|get_hw_name:lang }}</i>
             </a>
         </h5>
     </div>
 </div>
-<div class="collapse" id="worldInfo">
+<div class="collapse" id="worldInfo-{{ lang }}">
     <div class="card card-body">
         <b class="card-title">{{ facade|get_homeworld_description:character.hw_id|get_hw_name:lang }}</b>
         <hr>
