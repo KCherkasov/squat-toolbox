@@ -428,6 +428,11 @@ def get_subskill_diff(character: CharacterModel, sk_tag: str, subskill: str, sta
     return character.get_subskill_diff(sk_tag, subskill, stat)
 
 
+@register.simple_tag
+def get_subskill_adv(character: CharacterModel, sk_tag: str, subskill: str):
+    return character.skills().get(sk_tag).get_subskill_advance(subskill)
+
+
 @register.filter
 def get_stat_value(character: CharacterModel, stat: str):
     return character.stats().get(stat).value()
