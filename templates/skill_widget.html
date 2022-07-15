@@ -89,7 +89,7 @@
         </ul>
         <div class="card-body tab-content" id="tab-content-{{ skill_key }}">
             {% for stat in skill_key.get_stats %}
-            <div class="tab-pane fade show active" id="{{ skill_key }}-{{ stat }}" role="tabpanel" aria-labelledby="{{ skill_key }}-{{ stat-key }}-tag">
+            <div class="tab-pane fade show active" id="{{ skill_key }}-{{ stat }}" role="tabpanel" aria-labelledby="{{ skill_key }}-{{ stat }}-tag">
                 <div class="charlist-inline">
                     <button class="btn btn-danger btn-lg disabled align-self-center">
                         {{ character|get_stat_bonus:stat }}
