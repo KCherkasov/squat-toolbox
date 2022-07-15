@@ -25,7 +25,7 @@ def charsheet_mockup(request):
 
 
 def interactive_charsheet_mockup(request):
-    character = CharacterModel(1, 1, u'Бергрим Коллвирсон', 'HW_FDWL', 'BG_ADMN', 'RL_CRSD', 'D_TNSZ',
+    character = CharacterModel(1, 1, u'Бергрим Коллвирсон', 'HW_FDWL', 'BG_ADMN', 'RL_CRS', 'D_TNSZ',
                                [], [11, 11], [0, 9], [64, 16950], [3, 3], 13, 14, 0,
                                [A_GENERAL, A_KNOWLEDGE, A_OFFENCE, A_STRENGTH, A_TOUGHNESS,
                                 A_WILLPOWER, A_SOCIAL, A_WEAPON_SKILL], {ST_WEAPON_SKILL: Stat(ST_WEAPON_SKILL, 39, 2),
