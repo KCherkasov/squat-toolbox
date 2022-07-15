@@ -36,13 +36,13 @@
                         <ul class="nav nav-tabs" id="tab-{{ skill_key }}-{{ subskill }}" role="tablist">
                         {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link active" id="{{skill_key}}-{{ stat }}-{{ subskill }}-tag" data-bs-toggle="tab" aria-current="page" href="#{{ skill_key }}-{{ subskill }}-{{ stat }}">{{ facade|get_short_stat:stat|get_short_stat_name:lang }}</a>
+                                <a class="nav-link {% if forloop.first %}active{% endif %}" id="{{skill_key}}-{{ stat }}-{{ subskill }}-tag" data-bs-toggle="tab" aria-current="page" href="#{{ skill_key }}-{{ subskill }}-{{ stat }}">{{ facade|get_short_stat:stat|get_short_stat_name:lang }}</a>
                             </li>
                         {% endfor %}
                         </ul>
                         <div class="card-body tab-content" id="tab-content-{{ skill_key }}-{{ subskill }}">
                             {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
-                            <div class="tab-pane fade show active" id="{{ skill_key }}-{{ subskill }}-{{ stat }}" role="tabpanel" aria-labelledby="{{ skill_key }}-{{ subskill }}-{{ stat }}-tag">
+                            <div class="tab-pane fade show {% if forloop.first %}active{% endif %}" id="{{ skill_key }}-{{ subskill }}-{{ stat }}" role="tabpanel" aria-labelledby="{{ skill_key }}-{{ subskill }}-{{ stat }}-tag">
                                 <div class="charlist-inline">
                                     <button class="btn btn-danger btn-lg disabled align-self-center">
                                         {{ character|get_stat_bonus:stat }}
