@@ -32,17 +32,16 @@
                         </div>
                         {% endfor %}
                     </div>
-                    {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
                     <div>
                         <ul class="nav nav-tabs" id="tab-{{ skill_key }}-{{ subskill }}" role="tablist">
-                            {% for stat in skill.get_stats %}
+                        {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link active" id="{{skill_key}}-{{ stat }}-{{ subskill }}-tag" data-bs-toggle="tab" aria-current="page" href="#{{ skill_key }}-{{ subskill }}-{{ stat }}">{{ facade|get_short_stat:stat|get_short_stat_name:lang }}</a>
                             </li>
                         {% endfor %}
                         </ul>
                         <div class="card-body tab-content" id="tab-content-{{ skill_key }}-{{ subskill }}">
-                            {% for stat in skill_key.get_stats %}
+                            {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
                             <div class="tab-pane fade show active" id="{{ skill_key }}-{{ subskill }}-{{ stat }}" role="tabpanel" aria-labelledby="{{ skill_key }}-{{ subskill }}-{{ stat }}-tag">
                                 <div class="charlist-inline">
                                     <button class="btn btn-danger btn-lg disabled align-self-center">
@@ -68,8 +67,6 @@
                             {% endfor %}
                         </div>
                     </div>
-                    {% endfor %}
-                {% endfor %}
         </div>
             {% else %}
             {% for upg_no in facade.sk_adv_range %}
@@ -79,17 +76,16 @@
             {% endfor %}
         </div>
     </div>
-    {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
     <div>
         <ul class="nav nav-tabs" id="tab-{{ skill_key }}" role="tablist">
-            {% for stat in skill.get_stats %}
+            {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
             <li class="nav-item" role="presentation">
                 <a class="nav-link active" id="{{skill_key}}-{{ stat }}-tag" data-bs-toggle="tab" aria-current="page" href="#{{ skill_key }}-{{ stat }}">{{ facade|get_short_stat:stat|get_short_stat_name:lang }}</a>
             </li>
             {% endfor %}
         </ul>
         <div class="card-body tab-content" id="tab-content-{{ skill_key }}">
-            {% for stat in skill_key.get_stats %}
+            {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
             <div class="tab-pane fade show active" id="{{ skill_key }}-{{ stat }}" role="tabpanel" aria-labelledby="{{ skill_key }}-{{ stat }}-tag">
                 <div class="charlist-inline">
                     <button class="btn btn-danger btn-lg disabled align-self-center">
@@ -115,7 +111,6 @@
             {% endfor %}
         </div>
     </div>
-    {% endfor %}
             {% endif %}
     </div>
 </div>
