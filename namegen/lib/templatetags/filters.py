@@ -231,7 +231,7 @@ def get_bonus_commands(bonus: flyweights.BonusDescription):
 
 # backgrounds
 @register.filter
-def get_bg_description(facade: flyweights.Facade, key: str):
+def get_background_description(facade: flyweights.Facade, key: str):
     return get_by_dict_key(facade.backgrounds(), key)
 
 
