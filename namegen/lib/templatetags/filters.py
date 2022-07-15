@@ -9,6 +9,11 @@ register = template.Library()
 
 
 @register.filter
+def escape_spaces(string: str):
+    return string.replace(' ', '-')
+
+
+@register.filter
 def get_by_dict_key(dictionary, key):
     return dictionary.get(key)
 
