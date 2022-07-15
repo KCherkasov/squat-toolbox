@@ -459,8 +459,8 @@ class RoleDescription(HintedDescription):
     @classmethod
     def from_model(cls, model: RoleModel):
         hints = list()
-        for model in model.hints:
-            hints.append(Hint.from_model(model))
+        for hint in model.hints:
+            hints.append(Hint.from_model(hint))
         bonus = BonusDescription.from_model(model.bonus)
         return cls(model.tag, model.name, model.description, hints,
                    model.aptitudes, model.apt_choices, model.talent_choices,
@@ -570,8 +570,8 @@ class EliteAdvance(HintedDescription):
     @classmethod
     def from_model(cls, model: EliteAdvanceModel):
         hints = list()
-        for model in model.hints:
-            hints.append(Hint.from_model(model))
+        for hint in model.hints:
+            hints.append(Hint.from_model(hint))
         return cls(model.tag, model.name, model.description, hints,
                    model.cost, model.prerequisites, model.commands)
 
