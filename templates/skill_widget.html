@@ -1,8 +1,8 @@
 {% load filters %}
 <div class="charlist-{% if skill.is_specialist %}inline{% else %}content{% endif %} justify-content-between">
     <div>
-        <div class="charlist-inline justify-content-between">
-            <div class="charlist-inline">
+        <div>
+            <div class="charlist-inline justify-content-between">
                 <p class="fs-4">{{ facade|get_skill_description:skill_key|get_skdescr_name:lang }}</p>
             {% if hookups|get_by_dict_key:skill_key %}
             <div class="btn-group dropend">
