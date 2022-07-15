@@ -359,7 +359,8 @@
           "description": {
             "ru": "Существо способно летать со скоростью $TR_TAKEN метров в раунд. Это число заменяет бонус Ловкости существа при вычислении его скорости во время полета.",
             "en": "The creature can fly around with $TR_TAKEN metres speed. This number replaces the creature’s Agility bonus for movement actions while airborne."
-          }
+          },
+          "targets": ["ST_AG"]
         }
       ],
       "is_stackable": true,
@@ -1089,7 +1090,7 @@
         "ru": "Существо с этой чертой обладает оружием, которое частично является нематериальным и потому способно игнорировать такие мирские вещи как доспехи или укрытие.",
         "en": "Creatures with this trait have weapons that are partially insubstantial, able to ignore such mundane things as armour or cover."
       },
-      "hints": [
+      "K": [
         {
           "tag": "TR_WPWP_H1",
           "description": {
