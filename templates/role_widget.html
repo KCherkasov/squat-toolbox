@@ -5,7 +5,7 @@
             {% if lang == 'ru' %}Роль{% else %}Role{% endif %}:&nbsp;
             <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
                href="#roleInfo" title="Подробнее" aria-expanded="false" aria-controls="roleInfo">
-                <i>{{ facade|get_role_description:character.role_id|get_role_name:lang }}</i>
+                <i>{{ facade|get_role_description_big:character.role_id|get_role_name:lang }}</i>
             </a>
         </h5>
     </div>
