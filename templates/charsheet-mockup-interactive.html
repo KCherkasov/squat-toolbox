@@ -119,6 +119,7 @@ Character sheet interactive mockup
                         <div class="charlist-content">
                             {% for stat_key, stat in character.stats.items %}
                                 {% include 'stat_widget.html' %}
+                            <hr>
                             {% endfor %}
                         </div>
                     </div>
@@ -132,6 +133,7 @@ Character sheet interactive mockup
                         <div class="tab-content">
                             {% for skill_key, skill in character.skills.items %}
                                 {% include 'skill_widget.html' %}
+                            <hr>
                             {% endfor %}
                         </div>
                     </div>
