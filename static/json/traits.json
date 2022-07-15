@@ -830,7 +830,7 @@
             "ru": "Существо с этой чертой воспринимает окружающее, испуская высокочастотный звук, отражение которого позволяет точно определять положение любого твердого объекта в радиусе 30 метров. Другие существа, оказавшись в зоне действия сонара, способны при помощи Проверки Бдительности -10 расслышать его как некий тонкий писк.",
             "en": "A creature with this trait perceives its surroundings by emitting uniquely toned pulses, allowing the creature to locate the position of any solid object within 30 metres. Other creatures within this 30 metres range that succeed on a –10 Awareness skill can detect the oddly-pitched sounds echoing around them."
           },
-          "target": ["ST_PER", "SK_AWR", "SK_SCR"]
+          "targets": ["ST_PER", "SK_AWR", "SK_SCR"]
         }
       ],
       "is_stackable": false,
@@ -980,7 +980,7 @@
             "ru": "Персонаж, что успешно нанес урон существу в ближнем бою, должен пройти проверку Выносливости в конце своего хода со штрафом $MTP$BASE$TR_TAKEN или получить 1d10 очков Энергетического урона, не блокируемого Броней или бонусом Выносливости. Токсины некоторых существ наносят больший урон или обладают иным эффектом – он указан в описании каждого конкретного существа.",
             "en": "A character that successfully deals damage to a Toxic creature in melee combat must make a Toughness test at the end of his turn with a $MTP$BASE$TR_TAKEN penalty or suffer 1d10 points of Energy damage not reduced by Armour or Toughness. Some creatures carry additional effects with their toxins, or inflict more damage as indicated in their individual descriptions."
           },
-          "target": ["ST_WS", "ST_T"]
+          "targets": ["ST_WS", "ST_T"]
         }
       ],
       "is_stackable": true,
