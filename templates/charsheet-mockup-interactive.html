@@ -30,32 +30,32 @@ Character sheet interactive mockup
         <div>
             <ul class="nav nav-tabs" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link active" data-bs-toggle="tab" id="general-tab" href="#general" aria-current="page">
+                    <a class="nav-link active" data-bs-toggle="tab" id="general-tab-{{ lang }}" href="#general-{{ lang }}" aria-current="page">
                         {% if lang == 'ru' %}Карточка персонажа{% else %}Character card{% endif %}
                     </a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" data-bs-toggle="tab" id="statsnskills-tab" href="#statsnskills">
+                    <a class="nav-link" data-bs-toggle="tab" id="statsnskills-tab-{{ lang }}" href="#statsnskills-{{ lang }}">
                         {% if lang == 'ru' %}Характеристики и навыки{% else %}Stats and skills{% endif %}
                     </a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" data-bs-toggle="tab" id="talents-tab" href="#talents">
+                    <a class="nav-link" data-bs-toggle="tab" id="talents-tab-{{ lang }}" href="#talents-{{ lang }}">
                         {% if lang == 'ru' %}Таланты и особенности{% else %}Talents and traits{% endif %}
                     </a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" data-bs-toggle="tab" id="psy-tab" href="#psy">
+                    <a class="nav-link" data-bs-toggle="tab" id="psy-tab-{{ lang }}" href="#psy-{{ lang }}">
                         {% if lang == 'ru' %}Психосилы{% else %}Psychic powers{% endif %}
                     </a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" data-bs-toggle="tab" id="equipment-tab" href="#equipment">
+                    <a class="nav-link" data-bs-toggle="tab" id="equipment-tab-{{ lang }}" href="#equipment-{{ lang }}">
                         {% if lang == 'ru' %}Имущество{% else %}Equipment{% endif %}
                     </a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" data-bs-toggle="tab" id="combat-tab" href="#combat">
+                    <a class="nav-link" data-bs-toggle="tab" id="combat-tab-{{ lang }}" href="#combat-{{ lang }}">
                         {% if lang == 'ru' %}Боевой листок{% else %}Combat card{% endif %}
                     </a>
                 </li>
@@ -65,7 +65,7 @@ Character sheet interactive mockup
             <header class="text-center">
                 <h3>{{ character.name }}</h3>
             </header>
-            <div class="tab-pane fade show charlist-container active justify-content-center" id="general" role="tabpanel" aria-labelledby="general-tab">
+            <div class="tab-pane fade show charlist-container active justify-content-center" id="general-{{ lang }}" role="tabpanel" aria-labelledby="general-tab-{{ lang }}">
                 <hr>
                 <header class="text-center">
                     <h4>{% if lang == 'ru' %}Карточка персонажа{% else %}Character card{% endif %}</h4>
@@ -89,7 +89,7 @@ Character sheet interactive mockup
                 </div>
             </div>
 
-            <div class="tab-pane fade show" id="statsnskills" role="tabpanel" aria-labelledby="statsnskills-tag">
+            <div class="tab-pane fade show" id="statsnskills-{{ lang }}" role="tabpanel" aria-labelledby="statsnskills-tag-{{ lang }}">
                 <hr>
                 <header class="text-center">
                     <h4>{% if lang == 'ru' %}Характеристики и навыки{% else %}Stats and skills{% endif %}</h4>
@@ -97,19 +97,19 @@ Character sheet interactive mockup
                 <div>
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link active" data-bs-toggle="tab" id="stats-tab" href="#stats" aria-current="page">
+                            <a class="nav-link active" data-bs-toggle="tab" id="stats-tab-{{ lang }}" href="#stats-{{ lang }}" aria-current="page">
                                 {% if lang == 'ru' %}Характеристики{% else %}Skills{% endif %}
                             </a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link" data-bs-toggle="tab" id="skills-tab" href="#skills">
+                            <a class="nav-link" data-bs-toggle="tab" id="skills-tab-{{ lang }}" href="#skills-{{ lang }}">
                                 {% if lang == 'ru' %}Навыки{% else %}Skills{% endif %}
                             </a>
                         </li>
                     </ul>
                 </div>
                 <div class="tab-content">
-                    <div class="tab-pane fade show active" id="stats" role="tabpanel" aria-labelledby="stats-tag">
+                    <div class="tab-pane fade show active" id="stats-{{ lang }}" role="tabpanel" aria-labelledby="stats-tag-{{ lang }}">
                         <hr>
                         <header class="text-center">
                             <h4>
@@ -122,7 +122,7 @@ Character sheet interactive mockup
                             {% endfor %}
                         </div>
                     </div>
-                    <div class="tab-pane fade show" id="skills" role="tabpanel" aria-labelledby="skills-tag">
+                    <div class="tab-pane fade show" id="skills-{{ lang }}" role="tabpanel" aria-labelledby="skills-tag-{{ lang }}">
                         <hr>
                         <header class="text-center">
                             <h4>
@@ -138,7 +138,7 @@ Character sheet interactive mockup
                 </div>
             </div>
 
-            <div class="tab-pane fade show" id="talents" role="tabpanel" aria-labelledby="talents-tag">
+            <div class="tab-pane fade show" id="talents-{{ lang }}" role="tabpanel" aria-labelledby="talents-tag-{{ lang }}">
                 <hr>
                 <header class="text-center">
                     <h4>
@@ -152,7 +152,7 @@ Character sheet interactive mockup
                 </div>
             </div>
 
-            <div class="tab-pane fade show" id="psy" role="tabpanel" aria-labelledby="psy-tag">
+            <div class="tab-pane fade show" id="psy-{{ lang }}" role="tabpanel" aria-labelledby="psy-tag-{{ lang }}">
                 <hr>
                 <header class="text-center">
                     <h4>{% if lang == 'ru' %}Психосилы{% else %}Psychic powers{% endif %}</h4>
@@ -172,25 +172,23 @@ Character sheet interactive mockup
                 </div>
             </div>
 
-            <div class="tab-pane fade show" id="equipment" role="tabpanel" aria-labelledby="equipment-tag">
+            <div class="tab-pane fade show" id="equipment-{{ lang }}" role="tabpanel" aria-labelledby="equipment-tag-{{ lang }}">
                 <hr>
                 <header class="text-center">
                     <h4>{% if lang == 'ru' %}Имущество{% else %}Equipment{% endif %}</h4>
-                    <h5>W.I.P.</h5>
                 </header>
                 <div class="">
-
+                    <h5>W.I.P.</h5>
                 </div>
             </div>
 
-            <div class="tab-pane fade show" id="combat" role="tabpanel" aria-labelledby="combat-tag">
+            <div class="tab-pane fade show" id="combat-{{ lang }}" role="tabpanel" aria-labelledby="combat-tag-{{ lang }}">
                 <hr>
                 <header class="text-center">
                     <h4>{% if lang == 'ru' %}Боевой листок{% else %}Combat card{% endif %}</h4>
-                    <h5>W. I. P.</h5>
                 </header>
                 <div class="">
-
+                    <h5>W. I. P.</h5>
                 </div>
             </div>
         </div>
