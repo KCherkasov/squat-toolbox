@@ -1,0 +1,42 @@
+<div class="charlist-content">
+    <div class="charlist-inline justify-content-between">
+        <div>
+            <h5>{% if lang == 'ru' %}Очки Порчи{% else %}Corruption points{% endif %}: &nbsp;</h5>
+        </div>
+        <div>
+            <button class="btn btn-info btn-lg disabled">{{ character.corruption_bonus }}</button>
+            <button class="btn btn-outline-dark btn-lg disabled">{{ character.corruption_residue }}</button>
+        </div>
+    </div>
+    <div>
+        <h5 class="collapse-toggler">
+            <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
+               href="#malignances" title="Подробнее" aria-expanded="false" aria-controls="malignances">
+                <i>{% if lang == 'ru' %}Рудименты{% else %}Malignancies{% endif %}</i>
+            </a>
+        </h5>
+    </div>
+    <div class="collapse" id="malignances">
+        <div class="card card-body">
+            <b class="card-title">Кожная болезнь:</b>
+            <p class="card-text">
+                Персонаж покрывается фурункулами, струпьями, незаживающими ранами и другими отвратительными болячками по всему телу. Он получает -20 штраф ко всем проверкам Обаяния.
+            </p>
+        </div>
+    </div>
+    <div>
+        <h5 class="collapse-toggler">
+            <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
+               href="#mutations" title="Подробнее" aria-expanded="false" aria-controls="mutations">
+                <i>{% if lang == 'ru' %}Мутации{% else %}Mutations{% endif %}</i>
+            </a>
+        </h5>
+    </div>
+    <div class="collapse" id="mutations">
+        <div class="card card-body">
+            <p class="card-text">
+                Отсутствуют
+            </p>
+        </div>
+    </div>
+</div>

@@ -283,7 +283,11 @@
       "talent_choices": [],
       "aptitudes": [],
       "apt_choices": ["A_KNG", "A_TECH"],
-      "traits": ["TR_MECH_IMPL"],
+      "traits": [
+        {
+          "tag": "TR_MECH_IMPL"
+        }
+      ],
       "traits_choices": [],
       "equipment": [],
       "bonus": {
@@ -590,7 +594,11 @@
       "talent_choices": [],
       "aptitudes": [],
       "apt_choices": [],
-      "traits": ["TR_MECH_IMPL"],
+      "traits": [
+        {
+          "tag": "TR_MECH_IMPL"
+        }
+      ],
       "traits_choices": [],
       "equipment": [],
       "bonus": {

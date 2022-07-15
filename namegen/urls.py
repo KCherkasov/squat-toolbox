@@ -29,6 +29,7 @@ urlpatterns = [
 
     path(r'dev/charsheet/test/', charviews.aptitudes_test, name='charsheet-test'),
     path(r'dev/charsheet/mockup/', charviews.charsheet_mockup, name='charsheet-mockup'),
+    path(r'dev/charsheet/mockup-interactive/', charviews.interactive_charsheet_mockup, name='interactive-mockup'),
 
     path('api/namegen/get', views.get_name),
     path('api/namegen/ver', views.get_namegen_version),

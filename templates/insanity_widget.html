@@ -1,0 +1,39 @@
+<div class="charlist-content">
+    <div class="charlist-inline justify-content-between">
+        <div class="charlist-inline justify-content-between">
+            <div>
+                <h5>{% if lang == 'ru' %}Очки Безумия{% else %}Insanity points{% endif %}: &nbsp;</h5>
+            </div>
+            {% if hookups|get_by_dict_key:'FP' %}
+            <div class="btn-group dropend">
+                <span class="position-absolute top-0 start-100 translate-middle btn btn-success dropdown-toggle badge rounded-circle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                </span>
+                <ul class="dropdown-menu w400">
+                    {% for hint in hookups|get_by_dict_key:'IP' %}
+                    <li class="dropdown-item text-wrap">
+                        <p class="text-break">{{ hint.description|get_by_dict_key:lang }} <b>({% if lang == 'ru' %}от{% else %}from{% endif %}:{{ hint.talent_name|get_by_dict_key:lang }})</b></p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+        <div>
+            <button class="btn btn-info btn-lg disabled">{{ character.insanity_bonus }}</button>
+            <button class="btn btn-outline-dark btn-lg disabled">{{ character.insanity_residue }}</button>
+        </div>
+    </div>
+    <div>
+        <h5 class="collapse-toggler">
+            <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
+               href="#mental-disorders" title="Подробнее" aria-expanded="false" aria-controls="mental-disorders">
+                <i>{% if lang == 'ru' %}Ментальные расстройства{% else %}Mental disorders{% endif %}</i>
+            </a>
+        </h5>
+    </div>
+    <div class="collapse" id="mental-disorders">
+        {% for disorder in character.disorders %}
+            {{ disorder }}
+        {% endfor %}
+    </div>
+</div>

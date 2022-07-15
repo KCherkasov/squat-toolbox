@@ -1,0 +1,15 @@
+<div class="charlist-inline">
+    <div>
+        <h5 class="collapse-toggler">&nbsp;
+            <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
+               href="#{{apt}}-info" title="Подробнее" aria-expanded="false" aria-controls="{{ apt }}-info">
+                <i>{{ facade|get_aptitude:apt|get_apt_name:lang }}</i>
+            </a>
+        </h5>
+    </div>
+</div>
+<div class="collapse" id="{{ apt }}-info">
+    <div class="card card-body">
+        <p class="card-text">{{ facade|get_aptitude:apt|get_apt_description:lang }}</p>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="charlist-inline">
+    <div class="charlist-inline justify-content-between">
+        <div>
+            <h5>
+                {% if lang == 'ru' %}Очки Судьбы{% else %}Fate points{% endif %}:&nbsp;{{ character.fate_current }} из {{ character.fate_cap }} &nbsp;
+            </h5>
+        </div>
+        {% if hookups|get_by_dict_key:'FP' %}
+        <div class="btn-group dropend">
+            <span class="position-absolute top-0 start-100 translate-middle btn btn-success dropdown-toggle badge rounded-circle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            </span>
+            <ul class="dropdown-menu w400">
+                {% for hint in hookups|get_by_dict_key:'FP' %}
+                <li class="dropdown-item text-wrap">
+                    <p class="text-break">{{ hint.description|get_by_dict_key:lang }} <b>({% if lang == 'ru' %}от{% else %}from{% endif %}:{{ hint.talent_name|get_by_dict_key:lang }})</b></p>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+    <button class="btn btn-success {% if character.fate_current > 0 %}disabled{% endif %} ">{% if lang == 'ru' %}Потратить{% else %}Spend{% endif %}</button>
+    <button class="btn btn-danger">{% if lang == 'ru' %}Сжечь{% else %}Burn{% endif %}</button>
+</div>

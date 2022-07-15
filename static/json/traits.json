@@ -53,18 +53,18 @@
     {
       "tag": "TR_ATST",
       "name": {
-        "ru": "",
+        "ru": "Автостабилизация",
         "en": "Auto-stabilised"
       },
       "description": {
-        "ru": "",
+        "ru": "Мощная отдача Тяжелого оружия – ничто, если его держит огромное существо, с цепкими когтями или огромными лапищами.",
         "en": "For exceptionally large creatures, even the most unstable of heavy weapons mean little compared to their huge limbs, gripping talons, or sheer bulk."
       },
       "hints": [
         {
           "tag": "TR_ATST_H1",
           "description": {
-            "ru": "",
+            "ru": "Тяжёлое оружие существа с этой чертой всегда считается Установленным на опору и может вести огонь короткими и длинными очередями без предварительной Установки на опору, безо всяких штрафов.",
             "en": "These beings always count as braced when firing heavy weapons and therefore may fire a weapon on full or semi-automatic without taking the Brace action first, and not suffer any penalties to hit."
           },
           "targets": ["ST_BS"]

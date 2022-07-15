@@ -1,0 +1,6 @@
+<div class="charlist-content">
+    <h5>{% if lang == 'ru' %}Склонности{% else %}Aptitudes{% endif %}</h5>
+    {% for apt in character.aptitudes %}
+        {% include 'char_apt_widget.html' %}
+    {% endfor %}
+</div>

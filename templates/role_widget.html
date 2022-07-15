@@ -1,0 +1,24 @@
+<div class="charlist-inline">
+    <div>
+        <h5 class="collapse-toggler">
+            {% if lang == 'ru' %}Роль{% else %}Role{% endif %}:&nbsp;
+            <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
+               href="#roleInfo" title="Подробнее" aria-expanded="false" aria-controls="roleInfo">
+                <i>{{ facade|get_role_description:character.role_id|get_role_name:lang }}</i>
+            </a>
+        </h5>
+    </div>
+</div>
+<div class="collapse" id="roleInfo">
+    <div class="card card-body">
+        <b class="card-title">{{ facade|get_role_description:character.role_id|get_role_name:lang }}</b>
+        <hr>
+        <p class="card-text">{{ facade|get_role_description:character.role_id|get_role_description:lang }}</p>
+        <br>
+        <b class="card-title">{% if lang == 'ru' %}Бонус роли{% else %}Role bonus{% endif %}:</b>
+        <p class="card-text">
+            <em>{{ facade|get_role_description:character.role_id|get_role_bonus|get_bonus_name:lang }}</em>
+            {{ facade|get_role_description:character.role_id|get_role_bonus|get_bonus_description:lang }}
+        </p>
+    </div>
+</div>

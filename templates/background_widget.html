@@ -1,0 +1,24 @@
+<div class="charlist-inline">
+    <div>
+        <h5 class="collapse-toggler">
+            {% if lang == 'ru' %}Предыстория{% else %}Background{% endif %}:&nbsp;
+            <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
+               href="#backgroundInfo" title="Подробнее" aria-expanded="false" aria-controls="backgroundInfo">
+                <i>{{ facade|get_background_description:character.bg_id|get_bg_name:lang }}</i>
+            </a>
+        </h5>
+    </div>
+</div>
+<div class="collapse" id="backgroundInfo">
+    <div class="card card-body">
+        <b class="card-title">{{ facade|get_background_description:character.bg_id|get_bg_name:lang }}</b>
+        <hr>
+        <p class="card-text">{{ facade|get_background_description:character.bg_id|get_bg_description:lang }}</p>
+        <br>
+        <b class="card-title">{% if lang == 'ru' %}Бонус предыстории{% else %}Background bonus{% endif %}:</b>
+        <p class="card-text">
+            <em>{{ facade|get_background_description:character.bg_id|get_bg_bonus|get_bonus_name:lang }}</em>
+            {{ facade|get_background_description:character.bg_id|get_bg_bonus|get_bonus_description:lang }}
+        </p>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="charlist-inline">
+    <div>
+        <h5 class="collapse-toggler">
+            {% if lang == 'ru' %}Предсказание{% else %}Divination{% endif %}:&nbsp;
+            <a class="text-dark text-decoration-none" data-bs-toggle="collapse" href="#worldInfo"
+               role="button" aria-expanded="false" aria-controls="worldInfo">
+                <i>{{ facade|get_divination_description:character.div_id|get_div_name:lang }}</i>
+            </a>
+        </h5>
+    </div>
+</div>
+<div class="collapse" id="worldInfo">
+    <div class="card card-body">
+        <b class="card-title">{{ facade|get_divination_description:character.div_id|get_div_name:lang }}</b>
+        <hr>
+        <p class="card-text">{{ facade|get_divination_description:character.div_id|get_div_description:lang }}</p>
+    </div>
+</div>

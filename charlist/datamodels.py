@@ -127,3 +127,162 @@ class TalentDescriptionModel(object):
             prerequisites.append(TalentPrerequisite.from_json(model))
         data['prerequisites'] = prerequisites
         return cls(**data)
+
+
+class TraitModel(object):
+    def __init__(self, tag: str, name: Dict[str, str], description: Dict[str, str],
+                 hints: List[HintModel], is_specialist: bool, is_stackable: bool):
+        self.tag = tag
+        self.name = name
+        self.description = description
+        self.hints = hints
+        self.is_specialist = is_specialist
+        self.is_stackable = is_stackable
+
+    @classmethod
+    def from_json(cls, data):
+        hints = list()
+        for model in data['hints']:
+            hints.append(HintModel.from_json(model))
+        data['hints'] = hints
+        return cls(**data)
+
+
+class BonusDescriptionModel(object):
+    def __init__(self, tag: str, name: Dict[str, str], description: Dict[str, str],
+                 hints: List[HintModel], commands: List[Dict]):
+        self.tag = tag
+        self.name = name
+        self.description = description
+        self.hints = hints
+        self.commands = commands
+
+    @classmethod
+    def from_json(cls, data):
+        hints = list()
+        for model in data['hints']:
+            hints.append(HintModel.from_json(model))
+        data['hints'] = hints
+        return cls(**data)
+
+
+class HomeworldModel(object):
+    def __init__(self, tag: str, name: Dict[str, str], description: Dict[str, str],
+                 hints: List[HintModel], stat_mods: Dict[str, int],
+                 fate: int, blessing: int, bonus: BonusDescriptionModel,
+                 aptitude: str, wounds: int):
+        self.tag = tag
+        self.name = name
+        self.description = description
+        self.hints = hints
+        self.stat_mods = stat_mods
+        self.fate = fate
+        self.blessing = blessing
+        self.bonus = bonus
+        self.aptitude = aptitude
+        self.wounds = wounds
+
+    @classmethod
+    def from_json(cls, data):
+        hints = list()
+        for model in data['hints']:
+            hints.append(HintModel.from_json(model))
+        data['hints'] = hints
+        bonus = BonusDescriptionModel.from_json(data['bonus'])
+        data['bonus'] = bonus
+        return cls(**data)
+
+
+class BackgroundModel(object):
+    def __init__(self, tag: str, name: Dict[str, str], description: Dict[str, str],
+                 skills: List[Dict[str, str]], skill_choices: List[List[Dict]],
+                 talents: List[Dict], talent_choices: List[List[Dict]],
+                 aptitudes: List[str], apt_choices: List[str], traits: List[Dict],
+                 traits_choices: List[Dict], equipment: List, bonus: BonusDescriptionModel):
+        self.tag = tag
+        self.name = name
+        self.description = description
+        self.skills = skills
+        self.skill_choices = skill_choices
+        self.talents = talents
+        self.talent_choices = talent_choices
+        self.aptitudes = aptitudes
+        self.apt_choices = apt_choices
+        self.traits = traits
+        self.traits_choices = traits_choices
+        self.equipment = equipment
+        self.bonus = bonus
+
+    @classmethod
+    def from_json(cls, data):
+        bonus = BonusDescriptionModel.from_json(data['bonus'])
+        data['bonus'] = bonus
+        return cls(**data)
+
+
+class RoleModel(object):
+    def __init__(self, tag: str, name: Dict[str, str], description: Dict[str, str],
+                 hints: List[HintModel], aptitudes: List[str], apt_choices: List[str],
+                 talent_choices: List[Dict], bonus: BonusDescriptionModel):
+        self.tag = tag
+        self.name = name
+        self.description = description
+        self.hints = hints
+        self.aptitudes = aptitudes
+        self.apt_choices = apt_choices
+        self.talent_choices = talent_choices
+        self.bonus = bonus
+
+    @classmethod
+    def from_json(cls, data):
+        hints = list()
+        for model in data['hints']:
+            hints.append(HintModel.from_json(model))
+        data['hints'] = hints
+        bonus = BonusDescriptionModel.from_json(data['bonus'])
+        data['bonus'] = bonus
+        return cls(**data)
+
+
+class EliteAdvanceModel(object):
+    def __init__(self, tag: str, name: Dict[str, str], description: Dict[str, str],
+                 hints: List[HintModel], cost: int, prerequisites: List[TalentPrerequisite],
+                 commands: List[Dict]):
+        self.tag = tag
+        self.name = name
+        self.description = description
+        self.hints = hints
+        self.cost = cost
+        self.prerequisites = prerequisites
+        self.commands = commands
+
+    @classmethod
+    def from_json(cls, data):
+        hints = list()
+        for model in data['hints']:
+            hints.append(HintModel.from_json(model))
+        data['hints'] = hints
+        prerequisites = list()
+        for model in data['prerequisites']:
+            prerequisites.append(TalentPrerequisite.from_json(model))
+        data['prerequisites'] = prerequisites
+        return cls(**data)
+
+
+class DivinationModel(object):
+    def __init__(self, tag: str, name: Dict[str, str], description: Dict[str, str],
+                 hints: List[HintModel], commands: List[Dict], roll_range: List[int]):
+        self.tag = tag
+        self.name = name
+        self.description = description
+        self.hints = hints
+        self.commands = commands
+        self.roll_range = roll_range
+
+    @classmethod
+    def from_json(cls, data):
+        hints = list()
+        for model in data['hints']:
+            hints.append(HintModel.from_json(model))
+        data['hints'] = hints
+        return cls(**data)

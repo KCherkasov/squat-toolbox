@@ -1,0 +1,53 @@
+<div class="charlist-inline justify-content-between">
+    <div>
+        <div class="charlist-inline justify-content-between">
+            <div>
+                <p class="fs-4">
+                    {{ facade|trait_description:trait_key|get_tr_name:lang }}{% if not facade|get_trait_description:trait_key|get_tr_is_specialist %}{% if facade|get_trait_description:trait_key|get_tr_is_stackable %}({{ trait.taken }}){% endif %}{%endif%}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="charlist-inline">
+        <div>
+            <h5 class="collapse-toggler">
+                <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
+                    href="#{{ trait_key }}-info" title="Подробнее" aria-expanded="false" aria-controls="{{ trait_key }}-info">
+                    <i>{% if lang == 'ru' %}Описание{% else %}Description{% endif %}</i>
+                </a>
+            </h5>
+        </div>
+    </div>
+    <div class="collapse" id="{{ trait_key }}-info">
+        <div class="card card-body">
+            <p class="card-text">{{ facade|get_trait_description:trait_key|get_tr_description:lang }}</p>
+        </div>
+    </div>
+    <div class="charlist-inline">
+        <div>
+            <h5 class="collapse-toggler">
+                <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
+                    href="#{{ trait_key }}-hints" title="Подробнее" aria-expanded="false" aria-controls="{{ trait_key }}-hints">
+                    <i>{% if lang == 'ru' %}Эффекты{% else %}Effects{% endif %}</i>
+                </a>
+            </h5>
+        </div>
+    </div>
+    <div class="collapse" id="{{ trait_key }}-hints">
+        {% for hint in facade|get_trait_description:trait_key|get_tr_hints %}
+        <div class="card card-body">
+            <p class="card-text">{{ hint|get_hint_description:lang }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% if facade|get_trait_description:trait_key|get_tr_is_specialist %}
+    <div>
+        <h5>{% if lang == 'ru' %}Взятые подкатегории{% else %}Taken specializations{% endif %}:</h5>
+        {% for subtag, tk in talent.taken.items %}
+        <div>
+            <p>{{ subtag }} {% if facade|get_trait_description:trait_key|get_tr_is_stackable %}({{ tk }}){% endif %}</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
