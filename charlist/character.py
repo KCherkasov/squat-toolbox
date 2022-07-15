@@ -580,7 +580,7 @@ class CharacterModel(object):
             tmp_name[lang] = facade.roles().get(self.__role_id).get_bonus().get_name(lang)
         map_hints(hookups, facade.roles().get(self.__role_id).get_bonus().get_hints(), tmp_name)
         for lang in ['ru', 'en']:
-            tmp_name[lang] = facade.divinations().get(self.__div_id).get_bonus().get_name(lang)
+            tmp_name[lang] = facade.divinations().get(self.__div_id).get_name(lang)
         map_hints(hookups, facade.divinations().get(self.__div_id).get_hints(), tmp_name)
         for tl_tag in self.__talents:
             for lang in ['ru', 'en']:
