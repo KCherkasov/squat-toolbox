@@ -13,13 +13,13 @@
         <div>
             <h5 class="collapse-toggler">
                 <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
-                    href="#{{ talent_key }}-info" title="Подробнее" aria-expanded="false" aria-controls="{{ talent_key }}-info">
+                    href="#{{ talent_key }}-{{ lang }}-info" title="Подробнее" aria-expanded="false" aria-controls="{{ talent_key }}-{{ lang }}-info">
                     <i>{% if lang == 'ru' %}Описание{% else %}Description{% endif %}</i>
                 </a>
             </h5>
         </div>
     </div>
-    <div class="collapse" id="{{ talent_key }}-info">
+    <div class="collapse" id="{{ talent_key }}-{{ lang }}-info">
         <div class="card card-body">
             <p class="card-text">{{ facade|get_talent_description:talent_key|get_tldescr_description:lang }}</p>
         </div>
@@ -28,13 +28,13 @@
         <div>
             <h5 class="collapse-toggler">
                 <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
-                    href="#{{ talent_key }}-hints" title="Подробнее" aria-expanded="false" aria-controls="{{ talent_key }}-hints">
+                    href="#{{ talent_key }}-{{ lang }}-hints" title="Подробнее" aria-expanded="false" aria-controls="{{ talent_key }}-{{ lang }}-hints">
                     <i>{% if lang == 'ru' %}Эффекты{% else %}Effects{% endif %}</i>
                 </a>
             </h5>
         </div>
     </div>
-    <div class="collapse" id="{{ talent_key }}-hints">
+    <div class="collapse" id="{{ talent_key }}-{{ lang }}-hints">
         {% for hint in facade|get_talent_description:talent_key|get_tldescr_hints %}
         <div class="card card-body">
             <p class="card-text">{{ hint|get_hint_description:lang }}</p>

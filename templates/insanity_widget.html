@@ -27,12 +27,12 @@
     <div>
         <h5 class="collapse-toggler">
             <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
-               href="#mental-disorders" title="Подробнее" aria-expanded="false" aria-controls="mental-disorders">
+               href="#mental-disorders-{{ lang }}" title="Подробнее" aria-expanded="false" aria-controls="mental-disorders-{{ lang }}">
                 <i>{% if lang == 'ru' %}Ментальные расстройства{% else %}Mental disorders{% endif %}</i>
             </a>
         </h5>
     </div>
-    <div class="collapse" id="mental-disorders">
+    <div class="collapse" id="mental-disorders-{{ lang }}">
         {% for disorder in character.disorders %}
             {{ disorder }}
         {% endfor %}

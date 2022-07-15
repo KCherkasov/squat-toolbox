@@ -4,13 +4,13 @@
         <h5 class="collapse-toggler">
             {% if lang == 'ru' %}Предыстория{% else %}Background{% endif %}:&nbsp;
             <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
-               href="#backgroundInfo" title="Подробнее" aria-expanded="false" aria-controls="backgroundInfo">
+               href="#backgroundInfo-{{ lang }}" title="Подробнее" aria-expanded="false" aria-controls="backgroundInfo-{{ lang }}">
                 <i>{{ facade|get_background_description:character.bg_id|get_bg_name:lang }}</i>
             </a>
         </h5>
     </div>
 </div>
-<div class="collapse" id="backgroundInfo">
+<div class="collapse" id="backgroundInfo-{{ lang }}">
     <div class="card card-body">
         <b class="card-title">{{ facade|get_background_description:character.bg_id|get_bg_name:lang }}</b>
         <hr>

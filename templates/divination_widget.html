@@ -3,14 +3,14 @@
     <div>
         <h5 class="collapse-toggler">
             {% if lang == 'ru' %}Предсказание{% else %}Divination{% endif %}:&nbsp;
-            <a class="text-dark text-decoration-none" data-bs-toggle="collapse" href="#divinationInfo"
-               role="button" aria-expanded="false" aria-controls="worldInfo">
+            <a class="text-dark text-decoration-none" data-bs-toggle="collapse" href="#divinationInfo-{{ lang }}"
+               role="button" aria-expanded="false" aria-controls="divinationInfo-{{ lang }}">
                 <i>{{ facade|get_divination_description:character.div_id|get_div_name:lang }}</i>
             </a>
         </h5>
     </div>
 </div>
-<div class="collapse" id="divinationInfo">
+<div class="collapse" id="divinationInfo-{{ lang }}">
     <div class="card card-body">
         <b class="card-title">{{ facade|get_divination_description:character.div_id|get_div_name:lang }}</b>
         <hr>

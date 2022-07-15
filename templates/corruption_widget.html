@@ -12,12 +12,12 @@
     <div>
         <h5 class="collapse-toggler">
             <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
-               href="#malignances" title="Подробнее" aria-expanded="false" aria-controls="malignances">
+               href="#malignances-{{ lang }}" title="Подробнее" aria-expanded="false" aria-controls="malignances-{{ lang }}">
                 <i>{% if lang == 'ru' %}Рудименты{% else %}Malignancies{% endif %}</i>
             </a>
         </h5>
     </div>
-    <div class="collapse" id="malignances">
+    <div class="collapse" id="malignances-{{ lang }}">
         <div class="card card-body">
             <b class="card-title">Кожная болезнь:</b>
             <p class="card-text">
@@ -28,12 +28,12 @@
     <div>
         <h5 class="collapse-toggler">
             <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
-               href="#mutations" title="Подробнее" aria-expanded="false" aria-controls="mutations">
+               href="#mutations-{{ lang }}" title="Подробнее" aria-expanded="false" aria-controls="mutations-{{ lang }}">
                 <i>{% if lang == 'ru' %}Мутации{% else %}Mutations{% endif %}</i>
             </a>
         </h5>
     </div>
-    <div class="collapse" id="mutations">
+    <div class="collapse" id="mutations-{{ lang }}">
         <div class="card card-body">
             <p class="card-text">
                 Отсутствуют
