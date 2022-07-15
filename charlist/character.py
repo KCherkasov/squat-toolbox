@@ -488,7 +488,7 @@ class CharacterModel(object):
                 or (subskill not in self.__skills.get(sk_tag).advances().keys()) \
                 or (stat not in self.__stats.keys()):
             return None
-        diff = self.__stats.get(stat).value() + self.__skills.get(sk_tag).get_subskill_advance(subskill)
+        diff = self.__stats.get(stat).value() + self.__skills.get(sk_tag).get_adv_bonus_subtag(subskill)
         return diff
 
     def talents(self):
