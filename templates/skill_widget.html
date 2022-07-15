@@ -19,74 +19,75 @@
             </div>
             {% endif %}
         </div>
+        {% if facade|get_skill_description:skill_key|get_skdescr_is_specialist %}
         <div>
-            {% if facade|get_skill_description:skill_key|get_skdescr_is_specialist %}
-                {% for subskill, adv in skill.advances.items %}
-                    <div class="charlist-inline">
-                        <p class="fs-5">{{ subskill }}</p>
-                    </div>
-                    <div>
-                        {% for upg_no in sk_adv_range %}
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="upg-{{ upg_no }}-{{ skill_key }}-{{ subskill }}" value="{{ upg_no }}" {% if upg_no <= adv %}checked{% endif %} disabled>
-                        </div>
-                        {% endfor %}
-                    </div>
-                    <div>
-                        <ul class="nav nav-tabs" id="tab-{{ skill_key }}-{{ subskill }}" role="tablist">
-                        {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link {% if forloop.first %}active{% endif %}" id="{{skill_key}}-{{ stat }}-{{ subskill }}-tag" data-bs-toggle="tab" aria-current="page" href="#{{ skill_key }}-{{ subskill }}-{{ stat }}">{{ facade|get_short_stat:stat|get_short_stat_name:lang }}</a>
-                            </li>
-                        {% endfor %}
-                        </ul>
-                        <div class="card-body tab-content" id="tab-content-{{ skill_key }}-{{ subskill }}">
-                            {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
-                            <div class="tab-pane fade show {% if forloop.first %}active{% endif %}" id="{{ skill_key }}-{{ subskill }}-{{ stat }}" role="tabpanel" aria-labelledby="{{ skill_key }}-{{ subskill }}-{{ stat }}-tag">
-                                <div class="charlist-inline">
-                                    <button class="btn btn-danger btn-lg disabled align-self-center">
-                                        {{ character|get_stat_bonus:stat }}
-                                    </button>
-                                    <button class="btn btn-outline-dark btn-lg disabled align-self-center">
-                                        {{ character|get_stat_residual:stat }}
-                                    </button>
-                                    <div class="align-self-center">
-                                        <p class="fs-4">+</p>
-                                    </div>
-                                    <button class="btn btn-info btn-lg disabled align-self-center">
-                                        {{ skill.get_adv_bonus }}
-                                    </button>
-                                    <div class="align-self-center">
-                                        <p class="fs-4">=</p>
-                                    </div>
-                                    <button class="btn btn-danger btn-lg disabled align-self-center">
-                                        {% get_skill_diff character facade skill_key stat %}
-                                    </button>
-                                </div>
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-        </div>
-            {% else %}
-            {% for upg_no in facade.sk_adv_range %}
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="upg-{{ upg_no }}-{{ skill_key }}" value="{{ upg_no }}" {% if upg_no <= skill.advances %}checked{% endif %} disabled>
+            {% for subskill, adv in skill.advances.items %}
+            <div class="charlist-inline">
+                <p class="fs-5">{{ subskill }}</p>
             </div>
-            {% endfor %}
+            <div>
+                {% for upg_no in sk_adv_range %}
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="upg-{{ upg_no }}-{{ skill_key }}-{{ subskill }}" value="{{ upg_no }}" {% if upg_no <= adv %}checked{% endif %} disabled>
+                </div>
+                {% endfor %}
+            </div>
+            <div>
+                <ul class="nav nav-tabs" id="tab-{{ skill_key }}-{{ subskill }}" role="tablist">
+                    {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link {% if forloop.first %}active{% endif %}" id="{{skill_key}}-{{ stat }}-{{ subskill }}-tag" data-bs-toggle="tab" aria-current="page" href="#{{ skill_key }}-{{ subskill }}-{{ stat }}">{{ facade|get_short_stat:stat|get_short_stat_name:lang }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div class="card-body tab-content" id="tab-content-{{ skill_key }}-{{ subskill }}">
+                    {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
+                    <div class="tab-pane fade show {% if forloop.first %}active{% endif %}" id="{{ skill_key }}-{{ subskill }}-{{ stat }}" role="tabpanel" aria-labelledby="{{ skill_key }}-{{ subskill }}-{{ stat }}-tag">
+                        <div class="charlist-inline">
+                            <button class="btn btn-danger btn-lg disabled align-self-center">
+                                {{ character|get_stat_bonus:stat }}
+                            </button>
+                            <button class="btn btn-outline-dark btn-lg disabled align-self-center">
+                                {{ character|get_stat_residual:stat }}
+                            </button>
+                            <div class="align-self-center">
+                                <p class="fs-4">+</p>
+                            </div>
+                            <button class="btn btn-info btn-lg disabled align-self-center">
+                                {{ skill.get_adv_bonus }}
+                            </button>
+                            <div class="align-self-center">
+                                <p class="fs-4">=</p>
+                            </div>
+                            <button class="btn btn-danger btn-lg disabled align-self-center">
+                                {% get_skill_diff character facade skill_key stat %}
+                            </button>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
+        {% else %}
+        {% for upg_no in facade.sk_adv_range %}
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="upg-{{ upg_no }}-{{ skill_key }}" value="{{ upg_no }}" {% if upg_no <= skill.advances %}checked{% endif %} disabled>
+        </div>
+        {% endfor %}
+        {% endif %}
     </div>
+    {% if not facade|get_skill_description:skill_key|get_skdescr_is_specialist %}
     <div>
         <ul class="nav nav-tabs" id="tab-{{ skill_key }}" role="tablist">
             {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
             <li class="nav-item" role="presentation">
-                <a class="nav-link active" id="{{skill_key}}-{{ stat }}-tag" data-bs-toggle="tab" aria-current="page" href="#{{ skill_key }}-{{ stat }}">{{ facade|get_short_stat:stat|get_short_stat_name:lang }}</a>
+                <a class="nav-link {% if forloop.first %}active{% endif %}" id="{{skill_key}}-{{ stat }}-tag" data-bs-toggle="tab" aria-current="page" href="#{{ skill_key }}-{{ stat }}">{{ facade|get_short_stat:stat|get_short_stat_name:lang }}</a>
             </li>
             {% endfor %}
         </ul>
         <div class="card-body tab-content" id="tab-content-{{ skill_key }}">
             {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
-            <div class="tab-pane fade show active" id="{{ skill_key }}-{{ stat }}" role="tabpanel" aria-labelledby="{{ skill_key }}-{{ stat }}-tag">
+            <div class="tab-pane fade show {% if forloop.first %}active{% endif %}" id="{{ skill_key }}-{{ stat }}" role="tabpanel" aria-labelledby="{{ skill_key }}-{{ stat }}-tag">
                 <div class="charlist-inline">
                     <button class="btn btn-danger btn-lg disabled align-self-center">
                         {{ character|get_stat_bonus:stat }}
@@ -111,6 +112,5 @@
             {% endfor %}
         </div>
     </div>
-            {% endif %}
-    </div>
+    {% endif %}
 </div>
