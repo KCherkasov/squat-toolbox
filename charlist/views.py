@@ -55,7 +55,7 @@ def interactive_charsheet_mockup(request):
                                 SK_SURVIVAL: Skill(SK_SURVIVAL, 1), SK_TECH_USE: Skill(SK_TECH_USE, 0),
                                 SK_TRADE: Skill(SK_TRADE, {"Armourer": 1})},
                                {"TL_BG": Talent("TL_BG", 1), "TL_TRGT": Talent("TL_TRGT", 1),
-                                "TL_DTW": Talent("TL_DTW", 1), "TL_WPT": Talent("TL_WTR", {"Low-tech": 1,
+                                "TL_DTW": Talent("TL_DTW", 1), "TL_WTR": Talent("TL_WTR", {"Low-tech": 1,
                                                                                            "Solid projectile": 1,
                                                                                            "Power": 1}),
                                 "TL_CFTC": Talent("TL_CFTC", 1), "TL_FRZ": Talent("TL_FRZ", 1),
