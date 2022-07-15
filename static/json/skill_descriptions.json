@@ -57,7 +57,7 @@
       "is_specialist": false
     },
     {
-      "tag" : "SK_COM",
+      "tag" : "SK_CMD",
       "name" : {
         "ru" : "Командование",
         "en" : "Command"
@@ -239,7 +239,7 @@
       "is_specialist": false
     },
     {
-      "tag" : "SK_NAV",
+      "tag" : "SK_NVG",
       "name" : {
         "ru" : "Навигация",
         "en" : "Navigate"
