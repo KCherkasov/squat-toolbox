@@ -6,6 +6,9 @@
                 {% if lang == 'ru' %}Очки Судьбы{% else %}Fate points{% endif %}:
             </h5>
         </div>
+        <div>
+            <h5>{{ character.fate_current }} {% if lang == 'ru' %}из{% else %}of{% endif %} {{ character.fate_cap }}</h5>
+        </div>
         {% if hookups|get_by_dict_key:'FP' %}
         <div class="btn-group dropend">
             <span class="position-absolute top-0 start-100 translate-middle btn btn-success dropdown-toggle badge rounded-circle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -19,9 +22,6 @@
             </ul>
         </div>
         {% endif %}
-        <div>
-            <h5>{{ character.fate_current }} {% if lang == 'ru' %}из{% else %}of{% endif %} {{ character.fate_cap }}</h5>
-        </div>
     </div>
     <button class="btn btn-success {% if character.fate_current == 0 %}disabled{% endif %} ">{% if lang == 'ru' %}Потратить{% else %}Spend{% endif %}</button>
     <button class="btn btn-danger">{% if lang == 'ru' %}Сжечь{% else %}Burn{% endif %}</button>
