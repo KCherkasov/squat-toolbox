@@ -582,11 +582,11 @@ class CharacterModel(object):
         for lang in ['ru', 'en']:
             tmp_name[lang] = facade.divinations().get(self.__div_id).get_name(lang)
         map_hints(hookups, facade.divinations().get(self.__div_id).get_hints(), tmp_name)
-        for tl_tag in self.__talents:
+        for tl_tag in self.__talents.keys():
             for lang in ['ru', 'en']:
                 tmp_name[lang] = facade.talent_descriptions().get(tl_tag).get_name(lang)
             map_hints(hookups, facade.talent_descriptions().get(tl_tag).get_hints(), tmp_name)
-        for tr_tag in self.__traits:
+        for tr_tag in self.__traits.keys():
             for lang in ['ru', 'en']:
                 tmp_name[lang] = facade.trait_descriptions().get(tr_tag).get_name(lang)
             map_hints(hookups, facade.trait_descriptions().get(tr_tag).get_hints(), tmp_name)
