@@ -1,9 +1,10 @@
 {% load filters %}
 <div class="charlist-{% if skill.is_specialist %}inline{% else %}content{% endif %} justify-content-between">
     <div>
-        <div>
-            <div class="charlist-inline justify-content-between">
+        <div class="charlist-inline">
+            <div>
                 <p class="fs-4">{{ facade|get_skill_description:skill_key|get_skdescr_name:lang }}</p>
+            </div>
             {% if hookups|get_by_dict_key:skill_key %}
             <div class="btn-group dropend">
                 <span class="position-absolute top-0 start-100 translate-middle btn btn-success dropdown-toggle badge rounded-circle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -17,7 +18,6 @@
                 </ul>
             </div>
             {% endif %}
-            </div>
         </div>
         {% if skill.is_specialist %}
         <div class="charlist-content">
