@@ -20,6 +20,6 @@
         </div>
         {% endif %}
     </div>
-    <button class="btn btn-success {% if character.fate_current > 0 %}disabled{% endif %} ">{% if lang == 'ru' %}Потратить{% else %}Spend{% endif %}</button>
+    <button class="btn btn-success {% if character.fate_current == 0 %}disabled{% endif %} ">{% if lang == 'ru' %}Потратить{% else %}Spend{% endif %}</button>
     <button class="btn btn-danger">{% if lang == 'ru' %}Сжечь{% else %}Burn{% endif %}</button>
 </div>
