@@ -5,7 +5,7 @@
             <div>
                 <h5>{% if lang == 'ru' %}Очки Безумия{% else %}Insanity points{% endif %}: &nbsp;</h5>
             </div>
-            {% if hookups|get_by_dict_key:'FP' %}
+            {% if hookups|get_by_dict_key:'IP' %}
             <div class="btn-group dropend">
                 <span class="position-absolute top-0 start-100 translate-middle btn btn-success dropdown-toggle badge rounded-circle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 </span>
