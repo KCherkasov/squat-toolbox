@@ -502,7 +502,7 @@ class CharacterModel(object):
 
     def get_subskill_diff(self, facade: Facade, sk_tag: str, subskill: str, stat: str):
         if (sk_tag not in self.__skills.keys()) \
-                or (subskill not in self.__skills.get(sk_tag).advances().get(subskill).keys()) \
+                or (subskill not in self.__skills.get(sk_tag).advances().keys()) \
                 or (stat not in self.__stats.keys()):
             return None
         diff = self.__stats.get(stat).value() + self.__skills.get(subskill).get_subskill_advance(subskill, facade)
