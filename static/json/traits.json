@@ -1090,7 +1090,7 @@
         "ru": "Существо с этой чертой обладает оружием, которое частично является нематериальным и потому способно игнорировать такие мирские вещи как доспехи или укрытие.",
         "en": "Creatures with this trait have weapons that are partially insubstantial, able to ignore such mundane things as armour or cover."
       },
-      "K": [
+      "hints": [
         {
           "tag": "TR_WPWP_H1",
           "description": {
