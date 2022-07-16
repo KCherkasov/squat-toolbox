@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from .tags import *
-from .flyweights import Facade, Hint
-
 from typing import List, Dict
+
+from .flyweights import Facade, Hint
+from .tags import *
 
 STAT_POINTS_PER_UPG = 5
 SKILL_POINTS_PER_UPG = 10
@@ -17,6 +17,16 @@ CURRENT_ID = 0
 CAP_ID = 1
 SPENT_ID = 1
 
+TALENT_PREFIX = 'TL'
+TRAIT_PREFIX = 'TR'
+HOMEWORLD_PREFIX = 'HW'
+BACKGROUND_PREFX = 'BG'
+ROLE_PREFIX = 'RL'
+ELITE_ADVANCE_PREFIX = 'EA'
+DIVINATION_PREFIX = 'D_'
+
+PARSE_TAG = '$'
+
 
 class HookupHint(object):
     def __init__(self, tag: str, description: Dict[str, str], talent_name: Dict[str, str]):
@@ -25,14 +35,48 @@ class HookupHint(object):
         self.talent_name = talent_name
 
 
-def map_hints(res: Dict[str, List[HookupHint]], hints: List[Hint], name: Dict[str, str]):
+def needs_parsing(hint: Hint):
+    for lang in ['ru', 'en']:
+        descr = hint.get_description(lang)
+        if PARSE_TAG not in descr:
+            return False
+    return True
+
+
+def parse_hint(hint: Hint, facade: Facade):
+    parsed = dict()
+    tag = hint.get_tag()[:-3]
+    owner = None
+    if tag[:2] == TALENT_PREFIX:
+        owner = facade.talent_descriptions().get(tag)
+    elif tag[:2] == TRAIT_PREFIX:
+        owner = facade.trait_descriptions().get(tag)
+    elif tag[:2] == HOMEWORLD_PREFIX:
+        owner = facade.homeworlds().get(tag).get_bonus()
+    elif tag[:2] == BACKGROUND_PREFX:
+        owner = facade.backgrounds().get(tag).get_bonus()
+    elif tag[:2] == ELITE_ADVANCE_PREFIX:
+        owner = facade.elite_advances().get(tag)
+    elif tag[:2] == DIVINATION_PREFIX:
+        owner = facade.divinations().get(tag)
+    if owner is not None:
+
+        return parsed
+    else:
+        return None
+
+
+def map_hints(res: Dict[str, List[HookupHint]], hints: List[Hint], name: Dict[str, str], facade: Facade):
     for hint in hints:
         for tgt in hint.get_target():
             if tgt not in res.keys():
                 res[tgt] = list()
             hook_description = dict()
-            for lang in ['ru', 'en']:
-                hook_description[lang] = hint.get_description(lang)
+            if needs_parsing(hint):
+                hook_description = parse_hint(hint, facade)
+            else:
+                for lang in ['ru', 'en']:
+                    hook_description[lang] = hint.get_description(lang)
             hook_hint = HookupHint(hint.get_tag(), hook_description, name)
             res.get(tgt).append(hook_hint)
 
@@ -69,6 +113,9 @@ class Stat(object):
 
     def improve(self, amount: int = 1):
         self.__base += amount
+
+    def is_fatigued(self, fatigue: int):
+        return self.bonus() < fatigue
 
     @classmethod
     def from_json(cls, data):
@@ -555,27 +602,42 @@ class CharacterModel(object):
         hw_name = dict()
         for lang in ['ru', 'en']:
             hw_name[lang] = facade.homeworlds().get(self.__hw_id).get_bonus().get_name(lang)
-        map_hints(hookups, facade.homeworlds().get(self.__hw_id).get_bonus().get_hints(), hw_name)
+        map_hints(hookups, facade.homeworlds().get(self.__hw_id).get_bonus().get_hints(), hw_name, facade)
         bg_name = dict()
         for lang in ['ru', 'en']:
             bg_name[lang] = facade.backgrounds().get(self.__bg_id).get_bonus().get_name(lang)
-        map_hints(hookups, facade.backgrounds().get(self.__bg_id).get_bonus().get_hints(), bg_name)
+        map_hints(hookups, facade.backgrounds().get(self.__bg_id).get_bonus().get_hints(), bg_name, facade)
         role_name = dict()
         for lang in ['ru', 'en']:
             role_name[lang] = facade.roles().get(self.__role_id).get_bonus().get_name(lang)
-        map_hints(hookups, facade.roles().get(self.__role_id).get_bonus().get_hints(), role_name)
+        map_hints(hookups, facade.roles().get(self.__role_id).get_bonus().get_hints(), role_name, facade)
         div_name = dict()
         for lang in ['ru', 'en']:
             div_name[lang] = facade.divinations().get(self.__div_id).get_name(lang)
-        map_hints(hookups, facade.divinations().get(self.__div_id).get_hints(), div_name)
+        map_hints(hookups, facade.divinations().get(self.__div_id).get_hints(), div_name, facade)
         for tl_tag in self.__talents.keys():
             tmp_name = dict()
             for lang in ['ru', 'en']:
                 tmp_name[lang] = facade.talent_descriptions().get(tl_tag).get_name(lang)
-            map_hints(hookups, facade.talent_descriptions().get(tl_tag).get_hints(), tmp_name)
+            map_hints(hookups, facade.talent_descriptions().get(tl_tag).get_hints(), tmp_name, facade)
         for tr_tag in self.__traits.keys():
             tmp_name = dict()
             for lang in ['ru', 'en']:
                 tmp_name[lang] = facade.trait_descriptions().get(tr_tag).get_name(lang)
-            map_hints(hookups, facade.trait_descriptions().get(tr_tag).get_hints(), tmp_name)
+            map_hints(hookups, facade.trait_descriptions().get(tr_tag).get_hints(), tmp_name, facade)
+        # for disorder in self.__disorders:
+        #     tmp_name = dict()
+        #     for lang in ['ru', 'en']:
+        #         tmp_name[lang] = facade.disorders().get(disorder).get_name(lang)
+        #     map_hints(hookups, facade.disorders().get(disorder).get_hints(), tmp_name, facade)
+        # for malign in self.__malignancies:
+        #     tmp_name = dict()
+        #     for lang in ['ru', 'en']:
+        #         tmp_name[lang] = facade.malignancies().get(malign).get_name(lang)
+        #     map_hints(hookups, facade.malignancies().get(malign).get_hints(), tmp_name, facade)
+        # for mutation in self.__mutations:
+        #     tmp_name = dict()
+        #     for lang in ['ru', 'en']:
+        #         tmp_name[lang] = facade.mutations().get(mutation).get_name(lang)
+        #     map_hints(hookups, facade.mutations().get(mutation).get_hints(), tmp_name, facade)
         return hookups
