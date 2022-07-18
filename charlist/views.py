@@ -3,9 +3,12 @@ import logging
 
 from django.shortcuts import render, reverse
 
-from .character import CharacterModel, Stat, Skill, Talent
-from .flyweights import *
-from .constants import *
+from .character.character import CharacterModel
+from .character.stat import Stat
+from .character.talent import Talent
+from .character.skill import Skill
+from .flyweights.flyweights import *
+from .constants.constants import *
 
 
 resources = ['aptitudes.json', 'stat_descriptions.json', 'skill_descriptions.json', 'talent_descriptions.json',

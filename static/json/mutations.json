@@ -1,0 +1,490 @@
+{
+  "mutations": [
+    {
+      "tag": "MT_BTHD",
+      "name": {
+        "ru": "Звериная шкура",
+        "en": "Bestial hide"
+      },
+      "description": {
+        "ru": "Кожа персонажа покрывается слоями толстой чешуи или хитина.",
+        "en": "The character’s skin becomes toughened with layers of thick scales or chitin."
+      },
+      "hints": [],
+      "commands": [
+        {
+          "command": "GainTrait",
+          "tag": "TR_NTAR",
+          "taken": 2
+        }
+      ],
+      "rolls_range": [1, 6]
+    },
+    {
+      "tag": "MT_UNAR",
+      "name": {
+        "ru": "Дополнительные руки",
+        "en": "Unnatural arms"
+      },
+      "description": {
+        "ru": "Извращенные придатки (сморщенные руки, крючковатые когти или мясистые щупальца) вылезают из позвоночника либо корпуса персонажа.",
+        "en": "Twisted appendages (shrivelled arms, hooked talons, or fleshy tendrils) emerge from this character’s spine or torso."
+      },
+      "hints": [],
+      "commands": [
+        {
+          "command": "GainTrait",
+          "tag": "TR_MTAR",
+          "taken": "CPB"
+        }
+      ],
+      "rolls_range": [7, 11]
+    },
+    {
+      "tag": "MT_STOR",
+      "name": {
+        "ru": "Незрячие бельма",
+        "en": "Sightless orbs"
+      },
+      "description": {
+        "ru": "Глаза этого персонажа становятся незрячими – разбитые окна в душу, охваченную разрастающейся порчей.",
+        "en": "This character’s eyes become sightless, cracked windows into a soul afflicted with a growing corruption."
+      },
+      "hints": [],
+      "commands": [
+        {
+          "command": "GainTrait",
+          "tag": "TR_BLND"
+        },
+        {
+          "command": "GainTrait",
+          "tag": "TR_UNSS",
+          "taken": "CPB",
+          "modifier": 10
+        }
+      ],
+      "rolls_range": [12, 17]
+    },
+    {
+      "tag": "MT_SWBR",
+      "name": {
+        "ru": "Бугай",
+        "en": "Swollen brute"
+      },
+      "description": {
+        "ru": "Этот персонаж увеличивается в объеме, его мускулы разрастаются, и его форма становится чрезмерно тучной или подозрительно мускулистой (возможно, всё вместе).",
+        "en": "This character becomes bloated, his muscles expanding and his form becoming excessively corpulent or disturbingly muscular (or perhaps both)."
+      },
+      "hints": [
+        {
+          "tag": "MT_SWBR_H1",
+          "description": {
+            "ru": "Бонус Ловкости персонажа считается на 1 меньше для определения скорости передвижения.",
+            "en": "Character's Agility bonus is reduced by 1 for purposes of movement."
+          },
+          "targets": ["ST_AG", "MP"]
+        }
+      ],
+      "commands": [
+        {
+          "command": "IncreaseStatRoll",
+          "tag": "ST_STR",
+          "dice": 10
+        },
+        {
+          "command": "IncreaseStatRoll",
+          "tag": "ST_T",
+          "dice": 10
+        }
+      ],
+      "rolls_range": [18, 25]
+    },
+    {
+      "tag": "MT_DTST",
+      "name": {
+        "ru": "Видения смерти",
+        "en": "Deathsight"
+      },
+      "description": {
+        "ru": "Разум этого персонажа искажается, его глаза показывают ему бесчисленные возможные способы уничтожения всего и вся, на что он смотрит дольше несколько мгновений.",
+        "en": "This character’s mind becomes twisted, his eyes showing him countless possible annihilations of anything or anyone he gazes upon for more than a few moments."
+      },
+      "hints": [
+        {
+          "tag": "MT_DTST_H1",
+          "description": {
+            "ru": "Один раз за игровую сессию персонаж может увеличить урон одной своей успешной атаки на $CPB, получив за это 1 Очко Порчи.",
+            "en": "Once per game session, this character may increase the damage of one attack he has made by $CPB. If he does so, he gains 1 Corruption point."
+          },
+          "targets": ["CP"]
+        }
+      ],
+      "commands": [],
+      "rolls_range": [26, 30]
+    },
+    {
+      "tag": "MT_CRFM",
+      "name": {
+        "ru": "Проклятая металлоплоть",
+        "en": "Cursed fleshmetal"
+      },
+      "description": {
+        "ru": "Импланты и доспехи персонажа врастают в его плоть, становясь единым целым и обретая способность к регенерации.",
+        "en": "This character’s armour and cybernetic implants become fused with his flesh, and even regenerate."
+      },
+      "hints": [
+        {
+          "tag": "MT_CRFM_H1",
+          "description": {
+            "ru": "Снятие любого элемента брони или демонтаж импланта требуют прохождения теста Медицины +0. При провале персонаж получает 1d5 режущего урона, игнорирующего броню, в случайную конечность.",
+            "en": "Removing any of character's implants or armour pieces requires a +0 Medicae test; if the test fails, he suffers 1d5 Rending damage to a randomly selected limb that ignores Armour."
+          },
+          "targets": ["SK_MED"]
+        },
+        {
+          "tag": "MT_CRFM_H2",
+          "description": {
+            "ru": "Пройдя тест Выносливости +10, персонаж может починить любой из вросших в него предметов аналогично использованию навыка Техпользования. Применение этой способности приносит персонажу 1 Очко Порчи.",
+            "en": "The character can make a +10 Toughness test to repair items merged with him, in the same manner as a Tech-Use test to repair the same equipment, but suffers 1 Corruption point."
+          },
+          "targets": ["ST_T", "CP"]
+        }
+      ],
+      "commands": [],
+      "rolls_range": [31, 36]
+    },
+    {
+      "tag": "MT_RZFN",
+      "name": {
+        "ru": "Острые клыки",
+        "en": "Razor fangs"
+      },
+      "description": {
+        "ru": "Зубы этого персонажа удлиняются, превращаясь.",
+        "en": "This character’s teeth grow long, turning into tearing fangs."
+      },
+      "hints": [
+        {
+          "tag": "MT_RZFN_H1",
+          "description": {
+            "ru": "",
+            "en": "This character gains an unarmed attack that inflicts 1d5+$CPB Rending damage, pen 2."
+          },
+          "targets": ["ST_WS"]
+        }
+      ],
+      "commands": [
+        {
+          "command": "DecreaseStatRoll",
+          "tag": "ST_FEL",
+          "dice": 5
+        }
+      ],
+      "rolls_range": [37, 43]
+    },
+    {
+      "tag": "MT_EXLG",
+      "name": {
+        "ru": "",
+        "en": "Excessive legs"
+      },
+      "description": {
+        "ru": "",
+        "en": "This character develops extra legs that support his form, suspending his upper torso above a centauroid lower body."
+      },
+      "hints": [],
+      "commands": [
+        {
+          "command": "GainTrait",
+          "tag": "TR_QDPD",
+          "taken": "CPB",
+          "modifier": 0.5
+        }
+      ],
+      "rolls_range": [44, 49]
+    },
+    {
+      "tag": "MT_WNGS",
+      "name": {
+        "ru": "Крылья",
+        "en": "Wings"
+      },
+      "description": {
+        "ru": "",
+        "en": "Massive feathered or leathery wings erupt from this character’s spine."
+      },
+      "hints": [],
+      "commands": [
+        {
+          "command": "GainTrait",
+          "tag": "TR_FLR",
+          "taken": "CPB",
+          "modifier": 2
+        }
+      ],
+      "rolls_range": [50, 54]
+    },
+    {
+      "tag": "MT_SPTL",
+      "name": {
+        "ru": "Змеиный хвост",
+        "en": "Serpentine tail"
+      },
+      "description": {
+        "ru": "",
+        "en": "This character’s legs wither while his spine elongates into a serpentine tail that supports his body."
+      },
+      "hints": [
+        {
+          "tag": "MT_SPTL_H1",
+          "description": {
+            "ru": "",
+            "en": "The character gains an unarmed attack that can strike for 1d10 Impact damage, Pen 0."
+          },
+          "targets": ["ST_WS"]
+        }
+      ],
+      "commands": [
+        {
+          "commands": "GainTrait",
+          "tag": "TR_CRWL"
+        }
+      ],
+      "rolls_range": [55, 60]
+    },
+    {
+      "tag": "MT_SRBL",
+      "name": {
+        "ru": "Жгучая кровь",
+        "en": "Searing blood"
+      },
+      "description": {
+        "ru": "",
+        "en": "This character’s veins are filled with searing acids in place of blood, though somehow the corrosive effects do not burn his own flesh."
+      },
+      "hints": [
+        {
+          "tag": "MT_SRBL_H1",
+          "description": {
+            "ru": "",
+            "en": "Whenever he suffers Blood Loss, the foul liquid erupts and inflicts 1d5+$CPB Energy damage, Pen 0, to each other character within 1d5 metres."
+          },
+          "targets": ["ST_T"]
+        }
+      ],
+      "commands": [],
+      "rolls_range": [61, 69]
+    },
+    {
+      "tag": "MT_WTCS",
+      "name": {
+        "ru": "",
+        "en": "Witch-curse"
+      },
+      "description": {
+        "ru": "",
+        "en": "A small stigma in the shape of a maddening rune appears on this character’s body, marking him as touched by Chaos."
+      },
+      "hints": [],
+      "commands": [
+        {
+          "command": "GainTrait",
+          "tag": "TR_PSY",
+          "alt": {
+            "command": "GainPR",
+            "amount": 1
+          }
+        }
+      ],
+      "rolls_range": [70, 77]
+    },
+    {
+      "tag": "MT_BNBL",
+      "name": {
+        "ru": "Костяные клинки",
+        "en": "Bone-blades"
+      },
+      "description": {
+        "ru": "",
+        "en": "This character’s bones grow long, twisted spurs that sprout painfully from his flesh on his command."
+      },
+      "hints": [
+        {
+          "tag": "MT_BNBL_H1",
+          "description": {
+            "ru": "",
+            "en": "This character gains an unarmed attack that inflicts 1d10+$CPB Rending damage, Pen 0."
+          },
+          "targets": ["ST_WS"]
+        },
+        {
+          "tag": "MT_BNBL_H2",
+          "description": {
+            "ru": "",
+            "en": "Whenever the makes an attack with his bone blades, he has to pass a +0 Toughness test or suffer Blood Loss."
+          },
+          "targets": ["ST_T"]
+        }
+      ],
+      "commands": [],
+      "rolls_range": [78, 84]
+    },
+    {
+      "tag": "MT_CNBU",
+      "name": {
+        "ru": "Каннибальские позывы",
+        "en": "Cannibalistic urge"
+      },
+      "description": {
+        "ru": "",
+        "en": "Blood and marrow become as wine and bread to this character, and normal food no longer sates the hunger of his soul."
+      },
+      "hints": [
+        {
+          "tag": "MT_CNBU_H1",
+          "description": {
+            "ru": "",
+            "en": "Once per game session, the character can remove 1d5 damage by consuming human flesh. Each time he does so, he gains 1 Corruption point."
+          },
+          "targets": ["CP", "ST_T"]
+        }
+      ],
+      "commands": [],
+      "rolls_range": [85, 89]
+    },
+    {
+      "tag": "MT_CPFL",
+      "name": {
+        "ru": "Порченая плоть",
+        "en": "Corrupted flesh"
+      },
+      "description": {
+        "ru": "",
+        "en": "Instead of blood, when this character’s flesh is torn asunder, horrific insects, worms, or flitting creatures spill forth."
+      },
+      "hints": [
+        {
+          "tag": "MT_CPFL_H1",
+          "description": {
+            "ru": "",
+            "en": "Whenever he suffers damage, this character gains the Fear (1) trait for 1d5 rounds."
+          },
+          "targets": ["ST_T"]
+        }
+      ],
+      "commands": [],
+      "rolls_range": [90, 92]
+    },
+    {
+      "tag": "MT_IWND",
+      "name": {
+        "ru": "",
+        "en": "It will not die!"
+      },
+      "description": {
+        "ru": "",
+        "en": "This character is touched by the power of the Warp, and fortune twists to keep him alive regardless of the terrible wounds he suffers, as if it is the will of some dark being that resides beyond the veil of reality."
+      },
+      "hints": [
+        {
+          "tag": "MT_IWND_H1",
+          "description": {
+            "ru": "",
+            "en": "The character can no longer burn a Fate point to survive lethal injuries. Whenever this character would die, he instead survives by the narrowest margin as if he had burned a Fate point and gains 1d10+5 Corruption points."
+          },
+          "targets": ["FP", "CP"]
+        }
+      ],
+      "commands": [],
+      "rolls_range": [93, 94]
+    },
+    {
+      "tag": "MT_WPGZ",
+      "name": {
+        "ru": "",
+        "en": "Warp gaze"
+      },
+      "description": {
+        "ru": "",
+        "en": "Whatever this character looks upon burns with the fire of the Warp, and all who see his eyes despair."
+      },
+      "hints": [
+        {
+          "tag": "MT_WPGZ_H1",
+          "description": {
+            "ru": "",
+            "en": "This character gains a 20m ranged attack that strikes with 1d10+$CPB Energy damage and the Spray quality. Each time he uses this attack, he gains 1d5 Corruption points. Characters struck with this attack must make a +0 Fear (1) test."
+          },
+          "targets": ["CP"]
+        }
+      ],
+      "commands": [],
+      "rolls_range": [95, 97]
+    },
+    {
+      "tag": "MT_WPRG",
+      "name": {
+        "ru": "",
+        "en": "Warp regeneration"
+      },
+      "description": {
+        "ru": "",
+        "en": "Corruption seethes through this character’s flesh, sewing his body back together time and time again whether he wills it or not."
+      },
+      "hints": [
+        {
+          "tag": "MT_WPRG_H1",
+          "description": {
+            "ru": "",
+            "en": "Whenever this character suffers damage, he makes a +0 Toughness test. If he succeeds, he gains the Regeneration ($CPB) trait for 1 round and gains 1d5 Corruption points."
+          },
+          "targets": ["CP", "ST_T"]
+        }
+      ],
+      "commands": [],
+      "rolls_range": [98, 99]
+    },
+    {
+      "tag": "MT_TWMM",
+      "name": {
+        "ru": "",
+        "en": "The Warp made manifest"
+      },
+      "description": {
+        "ru": "",
+        "en": "This character becomes a Daemon-like creature, capable of reshaping reality itself at his whim."
+      },
+      "hints": [
+        {
+          "tag": "MT_TWMM_H1",
+          "description": {
+            "ru": "",
+            "en": "The character can use his Willpower characteristic in place of any other characteristic for any test he is called upon to take."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
+      "commands": [
+        {
+          "command": "GainTrait",
+          "tag": "TR_DMNC",
+          "taken": "CPB"
+        },
+        {
+          "command": "GainTrait",
+          "tag": "TR_FR",
+          "taken": 2
+        },
+        {
+          "command": "GainTrait",
+          "tag": "TR_FRBN"
+        },
+        {
+          "command": "GainTrait",
+          "tag": "TR_WPIN"
+        }
+      ],
+      "rolls_range": [100, 100]
+    }
+  ]
+}

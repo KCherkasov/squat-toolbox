@@ -1,285 +1,20 @@
 # -*- coding: utf-8 -*-
 
-from typing import List, Dict
+from charlist.character.helpers import *
+from charlist.character.skill import Skill
+from charlist.character.stat import Stat
+from charlist.character.talent import Talent
+from charlist.character.trait import Trait
 
-from .flyweights import Facade, Hint
-from .tags import *
-
-STAT_POINTS_PER_UPG = 5
 SKILL_POINTS_PER_UPG = 10
 
 UNTRAINED_SKILL = -20
 
-STAT_UPGRADES_CAP = 5
 SKILL_UPGRADES_CAP = 4
 
 CURRENT_ID = 0
 CAP_ID = 1
 SPENT_ID = 1
-
-TALENT_PREFIX = 'TL'
-TRAIT_PREFIX = 'TR'
-HOMEWORLD_PREFIX = 'HW'
-BACKGROUND_PREFX = 'BG'
-ROLE_PREFIX = 'RL'
-ELITE_ADVANCE_PREFIX = 'EA'
-DIVINATION_PREFIX = 'D_'
-
-PARSE_TAG = '$'
-
-
-class HookupHint(object):
-    def __init__(self, tag: str, description: Dict[str, str], talent_name: Dict[str, str]):
-        self.tag = tag
-        self.description = description
-        self.talent_name = talent_name
-
-
-def needs_parsing(hint: Hint):
-    for lang in ['ru', 'en']:
-        descr = hint.get_description(lang)
-        if PARSE_TAG not in descr:
-            return False
-    return True
-
-
-def parse_hint(hint: Hint, facade: Facade):
-    parsed = dict()
-    tag = hint.get_tag()[:-3]
-    owner = None
-    if tag[:2] == TALENT_PREFIX:
-        owner = facade.talent_descriptions().get(tag)
-    elif tag[:2] == TRAIT_PREFIX:
-        owner = facade.trait_descriptions().get(tag)
-    elif tag[:2] == HOMEWORLD_PREFIX:
-        owner = facade.homeworlds().get(tag).get_bonus()
-    elif tag[:2] == BACKGROUND_PREFX:
-        owner = facade.backgrounds().get(tag).get_bonus()
-    elif tag[:2] == ELITE_ADVANCE_PREFIX:
-        owner = facade.elite_advances().get(tag)
-    elif tag[:2] == DIVINATION_PREFIX:
-        owner = facade.divinations().get(tag)
-    if owner is not None:
-
-        return parsed
-    else:
-        return None
-
-
-def map_hints(res: Dict[str, List[HookupHint]], hints: List[Hint], name: Dict[str, str], facade: Facade):
-    for hint in hints:
-        for tgt in hint.get_target():
-            if tgt not in res.keys():
-                res[tgt] = list()
-            hook_description = dict()
-            if needs_parsing(hint):
-                hook_description = parse_hint(hint, facade)
-            else:
-                for lang in ['ru', 'en']:
-                    hook_description[lang] = hint.get_description(lang)
-            hook_hint = HookupHint(hint.get_tag(), hook_description, name)
-            res.get(tgt).append(hook_hint)
-
-
-class Stat(object):
-    def __init__(self, tag: str, base: int, advances: int = 0):
-        self.__tag = tag
-        self.__base = base
-        self.__advances = advances
-
-    def is_upgradeable(self):
-        return (self.__tag == ST_INFLUENCE) or (self.__advances >= STAT_UPGRADES_CAP)
-
-    def get_base(self):
-        return self.__base
-
-    def get_upgrades(self):
-        return self.__advances
-
-    def value(self):
-        return self.__base + STAT_POINTS_PER_UPG * self.__advances
-
-    def bonus(self):
-        return self.value() // 10
-
-    def residue(self):
-        return self.value() % 10
-
-    def upgrade(self):
-        self.__advances += 1
-
-    def damage(self, amount: int = 1):
-        self.__base -= amount
-
-    def improve(self, amount: int = 1):
-        self.__base += amount
-
-    def is_fatigued(self, fatigue: int):
-        return self.bonus() < fatigue
-
-    @classmethod
-    def from_json(cls, data):
-        return cls(**data)
-
-
-class Skill(object):
-    def __init__(self, tag: str, advances):
-        self.__tag = tag
-        self.__advances = advances
-
-    def tag(self):
-        return self.__tag
-
-    def is_specialist(self):
-        return self.__tag in SUBTAGGED_SKILLS
-
-    def advances(self):
-        return self.__advances
-
-    def get_subskill_advance(self, subtag: str):
-        if self.is_specialist() and (subtag in self.__advances.keys()):
-            return self.__advances.get(subtag)
-        else:
-            return None
-
-    def get_adv_bonus(self):
-        if self.is_specialist():
-            return None
-        if self.__advances > 0:
-            return self.__advances * SKILL_POINTS_PER_UPG - 10
-        else:
-            return UNTRAINED_SKILL
-
-    def get_adv_bonus_subtag(self, subtag: str):
-        adv = self.get_subskill_advance(subtag)
-        if adv is None:
-            return None
-        else:
-            if adv > 0:
-                return adv * SKILL_POINTS_PER_UPG - 10
-            else:
-                return UNTRAINED_SKILL
-
-    def upgradeable(self):
-        return (self.__advances < SKILL_UPGRADES_CAP) and (self.__tag != ST_INFLUENCE)
-
-    def upgradeable_subtag(self, subtag: str):
-        if subtag not in self.__advances.keys():
-            return True
-        else:
-            return self.__advances.get(subtag) < SKILL_UPGRADES_CAP
-
-    def upgrade(self):
-        if not self.is_specialist() and self.upgradeable():
-            self.__advances += 1
-
-    def upgrade_subtag(self, subtag: str):
-        if self.is_specialist() and self.upgradeable_subtag(subtag):
-            if subtag in self.__advances.keys():
-                self.__advances[subtag] += 1
-            else:
-                self.__advances[subtag] = 1
-
-    @classmethod
-    def from_json(cls, data):
-        return cls(**data)
-
-
-class Talent(object):
-    def __init__(self, tag: str, taken):
-        self.__tag = tag
-        self.__taken = taken
-
-    def is_specialist(self, facade: Facade):
-        talents = facade.talent_descriptions()
-        if talents is None or self.__tag not in talents.keys():
-            return None
-        else:
-            return talents.get(self.__tag).is_specialist()
-
-    def is_stackable(self, facade: Facade):
-        talents = facade.talent_descriptions()
-        if talents and (self.__tag in talents.keys()):
-            return talents.get(self.__tag).is_stackable()
-        else:
-            return None
-
-    def tag(self):
-        return self.__tag
-
-    def taken(self):
-        return self.__taken
-
-    def taken_subtag(self, facade: Facade, subtag: str):
-        if self.is_specialist(facade):
-            if subtag in self.__taken.keys():
-                return self.__taken.get(subtag)
-            else:
-                return False
-        else:
-            return None
-
-    def take(self, facade: Facade):
-        if not self.is_specialist(facade) and self.is_stackable(facade):
-            self.__taken += 1
-
-    def take_subtag(self, facade: Facade, subtag: str):
-        if self.is_specialist(facade):
-            if subtag in self.__taken.keys():
-                if self.is_stackable(facade):
-                    self.__taken[subtag] += 1
-            else:
-                self.__taken[subtag] = 1
-
-    @classmethod
-    def from_json(cls, data):
-        return cls(**data)
-
-
-class Trait(object):
-    def __init__(self, tag: str, taken):
-        self.__tag = tag
-        self.__taken = taken
-
-    def tag(self):
-        return self.__tag
-
-    def is_specialist(self, facade: Facade):
-        traits = facade.trait_descriptions()
-        if traits and (self.__tag in traits.keys()):
-            return traits.get(self.__tag).is_specialist()
-
-    def is_stackable(self, facade: Facade):
-        traits = facade.trait_descriptions()
-        if traits and (self.__tag in traits.keys()):
-            return traits.get(self.__tag).is_stackable()
-
-    def taken(self):
-        return self.__taken
-
-    def taken_subtag(self, subtag: str, facade: Facade):
-        if self.is_specialist(facade):
-            if subtag in self.__taken.keys():
-                return self.__taken.get(subtag)
-            else:
-                return 0
-        else:
-            return None
-
-    def take(self, facade: Facade):
-        if not self.is_specialist(facade) and self.is_stackable(facade):
-            self.__taken += 1
-
-    def take_subtag(self, facade: Facade, subtag: str):
-        if self.taken_subtag(subtag, facade) > 0:
-            if self.is_stackable(facade):
-                self.__taken[subtag] += 1
-        elif self.taken_subtag(subtag, facade) == 0:
-            self.__taken[subtag] = 1
-
-    @classmethod
-    def from_json(cls, data):
-        return cls(**data)
 
 
 class CharacterModel(object):
@@ -291,7 +26,7 @@ class CharacterModel(object):
                  apts: List[str], stats: Dict[str, Stat],
                  skills: Dict[str, Skill], talents: Dict[str, Talent],
                  traits: Dict[str, Trait], psy: List[str], equipment: List,
-                 disorders: List[str], malignances: List[str],
+                 disorders: List[str], malignancies: List[str],
                  mutations: List[str]):
         self.__cid = cid
         self.__squad_id = squad_id
@@ -316,7 +51,7 @@ class CharacterModel(object):
         self.__psy = psy
         self.__equipment = equipment
         self.__disorders = disorders
-        self.__malignances = malignances
+        self.__malignancies = malignancies
         self.__mutations = mutations
 
     def id(self):
@@ -589,7 +324,7 @@ class CharacterModel(object):
         return self.__disorders
 
     def malignances(self):
-        return self.__malignances
+        return self.__malignancies
 
     def mutations(self):
         return self.__mutations

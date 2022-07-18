@@ -1,0 +1,383 @@
+{
+  "malignancies": [
+    {
+      "tag": "ML_PLS",
+      "name": {
+        "ru": "Дерганый",
+        "en": "Palsy"
+      },
+      "description": {
+        "ru": "Персонаж страдает от частых нервных тиков, дрожи и тремора.",
+        "en": "The character suffers from numerous minor tics, shakes, and tremors with no medical cause."
+      },
+      "hints": [],
+      "commands": [
+        {
+          "command": "DecreaseStatRoll",
+          "tag": "ST_AG",
+          "dice": 10
+        }
+      ],
+      "rolls_range": [1, 10]
+    },
+    {
+      "tag": "ML_DKHT",
+      "name": {
+        "ru": "Бессердечный",
+        "en": "Dark-hearted"
+      },
+      "description": {
+        "ru": "Персонаж становится очень жестоким, бесчувственным и мстительным.",
+        "en": "The character grows increasingly cruel, callous, and vindictive."
+      },
+      "hints": [],
+      "commands": [
+        {
+          "command": "DecreaseStatRoll",
+          "tag": "ST_FEL",
+          "dice": 10
+        }
+      ],
+      "rolls_range": [11, 15]
+    },
+    {
+      "tag": "ML_ILFT",
+      "name": {
+        "ru": "Невезучий",
+        "en": "Ill-fortuned"
+      },
+      "description": {
+        "ru": "Удача как будто издевается над персонажем в наиболее критических моментах.",
+        "en": "Chance seems to mock this Acolyte at the most crucial of opportunities."
+      },
+      "hints": [
+        {
+          "tag": "ML_ILFT_H1",
+          "description": {
+            "ru": "Когда этот персонаж использует Очко Судьбы, брось 1d10. При результате 7-10, Очко Судьбы не возымеет эффекта, но потратится в любом случае.",
+            "en": "Whenever this character uses a Fate point, roll 1d10. On a result of 7-10, the Fate point has no effect, but is spent anyway."
+          },
+          "targets": ["FP"]
+        }
+      ],
+      "commands": [],
+      "rolls_range": [16, 20]
+    },
+    {
+      "tag": "ML_SKAF",
+      "name": {
+        "ru": "Кожная болезнь",
+        "en": "Skin afflicitons"
+      },
+      "description": {
+        "ru": "Персонаж покрывается фурункулами, струпьями, незаживающими ранами и другими отвратительными болячками по всему телу.",
+        "en": "The character is plagued by boils, scabs, weeping sores and other disgusting features across his body."
+      },
+      "hints": [
+        {
+          "tag": "ML_SKAF_H1",
+          "description": {
+            "ru": "Персонаж получает штраф $BONUS к проверкам Обаяния",
+            "en": "The character suffers $BONUS penalty to all Charm tests."
+          },
+          "targets": ["SK_CH", "ST_FEL"],
+          "bonus": -20
+        }
+      ],
+      "commands": [],
+      "rolls_range": [21, 25]
+    },
+    {
+      "tag": "ML_NGTE",
+      "name": {
+        "ru": "Светобоязнь",
+        "en": "Night eyes"
+      },
+      "description": {
+        "ru": "Свет приносит боль персонажу, отзываясь растущими пятнами в его душе.",
+        "en": "Light pains the character, echoing the growing stain on his soul."
+      },
+      "hints": [
+        {
+          "tag": "ML_NGTE_H1",
+          "description": {
+            "ru": "Если он не защитит глаза, то получает штраф -10 ко всем проверкам, сделанным в области яркого света.",
+            "en": "Unless he shields his eyes, he suffers a –10 penalty on all tests made in an area of bright light."
+          },
+          "targets": ["ST_ALL, SK_ALL"]
+        }
+      ],
+      "commands": [],
+      "rolls_range": [26, 30]
+    },
+    {
+      "tag": "ML_MRBD",
+      "name": {
+        "ru": "Беспокойный",
+        "en": "Morbid"
+      },
+      "description": {
+        "ru": "Персонажу становится сложно сконцентрироваться, так как его ум пытают жуткие, мрачные и преисполненные насилия мысли.",
+        "en": "The character finds it hard to concentrate as his mind turns increasingly macabre and he becomes prone to tortured, gloom-filled trains of thought."
+      },
+      "hints": [],
+      "commands": [
+        {
+          "command": "DecreaseStatRoll",
+          "tag": "ST_INT",
+          "dice": 10
+        }
+      ],
+      "rolls_range": [31, 33]
+    },
+    {
+      "tag": "ML_WTMK",
+      "name": {
+        "ru": "Ведьмовская отметина",
+        "en": "Witch mark"
+      },
+      "description": {
+        "ru": "Персонаж получает некоторые незначительные физические деформации и легко укрываемые мутации. Они маленькие, но и их может быть достаточно, чтобы привести к смерти, если их увидит фанатичный охотник на ведьм.",
+        "en": "The character develops some minor physical deformity or easily concealable mutation. It is small, but perhaps enough to consign him to death if found out by a fanatical witch hunter."
+      },
+      "hints": [],
+      "commands": [],
+      "rolls_range": [34, 45]
+    },
+    {
+      "tag": "ML_FLOB",
+      "name": {
+        "ru": "Жуткие привычки",
+        "en": "Fell obsession"
+      },
+      "description": {
+        "ru": "Персонаж одержим чем-то зловещим или пагубным (например, коллекционирование трофеев-пальцев, ритуальной скарификацией, проведение бессмысленных вивисекций и т.д.)",
+        "en": "The character is obsessed by something sinister or malign (such as collecting finger-bone trophies, ritual scarification, carrying out meaningless vivisections, etc.)."
+      },
+      "hints": [
+        {
+          "tag": "ML_FLOB_H1",
+          "description": {
+            "ru": "Персонаж должен пройти проверку Силы Воли, чтобы не совершать компульсивных действий или держать свою одержимость в узде",
+            "en": "A character must make a Willpower test not to act in a compulsive way or pursue his obsession when the opportunity arises."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
+      "commands": [],
+      "rolls_range": [46, 50]
+    },
+    {
+      "tag": "ML_IRNS",
+      "name": {
+        "ru": "Необъяснимое отвращение",
+        "en": "Irrational nausea"
+      },
+      "description": {
+        "ru": "Персонаж чувствует себя плохо при виде, звуке, или запахе чего-то безобидного (например, молитвенные книги и священные предметы, голая плоть, человеческий смех, свежая еда и т.д.).",
+        "en": "The character feels sick at the sight, sound, or smell of something otherwise innocuous (such as prayer books and holy items, bare flesh, human laughter, fresh food, etc.)."
+      },
+      "hints": [
+        {
+          "tag": "ML_IRNS_H1",
+          "description": {
+            "ru": "Когда он встречается с объектом своего отвращения, то должен пройти проверку Выносливости или получить штраф -10 на все проверки, пока остаётся в присутствии раздражителя.",
+            "en": "When the character encounters an object of his revulsion he must make a Toughness test or suffer a –10 penalty to all tests as long as he remains in its presence."
+          },
+          "targets": ["ST_T"]
+        }
+      ],
+      "commands": [],
+      "rolls_range": [51, 55]
+    },
+    {
+      "tag": "ML_WSFR",
+      "name": {
+        "ru": "Потрепанное тело",
+        "en": "Wasted frame"
+      },
+      "description": {
+        "ru": "Персонаж становится мертвенно бледным, его мускулы обвисают.",
+        "en": "The character’s pallor becomes corpse-like and his muscles waste away."
+      },
+      "hints": [],
+      "commands": [
+        {
+          "command": "DecreaseStatRoll",
+          "tag": "ST_STR",
+          "dice": 10
+        }
+      ],
+      "rolls_range": [56, 60]
+    },
+    {
+      "tag": "ML_NGTR",
+      "name": {
+        "ru": "Ужасы ночи",
+        "en": "Night terrors"
+      },
+      "description": {
+        "ru": "",
+        "en": "Персонажа во сне преследуют демонические видения."
+      },
+      "hints": [
+        {
+          "tag": "TL_NGTR_H1",
+          "description": {
+            "ru": "После любого напряжённого дня, он должен пройти проверку Силы Воли, чтобы не поддаться своим кошмарам во время сна. Если он провалит, то получает 1 Уровень Усталости на следующий день.",
+            "en": "After any stressful day, the character must pass a Willpower test in order to not succumb to his terrors while asleep. If he fails, he suffers 1 level of Fatigue on the following day."
+          },
+          "targets": ["ST_WP", "FTP"]
+        }
+      ],
+      "commands": [],
+      "rolls_range": [61, 63]
+    },
+    {
+      "tag": "ML_PRHL",
+      "name": {
+        "ru": "Подорванное здоровье",
+        "en": "Poor health"
+      },
+      "description": {
+        "ru": "Персонаж постоянно страдает от мелких болезней и фантомных болей, а его раны никогда полностью не излечиваются.",
+        "en": "The character constantly suffers petty illnesses and phantom pains, and his wounds never seem to fully heal."
+      },
+      "hints": [],
+      "commands": [
+        {
+          "command": "DecreaseStatRoll",
+          "tag": "ST_T",
+          "dice": 10
+        }
+      ],
+      "rolls_range": [64, 70]
+    },
+    {
+      "tag": "ML_DTFL",
+      "name": {
+        "ru": "Недоверчивый",
+        "en": "Distrustful"
+      },
+      "description": {
+        "ru": "Персонаж не может пересилить недоверие и антипатию, которую он чувствует к другим.",
+        "en": "The character cannot conceal the distrust and antipathy he has for others."
+      },
+      "hints": [
+        {
+          "tag": "ML_DTFL_H1",
+          "description": {
+            "ru": "Персонаж получает штраф -10 к проверкам Общительности при взаимодействии с незнакомцами.",
+            "en": "The character suffers a –10 penalty to Fellowship tests when dealing with strangers."
+          },
+          "targets": ["ST_FEL", "SK_INQ", "SK_CH", "SK_DCV", "SK_CMD"]
+        }
+      ],
+      "commands": [],
+      "rolls_range": [71, 75]
+    },
+    {
+      "tag": "ML_MLST",
+      "name": {
+        "ru": "Дурной глаз",
+        "en": "Malign sight"
+      },
+      "description": {
+        "ru": "Мир кажется тёмным, тусклым и гниющим, если персонаж смотрит на что-то очень долго.",
+        "en": "The world seems to darken, tarnish, and rot if the character looks at anything too long."
+      },
+      "hints": [],
+      "commands": [
+        {
+          "command": "DecreaseStatRoll",
+          "tag": "ST_PER",
+          "dice": 10
+        }
+      ],
+      "rolls_range": [76, 80]
+    },
+    {
+      "tag": "ML_ASTT",
+      "name": {
+        "ru": "Привкус тлена",
+        "en": "Ashen taste"
+      },
+      "description": {
+        "ru": "Еда и напитки имеют дурной вкус и мало насыщают персонажа, он едва может переварить еду.",
+        "en": "Food and drink taste foul and provide little sustenance to the character, and he can barely stomach eating."
+      },
+      "hints": [
+        {
+          "tag": "ML_ASTT_H1",
+          "description": {
+            "ru": "Восстановление уровней Усталости занимает вдвое больше времени, чем обычно.",
+            "en": "Recovering levels of Fatigue takes twice as long for him than normal."
+          },
+          "targets": ["FTP"]
+        }
+      ],
+      "commands": [],
+      "rolls_range": [81, 83]
+    },
+    {
+      "tag": "ML_BLDL",
+      "name": {
+        "ru": "Кровожадность",
+        "en": "Bloodlust"
+      },
+      "description": {
+        "ru": "Кровавая ярость никогда не покидает персонажа.",
+        "en": "Murderous rage is never far from the character’s mind."
+      },
+      "hints": [
+        {
+          "tag": "ML_BLDL_H1",
+          "description": {
+            "ru": "После получения урона (после учёта Брони и бонуса Выносливости) в бою, он должен пройти проверку Силы Воли, чтобы иметь возможность отпустить своих врагов, захватить их или обездвижить, а не сразу убить, даже если он не имеет намерения убивать.",
+            "en": "After suffering damage (after Armour and Toughness bonus) in combat, the character must succeed at a Willpower test to allow his enemies to flee, be captured, or incapacitated, rather than killing them outright, even if his intent is otherwise."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
+      "commands": [],
+      "rolls_range": [84, 90]
+    },
+    {
+      "tag": "ML_BLKO",
+      "name": {
+        "ru": "Провалы в памяти",
+        "en": "Blackouts"
+      },
+      "description": {
+        "ru": "Персонаж страдает от необъяснимых провалов в памяти. Когда они случаются, и что происходит во время них, решается Мастером Игроком, который должен сообщить игроку что (если вообще что-то) он запомнит, когда придёт в себя.",
+        "en": "The character suffers from inexplicable blackouts. When they occur and what happens during them is up to the Game Master, who should inform the player the details of what (if anything) he remembers on awakening."
+      },
+      "hints": [],
+      "commands": [],
+      "rolls_range": [91, 93]
+    },
+    {
+      "tag": "ML_STAD",
+      "name": {
+        "ru": "Странные пристрастия",
+        "en": "Strange addictions"
+      },
+      "description": {
+        "ru": "Персонаж имеет почти неконтролируемое желание странных и неестественных субстанций (таких как лепестки роз, свежая кровь, слёзы вдовы и т.д.).",
+        "en": "The character has a near-uncontrollable craving for some bizarre and unnatural substance (such as rose petals, fresh blood, widows’ tears, etc.)."
+      },
+      "hints": [
+        {
+          "tag": "ML_STAD_H1",
+          "description": {
+            "ru": "Персонаж имеет компульсию к совершению определённых действий или одержим определёнными вещами. Персонаж должен пройти проверку Силы Воли +10, чтобы не совершать компульсивных действий или держать свои порывы в узде.",
+            "en": "A character must make a +10 Willpower test not to act in a compulsive way or pursue his obsession when the opportunity arises."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
+      "commands": [],
+      "rolls_range": [94, 100]
+    }
+  ]
+}
