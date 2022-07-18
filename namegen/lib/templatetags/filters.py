@@ -2,8 +2,10 @@
 
 from django import template
 
-from charlist import flyweights
-from charlist.character import *
+from typing import Dict
+
+from charlist.flyweights import flyweights
+from charlist.character.character import CharacterModel
 
 register = template.Library()
 
