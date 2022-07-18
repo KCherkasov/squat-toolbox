@@ -1,11 +1,23 @@
 # -*- coding: utf-8 -*-
 
-from django import template
-
 from typing import Dict
 
-from charlist.flyweights import flyweights
+from django import template
+
 from charlist.character.character import CharacterModel
+from charlist.flyweights import flyweights
+from charlist.flyweights.aptitude import Aptitude
+from charlist.flyweights.background_description import BackgroundDescription
+from charlist.flyweights.bonus_description import BonusDescription
+from charlist.flyweights.core.hint import Hint
+from charlist.flyweights.divination_description import DivinationDescription
+from charlist.flyweights.elite_advance_description import EliteAdvance
+from charlist.flyweights.homeworld_description import HomeWorldDescription
+from charlist.flyweights.role_description import RoleDescription
+from charlist.flyweights.skill_description import SkillDescription
+from charlist.flyweights.stat_description import StatDescription
+from charlist.flyweights.talent_description import TalentDescription
+from charlist.flyweights.trait_description import TraitDescription
 
 register = template.Library()
 
@@ -35,12 +47,12 @@ def get_aptitude(facade: flyweights.Facade, key: str):
 
 
 @register.filter
-def get_apt_name(apt: flyweights.Aptitude, lang='ru'):
+def get_apt_name(apt: Aptitude, lang='ru'):
     return apt.get_name(lang)
 
 
 @register.filter
-def get_apt_description(apt: flyweights.Aptitude, lang='ru'):
+def get_apt_description(apt: Aptitude, lang='ru'):
     return apt.get_description(lang)
 
 
@@ -51,17 +63,17 @@ def get_stat_description(facade: flyweights.Facade, key: str):
 
 
 @register.filter
-def get_stdescr_name(stdescr: flyweights.StatDescription, lang='ru'):
+def get_stdescr_name(stdescr: StatDescription, lang='ru'):
     return stdescr.get_name(lang)
 
 
 @register.filter
-def get_stdescr_description(stdescr: flyweights.StatDescription, lang='ru'):
+def get_stdescr_description(stdescr: StatDescription, lang='ru'):
     return stdescr.get_description(lang)
 
 
 @register.filter
-def get_stdescr_upgradeable(stdescr: flyweights.StatDescription):
+def get_stdescr_upgradeable(stdescr: StatDescription):
     return stdescr.is_upgradeable()
 
 
@@ -72,28 +84,28 @@ def get_skill_description(facade: flyweights.Facade, key: str):
 
 
 @register.filter
-def get_skdescr_name(skdescr: flyweights.SkillDescription, lang='ru'):
+def get_skdescr_name(skdescr: SkillDescription, lang='ru'):
     return skdescr.get_name(lang)
 
 
 @register.filter
-def get_skdescr_description(skdescr: flyweights.SkillDescription, lang='ru'):
+def get_skdescr_description(skdescr: SkillDescription, lang='ru'):
     return skdescr.get_description(lang)
 
 
 @register.filter
-def get_skdescr_stats(skdescr: flyweights.SkillDescription):
+def get_skdescr_stats(skdescr: SkillDescription):
     return skdescr.get_stats()
 
 
 @register.filter
-def get_skdescr_is_specialist(skdescr: flyweights.SkillDescription):
+def get_skdescr_is_specialist(skdescr: SkillDescription):
     return skdescr.is_specialist()
 
 
 # hints
 @register.filter
-def get_hint_description(hint: flyweights.Hint, lang='ru'):
+def get_hint_description(hint: Hint, lang='ru'):
     return hint.get_description(lang)
 
 
@@ -104,42 +116,42 @@ def get_talent_description(facade: flyweights.Facade, key: str):
 
 
 @register.filter
-def get_tldescr_tag(tldescr: flyweights.TalentDescription):
+def get_tldescr_tag(tldescr: TalentDescription):
     return tldescr.get_tag()
 
 
 @register.filter
-def get_tldescr_name(tldescr: flyweights.TalentDescription, lang='ru'):
+def get_tldescr_name(tldescr: TalentDescription, lang='ru'):
     return tldescr.get_name(lang)
 
 
 @register.filter
-def get_tldescr_description(tldescr: flyweights.TalentDescription, lang='ru'):
+def get_tldescr_description(tldescr: TalentDescription, lang='ru'):
     return tldescr.get_short_description(lang)
 
 
 @register.filter
-def get_tldescr_hints(tldescr: flyweights.TalentDescription):
+def get_tldescr_hints(tldescr: TalentDescription):
     return tldescr.get_hints()
 
 
 @register.filter
-def get_tldescr_tier(tldescr: flyweights.TalentDescription):
+def get_tldescr_tier(tldescr: TalentDescription):
     return tldescr.get_tier()
 
 
 @register.filter
-def get_tldescr_prerequisites(tldescr: flyweights.TalentDescription):
+def get_tldescr_prerequisites(tldescr: TalentDescription):
     return tldescr.get_prerequisites()
 
 
 @register.filter
-def get_tldescr_is_specialist(tldescr: flyweights.TalentDescription):
+def get_tldescr_is_specialist(tldescr: TalentDescription):
     return tldescr.is_specialist()
 
 
 @register.filter
-def get_tldescr_is_stackable(tldescr: flyweights.TalentDescription):
+def get_tldescr_is_stackable(tldescr: TalentDescription):
     return tldescr.is_stackable()
 
 
@@ -150,17 +162,17 @@ def get_trait_description(facade: flyweights.Facade, key: str):
 
 
 @register.filter
-def get_trdescr_name(trdescr: flyweights.TraitDescription, lang='ru'):
+def get_trdescr_name(trdescr: TraitDescription, lang='ru'):
     return trdescr.get_name(lang)
 
 
 @register.filter
-def get_trdescr_description(trdescr: flyweights.TraitDescription, lang='ru'):
+def get_trdescr_description(trdescr: TraitDescription, lang='ru'):
     return trdescr.get_description(lang)
 
 
 @register.filter
-def get_trdescr_hints(trdescr: flyweights.TraitDescription):
+def get_trdescr_hints(trdescr: TraitDescription):
     return trdescr.get_hints()
 
 
@@ -171,68 +183,68 @@ def get_homeworld_description(facade: flyweights.Facade, key: str):
 
 
 @register.filter
-def get_hw_name(hw: flyweights.HomeWorldDescription, lang='ru'):
+def get_hw_name(hw: HomeWorldDescription, lang='ru'):
     return hw.get_name(lang)
 
 
 @register.filter
-def get_hw_description(hw: flyweights.HomeWorldDescription, langs='ru'):
+def get_hw_description(hw: HomeWorldDescription, langs='ru'):
     return hw.get_description(langs)
 
 
 @register.filter
-def get_hw_hints(hw: flyweights.HomeWorldDescription):
+def get_hw_hints(hw: HomeWorldDescription):
     return hw.get_hints()
 
 
 @register.filter
-def get_hw_stat_mods(hw: flyweights.HomeWorldDescription):
+def get_hw_stat_mods(hw: HomeWorldDescription):
     return hw.get_stat_mods()
 
 
 @register.filter
-def get_hw_fate(hw: flyweights.HomeWorldDescription):
+def get_hw_fate(hw: HomeWorldDescription):
     return hw.get_fate()
 
 
 @register.filter
-def get_hw_blessing(hw: flyweights.HomeWorldDescription):
+def get_hw_blessing(hw: HomeWorldDescription):
     return hw.get_blessing()
 
 
 @register.filter
-def get_hw_bonus(hw: flyweights.HomeWorldDescription):
+def get_hw_bonus(hw: HomeWorldDescription):
     return hw.get_bonus()
 
 
 @register.filter
-def get_hw_aptitude(hw: flyweights.HomeWorldDescription):
+def get_hw_aptitude(hw: HomeWorldDescription):
     return hw.get_aptitude()
 
 
 @register.filter
-def get_hw_wounds(hw: flyweights.HomeWorldDescription):
+def get_hw_wounds(hw: HomeWorldDescription):
     return hw.get_wounds()
 
 
 # bonus description
 @register.filter
-def get_bonus_name(bonus: flyweights.BonusDescription, lang='ru'):
+def get_bonus_name(bonus: BonusDescription, lang='ru'):
     return bonus.get_name(lang)
 
 
 @register.filter
-def get_bonus_description(bonus: flyweights.BonusDescription, lang='ru'):
+def get_bonus_description(bonus: BonusDescription, lang='ru'):
     return bonus.get_description(lang)
 
 
 @register.filter
-def get_bonus_hints(bonus: flyweights.BonusDescription):
+def get_bonus_hints(bonus: BonusDescription):
     return bonus.get_hints()
 
 
 @register.filter
-def get_bonus_commands(bonus: flyweights.BonusDescription):
+def get_bonus_commands(bonus: BonusDescription):
     return bonus.get_commands()
 
 
@@ -243,67 +255,67 @@ def get_background_description(facade: flyweights.Facade, key: str):
 
 
 @register.filter
-def get_bg_name(bg: flyweights.BackgroundDescription, lang='ru'):
+def get_bg_name(bg: BackgroundDescription, lang='ru'):
     return bg.get_name(lang)
 
 
 @register.filter
-def get_bg_description(bg: flyweights.BackgroundDescription, lang='ru'):
+def get_bg_description(bg: BackgroundDescription, lang='ru'):
     return bg.get_description(lang)
 
 
 @register.filter
-def get_bg_hints(bg: flyweights.BackgroundDescription):
+def get_bg_hints(bg: BackgroundDescription):
     return bg.get_hints()
 
 
 @register.filter
-def get_bg_aptitudes(bg: flyweights.BackgroundDescription):
+def get_bg_aptitudes(bg: BackgroundDescription):
     return bg.get_aptitudes()
 
 
 @register.filter
-def get_bg_apt_choices(bg: flyweights.BackgroundDescription):
+def get_bg_apt_choices(bg: BackgroundDescription):
     return bg.get_apt_choices()
 
 
 @register.filter
-def get_bg_skills(bg: flyweights.BackgroundDescription):
+def get_bg_skills(bg: BackgroundDescription):
     return bg.get_skills()
 
 
 @register.filter
-def get_bg_skill_choices(bg: flyweights.BackgroundDescription):
+def get_bg_skill_choices(bg: BackgroundDescription):
     return bg.get_skill_choices()
 
 
 @register.filter
-def get_bg_talents(bg: flyweights.BackgroundDescription):
+def get_bg_talents(bg: BackgroundDescription):
     return bg.get_talents()
 
 
 @register.filter
-def get_bg_talent_choices(bg: flyweights.BackgroundDescription):
+def get_bg_talent_choices(bg: BackgroundDescription):
     return bg.get_talent_choices()
 
 
 @register.filter
-def get_bg_traits(bg: flyweights.BackgroundDescription):
+def get_bg_traits(bg: BackgroundDescription):
     return bg.get_traits()
 
 
 @register.filter
-def get_bg_trait_choices(bg: flyweights.BackgroundDescription):
+def get_bg_trait_choices(bg: BackgroundDescription):
     return bg.get_traits_choices()
 
 
 @register.filter
-def get_bg_equipment(bg: flyweights.BackgroundDescription):
+def get_bg_equipment(bg: BackgroundDescription):
     return bg.get_equipment()
 
 
 @register.filter
-def get_bg_bonus(bg: flyweights.BackgroundDescription):
+def get_bg_bonus(bg: BackgroundDescription):
     return bg.get_bonus()
 
 
@@ -314,37 +326,37 @@ def get_role_description_big(facade: flyweights.Facade, key: str):
 
 
 @register.filter
-def get_role_name(role: flyweights.RoleDescription, lang='ru'):
+def get_role_name(role: RoleDescription, lang='ru'):
     return role.get_name(lang)
 
 
 @register.filter
-def get_role_description(role: flyweights.RoleDescription, lang='ru'):
+def get_role_description(role: RoleDescription, lang='ru'):
     return role.get_description(lang)
 
 
 @register.filter
-def get_role_hints(role: flyweights.RoleDescription):
+def get_role_hints(role: RoleDescription):
     return role.get_hints()
 
 
 @register.filter
-def get_role_aptitudes(role: flyweights.RoleDescription):
+def get_role_aptitudes(role: RoleDescription):
     return role.get_aptitudes()
 
 
 @register.filter
-def get_role_apt_choices(role: flyweights.RoleDescription):
+def get_role_apt_choices(role: RoleDescription):
     return role.get_apt_choices()
 
 
 @register.filter
-def get_role_talent_choices(role: flyweights.RoleDescription):
+def get_role_talent_choices(role: RoleDescription):
     return role.get_talent_choices()
 
 
 @register.filter
-def get_role_bonus(role: flyweights.RoleDescription):
+def get_role_bonus(role: RoleDescription):
     return role.get_bonus()
 
 
@@ -360,27 +372,27 @@ def get_ea_name(ea: flyweights.EliteAdvance, lang='ru'):
 
 
 @register.filter
-def get_ea_description(ea: flyweights.EliteAdvance, lang='ru'):
+def get_ea_description(ea: EliteAdvance, lang='ru'):
     return ea.get_description(lang)
 
 
 @register.filter
-def get_ea_hints(ea: flyweights.EliteAdvance):
+def get_ea_hints(ea: EliteAdvance):
     return ea.get_hints()
 
 
 @register.filter
-def get_ea_cost(ea: flyweights.EliteAdvance):
+def get_ea_cost(ea: EliteAdvance):
     return ea.cost()
 
 
 @register.filter
-def get_ea_prerequisites(ea: flyweights.EliteAdvance):
+def get_ea_prerequisites(ea: EliteAdvance):
     return ea.prerequisites()
 
 
 @register.filter
-def get_ea_commands(ea: flyweights.EliteAdvance):
+def get_ea_commands(ea: EliteAdvance):
     return ea.commands()
 
 
@@ -390,27 +402,27 @@ def get_divination_description(facade: flyweights.Facade, key: str):
 
 
 @register.filter
-def get_div_name(div: flyweights.DivinationDescription, lang: str = 'ru'):
+def get_div_name(div: DivinationDescription, lang: str = 'ru'):
     return div.get_name(lang)
 
 
 @register.filter
-def get_div_description(div: flyweights.DivinationDescription, lang: str = 'ru'):
+def get_div_description(div: DivinationDescription, lang: str = 'ru'):
     return div.get_description(lang)
 
 
 @register.filter
-def get_div_hints(div: flyweights.DivinationDescription):
+def get_div_hints(div: DivinationDescription):
     return div.get_hints()
 
 
 @register.filter
-def get_div_commands(div: flyweights.DivinationDescription):
+def get_div_commands(div: DivinationDescription):
     return div.get_commands()
 
 
 @register.filter
-def get_div_roll_range(div: flyweights.DivinationDescription):
+def get_div_roll_range(div: DivinationDescription):
     return div.get_roll_range()
 
 
