@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from charlist.flyweights import Facade
+from charlist.flyweights.flyweights import Facade
 
 
 class Talent(object):

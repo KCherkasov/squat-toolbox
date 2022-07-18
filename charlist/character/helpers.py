@@ -2,8 +2,9 @@
 
 
 from typing import Dict, List
-from charlist.flyweights.flyweights import Hint, Facade
 
+from charlist.flyweights.flyweights import Facade
+from charlist.flyweights.core.hint import Hint
 
 TALENT_PREFIX = 'TL'
 TRAIT_PREFIX = 'TR'
