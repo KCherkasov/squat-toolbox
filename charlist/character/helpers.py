@@ -61,10 +61,7 @@ def map_hints(res: Dict[str, List[HookupHint]], hints: List[Hint], name: Dict[st
             if tgt not in res.keys():
                 res[tgt] = list()
             hook_description = dict()
-            if needs_parsing(hint):
-                hook_description = parse_hint(hint, facade)
-            else:
-                for lang in ['ru', 'en']:
-                    hook_description[lang] = hint.get_description(lang)
+            for lang in ['ru', 'en']:
+                hook_description[lang] = hint.get_description(lang)
             hook_hint = HookupHint(hint.get_tag(), hook_description, name)
             res.get(tgt).append(hook_hint)
