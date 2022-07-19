@@ -1,10 +1,10 @@
 {% load filters %}
 <div class="charlist-content">
     <div class="charlist-inline">
-        <div>
-            <h5>
+        <div class="pe-3">
+            <p class="fs-5">
                 {% if lang == 'ru' %}Очки Судьбы{% else %}Fate points{% endif %}:
-            </h5>
+            </p>
         </div>
         {% if hookups|get_by_dict_key:'FP' %}
         <div class="btn-group dropend">
@@ -21,7 +21,7 @@
         {% endif %}
     </div>
     <div>
-        <h5>{{ character.fate_current }} {% if lang == 'ru' %}из{% else %}of{% endif %} {{ character.fate_cap }}</h5>
+        <p class="fs-4">{{ character.fate_current }} {% if lang == 'ru' %}из{% else %}of{% endif %} {{ character.fate_cap }}</p>
     </div>
     <button class="btn btn-success {% if character.fate_current == 0 %}disabled{% endif %} ">{% if lang == 'ru' %}Потратить{% else %}Spend{% endif %}</button>
     <button class="btn btn-danger">{% if lang == 'ru' %}Сжечь{% else %}Burn{% endif %}</button>
