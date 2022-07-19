@@ -136,8 +136,10 @@ Character sheet interactive mockup
                             </h5>
                         </header>
                         <div class="tab-content charlist-content">
-                            <div>
-                                <p class="fs-5">{% if lang == 'ru' %}Обычные навыки{% else %}Common skills{% endif %}</p>
+                            <div class="justify-content-center">
+                                <div>
+                                    <p class="fs-5">{% if lang == 'ru' %}Обычные навыки{% else %}Common skills{% endif %}</p>
+                                </div>
                                 {% for skill_key, skill in character.skills.items %}
                                 {% if not forloop.counter|divisibleby:2 %}
                                 <div class="card-group justify-content-center">
@@ -148,8 +150,10 @@ Character sheet interactive mockup
                                     {% endif %}
                                 {% endfor %}
                             </div>
-                            <div>
-                                <p class="fs-5">{% if lang == 'ru' %}Специальные навыки{% else %}Specialist skills{% endif %}</p>
+                            <div class="justify-content-center">
+                                <div>
+                                    <p class="fs-5">{% if lang == 'ru' %}Специальные навыки{% else %}Specialist skills{% endif %}</p>
+                                </div>
                                 {% for skill_key, skill in character.skills.items %}
                                 {% if not forloop.counter|divisibleby:2 %}
                                 <div class="card-group justify-content-center">
