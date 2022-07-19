@@ -1,9 +1,10 @@
 {% load filters %}
-<div class="charlist-{% if skill.is_specialist %}inline{% else %}content{% endif %} justify-content-between">
+<div class="charlist-{% if not skill.is_specialist %}inline{% else %}content{% endif %} justify-content-{% if forloop.counter|divisibleby:2 %}start{% else %}end{% endif %} w400">
     <div>
         <div class="charlist-inline">
+            {% if not forloop.counter|divisibleby:2 %}
             <div>
-                <p class="fs-4">{{ facade|get_skill_description:skill_key|get_skdescr_name:lang }}</p>
+                <p class="fs-5">{{ facade|get_skill_description:skill_key|get_skdescr_name:lang }}</p>
             </div>
             {% if hookups|get_by_dict_key:skill_key %}
             <div class="btn-group dropend">
@@ -18,13 +19,31 @@
                 </ul>
             </div>
             {% endif %}
+            {% else %}
+            {% if hookups|get_by_dict_key:skill_key %}
+            <div class="btn-group dropend">
+                <span class="position-absolute top-0 start-100 translate-middle btn btn-success dropdown-toggle badge rounded-circle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                </span>
+                <ul class="dropdown-menu w400">
+                    {% for hint in hookups|get_by_dict_key:skill_key %}
+                    <li class="dropdown-item text-wrap">
+                        <p class="text-break">{{ hint.description|get_by_dict_key:lang }} <b>({% if lang == 'ru' %}от{% else %}from{% endif %}:{{ hint.talent_name|get_by_dict_key:lang }})</b></p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            <div class="ps-3">
+                <p class="fs-5">{{ facade|get_skill_description:skill_key|get_skdescr_name:lang }}</p>
+            </div>
+            {% endif %}
         </div>
         {% if skill.is_specialist %}
         <div class="charlist-content">
             {% for subskill, adv in skill.advances.items %}
             <div class="charlist-content">
                 <div>
-                    <p class="fs-5">{{ subskill }}</p>
+                    <p class="fs-6">{{ subskill }}</p>
                 </div>
                 <div>
                 {% for upg_no in facade.sk_adv_range %}
@@ -46,22 +65,22 @@
                     {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
                     <div class="tab-pane fade show {% if forloop.first %}active{% endif %}" id="{{ skill_key }}-{{ subskill|escape_spaces }}-{{ stat }}-{{ lang }}" role="tabpanel" aria-labelledby="{{ skill_key }}-{{ subskill|escape_spaces }}-{{ stat }}-{{ lang }}-tag">
                         <div class="charlist-inline">
-                            <button class="btn btn-danger btn-lg disabled align-self-center">
+                            <button class="btn btn-outline-dark btn-lg disabled align-self-center fs-3">
                                 {{ character|get_stat_bonus:stat }}
                             </button>
-                            <button class="btn btn-outline-dark btn-lg disabled align-self-center">
+                            <button class="btn btn-light btn-lg disabled align-self-center fs-5">
                                 {{ character|get_stat_residual:stat }}
                             </button>
                             <div class="align-self-center">
                                 <p class="fs-4">+</p>
                             </div>
-                            <button class="btn btn-info btn-lg disabled align-self-center">
+                            <button class="btn btn-info btn-lg disabled align-self-center fs-4">
                                 {% get_subskill_adv character skill_key subskill %}
                             </button>
                             <div class="align-self-center">
                                 <p class="fs-4">=</p>
                             </div>
-                            <button class="btn btn-danger btn-lg disabled align-self-center">
+                            <button class="btn btn-outline-dark btn-lg disabled align-self-center fs-3">
                                 {% get_subskill_diff character skill_key subskill stat %}
                             </button>
                         </div>
@@ -92,22 +111,22 @@
             {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
             <div class="tab-pane fade show {% if forloop.first %}active{% endif %}" id="{{ skill_key }}-{{ stat }}-{{ lang }}" role="tabpanel" aria-labelledby="{{ skill_key }}-{{ stat }}-{{ lang }}-tag">
                 <div class="charlist-inline">
-                    <button class="btn btn-danger btn-lg disabled align-self-center">
+                    <button class="btn btn-outline-dark btn-lg disabled align-self-center fs-3">
                         {{ character|get_stat_bonus:stat }}
                     </button>
-                    <button class="btn btn-outline-dark btn-lg disabled align-self-center">
+                    <button class="btn btn-light btn-lg disabled align-self-center fs-5">
                         {{ character|get_stat_residual:stat }}
                     </button>
                     <div class="align-self-center">
                         <p class="fs-4">+</p>
                     </div>
-                    <button class="btn btn-info btn-lg disabled align-self-center">
+                    <button class="btn btn-info btn-lg disabled align-self-center fs-4">
                         {{ skill.get_adv_bonus }}
                     </button>
                     <div class="align-self-center">
                         <p class="fs-4">=</p>
                     </div>
-                    <button class="btn btn-danger btn-lg disabled align-self-center">
+                    <button class="btn btn-outline-dark btn-lg disabled align-self-center fs-3">
                         {% get_skill_diff character skill_key stat %}
                     </button>
                 </div>
