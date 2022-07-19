@@ -131,20 +131,35 @@ Character sheet interactive mockup
                     <div class="tab-pane fade show" id="skills-{{ lang }}" role="tabpanel" aria-labelledby="skills-tag-{{ lang }}">
                         <hr>
                         <header class="text-center">
-                            <h4>
+                            <h5>
                                 {% if lang == 'ru' %}Навыки{% else %}Skills{% endif %}
-                            </h4>
+                            </h5>
                         </header>
-                        <div class="tab-content">
-                            {% for skill_key, skill in character.skills.items %}
-                            {% if not forloop.counter|divisibleby:2 %}
-                            <div class="card-group justify-content-center">
-                                {% endif %}
-                                {% include 'skill_widget.html' %}
-                                {% if forloop.counter|divisibleby:2 or forloop.last %}
+                        <div class="tab-content charlist-content">
+                            <div>
+                                <p class="fs-5">{% if lang == 'ru' %}Обычные навыки{% else %}Common skills{% endif %}</p>
+                                {% for skill_key, skill in character.skills.items %}
+                                {% if not forloop.counter|divisibleby:2 %}
+                                <div class="card-group justify-content-center">
+                                    {% endif %}
+                                    {% if not skill.is_specialist %}{% include 'skill_widget.html' %}{% endif %}
+                                    {% if forloop.counter|divisibleby:2 or forloop.last %}
+                                </div>
+                                    {% endif %}
+                                {% endfor %}
                             </div>
-                                {% endif %}
-                            {% endfor %}
+                            <div>
+                                <p class="fs-5">{% if lang == 'ru' %}Специальные навыки{% else %}Specialist skills{% endif %}</p>
+                                {% for skill_key, skill in character.skills.items %}
+                                {% if not forloop.counter|divisibleby:2 %}
+                                <div class="card-group justify-content-center">
+                                    {% endif %}
+                                    {% if skill.is_specialist %}{% include 'skill_widget.html' %}{% endif %}
+                                    {% if forloop.counter|divisibleby:2 or forloop.last %}
+                                </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
                 </div>
