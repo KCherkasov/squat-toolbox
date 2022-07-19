@@ -71,21 +71,40 @@ Character sheet interactive mockup
                     <h4>{% if lang == 'ru' %}Карточка персонажа{% else %}Character card{% endif %}</h4>
                 </header>
                 <div class="">
-                    {% include 'homeworld_widget.html' %}
-                    {% include 'background_widget.html' %}
-                    {% include 'role_widget.html' %}
-                    {% include 'elite_advance_widget.html' %}
-                    {% include 'divination_widget.html' %}
+                    <div class="charlist-inline">
+                        <div>
+                            <h5 class="collapse-toggler">
+                                {% if lang == 'ru' %}О персонаже{% else %}About character{% endif %}:&nbsp;
+                                <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
+                                   href="#aboutInfo-{{ lang }}" title="Подробнее" aria-expanded="false" aria-controls="aboutInfo-{{ lang }}">
+                                    <i>{{ facade|get_background_description:character.bg_id|get_bg_name:lang }}</i>
+                                </a>
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="collapse" id="aboutInfo-{{ lang }}">
+                        <div class="card card-body">
+                            {% include 'homeworld_widget.html' %}
+                            {% include 'background_widget.html' %}
+                            {% include 'role_widget.html' %}
+                            {% include 'elite_advance_widget.html' %}
+                            {% include 'divination_widget.html' %}
+                            <hr>
+                            {% include 'char_apts_widget.html' %}
+                        </div>
+                    </div>
                     <br>
+                    {% include 'wounds_widget.html' %}
                     {% include 'fate_widget.html' %}
-                    <br>
-                    {% include 'xp_widget.html' %}
+                    {% include 'fatigue_widget.html' %}
                     <hr>
                     {% include 'insanity_widget.html' %}
                     <hr>
                     {% include 'corruption_widget.html' %}
                     <hr>
-                    {% include 'char_apts_widget.html' %}
+                    <br>
+                    {% include 'xp_widget.html' %}
+
                 </div>
             </div>
 
