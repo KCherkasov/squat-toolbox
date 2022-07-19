@@ -49,8 +49,7 @@
             </ul>
             <div class="card-body tab-content" id="tab-content-{{ skill_key }}-{{ lang }}">
                 {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
-                <div class="tab-pane fade show {% if forloop.first %}active{% endif %}" id="{{ skill_key }}-{{ stat }}-{{ lang }}">
-                    <div class="charlist-content">
+                <div class="tab-pane fade show {% if forloop.first %}active{% endif %} charlist-content" id="{{ skill_key }}-{{ stat }}-{{ lang }}">
                     {% for subskill, adv in skill.advances.items %}
                         <div class="charlist-inline">
                             <div class="charlist-content">
@@ -87,12 +86,10 @@
                             </div>
                         </div>
                     {% endfor %}
-                    </div>
                 </div>
                 {% endfor %}
             </div>
         </div>
-    </div>
         {% else %}
         {% for upg_no in facade.sk_adv_range %}
         <div class="form-check form-check-inline">
