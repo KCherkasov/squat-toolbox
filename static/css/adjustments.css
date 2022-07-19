@@ -53,6 +53,11 @@ h5.collapse-toggler {
     overflow-y: auto;
 }
 
+.w300 {
+    min-width: 300px;
+    max-width: 350px;
+}
+
 .w600 {
     min-width: 600px;
     max-width: 650px;
