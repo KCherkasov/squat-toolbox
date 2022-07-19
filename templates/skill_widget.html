@@ -1,7 +1,7 @@
 {% load filters %}
 <div class="card charlist-{% if not skill.is_specialist %}inline{% else %}content{% endif %} justify-content-{% if forloop.counter|divisibleby:2 %}start{% else %}end{% endif %} w400">
     <div>
-        <div class="charlist-inline">
+        <div class="charlist-inline w170">
             {% if forloop.counter|divisibleby:2 %}
             <div>
                 <p class="fs-5">{{ facade|get_skill_description:skill_key|get_skdescr_name:lang }}</p>
