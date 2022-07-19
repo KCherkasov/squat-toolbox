@@ -2,7 +2,7 @@
 <div class="card charlist-inline align-content-center justify-content-{% if forloop.counter|divisibleby:2 %}start{% else %}end{% endif %}">
     {% if not forloop.counter|divisibleby:2 %}
     <div>
-        <div class="charlist-inline justify-content-between">
+        <div class="charlist-inline justify-content-start">
             {% if hookups|get_by_dict_key:stat_key %}
             <div class="btn-group dropend">
                 <span class="position-absolute top-0 start-100 translate-middle btn btn-success dropdown-toggle badge rounded-circle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
