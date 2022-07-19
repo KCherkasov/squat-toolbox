@@ -43,7 +43,7 @@
             <ul class="nav nav-tabs" id="tab-{{ skill_key }}-{{ lang }}" role="tablist">
                 {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link {% if forloop.first %}active{% endif %} fs-6" id="{{skill_key}}-{{ stat }}-{{ lang }}-tag" data-bs-toggle="tab" aria-current="page" href="#{{ skill_key }}-{{ stat }}-{{ lang }}">{{ facade|get_short_stat:stat|get_short_stat_name:lang }}</a>
+                    <a class="nav-link {% if forloop.first %}active{% endif %}" id="{{skill_key}}-{{ stat }}-{{ lang }}-tag" data-bs-toggle="tab" aria-current="page" href="#{{ skill_key }}-{{ stat }}-{{ lang }}">{{ facade|get_short_stat:stat|get_short_stat_name:lang }}</a>
                 </li>
                 {% endfor %}
             </ul>
@@ -103,7 +103,7 @@
         <ul class="nav nav-tabs" id="tab-{{ skill_key }}-{{ lang }}" role="tablist">
             {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
             <li class="nav-item" role="presentation">
-                <a class="nav-link {% if forloop.first %}active{% endif %} fs-6" id="{{skill_key}}-{{ stat }}-{{ lang }}-tag" data-bs-toggle="tab" aria-current="page" href="#{{ skill_key }}-{{ stat }}-{{ lang }}">{{ facade|get_short_stat:stat|get_short_stat_name:lang }}</a>
+                <a class="nav-link {% if forloop.first %}active{% endif %}" id="{{skill_key}}-{{ stat }}-{{ lang }}-tag" data-bs-toggle="tab" aria-current="page" href="#{{ skill_key }}-{{ stat }}-{{ lang }}">{{ facade|get_short_stat:stat|get_short_stat_name:lang }}</a>
             </li>
             {% endfor %}
         </ul>
