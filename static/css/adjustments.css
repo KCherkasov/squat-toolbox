@@ -45,3 +45,15 @@ h5.collapse-toggler {
         color: #0000 !important;
     }
 }
+
+.w400 {
+    min-width: 400px;
+    max-width: 450px;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.w600 {
+    min-width: 600px;
+    max-width: 650px;
+}
