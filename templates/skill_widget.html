@@ -3,8 +3,8 @@
     <div>
         <div class="charlist-inline w170">
             {% if forloop.counter|divisibleby:2 %}
-            <div>
-                <p class="fs-6">{{ facade|get_skill_description:skill_key|get_skdescr_name:lang }}</p>
+            <div class="ps-2">
+                <p class="fs-5">{{ facade|get_skill_description:skill_key|get_skdescr_name:lang }}</p>
             </div>
             {% if hookups|get_by_dict_key:skill_key %}
             <div class="btn-group dropend">
@@ -34,7 +34,7 @@
             </div>
             {% endif %}
             <div class="ps-3">
-                <p class="fs-6">{{ facade|get_skill_description:skill_key|get_skdescr_name:lang }}</p>
+                <p class="fs-5">{{ facade|get_skill_description:skill_key|get_skdescr_name:lang }}</p>
             </div>
             {% endif %}
         </div>
