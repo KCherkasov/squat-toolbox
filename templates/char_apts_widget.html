@@ -1,6 +1,8 @@
 {% load filters %}
 <div class="charlist-content">
-    <h5>{% if lang == 'ru' %}Склонности{% else %}Aptitudes{% endif %}</h5>
+    <div class="text-center">
+        <h5>{% if lang == 'ru' %}Склонности{% else %}Aptitudes{% endif %}</h5>
+    </div>
     {% for apt in character.aptitudes %}
     {% if not forloop.counter|divisibleby:2 %}
     <div class="card-group justify-content-center">

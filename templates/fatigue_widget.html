@@ -6,4 +6,16 @@
     <div class="ps-4">
         <p class="fs-5">{{ character.fatigue_current }}/{{ character.fatigue_cap }}</p>
     </div>
+    <div class="charlist_inline">
+        <input type="range" min="1" max="{% mtp 2.0 character.fatigue_cap %}" step="1">
+        <button type="submit" name="restoreFatigue" class="btn btn-lg btn-success fs-5">
+            {% if lang == 'ru' %}Восстановить{% else %}Restore{% endif %}
+        </button>
+        <button type="submit" name="gainFatigue" class="btn btn-lg btn-danger fs-5">
+            {% if lang == 'ru' %}Получить{% else %}Gain{% endif %}
+        </button>
+        <button type="submit" name="restoreAllFatigue" class="btn btn-lg btn-info fs-5">
+            {% if lang == 'ru' %}Восстановить все{% else %}Restore all{% endif %}
+        </button>
+    </div>
 </div>

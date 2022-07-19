@@ -475,3 +475,8 @@ def get_short_stat(facade: flyweights.Facade, stat: str):
 @register.filter
 def get_short_stat_name(short: Dict[str, str], lang: str = 'ru'):
     return short.get(lang)
+
+
+@register.simple_tag
+def mtp(a: float, b: float):
+    return a * b

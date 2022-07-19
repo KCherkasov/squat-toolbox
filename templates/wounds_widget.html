@@ -1,9 +1,14 @@
 {% load filters %}
-<div class="charlist-inline">
+<div class="charlist-inline align-content-center">
     <div class="text-center">
         <h5>{% if lang == 'ru' %}Раны{% else %}Wounds{% endif %}:</h5>
     </div>
     <div class="ps-4">
         <p class="fs-5">{{ character.wounds_current }}/{{ character.wounds_cap }}</p>
+    </div>
+    <div class="charlist-inline">
+        <input type="number">
+        <button type="submit" name="heal" class="btn btn-lg btn-success fs-5">{% if lang == 'ru' %}Вылечить{% else %}Heal{% endif %}</button>
+        <button type="submit" name="wound" class="btn btn-lg btn-danger fs-5">{% if lang == 'ru' %}Нанести{% else %}Damage{% endif %}</button>
     </div>
 </div>
