@@ -3,9 +3,6 @@
     {% if not forloop.counter|divisibleby:2 %}
     <div>
         <div class="charlist-inline justify-content-between">
-            <div>
-                <p class="fs-5">{{ facade|get_stat_description:stat_key|get_stdescr_name:lang }}</p>
-            </div>
             {% if hookups|get_by_dict_key:stat_key %}
             <div class="btn-group dropend">
                 <span class="position-absolute top-0 start-100 translate-middle btn btn-success dropdown-toggle badge rounded-circle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -19,6 +16,9 @@
                 </ul>
             </div>
             {% endif %}
+            <div>
+                <p class="fs-5">{{ facade|get_stat_description:stat_key|get_stdescr_name:lang }}</p>
+            </div>
         </div>
         <div>
             {% if facade|get_stat_description:stat_key|get_stdescr_upgradeable %}
