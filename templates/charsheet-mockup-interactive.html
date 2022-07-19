@@ -74,10 +74,9 @@ Character sheet interactive mockup
                     <div class="charlist-inline">
                         <div>
                             <h5 class="collapse-toggler">
-                                {% if lang == 'ru' %}О персонаже{% else %}About character{% endif %}:&nbsp;
                                 <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
                                    href="#aboutInfo-{{ lang }}" title="Подробнее" aria-expanded="false" aria-controls="aboutInfo-{{ lang }}">
-                                    <i>{{ facade|get_background_description:character.bg_id|get_bg_name:lang }}</i>
+                                    <i>{% if lang == 'ru' %}О персонаже{% else %}About character{% endif %}</i>
                                 </a>
                             </h5>
                         </div>
