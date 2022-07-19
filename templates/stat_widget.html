@@ -2,7 +2,7 @@
 <div class="card charlist-inline align-content-center justify-content-{% if forloop.counter|divisibleby:2 %}start{% else %}end{% endif %}">
     {% if not forloop.counter|divisibleby:2 %}
     <div>
-        <div class="charlist-inline justify-content-end">
+        <div class="charlist-inline justify-content-between">
             <div>
                 <p class="fs-5">{{ facade|get_stat_description:stat_key|get_stdescr_name:lang }}</p>
             </div>
