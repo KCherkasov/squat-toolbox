@@ -4,7 +4,7 @@
         <div class="charlist-inline w170">
             {% if forloop.counter|divisibleby:2 %}
             <div>
-                <p class="fs-5">{{ facade|get_skill_description:skill_key|get_skdescr_name:lang }}</p>
+                <p class="fs-6">{{ facade|get_skill_description:skill_key|get_skdescr_name:lang }}</p>
             </div>
             {% if hookups|get_by_dict_key:skill_key %}
             <div class="btn-group dropend">
@@ -65,22 +65,22 @@
                                 </div>
                             </div>
                             <div class="charlist-inline">
-                                <button class="btn btn-outline-dark btn-lg disabled align-self-center fs-3">
+                                <button class="btn btn-outline-dark btn-lg disabled align-self-center fs-4">
                                     {{ character|get_stat_bonus:stat }}
                                 </button>
-                                <button class="btn btn-light btn-lg disabled align-self-center fs-5">
+                                <button class="btn btn-light btn-lg disabled align-self-center fs-6">
                                     {{ character|get_stat_residual:stat }}
                                 </button>
                                 <div class="align-self-center">
                                     <p class="fs-4">+</p>
                                 </div>
-                                <button class="btn btn-info btn-lg disabled align-self-center fs-4">
+                                <button class="btn btn-info btn-lg disabled align-self-center fs-5">
                                     {% get_subskill_adv character skill_key subskill %}
                                 </button>
                                 <div class="align-self-center">
                                     <p class="fs-4">=</p>
                                 </div>
-                                <button class="btn btn-outline-dark btn-lg disabled align-self-center fs-3">
+                                <button class="btn btn-outline-dark btn-lg disabled align-self-center fs-4">
                                     {% get_subskill_diff character skill_key subskill stat %}
                                 </button>
                             </div>
@@ -103,7 +103,7 @@
         <ul class="nav nav-tabs" id="tab-{{ skill_key }}-{{ lang }}" role="tablist">
             {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
             <li class="nav-item" role="presentation">
-                <a class="nav-link {% if forloop.first %}active{% endif %}" id="{{skill_key}}-{{ stat }}-{{ lang }}-tag" data-bs-toggle="tab" aria-current="page" href="#{{ skill_key }}-{{ stat }}-{{ lang }}">{{ facade|get_short_stat:stat|get_short_stat_name:lang }}</a>
+                <a class="nav-link {% if forloop.first %}active{% endif %} fs-6" id="{{skill_key}}-{{ stat }}-{{ lang }}-tag" data-bs-toggle="tab" aria-current="page" href="#{{ skill_key }}-{{ stat }}-{{ lang }}">{{ facade|get_short_stat:stat|get_short_stat_name:lang }}</a>
             </li>
             {% endfor %}
         </ul>
@@ -111,22 +111,22 @@
             {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
             <div class="tab-pane fade show {% if forloop.first %}active{% endif %}" id="{{ skill_key }}-{{ stat }}-{{ lang }}" role="tabpanel" aria-labelledby="{{ skill_key }}-{{ stat }}-{{ lang }}-tag">
                 <div class="charlist-inline">
-                    <button class="btn btn-outline-dark btn-lg disabled align-self-center fs-3">
+                    <button class="btn btn-outline-dark btn-lg disabled align-self-center fs-4">
                         {{ character|get_stat_bonus:stat }}
                     </button>
-                    <button class="btn btn-light btn-lg disabled align-self-center fs-5">
+                    <button class="btn btn-light btn-lg disabled align-self-center fs-6">
                         {{ character|get_stat_residual:stat }}
                     </button>
                     <div class="align-self-center">
                         <p class="fs-4">+</p>
                     </div>
-                    <button class="btn btn-info btn-lg disabled align-self-center fs-4">
+                    <button class="btn btn-info btn-lg disabled align-self-center fs-5">
                         {{ skill.get_adv_bonus }}
                     </button>
                     <div class="align-self-center">
                         <p class="fs-4">=</p>
                     </div>
-                    <button class="btn btn-outline-dark btn-lg disabled align-self-center fs-3">
+                    <button class="btn btn-outline-dark btn-lg disabled align-self-center fs-4">
                         {% get_skill_diff character skill_key stat %}
                     </button>
                 </div>
