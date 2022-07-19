@@ -1,6 +1,6 @@
 {% load filters %}
-<div class="charlist-content">
-    <div class="charlist-inline">
+<div class="charlist-inline align-content-center">
+    <div class="charlist-inline align-content-center">
         <div class="pe-3">
             <p class="fs-5">
                 {% if lang == 'ru' %}Очки Судьбы{% else %}Fate points{% endif %}:
@@ -20,9 +20,11 @@
         </div>
         {% endif %}
     </div>
-    <div>
+    <div class="ps-3">
         <p class="fs-4">{{ character.fate_current }} {% if lang == 'ru' %}из{% else %}of{% endif %} {{ character.fate_cap }}</p>
     </div>
-    <button class="btn btn-success {% if character.fate_current == 0 %}disabled{% endif %} ">{% if lang == 'ru' %}Потратить{% else %}Spend{% endif %}</button>
-    <button class="btn btn-danger">{% if lang == 'ru' %}Сжечь{% else %}Burn{% endif %}</button>
+    <div class="charlist-inline ps-3">
+        <button class="btn btn-success {% if character.fate_current == 0 %}disabled{% endif %} ">{% if lang == 'ru' %}Потратить{% else %}Spend{% endif %}</button>
+        <button class="btn btn-danger">{% if lang == 'ru' %}Сжечь{% else %}Burn{% endif %}</button>
+    </div>
 </div>
