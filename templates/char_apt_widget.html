@@ -1,12 +1,12 @@
 {% load filters %}
 <div class="charlist-inline">
     <div>
-        <h5 class="collapse-toggler">&nbsp;
+        <p class="collapse-toggler fs-6">&nbsp;
             <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
                href="#{{ apt }}-{{ lang }}-info" title="Подробнее" aria-expanded="false" aria-controls="{{ apt }}-{{ lang }}-info">
                 <i>{{ facade|get_aptitude:apt|get_apt_name:lang }}</i>
             </a>
-        </h5>
+        </p>
     </div>
 </div>
 <div class="collapse" id="{{ apt }}-{{ lang }}-info">

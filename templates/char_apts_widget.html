@@ -2,6 +2,12 @@
 <div class="charlist-content">
     <h5>{% if lang == 'ru' %}Склонности{% else %}Aptitudes{% endif %}</h5>
     {% for apt in character.aptitudes %}
+    {% if not forloop.counter|divisibleby:2 %}
+    <div class="card-group justify-content-center">
+    {% endif %}
         {% include 'char_apt_widget.html' %}
+        {% if forloop.counter|divisibleby:2 or forloop.last %}
+    </div>
+    {% endif %}
     {% endfor %}
 </div>
