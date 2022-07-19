@@ -2,7 +2,7 @@
 <div class="card charlist-inline justify-content-between">
     {% if not forloop.counter|divisibleby:2 %}
     <div>
-        <div class="charlist-inline">
+        <div class="charlist-inline justify-content-end">
             <div>
                 <p class="fs-5">{{ facade|get_stat_description:stat_key|get_stdescr_name:lang }}</p>
             </div>
@@ -40,7 +40,7 @@
         <button class="btn btn-outline-dark btn-lg disabled fs-5">{{ stat.residue }}</button>
     </div>
     <div>
-        <div class="charlist-inline">
+        <div class="charlist-inline justify-content-start">
             <div>
                 <p class="fs-5">{{ facade|get_stat_description:stat_key|get_stdescr_name:lang }}</p>
             </div>
