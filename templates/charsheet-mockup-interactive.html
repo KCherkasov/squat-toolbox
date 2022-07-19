@@ -119,7 +119,7 @@ Character sheet interactive mockup
                         <div class="charlist-content">
                             {% for stat_key, stat in character.stats.items %}
                                 {% if not forloop.counter|divisibleby:2 %}
-                                <div class="card-group justify-content-{% if not forloop.counter|divisibleby:2 %}end{% else %}start{% endif %}">
+                                <div class="card-group justify-content-between">
                                     {% endif %}
                                     {% include 'stat_widget.html' %}
                                     {% if forloop.counter|divisibleby:2 or forloop.last %}
