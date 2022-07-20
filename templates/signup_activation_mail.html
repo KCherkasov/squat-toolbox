@@ -1,0 +1,6 @@
+{% autoescape off %}
+Благодарим за регистрацию на squat-toolbox.ru!
+
+Для активации учетной записи, пожалуйста, подтвердите адрес электронной почты, пройдя по ссылке:
+http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+{% endautoescape %}
