@@ -27,6 +27,11 @@ urlpatterns = [
     path(r'admin/', admin.site.urls),
     path(r'namegen/', views.index, name='index'),
 
+    path(r'dev/signup/', charviews.signup, name='signup'),
+    path(r'dev/signin/', charviews.signin, name='signin'),
+    path(r'dev/activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/',
+         charviews.activate, name='activate'),
+
     path(r'dev/charsheet/test/', charviews.aptitudes_test, name='charsheet-test'),
     path(r'dev/charsheet/mockup/', charviews.charsheet_mockup, name='charsheet-mockup'),
     path(r'dev/charsheet/mockup-interactive/', charviews.interactive_charsheet_mockup, name='interactive-mockup'),

@@ -46,6 +46,7 @@
                 {% if user.is_master %}
                 <a class="dropdown-item" href="#">Кампании и группы</a>
                 {% endif %}
+                <a class="dropdown-item" href="{% url 'logout' %}">Выйти</a>
             </div>
         </div>
         {% else %}

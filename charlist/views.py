@@ -3,6 +3,7 @@ import logging
 
 from django.contrib.auth import get_user_model
 from django.contrib.auth import login
+from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
@@ -129,6 +130,11 @@ def signin(request):
     else:
         form = SignInForm()
     return render(request, 'signin.html', {'version': VERSION, 'form': form, })
+
+
+def logout(request):
+    auth_logout(request)
+    return HttpResponseRedirect(reverse('index'))
 
 
 def activate(request, uidb64, token):
