@@ -49,11 +49,13 @@
             </div>
         </div>
         {% else %}
-        <div>
-            <a class="btn btn-lg btn-outline-light" role="button" href="{% url 'signup' %}">Зарегистрироваться</a>
-        </div>
-        <div>
-            <a class="btn btn-lg btn-outline-light" role="button" href="{% url 'signin' %}">Войти</a>
+        <div class="charlist-inline justify-content-end">
+            <div>
+                <a class="btn btn-lg btn-outline-light" role="button" href="{% url 'signup' %}">Зарегистрироваться</a>
+            </div>
+            <div>
+                <a class="btn btn-lg btn-outline-light" role="button" href="{% url 'signin' %}">Войти</a>
+            </div>
         </div>
         {% endif %}
     </nav>
