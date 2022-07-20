@@ -25,7 +25,7 @@ class CharsheetUserManager(BaseUserManager):
 
 
 class CharsheetUser(AbstractBaseUser):
-    id = models.CharField(verbose_name=u'Логин',max_length=40, unique=True)
+    id = models.CharField(verbose_name=u'Логин',max_length=40, unique=True, primary_key=True)
     email = models.EmailField(max_length=40, unique=True)
     is_master = models.BooleanField(verbose_name=u'Мастер', default=False)
     is_active = models.BooleanField(default=False)
