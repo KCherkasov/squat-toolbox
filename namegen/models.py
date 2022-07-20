@@ -3,6 +3,7 @@ from random import choice
 
 from django.db import models
 
+import charlist.models
 
 class NameManager(models.Manager):
     def queryset(self):
