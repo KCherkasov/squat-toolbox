@@ -148,7 +148,7 @@ PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
 ]
 
-
+AUTH_USER_MODEL = 'charlist.CharsheetUser'
 
 LOGGING = {
     'version': 1,
