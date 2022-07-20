@@ -24,7 +24,7 @@ from charlist import views as charviews
 
 urlpatterns = [
     path(r'', views.main, name='main'),
-    path(r'admin/', admin.site.urls),
+#    path(r'admin/', admin.site.urls),
     path(r'namegen/', views.index, name='index'),
 
     path(r'dev/signup/', charviews.signup, name='signup'),
