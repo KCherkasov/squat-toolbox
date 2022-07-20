@@ -5,13 +5,13 @@ from typing import Dict
 from django import template
 
 from charlist.character.character import CharacterModel
-from charlist.flyweights import flyweights
 from charlist.flyweights.aptitude import Aptitude
 from charlist.flyweights.background_description import BackgroundDescription
 from charlist.flyweights.bonus_description import BonusDescription
 from charlist.flyweights.core.hint import Hint
 from charlist.flyweights.divination_description import DivinationDescription
 from charlist.flyweights.elite_advance_description import EliteAdvance
+from charlist.flyweights.flyweights import Facade
 from charlist.flyweights.homeworld_description import HomeWorldDescription
 from charlist.flyweights.role_description import RoleDescription
 from charlist.flyweights.skill_description import SkillDescription
@@ -42,7 +42,7 @@ def member(obj, key: str):
 
 # aptitudes
 @register.filter
-def get_aptitude(facade: flyweights.Facade, key: str):
+def get_aptitude(facade: Facade, key: str):
     return get_by_dict_key(facade.aptitudes(), key)
 
 
@@ -58,7 +58,7 @@ def get_apt_description(apt: Aptitude, lang='ru'):
 
 # stat descriptions
 @register.filter
-def get_stat_description(facade: flyweights.Facade, key: str):
+def get_stat_description(facade: Facade, key: str):
     return get_by_dict_key(facade.stat_descriptions(), key)
 
 
@@ -79,7 +79,7 @@ def get_stdescr_upgradeable(stdescr: StatDescription):
 
 # skill descriptions
 @register.filter
-def get_skill_description(facade: flyweights.Facade, key: str):
+def get_skill_description(facade: Facade, key: str):
     return get_by_dict_key(facade.skill_descriptions(), key)
 
 
@@ -111,7 +111,7 @@ def get_hint_description(hint: Hint, lang='ru'):
 
 # talent descriptions
 @register.filter
-def get_talent_description(facade: flyweights.Facade, key: str):
+def get_talent_description(facade: Facade, key: str):
     return get_by_dict_key(facade.talent_descriptions(), key)
 
 
@@ -157,7 +157,7 @@ def get_tldescr_is_stackable(tldescr: TalentDescription):
 
 # trait descriptions
 @register.filter
-def get_trait_description(facade: flyweights.Facade, key: str):
+def get_trait_description(facade: Facade, key: str):
     return get_by_dict_key(facade.trait_descriptions(), key)
 
 
@@ -178,7 +178,7 @@ def get_trdescr_hints(trdescr: TraitDescription):
 
 # homeworlds
 @register.filter
-def get_homeworld_description(facade: flyweights.Facade, key: str):
+def get_homeworld_description(facade: Facade, key: str):
     return get_by_dict_key(facade.homeworlds(), key)
 
 
@@ -250,7 +250,7 @@ def get_bonus_commands(bonus: BonusDescription):
 
 # backgrounds
 @register.filter
-def get_background_description(facade: flyweights.Facade, key: str):
+def get_background_description(facade: Facade, key: str):
     return get_by_dict_key(facade.backgrounds(), key)
 
 
@@ -321,7 +321,7 @@ def get_bg_bonus(bg: BackgroundDescription):
 
 # roles
 @register.filter
-def get_role_description_big(facade: flyweights.Facade, key: str):
+def get_role_description_big(facade: Facade, key: str):
     return get_by_dict_key(facade.roles(), key)
 
 
@@ -362,12 +362,12 @@ def get_role_bonus(role: RoleDescription):
 
 # elite advances
 @register.filter
-def get_elite_advance(facade: flyweights.Facade, key: str):
+def get_elite_advance(facade: Facade, key: str):
     return get_by_dict_key(facade.elite_advances(), key)
 
 
 @register.filter
-def get_ea_name(ea: flyweights.EliteAdvance, lang='ru'):
+def get_ea_name(ea: EliteAdvance, lang='ru'):
     return ea.get_name(lang)
 
 
@@ -397,7 +397,7 @@ def get_ea_commands(ea: EliteAdvance):
 
 
 @register.filter
-def get_divination_description(facade: flyweights.Facade, key: str):
+def get_divination_description(facade: Facade, key: str):
     return get_by_dict_key(facade.divinations(), key)
 
 
@@ -427,7 +427,7 @@ def get_div_roll_range(div: DivinationDescription):
 
 
 @register.filter
-def get_stat_short(facade: flyweights.Facade, key: str):
+def get_stat_short(facade: Facade, key: str):
     return get_by_dict_key(facade.stat_shorts(), key)
 
 
@@ -468,7 +468,7 @@ def get_stat_residual(character: CharacterModel, stat: str):
 
 
 @register.filter
-def get_short_stat(facade: flyweights.Facade, stat: str):
+def get_short_stat(facade: Facade, stat: str):
     return facade.stat_shorts().get(stat)
 
 
