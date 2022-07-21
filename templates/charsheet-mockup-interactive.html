@@ -181,7 +181,7 @@ Character sheet interactive mockup
                     </div>
                     <hr>
                     {% for talent_key, talent in character.talents.items %}
-                    {% if not forloop.counter|divisibleby:3 %}
+                    {% if not forloop.counter|divisibleby:3 and forloop.counter0:divisibleby:3 %}
                     <div class="card-group charlist-inline">
                          {% endif %}
                         {% include 'talent_widget.html' %}
@@ -198,7 +198,7 @@ Character sheet interactive mockup
                     </div>
                     <hr>
                     {% for trait_key, trait in character.traits.items %}
-                    {% if not forloop.counter|divisibleby:3 %}
+                    {% if not forloop.counter|divisibleby:3 and forloop.counter0|divisibleby:3 %}
                     <div class="card-group charlist-inline">
                         {% endif %}
                         {% include 'trait_widget.html' %}

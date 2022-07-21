@@ -9,6 +9,16 @@
             </div>
         </div>
     </div>
+    <div class="charlist-inline">
+        <div>
+            <h5 class="collapse-toggler">
+                <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
+                    href="#{{ trait_key }}-{{ lang }}-hints" title="Подробнее" aria-expanded="false" aria-controls="{{ trait_key }}-{{ lang }}-hints">
+                    <i>{% if lang == 'ru' %}Эффекты{% else %}Effects{% endif %}</i>
+                </a>
+            </h5>
+        </div>
+    </div>
     <div class="collapse" id="{{ trait_key }}-{{ lang }}-hints">
         {% for hint in facade|get_trait_description:trait_key|get_trdescr_hints %}
         <div class="card card-body">
@@ -39,16 +49,6 @@
     <div class="collapse" id="{{ trait_key }}-{{ lang }}-info">
         <div class="card card-body">
             <p class="card-text">{{ facade|get_trait_description:trait_key|get_trdescr_description:lang }}</p>
-        </div>
-    </div>
-    <div class="charlist-inline">
-        <div>
-            <h5 class="collapse-toggler">
-                <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
-                    href="#{{ trait_key }}-{{ lang }}-hints" title="Подробнее" aria-expanded="false" aria-controls="{{ trait_key }}-{{ lang }}-hints">
-                    <i>{% if lang == 'ru' %}Эффекты{% else %}Effects{% endif %}</i>
-                </a>
-            </h5>
         </div>
     </div>
 </div>
