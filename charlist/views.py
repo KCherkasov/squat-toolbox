@@ -119,6 +119,10 @@ def signup(request):
         return render(request, 'signup.html', {'version': VERSION, 'form': form, })
 
 
+def signup_activate(request):
+    return render(request, 'activate.html', {'version': VERSION, })
+
+
 def signin(request):
     if request.method == 'POST':
         form = SignInForm(request.POST)

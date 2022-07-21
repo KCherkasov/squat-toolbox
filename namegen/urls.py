@@ -31,6 +31,7 @@ urlpatterns = [
     path(r'dev/signin/', charviews.signin, name='signin'),
     path(r'dev/activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/',
          charviews.activate, name='activate'),
+    path(r'dev/activate-pending/', charviews.signup_activate, name='signup-activate'),
 
     path(r'dev/charsheet/test/', charviews.aptitudes_test, name='charsheet-test'),
     path(r'dev/charsheet/mockup/', charviews.charsheet_mockup, name='charsheet-mockup'),
