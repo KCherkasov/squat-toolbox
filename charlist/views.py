@@ -111,7 +111,7 @@ def signup(request):
                 'user': user, 'domain': current_site, 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                 'token': account_activation_token.make_token(user), })
             to_mail = form.cleaned_data.get('email')
-            email = EmailMessage(mail_subject, message, to=[to_mail])
+            email = EmailMessage(mail_subject, message, from_email='signup@squattoolbox.ru', to=[to_mail])
             email.send()
             return HttpResponseRedirect(reverse('signup-activate'))
     else:

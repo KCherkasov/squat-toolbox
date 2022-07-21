@@ -198,4 +198,4 @@ EMAIL_USE_TLS = True
 EMAIL_HOST = 'mail.squattoolbox.ru'
 EMAIL_HOST_USER = 'signup@squattoolbox.ru'
 EMAIL_HOST_PASSWORD = '31Vfhnf1994'
-EMAIL_PORT = 995
+EMAIL_PORT = 465
