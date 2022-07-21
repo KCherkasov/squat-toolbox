@@ -195,7 +195,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'mail.squattoolbox.ru'
+EMAIL_HOST = '31.31.196.54'
 EMAIL_HOST_USER = 'signup@squattoolbox.ru'
 EMAIL_HOST_PASSWORD = '31Vfhnf1994'
-EMAIL_PORT = 465
+EMAIL_PORT = 587
