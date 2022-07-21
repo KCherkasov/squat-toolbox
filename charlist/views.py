@@ -114,6 +114,8 @@ def signup(request):
             email = EmailMessage(mail_subject, message, from_email='signup@squattoolbox.ru', to=[to_mail])
             email.send()
             return HttpResponseRedirect(reverse('signup-activate'))
+        else:
+            return render(request, 'signup.html', {'version': VERSION, 'form': form, })
     else:
         form = UserCreationForm()
         return render(request, 'signup.html', {'version': VERSION, 'form': form, })
