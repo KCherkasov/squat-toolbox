@@ -1,5 +1,5 @@
 {% load filters %}
-<div class="charlist-content justify-content-between">
+<div class="charlist-content justify-content-between w400">
     <div>
         <div class="charlist-inline justify-content-between">
             <div>
@@ -9,6 +9,23 @@
             </div>
         </div>
     </div>
+    <div class="collapse" id="{{ trait_key }}-{{ lang }}-hints">
+        {% for hint in facade|get_trait_description:trait_key|get_trdescr_hints %}
+        <div class="card card-body">
+            <p class="card-text">{{ hint|get_hint_description:lang }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% if facade|get_trait_description:trait_key|get_trdescr_is_specialist %}
+    <div>
+        <h5>{% if lang == 'ru' %}Взятые подкатегории{% else %}Taken specializations{% endif %}:</h5>
+        {% for subtag, tk in talent.taken.items %}
+        <div>
+            <p>{{ subtag }} {% if facade|get_trait_description:trait_key|get_trdescr_is_stackable %}({{ tk }}){% endif %}</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
     <div class="charlist-inline">
         <div>
             <h5 class="collapse-toggler">
@@ -34,21 +51,4 @@
             </h5>
         </div>
     </div>
-    <div class="collapse" id="{{ trait_key }}-{{ lang }}-hints">
-        {% for hint in facade|get_trait_description:trait_key|get_trdescr_hints %}
-        <div class="card card-body">
-            <p class="card-text">{{ hint|get_hint_description:lang }}</p>
-        </div>
-        {% endfor %}
-    </div>
-    {% if facade|get_trait_description:trait_key|get_trdescr_is_specialist %}
-    <div>
-        <h5>{% if lang == 'ru' %}Взятые подкатегории{% else %}Taken specializations{% endif %}:</h5>
-        {% for subtag, tk in talent.taken.items %}
-        <div>
-            <p>{{ subtag }} {% if facade|get_trait_description:trait_key|get_trdescr_is_stackable %}({{ tk }}){% endif %}</p>
-        </div>
-        {% endfor %}
-    </div>
-    {% endif %}
 </div>

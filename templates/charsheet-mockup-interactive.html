@@ -175,20 +175,36 @@ Character sheet interactive mockup
                         {% if lang == 'ru' %}Таланты и черты{% else %}Talents and traits{% endif %}
                     </h4>
                 </header>
-                <div class="">
-                    <h5>{% if lang == 'ru' %}Таланты{% else %}Talents{% endif %}</h5>
+                <div class="charlist-content justify-content-center">
+                    <div>
+                        <h5>{% if lang == 'ru' %}Таланты{% else %}Talents{% endif %}</h5>
+                    </div>
                     <hr>
                     {% for talent_key, talent in character.talents.items %}
+                    {% if not forloop.counter|divisibleby:3 %}
+                    <div class="card-group charlist-inline">
+                         {% endif %}
                         {% include 'talent_widget.html' %}
+                    {% if forloop.counter|divisibleby:3 or forloop.last %}
+                        </div>
+                    {% endif %}
                     <hr>
                     {% endfor %}
                 </div>
                 <hr>
-                <div class="">
-                    <h5>{% if lang == 'ru' %}Черты{% else %}Traits{% endif %}</h5>
+                <div class="charlist-content justify-content-center">
+                    <div>
+                        <h5>{% if lang == 'ru' %}Черты{% else %}Traits{% endif %}</h5>
+                    </div>
                     <hr>
                     {% for trait_key, trait in character.traits.items %}
+                    {% if not forloop.counter|divisibleby:3 %}
+                    <div class="card-group charlist-inline">
+                        {% endif %}
                         {% include 'trait_widget.html' %}
+                        {% if forloop.counter|divisibleby:3 or forloop.last %}
+                    </div>
+                    {% endif %}
                     <hr>
                     {% endfor %}
                 </div>
