@@ -156,3 +156,7 @@ def activate(request, uidb64, token):
         return HttpResponseRedirect(reverse('index'))
     else:
         return HttpResponse('Activation link is invalid!')
+
+
+def characters_list(request):
+    return HttpResponseRedirect(reverse('index'))
