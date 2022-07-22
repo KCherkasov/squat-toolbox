@@ -37,16 +37,17 @@
         {% if user.is_authenticated and user.is_active %}
         <div class="btn-group dropdown">
             <span class="btn btn-lg btn-outline-light dropdown-toggle" role="button"
-                  data-bs-toggle="dropdown" aria-expanded="false" id="profileControls">
+                  data-bs-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false" id="profileControls">
                 {{ user.id }}
             </span>
-            <div class="dropdown-menu" aria-labelledby="profileControls">
-                <a class="dropdown-item" href="#">Редактировать профиль</a>
-                <a class="dropdown-item" href="#">Персонажи</a>
+            <div class="dropdown-menu text-break" aria-labelledby="profileControls">
+                <a class="dropdown-item text-break" href="#">Редактировать профиль</a>
+                <a class="dropdown-item text-break" href="#">Персонажи</a>
                 {% if user.is_master %}
-                <a class="dropdown-item" href="#">Кампании и группы</a>
+                <a class="dropdown-item text-break" href="#">Кампании и группы</a>
                 {% endif %}
-                <a class="dropdown-item" href="{% url 'logout' %}">Выйти</a>
+                <a class="dropdown-item text-break" href="{% url 'logout' %}">Выйти</a>
             </div>
         </div>
         {% else %}

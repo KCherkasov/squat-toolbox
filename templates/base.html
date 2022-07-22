@@ -42,12 +42,12 @@
                 {{ user.id }}
             </span>
             <div class="dropdown-menu" aria-labelledby="profileControls">
-                <a class="dropdown-item" href="#">Редактировать профиль</a>
-                <a class="dropdown-item" href="#">Персонажи</a>
+                <a class="dropdown-item text-break" href="#">Редактировать профиль</a>
+                <a class="dropdown-item text-break" href="#">Персонажи</a>
                 {% if user.is_master %}
-                <a class="dropdown-item" href="#">Кампании и группы</a>
+                <a class="dropdown-item text-break" href="#">Кампании и группы</a>
                 {% endif %}
-                <a class="dropdown-item" href="{% url 'logout' %}">Выйти</a>
+                <a class="dropdown-item text-break" href="{% url 'logout' %}">Выйти</a>
             </div>
         </div>
         {% else %}
