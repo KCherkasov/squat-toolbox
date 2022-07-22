@@ -29,6 +29,7 @@ urlpatterns = [
 
     path(r'dev/signup/', charviews.signup, name='signup'),
     path(r'dev/signin/', charviews.signin, name='signin'),
+    path(r'dev/signout/', charviews.logout, name='logout'),
     path(r'dev/activate/<str:uidb64>/<str:token>/',
          charviews.activate, name='activate'),
     path(r'dev/activate-pending/', charviews.signup_activate, name='signup-activate'),
