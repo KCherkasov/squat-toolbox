@@ -37,7 +37,8 @@
         {% if user.is_authenticated and user.is_active %}
         <div class="btn-group dropdown me-3">
             <span class="btn btn-lg btn-outline-light dropdown-toggle" role="button"
-                  data-bs-toggle="dropdown" aria-expanded="false" id="profileControls">
+                  data-bs-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false" id="profileControls">
                 {{ user.id }}
             </span>
             <div class="dropdown-menu" aria-labelledby="profileControls">
