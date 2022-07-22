@@ -24,12 +24,12 @@ from charlist import views as charviews
 
 urlpatterns = [
     path(r'', views.main, name='main'),
-#    path(r'admin/', admin.site.urls),
+    path(r'admin/', admin.site.urls),
     path(r'namegen/', views.index, name='index'),
 
     path(r'dev/signup/', charviews.signup, name='signup'),
     path(r'dev/signin/', charviews.signin, name='signin'),
-    path(r'dev/activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/',
+    path(r'dev/activate/<str:uidb64>/<str:token>/',
          charviews.activate, name='activate'),
     path(r'dev/activate-pending/', charviews.signup_activate, name='signup-activate'),
 
