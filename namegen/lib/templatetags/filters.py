@@ -18,6 +18,7 @@ from charlist.flyweights.skill_description import SkillDescription
 from charlist.flyweights.stat_description import StatDescription
 from charlist.flyweights.talent_description import TalentDescription
 from charlist.flyweights.trait_description import TraitDescription
+from charlist.forms.generation.stat_distribution_form import StatDistributionForm
 
 register = template.Library()
 
@@ -480,3 +481,9 @@ def get_short_stat_name(short: Dict[str, str], lang: str = 'ru'):
 @register.simple_tag
 def mtp(a: float, b: float):
     return a * b
+
+
+# stat distribution form
+@register.filter
+def get_field(form: StatDistributionForm, stat: str):
+    return form.get_field(stat)

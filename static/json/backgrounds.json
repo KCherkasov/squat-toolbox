@@ -593,7 +593,7 @@
       ],
       "talent_choices": [],
       "aptitudes": [],
-      "apt_choices": [],
+      "apt_choices": ["A_TECH", "A_FIN"],
       "traits": [
         {
           "tag": "TR_MECH_IMPL"
