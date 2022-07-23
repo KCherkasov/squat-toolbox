@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from django.forms import Form
 from django import forms
+from django.forms import Form
 
 from charlist.constants.tags import *
-
 
 ROLES = ([ROLE_ASSASSIN, 'Assassin'],     [ROLE_CHIRURGEON, 'Chirurgeon'], [ROLE_DESPERADO, 'Desperado'],
          [ROLE_HIEROPHANT, 'Hierophant'], [ROLE_MYSTIC, 'Mystic'],         [ROLE_SAGE, 'Sage'],
@@ -16,4 +15,4 @@ ROLES_LIST = [ROLE_ASSASSIN, ROLE_CHIRURGEON, ROLE_DESPERADO, ROLE_HIEROPHANT, R
 
 
 class RoleChoiceForm(Form):
-    roles = forms.ChoiceField(verbose_name=u'Роль')
+    roles = forms.ChoiceField(label=u'Роль')

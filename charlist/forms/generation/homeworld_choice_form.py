@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from django.forms import Form
 from django import forms
+from django.forms import Form
 
 from charlist.constants.tags import *
 
@@ -21,4 +21,4 @@ HOMEWORLDS_LIST = [HOMEWORLD_FERAL, HOMEWORLD_FORGE, HOMEWORLD_HIGHBORN, HOMEWOR
 
 
 class HomeworldsChoiceForm(Form):
-    homeworlds = forms.ChoiceField(verbose_name=u'Родной мир', choices=HOMEWORLDS)
+    homeworlds = forms.ChoiceField(label=u'Родной мир', choices=HOMEWORLDS)

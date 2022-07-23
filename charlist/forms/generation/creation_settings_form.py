@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 
-from django.forms import Form
 from django import forms
-
+from django.forms import Form
 
 STAT_BASE_CHOICES = (['CS_20', 20], ['CS_25', 25])
 
 
 class CreationSettingsForm(Form):
-    starting_xp = forms.IntegerField(verbose_name=u'Стартовые Очки опыта', min_value=0)
-    characteristics_base = forms.ChoiceField(verbose_name=u'Базовое значение характеристик',
+    starting_xp = forms.IntegerField(label=u'Стартовые Очки опыта', min_value=0)
+    characteristics_base = forms.ChoiceField(label=u'Базовое значение характеристик',
                                              choices=STAT_BASE_CHOICES)

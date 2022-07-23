@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from django.forms import Form
 from django import forms
+from django.forms import Form
+
 from charlist.constants.tags import *
 
 BACKGROUNDS = ([BACKGROUND_ADMINISTRATUM, 'Adeptus Administratum'],
@@ -20,5 +21,4 @@ BACKGROUNDS_LIST = [BACKGROUND_ADMINISTRATUM, BACKGROUND_ASTRA_TELEPATHICA, BACK
 
 
 class BackgroundChoiceForm(Form):
-    backgrounds = forms.ChoiceField(verbose_name='Предыстория', choices=BACKGROUNDS)
-
+    backgrounds = forms.ChoiceField(label=u'Предыстория', choices=BACKGROUNDS)
