@@ -1,0 +1,33 @@
+{% extends 'charlist_main.html' %}
+
+{% load filters %}
+
+{% block pg_title %}Create new character{% endblock %}
+
+{% block app_content %}
+<div class="page-header text-center">
+    <h4>Создание нового персонажа</h4>
+</div>
+<div class="charlist-content justify-content-center">
+    {% if stage == 'init' %}
+    {% include 'character_creation_settings.html' %}
+    {% endif %}
+    {% if stage == 'hw_choice' %}
+    {% include 'homeworld_choice_form.html' %}
+    {% endif %}
+    {% if stage == 'stat_distr' %}
+    {% endif %}
+    {% if stage == 'bg_choice' %}
+    {% include 'background_choice_form.html' %}
+    {% endif %}
+    {% if stage == 'role_choice' %}
+    {% include 'role_choice_form.html' %}
+    {% endif %}
+    {% if stage == 'choices' %}
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/form_helpers.js %}"></script>
+{% endblock %}

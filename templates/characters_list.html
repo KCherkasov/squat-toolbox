@@ -1,0 +1,25 @@
+{% extends 'charlist_main.html' %}
+
+{% block pg_title %}
+Characters list
+{% endblock %}
+
+{% load filters %}
+
+{% block app_content %}
+<div class="page-header text-center">
+    <h3>Список персонажей</h3>
+</div>
+<div class="charlist-content justify-content-center">
+    {% for character in characters %}
+    {% include 'character_card_widget.html' %}
+    {% empty %}
+    <h5>Пока не создано ни одного персонажа.</h5>
+    {% endfor %}
+</div>
+<div class="charlist-content justify-content-center">
+    <div>
+        <a href="#" class="btn btn-lg btn-primary fs-3">Создать нового персонажа</a>
+    </div>
+</div>
+{% endblock %}

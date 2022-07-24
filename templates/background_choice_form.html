@@ -1,0 +1,59 @@
+{% block loaders %}
+{% load filters %}
+{% endblock %}
+
+<div class="page-header text-center">
+    <h3>Этап 3: выбор предыстории (background)</h3>
+</div>
+<hr/>
+<div class="charlist-inline justify-content-center">
+    {% for err in form.non_field_errors %}
+    <div class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        {{ err }}
+    </div>
+    {% endfor %}
+    <div class="charlist-content justify-content-center">
+        <form class="form-horizontal" method="post" action="">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-group charlist-inline justify-content-center mt-2">
+                <label for="{{ field.name }}" class="col-sm-2 control-label">{{ field.label }}</label>
+                <div class="col-sm-5 ms-2">
+                    {{ field }}
+                </div>
+            </div>
+            {% endfor %}
+            <div class="form-group charlist-inline justify-content-center mt-2">
+                <div class="col-sm-offset-2 col-sm-2">
+                    <button type="submit" class="btn btn-primary">Далее</button>
+                </div>
+                <div class="col-sm-offset-2 col-sm-2">
+                    <a class="btn btn-danger" href="{% url 'index' %}">Отмена</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div>
+        <div class="charlist-container d-none">
+            <ul class="nav nav-tabs">
+                {% for bg in facade.backgrounds.keys %}
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" id="{{ bg }}-tab" href="#{{ bg }}-info"
+                       aria-current="page">
+                        {{ bg }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="tab-content charlist-content justify-content-center">
+            {% for bg in facade.backgrounds.keys %}
+            <div class="tab-pane fade show charlist-content justify-content-center" id="{{ bg }}-info"
+                 role="tabpanel">
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

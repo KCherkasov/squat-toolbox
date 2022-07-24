@@ -21,4 +21,7 @@ BACKGROUNDS_LIST = [BACKGROUND_ADMINISTRATUM, BACKGROUND_ASTRA_TELEPATHICA, BACK
 
 
 class BackgroundChoiceForm(Form):
-    backgrounds = forms.ChoiceField(label=u'Предыстория', choices=BACKGROUNDS)
+    backgrounds = forms.ChoiceField(label=u'Предыстория', choices=BACKGROUNDS,
+                                    widget=forms.Select({'class': 'form-control',
+                                                         'placeholder': u'Выберите предысторию',
+                                                         'id': 'bg-select'}, choices=BACKGROUNDS))

@@ -1,0 +1,46 @@
+{% load filters %}
+
+<div class="card charlist-content">
+    <div class="card-title">
+        <h4><a class="card-link" href="#">{{ character.name }}</a></h4>
+    </div>
+    <div class="card-body charlist-inline justify-content-center">
+        <div>
+            <h5>{{ facade|get_homeworld_description:character.hw_id|get_hw_name:'en' }}</h5>
+        </div>
+        <div>
+            <h5>-</h5>
+        </div>
+        <div>
+            <h5>{{ facade|get_background_description:character.bg_id|get_bg_name:'en' }}</h5>
+        </div>
+        <div>
+            <h5>-</h5>
+        </div>
+        <div>
+            <h5>{{ facade|get_role_description:character.role_id|get_role_name:'en' }}</h5>
+        </div>
+    </div>
+    <div class="card-body charlist-inline justify-content-center">
+        {% for stat_key, stat in character.stats.items %}
+        <div class="charlist-content justify-content-center">
+            <div>
+                <h6>{{ facade|get_stat_description:stat_key|get_stdescer_name:'en' }}</h6>
+            </div>
+            <div class="charlist-inline justify-content-center">
+                <button class="btn btn-outline-dark disabled fs-4">{{ stat.bonus }}</button>
+                <button class="btn btn-light disabled fs-6">{{ stat.residue }}</button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="card-body justify-content-center">
+        <h5>Wounds: {{ character.wounds_current }} / {{ character.wounds_cap }}</h5>
+    </div>
+    <div class="card-body justify-content-center">
+        <h5>Fatigue: {{ character.fatigue_current }} / {{ character.fatigue_cap }} </h5>
+    </div>
+    <div class="card-body justify-content-center">
+        <h5>Fate points: {{ character.fate_current }} / {{ character.fate_cap }}</h5>
+    </div>
+</div>

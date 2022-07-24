@@ -15,4 +15,7 @@ ROLES_LIST = [ROLE_ASSASSIN, ROLE_CHIRURGEON, ROLE_DESPERADO, ROLE_HIEROPHANT, R
 
 
 class RoleChoiceForm(Form):
-    roles = forms.ChoiceField(label=u'Роль')
+    roles = forms.ChoiceField(label=u'Роль', choices=ROLES,
+                              widget=forms.Select({'class': 'form-control',
+                                                   'placeholder': u'Выберите роль',
+                                                   'id': 'role-select'}, choices=ROLES))

@@ -159,4 +159,4 @@ def activate(request, uidb64, token):
 
 
 def characters_list(request):
-    return HttpResponseRedirect(reverse('index'))
+    return render(request, 'characters_list.html', {'version': VERSION, 'facade': flyweights})

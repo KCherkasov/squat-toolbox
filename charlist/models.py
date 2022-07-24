@@ -1,7 +1,7 @@
 # -**- coding: utf-8 -*-
 
-from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.db import models
 
 
 class CharsheetUserManager(BaseUserManager):
@@ -45,3 +45,25 @@ class CharsheetUser(AbstractBaseUser):
     @property
     def is_staff(self):
         return self.is_admin
+
+
+class CharacterQuerySet(models.QuerySet):
+    def with_owner(self):
+        return self.prefetch_related('owner')
+
+
+class CharacterManager(models.Manager):
+    def queryset(self):
+        query = CharacterQuerySet(self.model, using=self._db)
+        return query.with_owner()
+
+    def by_uid(self, uid):
+        return self.filter(owner=uid)
+
+
+class Character(models.Model):
+    owner = models.ForeignKey(CharsheetUser, on_delete=models.CASCADE)
+    creation_date = models.DateField(auto_now_add=True)
+    character_data = models.JSONField()  # TODO - encoder/decoder!
+
+    objects = CharsheetUserManager()

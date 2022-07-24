@@ -21,4 +21,9 @@ HOMEWORLDS_LIST = [HOMEWORLD_FERAL, HOMEWORLD_FORGE, HOMEWORLD_HIGHBORN, HOMEWOR
 
 
 class HomeworldsChoiceForm(Form):
-    homeworlds = forms.ChoiceField(label=u'Родной мир', choices=HOMEWORLDS)
+    homeworld = forms.ChoiceField(label=u'Родной мир', choices=HOMEWORLDS,
+                                  widget=forms.Select({'class': 'form-control',
+                                                       'placeholder': u'Родной мир',
+                                                       'id': 'hw-select',
+                                                       'onchange': 'switch_hw()'},
+                                                      choices=HOMEWORLDS))
