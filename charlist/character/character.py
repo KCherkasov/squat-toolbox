@@ -18,8 +18,9 @@ SPENT_ID = 1
 
 
 class CharacterModel(object):
-    def __init__(self, cid: int, squad_id: int, name: str, hw_id: str,
-                 bg_id: str, role_id: str, div_id: str,
+    def __init__(self, cid: int, squad_id: int, name: str,
+                 gender: str, height: int, weight: int, age: int,
+                 hw_id: str, bg_id: str, role_id: str, div_id: str,
                  ea_id: List[str], wounds: List[int],
                  fatigue: List[int], xp: List[int], fate: List[int],
                  insanity: int, corruption: int, pr: int,
@@ -31,6 +32,10 @@ class CharacterModel(object):
         self.__cid = cid
         self.__squad_id = squad_id
         self.__name = name
+        self.__gender = gender
+        self.__height = height
+        self.__weight = weight
+        self.__age = age
         self.__hw_id = hw_id
         self.__bg_id = bg_id
         self.__role_id = role_id
@@ -62,6 +67,30 @@ class CharacterModel(object):
 
     def name(self):
         return self.__name
+
+    def gender(self):
+        return self.__gender
+
+    def height(self):
+        return self.__height
+
+    def weight(self):
+        return self.__weight
+
+    def gain_weight(self, amount=1):
+        if amount > 0:
+            self.__weight += 1
+
+    def lose_weight(self, amount=1):
+        if amount > 0:
+            self.__weight -= amount
+
+    def age(self):
+        return self.__age
+
+    def grow_older(self, amount=1):
+        if amount > 0:
+            self.__age += amount
 
     def hw_id(self):
         return self.__hw_id
@@ -376,3 +405,23 @@ class CharacterModel(object):
         #         tmp_name[lang] = facade.mutations().get(mutation).get_name(lang)
         #     map_hints(hookups, facade.mutations().get(mutation).get_hints(), tmp_name, facade)
         return hookups
+
+    @classmethod
+    def from_json(cls, data):
+        stats = dict()
+        for stat_key, stat in data['stats'].items():
+            stats[stat_key] = Stat.from_json(stat)
+        data['stats'] = stats
+        skills = dict()
+        for skill_key, skill in data['skills'].items():
+            skills[skill_key] = Skill.from_json(skill)
+        data['skills'] = skills
+        talents = dict()
+        for talent_key, talent in data['talents'].items():
+            talents[talent_key] = Talent.from_json(talent)
+        data['talents'] = talents
+        traits = dict()
+        for trait_key, trait in data['traits']:
+            traits[trait_key] = Trait.from_json(trait)
+        data['traits'] = traits
+        return cls(**data)

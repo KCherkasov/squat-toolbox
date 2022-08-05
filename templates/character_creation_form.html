@@ -16,6 +16,7 @@
     {% include 'homeworld_choice_form.html' %}
     {% endif %}
     {% if stage == 'stat_distr' %}
+    {% include 'stat_distribution_form.html' %}
     {% endif %}
     {% if stage == 'bg_choice' %}
     {% include 'background_choice_form.html' %}
@@ -24,6 +25,11 @@
     {% include 'role_choice_form.html' %}
     {% endif %}
     {% if stage == 'choices' %}
+    {% endif %}
+    {% if stage == 'double_apts' %}
+    {% endif %}
+    {% if stage == 'divination' %}
+    {% include 'divination_form.html' %}
     {% endif %}
 </div>
 {% endblock %}

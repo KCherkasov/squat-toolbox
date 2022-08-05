@@ -4,7 +4,7 @@
         <h5 class="collapse-toggler">
             {% if lang == 'ru' %}Предсказание{% else %}Divination{% endif %}:&nbsp;
             <a class="text-dark text-decoration-none" data-bs-toggle="collapse" href="#divinationInfo-{{ lang }}"
-               role="button" aria-expanded="false" aria-controls="divinationInfo-{{ lang }}">
+               data-bs-auto-close="true" role="button" aria-expanded="false" aria-controls="divinationInfo-{{ lang }}">
                 <i>{{ facade|get_divination_description:character.div_id|get_div_name:lang }}</i>
             </a>
         </h5>

@@ -14,7 +14,8 @@
             <div>
                 <h5 class="collapse-toggler">
                     <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
-                       href="#info-{{ apt.get_tag }}-ru" title="Подробнее" aria-expanded="false" aria-controls="mutations">
+                       data-bs-auto-close="true" href="#info-{{ apt.get_tag }}-ru"
+                       title="Подробнее" aria-expanded="false" aria-controls="info-{{ apt.get_tag }}-ru">
                         <i>{{ apt.get_name_ru }}</i>
                     </a>
                 </h5>
@@ -29,7 +30,8 @@
             <div>
                 <h5 class="collapse-toggler">
                     <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
-                       href="#info-{{ apt.get_tag }}-en" title="Подробнее" aria-expanded="false" aria-controls="mutations">
+                       data-bs-auto-close="true" href="#info-{{ apt.get_tag }}-en"
+                       title="Подробнее" aria-expanded="false" aria-controls="info-{{ apt.get_tag }}-en">
                         <i>{{ apt.get_name_en }}</i>
                     </a>
                 </h5>

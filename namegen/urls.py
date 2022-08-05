@@ -36,6 +36,15 @@ urlpatterns = [
 
     path(r'dev/characters/', charviews.characters_list, name='characters-list'),
 
+    path(r'dev/create-character/init/', name='create-character-init'),
+    path(r'dev/create-character/hw-choice/', name='create-character-hw'),
+    path(r'dev/create-character/characteristics/', name='create-character-stats'),
+    path(r'dev/create-character/bg-choice/', name='create-character-bg'),
+    path(r'dev/create-character/role-choice/', name='create-character-role'),
+    path(r'dev/create-character/choices/', name='create-character-choice'),
+    path(r'dev/create-character/double-apts/', name='create-character-double-apts'),
+    path(r'dev/create-character/divination/', name='create-character-divination'),
+
     path(r'dev/charsheet/test/', charviews.aptitudes_test, name='charsheet-test'),
     path(r'dev/charsheet/mockup/', charviews.charsheet_mockup, name='charsheet-mockup'),
     path(r'dev/charsheet/mockup-interactive/', charviews.interactive_charsheet_mockup, name='interactive-mockup'),

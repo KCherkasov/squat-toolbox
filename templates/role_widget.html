@@ -4,7 +4,8 @@
         <h5 class="collapse-toggler">
             {% if lang == 'ru' %}Роль{% else %}Role{% endif %}:&nbsp;
             <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
-               href="#roleInfo-{{ lang }}" title="Подробнее" aria-expanded="false" aria-controls="roleInfo-{{ lang }}">
+               data-bs-auto-close="true" href="#roleInfo-{{ lang }}" title="Подробнее"
+               aria-expanded="false" aria-controls="roleInfo-{{ lang }}">
                 <i>{{ facade|get_role_description_big:character.role_id|get_role_name:lang }}</i>
             </a>
         </h5>

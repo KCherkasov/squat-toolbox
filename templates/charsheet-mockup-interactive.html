@@ -75,7 +75,8 @@ Character sheet interactive mockup
                         <div>
                             <h5 class="collapse-toggler">
                                 <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
-                                   href="#aboutInfo-{{ lang }}" title="Подробнее" aria-expanded="false" aria-controls="aboutInfo-{{ lang }}">
+                                   data-bs-auto-close="outside" href="#aboutInfo-{{ lang }}"
+                                   title="Подробнее" aria-expanded="false" aria-controls="aboutInfo-{{ lang }}">
                                     <i>{% if lang == 'ru' %}О персонаже{% else %}About character{% endif %}</i>
                                 </a>
                             </h5>

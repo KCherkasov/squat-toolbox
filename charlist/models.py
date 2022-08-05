@@ -3,6 +3,10 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db import models
 
+import charlist.character.character
+from charlist.character.json.decoders.character_decoder import CharacterDecoder
+import json
+
 
 class CharsheetUserManager(BaseUserManager):
     def all(self):
@@ -64,6 +68,9 @@ class CharacterManager(models.Manager):
 class Character(models.Model):
     owner = models.ForeignKey(CharsheetUser, on_delete=models.CASCADE)
     creation_date = models.DateField(auto_now_add=True)
-    character_data = models.JSONField()  # TODO - encoder/decoder!
+    character_data = models.CharField(max_length=2500)  # TODO - encoder/decoder!
 
     objects = CharsheetUserManager()
+
+    def data_to_model(self):
+        return CharacterDecoder.decode(str(self.character_data))

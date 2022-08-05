@@ -13,7 +13,8 @@
         <div>
             <h5 class="collapse-toggler">
                 <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
-                    href="#{{ trait_key }}-{{ lang }}-hints" title="Подробнее" aria-expanded="false" aria-controls="{{ trait_key }}-{{ lang }}-hints">
+                   data-bs-auto-close="true" href="#{{ trait_key }}-{{ lang }}-hints"
+                   title="Подробнее" aria-expanded="false" aria-controls="{{ trait_key }}-{{ lang }}-hints">
                     <i>{% if lang == 'ru' %}Эффекты{% else %}Effects{% endif %}</i>
                 </a>
             </h5>
@@ -40,7 +41,8 @@
         <div>
             <h5 class="collapse-toggler">
                 <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
-                    href="#{{ trait_key }}-{{ lang }}-info" title="Подробнее" aria-expanded="false" aria-controls="{{ trait_key }}-{{ lang }}-info">
+                   data-bs-auto-close="true" href="#{{ trait_key }}-{{ lang }}-info"
+                   title="Подробнее" aria-expanded="false" aria-controls="{{ trait_key }}-{{ lang }}-info">
                     <i>{% if lang == 'ru' %}Описание{% else %}Description{% endif %}</i>
                 </a>
             </h5>

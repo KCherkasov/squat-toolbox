@@ -3,7 +3,7 @@
 {% endblock %}
 
 <div class="page-header text-center">
-    <h3>Этап 1: имя, базовое значение характеристик и стартовый опыт</h3>
+    <h3>Этап 8: предсказание (divination)</h3>
 </div>
 <hr/>
 {% for err in form.non_field_errors %}
@@ -25,10 +25,10 @@
         {% endfor %}
         <div class="form-group charlist-inline justify-content-center mt-2">
             <div class="col-sm-offset-2 col-sm-2">
-                <button type="submit" class="btn btn-primary" name="char-cr-next">Далее</button>
+                <button type="submit" class="btn btn-primary">Далее</button>
             </div>
             <div class="col-sm-offset-2 col-sm-2">
-                <a class="btn btn-danger" href="{% url 'characters-list' %}">Отмена</a>
+                <a class="btn btn-danger" href="{% url 'index' %}">Отмена</a>
             </div>
         </div>
     </form>

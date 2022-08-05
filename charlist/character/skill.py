@@ -27,7 +27,7 @@ class Skill(object):
         if self.is_specialist() and (subtag in self.__advances.keys()):
             return self.__advances.get(subtag)
         else:
-            return None
+            return 0
 
     def get_adv_bonus(self):
         if self.is_specialist():
@@ -39,13 +39,10 @@ class Skill(object):
 
     def get_adv_bonus_subtag(self, subtag: str):
         adv = self.get_subskill_advance(subtag)
-        if adv is None:
-            return None
+        if adv > 0:
+            return adv * SKILL_POINTS_PER_UPG - 10
         else:
-            if adv > 0:
-                return adv * SKILL_POINTS_PER_UPG - 10
-            else:
-                return UNTRAINED_SKILL
+            return UNTRAINED_SKILL
 
     def upgradeable(self):
         return (self.__advances < SKILL_UPGRADES_CAP) and (self.__tag != ST_INFLUENCE)
