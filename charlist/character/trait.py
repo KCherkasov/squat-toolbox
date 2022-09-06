@@ -50,5 +50,9 @@ class Trait(object):
         return cls(**data)
 
     def toJSON(self):
-        return json.dumps(self, default=lambda o: o.__dict__,
+        fields = dict()
+        for key, val in self.__dict__.items():
+            field_key = key[8:]
+            fields[field_key] = val
+        return json.dumps(self, default=lambda o: fields,
                           sort_keys=True, indent=4)
