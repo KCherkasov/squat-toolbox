@@ -69,8 +69,22 @@ class Character(models.Model):
     owner = models.ForeignKey(CharsheetUser, on_delete=models.CASCADE)
     creation_date = models.DateField(auto_now_add=True)
     character_data = models.CharField(max_length=2500)  # TODO - encoder/decoder!
+    notes = models.TextField(max_length=10000, default="")
 
     objects = CharsheetUserManager()
 
     def data_to_model(self):
         return CharacterDecoder.decode(str(self.character_data))
+
+
+class LogEntry(models.Model):
+    date = models.DateField(auto_now_add=True)
+    data = models.CharField(max_length=1000)
+
+
+def make_character_creation_entry(user_id, char_id):
+    data = dict()
+    data['user'] = user_id
+    data['character'] = char_id
+    entry = LogEntry(data=json.dumps(data))
+    entry.save()

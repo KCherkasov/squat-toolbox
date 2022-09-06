@@ -26,7 +26,7 @@ class CharacterModel(object):
                  insanity: int, corruption: int, pr: int,
                  apts: List[str], stats: Dict[str, Stat],
                  skills: Dict[str, Skill], talents: Dict[str, Talent],
-                 traits: Dict[str, Trait], psy: List[str], equipment: List,
+                 traits: Dict[str, Trait], psy: List[str], equipment: List[str],
                  disorders: List[str], malignancies: List[str],
                  mutations: List[str]):
         self.__cid = cid
