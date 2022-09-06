@@ -109,7 +109,7 @@ def interactive_charsheet_mockup(request):
                                 "TL_DMH": Talent("TL_DMH", 1), "TL_HTRD": Talent("TL_HTRD", {"Daemons": 1}),
                                 "TL_POH": Talent("TL_POH", {"Daemons": 1}), "TL_ROB": Talent("TL_ROB", 1),
                                 "TL_IOHW": Talent("TL_IOHW", 1)}, {}, [], [], [], [], [])
-    char_dump = CharacterEncoder().encode(character)
+    char_dump = CharacterEncoder().default(character)
     unpacked_char = CharacterDecoder.decode(char_dump)
     return render(request, "charsheet-mockup-interactive.html", {'version': VERSION, 'facade': flyweights,
                                                                  'character': unpacked_char,
