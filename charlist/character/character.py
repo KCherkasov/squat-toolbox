@@ -428,22 +428,33 @@ class CharacterModel(object):
         return cls(**data)
 
     def toJSON(self):
-        fields = self.__dict__
-        stats = dict()
-        for key, val in self.stats().keys():
-            stats[key] = val.toJSON()
-        fields['_CharacterModel__stats'] = stats
-        skills = dict()
-        for key, val in self.skills().keys():
-            skills[key] = val.toJSON()
-        fields['_CharacterModel__skills'] = skills
-        talents = dict()
-        for key, val in self.talents().keys():
-            talents[key] = val.toJSON()
-        fields['_CharacterModel__talents'] = talents
-        traits = dict()
-        for key, val in self.traits().keys():
-            traits[key] = val.toJSON()
-        fields['_CharacterModel__traits'] = traits
+        fields_preset = self.__dict__
+        fields = dict()
+        spec_fields = ['stats', 'skills', 'talents', 'traits']
+        for key, val in fields_preset.items():
+            field_key = key[17:]
+            if field_key in spec_fields:
+                if field_key == 'stats':
+                    stats = dict()
+                    for skey, sval in self.stats().items():
+                        stats[skey] = sval.toJSON()
+                    fields['stats'] = stats
+                if field_key == 'skills':
+                    skills = dict()
+                    for skey, sval in self.skills().items():
+                        skills[skey] = sval.toJSON()
+                    fields['skills'] = skills
+                if field_key == 'talents':
+                    talents = dict()
+                    for tkey, tval in self.talents().items():
+                        talents[tkey] = tval.toJSON()
+                    fields['talents'] = talents
+                if field_key == 'traits':
+                    traits = dict()
+                    for tkey, tval in self.traits().items():
+                        traits[tkey] = tval.toJSON()
+                    fields['traits'] = traits
+            else:
+                fields[field_key] = val
         return json.dumps(self, default=lambda o: fields,
                           sort_keys=True, indent=4)
