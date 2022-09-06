@@ -408,7 +408,8 @@ class CharacterModel(object):
         return hookups
 
     @classmethod
-    def from_json(cls, data):
+    def from_json(cls, sdata):
+        data = json.loads(sdata)
         stats = dict()
         for stat_key, stat in data['stats'].items():
             stats[stat_key] = Stat.from_json(stat)
