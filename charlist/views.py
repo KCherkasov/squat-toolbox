@@ -993,10 +993,6 @@ def create_character_divination(request):
                                                      0, apts, stats, skills, talents, traits, [], [], [], [], [])
                     character.character = CharacterEncoder().default(character_model)
                     character.save()
-                    return render(request, "charsheet-mockup-interactive.html",
-                                  {'version': VERSION, 'facade': flyweights,
-                                   'character': character_model,
-                                   'hookups': character_model.make_hookups(flyweights)})
                 else:
                     return render(request, 'character_creation_form.html',
                                   {'version': VERSION, 'facade': flyweights,
@@ -1009,3 +1005,11 @@ def create_character_divination(request):
             return HttpResponseRedirect(reverse('create-character-init'))
     else:
         return HttpResponseRedirect(reverse('create-character-init'))
+
+
+def character_view(request, char_id):
+    character = charlist.models.Character.objects.filter(id=char_id)
+    character_model = CharacterDecoder.decode(character.character)
+    return render(request, "charsheet-mockup-interactive.html", {'version': VERSION, 'facade': flyweights,
+                                                                 'character': character_model,
+                                                                 'hookups': character_model.make_hookups(flyweights)})
