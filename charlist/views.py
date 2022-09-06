@@ -109,8 +109,8 @@ def interactive_charsheet_mockup(request):
                                 "TL_DMH": Talent("TL_DMH", 1), "TL_HTRD": Talent("TL_HTRD", {"Daemons": 1}),
                                 "TL_POH": Talent("TL_POH", {"Daemons": 1}), "TL_ROB": Talent("TL_ROB", 1),
                                 "TL_IOHW": Talent("TL_IOHW", 1)}, {}, [], [], [], [], [])
-    char_dump = json.dumps(character)
-    unpacked_char = CharacterDecoder.decode(char_dump)
+    char_dump = character.toJSON()
+    unpacked_char = CharacterModel.from_json(char_dump)
     return render(request, "charsheet-mockup-interactive.html", {'version': VERSION, 'facade': flyweights,
                                                                  'character': unpacked_char,
                                                                  'hookups': character.make_hookups(flyweights)})
@@ -991,7 +991,7 @@ def create_character_divination(request):
                                                      data['background'], data['role'], data['divination'], [],
                                                      [wounds, wounds], [0, fatigue], [xp_given, 0], [fate, fate], 0, 0,
                                                      0, apts, stats, skills, talents, traits, [], [], [], [], [])
-                    character.character = json.dumps(character_model)
+                    character.character = character_model.toJSON()
                     character.save()
                 else:
                     return render(request, 'character_creation_form.html',
@@ -1009,7 +1009,7 @@ def create_character_divination(request):
 
 def character_view(request, char_id):
     character = charlist.models.Character.objects.filter(id=char_id)
-    character_model = CharacterDecoder.decode(character.character)
+    character_model = CharacterModel.from_json(character.character)
     return render(request, "charsheet-mockup-interactive.html", {'version': VERSION, 'facade': flyweights,
                                                                  'character': character_model,
                                                                  'hookups': character_model.make_hookups(flyweights)})

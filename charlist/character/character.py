@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import json
 
 from charlist.character.helpers import *
 from charlist.character.skill import Skill
@@ -425,3 +426,24 @@ class CharacterModel(object):
             traits[trait_key] = Trait.from_json(trait)
         data['traits'] = traits
         return cls(**data)
+
+    def toJSON(self):
+        fields = self.__dict__
+        stats = dict()
+        for key, val in self.__stats.keys():
+            stats[key] = val.toJSON()
+        fields['stats'] = stats
+        skills = dict()
+        for key, val in self.skills().keys():
+            skills[key] = val.toJSON()
+        fields['skills'] = skills
+        talents = dict()
+        for key, val in self.talents().keys():
+            talents[key] = val.toJSON()
+        fields['talents'] = talents
+        traits = dict()
+        for key, val in self.traits().keys():
+            traits[key] = val.toJSON()
+        fields['traits'] = traits
+        return json.dumps(self, default=lambda o: fields,
+                          sort_keys=True, indent=4)
