@@ -991,7 +991,7 @@ def create_character_divination(request):
                                                      data['background'], data['role'], data['divination'], [],
                                                      [wounds, wounds], [0, fatigue], [xp_given, 0], [fate, fate], 0, 0,
                                                      0, apts, stats, skills, talents, traits, [], [], [], [], [])
-                    character.character = CharacterEncoder().default(character_model)
+                    character.character = json.dumps(character_model)
                     character.save()
                 else:
                     return render(request, 'character_creation_form.html',
