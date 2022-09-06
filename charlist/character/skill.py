@@ -66,7 +66,8 @@ class Skill(object):
                 self.__advances[subtag] = 1
 
     @classmethod
-    def from_json(cls, data):
+    def from_json(cls, sdata):
+        data = json.loads(sdata)
         return cls(**data)
 
     def toJSON(self):
