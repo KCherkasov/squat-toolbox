@@ -430,20 +430,20 @@ class CharacterModel(object):
     def toJSON(self):
         fields = self.__dict__
         stats = dict()
-        for key, val in self.__stats.keys():
+        for key, val in self.stats().keys():
             stats[key] = val.toJSON()
-        fields['stats'] = stats
+        fields['_CharacterModel__stats'] = stats
         skills = dict()
         for key, val in self.skills().keys():
             skills[key] = val.toJSON()
-        fields['skills'] = skills
+        fields['_CharacterModel__skills'] = skills
         talents = dict()
         for key, val in self.talents().keys():
             talents[key] = val.toJSON()
-        fields['talents'] = talents
+        fields['_CharacterModel__talents'] = talents
         traits = dict()
         for key, val in self.traits().keys():
             traits[key] = val.toJSON()
-        fields['traits'] = traits
+        fields['_CharacterModel__traits'] = traits
         return json.dumps(self, default=lambda o: fields,
                           sort_keys=True, indent=4)
