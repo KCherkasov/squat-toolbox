@@ -150,7 +150,7 @@ def signin(request):
             login(request, form.cleaned_data['user'])
             return HttpResponseRedirect(reverse('characters-list'))
         else:
-            return HttpResponseRedirect(reverse('login'))
+            return HttpResponseRedirect(reverse('signin'))
     else:
         form = SignInForm()
     return render(request, 'signin.html', {'version': VERSION, 'form': form, })
@@ -223,7 +223,7 @@ def create_character_init(request):
 def create_character_hw_choice(request):
     if request.method == 'POST':
         if 'char-hw-prev' in request.POST:
-            return HttpResponseRedirect(reverse('create-character-init'))
+            return create_character_init(request)
         if 'data' in request.POST:
             data = request.POST['data']
             if 'char-hw-next' in request.POST:
@@ -247,7 +247,7 @@ def create_character_hw_choice(request):
 def create_character_stat_distribution(request):
     if request.method == 'POST':
         if 'char-st-prev' in request.POST:
-            return HttpResponseRedirect(reverse('create-character-hw'))
+            return create_character_hw_choice(request)
         if 'data' in request.POST:
             data = request.POST['data']
             if 'char-st-next' in request.POST:
@@ -294,7 +294,7 @@ def create_character_stat_distribution(request):
 def create_character_bg_choice(request):
     if request.method == 'POST':
         if 'char-bg-prev' in request.POST:
-            return HttpResponseRedirect(reverse('create-character-stats'))
+            return create_character_stat_distribution(request)
         if 'data' in request.POST:
             data = request.POST['data']
             if 'char-bg-next' in request.POST:
