@@ -233,7 +233,7 @@ def create_character_hw_choice(request):
                     cpy = request.POST.copy()
                     cpy.update({'data': data})
                     request.POST = cpy
-                    return create_character_bg_choice(request)
+                    return create_character_stat_distribution(request)
             else:
                 if 'char-st-prev' in request.POST:
                     form = HomeworldsChoiceForm(data)
