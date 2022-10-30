@@ -194,8 +194,7 @@ def create_character_init(request):
                 cpy = request.POST.copy()
                 cpy.update({'data': data})
                 request.POST = cpy
-                return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                        'stage': CREATION_STAGES[1]})
+                return create_character_hw_choice(request)
             elif form.is_valid():
                 return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                         'stage': CREATION_STAGES[0], 'form': form})
@@ -214,8 +213,7 @@ def create_character_init(request):
                 cpy = request.POST.copy()
                 cpy.update({'data': data})
                 request.POST = cpy
-            return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                    'stage': CREATION_STAGES[1]})
+            return create_character_hw_choice(request)
     else:
         form = CreationSettingsForm()
         return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
@@ -235,8 +233,7 @@ def create_character_hw_choice(request):
                     cpy = request.POST.copy()
                     cpy.update({'data': data})
                     request.POST = cpy
-                    return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                            'stage': CREATION_STAGES[1]})
+                    return create_character_bg_choice(request)
             else:
                 if 'char-st-prev' in request.POST:
                     form = HomeworldsChoiceForm(data)
@@ -284,15 +281,14 @@ def create_character_stat_distribution(request):
                     cpy = request.POST.copy()
                     cpy.update({'data': data})
                     request.POST = cpy
-                    return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                            'stage': CREATION_STAGES[2]})
+                    return create_character_bg_choice(request)
             else:
                 if 'char-bg-prev' in request.POST:
                     form = StatDistributionForm(data)
                 else:
                     form = StatDistributionForm()
                 return render(request, 'character_creation_form', {'version': VERSION, 'facade': flyweights,
-                                                                   'stage': CREATION_STAGES[1], 'form': form})
+                                                                   'stage': CREATION_STAGES[2], 'form': form})
     else:
         return HttpResponseRedirect(reverse('create-character-init'))
 
@@ -310,15 +306,14 @@ def create_character_bg_choice(request):
                     cpy = request.POST.copy()
                     cpy.update({'data': data})
                     request.POST = cpy
-                    return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                            'stage': CREATION_STAGES[3]})
+                    return create_character_role_choice(request)
             else:
                 if 'char-role-prev' in request.POST:
                     form = BackgroundChoiceForm(data)
                 else:
                     form = BackgroundChoiceForm()
                 return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                        'stage': CREATION_STAGES[2], 'form': form})
+                                                                        'stage': CREATION_STAGES[3], 'form': form})
     else:
         return HttpResponseRedirect('create-character-init')
 
@@ -336,15 +331,14 @@ def create_character_role_choice(request):
                     cpy = request.POST.copy()
                     cpy.update({'data': data})
                     request.POST = cpy
-                    return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                            'stage': CREATION_STAGES[4]})
+                    return create_character_choices(request)
             else:
                 if 'char-choices-prev' in request.POST:
                     form = RoleChoiceForm(data)
                 else:
                     form = RoleChoiceForm()
                 return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                        'stage': CREATION_STAGES[3], 'form': form})
+                                                                        'stage': CREATION_STAGES[4], 'form': form})
     else:
         return HttpResponseRedirect(reverse('create-character-init'))
 
@@ -380,8 +374,7 @@ def create_character_choices(request):
                     cpy = request.POST.copy()
                     cpy.update({'data': data})
                     request.POST = cpy
-                    return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                            'stage': CREATION_STAGES[5]})
+                    return create_character_double_apts(request)
             else:
                 if 'char-apts-prev' in request.POST:
                     form = ChoicesForm(data)
@@ -682,7 +675,7 @@ def create_character_choices(request):
                         form.fields['background_traits'].widget = django.forms.Select(
                             {'class': 'form-control disabled'}, bg_traits)
                 return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                        'stage': CREATION_STAGES[4], 'form': form})
+                                                                        'stage': CREATION_STAGES[5], 'form': form})
     else:
         return HttpResponseRedirect('create-character-init')
 
@@ -690,7 +683,7 @@ def create_character_choices(request):
 def create_character_double_apts(request):
     if request.method == 'POST':
         if 'char-apts-prev' in request.POST:
-            return HttpResponseRedirect(reverse('create-character-choice'))
+            return create_character_choices(request)
         if 'data' in request.POST:
             data = request.POST['data']
 
@@ -735,9 +728,7 @@ def create_character_double_apts(request):
                     cpy = request.POST.copy()
                     cpy.update({'data': data})
                     request.POST = cpy
-                    return render(request, 'character_creation_form.html',
-                                  {'version': VERSION, 'facade': flyweights,
-                                   'stage': CREATION_STAGES[6], })
+                    return create_character_divination(request)
             else:
                 choices = []
                 for st_apt in STAT_APTS:
@@ -779,7 +770,7 @@ def create_character_double_apts(request):
                         form.fields['apt_choice2'].widget = django.forms.Select(
                             {'class': 'form-control disabled'}, choices)
                 return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                        'stage': CREATION_STAGES[5], 'form': form})
+                                                                        'stage': CREATION_STAGES[6], 'form': form})
     else:
         return HttpResponseRedirect(reverse('create-character-init'))
 
@@ -787,7 +778,7 @@ def create_character_double_apts(request):
 def create_character_divination(request):
     if request.method == 'POST':
         if 'char-div-prev' in request.POST:
-            return HttpResponseRedirect(reverse('create-character-double-apts'))
+            return create_character_double_apts(request)
         if 'data' in request.POST:
             data = request.POST['data']
             if 'char-div-next' in request.POST:
@@ -1007,6 +998,7 @@ def create_character_divination(request):
                                                      0, apts, stats, skills, talents, traits, [], [], [], [], [])
                     character.character = character_model.toJSON()
                     character.save()
+                    return HttpResponseRedirect(reverse('characters-list'))
                 else:
                     return render(request, 'character_creation_form.html',
                                   {'version': VERSION, 'facade': flyweights,
