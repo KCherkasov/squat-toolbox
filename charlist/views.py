@@ -177,7 +177,7 @@ def characters_list(request):
     return render(request, 'characters_list.html', {'version': VERSION, 'facade': flyweights})
 
 
-def create_character_init(request, data):
+def create_character_init(request, data=None):
     if request.method == 'POST':
         if data is None:
             data = dict()
