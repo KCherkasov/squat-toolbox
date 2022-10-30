@@ -8,6 +8,7 @@ from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
+from django.forms.fields import CharField
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, reverse
 from django.template.loader import render_to_string
@@ -15,6 +16,15 @@ from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 
 import charlist.models
+from charlist.forms.generation.background_choice_form import BackgroundChoiceForm
+from charlist.forms.generation.choices_form import ChoicesForm
+from charlist.forms.generation.creation_settings_form import CreationSettingsForm
+from charlist.forms.generation.divination_form import DivinationForm
+from charlist.forms.generation.double_apts_choices import DoubleAptsChoiceForm
+from charlist.forms.generation.homeworld_choice_form import HomeworldsChoiceForm
+from charlist.forms.generation.role_choice_form import RoleChoiceForm
+from charlist.forms.generation.stages import *
+from charlist.forms.generation.stat_distribution_form import StatDistributionForm
 from .character.character import CharacterModel
 from .character.skill import Skill
 from .character.stat import Stat
@@ -24,19 +34,6 @@ from .constants.constants import *
 from .flyweights.flyweights import *
 from .forms.authorization.signin import SignInForm
 from .forms.authorization.signup import UserCreationForm
-from charlist.character.json.encoders.character_encoder import CharacterEncoder
-from charlist.character.json.decoders.character_decoder import CharacterDecoder
-from charlist.forms.generation.stages import *
-from charlist.forms.generation.creation_settings_form import CreationSettingsForm
-from charlist.forms.generation.homeworld_choice_form import HomeworldsChoiceForm
-from charlist.forms.generation.stat_distribution_form import StatDistributionForm
-from charlist.forms.generation.background_choice_form import BackgroundChoiceForm
-from charlist.forms.generation.role_choice_form import RoleChoiceForm
-from charlist.forms.generation.choices_form import ChoicesForm
-from charlist.forms.generation.double_apts_choices import DoubleAptsChoiceForm
-from charlist.forms.generation.divination_form import DivinationForm
-
-from django.forms.fields import CharField
 
 
 class TokenGenerator(PasswordResetTokenGenerator):
@@ -194,7 +191,9 @@ def create_character_init(request):
                 data['age'] = cleaned_data['age']
                 data['starting_xp'] = cleaned_data['starting_xp']
                 data['characteristics_base'] = cleaned_data['characteristics_base']
-                request.POST.update({'data': data})
+                cpy = request.POST.copy()
+                cpy.update({'data': data})
+                request.POST = cpy
                 return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                         'stage': CREATION_STAGES[1]})
             elif form.is_valid():
@@ -214,6 +213,7 @@ def create_character_init(request):
                 data['characteristics_base'] = cleaned_data['characteristics_base']
                 cpy = request.POST.copy()
                 cpy.update({'data': data})
+                request.POST = cpy
             return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                     'stage': CREATION_STAGES[1]})
     else:
@@ -234,6 +234,7 @@ def create_character_hw_choice(request):
                     data['homeworld'] = form.cleaned_data['homeworld']
                     cpy = request.POST.copy()
                     cpy.update({'data': data})
+                    request.POST = cpy
                     return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                             'stage': CREATION_STAGES[1]})
             else:
@@ -282,6 +283,7 @@ def create_character_stat_distribution(request):
                     data['stats'] = stats
                     cpy = request.POST.copy()
                     cpy.update({'data': data})
+                    request.POST = cpy
                     return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                             'stage': CREATION_STAGES[2]})
             else:
@@ -307,6 +309,7 @@ def create_character_bg_choice(request):
                     data['background'] = form.cleaned_data['background']
                     cpy = request.POST.copy()
                     cpy.update({'data': data})
+                    request.POST = cpy
                     return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                             'stage': CREATION_STAGES[3]})
             else:
@@ -332,6 +335,7 @@ def create_character_role_choice(request):
                     data['role'] = form.cleaned_data['role']
                     cpy = request.POST.copy()
                     cpy.update({'data': data})
+                    request.POST = cpy
                     return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                             'stage': CREATION_STAGES[4]})
             else:
@@ -375,6 +379,7 @@ def create_character_choices(request):
                         data['hw-bonus-talent'] = cleaned_data['hw-bonus-talent']
                     cpy = request.POST.copy()
                     cpy.update({'data': data})
+                    request.POST = cpy
                     return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                             'stage': CREATION_STAGES[5]})
             else:
@@ -729,6 +734,7 @@ def create_character_double_apts(request):
                     data['apts'] = apts
                     cpy = request.POST.copy()
                     cpy.update({'data': data})
+                    request.POST = cpy
                     return render(request, 'character_creation_form.html',
                                   {'version': VERSION, 'facade': flyweights,
                                    'stage': CREATION_STAGES[6], })
