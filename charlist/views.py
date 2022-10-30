@@ -195,9 +195,8 @@ def create_character_init(request, data=None):
             data['starting_xp'] = cleaned_data['starting_xp']
             data['characteristics_base'] = cleaned_data['characteristics_base']
             return create_character_hw_choice(request, data)
-        elif form.is_valid():
-            return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                    'stage': CREATION_STAGES[0], 'form': form})
+        return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                'stage': CREATION_STAGES[0], 'form': form})
     else:
         form = CreationSettingsForm()
         return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
@@ -213,13 +212,12 @@ def create_character_hw_choice(request, data):
             if form.is_valid():
                 data['homeworld'] = form.cleaned_data['homeworld']
                 return create_character_stat_distribution(request, data)
-            else:
-                if 'char-st-prev' in request.POST:
-                    form = HomeworldsChoiceForm(data)
-                else:
-                    form = HomeworldsChoiceForm()
-                return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                        'stage': CREATION_STAGES[1], 'form': form})
+        if 'char-st-prev' in request.POST:
+            form = HomeworldsChoiceForm(data)
+        else:
+            form = HomeworldsChoiceForm()
+        return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                'stage': CREATION_STAGES[1], 'form': form})
     else:
         return HttpResponseRedirect(reverse('create-character-init'))
 
