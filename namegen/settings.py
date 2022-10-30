@@ -92,7 +92,7 @@ CSRF_COOKIE_SAMESITE = 'None'
 # CSRF_TRUSTED_ORIGINS = ['https://wiki.pandhammer.ru', 'https://kvcherk.pythonanywhere.com/']
 
 
-CSP_FRAME_ANCESTORS = ['https://wiki.pandhammer.ru', 'https://kvcherk.pythonanywhere.com/']
+CSP_FRAME_ANCESTORS = ['https://wiki.pandhammer.ru', 'https://kvcherk.pythonanywhere.com/', 'https://squat-toolbox.ru/']
 CSP_DEFAULT_SRC = ["'none'"]
 CSP_SCRIPT_SRC = [
     "'self'",

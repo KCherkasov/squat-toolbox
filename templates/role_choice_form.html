@@ -4,6 +4,7 @@
 
 <div class="page-header text-center">
     <h3>Этап 5: выбор роли (role)</h3>
+    <span class="form-control"><meter max="8" value="5"></meter></span>
 </div>
 <hr/>
 <div class="charlist-inline justify-content-center">
@@ -26,7 +27,10 @@
             {% endfor %}
             <div class="form-group charlist-inline justify-content-center mt-2">
                 <div class="col-sm-offset-2 col-sm-2">
-                    <button type="submit" class="btn btn-primary">Далее</button>
+                    <button type="submit" class="btn btn-primary" name="char-role-next">Далее</button>
+                </div>
+                <div class="col-sm-offset-2 col-sm-2">
+                    <button type="submit" class="btn btn-primary" name="char-role-prev">Назад</button>
                 </div>
                 <div class="col-sm-offset-2 col-sm-2">
                     <a class="btn btn-danger" href="{% url 'index' %}">Отмена</a>
@@ -41,7 +45,7 @@
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" id="{{ role }}-tab" href="#{{ role }}-info"
                        aria-current="page">
-                        {{ role }}
+                        {{ facade|get_role_description_big:role|get_role_name:'en' }}
                     </a>
                 </li>
                 {% endfor %}
@@ -51,7 +55,15 @@
             {% for role in facade.roles.keys %}
             <div class="tab-pane fade show charlist-content justify-content-center" id="{{ role }}-info"
                  role="tabpanel">
+                <i>Aptitudes:</i>
+                <ul>
+                    {% for apt in facade|get_role_description_big:role|get_role_aptitudes %}
+                    <li>{{ facade|get_aptitude:apt|get_apt_name:'en' }}</li>
+                    {% endfor %}
+                    {% if facade|get_role_description_big:role|get_role_apt_choices %}
 
+                    {% endif %}
+                </ul>
             </div>
             {% endfor %}
         </div>

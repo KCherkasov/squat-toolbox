@@ -4,6 +4,7 @@
 
 <div class="page-header text-center">
     <h3>Этап 2: выбор родного мира (homeworld)</h3>
+    <span class="form-control"><meter max="8" value="2"></meter></span>
 </div>
 <hr/>
 <div class="charlist-inline justify-content-center">
@@ -26,7 +27,10 @@
             {% endfor %}
             <div class="form-group charlist-inline justify-content-center mt-2">
                 <div class="col-sm-offset-2 col-sm-2">
-                    <button type="submit" class="btn btn-primary">Далее</button>
+                    <button type="submit" class="btn btn-primary" name="char-hw-next">Далее</button>
+                </div>
+                <div class="col-sm-offset-2 col-sm-2">
+                    <button type="submit" class="btn btn-primary" name="char-hw-prev">Назад</button>
                 </div>
                 <div class="col-sm-offset-2 col-sm-2">
                     <a class="btn btn-danger" href="{% url 'index' %}">Отмена</a>
