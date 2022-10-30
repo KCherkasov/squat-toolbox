@@ -179,7 +179,7 @@ def characters_list(request):
 
 def create_character_init(request):
     if request.method == 'POST':
-        if 'data' in request.POST:
+        if ('data' in request.POST) and ('char-hw-prev' not in request.POST):
             data = request.POST['data']
             form = CreationSettingsForm(data)
             if ('char-cr-next' in request.POST) and form.is_valid():
