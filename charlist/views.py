@@ -177,69 +177,42 @@ def characters_list(request):
     return render(request, 'characters_list.html', {'version': VERSION, 'facade': flyweights})
 
 
-def create_character_init(request):
+def create_character_init(request, data):
     if request.method == 'POST':
-        if 'data' in request.POST:
-            data = request.POST['data']
-            form = CreationSettingsForm(data)
-            if 'char-hw-prev' in request.POST:
-                return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                        'stage': CREATION_STAGES[0], 'form': form})
-            if ('char-cr-next' in request.POST) and form.is_valid():
-                cleaned_data = form.cleaned_data
-                data['name'] = cleaned_data['name']
-                data['gender'] = cleaned_data['gender']
-                data['height'] = cleaned_data['height']
-                data['weight'] = cleaned_data['weight']
-                data['age'] = cleaned_data['age']
-                data['starting_xp'] = cleaned_data['starting_xp']
-                data['characteristics_base'] = cleaned_data['characteristics_base']
-                cpy = request.POST.copy()
-                cpy.update({'data': data})
-                request.POST = cpy
-                return create_character_hw_choice(request)
-            elif form.is_valid():
-                return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                        'stage': CREATION_STAGES[0], 'form': form})
-        else:
-            form = CreationSettingsForm(request.POST)
-            if 'char-hw-prev' in request.POST:
-                return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                        'stage': CREATION_STAGES[0], 'form': form})
+        if data is None:
             data = dict()
-            if form.is_valid():
-                cleaned_data = form.cleaned_data
-                data['name'] = cleaned_data['name']
-                data['gender'] = cleaned_data['gender']
-                data['height'] = cleaned_data['height']
-                data['weight'] = cleaned_data['weight']
-                data['age'] = cleaned_data['age']
-                data['starting_xp'] = cleaned_data['starting_xp']
-                data['characteristics_base'] = cleaned_data['characteristics_base']
-                cpy = request.POST.copy()
-                cpy.update({'data': data})
-                request.POST = cpy
-            return create_character_hw_choice(request)
+        form = CreationSettingsForm(data)
+        if 'char-hw-prev' in request.POST:
+            return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                    'stage': CREATION_STAGES[0], 'form': form})
+        if ('char-cr-next' in request.POST) and form.is_valid():
+            cleaned_data = form.cleaned_data
+            data['name'] = cleaned_data['name']
+            data['gender'] = cleaned_data['gender']
+            data['height'] = cleaned_data['height']
+            data['weight'] = cleaned_data['weight']
+            data['age'] = cleaned_data['age']
+            data['starting_xp'] = cleaned_data['starting_xp']
+            data['characteristics_base'] = cleaned_data['characteristics_base']
+            return create_character_hw_choice(request, data)
+        elif form.is_valid():
+            return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                    'stage': CREATION_STAGES[0], 'form': form})
     else:
         form = CreationSettingsForm()
         return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                 'stage': CREATION_STAGES[0], 'form': form})
 
 
-def create_character_hw_choice(request):
+def create_character_hw_choice(request, data):
     if request.method == 'POST':
         if 'char-hw-prev' in request.POST:
-            return create_character_init(request)
-        if 'data' in request.POST:
-            data = request.POST['data']
-            if 'char-hw-next' in request.POST:
-                form = HomeworldsChoiceForm(request.POST)
-                if form.is_valid():
-                    data['homeworld'] = form.cleaned_data['homeworld']
-                    cpy = request.POST.copy()
-                    cpy.update({'data': data})
-                    request.POST = cpy
-                    return create_character_stat_distribution(request)
+            return create_character_init(request, data)
+        if 'char-hw-next' in request.POST:
+            form = HomeworldsChoiceForm(request.POST)
+            if form.is_valid():
+                data['homeworld'] = form.cleaned_data['homeworld']
+                return create_character_stat_distribution(request, data)
             else:
                 if 'char-st-prev' in request.POST:
                     form = HomeworldsChoiceForm(data)
@@ -251,255 +224,387 @@ def create_character_hw_choice(request):
         return HttpResponseRedirect(reverse('create-character-init'))
 
 
-def create_character_stat_distribution(request):
+def create_character_stat_distribution(request, data):
     if request.method == 'POST':
         if 'char-st-prev' in request.POST:
-            return create_character_hw_choice(request)
-        if 'data' in request.POST:
-            data = request.POST['data']
-            if 'char-st-next' in request.POST:
-                form = StatDistributionForm(request.POST)
-                if form.is_valid():
-                    stats = dict()
-                    homeworld = flyweights.homeworlds().get(data['homeworld'])
-                    cleaned_data = form.cleaned_data
-                    base = 20
-                    if data['characteristics_base'] == 'CS_25':
-                        base += 5
-                    for stat in STAT_TAGS:
-                        stats[stat] = Stat(stat, base)
-                        if stat in homeworld.get_stat_mods().keys():
-                            val = homeworld.get_stat_mods().get(stat)
-                            if val > 0:
-                                stats.get(stat).improve(val)
-                            else:
-                                stats.get(stat).damage(val)
-                    stats.get(ST_WEAPON_SKILL).improve(cleaned_data['ws_value'])
-                    stats.get(ST_BALLISTIC_SKILL).improve(cleaned_data['bs_value'])
-                    stats.get(ST_STRENGTH).improve(cleaned_data['str_value'])
-                    stats.get(ST_TOUGHNESS).improve(cleaned_data['t_value'])
-                    stats.get(ST_AGILITY).improve(cleaned_data['ag_value'])
-                    stats.get(ST_INTELLIGENCE).improve(cleaned_data['int_value'])
-                    stats.get(ST_PERCEPTION).improve(cleaned_data['per_value'])
-                    stats.get(ST_WILLPOWER).improve(cleaned_data['wp_value'])
-                    stats.get(ST_INFLUENCE).improve(cleaned_data['ifl_value'])
-                    data['stats'] = stats
-                    cpy = request.POST.copy()
-                    cpy.update({'data': data})
-                    request.POST = cpy
-                    return create_character_bg_choice(request)
+            return create_character_hw_choice(request, data)
+        if 'char-st-next' in request.POST:
+            form = StatDistributionForm(request.POST)
+            if form.is_valid():
+                stats = dict()
+                homeworld = flyweights.homeworlds().get(data['homeworld'])
+                cleaned_data = form.cleaned_data
+                base = 20
+                if data['characteristics_base'] == 'CS_25':
+                    base += 5
+                for stat in STAT_TAGS:
+                    stats[stat] = Stat(stat, base)
+                    if stat in homeworld.get_stat_mods().keys():
+                        val = homeworld.get_stat_mods().get(stat)
+                        if val > 0:
+                            stats.get(stat).improve(val)
+                        else:
+                            stats.get(stat).damage(val)
+                stats.get(ST_WEAPON_SKILL).improve(cleaned_data['ws_value'])
+                stats.get(ST_BALLISTIC_SKILL).improve(cleaned_data['bs_value'])
+                stats.get(ST_STRENGTH).improve(cleaned_data['str_value'])
+                stats.get(ST_TOUGHNESS).improve(cleaned_data['t_value'])
+                stats.get(ST_AGILITY).improve(cleaned_data['ag_value'])
+                stats.get(ST_INTELLIGENCE).improve(cleaned_data['int_value'])
+                stats.get(ST_PERCEPTION).improve(cleaned_data['per_value'])
+                stats.get(ST_WILLPOWER).improve(cleaned_data['wp_value'])
+                stats.get(ST_INFLUENCE).improve(cleaned_data['ifl_value'])
+                data['stats'] = stats
+                return create_character_bg_choice(request, data)
+        else:
+            if 'char-bg-prev' in request.POST:
+                form = StatDistributionForm(data)
             else:
-                if 'char-bg-prev' in request.POST:
-                    form = StatDistributionForm(data)
-                else:
-                    form = StatDistributionForm()
-                return render(request, 'character_creation_form', {'version': VERSION, 'facade': flyweights,
-                                                                   'stage': CREATION_STAGES[2], 'form': form})
+                form = StatDistributionForm()
+            return render(request, 'character_creation_form', {'version': VERSION, 'facade': flyweights,
+                                                               'stage': CREATION_STAGES[2], 'form': form})
     else:
         return HttpResponseRedirect(reverse('create-character-init'))
 
 
-def create_character_bg_choice(request):
+def create_character_bg_choice(request, data):
     if request.method == 'POST':
         if 'char-bg-prev' in request.POST:
-            return create_character_stat_distribution(request)
-        if 'data' in request.POST:
-            data = request.POST['data']
-            if 'char-bg-next' in request.POST:
-                form = BackgroundChoiceForm(request.POST)
-                if form.is_valid():
-                    data['background'] = form.cleaned_data['background']
-                    cpy = request.POST.copy()
-                    cpy.update({'data': data})
-                    request.POST = cpy
-                    return create_character_role_choice(request)
+            return create_character_stat_distribution(request, data)
+        if 'char-bg-next' in request.POST:
+            form = BackgroundChoiceForm(request.POST)
+            if form.is_valid():
+                data['background'] = form.cleaned_data['background']
+                return create_character_role_choice(request, data)
+        else:
+            if 'char-role-prev' in request.POST:
+                form = BackgroundChoiceForm(data)
             else:
-                if 'char-role-prev' in request.POST:
-                    form = BackgroundChoiceForm(data)
-                else:
-                    form = BackgroundChoiceForm()
-                return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                        'stage': CREATION_STAGES[3], 'form': form})
+                form = BackgroundChoiceForm()
+            return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                    'stage': CREATION_STAGES[3], 'form': form})
     else:
         return HttpResponseRedirect('create-character-init')
 
 
-def create_character_role_choice(request):
+def create_character_role_choice(request, data):
     if request.method == 'POST':
         if 'char-role-prev' in request.POST:
-            return HttpResponseRedirect(reverse('create-character-bg'))
-        if 'data' in request.POST:
-            data = request.POST['data']
-            if 'char-role-next' in request.POST:
-                form = RoleChoiceForm(request.POST)
-                if form.is_valid():
-                    data['role'] = form.cleaned_data['role']
-                    cpy = request.POST.copy()
-                    cpy.update({'data': data})
-                    request.POST = cpy
-                    return create_character_choices(request)
+            return create_character_bg_choice(request, data)
+        if 'char-role-next' in request.POST:
+            form = RoleChoiceForm(request.POST)
+            if form.is_valid():
+                data['role'] = form.cleaned_data['role']
+                return create_character_choices(request, data)
+        else:
+            if 'char-choices-prev' in request.POST:
+                form = RoleChoiceForm(data)
             else:
-                if 'char-choices-prev' in request.POST:
-                    form = RoleChoiceForm(data)
-                else:
-                    form = RoleChoiceForm()
+                form = RoleChoiceForm()
                 return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                         'stage': CREATION_STAGES[4], 'form': form})
     else:
         return HttpResponseRedirect(reverse('create-character-init'))
 
 
-def create_character_choices(request):
+def create_character_choices(request, data):
     if request.method == 'POST':
         if 'char-choices-prev' in request.POST:
-            return HttpResponseRedirect(reverse('create-character-role'))
-        if 'data' in request.POST:
-            data = request.POST['data']
-            if 'char-choices-next' in request.POST:
-                form = ChoicesForm(request.POST)
-                if form.is_valid():
-                    cleaned_data = form.cleaned_data
-                    data['background_apts'] = cleaned_data['background_apts']
-                    if len(flyweights.backgrounds().get(data['background']).get_skill_choices()) > 0:
-                        data['background_skills'] = cleaned_data['background_skills']
-                        if 'background-skills-subtag' in cleaned_data:
-                            data['background-skills-subtag'] = cleaned_data['background-skills-subtag']
-                        if len(flyweights.backgrounds().get(data['background']).get_skill_choices()) > 1:
-                            data['background_skills2'] = cleaned_data['background_skills2']
-                            if 'background-skills-subtag2' in cleaned_data:
-                                data['background-skills-subtag2'] = cleaned_data['background-skills-subtag2']
-                    if form.fields['background_talents'].required:
-                        data['background_talents'] = cleaned_data['background_talents']
-                    if form.fields['background_traits'].required:
-                        data['background_traits'] = cleaned_data['background_traits']
-                    if form.fields['role_apts'].required:
-                        data['role_apts'] = cleaned_data['role_apts']
-                    data['role_talent'] = cleaned_data['role_talent']
-                    if 'hw-bonus-talent' in form.fields.keys():
-                        data['hw-bonus-talent'] = cleaned_data['hw-bonus-talent']
-                    cpy = request.POST.copy()
-                    cpy.update({'data': data})
-                    request.POST = cpy
-                    return create_character_double_apts(request)
+            return create_character_role_choice(request, data)
+        if 'char-choices-next' in request.POST:
+            form = ChoicesForm(request.POST)
+            if form.is_valid():
+                cleaned_data = form.cleaned_data
+                data['background_apts'] = cleaned_data['background_apts']
+                if len(flyweights.backgrounds().get(data['background']).get_skill_choices()) > 0:
+                    data['background_skills'] = cleaned_data['background_skills']
+                    if 'background-skills-subtag' in cleaned_data:
+                        data['background-skills-subtag'] = cleaned_data['background-skills-subtag']
+                    if len(flyweights.backgrounds().get(data['background']).get_skill_choices()) > 1:
+                        data['background_skills2'] = cleaned_data['background_skills2']
+                        if 'background-skills-subtag2' in cleaned_data:
+                            data['background-skills-subtag2'] = cleaned_data['background-skills-subtag2']
+                if form.fields['background_talents'].required:
+                    data['background_talents'] = cleaned_data['background_talents']
+                if form.fields['background_traits'].required:
+                    data['background_traits'] = cleaned_data['background_traits']
+                if form.fields['role_apts'].required:
+                    data['role_apts'] = cleaned_data['role_apts']
+                data['role_talent'] = cleaned_data['role_talent']
+                if 'hw-bonus-talent' in form.fields.keys():
+                    data['hw-bonus-talent'] = cleaned_data['hw-bonus-talent']
+                cpy = request.POST.copy()
+                cpy.update({'data': data})
+                request.POST = cpy
+                return create_character_double_apts(request, data)
+        else:
+            if 'char-apts-prev' in request.POST:
+                form = ChoicesForm(data)
+
+                homeworld = flyweights.homeworlds().get(data['homeworld'])
+                hw_bonus = homeworld.get_bonus()
+                for command in hw_bonus.get_commands():
+                    if command.get('tag') == 'GainTalentAlt':
+                        choices = []
+                        i = 0
+                        for tag in command.get('tags'):
+                            sk_name = flyweights.skill_descriptions().get(tag).get_name_en()
+                            choices.append((i, sk_name))
+                            i += 1
+                        form.fields['hw-bonus-talent'] = django.forms.ChoiceField(
+                            label="Талант (бонус родного мира)", choices=choices)
+
+                background = flyweights.backgrounds().get(data['background'])
+
+                bg_apts = [(apt, flyweights.aptitudes().get(apt).get_name_en())
+                           for apt in background.get_apt_choices()]
+                form.fields['background_apts'].choices = bg_apts
+
+                role = flyweights.roles().get(data['role'])
+
+                role_apts = [(apt, flyweights.aptitudes().get(apt).get_name_en()) for
+                                apt in role.get_apt_choices()]
+                form.fields['role_apts'].choices = role_apts
+                if len(role_apts) == 0:
+                    form.fields['role_apts'].required = False
+                    form.fields['role_apts'].widget = django.forms.Select(
+                        {'class': 'form-control disabled', }, role_apts)
+
+                bg_skill_choices = background.get_skill_choices()
+                if len(bg_skill_choices) > 0:
+                    skill_choice = bg_skill_choices[0]
+                    i = 0
+                    sk_choices = []
+                    for skill in skill_choice:
+                        tag = skill.get('tag')
+                        sk = flyweights.skill_descriptions().get(tag)
+                        subtag = None
+                        sk_name = sk.get_name_en()
+                        if sk.is_specialist():
+                            subtag = skill.get('subtag')
+                        if subtag:
+                            if subtag == 'SK_ANY':
+                                sk_name += '(any)'
+                                if 'background-skills-subtag' not in form.fields:
+                                    form.fields['background-skills-subtag'] = \
+                                        CharField(label=u'Специализация', max_length=30)
+                            else:
+                                sk_name += ' ('
+                                for tag in subtag:
+                                    sk_name += tag + ', '
+                                sk_name = sk_name[:-2] + ')'
+                        sk_choices.append((i, sk_name))
+                        i += 1
+                    form.fields['background_skills'].choices = sk_choices
+                    if len(bg_skill_choices) > 1:
+                        skill_choice2 = bg_skill_choices[1]
+                        i = 0
+                        sk_choices2 = []
+                        for skill in skill_choice2:
+                            tag = skill.get('tag')
+                            subtag = None
+                            sk = flyweights.skill_descriptions().get(tag)
+                            sk_name = sk.get_name_en()
+                            if flyweights.skill_descriptions().get('tag').is_specialist():
+                                subtag = skill.get('subtag')
+                            if subtag:
+                                if subtag == 'SK_ANY' and 'background-skills-subtag2' not in form.fields:
+                                    form.fields['background-skills-subtag2'] = \
+                                        CharField(label=u'Специализация', max_length=30)
+                                    sk_name += '(any)'
+                                else:
+                                    if subtag == 'SK_ANY':
+                                        sk_name += '(any)'
+                                    else:
+                                        sk_name += ' ('
+                                        for st in subtag:
+                                            sk_name += st + ', '
+                                        sk_name = sk_name[:-2] + ')'
+                            sk_choices2.append((i, sk_name))
+                            i += 1
+                        form.fields['background_skills2'].choices = sk_choices2
+                    else:
+                        form.fields['background_skills2'].required = False
+                        form.fields['background_skills2'].widget = django.forms.Select(
+                            {'class': 'form-control disabled'}, [])
+
+                bg_talents = background.get_talent_choices()
+                bg_tals = []
+                for tal in bg_talents:
+                    talent = flyweights.talent_descriptions().get(tal.get('tag'))
+                    name = talent.get_name_en()
+                    if talent.is_specialist():
+                        name += ' ('
+                        for tag in tal.get('subtag'):
+                            name += tag + ', '
+                        name = name[:-2] + ')'
+                    bg_tals.append((tal, name))
+                form.fields['background_talents'].choices = bg_tals
+                if len(bg_tals) == 0:
+                    form.fields['background_talents'].required = False
+                    form.fields['background_talents'].widget = django.forms.Select(
+                        {'class': 'form-control disabled'}, bg_tals)
+
+                role_talents = role.get_talent_choices()
+                role_tals = []
+                i = 0
+                for tal in role_talents:
+                    talent = flyweights.talent_descriptions().get(tal.get('tag'))
+                    name = talent.get_name_en()
+                    if talent.is_specialist():
+                        name += ' ('
+                        for tag in tal.get('subtag'):
+                            name += tag + ', '
+                        name = name[:-2] + ')'
+                    role_tals.append((i, name))
+                    i += 1
+                form.fields['role_talent'].choices = role_tals
+                if len(role_tals) == 0:
+                    form.fields['role_talent'].required = False
+                    form.fields['role_talent'].widget = django.forms.Select(
+                        {'class': 'form-control disabled'}, role_tals)
+
+                background_traits = background.get_traits_choices
+                bg_traits = []
+                if len(background_traits) > 0:
+                    i = 0
+                    for trait in background_traits:
+                        trdesc = flyweights.trait_descriptions().get(trait.get('tag'))
+                        name = trdesc.get_name_en()
+                        if trdesc.is_specialist():
+                            name += '('
+                            if trait.get('tag') == 'TR_UNCH':
+                                subname = flyweights.stat_descriptions().get(trait.get('subtag')).get_name_en()
+                                name += subname + ')'
+                            else:
+                                name += trait.get('subtag') + ')'
+                        if trdesc.is_stackable():
+                            name += '(' + trait.get('taken') + ')'
+                        bg_traits.append((i, name))
+                        i += 1
+                form.fields['background_traits'].choices = bg_traits
+                if len(form.fields['background_traits'].choices) == 0:
+                    form.fields['background_traits'].required = False
+                    form.fields['background_traits'].widget = django.forms.Select(
+                        {'class': 'form-control disabled'}, bg_traits)
             else:
-                if 'char-apts-prev' in request.POST:
-                    form = ChoicesForm(data)
+                form = ChoicesForm()
 
-                    homeworld = flyweights.homeworlds().get(data['homeworld'])
-                    hw_bonus = homeworld.get_bonus()
-                    for command in hw_bonus.get_commands():
-                        if command.get('tag') == 'GainTalentAlt':
-                            choices = []
-                            i = 0
-                            for tag in command.get('tags'):
-                                sk_name = flyweights.skill_descriptions().get(tag).get_name_en()
-                                choices.append((i, sk_name))
-                                i += 1
-                            form.fields['hw-bonus-talent'] = django.forms.ChoiceField(
-                                label="Талант (бонус родного мира)", choices=choices)
+                homeworld = flyweights.homeworlds().get(data['homeworld'])
+                hw_bonus = homeworld.get_bonus()
+                for command in hw_bonus.get_commands():
+                    if command.get('tag') == 'GainTalentAlt':
+                        choices = []
+                        i = 1
+                        for tag in command.get('tags'):
+                            sk_name = flyweights.skill_descriptions().get(tag).get_name_en()
+                            choices.append((i, sk_name))
+                            i += 1
+                        form.fields['hw-bonus-talent'] = django.forms.ChoiceField(
+                            label="Талант (бонус родного мира)", choices=choices)
 
-                    background = flyweights.backgrounds().get(data['background'])
+                background = flyweights.backgrounds().get(data['background'])
 
-                    bg_apts = [(apt, flyweights.aptitudes().get(apt).get_name_en())
-                               for apt in background.get_apt_choices()]
-                    form.fields['background_apts'].choices = bg_apts
+                bg_apts = [(apt, flyweights.aptitudes().get(apt).get_name_en())
+                            for apt in background.get_apt_choices()]
+                form.fields['background_apts'].choices = bg_apts
 
-                    role = flyweights.roles().get(data['role'])
+                role = flyweights.roles().get(data['role'])
 
-                    role_apts = [(apt, flyweights.aptitudes().get(apt).get_name_en()) for
-                                 apt in role.get_apt_choices()]
-                    form.fields['role_apts'].choices = role_apts
-                    if len(role_apts) == 0:
-                        form.fields['role_apts'].required = False
-                        form.fields['role_apts'].widget = django.forms.Select(
-                            {'class': 'form-control disabled', }, role_apts)
+                role_apts = [(apt, flyweights.aptitudes().get(apt).get_name_en()) for
+                             apt in role.get_apt_choices()]
+                form.fields['role_apts'].choices = role_apts
+                if len(role_apts) == 0:
+                    form.fields['role_apts'].required = False
+                    form.fields['role_apts'].widget = django.forms.Select(
+                        {'class': 'form-control disabled', }, role_apts)
 
-                    bg_skill_choices = background.get_skill_choices()
-                    if len(bg_skill_choices) > 0:
-                        skill_choice = bg_skill_choices[0]
+                bg_skill_choices = background.get_skill_choices()
+                if len(bg_skill_choices) > 0:
+                    skill_choice = bg_skill_choices[0]
+                    i = 0
+                    sk_choices = []
+                    for skill in skill_choice:
+                        tag = skill.get('tag')
+                        sk = flyweights.skill_descriptions().get(tag)
+                        subtag = None
+                        sk_name = sk.get_name_en()
+                        if sk.is_specialist():
+                            subtag = skill.get('subtag')
+                        if subtag:
+                            if subtag == 'SK_ANY':
+                                sk_name += '(any)'
+                                if 'background-skills-subtag' not in form.fields:
+                                    form.fields['background-skills-subtag'] = \
+                                        CharField(label=u'Специализация', max_length=30)
+                            else:
+                                sk_name += ' ('
+                                for tag in subtag:
+                                    sk_name += tag + ', '
+                                sk_name = sk_name[:-2] + ')'
+                        sk_choices.append((i, sk_name))
+                        i += 1
+                    form.fields['background_skills'].choices = sk_choices
+                    if len(bg_skill_choices) > 1:
+                        skill_choice2 = bg_skill_choices[1]
                         i = 0
-                        sk_choices = []
-                        for skill in skill_choice:
+                        sk_choices2 = []
+                        for skill in skill_choice2:
                             tag = skill.get('tag')
-                            sk = flyweights.skill_descriptions().get(tag)
                             subtag = None
+                            sk = flyweights.skill_descriptions().get(tag)
                             sk_name = sk.get_name_en()
-                            if sk.is_specialist():
+                            if flyweights.skill_descriptions().get('tag').is_specialist():
                                 subtag = skill.get('subtag')
                             if subtag:
-                                if subtag == 'SK_ANY':
+                                if subtag == 'SK_ANY' and 'background-skills-subtag2' not in form.fields:
+                                    form.fields['background-skills-subtag2'] = \
+                                        CharField(label=u'Специализация', max_length=30)
                                     sk_name += '(any)'
-                                    if 'background-skills-subtag' not in form.fields:
-                                        form.fields['background-skills-subtag'] = \
-                                            CharField(label=u'Специализация', max_length=30)
                                 else:
-                                    sk_name += ' ('
-                                    for tag in subtag:
-                                        sk_name += tag + ', '
-                                    sk_name = sk_name[:-2] + ')'
-                            sk_choices.append((i, sk_name))
-                            i += 1
-                        form.fields['background_skills'].choices = sk_choices
-                        if len(bg_skill_choices) > 1:
-                            skill_choice2 = bg_skill_choices[1]
-                            i = 0
-                            sk_choices2 = []
-                            for skill in skill_choice2:
-                                tag = skill.get('tag')
-                                subtag = None
-                                sk = flyweights.skill_descriptions().get(tag)
-                                sk_name = sk.get_name_en()
-                                if flyweights.skill_descriptions().get('tag').is_specialist():
-                                    subtag = skill.get('subtag')
-                                if subtag:
-                                    if subtag == 'SK_ANY' and 'background-skills-subtag2' not in form.fields:
-                                        form.fields['background-skills-subtag2'] = \
-                                            CharField(label=u'Специализация', max_length=30)
+                                    if subtag == 'SK_ANY':
                                         sk_name += '(any)'
                                     else:
-                                        if subtag == 'SK_ANY':
-                                            sk_name += '(any)'
-                                        else:
-                                            sk_name += ' ('
-                                            for st in subtag:
-                                                sk_name += st + ', '
-                                            sk_name = sk_name[:-2] + ')'
-                                sk_choices2.append((i, sk_name))
-                                i += 1
-                            form.fields['background_skills2'].choices = sk_choices2
-                        else:
-                            form.fields['background_skills2'].required = False
-                            form.fields['background_skills2'].widget = django.forms.Select(
-                                {'class': 'form-control disabled'}, [])
+                                        sk_name += ' ('
+                                        for st in subtag:
+                                            sk_name += st + ', '
+                                        sk_name = sk_name[:-2] + ')'
+                            sk_choices2.append((i, sk_name))
+                            i += 1
+                        form.fields['background_skills2'].choices = sk_choices2
+                    else:
+                        form.fields['background_skills2'].required = False
+                        form.fields['background_skills2'].widget = django.forms.Select(
+                            {'class': 'form-control disabled'}, [])
 
-                    bg_talents = background.get_talent_choices()
-                    bg_tals = []
-                    for tal in bg_talents:
-                        talent = flyweights.talent_descriptions().get(tal.get('tag'))
-                        name = talent.get_name_en()
-                        if talent.is_specialist():
-                            name += ' ('
-                            for tag in tal.get('subtag'):
-                                name += tag + ', '
-                            name = name[:-2] + ')'
-                        bg_tals.append((tal, name))
-                    form.fields['background_talents'].choices = bg_tals
-                    if len(bg_tals) == 0:
-                        form.fields['background_talents'].required = False
-                        form.fields['background_talents'].widget = django.forms.Select(
-                            {'class': 'form-control disabled'}, bg_tals)
+                bg_talents = background.get_talent_choices()
+                bg_tals = []
+                for tal in bg_talents:
+                    talent = flyweights.talent_descriptions().get(tal.get('tag'))
+                    name = talent.get_name_en()
+                    if talent.is_specialist():
+                        name += ' ('
+                        for tag in tal.get('subtag'):
+                            name += tag + ', '
+                        name = name[:-2] + ')'
+                    bg_tals.append((tal, name))
+                form.fields['background_talents'].choices = bg_tals
+                if len(bg_tals) == 0:
+                    form.fields['background_talents'].required = False
+                    form.fields['background_talents'].widget = django.forms.Select(
+                        {'class': 'form-control disabled'}, bg_tals)
 
-                    role_talents = role.get_talent_choices()
-                    role_tals = []
-                    i = 0
-                    for tal in role_talents:
-                        talent = flyweights.talent_descriptions().get(tal.get('tag'))
-                        name = talent.get_name_en()
-                        if talent.is_specialist():
-                            name += ' ('
-                            for tag in tal.get('subtag'):
-                                name += tag + ', '
-                            name = name[:-2] + ')'
+                role_talents = role.get_talent_choices()
+                role_tals = []
+                i = 0
+                for tal in role_talents:
+                    talent = flyweights.talent_descriptions().get(tal.get('tag'))
+                    name = talent.get_name_en()
+                    if talent.is_specialist():
+                        name += ' ('
+                        for tag in tal.get('subtag'):
+                            name += tag + ', '
+                        name = name[:-2] + ')'
                         role_tals.append((i, name))
                         i += 1
                     form.fields['role_talent'].choices = role_tals
@@ -508,513 +613,355 @@ def create_character_choices(request):
                         form.fields['role_talent'].widget = django.forms.Select(
                             {'class': 'form-control disabled'}, role_tals)
 
-                    background_traits = background.get_traits_choices
-                    bg_traits = []
-                    if len(background_traits) > 0:
-                        i = 0
-                        for trait in background_traits:
-                            trdesc = flyweights.trait_descriptions().get(trait.get('tag'))
-                            name = trdesc.get_name_en()
-                            if trdesc.is_specialist():
-                                name += '('
-                                if trait.get('tag') == 'TR_UNCH':
-                                    subname = flyweights.stat_descriptions().get(trait.get('subtag')).get_name_en()
-                                    name += subname + ')'
-                                else:
-                                    name += trait.get('subtag') + ')'
-                            if trdesc.is_stackable():
-                                name += '(' + trait.get('taken') + ')'
-                            bg_traits.append((i, name))
-                            i += 1
-                    form.fields['background_traits'].choices = bg_traits
-                    if len(form.fields['background_traits'].choices) == 0:
-                        form.fields['background_traits'].required = False
-                        form.fields['background_traits'].widget = django.forms.Select(
-                            {'class': 'form-control disabled'}, bg_traits)
-                else:
-                    form = ChoicesForm()
-
-                    homeworld = flyweights.homeworlds().get(data['homeworld'])
-                    hw_bonus = homeworld.get_bonus()
-                    for command in hw_bonus.get_commands():
-                        if command.get('tag') == 'GainTalentAlt':
-                            choices = []
-                            i = 1
-                            for tag in command.get('tags'):
-                                sk_name = flyweights.skill_descriptions().get(tag).get_name_en()
-                                choices.append((i, sk_name))
-                                i += 1
-                            form.fields['hw-bonus-talent'] = django.forms.ChoiceField(
-                                label="Талант (бонус родного мира)", choices=choices)
-
-                    background = flyweights.backgrounds().get(data['background'])
-
-                    bg_apts = [(apt, flyweights.aptitudes().get(apt).get_name_en())
-                               for apt in background.get_apt_choices()]
-                    form.fields['background_apts'].choices = bg_apts
-
-                    role = flyweights.roles().get(data['role'])
-
-                    role_apts = [(apt, flyweights.aptitudes().get(apt).get_name_en()) for
-                                 apt in role.get_apt_choices()]
-                    form.fields['role_apts'].choices = role_apts
-                    if len(role_apts) == 0:
-                        form.fields['role_apts'].required = False
-                        form.fields['role_apts'].widget = django.forms.Select(
-                            {'class': 'form-control disabled', }, role_apts)
-
-                    bg_skill_choices = background.get_skill_choices()
-                    if len(bg_skill_choices) > 0:
-                        skill_choice = bg_skill_choices[0]
-                        i = 0
-                        sk_choices = []
-                        for skill in skill_choice:
-                            tag = skill.get('tag')
-                            sk = flyweights.skill_descriptions().get(tag)
-                            subtag = None
-                            sk_name = sk.get_name_en()
-                            if sk.is_specialist():
-                                subtag = skill.get('subtag')
-                            if subtag:
-                                if subtag == 'SK_ANY':
-                                    sk_name += '(any)'
-                                    if 'background-skills-subtag' not in form.fields:
-                                        form.fields['background-skills-subtag'] = \
-                                            CharField(label=u'Специализация', max_length=30)
-                                else:
-                                    sk_name += ' ('
-                                    for tag in subtag:
-                                        sk_name += tag + ', '
-                                    sk_name = sk_name[:-2] + ')'
-                            sk_choices.append((i, sk_name))
-                            i += 1
-                        form.fields['background_skills'].choices = sk_choices
-                        if len(bg_skill_choices) > 1:
-                            skill_choice2 = bg_skill_choices[1]
-                            i = 0
-                            sk_choices2 = []
-                            for skill in skill_choice2:
-                                tag = skill.get('tag')
-                                subtag = None
-                                sk = flyweights.skill_descriptions().get(tag)
-                                sk_name = sk.get_name_en()
-                                if flyweights.skill_descriptions().get('tag').is_specialist():
-                                    subtag = skill.get('subtag')
-                                if subtag:
-                                    if subtag == 'SK_ANY' and 'background-skills-subtag2' not in form.fields:
-                                        form.fields['background-skills-subtag2'] = \
-                                            CharField(label=u'Специализация', max_length=30)
-                                        sk_name += '(any)'
-                                    else:
-                                        if subtag == 'SK_ANY':
-                                            sk_name += '(any)'
-                                        else:
-                                            sk_name += ' ('
-                                            for st in subtag:
-                                                sk_name += st + ', '
-                                            sk_name = sk_name[:-2] + ')'
-                                sk_choices2.append((i, sk_name))
-                                i += 1
-                            form.fields['background_skills2'].choices = sk_choices2
-                        else:
-                            form.fields['background_skills2'].required = False
-                            form.fields['background_skills2'].widget = django.forms.Select(
-                                {'class': 'form-control disabled'}, [])
-
-                    bg_talents = background.get_talent_choices()
-                    bg_tals = []
-                    for tal in bg_talents:
-                        talent = flyweights.talent_descriptions().get(tal.get('tag'))
-                        name = talent.get_name_en()
-                        if talent.is_specialist():
-                            name += ' ('
-                            for tag in tal.get('subtag'):
-                                name += tag + ', '
-                            name = name[:-2] + ')'
-                        bg_tals.append((tal, name))
-                    form.fields['background_talents'].choices = bg_tals
-                    if len(bg_tals) == 0:
-                        form.fields['background_talents'].required = False
-                        form.fields['background_talents'].widget = django.forms.Select(
-                            {'class': 'form-control disabled'}, bg_tals)
-
-                    role_talents = role.get_talent_choices()
-                    role_tals = []
+                background_traits = background.get_traits_choices
+                bg_traits = []
+                if len(background_traits) > 0:
                     i = 0
-                    for tal in role_talents:
-                        talent = flyweights.talent_descriptions().get(tal.get('tag'))
-                        name = talent.get_name_en()
-                        if talent.is_specialist():
-                            name += ' ('
-                            for tag in tal.get('subtag'):
-                                name += tag + ', '
-                            name = name[:-2] + ')'
-                        role_tals.append((i, name))
+                    for trait in background_traits:
+                        trdesc = flyweights.trait_descriptions().get(trait.get('tag'))
+                        name = trdesc.get_name_en()
+                        if trdesc.is_specialist():
+                            name += '('
+                            if trait.get('tag') == 'TR_UNCH':
+                                subname = flyweights.stat_descriptions().get(trait.get('subtag')).get_name_en()
+                                name += subname + ')'
+                            else:
+                                name += trait.get('subtag') + ')'
+                        if trdesc.is_stackable():
+                            name += '(' + trait.get('taken') + ')'
+                        bg_traits.append((i, name))
                         i += 1
-                    form.fields['role_talent'].choices = role_tals
-                    if len(role_tals) == 0:
-                        form.fields['role_talent'].required = False
-                        form.fields['role_talent'].widget = django.forms.Select(
-                            {'class': 'form-control disabled'}, role_tals)
-
-                    background_traits = background.get_traits_choices
-                    bg_traits = []
-                    if len(background_traits) > 0:
-                        i = 0
-                        for trait in background_traits:
-                            trdesc = flyweights.trait_descriptions().get(trait.get('tag'))
-                            name = trdesc.get_name_en()
-                            if trdesc.is_specialist():
-                                name += '('
-                                if trait.get('tag') == 'TR_UNCH':
-                                    subname = flyweights.stat_descriptions().get(trait.get('subtag')).get_name_en()
-                                    name += subname + ')'
-                                else:
-                                    name += trait.get('subtag') + ')'
-                            if trdesc.is_stackable():
-                                name += '(' + trait.get('taken') + ')'
-                            bg_traits.append((i, name))
-                            i += 1
-                    form.fields['background_traits'].choices = bg_traits
-                    if len(form.fields['background_traits'].choices) == 0:
-                        form.fields['background_traits'].required = False
-                        form.fields['background_traits'].widget = django.forms.Select(
-                            {'class': 'form-control disabled'}, bg_traits)
-                return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                        'stage': CREATION_STAGES[5], 'form': form})
+                form.fields['background_traits'].choices = bg_traits
+                if len(form.fields['background_traits'].choices) == 0:
+                    form.fields['background_traits'].required = False
+                    form.fields['background_traits'].widget = django.forms.Select(
+                        {'class': 'form-control disabled'}, bg_traits)
+            return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                    'stage': CREATION_STAGES[5], 'form': form})
     else:
         return HttpResponseRedirect('create-character-init')
 
 
-def create_character_double_apts(request):
+def create_character_double_apts(request, data):
     if request.method == 'POST':
         if 'char-apts-prev' in request.POST:
-            return create_character_choices(request)
-        if 'data' in request.POST:
-            data = request.POST['data']
+            return create_character_choices(request, data)
 
-            role = flyweights.roles().get(data['role'])
-            homeworld = flyweights.homeworlds().get(data['homeworld'])
+        role = flyweights.roles().get(data['role'])
+        homeworld = flyweights.homeworlds().get(data['homeworld'])
 
-            hw_apt = homeworld.get_aptitude()
-            bg_apt = data['background_apts']
-            role_apts = role.get_aptitudes()
-            role_apt = None
-            if data['role_apts']:
-                role_apt = data['role_apts']
+        hw_apt = homeworld.get_aptitude()
+        bg_apt = data['background_apts']
+        role_apts = role.get_aptitudes()
+        role_apt = None
+        if data['role_apts']:
+            role_apt = data['role_apts']
 
-            apts = list()
-            apts.append(A_GENERAL)
-            doubled = 0
+        apts = list()
+        apts.append(A_GENERAL)
+        doubled = 0
 
-            apts.append(hw_apt)
-            if bg_apt in apts:
+        apts.append(hw_apt)
+        if bg_apt in apts:
+            doubled += 1
+        else:
+            apts.append(bg_apt)
+        for apt in role_apts:
+            if apt in apts:
                 doubled += 1
             else:
-                apts.append(bg_apt)
-            for apt in role_apts:
-                if apt in apts:
-                    doubled += 1
-                else:
-                    apts.append(apt)
-            if role_apt:
-                if role_apt in apts:
-                    doubled += 1
-                else:
-                    apts.append(role_apt)
-
-            if 'char-apts-next' in request.POST:
-                form = DoubleAptsChoiceForm(request.POST)
-                if form.is_valid():
-                    if doubled > 0:
-                        data['apt_choice'] = form.cleaned_data['apt_choice']
-                        if doubled > 1:
-                            data['apt_choice2'] = form.cleaned_data['apt_choice2']
-                    data['apts'] = apts
-                    cpy = request.POST.copy()
-                    cpy.update({'data': data})
-                    request.POST = cpy
-                    return create_character_divination(request)
+                apts.append(apt)
+        if role_apt:
+            if role_apt in apts:
+                doubled += 1
             else:
-                choices = []
-                for st_apt in STAT_APTS:
-                    if st_apt not in apts:
-                        choices.append((st_apt, flyweights.aptitudes().get(st_apt).get_name_en()))
+                apts.append(role_apt)
 
-                if 'char-div-prev' in request.POST:
-                    form = DoubleAptsChoiceForm(data)
-                    if doubled > 0:
-                        form.fields['apt_choice'].choices = choices
-                        if doubled > 1:
-                            form.fields['apt_choice2'].choice = choices
-                        else:
-                            form.fields['apt_choice2'].required = False
-                            form.fields['apt_choice2'].widget = django.forms.Select(
-                                {'class': 'form-control disabled'}, choices)
+        if 'char-apts-next' in request.POST:
+            form = DoubleAptsChoiceForm(request.POST)
+            if form.is_valid():
+                if doubled > 0:
+                    data['apt_choice'] = form.cleaned_data['apt_choice']
+                    if doubled > 1:
+                        data['apt_choice2'] = form.cleaned_data['apt_choice2']
+                data['apts'] = apts
+                return create_character_divination(request, data)
+        else:
+            choices = []
+            for st_apt in STAT_APTS:
+                if st_apt not in apts:
+                    choices.append((st_apt, flyweights.aptitudes().get(st_apt).get_name_en()))
+
+            if 'char-div-prev' in request.POST:
+                form = DoubleAptsChoiceForm(data)
+                if doubled > 0:
+                    form.fields['apt_choice'].choices = choices
+                    if doubled > 1:
+                        form.fields['apt_choice2'].choice = choices
                     else:
-                        form.fields['apt_choice'].required = False
-                        form.fields['apt_choice'].widget = django.forms.Select(
-                            {'class': 'form-control disabled'}, choices)
                         form.fields['apt_choice2'].required = False
                         form.fields['apt_choice2'].widget = django.forms.Select(
                             {'class': 'form-control disabled'}, choices)
                 else:
-                    form = DoubleAptsChoiceForm()
-                    if doubled > 0:
-                        form.fields['apt_choice'].choices = choices
-                        if doubled > 1:
-                            form.fields['apt_choice2'].choice = choices
-                        else:
-                            form.fields['apt_choice2'].required = False
-                            form.fields['apt_choice2'].widget = django.forms.Select(
-                                {'class': 'form-control disabled'}, choices)
+                    form.fields['apt_choice'].required = False
+                    form.fields['apt_choice'].widget = django.forms.Select(
+                        {'class': 'form-control disabled'}, choices)
+                    form.fields['apt_choice2'].required = False
+                    form.fields['apt_choice2'].widget = django.forms.Select(
+                        {'class': 'form-control disabled'}, choices)
+            else:
+                form = DoubleAptsChoiceForm()
+                if doubled > 0:
+                    form.fields['apt_choice'].choices = choices
+                    if doubled > 1:
+                        form.fields['apt_choice2'].choice = choices
                     else:
-                        form.fields['apt_choice'].required = False
-                        form.fields['apt_choice'].widget = django.forms.Select(
-                            {'class': 'form-control disabled'}, choices)
                         form.fields['apt_choice2'].required = False
                         form.fields['apt_choice2'].widget = django.forms.Select(
                             {'class': 'form-control disabled'}, choices)
-                return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                        'stage': CREATION_STAGES[6], 'form': form})
+                else:
+                    form.fields['apt_choice'].required = False
+                    form.fields['apt_choice'].widget = django.forms.Select(
+                        {'class': 'form-control disabled'}, choices)
+                    form.fields['apt_choice2'].required = False
+                    form.fields['apt_choice2'].widget = django.forms.Select(
+                        {'class': 'form-control disabled'}, choices)
+            return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                    'stage': CREATION_STAGES[6], 'form': form})
     else:
         return HttpResponseRedirect(reverse('create-character-init'))
 
 
-def create_character_divination(request):
+def create_character_divination(request, data):
     if request.method == 'POST':
         if 'char-div-prev' in request.POST:
-            return create_character_double_apts(request)
-        if 'data' in request.POST:
-            data = request.POST['data']
-            if 'char-div-next' in request.POST:
-                form = DivinationForm(request.POST)
-                div_tag = None
-                if form.is_valid():
-                    divination_roll = form.cleaned_data['divination_roll']
-                    for div_key in flyweights.divinations().keys():
-                        divination = flyweights.divinations().get(div_key)
-                        if (divination_roll >= divination.get_roll_range()[0]) \
-                                and (divination_roll <= divination.get_roll_range()[1]):
-                            div_tag = div_key
-                            break
-                    data['divination'] = div_tag
-                    data['wounds'] = form.cleaned_data['wound_roll']
-                    data['fate_roll'] = form.cleaned_data['fate_roll']
+            return create_character_double_apts(request, data)
+        if 'char-div-next' in request.POST:
+            form = DivinationForm(request.POST)
+            div_tag = None
+            if form.is_valid():
+                divination_roll = form.cleaned_data['divination_roll']
+                for div_key in flyweights.divinations().keys():
+                    divination = flyweights.divinations().get(div_key)
+                    if (divination_roll >= divination.get_roll_range()[0]) \
+                            and (divination_roll <= divination.get_roll_range()[1]):
+                        div_tag = div_key
+                        break
+                data['divination'] = div_tag
+                data['wounds'] = form.cleaned_data['wound_roll']
+                data['fate_roll'] = form.cleaned_data['fate_roll']
 
-                    background = flyweights.backgrounds().get(data['background'])
-                    homeworld = flyweights.homeworlds().get(data['homeworld'])
-                    role = flyweights.roles().get(data['role'])
+                background = flyweights.backgrounds().get(data['background'])
+                homeworld = flyweights.homeworlds().get(data['homeworld'])
+                role = flyweights.roles().get(data['role'])
 
-                    xp_given = data['starting_xp']
-                    fate = homeworld.get_fate()
-                    if data['fate_roll'] >= homeworld.get_blessing():
-                        fate += 1
+                xp_given = data['starting_xp']
+                fate = homeworld.get_fate()
+                if data['fate_roll'] >= homeworld.get_blessing():
+                    fate += 1
 
-                    fatigue = data['stats'].get(ST_TOUGHNESS).bonus() + data['stats'].get(ST_WILLPOWER).bonus()
-                    if data['background'] == BACKGROUND_OUTCAST:
-                        fatigue += 2
-                    wounds = data['wounds'] + homeworld.get_wounds()
+                fatigue = data['stats'].get(ST_TOUGHNESS).bonus() + data['stats'].get(ST_WILLPOWER).bonus()
+                if data['background'] == BACKGROUND_OUTCAST:
+                    fatigue += 2
+                wounds = data['wounds'] + homeworld.get_wounds()
 
-                    apts = data['apts']
-                    if 'apt_choice' in data:
-                        apts.append(data['apt_choice'])
-                        if 'apt_choice2' in data:
-                            apts.append(data['apt_choice2'])
+                apts = data['apts']
+                if 'apt_choice' in data:
+                    apts.append(data['apt_choice'])
+                    if 'apt_choice2' in data:
+                        apts.append(data['apt_choice2'])
 
-                    stats = dict()
-                    for key, stat in data['stats'].items():
-                        stats[key] = stat
+                stats = dict()
+                for key, stat in data['stats'].items():
+                    stats[key] = stat
 
-                    skills = dict()
-                    skdescrs = flyweights.skill_descriptions()
-                    for key in skdescrs.keys():
-                        if not skdescrs.get(key).is_specialist():
-                            skills[key] = Skill(key, 0)
-                    for skill in background.get_skills():
-                        if skill.get('tag') in skills.keys():
-                            skills.get(skill.get('tag')).upgrade()
-                        else:
-                            if flyweights.skill_descriptions().get(skill.get('tag')).is_specialist():
-                                skills[skill.get('tag')] = Skill(skill.get('tag'), {skill.get('subtag'): 1})
-
-                    if 'background_skills' in data:
-                        choice = background.get_skill_choices()[0][data['background_skills']]
-                        if choice.get('tag') in flyweights.skill_descriptions().keys():
-                            if choice.get('tag') in skills.keys():
-                                if flyweights.skill_descriptions().get(choice.get('tag')).is_specialist():
-                                    if choice.get('subtag') != 'SK_ANY':
-                                        if skills.get(choice.get('tag')).get_subskill_advance(
-                                                choice.get('subtag')) == 0:
-                                            skills.get(choice.get('tag')).upgrade_subtag(choice.get('subtag'))
-                                    else:
-                                        subtag = data['background-skills-subtag']
-                                        if skills.get(choice.get('tag')).get_subskill_advance(subtag) == 0:
-                                            skills.get(choice.get('tag')).upgrade_subtag(subtag)
-                                else:
-                                    if skills.get(choice.get('tag')).advances() == 0:
-                                        skills.get(choice.get('tag')).upgrade()
-                            else:
-                                if flyweights.skill_descriptions().get(choice.get('tag')).is_specialist():
-                                    subtag = ''
-                                    if choice.get('subtag') == 'SK_ANY':
-                                        subtag = data['background-skills-subtag']
-                                    else:
-                                        subtag = choice.get('subtag')
-                                    skills[choice.get('tag')] = Skill(choice.get('tag'), {subtag: 1})
-                    if 'background_skills2' in data:
-                        choice = background.get_skill_choices()[0][data['background_skills2']]
-                        if choice.get('tag') in flyweights.skill_descriptions().keys():
-                            if choice.get('tag') in skills.keys():
-                                if flyweights.skill_descriptions().get(choice.get('tag')).is_specialist():
-                                    if choice.get('subtag') != 'SK_ANY':
-                                        if skills.get(choice.get('tag')).get_subskill_advance(
-                                                choice.get('subtag')) == 0:
-                                            skills.get(choice.get('tag')).upgrade_subtag(choice.get('subtag'))
-                                    else:
-                                        subtag = data['background-skills-subtag2']
-                                        if skills.get(choice.get('tag')).get_subskill_advance(subtag) == 0:
-                                            skills.get(choice.get('tag')).upgrade_subtag(subtag)
-                                else:
-                                    if skills.get(choice.get('tag')).advances() == 0:
-                                        skills.get(choice.get('tag')).upgrade()
-                            else:
-                                if flyweights.skill_descriptions().get(choice.get('tag')).is_specialist():
-                                    if choice.get('subtag') == 'SK_ANY':
-                                        subtag = data['background-skills-subtag2']
-                                    else:
-                                        subtag = choice.get('subtag')
-                                    skills[choice.get('tag')] = Skill(choice.get('tag'), {subtag: 1})
-
-                    talents = dict()
-                    hw_bonus = homeworld.get_bonus()
-                    bg_bonus = background.get_bonus()
-
-                    for cmd in hw_bonus.get_commands():
-                        if cmd.get('command') == 'GainTalent':
-                            if cmd.get('tag') not in talents.keys():
-                                if flyweights.talent_descriptions().get(cmd.get('tag')).is_specialist():
-                                    taken = dict()
-                                    for key in cmd.keys():
-                                        if key in ['subtag', 'subtag1', 'subtag2']:
-                                            taken[cmd.get(key)] = 1
-                                else:
-                                    if flyweights.talent_descriptions().get(cmd.get('tag')).is_stackable():
-                                        taken = cmd.get('taken')
-                                    else:
-                                        taken = 1
-                                talent = Talent(cmd.get('tag'), taken)
-                                talents[cmd.get('tag')] = talent
-
-                    for cmd in bg_bonus.get_bonus():
-                        if cmd.get('command') == 'GainTalent':
-                            if cmd.get('tag') not in talents.keys():
-                                if flyweights.talent_descriptions().get(cmd.get('tag')).is_specialist():
-                                    taken = dict()
-                                    for key in cmd.keys():
-                                        if key in ['subtag', 'subtag1', 'subtag2']:
-                                            taken[cmd.get(key)] = 1
-                                else:
-                                    if flyweights.talent_descriptions().get(cmd.get('tag')).is_stackable():
-                                        taken = cmd.get('taken')
-                                    else:
-                                        taken = 1
-                                talent = Talent(cmd.get('tag'), taken)
-                                talents[cmd.get('tag')] = talent
-                            elif flyweights.talent_descriptions().get(cmd.get('tag')).is_specialist():
-                                for key in cmd.keys():
-                                    if (key in ['subtag', 'subtag1', 'subtag2']) \
-                                            and (key not in talents.get(cmd.get('tag')).taken().keys()):
-                                        talents.get(cmd.get('tag')).take_subtag(flyweights, cmd.get(key))
-
-                    bg_talent_choice = background.get_talent_choices()[data['bg_talents']]
-                    if bg_talent_choice.get['tag'] in talents.keys():
-                        if flyweights.talent_descriptions().get(bg_talent_choice.get('tag')).is_specialist():
-                            for key in bg_talent_choice.keys():
-                                if (key in ['subtag', 'subtag1', 'subtag2']) \
-                                        and (key not in talents.get(bg_talent_choice.get('tag')).taken().keys()):
-                                    talents.get(bg_talent_choice.get('tag')).take_subtag(flyweights,
-                                                                                         bg_talent_choice.get(key))
+                skills = dict()
+                skdescrs = flyweights.skill_descriptions()
+                for key in skdescrs.keys():
+                    if not skdescrs.get(key).is_specialist():
+                        skills[key] = Skill(key, 0)
+                for skill in background.get_skills():
+                    if skill.get('tag') in skills.keys():
+                        skills.get(skill.get('tag')).upgrade()
                     else:
-                        if flyweights.talent_descriptions().get(bg_talent_choice.get('tag')).is_specialist():
-                            taken = dict()
-                            for key in bg_talent_choice.keys():
-                                if key in ['subtag', 'subtag1', 'subtag2']:
-                                    taken[bg_talent_choice.get(key)] = 1
-                        else:
-                            taken = 1
-                        talent = Talent(bg_talent_choice.get('tag'), taken)
-                        talents[talent.tag()] = talent
+                        if flyweights.skill_descriptions().get(skill.get('tag')).is_specialist():
+                            skills[skill.get('tag')] = Skill(skill.get('tag'), {skill.get('subtag'): 1})
 
-                    role_talent_choice = role.get_talent_choices()[data['role_talent']]
-                    if role_talent_choice.get('tag') not in talents.keys():
-                        if flyweights.talent_descriptions().get(role_talent_choice.get('tag')).is_specialist():
-                            taken = dict()
-                            for key in role_talent_choice.keys():
-                                if key in ['subtag', 'subtag1', 'subtag2']:
-                                    taken[role_talent_choice.get(key)] = 1
-                        else:
-                            taken = 1
-                        talents[role_talent_choice.get('tag')] = Talent(role_talent_choice.get('tag'), taken)
-                    elif flyweights.talent_descriptions().get(role_talent_choice.get('tag')).is_specialist():
-                        for key in role_talent_choice.keys():
-                            if (key in ['subtag', 'subtag1', 'subtag2']) \
-                                    and (role_talent_choice.get(key) not in
-                                         talents.get(role_talent_choice.get('tag')).taken().keys()):
-                                talents.get(role_talent_choice.get('tag')).take_subtag(flyweights,
-                                                                                       role_talent_choice.get(key))
-
-                    traits = dict()
-                    for trait in background.get_traits():
-                        if flyweights.trait_descriptions().get(trait.get('tag')).is_specialist():
-                            taken = dict()
-                            for key in trait.keys():
-                                if key in ['subtag', 'subtag1', 'subtag2']:
-                                    if flyweights.trait_descriptions().get(trait.get('tag')).is_stackable():
-                                        taken[trait.get(key)] = trait.get('taken')
-                                    else:
-                                        taken[trait.get(key)] = 1
-                        else:
-                            if flyweights.trait_descriptions().get(trait.get('tag')).is_stackable():
-                                taken = trait.get('taken')
+                if 'background_skills' in data:
+                    choice = background.get_skill_choices()[0][data['background_skills']]
+                    if choice.get('tag') in flyweights.skill_descriptions().keys():
+                        if choice.get('tag') in skills.keys():
+                            if flyweights.skill_descriptions().get(choice.get('tag')).is_specialist():
+                                if choice.get('subtag') != 'SK_ANY':
+                                    if skills.get(choice.get('tag')).get_subskill_advance(
+                                            choice.get('subtag')) == 0:
+                                        skills.get(choice.get('tag')).upgrade_subtag(choice.get('subtag'))
+                                else:
+                                    subtag = data['background-skills-subtag']
+                                    if skills.get(choice.get('tag')).get_subskill_advance(subtag) == 0:
+                                        skills.get(choice.get('tag')).upgrade_subtag(subtag)
                             else:
-                                taken = 1
-                        traits[trait.get('tag')] = Trait(trait.get('tag'), taken)
-                    for cmd in hw_bonus.get_commands():
-                        if cmd.get('tag') == 'GainTrait':
-                            if flyweights.trait_descriptions().get(cmd.get('tag')).is_specialist() \
-                                    or (cmd.get('tag') not in traits.keys()):
-                                if flyweights.trait_descriptions().get(cmd.get('tag')).is_specialist() \
-                                        or flyweights.trait_descriptions().get(cmd.get('tag')).is_stackable():
+                                if skills.get(choice.get('tag')).advances() == 0:
+                                    skills.get(choice.get('tag')).upgrade()
+                        else:
+                            if flyweights.skill_descriptions().get(choice.get('tag')).is_specialist():
+                                subtag = ''
+                                if choice.get('subtag') == 'SK_ANY':
+                                    subtag = data['background-skills-subtag']
+                                else:
+                                    subtag = choice.get('subtag')
+                                skills[choice.get('tag')] = Skill(choice.get('tag'), {subtag: 1})
+                if 'background_skills2' in data:
+                    choice = background.get_skill_choices()[0][data['background_skills2']]
+                    if choice.get('tag') in flyweights.skill_descriptions().keys():
+                        if choice.get('tag') in skills.keys():
+                            if flyweights.skill_descriptions().get(choice.get('tag')).is_specialist():
+                                if choice.get('subtag') != 'SK_ANY':
+                                    if skills.get(choice.get('tag')).get_subskill_advance(
+                                            choice.get('subtag')) == 0:
+                                        skills.get(choice.get('tag')).upgrade_subtag(choice.get('subtag'))
+                                else:
+                                    subtag = data['background-skills-subtag2']
+                                    if skills.get(choice.get('tag')).get_subskill_advance(subtag) == 0:
+                                        skills.get(choice.get('tag')).upgrade_subtag(subtag)
+                            else:
+                                if skills.get(choice.get('tag')).advances() == 0:
+                                    skills.get(choice.get('tag')).upgrade()
+                        else:
+                            if flyweights.skill_descriptions().get(choice.get('tag')).is_specialist():
+                                if choice.get('subtag') == 'SK_ANY':
+                                    subtag = data['background-skills-subtag2']
+                                else:
+                                    subtag = choice.get('subtag')
+                                skills[choice.get('tag')] = Skill(choice.get('tag'), {subtag: 1})
+
+                talents = dict()
+                hw_bonus = homeworld.get_bonus()
+                bg_bonus = background.get_bonus()
+
+                for cmd in hw_bonus.get_commands():
+                    if cmd.get('command') == 'GainTalent':
+                        if cmd.get('tag') not in talents.keys():
+                            if flyweights.talent_descriptions().get(cmd.get('tag')).is_specialist():
+                                taken = dict()
+                                for key in cmd.keys():
+                                    if key in ['subtag', 'subtag1', 'subtag2']:
+                                        taken[cmd.get(key)] = 1
+                            else:
+                                if flyweights.talent_descriptions().get(cmd.get('tag')).is_stackable():
                                     taken = cmd.get('taken')
                                 else:
                                     taken = 1
-                                if cmd.get('tag') in traits.keys():
-                                    for tag in cmd.get('taken'):
-                                        traits.get(cmd.get('key')).take_subtag(flyweights, tag)
-                                else:
-                                    traits[cmd.get('key')] = Trait(cmd.get('tag'), taken)
+                            talent = Talent(cmd.get('tag'), taken)
+                            talents[cmd.get('tag')] = talent
 
-                    character = charlist.models.Character.objects.create(owner=request.user, character_data='')
-                    character.save()
-                    character_model = CharacterModel(character.id, -1, data['name'], data['gender'], data['height'],
-                                                     data['weight'], data['age'], data['homeworld'],
-                                                     data['background'], data['role'], data['divination'], [],
-                                                     [wounds, wounds], [0, fatigue], [xp_given, 0], [fate, fate], 0, 0,
-                                                     0, apts, stats, skills, talents, traits, [], [], [], [], [])
-                    character.character = character_model.toJSON()
-                    character.save()
-                    return HttpResponseRedirect(reverse('characters-list'))
+                for cmd in bg_bonus.get_bonus():
+                    if cmd.get('command') == 'GainTalent':
+                        if cmd.get('tag') not in talents.keys():
+                            if flyweights.talent_descriptions().get(cmd.get('tag')).is_specialist():
+                                taken = dict()
+                                for key in cmd.keys():
+                                    if key in ['subtag', 'subtag1', 'subtag2']:
+                                        taken[cmd.get(key)] = 1
+                            else:
+                                if flyweights.talent_descriptions().get(cmd.get('tag')).is_stackable():
+                                    taken = cmd.get('taken')
+                                else:
+                                    taken = 1
+                            talent = Talent(cmd.get('tag'), taken)
+                            talents[cmd.get('tag')] = talent
+                        elif flyweights.talent_descriptions().get(cmd.get('tag')).is_specialist():
+                            for key in cmd.keys():
+                                if (key in ['subtag', 'subtag1', 'subtag2']) \
+                                        and (key not in talents.get(cmd.get('tag')).taken().keys()):
+                                    talents.get(cmd.get('tag')).take_subtag(flyweights, cmd.get(key))
+
+                bg_talent_choice = background.get_talent_choices()[data['bg_talents']]
+                if bg_talent_choice.get['tag'] in talents.keys():
+                    if flyweights.talent_descriptions().get(bg_talent_choice.get('tag')).is_specialist():
+                        for key in bg_talent_choice.keys():
+                            if (key in ['subtag', 'subtag1', 'subtag2']) \
+                                    and (key not in talents.get(bg_talent_choice.get('tag')).taken().keys()):
+                                talents.get(bg_talent_choice.get('tag')).take_subtag(flyweights,
+                                                                                     bg_talent_choice.get(key))
                 else:
-                    return render(request, 'character_creation_form.html',
-                                  {'version': VERSION, 'facade': flyweights,
-                                   'stage': CREATION_STAGES[7], 'form': form})
+                    if flyweights.talent_descriptions().get(bg_talent_choice.get('tag')).is_specialist():
+                        taken = dict()
+                        for key in bg_talent_choice.keys():
+                            if key in ['subtag', 'subtag1', 'subtag2']:
+                                taken[bg_talent_choice.get(key)] = 1
+                    else:
+                        taken = 1
+                    talent = Talent(bg_talent_choice.get('tag'), taken)
+                    talents[talent.tag()] = talent
+
+                role_talent_choice = role.get_talent_choices()[data['role_talent']]
+                if role_talent_choice.get('tag') not in talents.keys():
+                    if flyweights.talent_descriptions().get(role_talent_choice.get('tag')).is_specialist():
+                        taken = dict()
+                        for key in role_talent_choice.keys():
+                            if key in ['subtag', 'subtag1', 'subtag2']:
+                                taken[role_talent_choice.get(key)] = 1
+                    else:
+                        taken = 1
+                    talents[role_talent_choice.get('tag')] = Talent(role_talent_choice.get('tag'), taken)
+                elif flyweights.talent_descriptions().get(role_talent_choice.get('tag')).is_specialist():
+                    for key in role_talent_choice.keys():
+                        if (key in ['subtag', 'subtag1', 'subtag2']) \
+                                and (role_talent_choice.get(key) not in
+                                     talents.get(role_talent_choice.get('tag')).taken().keys()):
+                            talents.get(role_talent_choice.get('tag')).take_subtag(flyweights,
+                                                                                   role_talent_choice.get(key))
+
+                traits = dict()
+                for trait in background.get_traits():
+                    if flyweights.trait_descriptions().get(trait.get('tag')).is_specialist():
+                        taken = dict()
+                        for key in trait.keys():
+                            if key in ['subtag', 'subtag1', 'subtag2']:
+                                if flyweights.trait_descriptions().get(trait.get('tag')).is_stackable():
+                                    taken[trait.get(key)] = trait.get('taken')
+                                else:
+                                    taken[trait.get(key)] = 1
+                    else:
+                        if flyweights.trait_descriptions().get(trait.get('tag')).is_stackable():
+                            taken = trait.get('taken')
+                        else:
+                            taken = 1
+                    traits[trait.get('tag')] = Trait(trait.get('tag'), taken)
+                for cmd in hw_bonus.get_commands():
+                    if cmd.get('tag') == 'GainTrait':
+                        if flyweights.trait_descriptions().get(cmd.get('tag')).is_specialist() \
+                                or (cmd.get('tag') not in traits.keys()):
+                            if flyweights.trait_descriptions().get(cmd.get('tag')).is_specialist() \
+                                    or flyweights.trait_descriptions().get(cmd.get('tag')).is_stackable():
+                                taken = cmd.get('taken')
+                            else:
+                                taken = 1
+                            if cmd.get('tag') in traits.keys():
+                                for tag in cmd.get('taken'):
+                                    traits.get(cmd.get('key')).take_subtag(flyweights, tag)
+                            else:
+                                traits[cmd.get('key')] = Trait(cmd.get('tag'), taken)
+
+                character = charlist.models.Character.objects.create(owner=request.user, character_data='')
+                character.save()
+                character_model = CharacterModel(character.id, -1, data['name'], data['gender'], data['height'],
+                                                 data['weight'], data['age'], data['homeworld'],
+                                                 data['background'], data['role'], data['divination'], [],
+                                                 [wounds, wounds], [0, fatigue], [xp_given, 0], [fate, fate], 0, 0,
+                                                 0, apts, stats, skills, talents, traits, [], [], [], [], [])
+                character.character = character_model.toJSON()
+                character.save()
+                return HttpResponseRedirect(reverse('characters-list'))
             else:
-                form = DivinationForm()
-                return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                        'stage': CREATION_STAGES[7], 'form': form})
+                return render(request, 'character_creation_form.html',
+                              {'version': VERSION, 'facade': flyweights,
+                               'stage': CREATION_STAGES[7], 'form': form})
         else:
-            return HttpResponseRedirect(reverse('create-character-init'))
+            form = DivinationForm()
+            return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                    'stage': CREATION_STAGES[7], 'form': form})
     else:
         return HttpResponseRedirect(reverse('create-character-init'))
 
