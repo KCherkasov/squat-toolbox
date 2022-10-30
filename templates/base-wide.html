@@ -44,7 +44,7 @@
             <div class="dropdown-menu text-break dropdown-menu-end"
                  aria-labelledby="profileControls">
                 <a class="dropdown-item text-break" href="#">Редактировать профиль</a>
-                <a class="dropdown-item text-break" href="characters-list">Персонажи</a>
+                <a class="dropdown-item text-break" href="{% url 'characters-list' %}">Персонажи</a>
                 {% if user.is_master %}
                 <a class="dropdown-item text-break" href="#">Кампании и группы</a>
                 {% endif %}
