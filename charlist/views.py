@@ -212,7 +212,8 @@ def create_character_init(request):
                 data['age'] = cleaned_data['age']
                 data['starting_xp'] = cleaned_data['starting_xp']
                 data['characteristics_base'] = cleaned_data['characteristics_base']
-                request.POST.update({'data': data})
+                cpy = request.POST.copy()
+                cpy.update({'data': data})
             return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                     'stage': CREATION_STAGES[1]})
     else:
@@ -231,7 +232,8 @@ def create_character_hw_choice(request):
                 form = HomeworldsChoiceForm(request.POST)
                 if form.is_valid():
                     data['homeworld'] = form.cleaned_data['homeworld']
-                    request.POST.update({'data': data})
+                    cpy = request.POST.copy()
+                    cpy.update({'data': data})
                     return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                             'stage': CREATION_STAGES[1]})
             else:
@@ -278,7 +280,8 @@ def create_character_stat_distribution(request):
                     stats.get(ST_WILLPOWER).improve(cleaned_data['wp_value'])
                     stats.get(ST_INFLUENCE).improve(cleaned_data['ifl_value'])
                     data['stats'] = stats
-                    request.POST.update({'data': data})
+                    cpy = request.POST.copy()
+                    cpy.update({'data': data})
                     return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                             'stage': CREATION_STAGES[2]})
             else:
@@ -302,7 +305,8 @@ def create_character_bg_choice(request):
                 form = BackgroundChoiceForm(request.POST)
                 if form.is_valid():
                     data['background'] = form.cleaned_data['background']
-                    request.POST.update({'data': data})
+                    cpy = request.POST.copy()
+                    cpy.update({'data': data})
                     return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                             'stage': CREATION_STAGES[3]})
             else:
@@ -326,7 +330,8 @@ def create_character_role_choice(request):
                 form = RoleChoiceForm(request.POST)
                 if form.is_valid():
                     data['role'] = form.cleaned_data['role']
-                    request.POST.update({'data': data})
+                    cpy = request.POST.copy()
+                    cpy.update({'data': data})
                     return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                             'stage': CREATION_STAGES[4]})
             else:
@@ -368,7 +373,8 @@ def create_character_choices(request):
                     data['role_talent'] = cleaned_data['role_talent']
                     if 'hw-bonus-talent' in form.fields.keys():
                         data['hw-bonus-talent'] = cleaned_data['hw-bonus-talent']
-                    request.POST.update({'data': data})
+                    cpy = request.POST.copy()
+                    cpy.update({'data': data})
                     return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                             'stage': CREATION_STAGES[5]})
             else:
@@ -721,7 +727,8 @@ def create_character_double_apts(request):
                         if doubled > 1:
                             data['apt_choice2'] = form.cleaned_data['apt_choice2']
                     data['apts'] = apts
-                    request.POST.update({'data': data})
+                    cpy = request.POST.copy()
+                    cpy.update({'data': data})
                     return render(request, 'character_creation_form.html',
                                   {'version': VERSION, 'facade': flyweights,
                                    'stage': CREATION_STAGES[6], })
