@@ -203,15 +203,16 @@ def create_character_init(request):
         else:
             form = CreationSettingsForm(request.POST)
             data = dict()
-            cleaned_data = form.cleaned_data
-            data['name'] = cleaned_data['name']
-            data['gender'] = cleaned_data['gender']
-            data['height'] = cleaned_data['height']
-            data['weight'] = cleaned_data['weight']
-            data['age'] = cleaned_data['age']
-            data['starting_xp'] = cleaned_data['starting_xp']
-            data['characteristics_base'] = cleaned_data['characteristics_base']
-            request.POST.update({'data': data})
+            if form.is_valid():
+                cleaned_data = form.cleaned_data
+                data['name'] = cleaned_data['name']
+                data['gender'] = cleaned_data['gender']
+                data['height'] = cleaned_data['height']
+                data['weight'] = cleaned_data['weight']
+                data['age'] = cleaned_data['age']
+                data['starting_xp'] = cleaned_data['starting_xp']
+                data['characteristics_base'] = cleaned_data['characteristics_base']
+                request.POST.update({'data': data})
             return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                     'stage': CREATION_STAGES[1]})
     else:
