@@ -205,14 +205,14 @@ def create_character_init(request, data=None):
 
 
 def create_character_hw_choice(request, data):
+    if 'char-hw-next' in request.POST:
+        form = HomeworldsChoiceForm(request.POST)
+        if form.is_valid():
+            data['homeworld'] = form.cleaned_data['homeworld']
+            return create_character_stat_distribution(request, data)
     if request.method == 'POST':
         if 'char-hw-prev' in request.POST:
             return create_character_init(request, data)
-        if 'char-hw-next' in request.POST:
-            form = HomeworldsChoiceForm(request.POST)
-            if form.is_valid():
-                data['homeworld'] = form.cleaned_data['homeworld']
-                return create_character_stat_distribution(request, data)
         if 'char-st-prev' in request.POST:
             form = HomeworldsChoiceForm(data)
         else:
