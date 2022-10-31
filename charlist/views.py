@@ -220,7 +220,7 @@ def create_character_hw_choice(request, data):
         return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                 'stage': CREATION_STAGES[1], 'form': form})
     else:
-        return HttpResponseRedirect(reverse('create-character-init'))
+        return HttpResponseRedirect(reverse('index'))
 
 
 def create_character_stat_distribution(request, data):
