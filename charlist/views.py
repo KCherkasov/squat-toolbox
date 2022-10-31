@@ -179,12 +179,13 @@ def characters_list(request):
 
 def create_character_init(request, data=None):
     if request.method == 'POST':
-        if data is None:
-            data = dict()
-        form = CreationSettingsForm(data)
         if 'char-hw-prev' in request.POST:
+            form = CreationSettingsForm(data)
             return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                     'stage': CREATION_STAGES[0], 'form': form})
+        if data is None:
+            data = dict()
+        form = CreationSettingsForm(request.POST)
         if ('char-cr-next' in request.POST) and form.is_valid():
             cleaned_data = form.cleaned_data
             data['name'] = cleaned_data['name']
