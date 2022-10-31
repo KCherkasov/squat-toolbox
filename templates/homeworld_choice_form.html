@@ -7,7 +7,7 @@
     <span class="form-control"><meter max="8" value="2"></meter></span>
 </div>
 <hr/>
-<div class="charlist-inline justify-content-center">
+
     {% for err in form.non_field_errors %}
     <div class="alert alert-danger" role="alert">
         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
@@ -38,26 +38,3 @@
             </div>
         </form>
     </div>
-    <div>
-        <div class="charlist-container d-none">
-            <ul class="nav nav-tabs">
-                {% for hw in facade.homeworlds.keys %}
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" id="{{ hw }}-tab" href="#{{ hw }}-info"
-                       aria-current="page">
-                        {{ hw }}
-                    </a>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
-        <div class="tab-content charlist-content justify-content-center">
-            {% for hw in facade.homeworlds.keys %}
-            <div class="tab-pane fade show charlist-content justify-content-center" id="{{ hw }}-info"
-                 role="tabpanel">
-
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</div>
