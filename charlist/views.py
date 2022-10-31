@@ -185,7 +185,9 @@ def create_character_init(request, data=None):
                                                                     'stage': CREATION_STAGES[0], 'form': form})
         if data is None:
             data = dict()
-        form = CreationSettingsForm(request.POST)
+            form = CreationSettingsForm(request.POST)
+        else:
+            form = CreationSettingsForm(data)
         if ('char-cr-next' in request.POST) and form.is_valid():
             cleaned_data = form.cleaned_data
             data['name'] = cleaned_data['name']
@@ -205,12 +207,12 @@ def create_character_init(request, data=None):
 
 
 def create_character_hw_choice(request, data):
-    if 'char-hw-next' in request.POST:
-        form = HomeworldsChoiceForm(request.POST)
-        if form.is_valid():
-            data['homeworld'] = form.cleaned_data['homeworld']
-            return create_character_stat_distribution(request, data)
     if request.method == 'POST':
+        if 'char-hw-next' in request.POST:
+            form = HomeworldsChoiceForm(request.POST)
+            if form.is_valid():
+                data['homeworld'] = form.cleaned_data['homeworld']
+                return create_character_stat_distribution(request, data)
         if 'char-hw-prev' in request.POST:
             return create_character_init(request, data)
         if 'char-st-prev' in request.POST:
@@ -274,13 +276,12 @@ def create_character_bg_choice(request, data):
             if form.is_valid():
                 data['background'] = form.cleaned_data['background']
                 return create_character_role_choice(request, data)
+        if 'char-role-prev' in request.POST:
+            form = BackgroundChoiceForm(data)
         else:
-            if 'char-role-prev' in request.POST:
-                form = BackgroundChoiceForm(data)
-            else:
-                form = BackgroundChoiceForm()
-            return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                    'stage': CREATION_STAGES[3], 'form': form})
+            form = BackgroundChoiceForm()
+        return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                'stage': CREATION_STAGES[3], 'form': form})
     else:
         return HttpResponseRedirect('create-character-init')
 
@@ -294,13 +295,12 @@ def create_character_role_choice(request, data):
             if form.is_valid():
                 data['role'] = form.cleaned_data['role']
                 return create_character_choices(request, data)
+        if 'char-choices-prev' in request.POST:
+            form = RoleChoiceForm(data)
         else:
-            if 'char-choices-prev' in request.POST:
-                form = RoleChoiceForm(data)
-            else:
-                form = RoleChoiceForm()
-                return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                        'stage': CREATION_STAGES[4], 'form': form})
+            form = RoleChoiceForm()
+        return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                'stage': CREATION_STAGES[4], 'form': form})
     else:
         return HttpResponseRedirect(reverse('create-character-init'))
 
@@ -361,7 +361,7 @@ def create_character_choices(request, data):
                 role = flyweights.roles().get(data['role'])
 
                 role_apts = [(apt, flyweights.aptitudes().get(apt).get_name_en()) for
-                                apt in role.get_apt_choices()]
+                             apt in role.get_apt_choices()]
                 form.fields['role_apts'].choices = role_apts
                 if len(role_apts) == 0:
                     form.fields['role_apts'].required = False
@@ -504,7 +504,7 @@ def create_character_choices(request, data):
                 background = flyweights.backgrounds().get(data['background'])
 
                 bg_apts = [(apt, flyweights.aptitudes().get(apt).get_name_en())
-                            for apt in background.get_apt_choices()]
+                           for apt in background.get_apt_choices()]
                 form.fields['background_apts'].choices = bg_apts
 
                 role = flyweights.roles().get(data['role'])
