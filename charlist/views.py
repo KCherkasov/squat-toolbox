@@ -255,13 +255,12 @@ def create_character_stat_distribution(request, data):
                 stats.get(ST_INFLUENCE).improve(cleaned_data['ifl_value'])
                 data['stats'] = stats
                 return create_character_bg_choice(request, data)
+        if 'char-bg-prev' in request.POST:
+            form = StatDistributionForm(data)
         else:
-            if 'char-bg-prev' in request.POST:
-                form = StatDistributionForm(data)
-            else:
-                form = StatDistributionForm()
-            return render(request, 'character_creation_form', {'version': VERSION, 'facade': flyweights,
-                                                               'stage': CREATION_STAGES[2], 'form': form})
+            form = StatDistributionForm()
+        return render(request, 'character_creation_form', {'version': VERSION, 'facade': flyweights,
+                                                            'stage': CREATION_STAGES[2], 'form': form})
     else:
         return HttpResponseRedirect(reverse('create-character-init'))
 
