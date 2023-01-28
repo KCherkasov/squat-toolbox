@@ -203,6 +203,7 @@ def create_character_init(request, creation_id):
                 cd.starting_xp = cleaned_data['starting_xp']
                 cd.characteristic_base = cleaned_data['characteristics_base']
                 cd.last_mod_date = datetime.datetime.now()
+                cd.curr_stage = 'hw_choice'
                 cd.save()
             return create_character_hw_choice(request, creation_id)
     else:
@@ -223,6 +224,7 @@ def create_character_hw_choice(request, creation_id):
             if form.is_valid():
                 cd.homeworld = form.cleaned_data['homeworld']
                 cd.last_mod_date = datetime.datetime.now()
+                cd.curr_stage = 'stat_distr'
                 cd.save()
                 return create_character_stat_distribution(request, creation_id)
         if 'char-hw-prev' in request.POST:
@@ -280,6 +282,7 @@ def create_character_stat_distribution(request, creation_id):
                 cd.willpower = stats.get(ST_WILLPOWER).value()
                 cd.fellowship = stats.get(ST_FELLOWSHIP).value()
                 cd.influence = stats.get(ST_INFLUENCE).value()
+                cd.curr_stage = 'bg_choice'
                 cd.last_mod_date = datetime.datetime.now()
                 cd.save()
                 return create_character_bg_choice(request, creation_id)
@@ -298,6 +301,7 @@ def create_character_bg_choice(request, creation_id):
         if 'char-bg-next' in request.POST:
             if form.is_valid():
                 cd.background = form.cleaned_data['background']
+                cd.curr_stage = 'role_choice'
                 cd.last_mod_date = datetime.datetime.now()
                 cd.save()
                 return create_character_role_choice(request, creation_id)
@@ -321,6 +325,7 @@ def create_character_role_choice(request, creation_id):
             if form.is_valid():
                 cd.role = form.cleaned_data['role']
                 cd.last_mod_date = datetime.datetime.now()
+                cd.curr_stage = 'choices'
                 cd.save()
                 return create_character_choices(request, creation_id)
 
@@ -524,6 +529,7 @@ def create_character_choices(request, creation_id):
                 cd.role_talent = cleaned_data['role_talent']
                 if 'hw-bonus-talent' in form.fields.keys():
                     cd.hw_bonus_talent = cleaned_data['hw-bonus-talent']
+                cd.curr_stage = 'double_apts'
                 cd.last_mod_date = datetime.datetime.now()
                 cd.save()
                 return create_character_double_apts(request, creation_id)
@@ -624,6 +630,7 @@ def create_character_double_apts(request, creation_id):
                     if doubled > 1:
                         cd.apt_2 = form.cleaned_data['apt_choice2']
                 cd.last_mod_date = datetime.datetime.now()
+                cd.curr_stage = 'divination'
                 cd.save()
                 return create_character_divination(request, creation_id)
 

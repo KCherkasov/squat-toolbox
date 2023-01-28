@@ -94,6 +94,7 @@ class CreationDataManager(models.Manager):
 class CreationData(models.Model):
     owner = models.ForeignKey(CharsheetUser, on_delete=models.CASCADE)
     last_mod_date = models.DateField(auto_now_add=True)
+    curr_stage = models.CharField(max_length=15, default='init')
 
     name = models.CharField(max_length=150, blank=True, null=True)
     gender = models.CharField(max_length=10, blank=True, null=True)
@@ -120,8 +121,8 @@ class CreationData(models.Model):
 
     role = models.CharField(blank=True, null=True)
 
-    background_apt = models.CharField(blank=True, null=True) #TODO: double-check!
-    role_apt = models.CharField(blank=True, null=True) #TODO: double-check!
+    background_apt = models.CharField(blank=True, null=True)
+    role_apt = models.CharField(blank=True, null=True)
     bg_skill_1 = models.IntegerField(blank=True, null=True)
     bg_skill_1_subtag = models.CharField(blank=True, null=True)
     bg_skill_2 = models.IntegerField(blank=True, null=True)
