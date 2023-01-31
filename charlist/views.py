@@ -26,15 +26,15 @@ from charlist.forms.generation.homeworld_choice_form import HomeworldsChoiceForm
 from charlist.forms.generation.role_choice_form import RoleChoiceForm
 from charlist.forms.generation.stages import *
 from charlist.forms.generation.stat_distribution_form import StatDistributionForm
-from .character.character import CharacterModel
-from .character.skill import Skill
-from .character.stat import Stat
-from .character.talent import Talent
-from .character.trait import Trait
-from .constants.constants import *
-from .flyweights.flyweights import *
-from .forms.authorization.signin import SignInForm
-from .forms.authorization.signup import UserCreationForm
+from charlist.character.character import CharacterModel
+from charlist.character.skill import Skill
+from charlist.character.stat import Stat
+from charlist.character.talent import Talent
+from charlist.character.trait import Trait
+from charlist.constants.constants import *
+from charlist.flyweights.flyweights import *
+from charlist.forms.authorization.signin import SignInForm
+from charlist.forms.authorization.signup import UserCreationForm
 
 
 class TokenGenerator(PasswordResetTokenGenerator):
