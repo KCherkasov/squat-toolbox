@@ -187,13 +187,13 @@ def characters_list(request):
 
 def create_character_start(request):
     creation_data = charlist.models.CreationData()
-    creation_data.owner = charlist.models.CharsheetUser.objects.filter(pk=request.user.pk)
+    creation_data.owner = charlist.models.CharsheetUser.objects.get(pk=request.user.pk)
     creation_data.save()
     return HttpResponseRedirect(reverse('create-character-init', kwargs={'creation_id': creation_data.pk}))
 
 
 def create_character_init(request, creation_id):
-    cd = charlist.models.CreationData.objects.filter(pk=creation_id)
+    cd = charlist.models.CreationData.objects.get(pk=creation_id)
     if request.method == 'POST':
         form = CreationSettingsForm(request.POST)
         if 'char-hw-prev' in request.POST:
@@ -220,7 +220,7 @@ def create_character_init(request, creation_id):
 
 
 def create_character_hw_choice(request, creation_id):
-    cd = charlist.models.CreationData.objects.filter(pk=creation_id)
+    cd = charlist.models.CreationData.objects.get(pk=creation_id)
     if request.method == 'POST':
         if 'char-cr-next' in request.POST:
             form = HomeworldsChoiceForm()
@@ -243,7 +243,7 @@ def create_character_hw_choice(request, creation_id):
 
 
 def create_character_stat_distribution(request, creation_id):
-    cd = charlist.models.CreationData.objects.filter(pk=creation_id)
+    cd = charlist.models.CreationData.objects.get(pk=creation_id)
     if request.method == 'POST':
         if 'char-hw-next' in request.POST:
             form = StatDistributionForm()
@@ -300,7 +300,7 @@ def create_character_stat_distribution(request, creation_id):
 
 
 def create_character_bg_choice(request, creation_id):
-    cd = charlist.models.CreationData.objects.filter(pk=creation_id)
+    cd = charlist.models.CreationData.objects.get(pk=creation_id)
     if request.method == 'POST':
         form = BackgroundChoiceForm(request.POST)
         if 'char-bg-prev' in request.POST:
@@ -319,7 +319,7 @@ def create_character_bg_choice(request, creation_id):
 
 
 def create_character_role_choice(request, creation_id):
-    cd = charlist.models.CreationData.objects.filter(pk=creation_id)
+    cd = charlist.models.CreationData.objects.get(pk=creation_id)
     if request.method == 'POST':
         if 'char-st-next' in request.POST:
             form = RoleChoiceForm()
@@ -501,7 +501,7 @@ def prepare_choices_form(form, cd):
 
 
 def create_character_choices(request, creation_id):
-    cd = charlist.models.CreationData.objects.filter(creation_id)
+    cd = charlist.models.CreationData.objects.get(creation_id)
     if request.method == 'POST':
         if 'char-choices-prev' in request.POST:
             return HttpResponseRedirect(reverse('create-character-role', kwargs={'creation_id': cd.pk}))
@@ -613,7 +613,7 @@ def prepare_apts_form(form, doubled, apts):
 
 
 def create_character_double_apts(request, creation_id):
-    cd = charlist.models.CreationData.objects.filter(creation_id)
+    cd = charlist.models.CreationData.objects.get(creation_id)
     role = flyweights.roles().get(cd.role)
     homeworld = flyweights.homeworlds().get(cd.homeworld)
     doubled = count_doubles(cd, homeworld, role)
@@ -664,7 +664,7 @@ def prep_stats(cd: charlist.models.CreationData):
 
 
 def create_character_divination(request, creation_id):
-    cd = charlist.models.CreationData.objects.filter(creation_id)
+    cd = charlist.models.CreationData.objects.get(creation_id)
 
     background = flyweights.backgrounds().get(cd.background)
     homeworld = flyweights.homeworlds().get(cd.homeworld)
