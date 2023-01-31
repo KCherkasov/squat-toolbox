@@ -520,34 +520,34 @@ def create_character_choices(request, creation_id):
             return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                     'stage': CREATION_STAGES[5], 'form': form})
         if 'char-choices-next' in request.POST:
-            # if form.is_valid():
-            cleaned_data = form.cleaned_data
-            cd.background_apt = cleaned_data['background_apts']
-            if len(flyweights.backgrounds().get(cd.background).get_skill_choices()) > 0:
-                cd.bg_skill_1 = cleaned_data['background_skills']
-                if 'background-skills-subtag' in cleaned_data:
-                    cd.bg_skill_1_subtag = cleaned_data['background-skills-subtag']
-                if len(flyweights.backgrounds().get(cd.background).get_skill_choices()) > 1:
-                    cd.bg_skill_2 = cleaned_data['background_skills2']
-                    if 'background-skills-subtag2' in cleaned_data:
-                        cd.bg_skill_2_subtag = cleaned_data['background-skills-subtag2']
-            if form.fields['background_talents'].required:
-                cd.bg_talent = cleaned_data['background_talents']
-            if form.fields['background_traits'].required:
-                cd.bg_trait = cleaned_data['background_traits']
-            if form.fields['role_apts'].required:
-                cd.role_apt = cleaned_data['role_apts']
-            cd.role_talent = cleaned_data['role_talent']
-            if 'hw-bonus-talent' in form.fields.keys():
-                cd.hw_bonus_talent = cleaned_data['hw-bonus-talent']
-            cd.curr_stage = 'double_apts'
-            cd.last_mod_date = datetime.datetime.now()
-            cd.save()
-            return HttpResponseRedirect(reverse('create-character-double-apts', kwargs={'creation_id': cd.pk}))
-            # else:
-            #     form = prepare_choices_form(form, cd)
-            #     return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-            #                                                             'stage': CREATION_STAGES[5], 'form': form})
+            if form.is_valid():
+                cleaned_data = form.cleaned_data
+                cd.background_apt = cleaned_data['background_apts']
+                if len(flyweights.backgrounds().get(cd.background).get_skill_choices()) > 0:
+                    cd.bg_skill_1 = cleaned_data['background_skills']
+                    if 'background-skills-subtag' in cleaned_data:
+                        cd.bg_skill_1_subtag = cleaned_data['background-skills-subtag']
+                    if len(flyweights.backgrounds().get(cd.background).get_skill_choices()) > 1:
+                        cd.bg_skill_2 = cleaned_data['background_skills2']
+                        if 'background-skills-subtag2' in cleaned_data:
+                            cd.bg_skill_2_subtag = cleaned_data['background-skills-subtag2']
+                if form.fields['background_talents'].required:
+                    cd.bg_talent = cleaned_data['background_talents']
+                if form.fields['background_traits'].required:
+                    cd.bg_trait = cleaned_data['background_traits']
+                if form.fields['role_apts'].required:
+                    cd.role_apt = cleaned_data['role_apts']
+                cd.role_talent = cleaned_data['role_talent']
+                if 'hw-bonus-talent' in form.fields.keys():
+                    cd.hw_bonus_talent = cleaned_data['hw-bonus-talent']
+                cd.curr_stage = 'double_apts'
+                cd.last_mod_date = datetime.datetime.now()
+                cd.save()
+                return HttpResponseRedirect(reverse('create-character-double-apts', kwargs={'creation_id': cd.pk}))
+            else:
+                form = prepare_choices_form(form, cd)
+                return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                        'stage': CREATION_STAGES[5], 'form': form})
     else:
         form = ChoicesForm()
         form = prepare_choices_form(form, cd)
