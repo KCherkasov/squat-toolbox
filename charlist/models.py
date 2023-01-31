@@ -157,7 +157,7 @@ class CreationData(models.Model):
     objects = CreationDataManager()
 
     def get_edit_url(self):
-        return unquote(reverse('char-data-edit', kwargs={'creation_id', self.pk}), encoding='utf-8', errors='replace')
+        return unquote(reverse('char-data-edit', kwargs={'creation_id': self.pk}), encoding='utf-8', errors='replace')
 
     def get_delete_url(self):
         return unquote(reverse('char-dat-delete', kwargs={'creation_id': self.pk}), encoding='utf-8', errors='replace')
