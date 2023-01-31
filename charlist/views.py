@@ -342,181 +342,17 @@ def create_character_role_choice(request, creation_id):
                                                                 'stage': CREATION_STAGES[4], 'form': form})
 
 
-def prepare_choices_form(form, cd):
-    homeworld = flyweights.homeworlds().get(cd.homeworld)
-    hw_bonus = homeworld.get_bonus()
-    for command in hw_bonus.get_commands():
-        if command.get('tag') == 'GainTalentAlt':
-            choices = []
-            i = 0
-            for tag in command.get('tags'):
-                sk_name = flyweights.talent_descriptions().get(tag).get_name_en()
-                choices.append((i, sk_name))
-                i += 1
-            form.fields['hw-bonus-talent'] = django.forms.ChoiceField(
-                label="Талант (бонус родного мира)", choices=choices)
-
-    background = flyweights.backgrounds().get(cd.background)
-
-    bg_apts = [(apt, flyweights.aptitudes().get(apt).get_name_en())
-               for apt in background.get_apt_choices()]
-    form.fields['background_apts'].choices = bg_apts
-
-    role = flyweights.roles().get(cd.role)
-
-    role_apts = [(apt, flyweights.aptitudes().get(apt).get_name_en()) for
-                 apt in role.get_apt_choices()]
-    form.fields['role_apts'].choices = role_apts
-    if len(role_apts) == 0:
-        form.fields['role_apts'].required = False
-        form.fields['role_apts'].widget = django.forms.Select(
-            {'class': 'form-control disabled', }, role_apts)
-
-    bg_skill_choices = background.get_skill_choices()
-    if len(bg_skill_choices) > 0:
-        skill_choice = bg_skill_choices[0]
-        i = 0
-        sk_choices = []
-        for skill in skill_choice:
-            tag = skill.get('tag')
-            sk = flyweights.skill_descriptions().get(tag)
-            subtag = None
-            sk_name = sk.get_name_en()
-            if sk.is_specialist():
-                subtag = skill.get('subtag')
-            if subtag:
-                if subtag == 'SK_ANY':
-                    sk_name += '(any)'
-                    if 'background-skills-subtag' not in form.fields:
-                        form.fields['background-skills-subtag'] = \
-                            CharField(label=u'Специализация', max_length=30)
-                else:
-                    sk_name += ' ('
-                    for tag in subtag:
-                        sk_name += tag + ', '
-                    sk_name = sk_name[:-2] + ')'
-            sk_choices.append((i, sk_name))
-            i += 1
-        form.fields['background_skills'].choices = sk_choices
-        if len(bg_skill_choices) > 1:
-            skill_choice2 = bg_skill_choices[1]
-            i = 0
-            sk_choices2 = []
-            for skill in skill_choice2:
-                tag = skill.get('tag')
-                subtag = None
-                sk = flyweights.skill_descriptions().get(tag)
-                sk_name = sk.get_name_en()
-                if flyweights.skill_descriptions().get('tag').is_specialist():
-                    subtag = skill.get('subtag')
-                if subtag:
-                    if subtag == 'SK_ANY' and 'background-skills-subtag2' not in form.fields:
-                        form.fields['background-skills-subtag2'] = \
-                            CharField(label=u'Специализация', max_length=30)
-                        sk_name += '(any)'
-                    else:
-                        if subtag == 'SK_ANY':
-                            sk_name += '(any)'
-                        else:
-                            sk_name += ' ('
-                            for st in subtag:
-                                sk_name += st + ', '
-                            sk_name = sk_name[:-2] + ')'
-                sk_choices2.append((i, sk_name))
-                i += 1
-            form.fields['background_skills2'].choices = sk_choices2
-        else:
-            form.fields['background_skills2'].required = False
-            form.fields['background_skills2'].widget = django.forms.Select(
-                {'class': 'form-control disabled'}, [])
-
-    for sk in background.get_skills():
-        skill = flyweights.skill_descriptions().get(sk.get('tag'))
-        if skill is not None:
-            if (skill.is_specialist()) and (sk.get('subtag') == 'SK_ANY'):
-                field_name = 'subtag_' + sk.get('tag')
-                form.fields[field_name] = CharField(label=skill.get_name_en(), max_length=30)
-                form.fields[field_name].required = True
-
-    bg_talents = background.get_talent_choices()
-    bg_tals = []
-    for tal in bg_talents:
-        talent = flyweights.talent_descriptions().get(tal.get('tag'))
-        name = talent.get_name_en()
-        if talent.is_specialist():
-            name += ' ('
-            if tal.get('subtag') is not None:
-                name += tal.get('subtag')
-            if tal.get('subtag1') is not None:
-                name += tal.get('subtag1')
-                if tal.get('subtag2') is not None:
-                    name += ', ' + tal.get('subtag2')
-            name += ')'
-        bg_tals.append((tal, name))
-    form.fields['background_talents'].choices = bg_tals
-    if len(bg_tals) == 0:
-        form.fields['background_talents'].required = False
-        form.fields['background_talents'].widget = django.forms.Select(
-            {'class': 'form-control disabled'}, bg_tals)
-
-    role_talents = role.get_talent_choices()
-    role_tals = []
-    i = 0
-    for tal in role_talents:
-        talent = flyweights.talent_descriptions().get(tal.get('tag'))
-        name = talent.get_name_en()
-        if talent.is_specialist():
-            name += ' ('
-            for tag in tal.get('subtag'):
-                name += tag + ', '
-            name = name[:-2] + ')'
-        role_tals.append((i, name))
-        i += 1
-    form.fields['role_talent'].choices = role_tals
-    if len(role_tals) == 0:
-        form.fields['role_talent'].required = False
-        form.fields['role_talent'].widget = django.forms.Select(
-            {'class': 'form-control disabled'}, role_tals)
-
-    background_traits = background.get_traits_choices()
-    bg_traits = []
-    if len(background_traits) > 0:
-        i = 0
-        for trait in background_traits:
-            trdesc = flyweights.trait_descriptions().get(trait.get('tag'))
-            name = trdesc.get_name_en()
-            if trdesc.is_specialist():
-                name += '('
-                if trait.get('tag') == 'TR_UNCH':
-                    subname = flyweights.stat_descriptions().get(trait.get('subtag')).get_name_en()
-                    name += subname + ')'
-                else:
-                    name += trait.get('subtag') + ')'
-            if trdesc.is_stackable():
-                name += '(' + trait.get('taken') + ')'
-            bg_traits.append((i, name))
-            i += 1
-    form.fields['background_traits'].choices = bg_traits
-    if len(form.fields['background_traits'].choices) == 0:
-        form.fields['background_traits'].required = False
-        form.fields['background_traits'].widget = django.forms.Select(
-            {'class': 'form-control disabled'}, bg_traits)
-    return form
-
-
 def create_character_choices(request, creation_id):
     cd = charlist.models.CreationData.objects.get(pk=creation_id)
     if request.method == 'POST':
         if 'char-choices-prev' in request.POST:
             return HttpResponseRedirect(reverse('create-character-role', kwargs={'creation_id': cd.pk}))
         if 'char-role-next' in request.POST:
-            form = ChoicesForm()
-            form = prepare_choices_form(form, cd)
+            form = ChoicesForm(flyweights, cd)
             return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                     'stage': CREATION_STAGES[5], 'form': form})
-        form = ChoicesForm(request.POST)
+        form = ChoicesForm(flyweights, cd, request.POST)
         if 'char-apts-prev' in request.POST:
-            form = prepare_choices_form(form, cd)
             return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                     'stage': CREATION_STAGES[5], 'form': form})
         if 'char-choices-next' in request.POST:
@@ -545,12 +381,10 @@ def create_character_choices(request, creation_id):
                 cd.save()
                 return HttpResponseRedirect(reverse('create-character-double-apts', kwargs={'creation_id': cd.pk}))
             else:
-                form = prepare_choices_form(form, cd)
                 return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                         'stage': CREATION_STAGES[5], 'form': form})
     else:
-        form = ChoicesForm()
-        form = prepare_choices_form(form, cd)
+        form = ChoicesForm(flyweights, cd)
         return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                 'stage': CREATION_STAGES[5], 'form': form})
 
