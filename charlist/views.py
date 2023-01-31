@@ -2,14 +2,12 @@
 import logging
 
 import datetime
-import django.forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth import login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
-from django.forms.fields import CharField
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, reverse
 from django.template.loader import render_to_string
@@ -431,29 +429,6 @@ def make_apts(cd, hw, role):
     return apts
 
 
-def prepare_apts_form(form, doubled, apts):
-    choices = []
-    for st_apt in STAT_APTS:
-        if st_apt not in apts:
-            choices.append((st_apt, flyweights.aptitudes().get(st_apt).get_name_en()))
-        if doubled > 0:
-            form.fields['apt_choice'].choices = choices
-            if doubled > 1:
-                form.fields['apt_choice2'].choice = choices
-            else:
-                form.fields['apt_choice2'].required = False
-                form.fields['apt_choice2'].widget = django.forms.Select(
-                    {'class': 'form-control disabled'}, choices)
-        else:
-            form.fields['apt_choice'].required = False
-            form.fields['apt_choice'].widget = django.forms.Select(
-                {'class': 'form-control disabled'}, choices)
-            form.fields['apt_choice2'].required = False
-            form.fields['apt_choice2'].widget = django.forms.Select(
-                {'class': 'form-control disabled'}, choices)
-    return form
-
-
 def create_character_double_apts(request, creation_id):
     cd = charlist.models.CreationData.objects.get(pk=creation_id)
     role = flyweights.roles().get(cd.role)
@@ -467,11 +442,10 @@ def create_character_double_apts(request, creation_id):
         if 'char-apts-prev' in request.POST:
             return HttpResponseRedirect(reverse('create-character-choice', kwargs={'creation_id': cd.pk}))
         if 'char-choices-next' in request.POST:
-            form = DoubleAptsChoiceForm()
-            form = prepare_apts_form(form, doubled, apts)
+            form = DoubleAptsChoiceForm(doubled, apts, flyweights)
             return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                     'stage': CREATION_STAGES[6], 'form': form})
-        form = DoubleAptsChoiceForm(request.POST)
+        form = DoubleAptsChoiceForm(doubled, apts, flyweights, request.POST)
         if 'char-apts-next' in request.POST:
             if form.is_valid():
                 if doubled > 0:
@@ -484,8 +458,7 @@ def create_character_double_apts(request, creation_id):
                 return HttpResponseRedirect(reverse('create-character-divination', kwargs={'creation_id': cd.pk}))
 
     else:
-        form = DoubleAptsChoiceForm()
-        form = prepare_apts_form(form, doubled, apts)
+        form = DoubleAptsChoiceForm(doubled, apts, flyweights)
         return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                 'stage': CREATION_STAGES[6], 'form': form})
 
@@ -516,7 +489,7 @@ def create_character_divination(request, creation_id):
         if 'char-div-prev' in request.POST:
             return HttpResponseRedirect(reverse('create-character-double-apts', kwargs={'creation_id': cd.pk}))
         if 'char-div-next' in request.POST:
-            form = DivinationForm(request.POST)
+            form = DivinationForm(flyweights, cd, background, request.POST)
             div_tag = None
             if form.is_valid():
                 divination_roll = form.cleaned_data['divination_roll']
@@ -750,33 +723,11 @@ def create_character_divination(request, creation_id):
                               {'version': VERSION, 'facade': flyweights,
                                'stage': CREATION_STAGES[7], 'form': form})
         if 'char-apts-next' in request.POST:
-            form = DivinationForm()
-            if cd.bg_skill_1 is not None:
-                if cd.bg_skill_1_subtag == 'SK_ANY':
-                    skill = flyweights.skill_descriptions().get(background.get_skill_choices[0][cd.bg_skill_1])
-                    field_name = 'subtag_' + skill.get_tag()
-                    form.fields[field_name] = CharField(label=skill.get_name_en(), max_length=30)
-                    form.fields[field_name].required = True
-                if (cd.bg_skill_2 is not None) and (cd.bg_skill_2_subtag == 'SK_ANY'):
-                    skill = flyweights.skill_descriptions().get(background.get_skill_choices[0][cd.bg_skill_2])
-                    field_name = 'subtag_' + skill.get_tag()
-                    form.fields[field_name] = CharField(label=skill.get_name_en(), max_length=30)
-                    form.fields[field_name].required = True
+            form = DivinationForm(flyweights, cd, background)
             return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                     'stage': CREATION_STAGES[7], 'form': form})
     else:
-        form = DivinationForm()
-        if cd.bg_skill_1 is not None:
-            if cd.bg_skill_1_subtag == 'SK_ANY':
-                skill = flyweights.skill_descriptions().get(background.get_skill_choices[0][cd.bg_skill_1])
-                field_name = 'subtag_' + skill.get_tag()
-                form.fields[field_name] = CharField(label=skill.get_name_en(), max_length=30)
-                form.fields[field_name].required = True
-            if (cd.bg_skill_2 is not None) and (cd.bg_skill_2_subtag == 'SK_ANY'):
-                skill = flyweights.skill_descriptions().get(background.get_skill_choices[0][cd.bg_skill_2])
-                field_name = 'subtag_' + skill.get_tag()
-                form.fields[field_name] = CharField(label=skill.get_name_en(), max_length=30)
-                form.fields[field_name].required = True
+        form = DivinationForm(flyweights, cd, background)
         return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                 'stage': CREATION_STAGES[7], 'form': form})
 
