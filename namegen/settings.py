@@ -70,7 +70,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-           'libraries': {
+            'libraries': {
                 'filters': 'lib.templatetags.filters',
             }
         },
@@ -82,7 +82,6 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer',
     ]
 }
-
 
 CORS_ALLOWED_ORIGINS = ['https://wiki.pandhammer.ru']
 CORS_ORIGIN_WHITELIST = ['https://wiki.pandhammer.ru']
@@ -102,9 +101,9 @@ CSP_SCRIPT_SRC = [
     "https://code.jquery.com"
 ]
 CSP_STYLE_SRC = ["'self'",
-                 "https://cdn.jsdelivr.net",]
+                 "https://cdn.jsdelivr.net", ]
 CSP_IMG_SRC = ["'self'",
-               "http://www.w3.org",]
+               "http://www.w3.org", ]
 
 WSGI_APPLICATION = 'namegen.wsgi.application'
 
