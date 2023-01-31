@@ -71,7 +71,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
             'libraries': {
-                'filters': 'namegen.lib.templatetags.filters',
+                'filters': 'lib.templatetags.filters',
             }
         },
     },
