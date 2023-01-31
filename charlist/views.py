@@ -667,7 +667,10 @@ def create_character_divination(request, creation_id):
                     talent = Talent(bg_talent_choice.get('tag'), taken)
                     talents[talent.tag()] = talent
 
-                role_talent_choice = role.get_talent_choices()[cd.role_talent]
+                if role.get_talent_choices()[0].get('tag') == cd.role_talent:
+                    role_talent_choice = role.get_talent_choices()[0]
+                else:
+                    role_talent_choice = role.get_talent_choices()[1]
                 if role_talent_choice.get('tag') not in talents.keys():
                     if flyweights.talent_descriptions().get(role_talent_choice.get('tag')).is_specialist():
                         taken = dict()
