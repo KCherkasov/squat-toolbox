@@ -12,3 +12,8 @@ class ChoicesForm(Form):
     background_talents = forms.ChoiceField(label=u'Талант предыстории')
     role_talent = forms.ChoiceField(label=u'Талант роли')
     background_traits = forms.ChoiceField(label=u'Черта предыстории', required=False)
+
+    def is_valid(self):
+        valid = super().is_valid() or True
+
+        return valid
