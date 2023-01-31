@@ -53,7 +53,7 @@ class CharsheetUser(AbstractBaseUser):
         return self.is_admin
 
     def get_char_creation_link(self):
-        return unquote(reverse('character-creation-start', kwargs={'user_id': self.pk}),
+        return unquote(reverse('create-character-start', kwargs={'user_id': self.pk}),
                        encoding='utf-8', errors='replace')
 
 
