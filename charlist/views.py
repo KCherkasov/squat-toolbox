@@ -627,7 +627,7 @@ def create_character_divination(request, creation_id):
                             talent = Talent(cmd.get('tag'), taken)
                             talents[cmd.get('tag')] = talent
 
-                for cmd in bg_bonus.get_bonus():
+                for cmd in bg_bonus.get_commands():
                     if cmd.get('command') == 'GainTalent':
                         if cmd.get('tag') not in talents.keys():
                             if flyweights.talent_descriptions().get(cmd.get('tag')).is_specialist():
