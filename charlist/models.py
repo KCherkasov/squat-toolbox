@@ -105,14 +105,14 @@ class CreationData(models.Model):
     curr_stage = models.CharField(max_length=15, default='init')
 
     name = models.CharField(max_length=150, blank=True, null=True)
-    gender = models.CharField(max_length=10, blank=True, null=True)
+    gender = models.CharField(max_length=15, blank=True, null=True)
     height = models.IntegerField(blank=True, null=True)
     weight = models.IntegerField(blank=True, null=True)
     age = models.IntegerField(blank=True, null=True)
     starting_xp = models.IntegerField(blank=True, null=True)
-    characteristic_base = models.CharField(blank=True, null=True)
+    characteristic_base = models.CharField(max_length=15, blank=True, null=True)
 
-    homeworld = models.CharField(blank=True, null=True)
+    homeworld = models.CharField(max_length=15, blank=True, null=True)
 
     weapon_skill = models.IntegerField(blank=True, null=True)
     ballistic_skill = models.IntegerField(blank=True, null=True)
@@ -125,30 +125,30 @@ class CreationData(models.Model):
     fellowship = models.IntegerField(blank=True, null=True)
     influence = models.IntegerField(blank=True, null=True)
 
-    background = models.CharField(blank=True, null=True)
+    background = models.CharField(max_length=15, blank=True, null=True)
 
-    role = models.CharField(blank=True, null=True)
+    role = models.CharField(max_length=15, blank=True, null=True)
 
-    background_apt = models.CharField(blank=True, null=True)
-    role_apt = models.CharField(blank=True, null=True)
-    bg_skill_1 = models.IntegerField(blank=True, null=True)
-    bg_skill_1_subtag = models.CharField(blank=True, null=True)
-    bg_skill_2 = models.IntegerField(blank=True, null=True)
-    bg_skill_2_subtag = models.CharField(blank=True, null=True)
-    bg_talent = models.IntegerField(blank=True, null=True)
-    role_talent = models.CharField(blank=True, null=True)
-    bg_trait = models.CharField(blank=True, null=True)
-    hw_bonus_talent = models.CharField(blank=True, null=True)
+    background_apt = models.CharField(max_length=15, blank=True, null=True)
+    role_apt = models.CharField(max_length=15, blank=True, null=True)
+    bg_skill_1 = models.IntegerField(max_length=15, blank=True, null=True)
+    bg_skill_1_subtag = models.CharField(max_length=30, blank=True, null=True)
+    bg_skill_2 = models.IntegerField(max_length=15, blank=True, null=True)
+    bg_skill_2_subtag = models.CharField(max_length=30, blank=True, null=True)
+    bg_talent = models.IntegerField(max_length=15, blank=True, null=True)
+    role_talent = models.CharField(max_length=15, blank=True, null=True)
+    bg_trait = models.CharField(max_length=15, blank=True, null=True)
+    hw_bonus_talent = models.CharField(max_length=15, blank=True, null=True)
 
-    apt_1 = models.CharField(blank=True, null=True)
-    apt_2 = models.CharField(blank=True, null=True)
+    apt_1 = models.CharField(max_length=15, blank=True, null=True)
+    apt_2 = models.CharField(max_length=15, blank=True, null=True)
 
     divination_roll = models.IntegerField(blank=True, null=True)
     wound_roll = models.IntegerField(blank=True, null=True)
     fate_roll = models.IntegerField(blank=True, null=True)
 
-    spec_skill_subtag_1 = models.CharField(blank=True, null=True)
-    spec_skill_subtag_2 = models.CharField(blank=True, null=True)
+    spec_skill_subtag_1 = models.CharField(max_length=30, blank=True, null=True)
+    spec_skill_subtag_2 = models.CharField(max_length=30, blank=True, null=True)
 
     objects = CreationDataManager()
 
