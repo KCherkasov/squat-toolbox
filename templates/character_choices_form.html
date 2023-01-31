@@ -18,12 +18,14 @@
         <form class="form-horizontal" method="post" action="">
             {% csrf_token %}
             {% for field in form %}
+            {% if field.required %}
             <div class="form-group charlist-inline justify-content-center mt-2">
                 <label for="{{ field.name }}" class="col-sm-2 control-label">{{ field.label }}</label>
                 <div class="col-sm-5 ms-2">
                     {{ field }}
                 </div>
             </div>
+            {% endif %}
             {% endfor %}
             <div class="form-group charlist-inline justify-content-center mt-2">
                 <div class="col-sm-offset-2 col-sm-2">
