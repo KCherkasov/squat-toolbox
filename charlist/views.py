@@ -540,8 +540,16 @@ def create_character_divination(request, creation_id):
                         skills[key] = Skill(key, 0)
                 for skill in background.get_skills():
                     if skill.get('tag') in skills.keys():
-                        if skill.is_specialist():
-                            skills.get(skill.get('tag')).upgrade_subtag(skill.get('subtag'))
+                        if skdescrs.get(skill.get('tag')).is_specialist():
+                            if skill.get('subtag') != 'SK_ANY':
+                                subtag = skill.get('subtag')
+                            else:
+                                if any_count == 0:
+                                    subtag = cd.spec_skill_subtag_1
+                                    any_count += 1
+                                else:
+                                    subtag = cd.spec_skill_subtag_2
+                            skills.get(skill.get('tag')).upgrade_subtag(subtag)
                         else:
                             skills.get(skill.get('tag')).upgrade()
 
