@@ -445,9 +445,12 @@ def prepare_choices_form(form, cd):
         name = talent.get_name_en()
         if talent.is_specialist():
             name += ' ('
-            for tag in tal.get('subtag'):
-                name += tag + ', '
-            name = name[:-2] + ')'
+            name += tal.get('subtag')
+            if tal.get('subtag1') is not None:
+                name += ', ' + tal.get('subtag1')
+                if tal.get('subtag2') is not None:
+                    name += ', ' + tal.get('subtag2')
+            name += ')'
         bg_tals.append((tal, name))
     form.fields['background_talents'].choices = bg_tals
     if len(bg_tals) == 0:
