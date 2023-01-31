@@ -189,7 +189,7 @@ def create_character_start(request, user_id):
     creation_data = charlist.models.CreationData()
     creation_data.owner = charlist.models.CharsheetUser.objects.filter(pk=user_id)
     creation_data.save()
-    return create_character_init(request, creation_data.pk)
+    return HttpResponseRedirect(reverse('create-character-init', kwargs={'creation_id': creation_data.pk}))
 
 
 def create_character_init(request, creation_id):
@@ -212,7 +212,7 @@ def create_character_init(request, creation_id):
                 cd.last_mod_date = datetime.datetime.now()
                 cd.curr_stage = 'hw_choice'
                 cd.save()
-            return create_character_hw_choice(request, creation_id)
+        return HttpResponseRedirect(reverse('create-character-hw', kwargs={'creation_id': cd.pk}))
     else:
         form = CreationSettingsForm()
         return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
@@ -233,9 +233,9 @@ def create_character_hw_choice(request, creation_id):
                 cd.last_mod_date = datetime.datetime.now()
                 cd.curr_stage = 'stat_distr'
                 cd.save()
-                return create_character_stat_distribution(request, creation_id)
+                return HttpResponseRedirect(reverse('create-character-stats', kwargs={'creation_id': cd.pk}))
         if 'char-hw-prev' in request.POST:
-            return create_character_init(request, creation_id)
+            return HttpResponseRedirect(reverse('create-character-init', kwargs={'creation_id': cd.pk}))
     else:
         form = HomeworldsChoiceForm()
         return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
@@ -250,7 +250,7 @@ def create_character_stat_distribution(request, creation_id):
             return render(request, 'character_creation_form', {'version': VERSION, 'facade': flyweights,
                                                                'stage': CREATION_STAGES[2], 'form': form})
         if 'char-st-prev' in request.POST:
-            return create_character_hw_choice(request, creation_id)
+            return HttpResponseRedirect(reverse('create-character-hw', kwargs={'creation_id': cd.pk}))
         form = StatDistributionForm(request.POST)
         if 'char-st-next' in request.POST:
             if form.is_valid():
@@ -292,7 +292,7 @@ def create_character_stat_distribution(request, creation_id):
                 cd.curr_stage = 'bg_choice'
                 cd.last_mod_date = datetime.datetime.now()
                 cd.save()
-                return create_character_bg_choice(request, creation_id)
+                return HttpResponseRedirect(reverse('create-character-bg', kwargs={'creation_id': cd.pk}))
     else:
         form = StatDistributionForm()
         return render(request, 'character_creation_form', {'version': VERSION, 'facade': flyweights,
@@ -304,14 +304,14 @@ def create_character_bg_choice(request, creation_id):
     if request.method == 'POST':
         form = BackgroundChoiceForm(request.POST)
         if 'char-bg-prev' in request.POST:
-            return create_character_stat_distribution(request, creation_id)
+            return HttpResponseRedirect(reverse('create-character-stats', kwargs={'creation_id': cd.pk}))
         if 'char-bg-next' in request.POST:
             if form.is_valid():
                 cd.background = form.cleaned_data['background']
                 cd.curr_stage = 'role_choice'
                 cd.last_mod_date = datetime.datetime.now()
                 cd.save()
-                return create_character_role_choice(request, creation_id)
+                return HttpResponseRedirect(reverse('create-character-role', kwargs={'creation_id': cd.pk}))
     else:
         form = BackgroundChoiceForm()
         return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
@@ -326,7 +326,7 @@ def create_character_role_choice(request, creation_id):
             return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                     'stage': CREATION_STAGES[4], 'form': form})
         if 'char-role-prev' in request.POST:
-            return create_character_bg_choice(request, creation_id)
+            return HttpResponseRedirect(reverse('create-character-bg', kwargs={'creation_id': cd.pk}))
         form = RoleChoiceForm(request.POST)
         if 'char-role-next' in request.POST:
             if form.is_valid():
@@ -334,7 +334,7 @@ def create_character_role_choice(request, creation_id):
                 cd.last_mod_date = datetime.datetime.now()
                 cd.curr_stage = 'choices'
                 cd.save()
-                return create_character_choices(request, creation_id)
+                return HttpResponseRedirect(reverse('create-character-choice', kwargs={'creation_id': cd.pk}))
 
     else:
         form = RoleChoiceForm()
@@ -504,7 +504,7 @@ def create_character_choices(request, creation_id):
     cd = charlist.models.CreationData.objects.filter(creation_id)
     if request.method == 'POST':
         if 'char-choices-prev' in request.POST:
-            return create_character_role_choice(request, creation_id)
+            return HttpResponseRedirect(reverse('create-character-role', kwargs={'creation_id': cd.pk}))
         if 'char-role-next' in request.POST:
             form = ChoicesForm()
             form = prepare_choices_form(form, cd)
@@ -539,7 +539,7 @@ def create_character_choices(request, creation_id):
                 cd.curr_stage = 'double_apts'
                 cd.last_mod_date = datetime.datetime.now()
                 cd.save()
-                return create_character_double_apts(request, creation_id)
+                return HttpResponseRedirect(reverse('create-character-double-apts', kwargs={'creation_id': cd.pk}))
     else:
         form = ChoicesForm()
         form = prepare_choices_form(form, cd)
@@ -623,7 +623,7 @@ def create_character_double_apts(request, creation_id):
 
     if request.method == 'POST':
         if 'char-apts-prev' in request.POST:
-            return create_character_choices(request, creation_id)
+            return HttpResponseRedirect(reverse('create-character-choice', kwargs={'creation_id': cd.pk}))
         if 'char-choices-next' in request.POST:
             form = DoubleAptsChoiceForm()
             form = prepare_apts_form(form, doubled, apts)
@@ -639,7 +639,7 @@ def create_character_double_apts(request, creation_id):
                 cd.last_mod_date = datetime.datetime.now()
                 cd.curr_stage = 'divination'
                 cd.save()
-                return create_character_divination(request, creation_id)
+                return HttpResponseRedirect(reverse('create-character-divination', kwargs={'creation_id': cd.pk}))
 
     else:
         form = DoubleAptsChoiceForm()
@@ -672,7 +672,7 @@ def create_character_divination(request, creation_id):
 
     if request.method == 'POST':
         if 'char-div-prev' in request.POST:
-            return create_character_double_apts(request, creation_id)
+            return HttpResponseRedirect(reverse('create-character-double-apts', kwargs={'creation_id': cd.pk}))
         if 'char-div-next' in request.POST:
             form = DivinationForm(request.POST)
             div_tag = None
