@@ -1,28 +1,29 @@
 {% load filters %}
 
 <div class="card charlist-content">
+    {% with char_data|get_by_dict_key:character.pk as char_model %}
     <div class="card-title">
-        <h4><a class="card-link" href="#">{{ character.name }}</a></h4>
+        <h4><a class="card-link" href="{{ character.get_view_url }}">{{ char_model.name }}</a></h4>
     </div>
     <div class="card-body charlist-inline justify-content-center">
         <div>
-            <h5>{{ facade|get_homeworld_description:character.hw_id|get_hw_name:'en' }}</h5>
+            <h5>{{ facade|get_homeworld_description:char_model.hw_id|get_hw_name:'en' }}</h5>
         </div>
         <div>
             <h5>-</h5>
         </div>
         <div>
-            <h5>{{ facade|get_background_description:character.bg_id|get_bg_name:'en' }}</h5>
+            <h5>{{ facade|get_background_description:char_model.bg_id|get_bg_name:'en' }}</h5>
         </div>
         <div>
             <h5>-</h5>
         </div>
         <div>
-            <h5>{{ facade|get_role_description:character.role_id|get_role_name:'en' }}</h5>
+            <h5>{{ facade|get_role_description:char_model.role_id|get_role_name:'en' }}</h5>
         </div>
     </div>
     <div class="card-body charlist-inline justify-content-center">
-        {% for stat_key, stat in character.stats.items %}
+        {% for stat_key, stat in char_model.stats.items %}
         <div class="charlist-content justify-content-center">
             <div>
                 <h6>{{ facade|get_stat_description:stat_key|get_stdescer_name:'en' }}</h6>
@@ -35,12 +36,37 @@
         {% endfor %}
     </div>
     <div class="card-body justify-content-center">
-        <h5>Wounds: {{ character.wounds_current }} / {{ character.wounds_cap }}</h5>
+        <h5>Wounds: {{ char_model.wounds_current }} / {{ char_model.wounds_cap }}</h5>
     </div>
     <div class="card-body justify-content-center">
-        <h5>Fatigue: {{ character.fatigue_current }} / {{ character.fatigue_cap }} </h5>
+        <h5>Fatigue: {{ char_model.fatigue_current }} / {{ char_model.fatigue_cap }} </h5>
     </div>
     <div class="card-body justify-content-center">
-        <h5>Fate points: {{ character.fate_current }} / {{ character.fate_cap }}</h5>
+        <h5>Fate points: {{ char_model.fate_current }} / {{ char_model.fate_cap }}</h5>
     </div>
+    <div class="card-body charlist-inline justify-content-center">
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#char-delete-modal-{{ character.pk }}">
+            Удалить
+        </button>
+        <a href="{{ character.get_view_url }}" class="btn btn-primary">Открыть</a>
+
+        <div class="modal fade" id="char-delete-modal-{{ character.pk }}" tabindex="-1" aria-labelledby="char-delete-modal-{{ cd.pk }}-label">
+            <div class="modal-dialog">
+               <div class="modal-content">
+                   <div class="modal-header">
+                       <h5 class="modal-title" id="char-delete-modal-{{ cd.pk }}-label">Удаление персонажа {{ char_model.name }}</h5>
+                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                   </div>
+                   <div class="modal-body">
+                       <p>Вы уверены, что хотите удалить персонажа {{ char_model.name }}?</p>
+                   </div>
+                   <div class="modal-footer">
+                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                       <a href="{{ character.get_delete_url }}" class="btn btn-danger">Удалить</a>
+                   </div>
+               </div>
+            </div>
+        </div>
+    </div>
+    {% endwith %}
 </div>

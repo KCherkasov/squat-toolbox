@@ -47,7 +47,12 @@ urlpatterns = [
          name='create-character-double-apts'),
     path(r'dev/create-character/divination/', charviews.create_character_divination,
          name='create-character-divination'),
-    path(r'dev/character/<int:id>/', charviews.character_view, name='character-details'),
+
+    path(r'dev/character/<int:char_id>/', charviews.character_view, name='character-details'),
+    path(r'dev/character/<int:char_id>/delete', charviews.character_delete, name='character-delete'),
+
+    path(r'dev/creation-data/<int:creation_id>/', charviews.resume_creation_edit, name='char-data-edit'),
+    path(r'dev/creation-data/<int:creation_id>/delete', charviews.creation_data_delete, name='char-data-delete'),
 
     path(r'dev/charsheet/test/', charviews.aptitudes_test, name='charsheet-test'),
     path(r'dev/charsheet/mockup/', charviews.charsheet_mockup, name='charsheet-mockup'),

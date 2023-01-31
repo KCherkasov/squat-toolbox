@@ -17,6 +17,16 @@ Characters list
     <h5>Пока не создано ни одного персонажа.</h5>
     {% endfor %}
 </div>
+<div class="page-header text-center">
+    <h3>Незавершенные заготовки</h3>
+</div>
+<div class="charlist-content justify-content-center">
+    {% for cd in char_data %}
+    {% include 'creation_data_card.html' %}
+    {% empty %}
+    <h5>Незавершенных заготовок нет.</h5>
+    {% endfor %}
+</div>
 <div class="charlist-content justify-content-center">
     <div>
         <a href="{% url 'create-character-init' %}" class="btn btn-lg btn-primary fs-3">Создать нового персонажа</a>

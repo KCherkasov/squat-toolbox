@@ -2,9 +2,11 @@
 
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db import models
+from django.urls import reverse
 
 import charlist.character.character
 from charlist.character.json.decoders.character_decoder import CharacterDecoder
+from urllib.parse import unquote
 import json
 
 
@@ -68,13 +70,19 @@ class CharacterManager(models.Manager):
 class Character(models.Model):
     owner = models.ForeignKey(CharsheetUser, on_delete=models.CASCADE)
     creation_date = models.DateField(auto_now_add=True)
-    character_data = models.CharField(max_length=2500)  # TODO - encoder/decoder!
+    character_data = models.CharField(max_length=2500)
     notes = models.TextField(max_length=10000, default="")
 
-    objects = CharsheetUserManager()
+    objects = CharacterManager()
 
     def data_to_model(self):
         return CharacterDecoder.decode(str(self.character_data))
+
+    def get_view_url(self):
+        return unquote(reverse('character-details', kwargs={'char_id': self.pk}), encoding='utf-8', errors='replace')
+
+    def get_delete_url(self):
+        return unquote(reverse('character-delete', kwargs={'char_id': self.pk}), encoding='utf-8', errors='replace')
 
 
 class CreationDataQuerySet(models.QuerySet):
@@ -143,6 +151,12 @@ class CreationData(models.Model):
     spec_skill_subtag_2 = models.CharField(blank=True, null=True)
 
     objects = CreationDataManager()
+
+    def get_edit_url(self):
+        return unquote(reverse('char-data-edit', kwargs={'creation_id', self.pk}), encoding='utf-8', errors='replace')
+
+    def get_delete_url(self):
+        return unquote(reverse('char-dat-delete', kwargs={'creation_id': self.pk}), encoding='utf-8', errors='replace')
 
 
 class LogEntry(models.Model):

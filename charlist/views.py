@@ -175,7 +175,14 @@ def activate(request, uidb64, token):
 
 
 def characters_list(request):
-    return render(request, 'characters_list.html', {'version': VERSION, 'facade': flyweights})
+    user = request.user
+    characters = charlist.models.Character.objects.by_uid(user.pk)
+    char_data = dict()
+    for character in characters:
+        char_data[character.pk] = character.data_to_model()
+    in_progress = charlist.models.CreationData.objects.by_uid(user.pk)
+    return render(request, 'characters_list.html', {'version': VERSION, 'facade': flyweights, 'characters': characters,
+                                                    'in_progress': in_progress, 'char_data': char_data, })
 
 
 def create_character_start(request, user_id):
@@ -933,8 +940,45 @@ def create_character_divination(request, creation_id):
 
 
 def character_view(request, char_id):
-    character = charlist.models.Character.objects.filter(id=char_id)
+    character = charlist.models.Character.objects.filter(pk=char_id)
     character_model = CharacterModel.from_json(character.character)
     return render(request, "charsheet-mockup-interactive.html", {'version': VERSION, 'facade': flyweights,
                                                                  'character': character_model,
                                                                  'hookups': character_model.make_hookups(flyweights)})
+
+
+def character_delete(request, char_id):
+    character = charlist.models.Character.objects.filter(pk=char_id)
+    if (character is not None) and (character.owner == request.user):
+        character.delete()
+    return reverse('characters-list')
+
+
+def creation_data_delete(request, creation_id):
+    cd = charlist.models.CreationData.objects.filter(pk=creation_id)
+    if (cd is not None) and (cd.owner == request.user):
+        cd.delete()
+    return reverse('characters-list')
+
+
+def resume_creation_edit(request, creation_id):
+    cd = charlist.models.CreationData.objects.filter(pk=creation_id)
+    if (cd is not None) and (cd.owner == request.user):
+        if cd.curr_stage == 'init':
+            return create_character_init(request, creation_id)
+        if cd.curr_stage == 'hw_choice':
+            return create_character_hw_choice(request, creation_id)
+        if cd.curr_stage == 'stat_distr':
+            return create_character_stat_distribution(request, creation_id)
+        if cd.curr_stage == 'bg_choice':
+            return create_character_bg_choice(request, creation_id)
+        if cd.curr_stage == 'role_choice':
+            return create_character_role_choice(request, creation_id)
+        if cd.curr_stage == 'choices':
+            return create_character_choices(request, creation_id)
+        if cd.curr_stage == 'double_apts':
+            return create_character_double_apts(request, creation_id)
+        if cd.curr_stage == 'divination':
+            return create_character_divination(request, creation_id)
+    else:
+        return reverse('characters-list')
