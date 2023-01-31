@@ -649,7 +649,7 @@ def create_character_divination(request, creation_id):
                                     talents.get(cmd.get('tag')).take_subtag(flyweights, cmd.get(key))
 
                 bg_talent_choice = background.get_talent_choices()[cd.bg_talent]
-                if bg_talent_choice.get['tag'] in talents.keys():
+                if bg_talent_choice.get('tag') in talents.keys():
                     if flyweights.talent_descriptions().get(bg_talent_choice.get('tag')).is_specialist():
                         for key in bg_talent_choice.keys():
                             if (key in ['subtag', 'subtag1', 'subtag2']) \
