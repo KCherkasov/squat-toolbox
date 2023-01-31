@@ -737,7 +737,7 @@
       "is_stackable": false
     },
     {
-      "tag": "TL_WTR",
+      "tag": "TL_WPT",
       "name": {
         "ru": "Выучка с оружием",
         "en": "Weapon training"
@@ -748,7 +748,7 @@
       },
       "hints": [
         {
-          "tag": "TL_WTR_H1",
+          "tag": "TL_WPT_H1",
           "description": {
             "ru": "Взяв талант из этой группы, персонаж получает возможность без штрафов использовать любое оружие, связанное с выбранной специализацией, за исключением Тяжелого. Если персонаж использует оружие, таланта обращения с которым он не имеет, то он получает штраф -20 на все проверки Навыка Рукопашной или Навыка Стрельбы, совершенные с применением этого оружия. Персонаж может использовать оружие класса Тяжёлое без штрафа -20, только если у него есть как талант Выучка с Оружием (Тяжёлое), так и талант Выучки с оружием, той группы, к которой принадлежит конкретный образец тяжелого оружия (например, для стрельбы из лазпушки без штрафа, нужно обладать талантами Выучка с Оружием (Тяжёлое) и Выучка с Оружием (Лазерное)). Этот талант можно брать несколько раз, каждый раз с новой специализацией. Заметьте, что персонаж, не имеющий таланта Выучка с Оружием (Низкотехнологичное) может без штрафа управляться с оружием, что в определенных обстоятельствах функционирует как Низкотехнологичное (например, силовой меч с выключенным силовым полем считается обычным мечом (низкотехнологичным)), но персонаж, имеющий навык Выучка с Оружием (Силовое) и не имеющий Выучка с Оружием (Низкотехнологичное) может использовать этот меч без штрафов).",
             "en": "The Acolyte can use all weapons with Class: Pistol, Basic, Melee, Throwing, and Vehicle within the group he has selected with this talent. When a character attempts to use a weapon he does not have the correct Weapon Training talent for, he suffers a –20 penalty to any relevant Weapon Skill or Ballistic Skill test. The character can only use weapons with Class: Heavy without suffering the –20 penalty if he has both Weapon Training in the appropriate group and Weapon Training (Heavy). This talent can be taken more than once, each time with a different Specialisation. Note that a character without the Weapon Training (Low-Tech) talent operating a weapon that functions as a Low-Tech weapon in certain circumstances does not suffer this penalty, so long as he has the applicable Weapon Training talent for the weapon (Power for a power sword, for example)."
@@ -2058,7 +2058,7 @@
           "value": 30
         },
         {
-          "tag": "TL_WTR",
+          "tag": "TL_WPT",
           "value": 1
         }
       ],
