@@ -478,7 +478,7 @@ def prepare_choices_form(form, cd):
         form.fields['role_talent'].widget = django.forms.Select(
             {'class': 'form-control disabled'}, role_tals)
 
-    background_traits = background.get_traits_choices
+    background_traits = background.get_traits_choices()
     bg_traits = []
     if len(background_traits) > 0:
         i = 0
