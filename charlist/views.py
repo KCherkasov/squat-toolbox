@@ -445,9 +445,10 @@ def prepare_choices_form(form, cd):
         name = talent.get_name_en()
         if talent.is_specialist():
             name += ' ('
-            name += tal.get('subtag')
+            if tal.get('subtag') is not None:
+                name += tal.get('subtag')
             if tal.get('subtag1') is not None:
-                name += ', ' + tal.get('subtag1')
+                name += tal.get('subtag1')
                 if tal.get('subtag2') is not None:
                     name += ', ' + tal.get('subtag2')
             name += ')'
