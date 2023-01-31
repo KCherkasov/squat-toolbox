@@ -3,8 +3,8 @@
 {% endblock %}
 
 <div class="page-header text-center">
-    <h3>Этап 4: выбор предыстории (background)</h3>
-    <span class="form-control"><meter max="8" value="4"></meter></span>
+    <h3>Этап 7: замена совпадающих склонностей (aptitudes)</h3>
+    <span class="form-control"><meter max="8" value="7"></meter></span>
 </div>
 <hr/>
 <div class="charlist-inline justify-content-center">
@@ -27,37 +27,15 @@
             {% endfor %}
             <div class="form-group charlist-inline justify-content-center mt-2">
                 <div class="col-sm-offset-2 col-sm-2">
-                    <button type="submit" class="btn btn-primary" name="char-bg-next">Далее</button>
+                    <button type="submit" class="btn btn-primary" name="char-apts-next">Далее</button>
                 </div>
                 <div class="col-sm-offset-2 col-sm-2">
-                    <button type="submit" class="btn btn-primary" name="char-bg-prev">Назад</button>
+                    <button type="submit" class="btn btn-primary" name="char-apts-prev">Назад</button>
                 </div>
                 <div class="col-sm-offset-2 col-sm-2">
                     <a class="btn btn-danger" href="{% url 'characters-list' %}">Отмена</a>
                 </div>
             </div>
         </form>
-    </div>
-    <div>
-        <div class="charlist-container d-none">
-            <ul class="nav nav-tabs">
-                {% for bg in facade.backgrounds.keys %}
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" id="{{ bg }}-tab" href="#{{ bg }}-info"
-                       aria-current="page">
-                        {{ facade|get_background_description:bg|get_bg_name:'en' }}
-                    </a>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
-        <div class="tab-content charlist-content justify-content-center">
-            {% for bg in facade.backgrounds.keys %}
-            <div class="tab-pane fade show charlist-content justify-content-center" id="{{ bg }}-info"
-                 role="tabpanel">
-
-            </div>
-            {% endfor %}
-        </div>
     </div>
 </div>

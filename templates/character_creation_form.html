@@ -26,8 +26,10 @@
     {% include 'role_choice_form.html' %}
     {% endif %}
     {% if stage == 'choices' %}
+    {% include 'character_choices_form.html' %}
     {% endif %}
     {% if stage == 'double_apts' %}
+    {% include 'character_aptitudes_choice_form.html' %}
     {% endif %}
     {% if stage == 'divination' %}
     {% include 'divination_form.html' %}
