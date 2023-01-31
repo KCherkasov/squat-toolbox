@@ -747,7 +747,7 @@ def create_character_divination(request, creation_id):
 
 def character_view(request, char_id):
     character = charlist.models.Character.objects.get(pk=char_id)
-    character_model = CharacterModel.from_json(character.character)
+    character_model = CharacterModel.from_json(character.character_data)
     return render(request, "charsheet-mockup-interactive.html", {'version': VERSION, 'facade': flyweights,
                                                                  'character': character_model,
                                                                  'hookups': character_model.make_hookups(flyweights)})
