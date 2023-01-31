@@ -265,7 +265,7 @@ def create_character_stat_distribution(request, creation_id):
                         if val > 0:
                             stats.get(stat).improve(val)
                         else:
-                            stats.get(stat).damage(val)
+                            stats.get(stat).damage(-val)
                 stats.get(ST_WEAPON_SKILL).improve(cleaned_data['ws_value'])
                 stats.get(ST_BALLISTIC_SKILL).improve(cleaned_data['bs_value'])
                 stats.get(ST_STRENGTH).improve(cleaned_data['str_value'])
