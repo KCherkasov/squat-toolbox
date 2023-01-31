@@ -544,6 +544,9 @@ def create_character_choices(request, creation_id):
                 cd.last_mod_date = datetime.datetime.now()
                 cd.save()
                 return HttpResponseRedirect(reverse('create-character-double-apts', kwargs={'creation_id': cd.pk}))
+            else:
+                return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                        'stage': CREATION_STAGES[5], 'form': form}
     else:
         form = ChoicesForm()
         form = prepare_choices_form(form, cd)
