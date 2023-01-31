@@ -436,6 +436,8 @@ def create_character_double_apts(request, creation_id):
     doubled = count_doubles(cd, homeworld, role)
     apts = make_apts(cd, homeworld, role)
     if doubled == 0:
+        cd.curr_stage = 'divination'
+        cd.save()
         return HttpResponseRedirect(reverse('create-character-divination', kwargs={'creation_id': cd.pk}))
 
     if request.method == 'POST':
