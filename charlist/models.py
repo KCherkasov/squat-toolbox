@@ -52,6 +52,10 @@ class CharsheetUser(AbstractBaseUser):
     def is_staff(self):
         return self.is_admin
 
+    def get_char_creation_link(self):
+        return unquote(reverse('character-creation-start', kwargs={'user_id': self.pk}),
+                       encoding='utf-8', errors='replace')
+
 
 class CharacterQuerySet(models.QuerySet):
     def with_owner(self):

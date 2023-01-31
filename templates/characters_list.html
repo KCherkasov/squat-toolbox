@@ -29,7 +29,7 @@ Characters list
 </div>
 <div class="charlist-content justify-content-center">
     <div>
-        <a href="{% url 'create-character-init' %}" class="btn btn-lg btn-primary fs-3">Создать нового персонажа</a>
+        <a href="{{ user.get_character_creation_link }}" class="btn btn-lg btn-primary fs-3">Создать нового персонажа</a>
     </div>
 </div>
 {% endblock %}
