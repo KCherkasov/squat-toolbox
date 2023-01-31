@@ -185,9 +185,9 @@ def characters_list(request):
                                                     'in_progress': in_progress, 'char_data': char_data, })
 
 
-def create_character_start(request, user_id):
+def create_character_start(request):
     creation_data = charlist.models.CreationData()
-    creation_data.owner = charlist.models.CharsheetUser.objects.filter(pk=user_id)
+    creation_data.owner = charlist.models.CharsheetUser.objects.filter(pk=request.user.pk)
     creation_data.save()
     return HttpResponseRedirect(reverse('create-character-init', kwargs={'creation_id': creation_data.pk}))
 

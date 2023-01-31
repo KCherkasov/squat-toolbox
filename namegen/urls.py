@@ -36,7 +36,7 @@ urlpatterns = [
 
     path(r'dev/characters/', charviews.characters_list, name='characters-list'),
 
-    path(r'dev/create-new-character/<int:user_id>/', charviews.create_character_start, name='create-character-start'),
+    path(r'dev/create-new-character/', charviews.create_character_start, name='create-character-start'),
     path(r'dev/create-character/init/<int:creation_id>/', charviews.create_character_init,
          name='create-character-init'),
     path(r'dev/create-character/hw-choice/<int:creation_id>/', charviews.create_character_hw_choice,
