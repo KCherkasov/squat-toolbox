@@ -307,7 +307,7 @@ def create_character_bg_choice(request, creation_id):
             return HttpResponseRedirect(reverse('create-character-stats', kwargs={'creation_id': cd.pk}))
         if 'char-bg-next' in request.POST:
             if form.is_valid():
-                cd.background = form.cleaned_data['background']
+                cd.background = form.cleaned_data['backgrounds']
                 cd.curr_stage = 'role_choice'
                 cd.last_mod_date = datetime.datetime.now()
                 cd.save()
@@ -330,7 +330,7 @@ def create_character_role_choice(request, creation_id):
         form = RoleChoiceForm(request.POST)
         if 'char-role-next' in request.POST:
             if form.is_valid():
-                cd.role = form.cleaned_data['role']
+                cd.role = form.cleaned_data['roles']
                 cd.last_mod_date = datetime.datetime.now()
                 cd.curr_stage = 'choices'
                 cd.save()
