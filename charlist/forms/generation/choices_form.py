@@ -104,6 +104,7 @@ class ChoicesForm(Form):
 
         bg_talents = background.get_talent_choices()
         bg_tals = []
+        i = 0
         for tal in bg_talents:
             talent = flyweights.talent_descriptions().get(tal.get('tag'))
             name = talent.get_name_en()
@@ -116,7 +117,8 @@ class ChoicesForm(Form):
                     if tal.get('subtag2') is not None:
                         name += ', ' + tal.get('subtag2')
                 name += ')'
-            bg_tals.append((tal, name))
+            bg_tals.append((i, name))
+            i += 1
         self.fields['background_talents'].choices = bg_tals
         if len(bg_tals) == 0:
             self.fields['background_talents'].required = False
