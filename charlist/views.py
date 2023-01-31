@@ -527,9 +527,9 @@ def create_character_divination(request, creation_id):
                 wounds = cd.wound_roll + homeworld.get_wounds()
 
                 apts = make_apts(cd, homeworld, role)
-                if len(cd.apt_1) > 0:
+                if (cd.apt_1 is not None) and (len(cd.apt_1) > 0):
                     apts.append(cd.apt_1)
-                    if len(cd.apt_2) > 0:
+                    if (cd.apt_2 is not None) and (len(cd.apt_2) > 0):
                         apts.append(cd.apt_2)
 
                 skills = dict()
