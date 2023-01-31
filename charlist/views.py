@@ -940,7 +940,7 @@ def create_character_divination(request, creation_id):
 
 
 def character_view(request, char_id):
-    character = charlist.models.Character.objects.filter(pk=char_id)
+    character = charlist.models.Character.objects.get(pk=char_id)
     character_model = CharacterModel.from_json(character.character)
     return render(request, "charsheet-mockup-interactive.html", {'version': VERSION, 'facade': flyweights,
                                                                  'character': character_model,
@@ -948,21 +948,21 @@ def character_view(request, char_id):
 
 
 def character_delete(request, char_id):
-    character = charlist.models.Character.objects.filter(pk=char_id)
+    character = charlist.models.Character.objects.get(pk=char_id)
     if (character is not None) and (character.owner == request.user):
         character.delete()
     return reverse('characters-list')
 
 
 def creation_data_delete(request, creation_id):
-    cd = charlist.models.CreationData.objects.filter(pk=creation_id)
+    cd = charlist.models.CreationData.objects.get(pk=creation_id)
     if (cd is not None) and (cd.owner == request.user):
         cd.delete()
     return reverse('characters-list')
 
 
 def resume_creation_edit(request, creation_id):
-    cd = charlist.models.CreationData.objects.filter(pk=creation_id)
+    cd = charlist.models.CreationData.objects.get(pk=creation_id)
     if (cd is not None) and (cd.owner == request.user):
         if cd.curr_stage == 'init':
             return create_character_init(request, creation_id)
