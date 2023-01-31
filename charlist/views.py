@@ -545,7 +545,9 @@ def create_character_choices(request, creation_id):
                 cd.save()
                 return HttpResponseRedirect(reverse('create-character-double-apts', kwargs={'creation_id': cd.pk}))
             else:
-                return HttpResponseRedirect(reverse('create-character-choice', kwargs={'creation_id': cd.pk}))
+                form = prepare_choices_form(form, cd)
+                return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                        'stage': CREATION_STAGES[5], 'form': form})
     else:
         form = ChoicesForm()
         form = prepare_choices_form(form, cd)
