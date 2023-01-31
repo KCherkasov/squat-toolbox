@@ -555,7 +555,7 @@ def create_character_divination(request, creation_id):
 
                     else:
                         if flyweights.skill_descriptions().get(skill.get('tag')).is_specialist():
-                            if skill.get_tag('subtag') == 'SK_ANY':
+                            if skill.get('subtag') == 'SK_ANY':
                                 if any_count == 0:
                                     subtag = cd.spec_skill_subtag_1
                                     any_count += 1
