@@ -295,7 +295,7 @@ def create_character_stat_distribution(request, creation_id):
                 return HttpResponseRedirect(reverse('create-character-bg', kwargs={'creation_id': cd.pk}))
     else:
         form = StatDistributionForm()
-        return render(request, 'character_creation_form', {'version': VERSION, 'facade': flyweights,
+        return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                            'stage': CREATION_STAGES[2], 'form': form})
 
 
