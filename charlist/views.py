@@ -501,7 +501,7 @@ def prepare_choices_form(form, cd):
 
 
 def create_character_choices(request, creation_id):
-    cd = charlist.models.CreationData.objects.get(creation_id)
+    cd = charlist.models.CreationData.objects.get(pk=creation_id)
     if request.method == 'POST':
         if 'char-choices-prev' in request.POST:
             return HttpResponseRedirect(reverse('create-character-role', kwargs={'creation_id': cd.pk}))
@@ -613,7 +613,7 @@ def prepare_apts_form(form, doubled, apts):
 
 
 def create_character_double_apts(request, creation_id):
-    cd = charlist.models.CreationData.objects.get(creation_id)
+    cd = charlist.models.CreationData.objects.get(pk=creation_id)
     role = flyweights.roles().get(cd.role)
     homeworld = flyweights.homeworlds().get(cd.homeworld)
     doubled = count_doubles(cd, homeworld, role)
@@ -664,7 +664,7 @@ def prep_stats(cd: charlist.models.CreationData):
 
 
 def create_character_divination(request, creation_id):
-    cd = charlist.models.CreationData.objects.get(creation_id)
+    cd = charlist.models.CreationData.objects.get(pk=creation_id)
 
     background = flyweights.backgrounds().get(cd.background)
     homeworld = flyweights.homeworlds().get(cd.homeworld)
