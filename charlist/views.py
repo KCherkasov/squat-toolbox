@@ -562,7 +562,7 @@ def create_character_divination(request, creation_id):
                                 else:
                                     subtag = cd.spec_skill_subtag_2
                             else:
-                                subtag = skill.get_tag('subtag')
+                                subtag = skill.get('subtag')
                             skills[skill.get('tag')] = Skill(skill.get('tag'), {subtag: 1})
 
                 if cd.bg_skill_1 is not None:
