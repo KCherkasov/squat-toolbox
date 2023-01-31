@@ -623,7 +623,7 @@ def create_character_double_apts(request, creation_id):
     doubled = count_doubles(cd, homeworld, role)
     apts = make_apts(cd, homeworld, role)
     if doubled == 0:
-        return create_character_divination(request, creation_id)
+        return HttpResponseRedirect(reverse('create-character-divination', kwargs={'creation_id': cd.pk}))
 
     if request.method == 'POST':
         if 'char-apts-prev' in request.POST:
