@@ -969,20 +969,20 @@ def resume_creation_edit(request, creation_id):
     cd = charlist.models.CreationData.objects.get(pk=creation_id)
     if (cd is not None) and (cd.owner == request.user):
         if cd.curr_stage == 'init':
-            return create_character_init(request, creation_id)
+            return HttpResponseRedirect(reverse('create-character-init', kwargs={'creation_id': cd.pk}))
         if cd.curr_stage == 'hw_choice':
-            return create_character_hw_choice(request, creation_id)
+            return HttpResponseRedirect(reverse('create-character-hw', kwargs={'creation_id': cd.pk}))
         if cd.curr_stage == 'stat_distr':
-            return create_character_stat_distribution(request, creation_id)
+            return HttpResponseRedirect(reverse('create-character-stats', kwargs={'creation_id': cd.pk}))
         if cd.curr_stage == 'bg_choice':
-            return create_character_bg_choice(request, creation_id)
+            return HttpResponseRedirect(reverse('create-character-bg', kwargs={'creation_id': cd.pk}))
         if cd.curr_stage == 'role_choice':
-            return create_character_role_choice(request, creation_id)
+            return HttpResponseRedirect(reverse('create-character-role', kwargs={'creation_id': cd.pk}))
         if cd.curr_stage == 'choices':
-            return create_character_choices(request, creation_id)
+            return HttpResponseRedirect(reverse('create-character-choice', kwargs={'creation_id': cd.pk}))
         if cd.curr_stage == 'double_apts':
-            return create_character_double_apts(request, creation_id)
+            return HttpResponseRedirect(reverse('create-character-double-apts', kwargs={'creation_id': cd.pk}))
         if cd.curr_stage == 'divination':
-            return create_character_divination(request, creation_id)
+            return HttpResponseRedirect(reverse('create-character-divination', kwargs={'creation_id': cd.pk}))
     else:
         return reverse('characters-list')
