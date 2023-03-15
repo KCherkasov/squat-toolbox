@@ -423,13 +423,13 @@ class CharacterModel(object):
     def used_stats(self):
         return self.__used_stats
 
-    def cp_tests_passed(self):
+    def cp_tests(self):
         return self.__cp_tests
 
     def inc_cp_tests(self):
         self.__cp_tests += 1
 
-    def ip_tests_passed(self):
+    def ip_tests(self):
         return self.__ip_tests
 
     def inc_ip_tests(self):
