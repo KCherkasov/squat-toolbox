@@ -66,22 +66,6 @@ class CharacterModel(object):
         self.__cp_teste_passed = cp_tests_passed
         self.__ip_tests_passed = ip_tests_passed
 
-    def __init__(self, cid: int, squad_id: int, name: str,
-                 gender: str, height: int, weight: int, age: int,
-                 hw_id: str, bg_id: str, role_id: str, div_id: str,
-                 ea_id: List[str], wounds: List[int],
-                 fatigue: List[int], xp: List[int], fate: List[int],
-                 insanity: int, corruption: int, pr: int,
-                 apts: List[str], stats: Dict[str, Stat],
-                 skills: Dict[str, Skill], talents: Dict[str, Talent],
-                 traits: Dict[str, Trait], psy: List[str], equipment: List[str],
-                 disorders: List[str], malignancies: List[str],
-                 mutations: List[str]):
-        self.__init__(cid, squad_id, name, gender, height, weight, age, hw_id, bg_id, role_id, div_id, ea_id,
-                      wounds, fatigue, xp, fate, insanity, corruption, pr, apts, stats, skills, talents,
-                      traits, psy, equipment, disorders, malignancies, mutations, list(), list(),
-                      list(), 0, 0)
-
     def id(self):
         return self.__cid
 
