@@ -23,7 +23,7 @@ class MalignanceDescription(HintedDescription):
         hints = list()
         for model in model.hints:
             hints.append(Hint.from_model(model))
-        return cls(model.tag, model.name, model.description, hints, model.commands, model.roll_range)
+        return cls(model.tag, model.name, model.description, hints, model.commands, model.rolls_range)
 
     @classmethod
     def from_file(cls, fdata):
