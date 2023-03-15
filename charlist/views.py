@@ -757,7 +757,8 @@ def create_character_divination(request, creation_id):
                                                  cd.background, cd.role, div_tag, [],
                                                  [wounds, wounds], [0, fatigue], [xp_given, 0], [fate, fate], 0, 0,
                                                  0, apts, stats, skills, talents, traits, [],
-                                                 [], disorders, malignancies, mutations)
+                                                 [], disorders, malignancies, mutations, list(), list(), list(),
+                                                 0, 0)
                 character.character_data = character_model.toJSON()
                 character.creation_date = cd.last_mod_date
                 character.save()
