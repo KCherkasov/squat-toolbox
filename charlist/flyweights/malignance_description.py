@@ -21,8 +21,8 @@ class MalignanceDescription(HintedDescription):
     @classmethod
     def from_model(cls, model: MalignanceModel):
         hints = list()
-        for model in model.hints:
-            hints.append(Hint.from_model(model))
+        for hint_model in model.hints:
+            hints.append(Hint.from_model(hint_model))
         return cls(model.tag, model.name, model.description, hints, model.commands, model.rolls_range)
 
     @classmethod
