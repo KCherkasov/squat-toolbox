@@ -30,7 +30,7 @@ class CharacterModel(object):
                  traits: Dict[str, Trait], psy: List[str], equipment: List[str],
                  disorders: List[str], malignancies: List[str],
                  mutations: List[str], pending: List[Dict], completed: List[str],
-                 used_stats: List[str], cp_tests_passed: int, ip_tests_passed: int):
+                 used_stats: List[str], cp_tests: int, ip_tests: int):
         self.__cid = cid
         self.__squad_id = squad_id
         self.__name = name
@@ -63,8 +63,8 @@ class CharacterModel(object):
         self.__pending = pending
         self.__completed = completed
         self.__used_stats = used_stats
-        self.__cp_teste_passed = cp_tests_passed
-        self.__ip_tests_passed = ip_tests_passed
+        self.__cp_tests = cp_tests
+        self.__ip_tests = ip_tests
 
     def id(self):
         return self.__cid
@@ -424,16 +424,16 @@ class CharacterModel(object):
         return self.__used_stats
 
     def cp_tests_passed(self):
-        return self.__cp_teste_passed
+        return self.__cp_tests
 
     def inc_cp_tests(self):
-        self.__cp_teste_passed += 1
+        self.__cp_tests += 1
 
     def ip_tests_passed(self):
-        return self.__ip_tests_passed
+        return self.__ip_tests
 
     def inc_ip_tests(self):
-        self.__ip_tests_passed += 1
+        self.__ip_tests += 1
 
     # TODO - add psy powers!!!
 
