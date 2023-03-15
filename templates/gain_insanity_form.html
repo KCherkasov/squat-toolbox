@@ -1,0 +1,15 @@
+{% extends 'manual_cmd_form_base.html' %}
+
+{% block filters %}
+{% load filters %}
+{% endblock %}
+
+{% block form_title %}
+Ваш рассудок слабеет, безумие все ближе...
+{% endblock %}
+
+{% block form_controls %}
+<div class="col-sm-offset-2 col-sm-2">
+    <button type="submit" class="btn btn-danger" name="gain-insanity-confirm">Получить</button>
+</div>
+{% endblock %}

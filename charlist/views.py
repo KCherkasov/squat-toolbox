@@ -24,6 +24,21 @@ from charlist.forms.generation.homeworld_choice_form import HomeworldsChoiceForm
 from charlist.forms.generation.role_choice_form import RoleChoiceForm
 from charlist.forms.generation.stages import *
 from charlist.forms.generation.stat_distribution_form import StatDistributionForm
+from charlist.forms.player_todos.manual.decrease_stat_alt_form import DecreaseStatAltForm
+from charlist.forms.player_todos.manual.decrease_stat_roll_form import DecreaseStatRollForm
+from charlist.forms.player_todos.manual.gain_corruption_roll import GainCorruptionRollForm
+from charlist.forms.player_todos.manual.gain_disorder_ip_form import GainDisorderIPForm
+from charlist.forms.player_todos.manual.gain_insanity_roll_form import GainInsanityRollForm
+from charlist.forms.player_todos.manual.gain_malignancy_choice_form import GainMalignancyChoiceForm
+from charlist.forms.player_todos.manual.gain_mutation_choice_form import GainMutationChoiceForm
+from charlist.forms.player_todos.manual.gain_mutation_roll_form import GainMutationRollForm
+from charlist.forms.player_todos.manual.gain_malignancy_roll_form import GainMalignancyRollForm
+from charlist.forms.player_todos.manual.gain_stat_aptitude_form import GainStatAptitudeForm
+from charlist.forms.player_todos.manual.gain_talent_alt_form import GainTalentAltForm
+from charlist.forms.player_todos.manual.get_trauma_ip_form import GetTraumaIPForm
+from charlist.forms.player_todos.manual.increase_stat_alt_form import IncreaseStatAltForm
+from charlist.forms.player_todos.manual.increase_stat_roll_form import IncreaseStatRollForm
+from charlist.forms.player_todos.command_parser import CommandParser
 from charlist.character.character import CharacterModel
 from charlist.character.skill import Skill
 from charlist.character.stat import Stat
@@ -33,6 +48,7 @@ from charlist.constants.constants import *
 from charlist.flyweights.flyweights import *
 from charlist.forms.authorization.signin import SignInForm
 from charlist.forms.authorization.signup import UserCreationForm
+from charlist.dices import roll
 
 
 class TokenGenerator(PasswordResetTokenGenerator):
@@ -46,7 +62,7 @@ resources = ['aptitudes.json', 'stat_descriptions.json', 'skill_descriptions.jso
              'traits.json', 'homeworlds.json', 'backgrounds.json', 'roles.json', 'elite_advances.json',
              'divinations.json', 'psy.json']
 flyweights = Facade(resources)
-
+commands_parser = CommandParser(flyweights)
 
 def aptitudes_test(request):
     logger = logging.getLogger('charlist_logger')
@@ -715,13 +731,33 @@ def create_character_divination(request, creation_id):
                             else:
                                 traits[cmd.get('key')] = Trait(cmd.get('tag'), taken)
 
+                divination = flyweights.divinations().get(div_tag)
+                malignancies = list()
+                for cmd in divination.get_commands():
+                    command = cmd.get('tag')
+                    if command == 'GainRndMalign':
+                        dice = cmd.get('dice')
+                        roll_result = roll(dice)
+                        maligns = flyweights.malignancies()
+                        malign = None
+                        for key, mal in maligns.items():
+                            if (mal.get_rolls_range()[0] >= roll_result) and (mal.get_rolls_range()[1] <= roll_result):
+                                malignancies.append(key)
+                                malign = mal
+                                break
+                        if malign is not None:
+                            for cmd in malign.get_commands():
+                                pass  # TODO: form pending commands.
+                mutations = list()
+                disorders = list()
                 character = charlist.models.Character.objects.create(owner=request.user, character_data='')
                 character.save()
                 character_model = CharacterModel(character.id, -1, cd.name, cd.gender, cd.height,
                                                  cd.weight, cd.age, cd.homeworld,
                                                  cd.background, cd.role, div_tag, [],
                                                  [wounds, wounds], [0, fatigue], [xp_given, 0], [fate, fate], 0, 0,
-                                                 0, apts, stats, skills, talents, traits, [], [], [], [], [])
+                                                 0, apts, stats, skills, talents, traits, [],
+                                                 [], disorders, malignancies, mutations)
                 character.character_data = character_model.toJSON()
                 character.creation_date = cd.last_mod_date
                 character.save()
@@ -741,12 +777,52 @@ def create_character_divination(request, creation_id):
                                                                 'stage': CREATION_STAGES[7], 'form': form})
 
 
+def gain_insanity(request, character: CharacterModel, character_record: charlist.models.Character):
+    insanity_form = GainInsanityRollForm(request.POST)
+    if insanity_form.is_valid():
+        character.gain_insanity(insanity_form.cleaned_data['roll_value'])
+        character_record.character_data = character.toJSON()
+        character_record.save()
+        return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character_record.pk, }))
+
+
+def gain_corruption(request, character: CharacterModel, character_record: charlist.models.Character):
+    corruption_form = GainCorruptionRollForm(request.POST)
+    if corruption_form.is_valid():
+        character.gain_corruption(corruption_form.cleaned_data['roll_value'])
+        character_record.character_data = character.toJSON()
+        character_record.save()
+        return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character_record.pk, }))
+
+
 def character_view(request, char_id):
     character = charlist.models.Character.objects.get(pk=char_id)
     character_model = CharacterModel.from_json(character.character_data)
+    if request.method == 'POST':
+        if 'gain-insanity-confirm' in request.POST:
+            gain_insanity(request, character_model, character)
+        if 'gain-corruption-confirm' in request.POST:
+            gain_corruption(request, character_model, character)
+        # TODO: other commands parsing
+    insanity_form = None
+    corruption_form = None
+    if (request.user is not None) and (request.user == character.owner):
+        insanity_form = GainInsanityRollForm()
+        corruption_form = GainCorruptionRollForm()
+        commands_parser.process_character(character_model)
+        character.character_data = character_model
+        character.save()
+        reminders = list()
+        # TODO: controls (stats/skills/talents upgrading, XP gaining, etc.
+        if len(character_model.pending()) > 0:
+            for cmd in character_model.pending():
+                reminders.append(commands_parser.make_reminder(cmd, character_model))
     return render(request, "charsheet-mockup-interactive.html", {'version': VERSION, 'facade': flyweights,
+                                                                 'command_parser': commands_parser,
                                                                  'character': character_model,
-                                                                 'hookups': character_model.make_hookups(flyweights)})
+                                                                 'hookups': character_model.make_hookups(flyweights),
+                                                                 'insanity_form': insanity_form,
+                                                                 'corruption_form': corruption_form, })
 
 
 def character_delete(request, char_id):

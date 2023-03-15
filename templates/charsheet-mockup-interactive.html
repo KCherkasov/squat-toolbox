@@ -93,6 +93,33 @@ Character sheet interactive mockup
                             {% include 'char_apts_widget.html' %}
                         </div>
                     </div>
+                    {% if character.reminders|length > 0 %}
+                    <br>
+                    <div>
+                        {% for reminder in character.reminders %}
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#reminder-{{ forloop.counter }}-popup">
+                            {{ command_parser.titles|get_by_dict_key:reminder.tag }}
+                        </button>
+                        <div class="modal fade" id="reminder-{{ forloop.counter }}-popup" tabindex="-1" role="dialog"
+                             aria-labelledby="reminder-{{ forloop.counter }}-popup-label">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="reminder-{{ forloop.counter }}-popup-label">
+                                    {{ command_parser.titles|get_by_dict_key:reminder.tag }}
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                    &times;
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                {% with reminder.form as form %}
+                                    {% include command_parser.links|get_by_dict_key:reminder.tag %}
+                                {% endwith %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
                     <br>
                     {% include 'wounds_widget.html' %}
                     {% include 'fate_widget.html' %}

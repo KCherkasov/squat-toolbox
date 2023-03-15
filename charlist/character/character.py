@@ -29,7 +29,8 @@ class CharacterModel(object):
                  skills: Dict[str, Skill], talents: Dict[str, Talent],
                  traits: Dict[str, Trait], psy: List[str], equipment: List[str],
                  disorders: List[str], malignancies: List[str],
-                 mutations: List[str]):
+                 mutations: List[str], pending: List[Dict], completed: List[str],
+                 used_stats: List[str], cp_tests_passed: int, ip_tests_passed: int):
         self.__cid = cid
         self.__squad_id = squad_id
         self.__name = name
@@ -59,6 +60,27 @@ class CharacterModel(object):
         self.__disorders = disorders
         self.__malignancies = malignancies
         self.__mutations = mutations
+        self.__pending = pending
+        self.__completed = completed
+        self.__used_stats = used_stats
+        self.__cp_teste_passed = cp_tests_passed
+        self.__ip_tests_passed = ip_tests_passed
+
+    def __init__(self, cid: int, squad_id: int, name: str,
+                 gender: str, height: int, weight: int, age: int,
+                 hw_id: str, bg_id: str, role_id: str, div_id: str,
+                 ea_id: List[str], wounds: List[int],
+                 fatigue: List[int], xp: List[int], fate: List[int],
+                 insanity: int, corruption: int, pr: int,
+                 apts: List[str], stats: Dict[str, Stat],
+                 skills: Dict[str, Skill], talents: Dict[str, Talent],
+                 traits: Dict[str, Trait], psy: List[str], equipment: List[str],
+                 disorders: List[str], malignancies: List[str],
+                 mutations: List[str]):
+        self.__init__(cid, squad_id, name, gender, height, weight, age, hw_id, bg_id, role_id, div_id, ea_id,
+                      wounds, fatigue, xp, fate, insanity, corruption, pr, apts, stats, skills, talents,
+                      traits, psy, equipment, disorders, malignancies, mutations, list(), list(),
+                      list(), 0, 0)
 
     def id(self):
         return self.__cid
@@ -107,6 +129,13 @@ class CharacterModel(object):
 
     def ea_id(self):
         return self.__ea_id
+
+    def has_ea_id(self, ea_id: str):
+        return ea_id in self.__ea_id
+
+    def gain_ea_id(self, ea_id: str):
+        if not self.has_ea_id(ea_id):
+            self.__ea_id.append(ea_id)
 
     def wounds(self):
         return self.__wounds
@@ -211,6 +240,10 @@ class CharacterModel(object):
     def restore_fate(self):
         self.__fate[CURRENT_ID] = self.__fate[CAP_ID]
 
+    def gain_fate(self, amount: int):
+        if amount > 0:
+            self.__fate[CAP_ID] += amount
+
     def insanity(self):
         return self.__insanity
 
@@ -220,9 +253,16 @@ class CharacterModel(object):
     def insanity_residue(self):
         return self.__insanity % 10
 
+    # TODO: rework for the case when single gain changes bonus more than on 1
     def gain_insanity(self, amount: int):
         if amount > 0:
+            old_bonus = self.insanity_bonus()
             self.__insanity += amount
+            if (self.insanity_bonus() > self.ip_tests_passed()) and (self.insanity_bonus() > old_bonus):
+                if self.insanity_bonus() in [4, 6, 8]:
+                    self.__pending.append({"command": "GainDisorderIP"})
+                else:
+                    self.__pending.append({"command": "GainTraumaIP"})
 
     def remove_insanity(self, amount: int):
         if amount > 0:
@@ -239,9 +279,22 @@ class CharacterModel(object):
     def corruption_residue(self):
         return self.__corruption % 10
 
+    # TODO: rework for the case when single gain changes bonus more than on 1
     def gain_corruption(self, amount: int):
         if amount > 0:
+            old_bonus = self.corruption_bonus()
             self.__corruption += amount
+            if (self.corruption_bonus() > self.cp_tests_passed()) and (self.corruption_bonus() > old_bonus):
+                if self.corruption_bonus() % 3 == 0:
+                    self.__pending.append({"command": "GainMutationRollCP"})
+                else:
+                    self.__pending.append({"command": "GainMalignancyRollCP"})
+
+    def remove_corruption(self, amount: int):
+        if amount > 0:
+            self.__corruption -= amount
+            if self.__corruption < 0:
+                self.__corruption = 0
 
     def pr(self):
         return self.__pr
@@ -303,6 +356,12 @@ class CharacterModel(object):
         diff = self.__stats.get(stat).value() + self.__skills.get(sk_tag).get_adv_bonus_subtag(subskill)
         return diff
 
+    def has_skill(self, sk_tag: str, adv=1):
+        return (sk_tag in self.__skills.keys()) and (self.__skills.get(sk_tag).advances() >= adv)
+
+    def has_subskill(self, sk_tag: str, sk_subtag: str, adv=1):
+        return (sk_tag in self.__skills.keys()) and (self.__skills.get(sk_tag).get_subskill_advance(sk_subtag) >= adv)
+
     def talents(self):
         return self.__talents
 
@@ -324,6 +383,12 @@ class CharacterModel(object):
                     talent = Talent(tl_tag, {tl_subtag: 1})
                     self.__talents[tl_tag] = talent
 
+    def has_talent(self, tl_tag: str):
+        return tl_tag in self.__talents.keys()
+
+    def has_talent_subtag(self, tl_tag: str, tl_subtag: str):
+        return (tl_tag in self.__talents.keys()) and (self.__talents.get(tl_tag).taken_subtag(tl_subtag) > 0)
+
     def traits(self):
         return self.__traits
 
@@ -344,6 +409,12 @@ class CharacterModel(object):
                     trait = Trait(tr_tag, {tr_subtag: 1})
                     self.__traits[tr_tag] = trait
 
+    def has_trait(self, tr_tag: str):
+        return tr_tag in self.__traits.keys()
+
+    def has_trait_subtag(self, tr_tag: str, tr_subtag: str):
+        return (tr_tag in self.__traits.keys()) and (self.__traits.get(tr_tag).taken_subtag(tr_subtag))
+
     def psy_powers(self):
         return self.__psy
 
@@ -359,9 +430,29 @@ class CharacterModel(object):
     def mutations(self):
         return self.__mutations
 
+    def pending(self):
+        return self.__pending
+
+    def completed(self):
+        return self.__completed
+
+    def used_stats(self):
+        return self.__used_stats
+
+    def cp_tests_passed(self):
+        return self.__cp_teste_passed
+
+    def inc_cp_tests(self):
+        self.__cp_teste_passed += 1
+
+    def ip_tests_passed(self):
+        return self.__ip_tests_passed
+
+    def inc_ip_tests(self):
+        self.__ip_tests_passed += 1
+
     # TODO - add psy powers!!!
 
-    # TODO - add maligns and mutations
     def make_hookups(self, facade: Facade):
         hookups = dict()
         hw_name = dict()
@@ -390,21 +481,22 @@ class CharacterModel(object):
             for lang in ['ru', 'en']:
                 tmp_name[lang] = facade.trait_descriptions().get(tr_tag).get_name(lang)
             map_hints(hookups, facade.trait_descriptions().get(tr_tag).get_hints(), tmp_name, facade)
+        # TODO: think on disorders
         # for disorder in self.__disorders:
         #     tmp_name = dict()
         #     for lang in ['ru', 'en']:
         #         tmp_name[lang] = facade.disorders().get(disorder).get_name(lang)
         #     map_hints(hookups, facade.disorders().get(disorder).get_hints(), tmp_name, facade)
-        # for malign in self.__malignancies:
-        #     tmp_name = dict()
-        #     for lang in ['ru', 'en']:
-        #         tmp_name[lang] = facade.malignancies().get(malign).get_name(lang)
-        #     map_hints(hookups, facade.malignancies().get(malign).get_hints(), tmp_name, facade)
-        # for mutation in self.__mutations:
-        #     tmp_name = dict()
-        #     for lang in ['ru', 'en']:
-        #         tmp_name[lang] = facade.mutations().get(mutation).get_name(lang)
-        #     map_hints(hookups, facade.mutations().get(mutation).get_hints(), tmp_name, facade)
+        for malign in self.__malignancies:
+            tmp_name = dict()
+            for lang in ['ru', 'en']:
+                tmp_name[lang] = facade.malignancies().get(malign).get_name(lang)
+            map_hints(hookups, facade.malignancies().get(malign).get_hints(), tmp_name, facade)
+        for mutation in self.__mutations:
+            tmp_name = dict()
+            for lang in ['ru', 'en']:
+                tmp_name[lang] = facade.mutations().get(mutation).get_name(lang)
+            map_hints(hookups, facade.mutations().get(mutation).get_hints(), tmp_name, facade)
         return hookups
 
     @classmethod

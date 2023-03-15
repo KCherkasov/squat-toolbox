@@ -549,8 +549,7 @@
             "tag": "SK_PSY"
           },
           {
-            "command": "Gain",
-            "tag": "CP",
+            "command": "GainCorruption",
             "dice": 10,
             "bonus": 5
           }

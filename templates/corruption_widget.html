@@ -8,36 +8,99 @@
             <button class="btn btn-outline-dark btn-lg disabled fs-4">{{ character.corruption_bonus }}</button>
             <button class="btn btn-info btn-lg disabled fs-6">{{ character.corruption_residue }}</button>
         </div>
+        <button class="btn btn-danger" role="button" data-bs-toggle="modal"
+                data-bs-target="#gain-corruption-modal-{{ character.pk }}">
+            Получить
+        </button>
+        <div class="modal fade" id="gain-corruption-modal-{{ character.pk }}" tabindex="-1"
+             aria-labelledby="gain-corruption-modal-{{ character.pk }}-label">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body">
+                {% with corruption_form as form %}
+                    {% include 'gain_corruption_form.html' %}
+                {% endwith %}
+            </div>
+        </div>
     </div>
     <div>
-        <h5 class="collapse-toggler">
-            <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
-               href="#malignances-{{ lang }}" title="Подробнее" aria-expanded="false" aria-controls="malignances-{{ lang }}">
+        <div>
+            <h5>
                 <i>{% if lang == 'ru' %}Рудименты{% else %}Malignancies{% endif %}</i>
-            </a>
-        </h5>
-    </div>
-    <div class="collapse" id="malignances-{{ lang }}">
+            </h5>
+        </div>
+        {% for mal in character.malignancies %}
+        <div>
+            <h5>
+                <a class="text-dark text-decoration-none" role="button" data-bs-toggle="modal" href=""
+                    title="Подробнее" data-bs-target="#malignances-{{ lang }}-{{ forloop.counter }}">
+                        <i>{% facade|get_malignance:mal|get_malignance_name:lang %}</i>
+                </a>
+            </h5>
+        </div>
+        <div class="modal fade" id="malignances-{{ lang }}-{{ forloop.counter }}" tabindex="-1"
+             aria-labelledby="#malignances-{{ lang }}-{{ forloop.counter }}-label">
+            <div class="modal-dialog" role="document">
+                <div class="modal-header">
+                    <b id="malignances-{{ lang }}-{{ forloop.counter }}-label">
+                        {% facade|get_malignance:mal|get_malignance_name:lang %}
+                    </b>
+                    <button>
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        {% facade|get_malignance:mal|get_malignance_description:lang %}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
         <div class="card card-body">
-            <b class="card-title">Кожная болезнь:</b>
             <p class="card-text">
-                Персонаж покрывается фурункулами, струпьями, незаживающими ранами и другими отвратительными болячками по всему телу. Он получает -20 штраф ко всем проверкам Обаяния.
+                {% if lang == 'ru' %} Отсутствуют {% else %} Empty {% endif %}
             </p>
         </div>
+        {% endfor %}
     </div>
     <div>
-        <h5 class="collapse-toggler">
-            <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
-               href="#mutations-{{ lang }}" title="Подробнее" aria-expanded="false" aria-controls="mutations-{{ lang }}">
+        <div>
+            <h5>
                 <i>{% if lang == 'ru' %}Мутации{% else %}Mutations{% endif %}</i>
-            </a>
-        </h5>
-    </div>
-    <div class="collapse" id="mutations-{{ lang }}">
+            </h5>
+        </div>
+        {% for mut in character.mutations %}
+        <div>
+            <h5>
+                <a class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
+                   href="" title="Подробнее" data-bs-target="#mutations-{{ lang }}-{{ forloop.counter }}">
+                    <i>{% facade|get_mutation:mut|get_mutation_name:lang %}</i>
+                </a>
+            </h5>
+        </div>
+        <div class="modal fade" id="mutations-{{ lang }}-{{ forloop.counter }}" tabindex="-1"
+             aria-labelledby="mutations-{{ lang }}-{{ forloop.counter }}-label">
+            <div class="modal-dialog" role="document">
+                <div class="modal-header">
+                    <b id="mutations-{{ lang }}-{{ forloop.counter }}-label">
+                        {% facade|get_mutation:mut|get_mutation_name:lang %}
+                    </b>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        {% facade|get_mutation:mut|get_mutation_description:lang %}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
         <div class="card card-body">
             <p class="card-text">
-                Отсутствуют
+                {% if lang == 'ru' %} Отсутствуют {% else %} Empty {% endif %}
             </p>
         </div>
+        {% endfor %}
     </div>
 </div>

@@ -12,6 +12,8 @@ from charlist.flyweights.skill_description import SkillDescription
 from charlist.flyweights.stat_description import StatDescription
 from charlist.flyweights.talent_description import TalentDescription
 from charlist.flyweights.trait_description import TraitDescription
+from charlist.flyweights.malignance_description import MalignanceDescription
+from charlist.flyweights.mutation_description import MutationDescription
 
 STAT_SHORTS = {
     ST_WEAPON_SKILL: {"ru": "НР", "en": "WS"},
@@ -45,8 +47,10 @@ def to_map(lst):
 #  7 - roles
 #  8 - elite advances
 #  9 - divinations
-# 10 - psychic powers - TODO
-# 11 - combat actions - TODO
+# 10 - malignancies
+# 11 - mutations
+# 12 - psychic powers - TODO
+# 13 - combat actions - TODO
 
 class Facade:
     def __init__(self, resources_paths):
@@ -81,6 +85,12 @@ class Facade:
         divinations = DivinationDescription.from_file(
             json.load(open(prefix + resources_paths[9], 'r', encoding='utf-8')))
         self.__divinations = to_map(divinations)
+        malignancies = MalignanceDescription.from_file(
+            json.load(open(prefix + resources_paths[10], 'r', encoding='utf-8')))
+        self.__malignancies = to_map(malignancies)
+        mutations = MutationDescription.from_file(
+            json.load(open(prefix + resources_paths[11], 'r', encoding='utf-8')))
+        self.__mutations = to_map(mutations)
         self.__spec_skills_subtags = SUBTAG_SKILLS_MAP
         self.__st_adv_range = range(1, 6)
         self.__sk_adv_range = range(1, 5)
@@ -116,6 +126,12 @@ class Facade:
 
     def divinations(self):
         return self.__divinations
+
+    def malignancies(self):
+        return self.__malignancies
+
+    def mutations(self):
+        return self.__mutations
 
     def spec_skills_subtags(self):
         return self.__spec_skills_subtags

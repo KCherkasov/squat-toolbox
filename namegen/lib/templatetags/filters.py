@@ -18,6 +18,8 @@ from charlist.flyweights.skill_description import SkillDescription
 from charlist.flyweights.stat_description import StatDescription
 from charlist.flyweights.talent_description import TalentDescription
 from charlist.flyweights.trait_description import TraitDescription
+from charlist.flyweights.malignance_description import MalignanceDescription
+from charlist.flyweights.mutation_description import MutationDescription
 from charlist.forms.generation.stat_distribution_form import StatDistributionForm
 
 register = template.Library()
@@ -425,6 +427,36 @@ def get_div_commands(div: DivinationDescription):
 @register.filter
 def get_div_roll_range(div: DivinationDescription):
     return div.get_roll_range()
+
+
+@register.filter
+def get_malignance(facade: Facade, key: str):
+    return facade.malignancies().get(key)
+
+
+@register.filter
+def get_malignance_name(mal: MalignanceDescription, lang: str = 'ru'):
+    return mal.get_name(lang)
+
+
+@register.filter
+def get_malignance_description(mal: MalignanceDescription, lang: str = 'ru'):
+    return mal.get_description(lang)
+
+
+@register.filter
+def get_mutation(facade: Facade, key: str):
+    return facade.mutations().get(key)
+
+
+@register.filter
+def get_mutation_name(mut: MutationDescription, lang: str = 'ru'):
+    return mut.get_name(lang)
+
+
+@register.filter
+def get_mutation_description(mut: MutationDescription, lang: str = 'ru'):
+    return mut.get_description(lang)
 
 
 @register.filter

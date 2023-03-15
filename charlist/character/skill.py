@@ -28,11 +28,11 @@ class Skill(object):
         if self.is_specialist() and (subtag in self.__advances.keys()):
             return self.__advances.get(subtag)
         else:
-            return 0
+            return -1
 
     def get_adv_bonus(self):
         if self.is_specialist():
-            return None
+            return -1
         if self.__advances > 0:
             return self.__advances * SKILL_POINTS_PER_UPG - 10
         else:

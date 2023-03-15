@@ -134,24 +134,16 @@
       "hints": [],
       "commands": [
         {
-          "command": "IncreaseStat",
-          "tag": "ST_AG",
-          "amount": 3,
-          "alt": {
-            "command": "IncreaseStat",
-            "tag": "ST_INT",
-            "amount": 3
-          }
+          "command": "IncreaseStatAlt",
+          "tag1": "ST_AG",
+          "tag2": "ST_INT",
+          "amount": 3
         },
         {
-          "command": "DecreaseStat",
-          "tag": "ST_WS",
-          "amount": 3,
-          "alt": {
-            "command": "DecreaseStat",
-            "tag": "ST_BS",
-            "amount": 3
-          }
+          "command": "DecreaseStatAlt",
+          "tag1": "ST_WS",
+          "tag2": "ST_BS",
+          "amount": 3
         }
       ],
       "roll_range": [18, 21]
@@ -251,24 +243,16 @@
       "hints": [],
       "commands": [
         {
-          "command": "IncreaseStat",
-          "tag": "ST_FEL",
-          "amount": 3,
-          "alt": {
-            "command":"IncreaseStat",
-            "tag": "ST_STR",
-            "amount": 3
-          }
+          "command": "IncreaseStatAlt",
+          "tag1": "ST_FEL",
+          "tag2": "ST_STR",
+          "amount": 3
         },
         {
-          "command": "DecreaseStat",
-          "tag": "ST_WP",
-          "amount": 3,
-          "alt": {
-            "command": "DecreaseStat",
-            "tag": "ST_T",
-            "amount": 3
-          }
+          "command": "DecreaseStatAlt",
+          "tag1": "ST_WP",
+          "tag2": "ST_T",
+          "amount": 3
         }
       ],
       "roll_range": [34, 38]
@@ -309,24 +293,16 @@
       "hints": [],
       "commands": [
         {
-          "command": "IncreaseStat",
-          "tag": "ST_T",
-          "amount": 3,
-          "alt": {
-            "command": "IncreaseStat",
-            "tag": "ST_WP",
-            "amount": 3
-          }
+          "command": "IncreaseStatAlt",
+          "tag1": "ST_T",
+          "tag2": "ST_WP",
+          "amount": 3
         },
         {
-          "command": "DecreaseStat",
-          "tag": "ST_FEL",
-          "amount": 3,
-          "alt": {
-            "command": "DecreaseStat",
-            "tag": "ST_STR",
-            "amount": 3
-          }
+          "command": "DecreaseStatAlt",
+          "tag1": "ST_FEL",
+          "tag2": "ST_STR",
+          "amount": 3
         }
       ],
       "roll_range": [44, 49]
@@ -367,24 +343,16 @@
       "hints": [],
       "commands": [
         {
-          "command": "IncreaseStat",
-          "tag": "ST_WS",
-          "amount": 3,
-          "alt": {
-            "command": "IncreaseStat",
-            "tag": "ST_BS",
-            "amount": 3
-          }
+          "command": "IncreaseStatAlt",
+          "tag1": "ST_WS",
+          "tag2": "ST_BS",
+          "amount": 3
         },
         {
-          "command": "DecreaseStat",
-          "tag": "ST_AG",
-          "amount": 3,
-          "alt": {
-            "command": "DecreaseStat",
-            "tag": "ST_INT",
-            "amount": 3
-          }
+          "command": "DecreaseStatAlt",
+          "tag1": "ST_AG",
+          "tag2": "ST_INT",
+          "amount": 3
         }
       ],
       "roll_range": [55, 59]
@@ -454,14 +422,14 @@
         "en": "A suspicious mind is a healthy mind"
       },
       "description": {
-        "ru": "Увеличьте Восприятие персонажа на 2. Кроме того, он может перебрасывать проверки Бдительности когда Ошеломлён.",
+        "ru": "Увеличьте Восприятие персонажа на 2. Кроме того, он может перебрасывать проверки Бдительности, чтобы избежать Ошеломлёния.",
         "en": "Increase this character’s Perception characteristic by 2. Additionally, he may re-roll Awareness tests to avoid being Surprised."
       },
       "hints": [
         {
           "tag": "D_SMHM_H1",
           "description": {
-            "ru": "",
+            "ru": "Персонаж может перебрасывать тесты Бдительности, чтобы избежать Ошеломления",
             "en": "The character may re-roll Awareness tests to avoid being Surprised."
           },
           "targets": ["ST_PER", "SK_AWR"]

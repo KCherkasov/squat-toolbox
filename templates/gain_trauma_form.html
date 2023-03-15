@@ -1,0 +1,18 @@
+{% extends 'manual_cmd_form_base.html' %}
+
+{% block filters %}
+{% load filters %}
+{% endblock %}
+
+{% block form_title %}
+Чей-то рассудок не выдерживает... Вы на грани психической травмы
+{% endblock %}
+
+{% block form_controls %}
+<div class="col-sm-offset-2 col-sm-2">
+    <button type="submit" class="btn btn-danger" name="gain-trauma-confirm">Получить</button>
+</div>
+<div class="col-sm-offset-2 col-sm-2">
+    <button type="submit" class="btn btn-success" name="gain-trauma-abort">Ваша воля держится... пока что</button>
+</div>
+{% endblock %}

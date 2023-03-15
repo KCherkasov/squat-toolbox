@@ -1,25 +1,40 @@
 {% load filters %}
 <div class="charlist-inline">
     <div>
-        <h5 class="collapse-toggler">
+        <h5>
             {% if lang == 'ru' %}Предыстория{% else %}Background{% endif %}:&nbsp;
-            <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
-               href="#backgroundInfo-{{ lang }}" title="Подробнее" aria-expanded="false" aria-controls="backgroundInfo-{{ lang }}">
+            <a class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
+               href="" data-target="#backgroundInfo-{{ lang }}" title="Подробнее">
                 <i>{{ facade|get_background_description:character.bg_id|get_bg_name:lang }}</i>
             </a>
         </h5>
     </div>
 </div>
-<div class="collapse" id="backgroundInfo-{{ lang }}">
-    <div class="card card-body">
-        <b class="card-title">{{ facade|get_background_description:character.bg_id|get_bg_name:lang }}</b>
-        <hr>
-        <p class="card-text">{{ facade|get_background_description:character.bg_id|get_bg_description:lang }}</p>
-        <br>
-        <b class="card-title">{% if lang == 'ru' %}Бонус предыстории{% else %}Background bonus{% endif %}:</b>
-        <p class="card-text">
-            <em>{{ facade|get_background_description:character.bg_id|get_bg_bonus|get_bonus_name:lang }}</em>
-            {{ facade|get_background_description:character.bg_id|get_bg_bonus|get_bonus_description:lang }}
-        </p>
+<div class="modal fade" id="backgroundInfo-{{ lang }}" tabindex="-1" role="dialog" aria-labelledby="backgroundInfo-{{ lang }}-label">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <b class="card-title" id="backgroundInfo-{{ lang }}-label">
+                    {{ facade|get_background_description:character.bg_id|get_bg_name:lang }}
+                </b>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <hr>
+            <div class="modal-body">
+                <p class="card-text">{{ facade|get_background_description:character.bg_id|get_bg_description:lang }}</p>
+                <br>
+                <b class="card-title">
+                    {% if lang == 'ru' %}Бонус предыстории{% else %}Background bonus{% endif %}:
+                </b>
+                <p class="card-text">
+                    <em>
+                        {{ facade|get_background_description:character.bg_id|get_bg_bonus|get_bonus_name:lang }}
+                    </em>
+                    {{ facade|get_background_description:character.bg_id|get_bg_bonus|get_bonus_description:lang }}
+                </p>
+            </div>
+        </div>
     </div>
 </div>

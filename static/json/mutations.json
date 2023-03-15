@@ -160,14 +160,14 @@
         "en": "Razor fangs"
       },
       "description": {
-        "ru": "Зубы этого персонажа удлиняются, превращаясь.",
+        "ru": "Зубы этого персонажа удлиняются, превращаясь в острые клыки.",
         "en": "This character’s teeth grow long, turning into tearing fangs."
       },
       "hints": [
         {
           "tag": "MT_RZFN_H1",
           "description": {
-            "ru": "",
+            "ru": "Персонаж может проводить безоружную атаку с уроном 1d5+$CPB Р и бронебойностью 2",
             "en": "This character gains an unarmed attack that inflicts 1d5+$CPB Rending damage, pen 2."
           },
           "targets": ["ST_WS"]
@@ -185,11 +185,11 @@
     {
       "tag": "MT_EXLG",
       "name": {
-        "ru": "",
+        "ru": "Дополнительные ноги",
         "en": "Excessive legs"
       },
       "description": {
-        "ru": "",
+        "ru": "У персонажа отрастают дополнительные ноги, превращая его тело в кентавроподобное.",
         "en": "This character develops extra legs that support his form, suspending his upper torso above a centauroid lower body."
       },
       "hints": [],
@@ -210,7 +210,7 @@
         "en": "Wings"
       },
       "description": {
-        "ru": "",
+        "ru": "Массивные кожистые или оперенные крылья вырываются из хребта персонажа.",
         "en": "Massive feathered or leathery wings erupt from this character’s spine."
       },
       "hints": [],
@@ -231,14 +231,14 @@
         "en": "Serpentine tail"
       },
       "description": {
-        "ru": "",
+        "ru": "Ноги персонажа усыхают, в то время как его хребет удлинняется, превращаясь в змеиный хвост, на котором располагается тело персонажа.",
         "en": "This character’s legs wither while his spine elongates into a serpentine tail that supports his body."
       },
       "hints": [
         {
           "tag": "MT_SPTL_H1",
           "description": {
-            "ru": "",
+            "ru": "Персонаж может проводить безоружную атаку с уроном 1d10 У и бронебойностью 0",
             "en": "The character gains an unarmed attack that can strike for 1d10 Impact damage, Pen 0."
           },
           "targets": ["ST_WS"]
@@ -259,14 +259,14 @@
         "en": "Searing blood"
       },
       "description": {
-        "ru": "",
+        "ru": "По венам персонажа вместо крови теперь течет едкая кислота, однако, каким-то образом она не прожигает его плоть.",
         "en": "This character’s veins are filled with searing acids in place of blood, though somehow the corrosive effects do not burn his own flesh."
       },
       "hints": [
         {
           "tag": "MT_SRBL_H1",
           "description": {
-            "ru": "",
+            "ru": "Всякий раз, когда персонаж страдает от Кровопотери, из ран извергается едкий ихор, причиняя 1d5+$CPB (бронебойность 0) всем в радиусе 1d5 метров от персонажа.",
             "en": "Whenever he suffers Blood Loss, the foul liquid erupts and inflicts 1d5+$CPB Energy damage, Pen 0, to each other character within 1d5 metres."
           },
           "targets": ["ST_T"]
@@ -278,11 +278,11 @@
     {
       "tag": "MT_WTCS",
       "name": {
-        "ru": "",
+        "ru": "Ведьмин знак",
         "en": "Witch-curse"
       },
       "description": {
-        "ru": "",
+        "ru": "Небольшой стигмат в форме зловещей руны появляется на коже персонажа, помечая его как тронутого Хаосом.",
         "en": "A small stigma in the shape of a maddening rune appears on this character’s body, marking him as touched by Chaos."
       },
       "hints": [],
@@ -291,7 +291,7 @@
           "command": "GainTrait",
           "tag": "TR_PSY",
           "alt": {
-            "command": "GainPR",
+            "command": "IncreasePR",
             "amount": 1
           }
         }
@@ -305,14 +305,14 @@
         "en": "Bone-blades"
       },
       "description": {
-        "ru": "",
+        "ru": "Из костей персонажа образуются длинные, перекрученные шипы, выдвигающиеся из его плоти по его желанию",
         "en": "This character’s bones grow long, twisted spurs that sprout painfully from his flesh on his command."
       },
       "hints": [
         {
           "tag": "MT_BNBL_H1",
           "description": {
-            "ru": "",
+            "ru": "Персонаж может проводить безоружную атаку с уроном 1d10+$CPB Р и бронебойностью 0.",
             "en": "This character gains an unarmed attack that inflicts 1d10+$CPB Rending damage, Pen 0."
           },
           "targets": ["ST_WS"]
@@ -320,7 +320,7 @@
         {
           "tag": "MT_BNBL_H2",
           "description": {
-            "ru": "",
+            "ru": "Всякий раз, когда персонаж атакует костяными клинками, он обязан пройти проверку Выносливости +0, или получить Кровопотерю.",
             "en": "Whenever the makes an attack with his bone blades, he has to pass a +0 Toughness test or suffer Blood Loss."
           },
           "targets": ["ST_T"]
@@ -336,14 +336,14 @@
         "en": "Cannibalistic urge"
       },
       "description": {
-        "ru": "",
+        "ru": "Кровь и потроха становятся для персонажа вином и хлебом, обычная пища более не в силах утолить голод его души.",
         "en": "Blood and marrow become as wine and bread to this character, and normal food no longer sates the hunger of his soul."
       },
       "hints": [
         {
           "tag": "MT_CNBU_H1",
           "description": {
-            "ru": "",
+            "ru": "Один раз за сессию персонаж может исцелить себе 1d5 урона, употребив в пищу человеческую плоть, получая за это 1 Очко Порчи.",
             "en": "Once per game session, the character can remove 1d5 damage by consuming human flesh. Each time he does so, he gains 1 Corruption point."
           },
           "targets": ["CP", "ST_T"]
@@ -359,14 +359,14 @@
         "en": "Corrupted flesh"
       },
       "description": {
-        "ru": "",
+        "ru": "Вместо крови из ран и порезов на теле персонажа исторгаются ужасающие насекомые, черви или рои неведомых порхающих существ.",
         "en": "Instead of blood, when this character’s flesh is torn asunder, horrific insects, worms, or flitting creatures spill forth."
       },
       "hints": [
         {
           "tag": "MT_CPFL_H1",
           "description": {
-            "ru": "",
+            "ru": "Всякий раз, когда персонаж получает урон, он приобретает черту Страх(1) на 1d5 раундов.",
             "en": "Whenever he suffers damage, this character gains the Fear (1) trait for 1d5 rounds."
           },
           "targets": ["ST_T"]
@@ -378,18 +378,18 @@
     {
       "tag": "MT_IWND",
       "name": {
-        "ru": "",
+        "ru": "Оно не умрет!",
         "en": "It will not die!"
       },
       "description": {
-        "ru": "",
+        "ru": "Этого персонажа коснулись силы Варпа. Судьба преломляется, сохраняя его в живых, насколько ужасные раны он бы не получил, словно по воле некой темной сущности по ту сторону завесы реальности.",
         "en": "This character is touched by the power of the Warp, and fortune twists to keep him alive regardless of the terrible wounds he suffers, as if it is the will of some dark being that resides beyond the veil of reality."
       },
       "hints": [
         {
           "tag": "MT_IWND_H1",
           "description": {
-            "ru": "",
+            "ru": "Персонаж более не может сжигать Очки Судьбы, чтобы пережить смертельные ранения. Всякий раз, когда персонаж должен был бы умереть, он выживает, пройдя по самой грани, как если бы сжег Очко Судьбы, получая 1d10+5 Очков Порчи.",
             "en": "The character can no longer burn a Fate point to survive lethal injuries. Whenever this character would die, he instead survives by the narrowest margin as if he had burned a Fate point and gains 1d10+5 Corruption points."
           },
           "targets": ["FP", "CP"]
@@ -401,18 +401,18 @@
     {
       "tag": "MT_WPGZ",
       "name": {
-        "ru": "",
+        "ru": "Варп-взор",
         "en": "Warp gaze"
       },
       "description": {
-        "ru": "",
+        "ru": "Все, на что падает взор персонажа, горит варп-пламененм, а все, кто видят его глаза, отчаиваются.",
         "en": "Whatever this character looks upon burns with the fire of the Warp, and all who see his eyes despair."
       },
       "hints": [
         {
           "tag": "MT_WPGZ_H1",
           "description": {
-            "ru": "",
+            "ru": "Персонаж может провести стрелковую атаку с дальностью 20 м, уронов 1d10+$CPB Э, и свойством Распыляющее. За каждое применение этой атаки персонаж получает 1d5 Очков Порчи. Персонажи, попавшие под действие этой атаки, должны пройти проверку на Страх(1) с модификатором +0.",
             "en": "This character gains a 20m ranged attack that strikes with 1d10+$CPB Energy damage and the Spray quality. Each time he uses this attack, he gains 1d5 Corruption points. Characters struck with this attack must make a +0 Fear (1) test."
           },
           "targets": ["CP"]
@@ -424,18 +424,18 @@
     {
       "tag": "MT_WPRG",
       "name": {
-        "ru": "",
+        "ru": "Варп-регенерация",
         "en": "Warp regeneration"
       },
       "description": {
-        "ru": "",
+        "ru": "Порча пронизывает плоть персонажа, сшивая его тело воедино, независимо от желания самого персонажа.",
         "en": "Corruption seethes through this character’s flesh, sewing his body back together time and time again whether he wills it or not."
       },
       "hints": [
         {
           "tag": "MT_WPRG_H1",
           "description": {
-            "ru": "",
+            "ru": "Всякий раз, когда персонаж получает урон, он должен пройти проверку Выносливости +0. Если он преуспеет, он получает черту Регенерация($CPB) на 1 раунд и получает 1d5 Очков Порчи.",
             "en": "Whenever this character suffers damage, he makes a +0 Toughness test. If he succeeds, he gains the Regeneration ($CPB) trait for 1 round and gains 1d5 Corruption points."
           },
           "targets": ["CP", "ST_T"]
@@ -447,18 +447,18 @@
     {
       "tag": "MT_TWMM",
       "name": {
-        "ru": "",
+        "ru": "Проявление Варпа",
         "en": "The Warp made manifest"
       },
       "description": {
-        "ru": "",
+        "ru": "Персонаж становится демоноподобной сущностью, способной по желанию перекраивать саму ткань реальности.",
         "en": "This character becomes a Daemon-like creature, capable of reshaping reality itself at his whim."
       },
       "hints": [
         {
           "tag": "MT_TWMM_H1",
           "description": {
-            "ru": "",
+            "ru": "Персонаж может использовать свою Силу Воли вместо любой другой характеристики для прохождения проверок.",
             "en": "The character can use his Willpower characteristic in place of any other characteristic for any test he is called upon to take."
           },
           "targets": ["ST_WP"]

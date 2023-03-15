@@ -1,0 +1,104 @@
+from abc import ABC, abstractmethod
+
+from charlist.character.character import CharacterModel
+from charlist.flyweights.flyweights import Facade
+
+
+class BaseCommand(ABC):
+    def __init__(self, tag: str, facade: Facade):
+        super(BaseCommand, self).__init__()
+        self.__tag = tag
+        self.__facade = facade
+
+    def get_tag(self):
+        return self.__tag
+
+    def get_facade(self):
+        return self.__facade
+
+    def has_alt(self, data):
+        if 'alt' in data.keys():
+            return True
+        return False
+
+    def is_conditional(self, data):
+        if 'condition' in data.keys():
+            return True
+        return False
+
+    def is_skill_condition(self, data):
+        if self.is_conditional(data):
+            if data.get('condition').get('tag')[:2] == 'SK':
+                return True
+        return False
+
+    def is_talent_condition(self, data):
+        if self.is_conditional(data):
+            if data.get('condition').get('tag')[:2] == 'TL':
+                return True
+        return False
+
+    def is_trait_condition(self, data):
+        if self.is_conditional(data):
+            if data.get('condition').get('tag')[:2] == 'TR':
+                return True
+        return False
+
+    def is_background_condition(self, data):
+        if self.is_conditional(data):
+            if data.get('condition').get('tag')[:2] == 'BG':
+                return True
+        return False
+
+    def condition_met(self, character: CharacterModel, data):
+        result = None
+        if self.is_conditional(data):
+            if self.is_background_condition(data):
+                result = character.bg_id() == data.get('condition').get('tag')
+            if self.is_talent_condition(data):
+                if self.get_facade().talent_descriptions().get(data.get('condition').get('tag')).is_specialist():
+                    if 'subtag' in data.get('condition').keys():
+                        result = character.has_talent_subtag(data.get('condition').get('tag'),
+                                                             data.get('condition').get('subtag'))
+                    else:
+                        return False
+                else:
+                    result = character.has_talent(data.get('condition').get('tag'))
+            if self.is_skill_condition(data):
+                if self.get_facade().skill_descriptions().get(data.get('command').get('tag')).is_specialist():
+                    if 'subtag' in data.get('command').keys():
+                        if data.get('command').get('subtag') == 'SK_ANY':
+                            result = data.get('command').get('tag') in character.skills().keys()
+                        else:
+                            result = character.has_subskill(data.get('command').get('tag'),
+                                                            data.get('command').get('subtag'),
+                                                            adv=data.get('command').get('value'))
+                    else:
+                        return False
+                else:
+                    result = character.has_skill(data.get('command').get('tag'), adv=data.get('command').get('value'))
+                return result
+            if self.is_trait_condition(data):
+                if self.get_facade().trait_descriptions().get(data.get('command').get('tag')).is_specialist():
+                    if 'subtag' in data.get('command').keys():
+                        return character.has_trait_subtag(data.get('command').get('tag'),
+                                                          data.get('command').get('subtag'))
+                    else:
+                        return False
+                else:
+                    result = character.has_trait(data.get('command').get('tag'))
+            if data.get('value') > 0:
+                return result
+            return not result
+        return False
+
+    def execute(self, character: CharacterModel, data=None):
+        return self.do_logic(character, data)
+
+    @abstractmethod
+    def do_logic(self, character: CharacterModel, data=None):
+        pass
+
+    @abstractmethod
+    def is_automatic(self):
+        return False

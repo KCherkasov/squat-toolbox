@@ -1,27 +1,36 @@
 {% load filters %}
 <div class="charlist-inline">
     <div>
-        <h5 class="collapse-toggler">
+        <h5>
             {% if lang == 'ru' %}Родной мир{% else %}Homeworld{% endif %}:&nbsp;
-            <a class="text-dark text-decoration-none" data-bs-toggle="collapse" href="#worldInfo-{{ lang }}"
-               data-bs-auto-close="true" role="button" aria-expanded="false" aria-controls="worldInfo-{{ lang }}">
+            <a class="text-dark text-decoration-none" data-bs-toggle="collapse" href="" role="button"
+               data-bs-target="#worldInfo-{{ lang }}" title="Подробнее">
                 <i>{{ facade|get_homeworld_description:character.hw_id|get_hw_name:lang }}</i>
             </a>
         </h5>
     </div>
 </div>
-<div class="collapse" id="worldInfo-{{ lang }}">
-    <div class="card card-body">
-        <b class="card-title">{{ facade|get_homeworld_description:character.hw_id|get_hw_name:lang }}</b>
+<div class="modal fade" id="worldInfo-{{ lang }}" tabindex="-1" aria-labelledby="#worldInfo-{{ lang }}-label">
+    <div class="modal-dialog" role="document">
+        <div class="modal-header">
+            <b>
+                {{ facade|get_homeworld_description:character.hw_id|get_hw_name:lang }}
+            </b>
+            <button>
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
         <hr>
-        <p class="card-text">{{ facade|get_homeworld_description:character.hw_id|get_hw_description:lang }}</p>
-        <br>
-        <b class="card-title">{% if lang == 'ru' %}Бонус родного мира{% else %}Homeworld bonus{% endif %}:</b>
-        <p class="card-text">
-            <em>
-                {{ facade|get_homeworld_description:character.hw_id|get_hw_bonus|get_bonus_name:lang }}
-            </em>
-            {{ facade|get_homeworld_description:character.hw_id|get_hw_bonus|get_bonus_description:lang }}
-        </p>
+        <div class="modal-body">
+            <p>{{ facade|get_homeworld_description:character.hw_id|get_hw_description:lang }}</p>
+            <br>
+            <b>{% if lang == 'ru' %}Бонус родного мира{% else %}Homeworld bonus{% endif %}:</b>
+            <p>
+                <em>
+                    {{ facade|get_homeworld_description:character.hw_id|get_hw_bonus|get_bonus_name:lang }}
+                </em>
+                {{ facade|get_homeworld_description:character.hw_id|get_hw_bonus|get_bonus_description:lang }}
+            </p>
+        </div>
     </div>
 </div>

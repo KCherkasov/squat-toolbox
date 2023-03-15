@@ -23,6 +23,21 @@
             <button class="btn btn-outline-dark btn-lg disabled fs-4">{{ character.insanity_bonus }}</button>
             <button class="btn btn-info btn-lg disabled fs-6">{{ character.insanity_residue }}</button>
         </div>
+        <button class="btn btn-danger" role="button" data-bs-toggle="modal"
+                data-bs-target="#gain-insanity-modal-{{ character.pk }}">
+            Получить
+        </button>
+        <div class="modal fade" tabindex="-1" id="gain-insanity-modal-{{ character.pk }}"
+             aria-labelledby="gain-insanity-modal-{{ character.pk }}-label">
+            <div class="modal-header" id="gain-insanity-modal-{{ character.pk }}-label">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body">
+                {% with insanity_form as form %}
+                    {% include 'gain_insanity_form.html' %}
+                {% endwith %}
+            </div>
+        </div>
     </div>
     <div>
         <h5 class="collapse-toggler">
@@ -35,6 +50,8 @@
     <div class="collapse" id="mental-disorders-{{ lang }}">
         {% for disorder in character.disorders %}
             {{ disorder }}
+        {% empty %}
+            {% if lang == 'ru' %}Отсутствуют{% else %}Empty{% endif %}
         {% endfor %}
     </div>
 </div>

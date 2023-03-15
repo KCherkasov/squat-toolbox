@@ -9,12 +9,8 @@ class Talent(object):
         self.__tag = tag
         self.__taken = taken
 
-    def is_specialist(self, facade: Facade):
-        talents = facade.talent_descriptions()
-        if talents is None or self.__tag not in talents.keys():
-            return None
-        else:
-            return talents.get(self.__tag).is_specialist()
+    def is_specialist(self):
+        return isinstance(self.__taken, dict)
 
     def is_stackable(self, facade: Facade):
         talents = facade.talent_descriptions()
@@ -29,21 +25,21 @@ class Talent(object):
     def taken(self):
         return self.__taken
 
-    def taken_subtag(self, facade: Facade, subtag: str):
-        if self.is_specialist(facade):
+    def taken_subtag(self, subtag: str):
+        if self.is_specialist():
             if subtag in self.__taken.keys():
                 return self.__taken.get(subtag)
             else:
                 return False
         else:
-            return None
+            return False
 
     def take(self, facade: Facade):
-        if not self.is_specialist(facade) and self.is_stackable(facade):
+        if not self.is_specialist() and self.is_stackable(facade):
             self.__taken += 1
 
     def take_subtag(self, facade: Facade, subtag: str):
-        if self.is_specialist(facade):
+        if self.is_specialist():
             if subtag in self.__taken.keys():
                 if self.is_stackable(facade):
                     self.__taken[subtag] += 1
