@@ -242,7 +242,7 @@ class CharacterModel(object):
         if amount > 0:
             old_bonus = self.insanity_bonus()
             self.__insanity += amount
-            if (self.insanity_bonus() > self.ip_tests_passed()) and (self.insanity_bonus() > old_bonus):
+            if (self.insanity_bonus() > self.ip_tests()) and (self.insanity_bonus() > old_bonus):
                 if self.insanity_bonus() in [4, 6, 8]:
                     self.__pending.append({"command": "GainDisorderIP"})
                 else:
@@ -268,7 +268,7 @@ class CharacterModel(object):
         if amount > 0:
             old_bonus = self.corruption_bonus()
             self.__corruption += amount
-            if (self.corruption_bonus() > self.cp_tests_passed()) and (self.corruption_bonus() > old_bonus):
+            if (self.corruption_bonus() > self.cp_tests()) and (self.corruption_bonus() > old_bonus):
                 if self.corruption_bonus() % 3 == 0:
                     self.__pending.append({"command": "GainMutationRollCP"})
                 else:
