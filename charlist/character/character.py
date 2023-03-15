@@ -63,7 +63,7 @@ class CharacterModel(object):
         self.__pending = pending
         self.__completed = completed
         self.__used_stats = used_stats
-        self.__cp_teste_passed = cp_tests
+        self.__cp_tests = cp_tests
         self.__ip_tests = ip_tests
 
     def id(self):
@@ -268,7 +268,7 @@ class CharacterModel(object):
         if amount > 0:
             old_bonus = self.corruption_bonus()
             self.__corruption += amount
-            if (self.corruption_bonus() > self.cp_teste_passed()) and (self.corruption_bonus() > old_bonus):
+            if (self.corruption_bonus() > self.cp_tests()) and (self.corruption_bonus() > old_bonus):
                 if self.corruption_bonus() % 3 == 0:
                     self.__pending.append({"command": "GainMutationRollCP"})
                 else:
@@ -423,11 +423,11 @@ class CharacterModel(object):
     def used_stats(self):
         return self.__used_stats
 
-    def cp_teste_passed(self):
-        return self.__cp_teste_passed
+    def cp_tests(self):
+        return self.__cp_tests
 
     def inc_cp_tests(self):
-        self.__cp_teste_passed += 1
+        self.__cp_tests += 1
 
     def ip_tests(self):
         return self.__ip_tests
