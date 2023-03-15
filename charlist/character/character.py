@@ -515,6 +515,9 @@ class CharacterModel(object):
             if field_key == 'cp_teste_passed':
                 field_key = 'cp_tests'
                 fields[field_key] = val
+            if field_key == 'ip_tests_passed':
+                field_key = 'ip_tests'
+                fields[field_key] = val
             if field_key in spec_fields:
                 if field_key == 'stats':
                     stats = dict()
