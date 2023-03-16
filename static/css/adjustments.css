@@ -77,3 +77,8 @@ h5.collapse-toggler {
     max-height: 80px;
     overflow-y: auto;
 }
+
+.skills-list {
+    max-height: 600px;
+    overflow-y: auto;
+}
