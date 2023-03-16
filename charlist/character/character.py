@@ -243,8 +243,8 @@ class CharacterModel(object):
             old_bonus = self.insanity_bonus()
             self.__insanity += amount
             if (self.insanity_bonus() > self.ip_tests()) and (self.insanity_bonus() > old_bonus):
-                for i in range (self.ip_tests(), self.insanity_bonus()):
-                    if (i == 4) or (i == 6) or (i == 8):
+                for i in range(self.ip_tests(), self.insanity_bonus()):
+                    if (i % 4 == 0) or (i % 6 == 0):
                         self.__pending.append({"command": "GainDisorderIP"})
                     else:
                         self.__pending.append({"command": "GainTraumaIP"})
