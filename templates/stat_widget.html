@@ -17,7 +17,7 @@
             </div>
             {% endif %}
             <div class="ps-3">
-                <p class="fs-5">{{ facade|get_stat_description:stat_key|get_stdescr_name:lang }}</p>
+                <p>{{ facade|get_stat_description:stat_key|get_stdescr_name:lang }}</p>
             </div>
         </div>
         <div>
@@ -31,18 +31,18 @@
         </div>
     </div>
     <div class="align-content-center">
-        <button class="btn btn-outline-dark btn-lg disabled fs-3">{{ stat.bonus }}</button>
-        <button class="btn btn-light btn-lg disabled fs-5">{{ stat.residue }}</button>
+        <button class="btn btn-outline-dark disabled fs-4">{{ stat.bonus }}</button>
+        <button class="btn btn-light disabled fs-6">{{ stat.residue }}</button>
     </div>
     {% else %}
     <div class="align-content-center">
-        <button class="btn btn-outline-dark btn-lg disabled fs-3">{{ stat.bonus }}</button>
-        <button class="btn btn-light btn-lg disabled fs-5">{{ stat.residue }}</button>
+        <button class="btn btn-outline-dark disabled fs-4">{{ stat.bonus }}</button>
+        <button class="btn btn-light disabled fs-6">{{ stat.residue }}</button>
     </div>
     <div class="align-content-center">
         <div class="charlist-inline justify-content-between">
             <div>
-                <p class="fs-5">{{ facade|get_stat_description:stat_key|get_stdescr_name:lang }}</p>
+                <p>{{ facade|get_stat_description:stat_key|get_stdescr_name:lang }}</p>
             </div>
             {% if hookups|get_by_dict_key:stat_key %}
             <div class="btn-group dropend">
