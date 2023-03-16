@@ -1,5 +1,5 @@
 {% load filters %}
-<div class="card charlist-inline align-content-center justify-content-{% if stat_key == 'ST_IFL' %}end{% else %}center{% endif %} w300">
+<div class="card charlist-inline align-content-center justify-content-{% if stat_key == 'ST_IFL' %}around{% else %}center{% endif %} w300">
     <div class="align-content-center">
         <div class="charlist-inline justify-content-start">
             {% if hookups|get_by_dict_key:stat_key %}
