@@ -1,7 +1,6 @@
 {% load filters %}
 {% if reminders|length > 0 %}
-<br>
-<div>
+<div class="reminders-list">
     {% for reminder in reminders %}
         {% if forloop.counter0|divisibleby:3 %}
             <div class="charlist-inline justify-content-center">
