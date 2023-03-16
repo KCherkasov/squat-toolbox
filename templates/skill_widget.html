@@ -20,7 +20,7 @@
             </div>
         </div>
         {% if skill.is_specialist %}
-        <div>
+        <div class="justify-content-center">
             <ul class="nav nav-tabs" id="tab-{{ skill_key }}-{{ lang }}" role="tablist">
                 {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
                 <li class="nav-item" role="presentation">
