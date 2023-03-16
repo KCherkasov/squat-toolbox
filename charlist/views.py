@@ -798,7 +798,7 @@ def gain_corruption(request, character: CharacterModel, character_record: charli
 
 def character_view(request, char_id):
     character = charlist.models.Character.objects.get(pk=char_id)
-    character_model = CharacterModel.from_json(character.character_data)
+    character_model = character.data_to_model()
     if request.method == 'POST':
         if 'gain-insanity-confirm' in request.POST:
             gain_insanity(request, character_model, character)
