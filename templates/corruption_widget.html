@@ -20,7 +20,9 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
                     </div>
                     <div class="modal-body">
-                        {% include 'gain_corruption_form_cw.html' %}
+                        {% with corruption_form as form %}
+                            {% include 'gain_corruption_form.html' %}
+                        {% endwith %}
                     </div>
                 </div>
             </div>
