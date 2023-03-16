@@ -70,27 +70,24 @@ Character sheet interactive mockup
                 <header class="text-center">
                     <h4>{% if lang == 'ru' %}Карточка персонажа{% else %}Character card{% endif %}</h4>
                 </header>
-                <div class="">
+                <div class="charlist-content">
                     <div class="charlist-inline">
-                        <div>
-                            <h5 class="collapse-toggler">
-                                <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
-                                   data-bs-auto-close="outside" href="#aboutInfo-{{ lang }}"
-                                   title="Подробнее" aria-expanded="false" aria-controls="aboutInfo-{{ lang }}">
-                                    <i>{% if lang == 'ru' %}О персонаже{% else %}About character{% endif %}</i>
-                                </a>
-                            </h5>
-                        </div>
+                        <h5>
+                            <i>{% if lang == 'ru' %}О персонаже{% else %}About character{% endif %}</i>
+                        </h5>
                     </div>
-                    <div class="collapse" id="aboutInfo-{{ lang }}">
-                        <div class="card card-body">
-                            {% include 'homeworld_widget.html' %}
-                            {% include 'background_widget.html' %}
-                            {% include 'role_widget.html' %}
-                            {% include 'elite_advance_widget.html' %}
-                            {% include 'divination_widget.html' %}
-                            <hr>
-                            {% include 'char_apts_widget.html' %}
+                    <div>
+                        <div class="card-group">
+                            <div class="card card-body">
+                                {% include 'homeworld_widget.html' %}
+                                {% include 'background_widget.html' %}
+                                {% include 'role_widget.html' %}
+                                {% include 'elite_advance_widget.html' %}
+                                {% include 'divination_widget.html' %}
+                            </div>
+                            <div class="card card-body">
+                                {% include 'char_apts_widget.html' %}
+                            </div>
                         </div>
                     </div>
                     {% if reminders|length > 0 %}
