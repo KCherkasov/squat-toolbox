@@ -2,11 +2,11 @@
 <div class="charlist-content">
     <div class="charlist-inline justify-content-between">
         <div>
-            <h5>{% if lang == 'ru' %}Очки Порчи{% else %}Corruption points{% endif %}: &nbsp;</h5>
+            <b>{% if lang == 'ru' %}Очки Порчи{% else %}Corruption points{% endif %}: &nbsp;</b>
         </div>
         <div>
-            <button class="btn btn-outline-dark btn-lg disabled fs-4">{{ character.corruption_bonus }}</button>
-            <button class="btn btn-info btn-lg disabled fs-6">{{ character.corruption_residue }}</button>
+            <button class="btn btn-outline-dark disabled fs-4">{{ character.corruption_bonus }}</button>
+            <button class="btn btn-info disabled fs-6">{{ character.corruption_residue }}</button>
         </div>
         <button class="btn btn-danger" role="button" data-bs-toggle="modal"
                 data-bs-target="#gain-corruption-modal-{{ character.id }}">
@@ -30,18 +30,18 @@
     </div>
     <div>
         <div>
-            <h5>
+            <b>
                 <i>{% if lang == 'ru' %}Малигнации{% else %}Malignancies{% endif %}</i>
-            </h5>
+            </b>
         </div>
         {% for mal in character.malignancies %}
         <div>
-            <h5>
+            <b>
                 <a class="text-dark text-decoration-none" role="button" data-bs-toggle="modal" href=""
                     title="Подробнее" data-bs-target="#malignances-{{ lang }}-{{ forloop.counter }}">
                         <i>{{ facade|get_malignance:mal|get_malignance_name:lang }}</i>
                 </a>
-            </h5>
+            </b>
         </div>
         <div class="modal fade" id="malignances-{{ lang }}-{{ forloop.counter }}" tabindex="-1"
              aria-labelledby="#malignances-{{ lang }}-{{ forloop.counter }}-label">
@@ -71,18 +71,18 @@
     </div>
     <div>
         <div>
-            <h5>
+            <b>
                 <i>{% if lang == 'ru' %}Мутации{% else %}Mutations{% endif %}</i>
-            </h5>
+            </b>
         </div>
         {% for mut in character.mutations %}
         <div>
-            <h5>
+            <b>
                 <a class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
                    href="" title="Подробнее" data-bs-target="#mutations-{{ lang }}-{{ forloop.counter }}">
                     <i>{{ facade|get_mutation:mut|get_mutation_name:lang }}</i>
                 </a>
-            </h5>
+            </b>
         </div>
         <div class="modal fade" id="mutations-{{ lang }}-{{ forloop.counter }}" tabindex="-1"
              aria-labelledby="mutations-{{ lang }}-{{ forloop.counter }}-label">
