@@ -1,13 +1,13 @@
 {% load filters %}
 <div class="charlist-inline">
     <div>
-        <h5>
+        <b>
             {% if lang == 'ru' %}Предыстория{% else %}Background{% endif %}:&nbsp;
             <a class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
                href="" data-bs-target="#backgroundInfo-{{ lang }}" title="Подробнее">
                 <i>{{ facade|get_background_description:character.bg_id|get_bg_name:lang }}</i>
             </a>
-        </h5>
+        </b>
     </div>
 </div>
 <div class="modal fade" id="backgroundInfo-{{ lang }}" tabindex="-1" role="dialog" aria-labelledby="backgroundInfo-{{ lang }}-label">

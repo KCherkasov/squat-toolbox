@@ -1,13 +1,13 @@
 {% load filters %}
 <div class="charlist-inline">
     <div>
-        <h5>
+        <b>
             {% if lang == 'ru' %}Родной мир{% else %}Homeworld{% endif %}:&nbsp;
             <a class="text-dark text-decoration-none" data-bs-toggle="modal" href="" role="button"
                data-bs-target="#worldInfo-{{ lang }}" title="Подробнее">
                 <i>{{ facade|get_homeworld_description:character.hw_id|get_hw_name:lang }}</i>
             </a>
-        </h5>
+        </b>
     </div>
 </div>
 <div class="modal fade" id="worldInfo-{{ lang }}" tabindex="-1" aria-labelledby="#worldInfo-{{ lang }}-label">

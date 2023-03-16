@@ -1,13 +1,13 @@
 {% load filters %}
 <div class="charlist-inline">
     <div>
-        <h5>
+        <b>
             {% if lang == 'ru' %}Роль{% else %}Role{% endif %}:&nbsp;
             <a class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
                href="" title="Подробнее" data-bs-target="#roleInfo-{{ lang }}-popup">
                 <i>{{ facade|get_role_description_big:character.role_id|get_role_name:lang }}</i>
             </a>
-        </h5>
+        </b>
     </div>
 </div>
 <div class="modal fade" id="roleInfo-{{ lang }}-popup" tabindex="-1" role="dialog"
