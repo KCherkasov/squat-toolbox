@@ -103,6 +103,7 @@ Character sheet interactive mockup
                         </button>
                         <div class="modal fade" id="reminder-{{ forloop.counter }}-popup" tabindex="-1" role="dialog"
                              aria-labelledby="reminder-{{ forloop.counter }}-popup-label">
+                            <div class="modal-dialog">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="reminder-{{ forloop.counter }}-popup-label">
                                     {{ command_parser.titles|get_by_dict_key:reminder.tag }}
@@ -115,6 +116,7 @@ Character sheet interactive mockup
                                 {% with reminder.form as form %}
                                     {% include command_parser.links|get_by_dict_key:reminder.tag %}
                                 {% endwith %}
+                            </div>
                             </div>
                         </div>
                         {% endfor %}
