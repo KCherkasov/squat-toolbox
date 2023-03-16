@@ -64,6 +64,7 @@ Character sheet interactive mockup
         <div class="tab-content charsheet-card">
             <header class="text-center">
                 <h3>{{ character.name }}</h3>
+                {% include 'reminders_widget.html' %}
             </header>
             <div class="tab-pane fade show charlist-container active justify-content-center" id="general-{{ lang }}" role="tabpanel" aria-labelledby="general-tab-{{ lang }}">
                 <hr>
@@ -71,7 +72,6 @@ Character sheet interactive mockup
                     <h4>{% if lang == 'ru' %}Карточка персонажа{% else %}Character card{% endif %}</h4>
                 </header>
                 <div class="charlist-content">
-                    {% include 'reminders_widget.html' %}
                     <div class="charlist-inline">
                         <h5>
                             <i>{% if lang == 'ru' %}О персонаже{% else %}About character{% endif %}</i>
