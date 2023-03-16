@@ -3,6 +3,9 @@
 <br>
 <div>
     {% for reminder in reminders %}
+        {% if forloop.counter0|divisibleby:3 %}
+            <div class="charlist-inline">
+        {% endif %}
     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
             data-bs-target="#reminder-{{ forloop.counter }}-popup">
         {{ command_parser.titles|get_by_dict_key:reminder.tag }}
@@ -27,6 +30,9 @@
             </div>
         </div>
     </div>
+                {% if forloop.counter|divisibleby:3 or forloop.last %}
+            </div>
+                {% endif %}
     {% endfor %}
 </div>
 {% endif %}
