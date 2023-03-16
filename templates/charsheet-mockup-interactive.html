@@ -93,10 +93,10 @@ Character sheet interactive mockup
                             {% include 'char_apts_widget.html' %}
                         </div>
                     </div>
-                    {% if character.reminders %}
+                    {% if reminders|length > 0 %}
                     <br>
                     <div>
-                        {% for reminder in character.reminders %}
+                        {% for reminder in reminders %}
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                 data-bs-target="#reminder-{{ forloop.counter }}-popup">
                             {{ command_parser.titles|get_by_dict_key:reminder.tag }}
