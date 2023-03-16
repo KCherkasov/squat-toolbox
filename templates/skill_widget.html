@@ -71,11 +71,10 @@
                                 <button class="btn btn-light btn-lg disabled align-self-center fs-6">
                                     {{ character|get_stat_residual:stat }}
                                 </button>
-                                <div class="align-self-center">
-                                    <p class="fs-4">+</p>
-                                </div>
                                 <button class="btn btn-info disabled align-self-center fs-5">
-                                    {% get_subskill_adv character skill_key subskill %}
+                                    {% with get_subskill_adv character skill_key subskill as subskill_adv %}
+                                        {% if subskill_adv > 0%}+{% endif %}{{ subskill_adv }}
+                                    {% endwith %}
                                 </button>
                                 <div class="align-self-center">
                                     <p class="fs-4">=</p>
@@ -117,11 +116,8 @@
                     <button class="btn btn-light disabled align-self-center fs-6">
                         {{ character|get_stat_residual:stat }}
                     </button>
-                    <div class="align-self-center">
-                        <p class="fs-4">+</p>
-                    </div>
                     <button class="btn btn-info disabled align-self-center fs-5">
-                        {{ skill.get_adv_bonus }}
+                        {% if skill.get_adv_bonus > 0%}+{% endif %}{{ skill.get_adv_bonus }}
                     </button>
                     <div class="align-self-center">
                         <p class="fs-4">=</p>
