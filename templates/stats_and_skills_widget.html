@@ -44,13 +44,7 @@
         </header>
         <div class="tab-content charlist-content">
             {% for skill_key, skill in character.skills.items %}
-            {% if not forloop.counter|divisibleby:2 %}
-            <div class="card-group justify-content-center">
-                {% endif %}
                 {% include 'skill_widget.html' %}
-                {% if forloop.counter|divisibleby:2 or forloop.last %}
-            </div>
-            {% endif %}
             {% endfor %}
         </div>
     </div>
