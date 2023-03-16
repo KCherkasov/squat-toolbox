@@ -24,12 +24,12 @@
             <button class="btn btn-info btn-lg disabled fs-6">{{ character.insanity_residue }}</button>
         </div>
         <button class="btn btn-danger" role="button" data-bs-toggle="modal"
-                data-bs-target="#gain-insanity-modal-{{ character.pk }}">
+                data-bs-target="#gain-insanity-modal-{{ character.cid }}">
             Получить
         </button>
-        <div class="modal fade" tabindex="-1" id="gain-insanity-modal-{{ character.pk }}"
-             aria-labelledby="gain-insanity-modal-{{ character.pk }}-label">
-            <div class="modal-header" id="gain-insanity-modal-{{ character.pk }}-label">
+        <div class="modal fade" tabindex="-1" id="gain-insanity-modal-{{ character.cid }}"
+             aria-labelledby="gain-insanity-modal-{{ character.cid }}-label">
+            <div class="modal-header" id="gain-insanity-modal-{{ character.cid }}-label">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
             </div>
             <div class="modal-body">
