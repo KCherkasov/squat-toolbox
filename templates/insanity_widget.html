@@ -3,7 +3,7 @@
     <div class="charlist-inline justify-content-between">
         <div class="charlist-inline justify-content-between">
             <div>
-                <h5>{% if lang == 'ru' %}Очки Безумия{% else %}Insanity points{% endif %}: &nbsp;</h5>
+                <b>{% if lang == 'ru' %}Очки Безумия{% else %}Insanity points{% endif %}: &nbsp;</b>
             </div>
             {% if hookups|get_by_dict_key:'IP' %}
             <div class="btn-group dropend">
@@ -20,8 +20,8 @@
             {% endif %}
         </div>
         <div>
-            <button class="btn btn-outline-dark btn-lg disabled fs-4">{{ character.insanity_bonus }}</button>
-            <button class="btn btn-info btn-lg disabled fs-6">{{ character.insanity_residue }}</button>
+            <button class="btn btn-outline-darkdisabled fs-4">{{ character.insanity_bonus }}</button>
+            <button class="btn btn-info disabled fs-6">{{ character.insanity_residue }}</button>
         </div>
         <button class="btn btn-danger" role="button" data-bs-toggle="modal"
                 data-bs-target="#gain-insanity-modal-{{ character.id }}">
@@ -44,12 +44,12 @@
         </div>
     </div>
     <div>
-        <h5 class="collapse-toggler">
+        <b class="collapse-toggler">
             <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
                href="#mental-disorders-{{ lang }}" title="Подробнее" aria-expanded="false" aria-controls="mental-disorders-{{ lang }}">
                 <i>{% if lang == 'ru' %}Ментальные расстройства{% else %}Mental disorders{% endif %}</i>
             </a>
-        </h5>
+        </b>
     </div>
     <div class="collapse" id="mental-disorders-{{ lang }}">
         {% for disorder in character.disorders %}
