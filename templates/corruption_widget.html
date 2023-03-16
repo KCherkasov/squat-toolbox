@@ -9,12 +9,12 @@
             <button class="btn btn-info btn-lg disabled fs-6">{{ character.corruption_residue }}</button>
         </div>
         <button class="btn btn-danger" role="button" data-bs-toggle="modal"
-                data-bs-target="#gain-corruption-modal-{{ character.cid }}">
+                data-bs-target="#gain-corruption-modal-{{ character.id }}">
             Получить
         </button>
-        <div class="modal fade" id="gain-corruption-modal-{{ character.cid }}" tabindex="-1"
-             aria-labelledby="gain-corruption-modal-{{ character.cid }}-label">
-            <div class="modal-header" id="gain-corruption-modal-{{ character.cid }}-label">
+        <div class="modal fade" id="gain-corruption-modal-{{ character.id }}" tabindex="-1"
+             aria-labelledby="gain-corruption-modal-{{ character.id }}-label">
+            <div class="modal-header" id="gain-corruption-modal-{{ character.id }}-label">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
             </div>
             <div class="modal-body">
