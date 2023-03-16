@@ -28,9 +28,9 @@
                 </li>
                 {% endfor %}
             </ul>
-            <div class="card-body tab-content justify-content-center" id="tab-content-{{ skill_key }}-{{ lang }}">
+            <div class="card-body tab-content" id="tab-content-{{ skill_key }}-{{ lang }}">
                 {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
-                <div class="tab-pane fade show {% if forloop.first %}active{% endif %} charlist-content justify-content-center" id="{{ skill_key }}-{{ stat }}-{{ lang }}">
+                <div class="tab-pane fade show {% if forloop.first %}active{% endif %} charlist-content" id="{{ skill_key }}-{{ stat }}-{{ lang }}">
                     {% for subskill, adv in skill.advances.items %}
                         <div class="charlist-inline justify-content-center">
                             <div class="charlist-content">
