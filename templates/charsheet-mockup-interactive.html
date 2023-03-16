@@ -92,14 +92,25 @@ Character sheet interactive mockup
                         </div>
                     </div>
                     <br>
-                    {% include 'wounds_widget.html' %}
                     {% include 'fate_widget.html' %}
-                    {% include 'fatigue_widget.html' %}
+                    <div class="card-group">
+                        <div class="card card-body">
+                            {% include 'wounds_widget.html' %}
+                        </div>
+                        <div class="card card-body">
+                            {% include 'fatigue_widget.html' %}
+                        </div>
+                    </div>
                     <hr>
-                    {% include 'insanity_widget.html' %}
-                    <hr>
+                    <div class="card-group">
+                        <div class="card card-body">
+                            {% include 'insanity_widget.html' %}
+                        </div>
+                        <div class="card card-body">
+
                     {% include 'corruption_widget.html' %}
-                    <hr>
+                        </div>
+                    </div>
                     <br>
                     {% include 'xp_widget.html' %}
 
