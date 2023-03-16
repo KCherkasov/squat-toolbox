@@ -76,7 +76,7 @@
             <h5>
                 <a class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
                    href="" title="Подробнее" data-bs-target="#mutations-{{ lang }}-{{ forloop.counter }}">
-                    <i>{% facade|get_mutation:mut|get_mutation_name:lang %}</i>
+                    <i>{{ facade|get_mutation:mut|get_mutation_name:lang }}</i>
                 </a>
             </h5>
         </div>
@@ -85,12 +85,12 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-header">
                     <b id="mutations-{{ lang }}-{{ forloop.counter }}-label">
-                        {% facade|get_mutation:mut|get_mutation_name:lang %}
+                        {{ facade|get_mutation:mut|get_mutation_name:lang }}
                     </b>
                 </div>
                 <div class="modal-body">
                     <p>
-                        {% facade|get_mutation:mut|get_mutation_description:lang %}
+                        {{ facade|get_mutation:mut|get_mutation_description:lang }}
                     </p>
                 </div>
             </div>
