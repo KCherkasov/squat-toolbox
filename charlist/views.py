@@ -811,7 +811,7 @@ def character_view(request, char_id):
         insanity_form = GainInsanityRollForm()
         corruption_form = GainCorruptionRollForm()
         commands_parser.process_character(character_model)
-        character.character_data = character_model
+        character.character_data = character_model.toJSON()
         character.save()
         reminders = list()
         # TODO: controls (stats/skills/talents upgrading, XP gaining, etc.
