@@ -72,9 +72,8 @@
                                     {{ character|get_stat_residual:stat }}
                                 </button>
                                 <button class="btn btn-info disabled align-self-center fs-5">
-                                    {% with get_subskill_adv character skill_key subskill as subskill_adv %}
-                                        {% if subskill_adv > 0%}+{% endif %}{{ subskill_adv }}
-                                    {% endwith %}
+                                    {% get_subskill_adv character skill_key subskill as subskill_adv %}
+                                    {% if subskill_adv > 0 %}+{% endif %}{{ subskill_adv }}
                                 </button>
                                 <div class="align-self-center">
                                     <p class="fs-4">=</p>
