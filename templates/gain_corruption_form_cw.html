@@ -1,0 +1,31 @@
+{% block loaders %}
+{% load filters %}
+{% endblock %}
+
+    {% for err in corruption_form.non_field_errors %}
+    <div class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        {{ err }}
+    </div>
+    {% endfor %}
+    <div class="charlist-content justify-content-center">
+        <h5>{% block form_title %}Кто-то уже не столь праведен, да?{% endblock %}</h5>
+        <form class="form-horizontal" method="post" action="">
+            {% csrf_token %}
+            {% for field in corruption_form %}
+            <div class="form-group charlist-inline justify-content-center mt-2">
+                <label for="{{ field.name }}" class="col-sm-2 control-label">{{ field.label }}</label>
+                <div class="col-sm-5 ms-2">
+                    {{ field }}
+                </div>
+            </div>
+            {% endfor %}
+            <div class="form-group charlist-inline justify-content-center mt-2">
+                {% block form_controls %}
+                <div class="col-sm-offset-2 col-sm-2">
+                    <button type="submit" class="btn btn-danger" name="gain-corruption-confirm">Получить</button>
+                </div>
+                {% endblock %}
+            </div>
+        </form>
+    </div>
