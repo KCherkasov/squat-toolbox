@@ -8,13 +8,13 @@
     </div>
     <div class="charlist_inline ps-3">
         <input type="range" min="1" max="{% mtp 2.0 character.fatigue_cap %}" step="1">
-        <button type="submit" name="restoreFatigue" class="btn btn-success fs-5">
+        <button type="submit" name="restoreFatigue" class="btn btn-success">
             {% if lang == 'ru' %}Восстановить{% else %}Restore{% endif %}
         </button>
-        <button type="submit" name="gainFatigue" class="btn btn-danger fs-5">
+        <button type="submit" name="gainFatigue" class="btn btn-danger">
             {% if lang == 'ru' %}Получить{% else %}Gain{% endif %}
         </button>
-        <button type="submit" name="restoreAllFatigue" class="btn btn-info fs-5">
+        <button type="submit" name="restoreAllFatigue" class="btn btn-info">
             {% if lang == 'ru' %}Восстановить все{% else %}Restore all{% endif %}
         </button>
     </div>
