@@ -1,26 +1,33 @@
 {% load filters %}
 <div class="charlist-inline">
     <div>
-        <h5 class="collapse-toggler">
+        <h5>
             {% if lang == 'ru' %}Роль{% else %}Role{% endif %}:&nbsp;
-            <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
-               data-bs-auto-close="true" href="#roleInfo-{{ lang }}" title="Подробнее"
-               aria-expanded="false" aria-controls="roleInfo-{{ lang }}">
+            <a class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
+               href="" title="Подробнее" data-bs-target="#roleInfo-{{ lang }}-popup">
                 <i>{{ facade|get_role_description_big:character.role_id|get_role_name:lang }}</i>
             </a>
         </h5>
     </div>
 </div>
-<div class="collapse" id="roleInfo-{{ lang }}">
-    <div class="card card-body">
-        <b class="card-title">{{ facade|get_role_description_big:character.role_id|get_role_name:lang }}</b>
-        <hr>
-        <p class="card-text">{{ facade|get_role_description_big:character.role_id|get_role_description:lang }}</p>
-        <br>
-        <b class="card-title">{% if lang == 'ru' %}Бонус роли{% else %}Role bonus{% endif %}:</b>
-        <p class="card-text">
-            <em>{{ facade|get_role_description_big:character.role_id|get_role_bonus|get_bonus_name:lang }}</em>
-            {{ facade|get_role_description_big:character.role_id|get_role_bonus|get_bonus_description:lang }}
-        </p>
+<div class="modal fade" id="roleInfo-{{ lang }}-popup" tabindex="-1" role="dialog"
+     aria-labelledby="#roleInfo-{{ lang }}-popup-label">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <b class="modal-title" id="roleInfo-{{ lang }}-popup-label">
+                    {{ facade|get_role_description_big:character.role_id|get_role_name:lang }}
+                </b>
+            </div>
+            <div class="modal-body">
+                <p class="card-text">{{ facade|get_role_description_big:character.role_id|get_role_description:lang }}</p>
+                <br>
+                <b class="card-title">{% if lang == 'ru' %}Бонус роли{% else %}Role bonus{% endif %}:</b>
+                <p class="card-text">
+                    <em>{{ facade|get_role_description_big:character.role_id|get_role_bonus|get_bonus_name:lang }}</em>
+                    {{ facade|get_role_description_big:character.role_id|get_role_bonus|get_bonus_description:lang }}
+                </p>
+            </div>
+        </div>
     </div>
 </div>
