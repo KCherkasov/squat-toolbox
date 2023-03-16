@@ -486,10 +486,12 @@ class CharacterModel(object):
     @classmethod
     def from_json(cls, sdata):
         data = json.loads(sdata)
-        data['cp_tests'] = data['cp_teste_passed']
-        data.pop('cp_teste_passed', 0)
-        data['ip_tests'] = data['ip_tests_passed']
-        data.pop('ip_tests_passed', 0)
+        if 'cp_teste_passed' in data.keys():
+            data['cp_tests'] = data['cp_teste_passed']
+            data.pop('cp_teste_passed', 0)
+        if 'ip_tests_passed' in data.keys():
+            data['ip_tests'] = data['ip_tests_passed']
+            data.pop('ip_tests_passed', 0)
         stats = dict()
         for stat_key, stat in data['stats'].items():
             stats[stat_key] = Stat.from_json(stat)
