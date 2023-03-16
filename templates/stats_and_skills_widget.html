@@ -2,13 +2,13 @@
     <h5>{% if lang == 'ru' %}Характеристики и навыки{% else %}Characteristics and skills{% endif %}</h5>
 </header>
 <div class="card-group">
-    <div class="card card-body justify-content-center" id="stats-{{ lang }}">
+    <div class="card card-body" id="stats-{{ lang }}">
         <header class="text-center">
             <h5>
                 {% if lang == 'ru' %}Характеристики{% else %}Characteristics{% endif %}
             </h5>
         </header>
-        <div class="charlist-content">
+        <div class="charlist-content justify-content-center">
             {% for stat_key, stat in character.stats.items %}
                 {% include 'stat_widget.html' %}
             {% endfor %}
