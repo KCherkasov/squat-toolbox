@@ -13,19 +13,21 @@
 </div>
 <div class="modal fade" id="divinationInfo-{{ lang }}" tabindex="-1" aria-labelledby="divinationInfo-{{ lang }}-label">
     <div class="modal-dialog" role="document">
-        <div class="modal-header">
-            <b id="divinationInfo-{{ lang }}-label">
-                {{ facade|get_divination_description:character.div_id|get_div_name:lang }}
-            </b>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <hr>
-        <div class="modal-body">
-            <p>
-                {{ facade|get_divination_description:character.div_id|get_div_description:lang }}
-            </p>
+        <div class="modal-content">
+            <div class="modal-header">
+                <b id="divinationInfo-{{ lang }}-label">
+                    {{ facade|get_divination_description:character.div_id|get_div_name:lang }}
+                </b>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <hr>
+            <div class="modal-body">
+                <p>
+                    {{ facade|get_divination_description:character.div_id|get_div_description:lang }}
+                </p>
+            </div>
         </div>
     </div>
 </div>

@@ -104,19 +104,20 @@ Character sheet interactive mockup
                         <div class="modal fade" id="reminder-{{ forloop.counter }}-popup" tabindex="-1" role="dialog"
                              aria-labelledby="reminder-{{ forloop.counter }}-popup-label">
                             <div class="modal-dialog">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="reminder-{{ forloop.counter }}-popup-label">
-                                    {{ command_parser.titles|get_by_dict_key:reminder.tag }}
-                                </h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                                    &times;
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                {% with reminder.form as form %}
-                                    {% include command_parser.links|get_by_dict_key:reminder.tag %}
-                                {% endwith %}
-                            </div>
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="reminder-{{ forloop.counter }}-popup-label">
+                                        {{ command_parser.titles|get_by_dict_key:reminder.tag }}
+                                    </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                        &times;
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    {% with reminder.form as form %}
+                                        {% include command_parser.links|get_by_dict_key:reminder.tag %}
+                                    {% endwith %}
+                                </div>
                             </div>
                         </div>
                         {% endfor %}

@@ -15,11 +15,13 @@
         <div class="modal fade" id="gain-corruption-modal-{{ character.id }}" tabindex="-1"
              aria-labelledby="gain-corruption-modal-{{ character.id }}-label">
             <div class="modal-dialog">
-                <div class="modal-header" id="gain-corruption-modal-{{ character.id }}-label">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
-                </div>
-                <div class="modal-body">
-                    {% include 'gain_corruption_form_cw.html' %}
+                <div class="modal-content">
+                    <div class="modal-header" id="gain-corruption-modal-{{ character.id }}-label">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        {% include 'gain_corruption_form_cw.html' %}
+                    </div>
                 </div>
             </div>
         </div>
