@@ -807,6 +807,7 @@ def character_view(request, char_id):
         # TODO: other commands parsing
     insanity_form = None
     corruption_form = None
+    reminders = None
     if (request.user is not None) and (request.user == character.owner):
         insanity_form = GainInsanityRollForm()
         corruption_form = GainCorruptionRollForm()
@@ -823,7 +824,8 @@ def character_view(request, char_id):
                                                                  'character': character_model,
                                                                  'hookups': character_model.make_hookups(flyweights),
                                                                  'insanity_form': insanity_form,
-                                                                 'corruption_form': corruption_form, })
+                                                                 'corruption_form': corruption_form,
+                                                                 'reminders': reminders, })
 
 
 def character_delete(request, char_id):
