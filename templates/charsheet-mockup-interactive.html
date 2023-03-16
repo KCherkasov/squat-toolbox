@@ -93,7 +93,7 @@ Character sheet interactive mockup
                             {% include 'char_apts_widget.html' %}
                         </div>
                     </div>
-                    {% if character.reminders|length > 0 %}
+                    {% if character.reminders %}
                     <br>
                     <div>
                         {% for reminder in character.reminders %}
