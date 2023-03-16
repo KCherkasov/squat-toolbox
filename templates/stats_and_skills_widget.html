@@ -21,14 +21,14 @@
             {% endfor %}
         </div>
     </div>
-    <div class="card card-body" id="skills-{{ lang }}">
+    <div class="card card-body justify-content-center" id="skills-{{ lang }}">
         <hr>
         <header class="text-center">
             <h5>
                 {% if lang == 'ru' %}Умения{% else %}Skills{% endif %}
             </h5>
         </header>
-        <div class="tab-content charlist-content">
+        <div class="charlist-content">
             {% for skill_key, skill in character.skills.items %}
                 {% include 'skill_widget.html' %}
             {% endfor %}
