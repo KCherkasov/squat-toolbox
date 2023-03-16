@@ -53,48 +53,48 @@ class CommandParser(object):
     def make_reminder(self, cmd, character: CharacterModel):
         reminder = None
         form = None
-        if cmd.get('tag') == GET_DISORDER_IP:
+        if cmd.get('command') == GET_DISORDER_IP:
             form = GainDisorderIPForm()
-        if cmd.get('tag') == GET_TRAUMA_IP:
+        if cmd.get('command') == GET_TRAUMA_IP:
             form = GetTraumaIPForm()
-        if cmd.get('tag') == GET_TALENT_ALT:
+        if cmd.get('command') == GET_TALENT_ALT:
             form = GainTalentAltForm(cmd, self.__facade)
-        if cmd.get('tag') == INC_STAT_ALT:
+        if cmd.get('command') == INC_STAT_ALT:
             form = IncreaseStatAltForm(cmd, self.__facade)
-        if cmd.get('tag') == DEC_STAT_ALT:
+        if cmd.get('command') == DEC_STAT_ALT:
             form = DecreaseStatAltForm(cmd, self.__facade)
-        if cmd.get('tag') == GET_APT_DOUBLE:
+        if cmd.get('command') == GET_APT_DOUBLE:
             form = GainStatAptitudeForm(character, self.__facade)
-        if cmd.get('tag') == INC_STAT_ROLL:
+        if cmd.get('command') == INC_STAT_ROLL:
             form = IncreaseStatRollForm(cmd, self.__facade)
-        if cmd.get('tag') == DEC_STAT_ROLL:
+        if cmd.get('command') == DEC_STAT_ROLL:
             form = DecreaseStatRollForm(cmd, self.__facade)
-        if cmd.get('tag') == GET_CORRUPTION_ROLL:
+        if cmd.get('command') == GET_CORRUPTION_ROLL:
             form = GainCorruptionRollForm()
-        if cmd.get('tag') == GET_INSANITY_ROLL:
+        if cmd.get('command') == GET_INSANITY_ROLL:
             form = GainInsanityRollForm()
-        if cmd.get('tag') == GET_MAL_ROLL:
+        if cmd.get('command') == GET_MAL_ROLL:
             form = GainMalignancyRollForm()
-        if cmd.get('tag') == GET_MAL_CP_RT:
+        if cmd.get('command') == GET_MAL_CP_RT:
             form = GainMalignancyRollForm()
-        if cmd.get('tag') == GET_MAL_CHOICE:
+        if cmd.get('command') == GET_MAL_CHOICE:
             form = GainMalignancyChoiceForm(self.__facade)
-        if cmd.get('tag') == GET_MUT_CP_RT:
+        if cmd.get('command') == GET_MUT_CP_RT:
             form = GainMutationRollForm()
-        if cmd.get('tag') == GET_MUT_CHOICE:
+        if cmd.get('command') == GET_MUT_CHOICE:
             form = GainMutationChoiceForm(self.__facade)
-        reminder = Reminder(cmd.get('tag'), form, self.__links[cmd.get('tag')])
+        reminder = Reminder(cmd.get('command'), form, self.__links[cmd.get('command')])
         return reminder
 
     def process_character(self, character: CharacterModel):
         for command in character.pending():
-            if command.get('tag') in self.__commands.keys():
-                if self.__commands[command.get('tag')].is_automatic():
-                    self.__commands[command.get('tag')].do_logic(character, data=command)
-                    character.completed().append(command.get('tag'))
+            if command.get('command') in self.__commands.keys():
+                if self.__commands[command.get('command')].is_automatic():
+                    self.__commands[command.get('command')].do_logic(character, data=command)
+                    character.completed().append(command.get('command'))
         for command in character.completed():
             for cmd in character.pending():
-                if cmd.get('tag') == command:
+                if cmd.get('command') == command:
                     character.pending().remove(cmd)
                     break
         return character
