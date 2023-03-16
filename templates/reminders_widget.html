@@ -4,7 +4,7 @@
 <div>
     {% for reminder in reminders %}
         {% if forloop.counter0|divisibleby:3 %}
-            <div class="charlist-inline">
+            <div class="charlist-inline center">
         {% endif %}
     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
             data-bs-target="#reminder-{{ forloop.counter }}-popup">
