@@ -243,10 +243,11 @@ class CharacterModel(object):
             old_bonus = self.insanity_bonus()
             self.__insanity += amount
             if (self.insanity_bonus() > self.ip_tests()) and (self.insanity_bonus() > old_bonus):
-                if self.insanity_bonus() in [4, 6, 8]:
-                    self.__pending.append({"command": "GainDisorderIP"})
-                else:
-                    self.__pending.append({"command": "GainTraumaIP"})
+                for i in range (old_bonus, self.insanity_bonus()):
+                    if i in [4, 6, 8]:
+                        self.__pending.append({"command": "GainDisorderIP"})
+                    else:
+                        self.__pending.append({"command": "GainTraumaIP"})
 
     def remove_insanity(self, amount: int):
         if amount > 0:
@@ -269,10 +270,11 @@ class CharacterModel(object):
             old_bonus = self.corruption_bonus()
             self.__corruption += amount
             if (self.corruption_bonus() > self.cp_tests()) and (self.corruption_bonus() > old_bonus):
-                if self.corruption_bonus() % 3 == 0:
-                    self.__pending.append({"command": "GainMutationRollCP"})
-                else:
-                    self.__pending.append({"command": "GainMalignancyRollCP"})
+                for i in range(old_bonus, self.corruption_bonus()):
+                    if self.corruption_bonus() % 3 == 0:
+                        self.__pending.append({"command": "GainMutationRollCP"})
+                    else:
+                        self.__pending.append({"command": "GainMalignancyRollCP"})
 
     def remove_corruption(self, amount: int):
         if amount > 0:
