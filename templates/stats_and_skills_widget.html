@@ -19,9 +19,9 @@
     <div class="tab-pane fade show active" id="stats-{{ lang }}" role="tabpanel" aria-labelledby="stats-tag-{{ lang }}">
         <hr>
         <header class="text-center">
-            <b>
+            <h5>
                 {% if lang == 'ru' %}Характеристики{% else %}Characteristics{% endif %}
-            </b>
+            </h5>
         </header>
         <div class="charlist-content">
             {% for stat_key, stat in character.stats.items %}
@@ -38,9 +38,9 @@
     <div class="tab-pane fade show" id="skills-{{ lang }}" role="tabpanel" aria-labelledby="skills-tag-{{ lang }}">
         <hr>
         <header class="text-center">
-            <b>
+            <h5>
                 {% if lang == 'ru' %}Умения{% else %}Skills{% endif %}
-            </b>
+            </h5>
         </header>
         <div class="tab-content charlist-content">
             {% for skill_key, skill in character.skills.items %}
