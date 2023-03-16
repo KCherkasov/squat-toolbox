@@ -10,13 +10,17 @@
     </div>
 </div>
 <div class="modal fade" id="{{ apt }}-{{ lang }}-info" tabindex="-1" aria-labelledby="{{ apt }}-{{ lang }}-info-label">
-    <div class="modal-header">
-        <h5>{{ facade|get_aptitude:apt|get_apt_name:lang }}</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="modal-body">
-        <p>{{ facade|get_aptitude:apt|get_apt_description:lang }}</p>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="{{ apt }}-{{ lang }}-info-label">{{ facade|get_aptitude:apt|get_apt_name:lang }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>{{ facade|get_aptitude:apt|get_apt_description:lang }}</p>
+            </div>
+        </div>
     </div>
 </div>
