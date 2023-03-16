@@ -35,7 +35,7 @@
             <h5>
                 <a class="text-dark text-decoration-none" role="button" data-bs-toggle="modal" href=""
                     title="Подробнее" data-bs-target="#malignances-{{ lang }}-{{ forloop.counter }}">
-                        <i>{% facade|get_malignance:mal|get_malignance_name:lang %}</i>
+                        <i>{{ facade|get_malignance:mal|get_malignance_name:lang }}</i>
                 </a>
             </h5>
         </div>
@@ -44,7 +44,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-header">
                     <b id="malignances-{{ lang }}-{{ forloop.counter }}-label">
-                        {% facade|get_malignance:mal|get_malignance_name:lang %}
+                        {{ facade|get_malignance:mal|get_malignance_name:lang }}
                     </b>
                     <button>
                         <span aria-hidden="true">&times;</span>
@@ -52,7 +52,7 @@
                 </div>
                 <div class="modal-body">
                     <p>
-                        {% facade|get_malignance:mal|get_malignance_description:lang %}
+                        {{ facade|get_malignance:mal|get_malignance_description:lang }}
                     </p>
                 </div>
             </div>
