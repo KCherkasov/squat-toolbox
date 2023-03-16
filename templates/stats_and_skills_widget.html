@@ -1,5 +1,5 @@
 <header class="text-center">
-    <h4>{% if lang == 'ru' %}Характеристики и навыки{% else %}Characteristics and skills{% endif %}</h4>
+    <h5>{% if lang == 'ru' %}Характеристики и навыки{% else %}Characteristics and skills{% endif %}</h5>
 </header>
 <div>
     <ul class="nav nav-tabs" role="tablist">
@@ -19,9 +19,9 @@
     <div class="tab-pane fade show active" id="stats-{{ lang }}" role="tabpanel" aria-labelledby="stats-tag-{{ lang }}">
         <hr>
         <header class="text-center">
-            <h4>
+            <b>
                 {% if lang == 'ru' %}Характеристики{% else %}Characteristics{% endif %}
-            </h4>
+            </b>
         </header>
         <div class="charlist-content">
             {% for stat_key, stat in character.stats.items %}
@@ -38,9 +38,9 @@
     <div class="tab-pane fade show" id="skills-{{ lang }}" role="tabpanel" aria-labelledby="skills-tag-{{ lang }}">
         <hr>
         <header class="text-center">
-            <h4>
+            <b>
                 {% if lang == 'ru' %}Умения{% else %}Skills{% endif %}
-            </h4>
+            </b>
         </header>
         <div class="tab-content charlist-content">
             {% for skill_key, skill in character.skills.items %}
