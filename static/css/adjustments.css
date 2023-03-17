@@ -8,7 +8,7 @@ body {
 }
 
 .main-container-wide {
-    min-width: 750px !important;
+    min-width: 1190px !important;
 }
 
 .starter-template {
@@ -79,6 +79,7 @@ h5.collapse-toggler {
 }
 
 .skills-list {
+    min-width: 470px;
     max-height: 600px;
     overflow-y: auto;
 }
