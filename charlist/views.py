@@ -623,43 +623,6 @@ def create_character_divination(request, creation_id):
                 hw_bonus = homeworld.get_bonus()
                 bg_bonus = background.get_bonus()
 
-                for cmd in hw_bonus.get_commands():
-                    if cmd.get('command') == 'GainTalent':
-                        if cmd.get('tag') not in talents.keys():
-                            if flyweights.talent_descriptions().get(cmd.get('tag')).is_specialist():
-                                taken = dict()
-                                for key in cmd.keys():
-                                    if key in ['subtag', 'subtag1', 'subtag2']:
-                                        taken[cmd.get(key)] = 1
-                            else:
-                                if flyweights.talent_descriptions().get(cmd.get('tag')).is_stackable():
-                                    taken = cmd.get('taken')
-                                else:
-                                    taken = 1
-                            talent = Talent(cmd.get('tag'), taken)
-                            talents[cmd.get('tag')] = talent
-
-                for cmd in bg_bonus.get_commands():
-                    if cmd.get('command') == 'GainTalent':
-                        if cmd.get('tag') not in talents.keys():
-                            if flyweights.talent_descriptions().get(cmd.get('tag')).is_specialist():
-                                taken = dict()
-                                for key in cmd.keys():
-                                    if key in ['subtag', 'subtag1', 'subtag2']:
-                                        taken[cmd.get(key)] = 1
-                            else:
-                                if flyweights.talent_descriptions().get(cmd.get('tag')).is_stackable():
-                                    taken = cmd.get('taken')
-                                else:
-                                    taken = 1
-                            talent = Talent(cmd.get('tag'), taken)
-                            talents[cmd.get('tag')] = talent
-                        elif flyweights.talent_descriptions().get(cmd.get('tag')).is_specialist():
-                            for key in cmd.keys():
-                                if (key in ['subtag', 'subtag1', 'subtag2']) \
-                                        and (key not in talents.get(cmd.get('tag')).taken().keys()):
-                                    talents.get(cmd.get('tag')).take_subtag(flyweights, cmd.get(key))
-
                 bg_talent_choice = background.get_talent_choices()[cd.bg_talent]
                 if bg_talent_choice.get('tag') in talents.keys():
                     if flyweights.talent_descriptions().get(bg_talent_choice.get('tag')).is_specialist():
@@ -716,38 +679,9 @@ def create_character_divination(request, creation_id):
                         else:
                             taken = 1
                     traits[trait.get('tag')] = Trait(trait.get('tag'), taken)
-                for cmd in hw_bonus.get_commands():
-                    if cmd.get('tag') == 'GainTrait':
-                        if flyweights.trait_descriptions().get(cmd.get('tag')).is_specialist() \
-                                or (cmd.get('tag') not in traits.keys()):
-                            if flyweights.trait_descriptions().get(cmd.get('tag')).is_specialist() \
-                                    or flyweights.trait_descriptions().get(cmd.get('tag')).is_stackable():
-                                taken = cmd.get('taken')
-                            else:
-                                taken = 1
-                            if cmd.get('tag') in traits.keys():
-                                for tag in cmd.get('taken'):
-                                    traits.get(cmd.get('key')).take_subtag(flyweights, tag)
-                            else:
-                                traits[cmd.get('key')] = Trait(cmd.get('tag'), taken)
 
                 divination = flyweights.divinations().get(div_tag)
                 malignancies = list()
-                for cmd in divination.get_commands():
-                    command = cmd.get('tag')
-                    if command == 'GainRndMalign':
-                        dice = cmd.get('dice')
-                        roll_result = roll(dice)
-                        maligns = flyweights.malignancies()
-                        malign = None
-                        for key, mal in maligns.items():
-                            if (mal.get_rolls_range()[0] >= roll_result) and (mal.get_rolls_range()[1] <= roll_result):
-                                malignancies.append(key)
-                                malign = mal
-                                break
-                        if malign is not None:
-                            for cmd in malign.get_commands():
-                                pass  # TODO: form pending commands.
                 mutations = list()
                 disorders = list()
                 character = charlist.models.Character.objects.create(owner=request.user, character_data='')
@@ -759,6 +693,13 @@ def create_character_divination(request, creation_id):
                                                  0, apts, stats, skills, talents, traits, [],
                                                  [], disorders, malignancies, mutations, list(), list(), list(),
                                                  0, 0)
+                for cmd in divination.get_commands():
+                    character_model.pending().append(cmd)
+                for cmd in bg_bonus.get_commands():
+                    character_model.pending().append(cmd)
+                for cmd in hw_bonus.get_commands():
+                    character_model.pending().append(cmd)
+                character_model = commands_parser.process_character(character_model)
                 character.character_data = character_model.toJSON()
                 character.creation_date = cd.last_mod_date
                 character.save()
@@ -811,7 +752,7 @@ def character_view(request, char_id):
     if (request.user is not None) and (request.user == character.owner):
         insanity_form = GainInsanityRollForm()
         corruption_form = GainCorruptionRollForm()
-        commands_parser.process_character(character_model)
+        character_model = commands_parser.process_character(character_model)
         character.character_data = character_model.toJSON()
         character.save()
         reminders = list()
