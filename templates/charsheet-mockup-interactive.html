@@ -35,11 +35,6 @@ Character sheet interactive mockup
                     </a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" data-bs-toggle="tab" id="statsnskills-tab-{{ lang }}" href="#statsnskills-{{ lang }}">
-                        {% if lang == 'ru' %}Характеристики и умения{% else %}Characteristics and skills{% endif %}
-                    </a>
-                </li>
-                <li class="nav-item" role="presentation">
                     <a class="nav-link" data-bs-toggle="tab" id="talents-tab-{{ lang }}" href="#talents-{{ lang }}">
                         {% if lang == 'ru' %}Таланты и черты{% else %}Talents and traits{% endif %}
                     </a>
@@ -108,10 +103,6 @@ Character sheet interactive mockup
                     {% include 'xp_widget.html' %}
 
                 </div>
-            </div>
-
-            <div class="tab-pane fade show" id="statsnskills-{{ lang }}" role="tabpanel" aria-labelledby="statsnskills-tag-{{ lang }}">
-                {% include 'stats_and_skills_widget.html' %}
             </div>
 
             <div class="tab-pane fade show" id="talents-{{ lang }}" role="tabpanel" aria-labelledby="talents-tag-{{ lang }}">
