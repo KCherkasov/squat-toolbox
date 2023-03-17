@@ -3,9 +3,13 @@
     <div class="text-center">
         <b>{% if lang == 'ru' %}Склонности{% else %}Aptitudes{% endif %}</b>
     </div>
-    <div class="charlist-inline">
-        {% for apt in character.aptitudes %}
-            {% include 'char_apt_widget.html' %}
-        {% endfor %}
+    {% for apt in character.aptitudes %}
+    {% if forloop.counter0|divisibleby:4 %}
+    <div class="card-group justify-content-center">
+    {% endif %}
+        {% include 'char_apt_widget.html' %}
+        {% if forloop.counter|divisibleby:4 or forloop.last %}
     </div>
+    {% endif %}
+    {% endfor %}
 </div>
