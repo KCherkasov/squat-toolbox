@@ -82,3 +82,7 @@ h5.collapse-toggler {
     max-height: 600px;
     overflow-y: auto;
 }
+
+.stats-list {
+    min-width: 720px;
+}
