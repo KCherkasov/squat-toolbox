@@ -1,0 +1,12 @@
+<div class="card card-body" id="skills-{{ lang }}">
+    <header class="text-center">
+        <h5>
+            {% if lang == 'ru' %}Умения{% else %}Skills{% endif %}
+        </h5>
+    </header>
+    <div class="charlist-content skills-list">
+        {% for skill_key, skill in character.skills.items %}
+            {% include 'skill_widget.html' %}
+        {% endfor %}
+    </div>
+</div>

@@ -70,7 +70,7 @@ Character sheet interactive mockup
                 </header>
                 <div class="charlist-content">
                     <div>
-                        <div class="card-group">
+                        <div class="charlist-inline justify-content-center">
                             <div class="card card-body">
                                 {% include 'homeworld_widget.html' %}
                                 {% include 'background_widget.html' %}
@@ -79,14 +79,15 @@ Character sheet interactive mockup
                                 {% include 'divination_widget.html' %}
                                 {% include 'fate_widget.html' %}
                                 {% include 'wounds_widget.html' %}
+                                {% include 'char_apts_widget.html' %}
+                                {% include 'stats_widget.html' %}
+                                {% include 'fatigue_widget.html' %}
                             </div>
                             <div class="card card-body">
-                                {% include 'char_apts_widget.html' %}
-                                {% include 'fatigue_widget.html' %}
+                                {% include 'skills_widget.html' %}
                             </div>
                         </div>
                     </div>
-                    {% include 'stats_and_skills_widget.html' %}
                     <div class="card-group">
                         <div class="card card-body">
                             {% include 'insanity_widget.html' %}

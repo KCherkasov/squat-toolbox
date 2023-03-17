@@ -1,0 +1,20 @@
+{% load filters %}
+
+<div class="card card-body stats-list" id="stats-{{ lang }}">
+    <header class="text-center">
+        <h5>
+            {% if lang == 'ru' %}Характеристики{% else %}Characteristics{% endif %}
+        </h5>
+    </header>
+    <div class="charlist-content">
+        {% for stat_key, stat in character.stats.items %}
+        {% if not forloop.counter|divisibleby:2 %}
+            <div class="card-group">
+        {% endif %}
+        {% include 'stat_widget.html' %}
+        {% if forloop.counter|divisibleby:2 or forloop.last %}
+            </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
