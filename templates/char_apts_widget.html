@@ -3,7 +3,9 @@
     <div class="text-center">
         <b>{% if lang == 'ru' %}Склонности{% else %}Aptitudes{% endif %}</b>
     </div>
-    {% for apt in character.aptitudes %}
-        {% include 'char_apt_widget.html' %}
-    {% endfor %}
+    <div class="charlist-inline">
+        {% for apt in character.aptitudes %}
+            {% include 'char_apt_widget.html' %}
+        {% endfor %}
+    </div>
 </div>
