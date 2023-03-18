@@ -186,6 +186,16 @@ def get_homeworld_description(facade: Facade, key: str):
 
 
 @register.filter
+def get_trdescr_is_specialist(trdescr: TraitDescription):
+    return trdescr.is_specialist()
+
+
+@register.filter
+def get_tldescr_is_stackable(trdescr: TalentDescription):
+    return trdescr.is_stackable()
+
+
+@register.filter
 def get_hw_name(hw: HomeWorldDescription, lang='ru'):
     return hw.get_name(lang)
 
