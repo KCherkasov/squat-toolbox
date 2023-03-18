@@ -470,7 +470,9 @@ def create_character_double_apts(request, creation_id):
                 cd.curr_stage = 'divination'
                 cd.save()
                 return HttpResponseRedirect(reverse('create-character-divination', kwargs={'creation_id': cd.pk}))
-
+            else:
+                return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                        'stage': CREATION_STAGES[6], 'form': form})
     else:
         form = DoubleAptsChoiceForm(doubled, apts, flyweights)
         return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
