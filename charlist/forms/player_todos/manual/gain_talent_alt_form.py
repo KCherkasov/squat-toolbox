@@ -10,7 +10,7 @@ class GainTalentAltForm(Form):
         choices = list()
         for tag in cmd.get('tags'):
             choices.append((tag, flyweights.talent_descriptions().get(tag).get_name_en()))
-        self.choices.choices = choices
+        self.fields['choices'].choices = choices
 
     choices = forms.ChoiceField(label=u'Выберите талант')
 

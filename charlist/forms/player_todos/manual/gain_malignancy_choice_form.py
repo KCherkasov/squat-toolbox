@@ -10,6 +10,6 @@ class GainMalignancyChoiceForm(Form):
         choices = list()
         for key, value in flyweights.malignancies().items():
             choices.append((key, value.get_name_en()))
-        self.choices.choices = choices
+        self.fields['choices'].choices = choices
 
     choices = forms.ChoiceField(label=u'Выберите малигнацию')
