@@ -626,6 +626,24 @@ def create_character_divination(request, creation_id):
                 hw_bonus = homeworld.get_bonus()
                 bg_bonus = background.get_bonus()
 
+                for talent in background.get_talents():
+                    if talent.get('tag') in talents.keys():
+                        if flyweights.talent_descriptions().get(talent.get('tag')).is_specialist():
+                            for key in talent.keys():
+                                if (key in ['subtag', 'subtag1', 'subtag2']) \
+                                        and (key not in talents.get(talent.get('tag')).taken().keys()):
+                                    talents.get(talent.get('tag')).take_subtag(flyweights, talent.get(key))
+                    else:
+                        if flyweights.talent_descriptions().get(talent.get('tag')).is_specialist():
+                            taken = dict()
+                            for key in talent.keys():
+                                if key in ['subtag', 'subtag1', 'subtag2']:
+                                    taken[talent.get(key)] = 1
+                        else:
+                            taken = 1
+                        bg_talent = Talent(talent.get('tag'), taken)
+                        talents[talent.tag()] = bg_talent
+
                 if cd.bg_talent is not None:
                     bg_talent_choice = background.get_talent_choices()[cd.bg_talent]
                     if bg_talent_choice.get('tag') in talents.keys():
