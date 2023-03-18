@@ -626,24 +626,25 @@ def create_character_divination(request, creation_id):
                 hw_bonus = homeworld.get_bonus()
                 bg_bonus = background.get_bonus()
 
-                bg_talent_choice = background.get_talent_choices()[cd.bg_talent]
-                if bg_talent_choice.get('tag') in talents.keys():
-                    if flyweights.talent_descriptions().get(bg_talent_choice.get('tag')).is_specialist():
-                        for key in bg_talent_choice.keys():
-                            if (key in ['subtag', 'subtag1', 'subtag2']) \
-                                    and (key not in talents.get(bg_talent_choice.get('tag')).taken().keys()):
-                                talents.get(bg_talent_choice.get('tag')).take_subtag(flyweights,
-                                                                                     bg_talent_choice.get(key))
-                else:
-                    if flyweights.talent_descriptions().get(bg_talent_choice.get('tag')).is_specialist():
-                        taken = dict()
-                        for key in bg_talent_choice.keys():
-                            if key in ['subtag', 'subtag1', 'subtag2']:
-                                taken[bg_talent_choice.get(key)] = 1
+                if cd.bg_talent is not None:
+                    bg_talent_choice = background.get_talent_choices()[cd.bg_talent]
+                    if bg_talent_choice.get('tag') in talents.keys():
+                        if flyweights.talent_descriptions().get(bg_talent_choice.get('tag')).is_specialist():
+                            for key in bg_talent_choice.keys():
+                                if (key in ['subtag', 'subtag1', 'subtag2']) \
+                                        and (key not in talents.get(bg_talent_choice.get('tag')).taken().keys()):
+                                    talents.get(bg_talent_choice.get('tag')).take_subtag(flyweights,
+                                                                                         bg_talent_choice.get(key))
                     else:
-                        taken = 1
-                    talent = Talent(bg_talent_choice.get('tag'), taken)
-                    talents[talent.tag()] = talent
+                        if flyweights.talent_descriptions().get(bg_talent_choice.get('tag')).is_specialist():
+                            taken = dict()
+                            for key in bg_talent_choice.keys():
+                                if key in ['subtag', 'subtag1', 'subtag2']:
+                                    taken[bg_talent_choice.get(key)] = 1
+                        else:
+                            taken = 1
+                        talent = Talent(bg_talent_choice.get('tag'), taken)
+                        talents[talent.tag()] = talent
 
                 if role.get_talent_choices()[0].get('tag') == cd.role_talent:
                     role_talent_choice = role.get_talent_choices()[0]
