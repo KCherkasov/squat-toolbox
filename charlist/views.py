@@ -741,6 +741,24 @@ def gain_corruption(request, character: CharacterModel, character_record: charli
         return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character_record.pk, }))
 
 
+def decrease_stat_alt(request, character_model: CharacterModel, character: charlist.models.Character):
+    form = DecreaseStatAltForm({}, flyweights, request.POST)
+    if form.is_valid():
+        character_model.damage_stat(form.cleaned_data['choices'], form.amount())
+        character.character_data = character_model.toJSON()
+        character.save()
+        return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
+
+
+def increase_stat_alt(request, character_model: CharacterModel, character: charlist.models.Character):
+    form = IncreaseStatAltForm({}, flyweights, request.POST)
+    if form.is_valid():
+        character_model.improve_stat(form.cleaned_data['choices'], form.amount())
+        character.character_data = character_model.toJSON()
+        character.save()
+    return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
+
+
 def character_view(request, char_id):
     character = charlist.models.Character.objects.get(pk=char_id)
     character_model = character.data_to_model()
@@ -749,6 +767,10 @@ def character_view(request, char_id):
             gain_insanity(request, character_model, character)
         if 'gain-corruption-confirm' in request.POST:
             gain_corruption(request, character_model, character)
+        if 'statdec-alt-confirm' in request.POST:
+            decrease_stat_alt(request, character_model, character)
+        if 'statinc-alt-confirm' in request.POST:
+            increase_stat_alt(request, character_model, character)
         # TODO: other commands parsing
     insanity_form = None
     corruption_form = None
