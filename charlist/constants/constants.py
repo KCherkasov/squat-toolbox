@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-VERSION = '0.0.99a'
+VERSION = '0.0.101a'
 
 RU = 'ru'
 EN = 'en'
