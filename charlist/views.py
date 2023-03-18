@@ -462,10 +462,11 @@ def create_character_double_apts(request, creation_id):
         form = DoubleAptsChoiceForm(doubled, apts, flyweights, request.POST)
         if 'char-apts-next' in request.POST:
             if form.is_valid():
-                if doubled > 0:
-                    cd.apt_1 = form.cleaned_data['apt_choice']
-                    if doubled > 1:
-                        cd.apt_2 = form.cleaned_data['apt_choice2']
+                cd.apt_1 = form.cleaned_data['apt_choice']
+                if doubled > 1:
+                    cd.apt_2 = form.cleaned_data['apt_choice2']
+                else:
+                    cd.apt_2 = None
                 cd.last_mod_date = datetime.datetime.now()
                 cd.curr_stage = 'divination'
                 cd.save()
