@@ -191,7 +191,7 @@ def get_trdescr_is_specialist(trdescr: TraitDescription):
 
 
 @register.filter
-def get_tldescr_is_stackable(trdescr: TalentDescription):
+def get_trdescr_is_stackable(trdescr: TalentDescription):
     return trdescr.is_stackable()
 
 
