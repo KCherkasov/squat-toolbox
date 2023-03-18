@@ -447,6 +447,7 @@ def create_character_double_apts(request, creation_id):
     homeworld = flyweights.homeworlds().get(cd.homeworld)
     doubled = count_doubles(cd, homeworld, role)
     apts = make_apts(cd, homeworld, role)
+
     if doubled == 0:
         cd.curr_stage = 'divination'
         cd.save()
@@ -470,9 +471,8 @@ def create_character_double_apts(request, creation_id):
             cd.curr_stage = 'divination'
             cd.save()
             return HttpResponseRedirect(reverse('create-character-divination', kwargs={'creation_id': cd.pk}))
-        else:
-            return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                    'stage': CREATION_STAGES[6], 'form': form})
+        return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                'stage': CREATION_STAGES[6], 'form': form})
     else:
         form = DoubleAptsChoiceForm(doubled, apts, flyweights)
         return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
