@@ -9,6 +9,7 @@ from charlist.constants import tags
 class DoubleAptsChoiceForm(Form):
     def __init__(self, doubled, apts, flyweights, *args, **kwargs):
         super(DoubleAptsChoiceForm, self).__init__(*args, **kwargs)
+        self.__doubled = doubled
         choices = []
         for st_apt in tags.STAT_APTS:
             if st_apt not in apts:
@@ -33,4 +34,7 @@ class DoubleAptsChoiceForm(Form):
     apt_choice2 = forms.ChoiceField(label=u'Вторая склонность')
 
     def is_valid(self):
-        return super().is_valid() and (self.apt_choice != self.apt_choice2)
+        if self.__doubled > 1:
+            return super().is_valid() and (self.apt_choice != self.apt_choice2)
+        else:
+            return super().is_valid()
