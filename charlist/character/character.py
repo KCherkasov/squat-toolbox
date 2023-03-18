@@ -507,6 +507,8 @@ class CharacterModel(object):
             talents[talent_key] = Talent.from_json(talent)
         data['talents'] = talents
         traits = dict()
+
+
         for trait_key in data['traits']:
             traits[trait_key] = Trait.from_json(data['traits'].get(trait_key))
         data['traits'] = traits
