@@ -38,6 +38,6 @@ class DoubleAptsChoiceForm(Form):
         if self.doubled > 1:
             if cd.get('apt_choice2') is None:
                 raise ValidationError('select second aptitude')
-            if (cd.get('apt_choice') == cd.get('apt_choice2')):
+            if cd.get('apt_choice') == cd.get('apt_choice2'):
                 raise ValidationError("aptitudes shall be different!")
         return cd
