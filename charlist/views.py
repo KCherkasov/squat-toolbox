@@ -460,22 +460,19 @@ def create_character_double_apts(request, creation_id):
             return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                     'stage': CREATION_STAGES[6], 'form': form})
         form = DoubleAptsChoiceForm(doubled, apts, flyweights, request.POST)
-        if 'char-apts-next' in request.POST:
-            if form.is_valid():
-                cd.apt_1 = form.cleaned_data['apt_choice']
-                if doubled > 1:
-                    cd.apt_2 = form.cleaned_data['apt_choice2']
-                else:
-                    cd.apt_2 = None
-                cd.last_mod_date = datetime.datetime.now()
-                cd.curr_stage = 'divination'
-                cd.save()
-                return HttpResponseRedirect(reverse('create-character-divination', kwargs={'creation_id': cd.pk}))
+        if form.is_valid():
+            cd.apt_1 = form.cleaned_data['apt_choice']
+            if doubled > 1:
+                cd.apt_2 = form.cleaned_data['apt_choice2']
             else:
-                return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                        'stage': CREATION_STAGES[6], 'form': form})
-        return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                'stage': CREATION_STAGES[6], 'form': form})
+                cd.apt_2 = None
+            cd.last_mod_date = datetime.datetime.now()
+            cd.curr_stage = 'divination'
+            cd.save()
+            return HttpResponseRedirect(reverse('create-character-divination', kwargs={'creation_id': cd.pk}))
+        else:
+            return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                    'stage': CREATION_STAGES[6], 'form': form})
     else:
         form = DoubleAptsChoiceForm(doubled, apts, flyweights)
         return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
