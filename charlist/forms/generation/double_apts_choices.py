@@ -19,7 +19,7 @@ class DoubleAptsChoiceForm(Form):
                 self.fields['apt_choice'].choices = choices
                 if doubled > 1:
                     self.fields['apt_choice2'] = forms.ChoiceField(label=u'Вторая склонность')
-                    self.fields['apt_choice2'].choice = choices
+                    self.fields['apt_choice2'].choices = choices
             else:
                 self.fields['apt_choice'].required = False
                 self.fields['apt_choice'].widget = forms.Select(

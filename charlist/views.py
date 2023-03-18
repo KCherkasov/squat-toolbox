@@ -404,11 +404,11 @@ def count_doubles(cd, hw, role):
     hw_apt = hw.get_aptitude()
     bg_apt = cd.background_apt
     role_apts = role.get_aptitudes()
+    if bg_apt == hw_apt:
+        doubles += 1
     if cd.role_apt is not None:
         if (cd.role_apt == bg_apt) or (cd.role_apt == hw_apt):
             doubles += 1
-    if bg_apt == hw_apt:
-        doubles += 1
     for apt in role_apts:
         if (apt == bg_apt) or (apt == hw_apt):
             doubles += 1
