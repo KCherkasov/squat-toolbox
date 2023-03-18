@@ -2,6 +2,7 @@
 
 from django import forms
 from django.forms import Form
+from django.forms import ValidationError
 
 from charlist.constants import tags
 
@@ -33,8 +34,13 @@ class DoubleAptsChoiceForm(Form):
     apt_choice = forms.ChoiceField(label=u'Первая склонность')
     apt_choice2 = forms.ChoiceField(label=u'Вторая склонность')
 
-    def is_valid(self):
+    def clean(self):
+        cd = self.cleaned_data
         if self.__doubled > 1:
-            return super().is_valid() and (self.apt_choice != self.apt_choice2)
+            if (cd.get('apt_choice') == cd.get('apt_choice2'))\
+                    or (cd.get('apt_choice2') is None) or (cd.get('apt_choice') is None):
+                raise ValidationError("aptitudes shall be different!")
         else:
-            return self.apt_choice is not None
+            if cd.get('apt_choice') is None:
+                raise ValidationError('you shall choose an aptitude!')
+        return cd
