@@ -31,9 +31,11 @@
         </div>
     </div>
     <div class="align-content-center">
-        <button class="btn btn-outline dark disabled fs-4">{{ stat.bonus }}</button><b class="fs-5">{{ stat.residue }}</b>
+        <button class="btn btn-outline-dark disabled fs-4">{{ stat.bonus }}</button>
+        <button class="btn btn-light disabled fs-5">{{ stat.residue }}</button>
     </div>
     {% else %}
+    <span></span>
     <div class="align-content-center">
         <button class="btn btn-outline-dark disabled fs-4">{{ stat.bonus }}</button>
         <button class="btn btn-light disabled fs-5">{{ stat.residue }}</button>
