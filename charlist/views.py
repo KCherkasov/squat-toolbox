@@ -642,7 +642,7 @@ def create_character_divination(request, creation_id):
                         else:
                             taken = 1
                         bg_talent = Talent(talent.get('tag'), taken)
-                        talents[talent.tag()] = bg_talent
+                        talents[bg_talent.tag()] = bg_talent
 
                 if cd.bg_talent is not None:
                     bg_talent_choice = background.get_talent_choices()[cd.bg_talent]
