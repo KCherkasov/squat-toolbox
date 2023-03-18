@@ -18,11 +18,8 @@ class DoubleAptsChoiceForm(Form):
             if doubled > 0:
                 self.fields['apt_choice'].choices = choices
                 if doubled > 1:
+                    self.fields['apt_choice2'] = forms.ChoiceField(label=u'Вторая склонность')
                     self.fields['apt_choice2'].choice = choices
-                else:
-                    self.fields['apt_choice2'].required = False
-                    self.fields['apt_choice2'].widget = forms.Select(
-                        {'class': 'form-control disabled'}, choices)
             else:
                 self.fields['apt_choice'].required = False
                 self.fields['apt_choice'].widget = forms.Select(
@@ -32,7 +29,7 @@ class DoubleAptsChoiceForm(Form):
                     {'class': 'form-control disabled'}, choices)
 
     apt_choice = forms.ChoiceField(label=u'Первая склонность')
-    apt_choice2 = forms.ChoiceField(label=u'Вторая склонность')
+    # apt_choice2 = forms.ChoiceField(label=u'Вторая склонность')
 
     def clean(self):
         cd = self.cleaned_data
