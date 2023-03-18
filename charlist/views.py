@@ -474,6 +474,8 @@ def create_character_double_apts(request, creation_id):
             else:
                 return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
                                                                         'stage': CREATION_STAGES[6], 'form': form})
+        return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                'stage': CREATION_STAGES[6], 'form': form})
     else:
         form = DoubleAptsChoiceForm(doubled, apts, flyweights)
         return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
