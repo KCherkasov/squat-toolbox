@@ -34,8 +34,7 @@ class DoubleAptsChoiceForm(Form):
     def clean(self):
         cd = self.cleaned_data
         if self.__doubled > 1:
-            if (cd.get('apt_choice') == cd.get('apt_choice2'))\
-                    or (cd.get('apt_choice2') is None) or (cd.get('apt_choice') is None):
+            if (cd.get('apt_choice') == cd.get('apt_choice2')):
                 raise ValidationError("aptitudes shall be different!")
         else:
             if cd.get('apt_choice') is None:
