@@ -3,17 +3,17 @@
 {% endblock %}
 
 <div class="page-header text-center">
-    <h3>Этап 7: замена совпадающих склонностей (aptitudes)</h3>
+    <h3>Этап 7: замена совпадающих склонностей (aptitudes: {{ form.doubled }})</h3>
     <span class="form-control"><meter max="8" value="7"></meter></span>
 </div>
 <hr/>
+{% for err in form.non_field_errors %}
+<div class="alert alert-danger" role="alert">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    {{ err }}
+</div>
+{% endfor %}
 <div class="charlist-inline justify-content-center">
-    {% for err in form.non_field_errors %}
-    <div class="alert alert-danger" role="alert">
-        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-        {{ err }}
-    </div>
-    {% endfor %}
     <div class="charlist-content justify-content-center">
         <form class="form-horizontal" method="post" action="">
             {% csrf_token %}

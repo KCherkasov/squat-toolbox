@@ -10,7 +10,7 @@ from charlist.constants import tags
 class DoubleAptsChoiceForm(Form):
     def __init__(self, doubled, apts, flyweights, *args, **kwargs):
         super(DoubleAptsChoiceForm, self).__init__(*args, **kwargs)
-        self.__doubled = doubled
+        self.doubled = doubled
         choices = []
         for st_apt in tags.STAT_APTS:
             if st_apt not in apts:
@@ -33,10 +33,11 @@ class DoubleAptsChoiceForm(Form):
 
     def clean(self):
         cd = self.cleaned_data
+        if cd.get('apt_choice') is None:
+            raise ValidationError('select first aptitude')
         if self.__doubled > 1:
+            if cd.get('apt_choice2') is None:
+                raise ValidationError('select second aptitude')
             if (cd.get('apt_choice') == cd.get('apt_choice2')):
                 raise ValidationError("aptitudes shall be different!")
-        else:
-            if cd.get('apt_choice') is None:
-                raise ValidationError('you shall choose an aptitude!')
         return cd
