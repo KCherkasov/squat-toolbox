@@ -30,10 +30,11 @@ from charlist.forms.player_todos.manual.increase_stat_roll_form import IncreaseS
 
 
 class Reminder(object):
-    def __init__(self, tag: str, form, tmp_name: str):
+    def __init__(self, tag: str, form, tmp_name: str, colour: str):
         self.tag = tag
         self.form = form
         self.tmp_name = tmp_name
+        self.colour = colour
 
 
 class CommandParser(object):
@@ -53,37 +54,47 @@ class CommandParser(object):
     def make_reminder(self, cmd, character: CharacterModel):
         reminder = None
         form = None
+        colour = 'info'
         if cmd.get('command') == GET_DISORDER_IP:
             form = GainDisorderIPForm()
+            colour = 'danger'
         if cmd.get('command') == GET_TRAUMA_IP:
             form = GetTraumaIPForm()
+            colour = 'danger'
         if cmd.get('command') == GET_TALENT_ALT:
             form = GainTalentAltForm(cmd, self.__facade)
         if cmd.get('command') == INC_STAT_ALT:
             form = IncreaseStatAltForm(cmd, self.__facade)
         if cmd.get('command') == DEC_STAT_ALT:
             form = DecreaseStatAltForm(cmd, self.__facade)
+            colour = 'danger'
         if cmd.get('command') == GET_APT_DOUBLE:
             form = GainStatAptitudeForm(character, self.__facade)
         if cmd.get('command') == INC_STAT_ROLL:
             form = IncreaseStatRollForm(cmd, self.__facade)
         if cmd.get('command') == DEC_STAT_ROLL:
             form = DecreaseStatRollForm(cmd, self.__facade)
+            colour = 'danger'
         if cmd.get('command') == GET_CORRUPTION_ROLL:
             form = GainCorruptionRollForm()
         if cmd.get('command') == GET_INSANITY_ROLL:
             form = GainInsanityRollForm()
         if cmd.get('command') == GET_MAL_ROLL:
             form = GainMalignancyRollForm()
+            colour = 'danger'
         if cmd.get('command') == GET_MAL_CP_RT:
             form = GainMalignancyRollForm()
+            colour = 'danger'
         if cmd.get('command') == GET_MAL_CHOICE:
             form = GainMalignancyChoiceForm(self.__facade)
+            colour = 'danger'
         if cmd.get('command') == GET_MUT_CP_RT:
             form = GainMutationRollForm()
+            colour = 'danger'
         if cmd.get('command') == GET_MUT_CHOICE:
             form = GainMutationChoiceForm(self.__facade)
-        reminder = Reminder(cmd.get('command'), form, self.__links[cmd.get('command')])
+            colour = 'danger'
+        reminder = Reminder(cmd.get('command'), form, self.__links[cmd.get('command')], colour)
         return reminder
 
     def process_character(self, character: CharacterModel):
