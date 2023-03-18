@@ -37,4 +37,4 @@ class DoubleAptsChoiceForm(Form):
         if self.__doubled > 1:
             return super().is_valid() and (self.apt_choice != self.apt_choice2)
         else:
-            return super().is_valid()
+            return self.apt_choice is not None
