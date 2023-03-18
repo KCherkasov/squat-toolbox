@@ -9,7 +9,7 @@
     </div>
     {% endfor %}
     <div class="charlist-content justify-content-center">
-        <h5>{% block form_title %}{% endblock %}</h5>
+        <h5 class="text-center">{% block form_title %}{% endblock %}</h5>
         <form class="form-horizontal" method="post" action="">
             {% csrf_token %}
             {% for field in form %}
