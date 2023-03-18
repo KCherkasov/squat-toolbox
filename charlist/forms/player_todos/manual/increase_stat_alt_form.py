@@ -10,7 +10,7 @@ class IncreaseStatAltForm(Form):
         choices = [(cmd.get('tag1', flyweights.stat_descriptions().get(cmd.get('tag1')).get_name_en())),
                    (cmd.get('tag2', flyweights.stat_descriptions().get(cmd.get('tag2')).get_name_en()))]
         self.__amount = cmd.get('amount')
-        self.choices.choices = choices
+        self.field['choices'].choices = choices
 
     def amount(self):
         return self.__amount
