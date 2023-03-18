@@ -5,7 +5,7 @@
         {% if forloop.counter0|divisibleby:3 %}
             <div class="charlist-inline justify-content-center">
         {% endif %}
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+    <button type="button" class="btn btn-{{ reminder.colour }}" data-bs-toggle="modal"
             data-bs-target="#reminder-{{ forloop.counter }}-popup">
         {{ command_parser.titles|get_by_dict_key:reminder.tag }}
     </button>
