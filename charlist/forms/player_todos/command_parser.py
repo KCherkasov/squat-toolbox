@@ -52,6 +52,75 @@ class CommandParser(object):
     def titles(self):
         return self.__titles
 
+    def is_conditional(self, data):
+        return 'condition' in data.keys()
+
+    def is_skill_condition(self, data):
+        if self.is_conditional(data):
+            if data.get('condition').get('tag')[:2] == 'SK':
+                return True
+        return False
+
+    def is_talent_condition(self, data):
+        if self.is_conditional(data):
+            if data.get('condition').get('tag')[:2] == 'TL':
+                return True
+        return False
+
+    def is_trait_condition(self, data):
+        if self.is_conditional(data):
+            if data.get('condition').get('tag')[:2] == 'TR':
+                return True
+        return False
+
+    def is_background_condition(self, data):
+        if self.is_conditional(data):
+            if data.get('condition').get('tag')[:2] == 'BG':
+                return True
+        return False
+
+    def condition_met(self, character: CharacterModel, data):
+        result = None
+        if self.is_conditional(data):
+            if self.is_background_condition(data):
+                result = character.bg_id() == data.get('condition').get('tag')
+            if self.is_talent_condition(data):
+                if self.__facade.talent_descriptions().get(data.get('condition').get('tag')).is_specialist():
+                    if 'subtag' in data.get('condition').keys():
+                        result = character.has_talent_subtag(data.get('condition').get('tag'),
+                                                             data.get('condition').get('subtag'))
+                    else:
+                        return False
+                else:
+                    result = character.has_talent(data.get('condition').get('tag'))
+            if self.is_skill_condition(data):
+                if self.__facade.skill_descriptions().get(data.get('command').get('tag')).is_specialist():
+                    if 'subtag' in data.get('command').keys():
+                        if data.get('command').get('subtag') == 'SK_ANY':
+                            result = data.get('command').get('tag') in character.skills().keys()
+                        else:
+                            result = character.has_subskill(data.get('command').get('tag'),
+                                                            data.get('command').get('subtag'),
+                                                            adv=data.get('command').get('value'))
+                    else:
+                        return False
+                else:
+                    result = character.has_skill(data.get('command').get('tag'), adv=data.get('command').get('value'))
+                return result
+            if self.is_trait_condition(data):
+                if self.__facade.trait_descriptions().get(data.get('command').get('tag')).is_specialist():
+                    if 'subtag' in data.get('command').keys():
+                        return character.has_trait_subtag(data.get('command').get('tag'),
+                                                          data.get('command').get('subtag'))
+                    else:
+                        return False
+                else:
+                    result = character.has_trait(data.get('command').get('tag'))
+            if data.get('value') > 0:
+                return result
+            return not result
+        return False
+
     def make_reminder(self, cmd, character: CharacterModel):
         reminder = None
         form = None
@@ -59,6 +128,9 @@ class CommandParser(object):
         if 'cmd_id' not in cmd.keys():
             cmd['cmd_id'] = character.cmd_count() + 1
             character.inc_cmd_count()
+        if self.is_conditional(cmd):
+            if not self.condition_met(character, cmd):
+                return reminder
         if cmd.get('command') == GET_DISORDER_IP:
             form = GainDisorderIPForm(cmd)
             colour = 'danger'

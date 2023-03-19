@@ -36,7 +36,7 @@
           }
         },
         {
-          "command": "GainCorruption",
+          "command": "GainCorruptionRoll",
           "dice": 10,
           "bonus": 3,
           "condition": {

@@ -847,7 +847,11 @@ def character_view(request, char_id):
         # TODO: controls (stats/skills/talents upgrading, XP gaining, etc.
         if len(character_model.pending()) > 0:
             for cmd in character_model.pending():
-                reminders.append(commands_parser.make_reminder(cmd, character_model))
+                reminder = commands_parser.make_reminder(cmd, character_model)
+                if reminder is not None:
+                    reminders.append(reminder)
+                else:
+                    character_model.pending().remove(cmd)
         character.character_data = character_model.toJSON()
         character.save()
     return render(request, "charsheet-mockup-interactive.html", {'version': VERSION, 'facade': flyweights,
