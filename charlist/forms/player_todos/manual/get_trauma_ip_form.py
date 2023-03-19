@@ -11,7 +11,7 @@ class GetTraumaIPForm(Form):
 
 
     def clean(self):
-        cleaned_data = self.cleaned_data
+        cleaned_data = self.cleaned_data.copy()
         cleaned_data['cmd_id'] = self.cmd_id
         return cleaned_data
 
