@@ -9,7 +9,6 @@ class GetTraumaIPForm(Form):
         if cmd is not None:
             self.cmd_id = cmd.get('cmd_id')
 
-
     def clean(self):
         cleaned_data = self.cleaned_data.copy()
         cleaned_data['cmd_id'] = self.cmd_id
