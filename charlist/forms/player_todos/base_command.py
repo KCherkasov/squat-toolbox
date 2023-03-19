@@ -65,29 +65,30 @@ class BaseCommand(ABC):
                 else:
                     result = character.has_talent(data.get('condition').get('tag'))
             if self.is_skill_condition(data):
-                if self.get_facade().skill_descriptions().get(data.get('command').get('tag')).is_specialist():
-                    if 'subtag' in data.get('command').keys():
-                        if data.get('command').get('subtag') == 'SK_ANY':
-                            result = data.get('command').get('tag') in character.skills().keys()
+                if self.get_facade().skill_descriptions().get(data.get('condition').get('tag')).is_specialist():
+                    if 'subtag' in data.get('condition').keys():
+                        if data.get('condition').get('subtag') == 'SK_ANY':
+                            result = data.get('condition').get('tag') in character.skills().keys()
                         else:
-                            result = character.has_subskill(data.get('command').get('tag'),
-                                                            data.get('command').get('subtag'),
-                                                            adv=data.get('command').get('value'))
+                            result = character.has_subskill(data.get('condition').get('tag'),
+                                                            data.get('condition').get('subtag'),
+                                                            adv=data.get('condition').get('value'))
                     else:
                         return False
                 else:
-                    result = character.has_skill(data.get('command').get('tag'), adv=data.get('command').get('value'))
+                    result = character.has_skill(data.get('condition').get('tag'),
+                                                 adv=data.get('condition').get('value'))
                 return result
             if self.is_trait_condition(data):
-                if self.get_facade().trait_descriptions().get(data.get('command').get('tag')).is_specialist():
-                    if 'subtag' in data.get('command').keys():
-                        return character.has_trait_subtag(data.get('command').get('tag'),
-                                                          data.get('command').get('subtag'))
+                if self.get_facade().trait_descriptions().get(data.get('condition').get('tag')).is_specialist():
+                    if 'subtag' in data.get('condition').keys():
+                        return character.has_trait_subtag(data.get('condition').get('tag'),
+                                                          data.get('condition').get('subtag'))
                     else:
                         return False
                 else:
-                    result = character.has_trait(data.get('command').get('tag'))
-            if data.get('value') > 0:
+                    result = character.has_trait(data.get('condition').get('tag'))
+            if data.get('condition').get('value') > 0:
                 return result
             return not result
         return False
