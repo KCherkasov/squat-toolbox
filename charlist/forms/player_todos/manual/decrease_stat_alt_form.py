@@ -11,8 +11,18 @@ class DecreaseStatAltForm(Form):
                    (cmd.get('tag2'), flyweights.stat_descriptions().get(cmd.get('tag2')).get_name_en())]
         self.fields['choices'].choices = choices
         self.__amount = cmd.get('amount')
+        self.__cmd_id = cmd.get('cmd_id')
 
     def amount(self):
         return self.__amount
+
+    def cmd_id(self):
+        return self.__cmd_id
+
+    def clean(self):
+        cleaned_data = self.cleaned_data
+        cleaned_data['cmd_id'] = self.__cmd_id
+        return cleaned_data
+
 
     choices = forms.ChoiceField(label=u'Выберите характеристику, которая будет уменьшена')

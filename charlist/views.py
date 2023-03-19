@@ -741,10 +741,20 @@ def create_character_divination(request, creation_id):
                                                                 'stage': CREATION_STAGES[7], 'form': form})
 
 
+def clean_completed(character_model: CharacterModel, form):
+    if form.cmd_id() >= 0:
+        for cmd in character_model.pending():
+            if cmd.get('cmd_id') == form.cmd_id():
+                character_model.pending().remove(cmd)
+                break
+    return character_model
+
+
 def gain_insanity(request, character: CharacterModel, character_record: charlist.models.Character):
     insanity_form = GainInsanityRollForm(request.POST)
     if insanity_form.is_valid():
         character.gain_insanity(insanity_form.cleaned_data['roll_value'])
+        character = clean_completed(character, insanity_form)
         character_record.character_data = character.toJSON()
         character_record.save()
         return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character_record.pk, }))
@@ -754,6 +764,7 @@ def gain_corruption(request, character: CharacterModel, character_record: charli
     corruption_form = GainCorruptionRollForm(request.POST)
     if corruption_form.is_valid():
         character.gain_corruption(corruption_form.cleaned_data['roll_value'])
+        character = clean_completed(character, corruption_form)
         character_record.character_data = character.toJSON()
         character_record.save()
         return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character_record.pk, }))
@@ -763,6 +774,7 @@ def decrease_stat_alt(request, character_model: CharacterModel, character: charl
     form = DecreaseStatAltForm({}, flyweights, request.POST)
     if form.is_valid():
         character_model.damage_stat(form.cleaned_data['choices'], form.amount())
+        character_model = clean_completed(character_model, form)
         character.character_data = character_model.toJSON()
         character.save()
         return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
@@ -772,6 +784,7 @@ def increase_stat_alt(request, character_model: CharacterModel, character: charl
     form = IncreaseStatAltForm({}, flyweights, request.POST)
     if form.is_valid():
         character_model.improve_stat(form.cleaned_data['choices'], form.amount())
+        character_model = clean_completed(character_model, form)
         character.character_data = character_model.toJSON()
         character.save()
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
@@ -797,13 +810,13 @@ def character_view(request, char_id):
         insanity_form = GainInsanityRollForm()
         corruption_form = GainCorruptionRollForm()
         character_model = commands_parser.process_character(character_model)
-        character.character_data = character_model.toJSON()
-        character.save()
         reminders = list()
         # TODO: controls (stats/skills/talents upgrading, XP gaining, etc.
         if len(character_model.pending()) > 0:
             for cmd in character_model.pending():
                 reminders.append(commands_parser.make_reminder(cmd, character_model))
+        character.character_data = character_model.toJSON()
+        character.save()
     return render(request, "charsheet-mockup-interactive.html", {'version': VERSION, 'facade': flyweights,
                                                                  'command_parser': commands_parser,
                                                                  'character': character_model,

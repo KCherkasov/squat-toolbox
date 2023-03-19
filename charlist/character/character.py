@@ -30,7 +30,7 @@ class CharacterModel(object):
                  traits: Dict[str, Trait], psy: List[str], equipment: List[str],
                  disorders: List[str], malignancies: List[str],
                  mutations: List[str], pending: List[Dict], completed: List[str],
-                 used_stats: List[str], cp_tests: int, ip_tests: int):
+                 used_stats: List[str], cp_tests: int, ip_tests: int, cmd_count: int=0):
         self.__cid = cid
         self.__squad_id = squad_id
         self.__name = name
@@ -65,6 +65,7 @@ class CharacterModel(object):
         self.__used_stats = used_stats
         self.__cp_tests = cp_tests
         self.__ip_tests = ip_tests
+        self.__cmd_count = cmd_count
 
     def id(self):
         return self.__cid
@@ -436,6 +437,12 @@ class CharacterModel(object):
 
     def inc_ip_tests(self):
         self.__ip_tests += 1
+
+    def cmd_count(self):
+        return self.__cmd_count
+
+    def inc_cmd_count(self):
+        self.__cmd_count += 1
 
     # TODO - add psy powers!!!
 
