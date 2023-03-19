@@ -808,9 +808,7 @@ def gain_talent_alt(request, character_model: CharacterModel, character: charlis
             break
     form = GainTalentAltForm(cmd, flyweights)
     if form.is_valid():
-        talent = flyweights.talent_descriptions().get(form.cleaned_data['choices'])
-        if not talent.is_specialist():
-            character_model.gain_talent(form.cleaned_data['choices'], flyweights)
+        character_model.gain_talent(form.cleaned_data['choices'], flyweights)
         character_model = clean_completed(character_model, request)
         character.character_data = character_model.toJSON()
         character.save()
