@@ -829,6 +829,8 @@ def character_view(request, char_id):
             decrease_stat_alt(request, character_model, character)
         if 'statinc-alt-confirm' in request.POST:
             increase_stat_alt(request, character_model, character)
+        if 'talent-alt-confirm' in request.POST:
+            gain_talent_alt(request, character_model, character)
         # TODO: other commands parsing
     insanity_form = None
     corruption_form = None
