@@ -721,7 +721,7 @@ def create_character_divination(request, creation_id):
                     character_model.pending().append(cmd)
                 for cmd in hw_bonus.get_commands():
                     character_model.pending().append(cmd)
-                for cmd in role.get_commands():
+                for cmd in role.get_bonus().get_commands():
                     character_model.pending().append(cmd)
                 character_model = commands_parser.process_character(character_model)
                 character.character_data = character_model.toJSON()
