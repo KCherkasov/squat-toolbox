@@ -5,7 +5,7 @@ from charlist.flyweights.flyweights import Facade
 
 
 class DecreaseStatRollForm(Form):
-    def __init__(self, cmd, flyweights: Facade, *args, **kwargs):
+    def __init__(self, cmd: dict, flyweights: Facade, *args, **kwargs):
         super(DecreaseStatRollForm, self).__init__(*args, **kwargs)
         self.__stat_name = flyweights.stat_descriptions().get(cmd.get('tag')).get_name_en()
         self.__cmd_id = cmd.get('cmd_id')

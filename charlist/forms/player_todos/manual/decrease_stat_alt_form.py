@@ -5,7 +5,7 @@ from charlist.flyweights.flyweights import Facade
 
 
 class DecreaseStatAltForm(Form):
-    def __init__(self, cmd, flyweights: Facade, *args, **kwargs):
+    def __init__(self, cmd: dict, flyweights: Facade, *args, **kwargs):
         super(DecreaseStatAltForm, self).__init__(*args, **kwargs)
         choices = [(cmd.get('tag1'), flyweights.stat_descriptions().get(cmd.get('tag2')).get_name_en()),
                    (cmd.get('tag2'), flyweights.stat_descriptions().get(cmd.get('tag2')).get_name_en())]

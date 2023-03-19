@@ -7,7 +7,7 @@ from charlist.constants.tags import STAT_APTS
 
 
 class GainStatAptitudeForm(Form):
-    def __init__(self, character: CharacterModel, flyweights: Facade, cmd=None, *args, **kwargs):
+    def __init__(self, character: CharacterModel, flyweights: Facade, cmd: dict = None, *args, **kwargs):
         super(GainStatAptitudeForm, self).__init__(*args, **kwargs)
         self.__cmd_id = -1
         if cmd is not None:

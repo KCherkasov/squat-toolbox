@@ -5,7 +5,7 @@ from charlist.flyweights.flyweights import Facade
 
 
 class GainMutationChoiceForm(Form):
-    def __init__(self, flyweights: Facade, cmd=None, *args, **kwargs):
+    def __init__(self, flyweights: Facade, cmd: dict = None, *args, **kwargs):
         super(GainMutationChoiceForm, self).__init__(*args, **kwargs)
         self.__cmd_id = -1
         if cmd is not None:
