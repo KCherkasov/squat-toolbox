@@ -4,7 +4,7 @@ from django.forms import Form
 
 class GainMalignancyRollForm(Form):
     def __init__(self, cmd: dict = None, *args, **kwargs):
-        super(GainMalignancyRollForm, self).__init_(*args, **kwargs)
+        super(GainMalignancyRollForm, self).__init__(*args, **kwargs)
         self.__cmd_id = -1
         if cmd is not None:
             self.__cmd_id = cmd.get('cmd_id')
