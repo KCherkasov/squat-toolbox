@@ -742,9 +742,9 @@ def create_character_divination(request, creation_id):
 
 
 def clean_completed(character_model: CharacterModel, request):
-    if request.POST.get('cmd_id') >= 0:
+    if int(request.POST.get('cmd_id')) >= 0:
         for cmd in character_model.pending():
-            if cmd.get('cmd_id') == request.POST.get('cmd_id'):
+            if cmd.get('cmd_id') == int(request.POST.get('cmd_id')):
                 character_model.pending().remove(cmd)
                 break
     return character_model
