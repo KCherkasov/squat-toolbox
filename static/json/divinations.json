@@ -408,7 +408,7 @@
       ],
       "commands": [
         {
-          "commands": "IncreaseStat",
+          "command": "IncreaseStat",
           "tag": "ST_WP",
           "amount": 3
         }
