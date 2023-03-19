@@ -771,7 +771,12 @@ def gain_corruption(request, character: CharacterModel, character_record: charli
 
 
 def decrease_stat_alt(request, character_model: CharacterModel, character: charlist.models.Character):
-    form = DecreaseStatAltForm({}, flyweights, request.POST)
+    cmd = dict()
+    for pcmd in character_model.pending():
+        if pcmd.get('cmd_id') == request.POST.get('cmd_id'):
+            cmd = pcmd
+            break
+    form = DecreaseStatAltForm(cmd, flyweights, request.POST)
     if form.is_valid():
         character_model.damage_stat(form.cleaned_data['choices'], form.amount())
         character_model = clean_completed(character_model, request)
@@ -781,7 +786,12 @@ def decrease_stat_alt(request, character_model: CharacterModel, character: charl
 
 
 def increase_stat_alt(request, character_model: CharacterModel, character: charlist.models.Character):
-    form = IncreaseStatAltForm({}, flyweights, request.POST)
+    cmd = dict()
+    for pcmd in character_model.pending():
+        if pcmd.get('cmd_id') == request.POST.get('cmd_id'):
+            cmd = pcmd
+            break
+    form = IncreaseStatAltForm(cmd, flyweights, request.POST)
     if form.is_valid():
         character_model.improve_stat(form.cleaned_data['choices'], form.amount())
         character_model = clean_completed(character_model, request)
