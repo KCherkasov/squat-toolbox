@@ -752,8 +752,21 @@ def clean_completed(character_model: CharacterModel, request):
     return character_model
 
 
+def find_cmd(request, character_model: CharacterModel):
+    cmd = dict()
+    for pcmd in character_model.pending():
+        if pcmd.get('cmd_id') == int(request.POST.get('cmd_id')):
+            cmd = pcmd
+            break
+    return cmd
+
+
 def gain_insanity(request, character: CharacterModel, character_record: charlist.models.Character):
-    insanity_form = GainInsanityRollForm(request.POST)
+    if int(request.POST.get('cmd_id')) >= 0:
+        cmd = find_cmd(request, character)
+        insanity_form = GainInsanityRollForm(cmd, request.POST)
+    else:
+        insanity_form = GainInsanityRollForm(request.POST)
     if insanity_form.is_valid():
         character.gain_insanity(insanity_form.cleaned_data['roll_value'])
         character = clean_completed(character, request)
@@ -763,7 +776,11 @@ def gain_insanity(request, character: CharacterModel, character_record: charlist
 
 
 def gain_corruption(request, character: CharacterModel, character_record: charlist.models.Character):
-    corruption_form = GainCorruptionRollForm(request.POST)
+    if int(request.POST.get('cmd_id')) >= 0:
+        cmd = find_cmd(request, character)
+        corruption_form = GainCorruptionRollForm(cmd, request.POST)
+    else:
+        corruption_form = GainCorruptionRollForm(request.POST)
     if corruption_form.is_valid():
         character.gain_corruption(corruption_form.cleaned_data['roll_value'])
         character = clean_completed(character, request)
@@ -773,11 +790,7 @@ def gain_corruption(request, character: CharacterModel, character_record: charli
 
 
 def decrease_stat_alt(request, character_model: CharacterModel, character: charlist.models.Character):
-    cmd = dict()
-    for pcmd in character_model.pending():
-        if pcmd.get('cmd_id') == int(request.POST.get('cmd_id')):
-            cmd = pcmd
-            break
+    cmd = find_cmd(request, character_model)
     form = DecreaseStatAltForm(cmd, flyweights, request.POST)
     if form.is_valid():
         character_model.damage_stat(form.cleaned_data['choices'], form.amount())
@@ -788,11 +801,7 @@ def decrease_stat_alt(request, character_model: CharacterModel, character: charl
 
 
 def increase_stat_alt(request, character_model: CharacterModel, character: charlist.models.Character):
-    cmd = dict()
-    for pcmd in character_model.pending():
-        if pcmd.get('cmd_id') == int(request.POST.get('cmd_id')):
-            cmd = pcmd
-            break
+    cmd = find_cmd(request, character_model)
     form = IncreaseStatAltForm(cmd, flyweights, request.POST)
     if form.is_valid():
         character_model.improve_stat(form.cleaned_data['choices'], form.amount())
@@ -803,14 +812,145 @@ def increase_stat_alt(request, character_model: CharacterModel, character: charl
 
 
 def gain_talent_alt(request, character_model: CharacterModel, character: charlist.models.Character):
-    cmd = dict()
-    for pcmd in character_model.pending():
-        if pcmd.get('cmd_id') == int(request.POST.get('cmd_id')):
-            cmd = pcmd
-            break
+    cmd = find_cmd(request, character_model)
     form = GainTalentAltForm(cmd, flyweights, request.POST)
     if form.is_valid():
         character_model.gain_talent(form.cleaned_data['choices'], flyweights)
+        character_model = clean_completed(character_model, request)
+        character.character_data = character_model.toJSON()
+        character.save()
+    return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
+
+
+def decrease_stat_roll(request, character_model: CharacterModel, character: charlist.models.Character):
+    cmd = find_cmd(request, character_model)
+    form = DecreaseStatRollForm(cmd, flyweights, request.POST)
+    if form.is_valid():
+        character_model.damage_stat(cmd.get('tag'), form.cleaned_data('roll_value'))
+        character_model = clean_completed(character_model, request)
+        character.character_data = character_model.toJSON()
+        character.save()
+    return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
+
+
+def increase_stat_roll(request, character_model: CharacterModel, character: charlist.models.Character):
+    cmd = find_cmd(request, character_model)
+    form = IncreaseStatRollForm(cmd, flyweights, request.POST)
+    if form.is_valid():
+        character_model.improve_stat(cmd.get('tag'), form.cleaned_data['roll_value'])
+        character_model = clean_completed(character_model, request)
+        character.character_data = character_model.toJSON()
+        character.save()
+    return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
+
+
+def abort_gain(request, character_model: CharacterModel, character: charlist.models.Character):
+    character_model = clean_completed(character_model, request)
+    character.character_data = character_model.toJSON()
+    character.save()
+    return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
+
+
+def abort_gain_ip_conseq(request, character_model: CharacterModel, character: charlist.models.Character):
+    character_model.inc_ip_tests()
+    abort_gain(request, character_model, character)
+
+
+def abort_gain_cp_conseq(request, character_model: CharacterModel, character: charlist.models.Character):
+    character_model.inc_cp_tests()
+    abort_gain(request, character_model, character)
+
+
+def gain_disorder(request, character_model: CharacterModel, character: charlist.models.Character):
+    cmd = find_cmd(request, character_model)
+    form = GainDisorderIPForm(cmd, request.POST)
+    if form.is_valid():
+        disorder = {'name': form.cleaned_data['disorder_name'],
+                    'description': form.cleaned_data['disorder_description']}
+        character_model.disorders().append(disorder)
+        character_model.inc_ip_tests()
+        character_model = clean_completed(character_model, request)
+        character.character_data = character_model.toJSON()
+        character.save()
+    return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
+
+
+def gain_trauma(request, character_model: CharacterModel, character: charlist.models.Character):
+    cmd = find_cmd(request, character_model)
+    form = GetTraumaIPForm(cmd, request.POST)
+    if form.is_valid():
+        character_model = clean_completed(character_model, request)
+        character_model.inc_ip_tests()
+        character.character_data = character_model.toJSON()
+        character.save()
+    return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
+
+
+def gain_malignancy(request, character_model: CharacterModel, character: charlist.models.Character):
+    cmd = find_cmd(request, character_model)
+    form = GainMalignancyRollForm(cmd, request.POST)
+    if form.is_valid():
+        roll_result = form.cleaned_data['roll_result']
+        for mal_key, mal in flyweights.malignancies().items():
+            if (roll_result >= mal.rolls_range()[0]) and (roll_result <= mal.rolls_range()[1]):
+                if mal_key not in character_model.malignances():
+                    character_model.malignances().append(mal_key)
+                    character_model.inc_cp_tests()
+                    character_model = clean_completed(character_model, request)
+                    character.character_data = character_model.toJSON()
+                    character.save()
+                break
+    return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
+
+
+def gain_mutation(request, character_model: CharacterModel, character: charlist.models.Character):
+    cmd = find_cmd(request, character_model)
+    form = GainMutationRollForm(cmd, request.POST)
+    if form.is_valid():
+        roll_result = form.cleaned_data['roll_result']
+        for mut_key, mut in flyweights.mutations().items():
+            if (roll_result >= mut.rolls_range()[0]) and (roll_result <= mut.rolls_range()[1]):
+                if mut_key not in character_model.mutations():
+                    character_model.mutations().append(mut_key)
+                    character_model.inc_cp_tests()
+                    character_model = clean_completed(character_model, request)
+                    character.character_data = character_model.toJSON()
+                    character.save()
+                break
+    return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
+
+
+def gain_malignance_choice(request, character_model: CharacterModel, character: charlist.models.Character):
+    cmd = find_cmd(request, character_model)
+    form = GainMalignancyChoiceForm(flyweights, cmd, request.POST)
+    if form.is_valid():
+        choice = form.cleaned_data['choices']
+        if choice not in character_model.malignances():
+            character_model.malignances().append(choice)
+            character_model = clean_completed(character_model, request)
+            character.character_data = character_model.toJSON()
+            character.save()
+    return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
+
+
+def gain_mutation_choice(request, character_model: CharacterModel, character: charlist.models.Character):
+    cmd = find_cmd(request, character_model)
+    form = GainMutationChoiceForm(flyweights, cmd, request.POST)
+    if form.is_valid():
+        choice = form.cleaned_data['choices']
+        if choice not in character_model.mutations():
+            character_model.mutations().append(choice)
+            character_model = clean_completed(character_model, request)
+            character.character_data = character_model.toJSON()
+            character.save()
+    return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
+
+
+def gain_stat_aptitude(request, character_model: CharacterModel, character: charlist.models.Character):
+    cmd = find_cmd(request, character_model)
+    form = GainStatAptitudeForm(character_model, flyweights, cmd, request.POST)
+    if form.is_valid():
+        character_model.aptitudes().append(form.cleaned_data['choices'])
         character_model = clean_completed(character_model, request)
         character.character_data = character_model.toJSON()
         character.save()
@@ -828,6 +968,28 @@ def parse_manual_cmds(request, character: charlist.models.Character, character_m
         increase_stat_alt(request, character_model, character)
     if 'talent-alt-confirm' in request.POST:
         gain_talent_alt(request, character_model, character)
+    if 'dec-stat-confirm' in request.POST:
+        decrease_stat_roll(request, character_model, character)
+    if 'inc-stat-confirm' in request.POST:
+        increase_stat_roll(request, character_model, character)
+    if 'gain-mut-confirm' in request.POST:
+        gain_mutation(request, character_model, character)
+    if 'gain-mal-confirm' in request.POST:
+        gain_malignancy(request, character_model, character)
+    if ('gain-mut-abort' in request.POST) or ('gain-mal-abort' in request.POST):
+        abort_gain_cp_conseq(request, character_model, character)
+    if 'gain-disorder-confirm' in request.POST:
+        gain_disorder(request, character_model, character)
+    if 'gain-trauma-confirm' in request.POST:
+        gain_trauma(request, character_model, character)
+    if ('gain-disorder-abort' in request.POST) or ('gain-trauma-abort' in request.POST):
+        abort_gain_ip_conseq(request, character_model, character)
+    if 'mal-choice-confirm' in request.POST:
+        gain_malignance_choice(request, character_model, character)
+    if 'mut-choice-confirm' in request.POST:
+        gain_mutation_choice(request, character_model, character)
+    if 'gain-stat-apt-confirm' in request.POST:
+        gain_stat_aptitude(request, character_model, character)
 
 
 def character_view(request, char_id):
@@ -835,7 +997,6 @@ def character_view(request, char_id):
     character_model = character.data_to_model()
     if request.method == 'POST':
         parse_manual_cmds(request, character, character_model)
-        # TODO: other commands parsing
     insanity_form = None
     corruption_form = None
     reminders = None
