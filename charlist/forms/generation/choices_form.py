@@ -133,9 +133,13 @@ class ChoicesForm(Form):
             name = talent.get_name_en()
             if talent.is_specialist():
                 name += ' ('
-                for tag in tal.get('subtag'):
-                    name += tag + ', '
-                name = name[:-2] + ')'
+                if 'subtag' in tal.keys():
+                    name += tal.get('subtag')
+                if 'subtag1' in tal.keys():
+                    name += tal.get('subtag1')
+                    if 'subtag2' in tal.keys():
+                        name += ', ' + tal.get('subtag2')
+                name += ')'
             role_tals.append((i, name))
             i += 1
         self.fields['role_talent'].choices = role_tals
