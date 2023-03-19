@@ -800,6 +800,23 @@ def increase_stat_alt(request, character_model: CharacterModel, character: charl
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
+def gain_talent_alt(request, character_model: CharacterModel, character: charlist.models.Character):
+    cmd = dict()
+    for pcmd in character_model.pending():
+        if pcmd.get('cmd_id') == int(request.POST.get('cmd_id')):
+            cmd = pcmd
+            break
+    form = GainTalentAltForm(cmd, flyweights)
+    if form.is_valid():
+        talent = flyweights.talent_descriptions().get(form.cleaned_data['choices'])
+        if not talent.is_specialist():
+            character_model.gain_talent(form.cleaned_data['choices'], flyweights)
+        character_model = clean_completed(character_model, request)
+        character.character_data = character_model.toJSON()
+        character.save()
+    return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
+
+
 def character_view(request, char_id):
     character = charlist.models.Character.objects.get(pk=char_id)
     character_model = character.data_to_model()
