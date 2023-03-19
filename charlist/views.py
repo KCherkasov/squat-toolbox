@@ -806,7 +806,7 @@ def gain_talent_alt(request, character_model: CharacterModel, character: charlis
         if pcmd.get('cmd_id') == int(request.POST.get('cmd_id')):
             cmd = pcmd
             break
-    form = GainTalentAltForm(cmd, flyweights)
+    form = GainTalentAltForm(cmd, flyweights, request.POST)
     if form.is_valid():
         character_model.gain_talent(form.cleaned_data['choices'], flyweights)
         character_model = clean_completed(character_model, request)
