@@ -3,7 +3,7 @@ from django.forms import Form
 
 
 class GainCorruptionRollForm(Form):
-    def __init__(self, cmd=None, *args, **kwargs):
+    def __init__(self, cmd: dict = None, *args, **kwargs):
         super().__init__(GainCorruptionRollForm, self).__init__(*args, **kwargs)
         self.__cmd_id = -1
         if cmd is not None:
