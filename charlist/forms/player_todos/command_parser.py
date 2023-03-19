@@ -117,7 +117,7 @@ class CommandParser(object):
                         return False
                 else:
                     result = character.has_trait(data.get('condition').get('tag'))
-            if data.get('value') > 0:
+            if data.get('condition').get('value') > 0:
                 return result
             return not result
         return False
