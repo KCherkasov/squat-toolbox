@@ -71,7 +71,7 @@ class ChoicesForm(Form):
                     subtag = None
                     sk = flyweights.skill_descriptions().get(tag)
                     sk_name = sk.get_name_en()
-                    if flyweights.skill_descriptions().get('tag').is_specialist():
+                    if flyweights.skill_descriptions().get(tag).is_specialist():
                         subtag = skill.get('subtag')
                     if subtag:
                         if subtag == 'SK_ANY' and 'background-skills-subtag2' not in self.fields:

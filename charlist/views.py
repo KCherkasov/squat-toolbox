@@ -815,20 +815,24 @@ def gain_talent_alt(request, character_model: CharacterModel, character: charlis
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
+def parse_manual_cmds(request, character: charlist.models.Character, character_model: CharacterModel):
+    if 'gain-insanity-confirm' in request.POST:
+        gain_insanity(request, character_model, character)
+    if 'gain-corruption-confirm' in request.POST:
+        gain_corruption(request, character_model, character)
+    if 'statdec-alt-confirm' in request.POST:
+        decrease_stat_alt(request, character_model, character)
+    if 'statinc-alt-confirm' in request.POST:
+        increase_stat_alt(request, character_model, character)
+    if 'talent-alt-confirm' in request.POST:
+        gain_talent_alt(request, character_model, character)
+
+
 def character_view(request, char_id):
     character = charlist.models.Character.objects.get(pk=char_id)
     character_model = character.data_to_model()
     if request.method == 'POST':
-        if 'gain-insanity-confirm' in request.POST:
-            gain_insanity(request, character_model, character)
-        if 'gain-corruption-confirm' in request.POST:
-            gain_corruption(request, character_model, character)
-        if 'statdec-alt-confirm' in request.POST:
-            decrease_stat_alt(request, character_model, character)
-        if 'statinc-alt-confirm' in request.POST:
-            increase_stat_alt(request, character_model, character)
-        if 'talent-alt-confirm' in request.POST:
-            gain_talent_alt(request, character_model, character)
+        parse_manual_cmds(request, character, character_model)
         # TODO: other commands parsing
     insanity_form = None
     corruption_form = None
