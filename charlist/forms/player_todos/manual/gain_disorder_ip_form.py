@@ -12,9 +12,4 @@ class GainDisorderIPForm(Form):
     def cmd_id(self):
         return self.__cmd_id
 
-    def clean(self):
-        cleaned_data = self.cleaned_data
-        cleaned_data['cmd_id'] = self.__cmd_id
-        return cleaned_data
-
     disorder_description = forms.CharField(max_length=1000, required=False, label=u'Описание психического расстройства')

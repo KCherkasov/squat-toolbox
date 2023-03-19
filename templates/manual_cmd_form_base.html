@@ -14,6 +14,7 @@
             {% csrf_token %}
             {% for field in form %}
             <div class="form-group charlist-inline justify-content-center mt-2">
+                <input type="hidden" value="{{ form.cmd_id }}" name="cmd_id">
                 <label for="{{ field.name }}" class="col-sm-2 control-label">{{ field.label }}</label>
                 <div class="col-sm-5 ms-2">
                     {{ field }}

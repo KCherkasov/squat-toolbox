@@ -13,9 +13,4 @@ class DecreaseStatRollForm(Form):
     def stat_name(self):
         return self.__stat_name
 
-    def clean(self):
-        cleaned_data = self.cleaned_data
-        cleaned_data['cmd_id'] = self.__cmd_id
-        return cleaned_data
-
     roll_value = forms.IntegerField(min_value=1, max_value=10, label=u'Урон характеристике')

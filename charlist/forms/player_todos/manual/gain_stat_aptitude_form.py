@@ -21,9 +21,4 @@ class GainStatAptitudeForm(Form):
     def cmd_id(self):
         return self.__cmd_id
 
-    def clean(self):
-        cleaned_data = self.cleaned_data
-        cleaned_data['cmd_id'] = self.__cmd_id
-        return cleaned_data
-
     choices = forms.ChoiceField(label=u'Выберите склонность')
