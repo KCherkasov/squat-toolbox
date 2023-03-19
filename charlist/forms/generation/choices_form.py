@@ -110,11 +110,11 @@ class ChoicesForm(Form):
             name = talent.get_name_en()
             if talent.is_specialist():
                 name += ' ('
-                if tal.get('subtag') is not None:
+                if 'subtag' in tal.keys():
                     name += tal.get('subtag')
-                if tal.get('subtag1') is not None:
+                if 'subtag1' in tal.keys():
                     name += tal.get('subtag1')
-                    if tal.get('subtag2') is not None:
+                    if 'subtag2' in tal.keys():
                         name += ', ' + tal.get('subtag2')
                 name += ')'
             bg_tals.append((i, name))
