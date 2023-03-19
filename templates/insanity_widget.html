@@ -51,9 +51,34 @@
             </a>
         </b>
     </div>
-    <div class="collapse" id="mental-disorders-{{ lang }}">
+    <div class="charlist-content" id="mental-disorders-{{ lang }}">
         {% for disorder in character.disorders %}
-            {{ disorder }}
+        <div>
+            <b>
+                <a class="text-dark text-decoration-none" role="button" data-bs-toggle="modal" href=""
+                   data-bs-target="#{{ character.id }}-{{ disorder|get_by_dict_key:'name' }}-popup">
+                    {{ disorder|get_by_dict_key:'name' }}
+                </a>
+            </b>
+        </div>
+        <div class="modal fade" id="{{ character.id }}-{{ disorder|get_by_dict_key:'name' }}-popup" tabindex="-1"
+             aria-labelledby="{{ character.id }}-{{ disorder|get_by_dict_key:'name' }}-popup-label">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <b id="{{ character.id }}-{{ disorder|get_by_dict_key:'name' }}-popup-label">
+                            {{ disorder|get_by_dict_key:'name' }}
+                        </b>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{ disorder|get_by_dict_key:'description' }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
         {% empty %}
             {% if lang == 'ru' %}Отсутствуют{% else %}Empty{% endif %}
         {% endfor %}
