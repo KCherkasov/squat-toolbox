@@ -174,14 +174,16 @@ class CommandParser(object):
         return reminder
 
     def process_character(self, character: CharacterModel):
+        completed = list()
         for command in character.pending():
             if command.get('command') in self.__commands.keys():
                 if self.__commands[command.get('command')].is_automatic():
                     self.__commands[command.get('command')].do_logic(character, data=command)
-                    character.completed().append(command.get('command'))
-        for command in character.completed():
+                    completed.append(command)
+        for command in completed:
+            character.completed().append(command)
             for cmd in character.pending():
-                if cmd.get('command') == command:
+                if cmd.get('command') == command.get('command'):
                     character.pending().remove(cmd)
                     break
         return character
