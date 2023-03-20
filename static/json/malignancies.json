@@ -104,7 +104,7 @@
             "ru": "Если он не защитит глаза, то получает штраф -10 ко всем проверкам, сделанным в области яркого света.",
             "en": "Unless he shields his eyes, he suffers a –10 penalty on all tests made in an area of bright light."
           },
-          "targets": ["ST_ALL, SK_ALL"]
+          "targets": ["ST_ALL", "SK_ALL"]
         }
       ],
       "commands": [],
