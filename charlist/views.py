@@ -987,12 +987,12 @@ def parse_manual_cmds(request, character: charlist.models.Character, character_m
 def character_view(request, char_id):
     character = charlist.models.Character.objects.get(pk=char_id)
     character_model = character.data_to_model()
-    if request.method == 'POST':
-        parse_manual_cmds(request, character, character_model)
     insanity_form = None
     corruption_form = None
     reminders = None
     if (request.user is not None) and (request.user == character.owner):
+        if request.method == 'POST':
+            parse_manual_cmds(request, character, character_model)
         insanity_form = GainInsanityRollForm()
         corruption_form = GainCorruptionRollForm()
         character_model = commands_parser.process_character(character_model)
