@@ -762,11 +762,7 @@ def find_cmd(request, character_model: CharacterModel):
 
 
 def gain_insanity(request, character: CharacterModel, character_record: charlist.models.Character):
-    if int(request.POST.get('cmd_id')) >= 0:
-        cmd = find_cmd(request, character)
-        insanity_form = GainInsanityRollForm(cmd, request.POST)
-    else:
-        insanity_form = GainInsanityRollForm(request.POST)
+    insanity_form = GainInsanityRollForm(request.POST)
     if insanity_form.is_valid():
         character.gain_insanity(insanity_form.cleaned_data['roll_value'])
         character = clean_completed(character, request)
@@ -776,11 +772,7 @@ def gain_insanity(request, character: CharacterModel, character_record: charlist
 
 
 def gain_corruption(request, character: CharacterModel, character_record: charlist.models.Character):
-    if int(request.POST.get('cmd_id')) >= 0:
-        cmd = find_cmd(request, character)
-        corruption_form = GainCorruptionRollForm(cmd, request.POST)
-    else:
-        corruption_form = GainCorruptionRollForm(request.POST)
+    corruption_form = GainCorruptionRollForm(request.POST)
     if corruption_form.is_valid():
         character.gain_corruption(corruption_form.cleaned_data['roll_value'])
         character = clean_completed(character, request)
