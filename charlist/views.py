@@ -772,7 +772,7 @@ def gain_insanity(request, character: CharacterModel, character_record: charlist
         character = clean_completed(character, request)
         character_record.character_data = character.toJSON()
         character_record.save()
-        return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character_record.pk, }))
+    return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character_record.pk, }))
 
 
 def gain_corruption(request, character: CharacterModel, character_record: charlist.models.Character):
@@ -786,7 +786,7 @@ def gain_corruption(request, character: CharacterModel, character_record: charli
         character = clean_completed(character, request)
         character_record.character_data = character.toJSON()
         character_record.save()
-        return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character_record.pk, }))
+    return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character_record.pk, }))
 
 
 def decrease_stat_alt(request, character_model: CharacterModel, character: charlist.models.Character):
@@ -797,7 +797,7 @@ def decrease_stat_alt(request, character_model: CharacterModel, character: charl
         character_model = clean_completed(character_model, request)
         character.character_data = character_model.toJSON()
         character.save()
-        return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
+    return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
 def increase_stat_alt(request, character_model: CharacterModel, character: charlist.models.Character):
