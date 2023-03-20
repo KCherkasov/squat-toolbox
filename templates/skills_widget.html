@@ -5,8 +5,12 @@
         </h5>
     </header>
     <div class="charlist-content skills-list">
-        {% for skill_key, skill in character.skills.items %}
-            {% include 'skill_widget.html' %}
+        {% for skill_key in facade.skill_tags %}
+            {% if character.skills|get_by_dict_key:skill_key %}
+                {% with character.skills|get_by_dict_key:skill_key as skill %}
+                    {% include 'skill_widget.html' %}
+                {% endwith %}
+            {% endif %}
         {% endfor %}
     </div>
 </div>
