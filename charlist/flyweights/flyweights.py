@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 import json
 
+from typing import List, Dict
+
+import charlist.constants.tags
 from charlist.constants.tags import *
 from charlist.flyweights.aptitude import Aptitude
 from charlist.flyweights.background_description import BackgroundDescription
@@ -28,6 +31,11 @@ STAT_SHORTS = {
     ST_INFLUENCE: {"ru": "Вл", "en": "IFL"}
 }
 
+STAT_XP_COSTS = [[500, 750, 1000, 1500, 2500], [250, 500, 750, 1000, 1500], [100, 250, 500, 750, 1250]]
+
+SKILL_XP_COSTS = [100, 200, 300, 400]  # without aptitudes matching, 1 apt x2, 0 apt x3
+
+TALENT_XP_COSTS = [200, 300, 400]  # without aptitudes matching, 1 apt - x1.5, 0 apt - x3
 
 def to_map(lst):
     res_map = dict()
@@ -96,6 +104,9 @@ class Facade:
         self.__sk_adv_range = range(1, 5)
         self.__stat_shorts = STAT_SHORTS
         self.__langs = ['ru', 'en']
+        self.__stat_costs = STAT_XP_COSTS
+        self.__skill_costs = SKILL_XP_COSTS
+        self.__talent_costs = TALENT_XP_COSTS
 
     def aptitudes(self):
         return self.__aptitudes
@@ -147,3 +158,56 @@ class Facade:
 
     def st_adv_range(self):
         return self.__st_adv_range
+
+    def skill_costs(self):
+        return self.__skill_costs
+
+    def stat_costs(self):
+        return self.__stat_costs
+
+    def talent_costs(self):
+        return self.__talent_costs
+
+    def stat_upg_cost(self, adv_no: int, matches: int):
+        return self.stat_costs()[matches][adv_no - 1]
+
+    def skill_upg_cost(self, adv_no: int, matches: int):
+        return self.skill_costs()[adv_no - 1] * (1 + 2 - matches)
+
+    def talent_upg_cost(self, tier: int, matches: int):
+        cost = self.talent_costs()[tier - 1]
+        if matches == 0:
+            return cost * 3
+        if matches == 1:
+            return round(cost * 1.5)
+        return cost
+
+    def count_stat_apt_matches(self, st_tag: str, apts: List[str]):
+        res = 0
+        for apt in apts:
+            for st_apt in self.stat_descriptions().get(st_tag).get_aptitudes():
+                if apt == st_apt:
+                    res += 1
+                    break
+        return res
+
+    def count_skill_apt_matches(self, sk_tag: str, apts: List[str]):
+        res = 0
+        for apt in apts:
+            for sk_apt in self.skill_descriptions().get(sk_tag).get_aptitudes():
+                if apt == sk_apt:
+                    res += 1
+                    break
+        return res
+
+    def count_talent_apt_matches(self, tal_tag: str, apts: List[str]):
+        res = 0
+        for apt in apts:
+            for tl_apt in self.talent_descriptions().get(tal_tag).get_aptitudes():
+                if apt == tl_apt:
+                    res += 1
+                    break
+        return res
+
+    def stat_tags(self):
+        return charlist.constants.tags.STAT_TAGS

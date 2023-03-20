@@ -7,7 +7,8 @@
         </h5>
     </header>
     <div class="charlist-content">
-        {% for stat_key, stat in character.stats.items %}
+        {% for stat_key in facade.stat_tags %}
+        {% with character.stats|get_by_dict_key:stat_key as stat %}
         {% if not forloop.counter|divisibleby:2 %}
             <div class="card-group">
         {% endif %}
@@ -15,6 +16,7 @@
         {% if forloop.counter|divisibleby:2 or forloop.last %}
             </div>
         {% endif %}
+        {% endwith %}
         {% endfor %}
     </div>
 </div>

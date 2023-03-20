@@ -492,6 +492,30 @@ class CharacterModel(object):
             map_hints(hookups, facade.mutations().get(mutation).get_hints(), tmp_name, facade)
         return hookups
 
+    def make_upg_costs(self, flyweights: Facade):
+        upg_costs = {'stats': {}, 'skills': {}, 'talents': {}}
+
+        for st_tag, stat in self.stats().items():
+            if stat.is_upgradeable():
+                upg_costs.get('stats')[st_tag] = flyweights.stat_upg_cost(stat.get_upgrades() + 1,
+                                                                          flyweights.count_stat_apt_matches(
+                                                                              st_tag, self.aptitudes()))
+        for sk_tag, skill in self.skills().items():
+            if skill.is_specialist():
+                upg_costs.get('skill')[sk_tag] = dict()
+                for subtag, adv in skill.advances().items():
+                    if skill.upgradeable_subtag(subtag):
+                        upg_costs.get('skill')[sk_tag][subtag] = flyweights.skill_upg_cost(
+                            skill.get_subskill_advance(subtag) + 1,
+                            flyweights.count_skill_apt_matches(sk_tag, self.aptitudes()))
+            else:
+                if skill.upgradeable():
+                    upg_costs.get('skills')[sk_tag] = flyweights.skill_upg_cost(skill.advances() + 1,
+                                                                                flyweights.count_skill_apt_matches(
+                                                                                    sk_tag, self.aptitudes()))
+
+        return upg_costs
+
     @classmethod
     def from_json(cls, sdata):
         data = json.loads(sdata)
