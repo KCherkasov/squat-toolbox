@@ -10,7 +10,12 @@
     </div>
     <div>
         <b>
-            {% if lang == 'ru' %}&nbsp;&nbsp;Потрачено{% else %}Spent{% endif %}: {{ character.xp_spent }}
+            &nbsp;&nbsp;{% if lang == 'ru' %}Потрачено{% else %}Spent{% endif %}: {{ character.xp_spent }}
         </b>
+    </div>
+    <div>
+        <a class="btn btn-primary" href="">
+            {% if lang == 'ru %}Прокачаться{% else %}Spend XP{% endif %}
+        </a>
     </div>
 </div>

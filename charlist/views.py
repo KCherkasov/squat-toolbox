@@ -14,7 +14,7 @@ from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 
-import charlist.models
+import charlist.models as models
 from charlist.character.character import CharacterModel
 from charlist.character.skill import Skill
 from charlist.character.stat import Stat
@@ -190,24 +190,24 @@ def activate(request, uidb64, token):
 
 def characters_list(request):
     user = request.user
-    characters = charlist.models.Character.objects.by_uid(user.pk)
+    characters = models.Character.objects.by_uid(user.pk)
     char_data = dict()
     for character in characters:
         char_data[character.pk] = character.data_to_model()
-    in_progress = charlist.models.CreationData.objects.by_uid(user.pk)
+    in_progress = models.CreationData.objects.by_uid(user.pk)
     return render(request, 'characters_list.html', {'version': VERSION, 'facade': flyweights, 'characters': characters,
                                                     'in_progress': in_progress, 'char_data': char_data, })
 
 
 def create_character_start(request):
-    creation_data = charlist.models.CreationData()
-    creation_data.owner = charlist.models.CharsheetUser.objects.get(pk=request.user.pk)
+    creation_data = models.CreationData()
+    creation_data.owner = models.CharsheetUser.objects.get(pk=request.user.pk)
     creation_data.save()
     return HttpResponseRedirect(reverse('create-character-init', kwargs={'creation_id': creation_data.pk}))
 
 
 def create_character_init(request, creation_id):
-    cd = charlist.models.CreationData.objects.get(pk=creation_id)
+    cd = models.CreationData.objects.get(pk=creation_id)
     if request.method == 'POST':
         form = CreationSettingsForm(request.POST)
         if 'char-hw-prev' in request.POST:
@@ -234,7 +234,7 @@ def create_character_init(request, creation_id):
 
 
 def create_character_hw_choice(request, creation_id):
-    cd = charlist.models.CreationData.objects.get(pk=creation_id)
+    cd = models.CreationData.objects.get(pk=creation_id)
     if request.method == 'POST':
         if 'char-cr-next' in request.POST:
             form = HomeworldsChoiceForm()
@@ -257,7 +257,7 @@ def create_character_hw_choice(request, creation_id):
 
 
 def create_character_stat_distribution(request, creation_id):
-    cd = charlist.models.CreationData.objects.get(pk=creation_id)
+    cd = models.CreationData.objects.get(pk=creation_id)
     if request.method == 'POST':
         if 'char-hw-next' in request.POST:
             form = StatDistributionForm()
@@ -310,7 +310,7 @@ def create_character_stat_distribution(request, creation_id):
 
 
 def create_character_bg_choice(request, creation_id):
-    cd = charlist.models.CreationData.objects.get(pk=creation_id)
+    cd = models.CreationData.objects.get(pk=creation_id)
     if request.method == 'POST':
         form = BackgroundChoiceForm(request.POST)
         if 'char-bg-prev' in request.POST:
@@ -329,7 +329,7 @@ def create_character_bg_choice(request, creation_id):
 
 
 def create_character_role_choice(request, creation_id):
-    cd = charlist.models.CreationData.objects.get(pk=creation_id)
+    cd = models.CreationData.objects.get(pk=creation_id)
     if request.method == 'POST':
         if 'char-st-next' in request.POST:
             form = RoleChoiceForm()
@@ -353,7 +353,7 @@ def create_character_role_choice(request, creation_id):
 
 
 def create_character_choices(request, creation_id):
-    cd = charlist.models.CreationData.objects.get(pk=creation_id)
+    cd = models.CreationData.objects.get(pk=creation_id)
     if request.method == 'POST':
         if 'char-choices-prev' in request.POST:
             return HttpResponseRedirect(reverse('create-character-role', kwargs={'creation_id': cd.pk}))
@@ -442,7 +442,7 @@ def make_apts(cd, hw, role):
 
 
 def create_character_double_apts(request, creation_id):
-    cd = charlist.models.CreationData.objects.get(pk=creation_id)
+    cd = models.CreationData.objects.get(pk=creation_id)
     role = flyweights.roles().get(cd.role)
     homeworld = flyweights.homeworlds().get(cd.homeworld)
     doubled = count_doubles(cd, homeworld, role)
@@ -480,7 +480,7 @@ def create_character_double_apts(request, creation_id):
                                                                 'stage': CREATION_STAGES[6], 'form': form})
 
 
-def prep_stats(cd: charlist.models.CreationData):
+def prep_stats(cd: models.CreationData):
     stats = dict()
     stats[ST_WEAPON_SKILL] = Stat(ST_WEAPON_SKILL, cd.weapon_skill)
     stats[ST_BALLISTIC_SKILL] = Stat(ST_BALLISTIC_SKILL, cd.ballistic_skill)
@@ -496,7 +496,7 @@ def prep_stats(cd: charlist.models.CreationData):
 
 
 def create_character_divination(request, creation_id):
-    cd = charlist.models.CreationData.objects.get(pk=creation_id)
+    cd = models.CreationData.objects.get(pk=creation_id)
 
     background = flyweights.backgrounds().get(cd.background)
     homeworld = flyweights.homeworlds().get(cd.homeworld)
@@ -706,7 +706,7 @@ def create_character_divination(request, creation_id):
                 malignancies = list()
                 mutations = list()
                 disorders = list()
-                character = charlist.models.Character.objects.create(owner=request.user, character_data='')
+                character = models.Character.objects.create(owner=request.user, character_data='')
                 character.save()
                 character_model = CharacterModel(character.id, -1, cd.name, cd.gender, cd.height,
                                                  cd.weight, cd.age, cd.homeworld,
@@ -761,7 +761,7 @@ def find_cmd(request, character_model: CharacterModel):
     return cmd
 
 
-def gain_insanity(request, character: CharacterModel, character_record: charlist.models.Character):
+def gain_insanity(request, character: CharacterModel, character_record: models.Character):
     if int(request.POST.get('cmd_id')) >= 0:
         cmd = find_cmd(request, character)
     else:
@@ -775,7 +775,7 @@ def gain_insanity(request, character: CharacterModel, character_record: charlist
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character_record.pk, }))
 
 
-def gain_corruption(request, character: CharacterModel, character_record: charlist.models.Character):
+def gain_corruption(request, character: CharacterModel, character_record: models.Character):
     if int(request.POST.get('cmd_id')) >= 0:
         cmd = find_cmd(request, character)
     else:
@@ -789,7 +789,7 @@ def gain_corruption(request, character: CharacterModel, character_record: charli
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character_record.pk, }))
 
 
-def decrease_stat_alt(request, character_model: CharacterModel, character: charlist.models.Character):
+def decrease_stat_alt(request, character_model: CharacterModel, character: models.Character):
     cmd = find_cmd(request, character_model)
     form = DecreaseStatAltForm(cmd, flyweights, request.POST)
     if form.is_valid():
@@ -800,7 +800,7 @@ def decrease_stat_alt(request, character_model: CharacterModel, character: charl
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
-def increase_stat_alt(request, character_model: CharacterModel, character: charlist.models.Character):
+def increase_stat_alt(request, character_model: CharacterModel, character: models.Character):
     cmd = find_cmd(request, character_model)
     form = IncreaseStatAltForm(cmd, flyweights, request.POST)
     if form.is_valid():
@@ -811,7 +811,7 @@ def increase_stat_alt(request, character_model: CharacterModel, character: charl
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
-def gain_talent_alt(request, character_model: CharacterModel, character: charlist.models.Character):
+def gain_talent_alt(request, character_model: CharacterModel, character: models.Character):
     cmd = find_cmd(request, character_model)
     form = GainTalentAltForm(cmd, flyweights, request.POST)
     if form.is_valid():
@@ -822,7 +822,7 @@ def gain_talent_alt(request, character_model: CharacterModel, character: charlis
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
-def decrease_stat_roll(request, character_model: CharacterModel, character: charlist.models.Character):
+def decrease_stat_roll(request, character_model: CharacterModel, character: models.Character):
     cmd = find_cmd(request, character_model)
     form = DecreaseStatRollForm(cmd, flyweights, request.POST)
     if form.is_valid():
@@ -833,7 +833,7 @@ def decrease_stat_roll(request, character_model: CharacterModel, character: char
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
-def increase_stat_roll(request, character_model: CharacterModel, character: charlist.models.Character):
+def increase_stat_roll(request, character_model: CharacterModel, character: models.Character):
     cmd = find_cmd(request, character_model)
     form = IncreaseStatRollForm(cmd, flyweights, request.POST)
     if form.is_valid():
@@ -844,24 +844,24 @@ def increase_stat_roll(request, character_model: CharacterModel, character: char
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
-def abort_gain(request, character_model: CharacterModel, character: charlist.models.Character):
+def abort_gain(request, character_model: CharacterModel, character: models.Character):
     character_model = clean_completed(character_model, request)
     character.character_data = character_model.toJSON()
     character.save()
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
-def abort_gain_ip_conseq(request, character_model: CharacterModel, character: charlist.models.Character):
+def abort_gain_ip_conseq(request, character_model: CharacterModel, character: models.Character):
     character_model.inc_ip_tests()
     abort_gain(request, character_model, character)
 
 
-def abort_gain_cp_conseq(request, character_model: CharacterModel, character: charlist.models.Character):
+def abort_gain_cp_conseq(request, character_model: CharacterModel, character: models.Character):
     character_model.inc_cp_tests()
     abort_gain(request, character_model, character)
 
 
-def gain_disorder(request, character_model: CharacterModel, character: charlist.models.Character):
+def gain_disorder(request, character_model: CharacterModel, character: models.Character):
     cmd = find_cmd(request, character_model)
     form = GainDisorderIPForm(cmd, request.POST)
     if form.is_valid():
@@ -875,7 +875,7 @@ def gain_disorder(request, character_model: CharacterModel, character: charlist.
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
-def gain_trauma(request, character_model: CharacterModel, character: charlist.models.Character):
+def gain_trauma(request, character_model: CharacterModel, character: models.Character):
     cmd = find_cmd(request, character_model)
     form = GetTraumaIPForm(cmd, request.POST)
     if form.is_valid():
@@ -886,7 +886,7 @@ def gain_trauma(request, character_model: CharacterModel, character: charlist.mo
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
-def gain_malignancy(request, character_model: CharacterModel, character: charlist.models.Character):
+def gain_malignancy(request, character_model: CharacterModel, character: models.Character):
     cmd = find_cmd(request, character_model)
     form = GainMalignancyRollForm(cmd, request.POST)
     if form.is_valid():
@@ -905,7 +905,7 @@ def gain_malignancy(request, character_model: CharacterModel, character: charlis
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
-def gain_mutation(request, character_model: CharacterModel, character: charlist.models.Character):
+def gain_mutation(request, character_model: CharacterModel, character: models.Character):
     cmd = find_cmd(request, character_model)
     form = GainMutationRollForm(cmd, request.POST)
     if form.is_valid():
@@ -924,7 +924,7 @@ def gain_mutation(request, character_model: CharacterModel, character: charlist.
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
-def gain_malignance_choice(request, character_model: CharacterModel, character: charlist.models.Character):
+def gain_malignance_choice(request, character_model: CharacterModel, character: models.Character):
     cmd = find_cmd(request, character_model)
     form = GainMalignancyChoiceForm(flyweights, cmd, request.POST)
     if form.is_valid():
@@ -939,7 +939,7 @@ def gain_malignance_choice(request, character_model: CharacterModel, character: 
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
-def gain_mutation_choice(request, character_model: CharacterModel, character: charlist.models.Character):
+def gain_mutation_choice(request, character_model: CharacterModel, character: models.Character):
     cmd = find_cmd(request, character_model)
     form = GainMutationChoiceForm(flyweights, cmd, request.POST)
     if form.is_valid():
@@ -954,7 +954,7 @@ def gain_mutation_choice(request, character_model: CharacterModel, character: ch
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
-def gain_stat_aptitude(request, character_model: CharacterModel, character: charlist.models.Character):
+def gain_stat_aptitude(request, character_model: CharacterModel, character: models.Character):
     cmd = find_cmd(request, character_model)
     form = GainStatAptitudeForm(character_model, flyweights, cmd, request.POST)
     if form.is_valid():
@@ -965,7 +965,7 @@ def gain_stat_aptitude(request, character_model: CharacterModel, character: char
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
-def parse_manual_cmds(request, character: charlist.models.Character, character_model: CharacterModel):
+def parse_manual_cmds(request, character: models.Character, character_model: CharacterModel):
     if 'gain-insanity-confirm' in request.POST:
         gain_insanity(request, character_model, character)
     if 'gain-corruption-confirm' in request.POST:
@@ -1001,7 +1001,7 @@ def parse_manual_cmds(request, character: charlist.models.Character, character_m
 
 
 def character_view(request, char_id):
-    character = charlist.models.Character.objects.get(pk=char_id)
+    character = models.Character.objects.get(pk=char_id)
     character_model = character.data_to_model()
     insanity_form = None
     corruption_form = None
@@ -1033,21 +1033,21 @@ def character_view(request, char_id):
 
 
 def character_delete(request, char_id):
-    character = charlist.models.Character.objects.get(pk=char_id)
+    character = models.Character.objects.get(pk=char_id)
     if (character is not None) and (character.owner == request.user):
         character.delete()
     return reverse('characters-list')
 
 
 def creation_data_delete(request, creation_id):
-    cd = charlist.models.CreationData.objects.get(pk=creation_id)
+    cd = models.CreationData.objects.get(pk=creation_id)
     if (cd is not None) and (cd.owner == request.user):
         cd.delete()
     return reverse('characters-list')
 
 
 def resume_creation_edit(request, creation_id):
-    cd = charlist.models.CreationData.objects.get(pk=creation_id)
+    cd = models.CreationData.objects.get(pk=creation_id)
     if (cd is not None) and (cd.owner == request.user):
         if cd.curr_stage == 'init':
             return HttpResponseRedirect(reverse('create-character-init', kwargs={'creation_id': cd.pk}))

@@ -1979,7 +1979,7 @@
       "aptitudes": ["A_WS", "A_FLD"],
       "prerequisites": [
         {
-          "tag": "SL_ACR",
+          "tag": "SK_ACR",
           "value": 0
         },
         {
