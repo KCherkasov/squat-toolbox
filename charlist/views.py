@@ -826,7 +826,7 @@ def decrease_stat_roll(request, character_model: CharacterModel, character: char
     cmd = find_cmd(request, character_model)
     form = DecreaseStatRollForm(cmd, flyweights, request.POST)
     if form.is_valid():
-        character_model.damage_stat(cmd.get('tag'), form.cleaned_data('roll_value'))
+        character_model.damage_stat(cmd.get('tag'), form.cleaned_data['roll_value'])
         character_model = clean_completed(character_model, request)
         character.character_data = character_model.toJSON()
         character.save()
