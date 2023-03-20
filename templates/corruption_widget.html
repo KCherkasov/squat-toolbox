@@ -31,10 +31,10 @@
     <div>
         <div>
             <b>
-                <i>{% if lang == 'ru' %}Малигнации{% else %}Malignancies{% endif %}</i>
+                {% if lang == 'ru' %}Малигнации{% else %}Malignancies{% endif %}
             </b>
         </div>
-        {% for mal in character.malignancies %}
+        {% for mal in character.malignances %}
         <div>
             <p>
                 <a class="text-dark text-decoration-none" role="button" data-bs-toggle="modal" href=""
@@ -74,7 +74,7 @@
     <div>
         <div>
             <b>
-                <i>{% if lang == 'ru' %}Мутации{% else %}Mutations{% endif %}</i>
+                {% if lang == 'ru' %}Мутации{% else %}Mutations{% endif %}
             </b>
         </div>
         {% for mut in character.mutations %}

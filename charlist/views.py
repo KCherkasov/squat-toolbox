@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
+import datetime
 import logging
 
-import datetime
 from django.contrib.auth import get_user_model
 from django.contrib.auth import login
 from django.contrib.auth import logout as auth_logout
@@ -15,30 +15,6 @@ from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 
 import charlist.models
-from charlist.forms.generation.background_choice_form import BackgroundChoiceForm
-from charlist.forms.generation.choices_form import ChoicesForm
-from charlist.forms.generation.creation_settings_form import CreationSettingsForm
-from charlist.forms.generation.divination_form import DivinationForm
-from charlist.forms.generation.double_apts_choices import DoubleAptsChoiceForm
-from charlist.forms.generation.homeworld_choice_form import HomeworldsChoiceForm
-from charlist.forms.generation.role_choice_form import RoleChoiceForm
-from charlist.forms.generation.stages import *
-from charlist.forms.generation.stat_distribution_form import StatDistributionForm
-from charlist.forms.player_todos.manual.decrease_stat_alt_form import DecreaseStatAltForm
-from charlist.forms.player_todos.manual.decrease_stat_roll_form import DecreaseStatRollForm
-from charlist.forms.player_todos.manual.gain_corruption_roll import GainCorruptionRollForm
-from charlist.forms.player_todos.manual.gain_disorder_ip_form import GainDisorderIPForm
-from charlist.forms.player_todos.manual.gain_insanity_roll_form import GainInsanityRollForm
-from charlist.forms.player_todos.manual.gain_malignancy_choice_form import GainMalignancyChoiceForm
-from charlist.forms.player_todos.manual.gain_mutation_choice_form import GainMutationChoiceForm
-from charlist.forms.player_todos.manual.gain_mutation_roll_form import GainMutationRollForm
-from charlist.forms.player_todos.manual.gain_malignancy_roll_form import GainMalignancyRollForm
-from charlist.forms.player_todos.manual.gain_stat_aptitude_form import GainStatAptitudeForm
-from charlist.forms.player_todos.manual.gain_talent_alt_form import GainTalentAltForm
-from charlist.forms.player_todos.manual.get_trauma_ip_form import GetTraumaIPForm
-from charlist.forms.player_todos.manual.increase_stat_alt_form import IncreaseStatAltForm
-from charlist.forms.player_todos.manual.increase_stat_roll_form import IncreaseStatRollForm
-from charlist.forms.player_todos.command_parser import CommandParser
 from charlist.character.character import CharacterModel
 from charlist.character.skill import Skill
 from charlist.character.stat import Stat
@@ -48,7 +24,30 @@ from charlist.constants.constants import *
 from charlist.flyweights.flyweights import *
 from charlist.forms.authorization.signin import SignInForm
 from charlist.forms.authorization.signup import UserCreationForm
-from charlist.dices import roll
+from charlist.forms.generation.background_choice_form import BackgroundChoiceForm
+from charlist.forms.generation.choices_form import ChoicesForm
+from charlist.forms.generation.creation_settings_form import CreationSettingsForm
+from charlist.forms.generation.divination_form import DivinationForm
+from charlist.forms.generation.double_apts_choices import DoubleAptsChoiceForm
+from charlist.forms.generation.homeworld_choice_form import HomeworldsChoiceForm
+from charlist.forms.generation.role_choice_form import RoleChoiceForm
+from charlist.forms.generation.stages import *
+from charlist.forms.generation.stat_distribution_form import StatDistributionForm
+from charlist.forms.player_todos.command_parser import CommandParser
+from charlist.forms.player_todos.manual.decrease_stat_alt_form import DecreaseStatAltForm
+from charlist.forms.player_todos.manual.decrease_stat_roll_form import DecreaseStatRollForm
+from charlist.forms.player_todos.manual.gain_corruption_roll import GainCorruptionRollForm
+from charlist.forms.player_todos.manual.gain_disorder_ip_form import GainDisorderIPForm
+from charlist.forms.player_todos.manual.gain_insanity_roll_form import GainInsanityRollForm
+from charlist.forms.player_todos.manual.gain_malignancy_choice_form import GainMalignancyChoiceForm
+from charlist.forms.player_todos.manual.gain_malignancy_roll_form import GainMalignancyRollForm
+from charlist.forms.player_todos.manual.gain_mutation_choice_form import GainMutationChoiceForm
+from charlist.forms.player_todos.manual.gain_mutation_roll_form import GainMutationRollForm
+from charlist.forms.player_todos.manual.gain_stat_aptitude_form import GainStatAptitudeForm
+from charlist.forms.player_todos.manual.gain_talent_alt_form import GainTalentAltForm
+from charlist.forms.player_todos.manual.get_trauma_ip_form import GetTraumaIPForm
+from charlist.forms.player_todos.manual.increase_stat_alt_form import IncreaseStatAltForm
+from charlist.forms.player_todos.manual.increase_stat_roll_form import IncreaseStatRollForm
 
 
 class TokenGenerator(PasswordResetTokenGenerator):
@@ -63,6 +62,7 @@ resources = ['aptitudes.json', 'stat_descriptions.json', 'skill_descriptions.jso
              'divinations.json', 'malignancies.json', 'mutations.json', 'psy.json']
 flyweights = Facade(resources)
 commands_parser = CommandParser(flyweights)
+
 
 def aptitudes_test(request):
     logger = logging.getLogger('charlist_logger')
@@ -120,7 +120,7 @@ def interactive_charsheet_mockup(request):
                                                                                              "Psychic powers": 1}),
                                 "TL_DMH": Talent("TL_DMH", 1), "TL_HTRD": Talent("TL_HTRD", {"Daemons": 1}),
                                 "TL_POH": Talent("TL_POH", {"Daemons": 1}), "TL_ROB": Talent("TL_ROB", 1),
-                                "TL_IOHW": Talent("TL_IOHW", 1)}, {}, [], [], [], [], [])
+                                "TL_IOHW": Talent("TL_IOHW", 1)}, {}, [], [], [], [], [], [], [], [], 0, 0)
     char_dump = character.toJSON()
     unpacked_char = CharacterModel.from_json(char_dump)
     return render(request, "charsheet-mockup-interactive.html", {'version': VERSION, 'facade': flyweights,
@@ -174,11 +174,11 @@ def logout(request):
 
 
 def activate(request, uidb64, token):
-    User = get_user_model()
+    user_model = get_user_model()
     try:
         uid = force_str(urlsafe_base64_decode(uidb64))
-        user = User.objects.get(pk=uid)
-    except(TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = user_model.objects.get(pk=uid)
+    except(TypeError, ValueError, OverflowError, user_model.DoesNotExist):
         user = None
     if user is not None and account_activation_token.check_token(user, token):
         user.is_active = True
