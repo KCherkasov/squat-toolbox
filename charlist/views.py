@@ -895,6 +895,8 @@ def gain_malignancy(request, character_model: CharacterModel, character: charlis
             if (roll_result >= mal.get_rolls_range()[0]) and (roll_result <= mal.get_rolls_range()[1]):
                 if mal_key not in character_model.malignances():
                     character_model.malignances().append(mal_key)
+                    for cmd in mal.get_commands():
+                        character_model.pending().append(cmd)
                     character_model.inc_cp_tests()
                     character_model = clean_completed(character_model, request)
                     character.character_data = character_model.toJSON()
@@ -912,6 +914,8 @@ def gain_mutation(request, character_model: CharacterModel, character: charlist.
             if (roll_result >= mut.get_rolls_range()[0]) and (roll_result <= mut.get_rolls_range()[1]):
                 if mut_key not in character_model.mutations():
                     character_model.mutations().append(mut_key)
+                    for cmd in mut.get_commands():
+                        character_model.pending().append(cmd)
                     character_model.inc_cp_tests()
                     character_model = clean_completed(character_model, request)
                     character.character_data = character_model.toJSON()
@@ -927,6 +931,8 @@ def gain_malignance_choice(request, character_model: CharacterModel, character: 
         choice = form.cleaned_data['choices']
         if choice not in character_model.malignances():
             character_model.malignances().append(choice)
+            for cmd in flyweights.malignancies().get(choice).get_commands():
+                character_model.pending().append(cmd)
             character_model = clean_completed(character_model, request)
             character.character_data = character_model.toJSON()
             character.save()
@@ -941,6 +947,8 @@ def gain_mutation_choice(request, character_model: CharacterModel, character: ch
         if choice not in character_model.mutations():
             character_model.mutations().append(choice)
             character_model = clean_completed(character_model, request)
+            for cmd in flyweights.mutations().get(choice):
+                character_model.pending().append(cmd)
             character.character_data = character_model.toJSON()
             character.save()
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
