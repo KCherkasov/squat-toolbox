@@ -46,6 +46,7 @@
         <div class="modal fade" id="malignances-{{ lang }}-{{ forloop.counter }}" tabindex="-1"
              aria-labelledby="#malignances-{{ lang }}-{{ forloop.counter }}-label">
             <div class="modal-dialog" role="document">
+                <div class="modal-content">
                 <div class="modal-header">
                     <b id="malignances-{{ lang }}-{{ forloop.counter }}-label">
                         {{ facade|get_malignance:mal|get_malignance_name:lang }}
@@ -58,6 +59,7 @@
                     <p>
                         {{ facade|get_malignance:mal|get_malignance_description:lang }}
                     </p>
+                </div>
                 </div>
             </div>
         </div>
@@ -87,6 +89,7 @@
         <div class="modal fade" id="mutations-{{ lang }}-{{ forloop.counter }}" tabindex="-1"
              aria-labelledby="mutations-{{ lang }}-{{ forloop.counter }}-label">
             <div class="modal-dialog" role="document">
+                <div class="modal-content">
                 <div class="modal-header">
                     <b id="mutations-{{ lang }}-{{ forloop.counter }}-label">
                         {{ facade|get_mutation:mut|get_mutation_name:lang }}
@@ -96,6 +99,7 @@
                     <p>
                         {{ facade|get_mutation:mut|get_mutation_description:lang }}
                     </p>
+                </div>
                 </div>
             </div>
         </div>
