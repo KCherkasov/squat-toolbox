@@ -36,12 +36,12 @@
         </div>
         {% for mal in character.malignancies %}
         <div>
-            <b>
+            <p>
                 <a class="text-dark text-decoration-none" role="button" data-bs-toggle="modal" href=""
                     title="Подробнее" data-bs-target="#malignances-{{ lang }}-{{ forloop.counter }}">
                         <i>{{ facade|get_malignance:mal|get_malignance_name:lang }}</i>
                 </a>
-            </b>
+            </p>
         </div>
         <div class="modal fade" id="malignances-{{ lang }}-{{ forloop.counter }}" tabindex="-1"
              aria-labelledby="#malignances-{{ lang }}-{{ forloop.counter }}-label">
@@ -79,12 +79,12 @@
         </div>
         {% for mut in character.mutations %}
         <div>
-            <b>
+            <p>
                 <a class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
                    href="" title="Подробнее" data-bs-target="#mutations-{{ lang }}-{{ forloop.counter }}">
                     <i>{{ facade|get_mutation:mut|get_mutation_name:lang }}</i>
                 </a>
-            </b>
+            </p>
         </div>
         <div class="modal fade" id="mutations-{{ lang }}-{{ forloop.counter }}" tabindex="-1"
              aria-labelledby="mutations-{{ lang }}-{{ forloop.counter }}-label">
