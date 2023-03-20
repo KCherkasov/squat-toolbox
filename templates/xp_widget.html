@@ -3,10 +3,14 @@
     <div>
         <b>{% if lang == 'ru' %}Очки опыта{% else %}Experience points{% endif %} &nbsp;</b>
     </div>
-    <button class="btn btn-primary" type="submit">
-        {% if lang == 'ru' %}Доступно{% else %}Available{% endif %}: {{ character.xp_current }}
-    </button>
-    <button class="btn btn-dark disabled">
-        {% if lang == 'ru' %}Потрачено{% else %}Spent{% endif %}: {{ character.xp_spent }}
-    </button>
+    <div>
+        <b>
+            {% if lang == 'ru' %}Доступно{% else %}Available{% endif %}: {{ character.xp_current }}
+        </b>
+    </div>
+    <div>
+        <b>
+            {% if lang == 'ru' %}Потрачено{% else %}Spent{% endif %}: {{ character.xp_spent }}
+        </b>
+    </div>
 </div>
