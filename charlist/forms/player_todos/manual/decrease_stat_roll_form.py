@@ -10,6 +10,9 @@ class DecreaseStatRollForm(Form):
         self.__stat_name = flyweights.stat_descriptions().get(cmd.get('tag')).get_name_en()
         self.__cmd_id = cmd.get('cmd_id')
 
+    def cmd_id(self):
+        return self.__cmd_id
+
     def stat_name(self):
         return self.__stat_name
 
