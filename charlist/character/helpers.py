@@ -3,6 +3,7 @@
 
 from typing import Dict, List
 
+import charlist.constants.tags
 from charlist.flyweights.flyweights import Facade
 from charlist.flyweights.core.hint import Hint
 
@@ -55,13 +56,25 @@ def parse_hint(hint: Hint, facade: Facade):
         return None
 
 
+def make_hook(tgt: str, res: Dict[str, List[HookupHint]], hint: Hint, name: Dict[str, str]):
+    if tgt not in res.keys():
+        res[tgt] = list()
+    hook_description = dict()
+    for lang in ['ru', 'en']:
+        hook_description[lang] = hint.get_description(lang)
+    hook_hint = HookupHint(hint.get_tag(), hook_description, name)
+    res.get(tgt).append(hook_hint)
+
+
 def map_hints(res: Dict[str, List[HookupHint]], hints: List[Hint], name: Dict[str, str], facade: Facade):
     for hint in hints:
         for tgt in hint.get_target():
-            if tgt not in res.keys():
-                res[tgt] = list()
-            hook_description = dict()
-            for lang in ['ru', 'en']:
-                hook_description[lang] = hint.get_description(lang)
-            hook_hint = HookupHint(hint.get_tag(), hook_description, name)
-            res.get(tgt).append(hook_hint)
+            if (tgt != 'ST_ALL') and (tgt != 'SK_ALL'):
+                make_hook(tgt, res, hint, name)
+            else:
+                if tgt == 'ST_ALL':
+                    for st_tag in charlist.constants.tags.STAT_TAGS:
+                        make_hook(st_tag, res, hint, name)
+                else:
+                    for sk_tag in charlist.constants.tags.SKILL_TAGS:
+                        make_hook(sk_tag, res, hint, name)
