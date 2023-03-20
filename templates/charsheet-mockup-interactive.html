@@ -59,6 +59,7 @@ Character sheet interactive mockup
         <div class="tab-content charsheet-card">
             <header class="text-center">
                 <h3>{{ character.name }}</h3>
+                {% include 'xp_widget.html' %}
             </header>
             <div class="justify-content-center">
                 {% include 'reminders_widget.html' %}
@@ -96,8 +97,6 @@ Character sheet interactive mockup
                             {% include 'corruption_widget.html' %}
                         </div>
                     </div>
-                    {% include 'xp_widget.html' %}
-
                 </div>
             </div>
 
