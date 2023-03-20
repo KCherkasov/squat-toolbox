@@ -54,19 +54,19 @@
     <div class="charlist-content" id="mental-disorders-{{ lang }}">
         {% for disorder in character.disorders %}
         <div>
-            <b>
+            <p>
                 <a class="text-dark text-decoration-none" role="button" data-bs-toggle="modal" href=""
-                   data-bs-target="#{{ character.id }}-{{ disorder|get_by_dict_key:'name' }}-popup">
+                   data-bs-target="#{{ character.id }}-disorder-{{ forloop.counter }}-popup">
                     {{ disorder|get_by_dict_key:'name' }}
                 </a>
-            </b>
+            </p>
         </div>
-        <div class="modal fade" id="{{ character.id }}-{{ disorder|get_by_dict_key:'name' }}-popup" tabindex="-1"
-             aria-labelledby="{{ character.id }}-{{ disorder|get_by_dict_key:'name' }}-popup-label">
+        <div class="modal fade" id="{{ character.id }}-disorder-{{ forloop.counter }}-popup" tabindex="-1"
+             aria-labelledby="{{ character.id }}-disorder-{{ forloop.counter }}-popup-label">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <b id="{{ character.id }}-{{ disorder|get_by_dict_key:'name' }}-popup-label">
+                        <b id="{{ character.id }}-disorder-{{ forloop.counter }}-popup-label">
                             {{ disorder|get_by_dict_key:'name' }}
                         </b>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
