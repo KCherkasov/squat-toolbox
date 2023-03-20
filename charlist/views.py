@@ -892,7 +892,7 @@ def gain_malignancy(request, character_model: CharacterModel, character: charlis
     if form.is_valid():
         roll_result = form.cleaned_data['roll_result']
         for mal_key, mal in flyweights.malignancies().items():
-            if (roll_result >= mal.rolls_range()[0]) and (roll_result <= mal.rolls_range()[1]):
+            if (roll_result >= mal.get_rolls_range()[0]) and (roll_result <= mal.get_rolls_range()[1]):
                 if mal_key not in character_model.malignances():
                     character_model.malignances().append(mal_key)
                     character_model.inc_cp_tests()
@@ -909,7 +909,7 @@ def gain_mutation(request, character_model: CharacterModel, character: charlist.
     if form.is_valid():
         roll_result = form.cleaned_data['roll_result']
         for mut_key, mut in flyweights.mutations().items():
-            if (roll_result >= mut.rolls_range()[0]) and (roll_result <= mut.rolls_range()[1]):
+            if (roll_result >= mut.get_rolls_range()[0]) and (roll_result <= mut.get_rolls_range()[1]):
                 if mut_key not in character_model.mutations():
                     character_model.mutations().append(mut_key)
                     character_model.inc_cp_tests()
