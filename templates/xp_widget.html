@@ -13,9 +13,12 @@
             &nbsp;&nbsp;{% if lang == 'ru' %}Потрачено{% else %}Spent{% endif %}: {{ character.xp_spent }}
         </b>
     </div>
+    <span>
+        &nbsp;&nbsp;
+    </span>
     <div>
         <a class="btn btn-primary" href="">
-            &nbsp;&nbsp;{% if lang == 'ru' %}Прокачаться{% else %}Spend XP{% endif %}
+            {% if lang == 'ru' %}Прокачаться{% else %}Spend XP{% endif %}
         </a>
     </div>
 </div>
