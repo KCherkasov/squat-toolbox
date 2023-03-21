@@ -598,7 +598,7 @@ class CharacterModel(object):
                             upg_costs.get('talents')['available'] = dict()
                         if talent.get_tier() not in upg_costs.get('talents').get('available').keys():
                             upg_costs.get('talents').get('available')[talent.get_tier()] = dict()
-                        upg_costs.get('talents').get('avalable').get(talent.get_tier())[tl_tag] = \
+                        upg_costs.get('talents').get('available').get(talent.get_tier())[tl_tag] = \
                             {'cost': flyweights.talent_upg_cost(talent.get_tier(), apts), 'colour': colour}
                     else:
                         if 'unavailable' not in upg_costs.get('talents').keys():
