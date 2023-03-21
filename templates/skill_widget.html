@@ -15,7 +15,7 @@
                 </ul>
             </div>
             {% endif %}
-            <div class="ps-3">
+            <div class="ps-{% if skill.is_specialist %}5{% else %}3{% endif %}">
                 <b>{{ facade|get_skill_description:skill_key|get_skdescr_name:lang }}</b>
             </div>
         </div>
