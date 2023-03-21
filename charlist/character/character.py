@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 
+import charlist.constants.tags
 from charlist.character.helpers import *
 from charlist.character.skill import Skill
 from charlist.character.stat import Stat
@@ -497,24 +498,53 @@ class CharacterModel(object):
 
         for st_tag, stat in self.stats().items():
             if stat.is_upgradeable():
-                upg_costs.get('stats')[st_tag] = flyweights.stat_upg_cost(stat.get_upgrades() + 1,
-                                                                          flyweights.count_stat_apt_matches(
-                                                                              st_tag, self.aptitudes()))
+                apts = flyweights.count_stat_apt_matches(st_tag, self.aptitudes())
+                colour = 'success'
+                if apts == 1:
+                    colour = 'warning'
+                if apts == 0:
+                    colour = 'danger'
+                upg_costs.get('stats')[st_tag] = {'cost': flyweights.stat_upg_cost(
+                    stat.get_upgrades() + 1, apts), 'colour': colour}
+
         for sk_tag, skill in self.skills().items():
+            apts = flyweights.count_skill_apt_matches(sk_tag, self.aptitudes())
+            colour = 'success'
+            if apts == 1:
+                colour = 'warning'
+            if apts == 0:
+                colour = 'danger'
             if skill.is_specialist():
-                upg_costs.get('skill')[sk_tag] = dict()
+                upg_costs.get('skills')[sk_tag] = dict()
+                upg_costs.get('skills').get(sk_tag)['colour'] = colour
                 for subtag, adv in skill.advances().items():
                     if skill.upgradeable_subtag(subtag):
-                        upg_costs.get('skill')[sk_tag][subtag] = flyweights.skill_upg_cost(
-                            skill.get_subskill_advance(subtag) + 1,
-                            flyweights.count_skill_apt_matches(sk_tag, self.aptitudes()))
+                        upg_costs.get('skills').get(sk_tag)[subtag] = flyweights.skill_upg_cost(
+                            skill.get_subskill_advance(subtag) + 1, apts)
+                upg_costs.get('skills').get(sk_tag)['SK_ANY'] = flyweights.skill_upg_cost(1, apts)
             else:
                 if skill.upgradeable():
-                    upg_costs.get('skills')[sk_tag] = flyweights.skill_upg_cost(
-                        skill.advances() + 1, flyweights.count_skill_apt_matches(sk_tag, self.aptitudes()))
+                    upg_costs.get('skills')[sk_tag] = {'cost': flyweights.skill_upg_cost(
+                        skill.advances() + 1, apts), 'colour': colour}
+        for sk_tag in flyweights.spec_skills_subtags():
+            if sk_tag not in upg_costs.get('skills').keys():
+                apts = flyweights.count_skill_apt_matches(sk_tag, self.aptitudes())
+                colour = 'success'
+                if apts == 1:
+                    colour = 'warning'
+                if apts == 0:
+                    colour = 'danger'
+                upg_costs.get('skills')[sk_tag] = {'SK_ANY': flyweights.skill_upg_cost(1, apts), 'colour': colour}
+
         for tl_tag, talent in flyweights.talent_descriptions().items():
             if talent.is_specialist():
                 flg = True
+                apts = flyweights.count_talent_apt_matches(tl_tag, self.aptitudes())
+                colour = 'success'
+                if apts == 1:
+                    colour = 'warning'
+                if apts == 0:
+                    colour = 'danger'
                 if not self.has_talent(tl_tag):
                     for prereq in talent.get_prerequisites():
                         if not prereq.matched(self):
@@ -526,34 +556,38 @@ class CharacterModel(object):
                     if talent.get_tier() not in upg_costs.get('talents').get('available').keys():
                         upg_costs.get('talents').get('available')[talent.get_tier()] = dict()
                     upg_costs.get('talents').get('available').get(talent.get_tier())[tl_tag] = dict()
+                    upg_costs.get('talents').get('available').get(talent.get_tier()).get(tl_tag)['colour'] = colour
                     if self.has_talent(tl_tag):
                         if talent.is_stackable():
                             for subtag in talent.taken().keys():
                                 upg_costs.get('talents').get('available').get(talent.get_tier()).get(tl_tag)[subtag] = \
-                                    flyweights.talent_upg_cost(
-                                        tl_tag, flyweights.count_talent_apt_matches(tl_tag, self.aptitudes()))
+                                    flyweights.talent_upg_cost(tl_tag, apts)
                         upg_costs.get('talents').get('available').get(talent.get_tier()).get(tl_tag)['TL_ANY'] = \
-                            flyweights.talent_upg_cost(
-                                tl_tag, flyweights.count_talent_apt_matches(tl_tag, self.aptitudes()))
+                            flyweights.talent_upg_cost(tl_tag, apts)
                 else:
                     if 'unavailable' not in upg_costs.get('talents').keys():
                         upg_costs.get('talents')['unavailable'] = dict()
                     if talent.get_tier() not in upg_costs.get('talents').get('unavailable').keys():
                         upg_costs.get('talents').get('unavailable')[talent.get_tier()] = dict()
                     upg_costs.get('talents').get('unavailable').get(talent.get_tier())[tl_tag] = dict()
+                    upg_costs.get('talents').get('unavailable').get(talent.get_tier()).get(tl_tag)['colour'] = colour
                     if self.has_talent(tl_tag):
                         if talent.is_stackable():
                             for subtag in talent.taken().keys():
                                 upg_costs.get('talents').get('unavailable')\
                                     .get(talent.get_tier()).get(tl_tag)[subtag] =\
-                                    flyweights.talent_upg_cost(
-                                        tl_tag, flyweights.count_talent_apt_matches(tl_tag, self.aptitudes()))
+                                    flyweights.talent_upg_cost(tl_tag, apts)
                         upg_costs.get('talents').get('unavailable').get(talent.get_tier()).get(tl_tag)['TL_ANY'] = \
-                            flyweights.talent_upg_cost(
-                                tl_tag, flyweights.count_talent_apt_matches(tl_tag, self.aptitudes()))
+                            flyweights.talent_upg_cost(tl_tag, apts)
             else:
                 if (not self.has_talent(tl_tag)) or (talent.is_stackable()):
                     flg = True
+                    apts = flyweights.count_talent_apt_matches(tl_tag, self.aptitudes())
+                    colour = 'success'
+                    if apts == 1:
+                        colour = 'warning'
+                    if apts == 0:
+                        colour = 'danger'
                     if not self.has_talent(tl_tag):
                         for prereq in talent.get_prerequisites():
                             if not prereq.matched(self):
@@ -565,16 +599,14 @@ class CharacterModel(object):
                         if talent.get_tier() not in upg_costs.get('talents').get('available').keys():
                             upg_costs.get('talents').get('available')[talent.get_tier()] = dict()
                         upg_costs.get('talents').get('avalable').get(talent.get_tier())[tl_tag] = \
-                            flyweights.talent_upg_cost(
-                                talent.get_tier(), flyweights.count_talent_apt_matches(tl_tag, self.aptitudes()))
+                            {'cost': flyweights.talent_upg_cost(talent.get_tier(), apts), 'colour': colour}
                     else:
                         if 'unavailable' not in upg_costs.get('talents').keys():
                             upg_costs.get('talents')['unavailable'] = dict()
                         if talent.get_tier() not in upg_costs.get('talents').get('unavailable').keys():
                             upg_costs.get('talents').get('unavailable')[talent.get_tier()] = dict()
                         upg_costs.get('talents').get('unavailable').get(talent.get_tier())[tl_tag] = \
-                            flyweights.talent_upg_cost(
-                                talent.get_tier(), flyweights.count_talent_apt_matches(tl_tag, self.aptitudes()))
+                            {'cost': flyweights.talent_upg_cost(talent.get_tier(), apts), 'colour': colour}
         return upg_costs
 
     @classmethod

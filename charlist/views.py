@@ -48,6 +48,7 @@ from charlist.forms.player_todos.manual.gain_talent_alt_form import GainTalentAl
 from charlist.forms.player_todos.manual.get_trauma_ip_form import GetTraumaIPForm
 from charlist.forms.player_todos.manual.increase_stat_alt_form import IncreaseStatAltForm
 from charlist.forms.player_todos.manual.increase_stat_roll_form import IncreaseStatRollForm
+from charlist.forms.upgrading.stat_upgrade_form import StatUpgradeForm
 
 
 class TokenGenerator(PasswordResetTokenGenerator):
@@ -1000,6 +1001,17 @@ def parse_manual_cmds(request, character: models.Character, character_model: Cha
         gain_stat_aptitude(request, character_model, character)
 
 
+def upg_data_to_forms(character: CharacterModel):
+    upg_costs = character.make_upg_costs(flyweights)
+    forms = {'stats': list(), 'skills': dict(), 'talents': dict()}
+    for stat_tag in flyweights.stat_tags():
+        forms.get('stats').append(
+            StatUpgradeForm(stat_tag, character.stats().get(stat_tag).value(),
+                            upg_costs.get('stats').get(stat_tag).get('cost'),
+                            upg_costs.get('stats').get(stat_tag).get('colour')))
+    return forms
+
+
 def character_view(request, char_id):
     character = models.Character.objects.get(pk=char_id)
     character_model = character.data_to_model()
@@ -1029,7 +1041,33 @@ def character_view(request, char_id):
                                                                  'hookups': character_model.make_hookups(flyweights),
                                                                  'insanity_form': insanity_form,
                                                                  'corruption_form': corruption_form,
-                                                                 'reminders': reminders, })
+                                                                 'reminders': reminders,
+                                                                 'upg_view': character.get_upgrade_url(), })
+
+
+def upgrade_stat(request, character: models.Character, character_model: CharacterModel):
+    stat_tag = request.POST.get('stat_tag')
+    cost = int(request.POST.get('cost'))
+    form = StatUpgradeForm(stat_tag, 0, cost, 'success', request.POST)
+    if form.is_valid():
+        if character_model.xp_current() >= cost:
+            character_model.spend_xp(cost)
+            character_model.upgrade_stat(stat_tag)
+            character.character_data = character_model.toJSON()
+            character.save()
+    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
+
+
+def character_upgrade(request, char_id):
+    character = models.Character.objects.get(pk=char_id)
+    character_model = character.data_to_model()
+    forms = upg_data_to_forms(character_model)
+    if request.method == 'POST':
+        if 'upg-stat-confirm' in request.POST:
+            upgrade_stat(request, character, character_model)
+    return render(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': flyweights,
+                                                      'character': character_model, 'forms': forms,
+                                                      'return': True, 'char_view': character.get_view_url(), })
 
 
 def character_delete(request, char_id):

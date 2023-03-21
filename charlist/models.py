@@ -85,6 +85,9 @@ class Character(models.Model):
     def get_view_url(self):
         return unquote(reverse('character-details', kwargs={'char_id': self.pk}), encoding='utf-8', errors='replace')
 
+    def get_upgrade_url(self):
+        return unquote(reverse('character-upgrade', kwargs={'char_id': self.pk}), encoding='utf-8', errors='replace')
+
     def get_delete_url(self):
         return unquote(reverse('character-delete', kwargs={'char_id': self.pk}), encoding='utf-8', errors='replace')
 

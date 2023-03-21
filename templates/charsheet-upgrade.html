@@ -1,0 +1,54 @@
+{% extends 'charlist_main.html' %}
+
+{% load filters %}
+
+{% block pg_title %}
+Character sheet interactive mockup
+{% endblock %}
+
+{% block title %}
+Макет листа персонажа ver.{{ version }}
+{% endblock %}
+
+{% block app_content %}
+<div class="charlist_container">
+    <div>
+        <ul class="nav nav-tabs" role="tablist">
+            {% for lang in facade.langs %}
+            <li class="nav-item" role="presentation">
+                <a class="nav-link {% if forloop.first %}active{% endif %}" data-bs-toggle="tab" id="{{ lang }}-tab" href="#{{ lang }}-card" aria-current="page">
+                    {% if lang == 'ru' %}Русский{% else %}English{% endif %}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<div class="tab-content charlist_container">
+    {% for lang in facade.langs %}
+        <div class="tab-pane fade show charlist-container {% if forloop.first %}active{% endif %}"
+             id="{{ lang }}-card" role="tabpanel" aria-labelledby="{{lang}}-tab">
+            <div class="charsheet-card">
+                <header class="text-center">
+                    <h3>{{ character.name }}</h3>
+                    {% include 'xp_widget.html' %}
+                </header>
+                <div class="card card-body">
+                    <header class="text-center">
+                        <h5>{% if lang == 'ru' %}Характеристики{% else %}Characteristics{% endif %}</h5>
+                    </header>
+                    {% for form in forms|get_by_dict_key:'stats' %}
+                        {% if not forloop.counter|divisibleby:2 %}
+                            <div class="card-group">
+                        {% endif %}
+                        {% include 'stat_upgrade_form.html' %}
+                        {% if forloop.counter|divisibleby:2 or forloop.last %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

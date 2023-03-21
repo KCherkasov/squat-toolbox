@@ -17,8 +17,12 @@
         &nbsp;&nbsp;
     </span>
     <div>
-        <a class="btn btn-primary" href="">
-            {% if lang == 'ru' %}Прокачаться{% else %}Spend XP{% endif %}
+        <a class="btn btn-primary" href="{% if return %}{{ char_url }}{% else %}{{ upg_url }}{% endif %}">
+            {% if return %}
+                {% if lang == 'ru' %}Готово{% else %}Done{% endif %}
+            {% else %}
+                {% if lang == 'ru' %}Прокачаться{% else %}Spend XP{% endif %}
+            {% endif %}
         </a>
     </div>
 </div>
