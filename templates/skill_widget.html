@@ -1,7 +1,7 @@
 {% load filters %}
 <div class="card charlist-{% if not skill.is_specialist %}inline{% else %}content{% endif %} justify-content-center w470">
     <div>
-        <div class="charlist-inline w170 pt-3">
+        <div class="charlist-inline w170 pt-3 {% if skill.is_specialist %}ps-3{% endif %}">
             {% if hookups|get_by_dict_key:skill_key %}
             <div class="btn-group dropend">
                 <span class="position-absolute top-0 start-100 translate-middle btn btn-success dropdown-toggle badge rounded-circle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -15,7 +15,7 @@
                 </ul>
             </div>
             {% endif %}
-            <div class="ps-{% if skill.is_specialist %}5{% else %}3{% endif %}">
+            <div class="ps-3">
                 <b>{{ facade|get_skill_description:skill_key|get_skdescr_name:lang }}</b>
             </div>
         </div>
