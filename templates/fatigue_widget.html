@@ -1,10 +1,10 @@
 {% load filters %}
-<div class="charlist-inline mt-2 align-content-center">
+<div class="charlist-inline mt-2 align-items-center">
     <div class="text-center">
         <b>{% if lang == 'ru' %}Усталость{% else %}Fatigue{% endif %}:</b>
     </div>
     <div class="ps-3">
-        <p>{{ character.fatigue_current }}/{{ character.fatigue_cap }}</p>
+        <b>{{ character.fatigue_current }}/{{ character.fatigue_cap }}</b>
     </div>
     <div class="charlist_inline ps-3">
         <input type="range" min="1" max="{% mtp 2.0 character.fatigue_cap %}" step="1">
