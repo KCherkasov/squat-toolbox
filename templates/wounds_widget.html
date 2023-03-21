@@ -4,9 +4,7 @@
         <b>{% if lang == 'ru' %}Раны{% else %}Wounds{% endif %}:</b>
     </div>
     <div class="ps-4 charlist-content align-items-center">
-        <div>
-            <p>{{ character.wounds_current }}/{{ character.wounds_cap }}</p>
-        </div>
+        <b>{{ character.wounds_current }}/{{ character.wounds_cap }}</b>
     </div>
     <div class="charlist-inline ps-3">
         <input type="number">
