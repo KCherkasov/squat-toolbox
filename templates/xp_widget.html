@@ -1,5 +1,5 @@
 {% load filters %}
-<div class="charlist-inline justify-content-center">
+<div class="charlist-inline justify-content-center align-items-center">
     <div>
         <b>{% if lang == 'ru' %}Очки опыта{% else %}Experience points{% endif %} &nbsp;</b>
     </div>
@@ -12,6 +12,11 @@
         <b>
             &nbsp;&nbsp;{% if lang == 'ru' %}Потрачено{% else %}Spent{% endif %}: {{ character.xp_spent }}
         </b>
+    </div>
+    <div>
+        <a class="btn btn-primary" href="">
+            {% if lang == 'ru' %}Прокачаться{% else %}Spend XP{% endif %}
+        </a>
     </div>
 </div>
 <div class="charlist-content justify-content-center">
