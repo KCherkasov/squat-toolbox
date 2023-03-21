@@ -563,7 +563,7 @@ class CharacterModel(object):
                                 upg_costs.get('talents').get('available').get(talent.get_tier()).get(tl_tag)[subtag] = \
                                     flyweights.talent_upg_cost(tl_tag, apts)
                         upg_costs.get('talents').get('available').get(talent.get_tier()).get(tl_tag)['TL_ANY'] = \
-                            flyweights.talent_upg_cost(tl_tag, apts)
+                            flyweights.talent_upg_cost(talent.get_tier(), apts)
                 else:
                     if 'unavailable' not in upg_costs.get('talents').keys():
                         upg_costs.get('talents')['unavailable'] = dict()

@@ -37,6 +37,7 @@ SKILL_XP_COSTS = [100, 200, 300, 400]  # without aptitudes matching, 1 apt x2, 0
 
 TALENT_XP_COSTS = [200, 300, 400]  # without aptitudes matching, 1 apt - x1.5, 0 apt - x3
 
+
 def to_map(lst):
     res_map = dict()
     for item in lst:
