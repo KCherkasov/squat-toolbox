@@ -17,7 +17,7 @@
         &nbsp;&nbsp;
     </span>
     <div>
-        <a class="btn btn-primary" href="{% if return %}{{ char_url }}{% else %}{{ upg_url }}{% endif %}">
+        <a class="btn btn-primary" href="{% if return %}{{ char_view }}{% else %}{{ upg_view }}{% endif %}">
             {% if return %}
                 {% if lang == 'ru' %}Готово{% else %}Done{% endif %}
             {% else %}
