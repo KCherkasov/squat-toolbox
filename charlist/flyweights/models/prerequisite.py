@@ -2,7 +2,6 @@
 
 from typing import Dict, List
 
-from charlist.character.character import CharacterModel
 
 
 class Prerequisite(object):
@@ -66,7 +65,7 @@ class Prerequisite(object):
     def is_psy_power_prereq(self):
         return self.tag[:2] == 'PP'
 
-    def match_alts(self, character: CharacterModel):
+    def match_alts(self, character):
         flg = False  # True when prerequisite is NOT matched
         if self.is_alt_list():
             for alt in self.alt:
@@ -190,7 +189,7 @@ class Prerequisite(object):
             else:
                 return True
 
-    def matched(self, character: CharacterModel):
+    def matched(self, character):
         flg = False  # True when prerequisite is NOT matched
         if self.is_homeworld_prereq():
             flg = character.hw_id() != self.tag
