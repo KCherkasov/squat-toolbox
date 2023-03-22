@@ -20,9 +20,10 @@
                     {{ form.stat_value }}&nbsp;>>&nbsp;{{ form.stat_value_new }}
                 </b>
             </div>
+
             <input type="hidden" name="stat_tag" value="{{ form.stat_tag }}">
             <input type="hidden" name="cost" value="{{ form.cost }}">
-            <button class="btn btn-primary {% if form.cost > character.xp_current %}disabled{%endif%} ps-2 {% if not forloop.counter|divisibleby:2%}pe-3{% endif %}"
+            <button class="btn btn-primary {% if form.cost > character.xp_current %}disabled{%endif%} ms-4 {% if not forloop.counter|divisibleby:2%} me-3{% endif %}"
                     name="upg-stat-confirm" type="submit">
                 {{ form.cost }}&nbsp;XP
             </button>
