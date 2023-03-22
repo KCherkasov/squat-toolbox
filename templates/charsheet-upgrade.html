@@ -68,7 +68,7 @@ Character sheet interactive mockup
                             {% if not forloop.counter|divisibleby:2 %}
                                 <div class="card-group justify-content-center">
                             {% endif %}
-                                    {% if form_map.skill_tag not in facade.spec_skills %}
+                                    {% if form.skill_tag not in facade.spec_skills %}
                                         {% include 'skill_upgrade_form.html' %}
                                     {% endif %}
                             {% if forloop.counter|divisibleby:2 or forloop.last %}
