@@ -1,7 +1,6 @@
 {% load filters %}
 <div class="card w300">
     <div class="d-flex flex-column">
-        <div>
             <div class="text-center">
                 <b>
                     <i>
@@ -12,22 +11,21 @@
                                 {% if facade|get_talent_description:talent_key|get_tldescr_is_stackable %}
                                     ({{ talent.taken }})
                                 {% endif %}
+                            {% else %}
+                            {% for subtag, tk in talent.taken.items %}
+                                {% if forloop.first %}({% endif %}
+                                {{ subtag }} {% if facade|get_talent_description:talent_key|get_tldescr_is_stackable %}({{ tk }}){% endif %}
+                                {% if not forloop.last %}
+                                    ,&nbsp;
+                                {% else %}
+                                    )
+                                {% endif %}
+                            {% endfor %}
                             {% endif %}
                         </a>
                     </i>
                 </b>
             </div>
-            {% if facade|get_talent_description:talent_key|get_tldescr_is_specialist %}
-            <div class="d-flex flex-column ps-2">
-                <b>{% if lang == 'ru' %}Взятые подкатегории{% else %}Taken specializations{% endif %}:</b>
-                {% for subtag, tk in talent.taken.items %}
-                    <div>
-                        <p>{{ subtag }} {% if facade|get_talent_description:talent_key|get_tldescr_is_stackable %}({{ tk }}){% endif %}</p>
-                    </div>
-                {% endfor %}
-            </div>
-            {% endif %}
-        </div>
     </div>
 </div>
 
