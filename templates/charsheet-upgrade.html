@@ -62,9 +62,10 @@ Character sheet interactive mockup
                     <header class="text-center">
                         <h5>{% if lang == 'ru' %}Умения{% else %}Skills{% endif %}</h5>
                     </header>
+                    <div class="skills-list">
                     {% for form_map in forms|get_by_dict_key:'skills' %}
                         {% if not forloop.counter|divisibleby:2 %}
-                            <div class="card-group justify-content-center skills-list">
+                            <div class="card-group justify-content-center">
                         {% endif %}
                                 {% if form_map.skill_tag not in facade.spec_skills %}
                                     {% with form_map as form %}
@@ -75,6 +76,7 @@ Character sheet interactive mockup
                             </div>
                         {% endif %}
                     {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
