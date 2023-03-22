@@ -16,7 +16,7 @@
                 <input type="hidden" name="subtag_skill" value="{{ form.subtag }}">
             {% else %}
                 {% for field in form %}
-                <div class="form-group charlist-inline">
+                <div class="form-group charlist-inline align-items-center">
                     <label for="{{ field.name }}" class="text-dark col-sm-2 control-label fs-6">{{ field.label }}</label>
                     <div class="col-sm-5 ms-2">
                         {{ field }}
