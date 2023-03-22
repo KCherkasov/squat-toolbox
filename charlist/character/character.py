@@ -320,6 +320,8 @@ class CharacterModel(object):
         if sk_tag in self.__skills.keys():
             if self.__skills.get(sk_tag).upgradeable():
                 self.__skills.get(sk_tag).upgrade()
+        else:
+            self.__skills[sk_tag] = Skill(sk_tag, 1)
 
     def improve_skill_subtag(self, sk_tag: str, sk_subtag: str, facade: Facade):
         if sk_tag in self.__skills.keys():
