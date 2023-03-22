@@ -18,7 +18,7 @@
                 </b>
             </div>
             {% if facade|get_talent_description:talent_key|get_tldescr_is_specialist %}
-            <div class="d-flex flex-column">
+            <div class="d-flex flex-column ps-2">
                 <b>{% if lang == 'ru' %}Взятые подкатегории{% else %}Taken specializations{% endif %}:</b>
                 {% for subtag, tk in talent.taken.items %}
                     <div>
