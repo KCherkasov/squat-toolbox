@@ -1,9 +1,9 @@
 {% load filters %}
 <div class="card card-body">
     <header class="text-center">
-        <h5>
+        <b>
             {% if lang == 'ru' %}Таланты{% else %}Talents{% endif %}
-        </h5>
+        </b>
     </header>
     <div class="tt-list">
     {% for talent_key, talent in character.talents.items %}
