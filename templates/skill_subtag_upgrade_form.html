@@ -12,9 +12,8 @@
         {% csrf_token %}
         <div class="charlist-inline align-items-center mb-1">
             <input type="hidden" name="skill_tag" value="{{ form.skill_tag }}">
-            {% if form.subtag_skill != 'SK_ANY' %}
-                <input type="hidden" name="subtag_skill" value="{{ form.subtag_skill }}">
-            {% else %}
+            <input type="hidden" name="subtag_skill" value="{{ form.subtag_skill }}">
+            {% if form.subtag_skill == 'SK_ANY' %}
                 {% for field in form %}
                 <div class="form-group charlist-inline align-items-center">
                     <label for="{{ field.name }}" class="text-dark col-sm-2 control-label fs-6">{{ field.label }}</label>

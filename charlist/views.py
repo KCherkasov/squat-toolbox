@@ -1102,7 +1102,7 @@ def upgrade_subskill(request, character: models.Character, character_model: Char
     form = SkillSubtagUpgradeForm(skill_tag, subtag, cost, 0, request.POST)
     if form.is_valid():
         character_model.spend_xp(cost)
-        if subtag is not None:
+        if subtag != 'SK_ANY':
             sk_subtag = subtag
         else:
             sk_subtag = form.cleaned_data.get('subtag')
