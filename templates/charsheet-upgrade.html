@@ -46,7 +46,7 @@ Character sheet interactive mockup
                 </div>
                 <div class="card card-body justify-content-center">
                     <header class="text-center">
-                        <h5>{% if lang == 'ru' %}Характеристики{% else %}Characteristics{% endif %}</h5>
+                        <b>{% if lang == 'ru' %}Характеристики{% else %}Characteristics{% endif %}</b>
                     </header>
                     {% for form in forms|get_by_dict_key:'stats' %}
                         {% if not forloop.counter|divisibleby:2 %}
@@ -60,7 +60,7 @@ Character sheet interactive mockup
                 </div>
                 <div class="card card-body justify-content-center">
                     <header class="text-center">
-                        <h5>{% if lang == 'ru' %}Умения{% else %}Skills{% endif %}</h5>
+                        <b>{% if lang == 'ru' %}Умения{% else %}Skills{% endif %}</b>
                     </header>
                     <div class="skills-list">
                     {% for form_map in forms|get_by_dict_key:'skills' %}
