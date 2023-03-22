@@ -1026,8 +1026,8 @@ def upg_data_to_forms(character: CharacterModel):
                 if key == 'colour':
                     form_map[key] = value
                 else:
-                    if key in character.skills().keys():
-                        adv_bonus = character.skills().get(key).get_adv_bonus_subtag(key)
+                    if skill_tag in character.skills().keys():
+                        adv_bonus = character.skills().get(skill_tag).get_adv_bonus_subtag(key)
                     else:
                         adv_bonus = -20
                     form_map.get('forms').append(SkillSubtagUpgradeForm(
