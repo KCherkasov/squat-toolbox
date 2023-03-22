@@ -18,7 +18,7 @@
         <div class="charlist-inline align-items-center mb-1">
             <div class="{% if forloop.counter|divisibleby:2 %}ps-3{% endif %}">
                 <b class="text-dark">
-                    {{ form.advance }}&nbsp;>>&nbsp;{{ form.advance_new }}
+                    {% if form.advance >= 0 %}+{% endif %}{{ form.advance }}&nbsp;>>&nbsp;+{{ form.advance_new }}
                 </b>
             </div>
 
