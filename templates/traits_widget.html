@@ -1,0 +1,21 @@
+{% load filters %}
+
+<div class="charlist-content justify-content-center">
+    <div class="charlist-content justify-content-center">
+        <b class="text-center">
+            {% if lang == 'ru' %}Черты{% else %}Traits{% endif %}
+        </b>
+    </div>
+    <hr>
+    <div class="charlist-content justify-content-center">
+    {% for trait_key, trait in character.traits.items %}
+        {% if not forloop.counter|divisibleby:3 and forloop.counter0|divisibleby:3 %}
+            <div class="card-group charlist-inline">
+        {% endif %}
+                {% include 'trait_widget.html' %}
+        {% if forloop.counter|divisibleby:3 or forloop.last %}
+            </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+</div>
