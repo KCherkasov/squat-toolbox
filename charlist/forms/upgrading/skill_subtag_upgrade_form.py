@@ -10,7 +10,7 @@ class SkillSubtagUpgradeForm(Form):
         self.__cost = cost
         self.__advance = advance
         if subtag == 'SK_ANY':
-            self.fields['subtag'] = forms.CharField(label=u"Новая специализация", max_length=100, min_length=1)
+            self.fields['subtag'] = forms.CharField(max_length=100, min_length=1)
 
     def skill_tag(self):
         return self.__sk_tag
