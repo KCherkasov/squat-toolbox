@@ -86,7 +86,7 @@ Character sheet interactive mockup
                                             <b class="text-dark">{{ facade|get_skill_description:skill_tag|get_skdescr_name:lang }}</b>
                                         </div>
                                         {% for form in form_map|get_by_dict_key:'forms' %}
-                                            {% include 'skill_upgrade_form.html' %}
+                                            {% include 'skill_subtag_upgrade_form.html' %}
                                         {% endfor %}
                                     </div>
                                 {% endwith %}
