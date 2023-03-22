@@ -81,7 +81,7 @@ Character sheet interactive mockup
                             {% if form_map|get_by_dict_key:'skill_tag' in facade.spec_skills %}
                                 {% with form_map|get_by_dict_key:'skill_tag' as skill_tag %}
                                 {% with form_map|get_by_dict_key:'colour' as colour %}
-                                    <div class="card card-body charlist-content justify-content-center align-items-center alert-{{ colour }} w400">
+                                    <div class="card card-body charlist-content justify-content-center align-items-center alert-{{ colour }}">
                                         <div>
                                             <b class="text-dark">{{ facade|get_skill_description:skill_tag|get_skdescr_name:lang }}</b>
                                         </div>
