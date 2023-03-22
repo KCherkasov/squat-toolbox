@@ -18,7 +18,7 @@
                 </b>
             </div>
             {% if facade|get_trait_description:trait_key|get_trdescr_is_specialist %}
-            <div>
+            <div class="d-flex flex-column ps-2">
                 <b>{% if lang == 'ru' %}Взятые подкатегории{% else %}Taken specializations{% endif %}:</b>
                 {% for subtag, tk in trait.taken.items %}
                     <div>
