@@ -1022,7 +1022,7 @@ def upg_data_to_forms(character: CharacterModel):
             form_map = dict()
             form_map['skill_tag'] = skill_tag
             form_map['forms'] = list()
-            for key, value in upg_costs.get('skilss').get(skill_tag).keys():
+            for key, value in upg_costs.get('skills').get(skill_tag).keys():
                 if key == 'colour':
                     form_map[key] = value
                 else:
