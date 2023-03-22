@@ -8,10 +8,15 @@
         {{ err }}
     </div>
 {% endfor %}
-    <form class="form-horizontal" method="post" action="">
+    <form class="form-horizontal alert-{{ colour }}" method="post" action="">
         {% csrf_token %}
         <div class="charlist-inline align-items-center mb-1">
             <div>
+                {% if form.subtag != 'SK_ANY' %}
+                    <div>
+                        <b class="text-dark">{{ form.subtag }}</b>
+                    </div>
+                {% endif %}
                 <b class="text-dark">
                     {% if form.advance >= 0 %}+{{ form.advance }}&nbsp;>>&nbsp;{% endif %}+{{ form.advance_new }}
                 </b>
@@ -20,6 +25,7 @@
             <input type="hidden" name="skill_tag" value="{{ form.skill_tag }}">
             {% if form.subtag != 'SK_ANY' %}
                 <input type="hidden" name="subtag" value="{{ form.subtag }}">
+                <div></div>
             {% else %}
                 {% for field in form.fields %}
                     <label for="{{ field.name }}" class="col-sm-2 control-label">{{ field.label }}</label>
