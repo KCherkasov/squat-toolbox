@@ -18,7 +18,7 @@
         <div class="charlist-inline align-items-center mb-1">
             <div class="{% if forloop.counter|divisibleby:2 %}ps-3{% endif %}">
                 <b class="text-dark">
-                    {{ form.stat_value }}&nbsp;>>&nbsp;{{ form.stat_value_new }}
+                    {% if form.stat_value >= 0 %}+{% endif %}{{ form.stat_value }}&nbsp;>>&nbsp;+{{ form.stat_value_new }}
                 </b>
             </div>
 
