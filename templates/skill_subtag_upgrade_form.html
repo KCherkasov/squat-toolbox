@@ -22,10 +22,12 @@
             <input type="hidden" name="subtag" value="{{ form.subtag }}">
             {% else %}
                 {% for field in form.fields %}
+                <div class="form-group charlist-inline">
                     <label for="{{ field.name }}" class="col-sm-2 control-label">{{ field.label }}</label>
                     <div class="col-sm-5 ms-2">
                         {{ field }}
                     </div>
+                </div>
                 {% endfor %}
             {% endif %}
             <input type="hidden" name="cost" value="{{ form.cost }}">

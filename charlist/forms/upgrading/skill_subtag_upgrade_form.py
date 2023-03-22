@@ -24,3 +24,9 @@ class SkillSubtagUpgradeForm(Form):
     def advance(self):
         return self.__advance
 
+    def advance_new(self):
+        if self.__advance < 0:
+            return 0
+        else:
+            return self.__advance + 10
+
