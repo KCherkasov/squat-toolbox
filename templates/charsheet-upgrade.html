@@ -34,13 +34,13 @@ Character sheet interactive mockup
                     {% include 'xp_widget.html' %}
                 </header>
                 <div class="card card-body charlist-inline justify-content-center">
-                    <div class="card alert-success me-2">
+                    <div class="card alert-success p-2 me-2">
                         <b>2&nbsp;{% if lang == 'ru' %} совпадающих склонности{% else %}matching aptitudes{% endif %}</b>
                     </div>
-                    <div class="card alert-warning me-2">
+                    <div class="card alert-warning p-2 me-2">
                         <b>1&nbsp;{% if lang == 'ru' %} совпадающая склонность{% else %}matching aptitudes{% endif %}</b>
                     </div>
-                    <div class="card alert-danger">
+                    <div class="card alert-danger p-2">
                         <b>{% if lang == 'ru' %}нет совпадающих склонности{% else %}no matching aptitudes{% endif %}</b>
                     </div>
                 </div>
