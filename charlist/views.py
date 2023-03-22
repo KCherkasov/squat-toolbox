@@ -1096,7 +1096,7 @@ def upgrade_skill(request, character: models.Character, character_model: Charact
 
 
 def upgrade_subskill(request, character: models.Character, character_model: CharacterModel):
-    skill_tag = request.POST.get('skill')
+    skill_tag = request.POST.get('skill_tag')
     subtag = request.POST.get('subtag')
     cost = int(request.POST.get('cost'))
     form = SkillSubtagUpgradeForm(skill_tag, subtag, cost, 0, request.POST)
