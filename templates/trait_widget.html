@@ -1,56 +1,72 @@
 {% load filters %}
-<div class="charlist-content justify-content-between w400">
+<div class="card charlist-content justify-content-center w300">
     <div>
-        <div class="charlist-inline justify-content-between">
-            <div>
-                <p class="fs-4">
-                    {{ facade|get_trait_description:trait_key|get_trdescr_name:lang }}{% if not facade|get_trait_description:trait_key|get_trdescr_is_specialist %}{% if facade|get_trait_description:trait_key|get_trdescr_is_stackable %}({{ trait.taken }}){% endif %}{%endif%}
-                </p>
+        <div class="charlist-content justify-content-center">
+            <div class="text-center">
+                <b>
+                    <i>
+                        <a href="" class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
+                           data-bs-target="#c{{character.pk}}-{{ trait_key }}-{{ lang }}-info" title="Подробнее">
+                            {{ facade|get_trait_description:trait_key|get_trdescr_name:lang }}
+                            {% if not facade|get_trait_description:trait_key|get_trdescr_is_specialist %}
+                                {% if facade|get_trait_description:trait_key|get_trdescr_is_stackable %}
+                                    ({{ trait.taken }})
+                                {% endif %}
+                            {% endif %}
+                        </a>
+                    </i>
+                </b>
             </div>
-        </div>
-    </div>
-    <div class="charlist-inline">
-        <div>
-            <h5 class="collapse-toggler">
-                <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
-                   data-bs-auto-close="true" href="#{{ trait_key }}-{{ lang }}-hints"
-                   title="Подробнее" aria-expanded="false" aria-controls="{{ trait_key }}-{{ lang }}-hints">
-                    <i>{% if lang == 'ru' %}Эффекты{% else %}Effects{% endif %}</i>
-                </a>
-            </h5>
-        </div>
-    </div>
-    <div class="collapse" id="{{ trait_key }}-{{ lang }}-hints">
-        {% for hint in facade|get_trait_description:trait_key|get_trdescr_hints %}
-        <div class="card card-body">
-            <p class="card-text">{{ hint|get_hint_description:lang }}</p>
-        </div>
-        {% endfor %}
-    </div>
-    {% if facade|get_trait_description:trait_key|get_trdescr_is_specialist %}
-    <div>
-        <h5>{% if lang == 'ru' %}Взятые подкатегории{% else %}Taken specializations{% endif %}:</h5>
-        {% for subtag, tk in talent.taken.items %}
-        <div>
-            <p>{{ subtag }} {% if facade|get_trait_description:trait_key|get_trdescr_is_stackable %}({{ tk }}){% endif %}</p>
-        </div>
-        {% endfor %}
-    </div>
-    {% endif %}
-    <div class="charlist-inline">
-        <div>
-            <h5 class="collapse-toggler">
-                <a class="text-dark text-decoration-none" role="button" data-bs-toggle="collapse"
-                   data-bs-auto-close="true" href="#{{ trait_key }}-{{ lang }}-info"
-                   title="Подробнее" aria-expanded="false" aria-controls="{{ trait_key }}-{{ lang }}-info">
-                    <i>{% if lang == 'ru' %}Описание{% else %}Description{% endif %}</i>
-                </a>
-            </h5>
-        </div>
-    </div>
-    <div class="collapse" id="{{ trait_key }}-{{ lang }}-info">
-        <div class="card card-body">
-            <p class="card-text">{{ facade|get_trait_description:trait_key|get_trdescr_description:lang }}</p>
+            {% if facade|get_trait_description:trait_key|get_trdescr_is_specialist %}
+            <div>
+                <b>{% if lang == 'ru' %}Взятые подкатегории{% else %}Taken specializations{% endif %}:</b>
+                {% for subtag, tk in trait.taken.items %}
+                    <div>
+                        <p>{{ subtag }} {% if facade|get_trait_description:trait_key|get_trdescr_is_stackable %}({{ tk }}){% endif %}</p>
+                    </div>
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>
+
+    <div class="modal fade" id="c{{character.pk}}-{{ trait_key }}-{{ lang }}-info" tabindex="-1"
+         aria-labelledby="c{{character.pk}}-{{ trait_key }}-{{ lang }}-info-label">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <b id="c{{character.pk}}-{{ trait_key }}-{{ lang }}-info-label">
+                        {{ facade|get_trait_description:trait_key|get_trdescr_name:lang }}
+                    </b>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="charlist-inline">
+                        <div>
+                            <b class="text-dark">
+                                <i>{% if lang == 'ru' %}Эффекты{% else %}Effects{% endif %}</i>
+                            </b>
+                        </div>
+                    </div>
+                    <div>
+                        {% for hint in facade|get_trait_description:trait_key|get_trdescr_hints %}
+                            <div class="card card-body">
+                                <p class="card-text">{{ hint|get_hint_description:lang }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="charlist-inline">
+                        <b>
+                            <i>{% if lang == 'ru' %}Описание{% else %}Description{% endif %}</i>
+                        </b>
+                    </div>
+                    <div class="card card-body">
+                        <p class="card-text">{{ facade|get_trait_description:trait_key|get_trdescr_description:lang }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
