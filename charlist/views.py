@@ -50,6 +50,7 @@ from charlist.forms.player_todos.manual.increase_stat_alt_form import IncreaseSt
 from charlist.forms.player_todos.manual.increase_stat_roll_form import IncreaseStatRollForm
 from charlist.forms.upgrading.stat_upgrade_form import StatUpgradeForm
 from charlist.forms.upgrading.skill_upgrade_form import SkillUpgradeForm
+from charlist.forms.upgrading.skill_subtag_upgrade_form import SkillSubtagUpgradeForm
 
 
 class TokenGenerator(PasswordResetTokenGenerator):
@@ -1017,6 +1018,16 @@ def upg_data_to_forms(character: CharacterModel):
                 SkillUpgradeForm(skill_tag, upg_costs.get('skills').get(skill_tag).get('cost'),
                                  character.skills().get(skill_tag).get_adv_bonus(),
                                  upg_costs.get('skills').get(skill_tag).get('colour')))
+        else:
+            form_map = dict()
+            form_map['skill_tag'] = skill_tag
+            form_map['forms'] = list()
+            for key, value in upg_costs.get('skilss').get(skill_tag).keys():
+                if key == 'colour':
+                    form_map[key] = value
+                else:
+                    form_map.get('forms').append(SkillSubtagUpgradeForm(
+                        skill_tag, key, value, character.skills().get(key).get_adv_bonus_subtag(key)))
     return forms
 
 
@@ -1079,6 +1090,23 @@ def upgrade_skill(request, character: models.Character, character_model: Charact
     return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
+def upgrade_subskill(request, character: models.Character, character_model: CharacterModel):
+    skill_tag = request.POST.get('skill')
+    subtag = request.POST.get('subtag')
+    cost = int(request.POST.get('cost'))
+    form = SkillSubtagUpgradeForm(skill_tag, subtag, cost, 0, request.POST)
+    if form.is_valid():
+        character_model.spend_xp(cost)
+        if subtag is not None:
+            sk_subtag = subtag
+        else:
+            sk_subtag = form.cleaned_data.get('subtag')
+        character_model.improve_skill_subtag(skill_tag, sk_subtag, flyweights)
+        character.character_data = character_model.toJSON()
+        character.save()
+    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
+
+
 def character_upgrade(request, char_id):
     character = models.Character.objects.get(pk=char_id)
     character_model = character.data_to_model()
@@ -1088,6 +1116,8 @@ def character_upgrade(request, char_id):
             upgrade_stat(request, character, character_model)
         if 'upg-skill-confirm' in request.POST:
             upgrade_skill(request, character, character_model)
+        if 'upg-skill-subtag-confirm' in request.POST:
+            upgrade_subskill(request, character, character_model)
     return render(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': flyweights,
                                                       'character': character_model, 'forms': forms,
                                                       'return': True, 'char_view': character.get_view_url(), })

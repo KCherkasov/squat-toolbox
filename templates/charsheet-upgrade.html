@@ -62,20 +62,38 @@ Character sheet interactive mockup
                     <header class="text-center">
                         <b>{% if lang == 'ru' %}Умения{% else %}Skills{% endif %}</b>
                     </header>
-                    <div class="skills-list">
-                    {% for form_map in forms|get_by_dict_key:'skills' %}
-                        {% if not forloop.counter|divisibleby:2 %}
-                            <div class="card-group justify-content-center">
-                        {% endif %}
-                                {% if form_map.skill_tag not in facade.spec_skills %}
-                                    {% with form_map as form %}
+                    <div class="card-group">
+                        <div class="card skills-list">
+                        {% for form in forms|get_by_dict_key:'skills' %}
+                            {% if not forloop.counter|divisibleby:2 %}
+                                <div class="card-group justify-content-center">
+                            {% endif %}
+                                    {% if form_map.skill_tag not in facade.spec_skills %}
                                         {% include 'skill_upgrade_form.html' %}
-                                    {% endwith %}
+                                    {% endif %}
+                            {% if forloop.counter|divisibleby:2 or forloop.last %}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                        </div>
+                        <div class="card charlist-content skills-list">
+                        {% for form_map in forms|get_by_dict_key:'skills' %}
+                            {% with form_map|get_by_dict_key:'skill_tag' as skill_tag %}
+                            {% with form_map|get_by_dict_key:'colour' as colour %}
+                                {% if skill_tag in facade.spec_skills %}
+                                    <div class="card card-body charlist-content justify-content-center align-items-center alert-{{ colour }} w300">
+                                        <div>
+                                            <b class="text-dark">{{ facade|get_skill_description:skill_tag|get_skdescr_name:lang }}</b>
+                                        </div>
+                                        {% for form in form_map|get_by_dict_key:'forms' %}
+                                            {% include 'skill_upgrade_form.html' %}
+                                        {% endfor %}
+                                    </div>
                                 {% endif %}
-                        {% if forloop.counter|divisibleby:2 or forloop.last %}
-                            </div>
-                        {% endif %}
-                    {% endfor %}
+                            {% endwith %}
+                            {% endwith %}
+                        {% endfor %}
+                        </div>
                     </div>
                 </div>
             </div>

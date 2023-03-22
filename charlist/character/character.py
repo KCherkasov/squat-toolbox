@@ -528,7 +528,7 @@ class CharacterModel(object):
                 if skill.upgradeable():
                     upg_costs.get('skills')[sk_tag] = {'cost': flyweights.skill_upg_cost(
                         skill.advances() + 1, apts), 'colour': colour}
-        for sk_tag in flyweights.spec_skills_subtags():
+        for sk_tag in flyweights.spec_skills():
             if sk_tag not in upg_costs.get('skills').keys():
                 apts = flyweights.count_skill_apt_matches(sk_tag, self.aptitudes())
                 colour = 'success'
