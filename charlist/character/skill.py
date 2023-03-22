@@ -46,7 +46,7 @@ class Skill(object):
             return UNTRAINED_SKILL
 
     def upgradeable(self):
-        return (self.__advances < SKILL_UPGRADES_CAP) and (self.__tag != ST_INFLUENCE)
+        return self.__advances < SKILL_UPGRADES_CAP
 
     def upgradeable_subtag(self, subtag: str):
         if subtag not in self.__advances.keys():
