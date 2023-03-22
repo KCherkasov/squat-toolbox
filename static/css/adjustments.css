@@ -98,3 +98,10 @@ h5.collapse-toggler {
     min-width: 720px;
     padding: 0px;
 }
+
+.tt-list {
+    min-width: 500px;
+    max-width: 600px;
+    max-height: 300px;
+    overflow-y: auto;
+}
