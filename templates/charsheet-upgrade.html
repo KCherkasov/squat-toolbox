@@ -34,6 +34,17 @@ Character sheet interactive mockup
                     {% include 'xp_widget.html' %}
                 </header>
                 <div class="card card-body justify-content-center">
+                    <span class="alert-success me-2">
+                        2&nbsp;{% if lang == 'ru' %} совпадающих склонности{% else %}matching aptitudes{% endif %}
+                    </span>
+                    <span class="alert-warning me-2">
+                        1&nbsp;{% if lang == 'ru' %} совпадающая склонность{% else %}matching aptitudes{% endif %}
+                    </span>
+                    <span class="alert-danger">
+                        {% if lang == 'ru' %}нет совпадающих склонности{% else %}no matching aptitudes{% endif %}
+                    </span>
+                </div>
+                <div class="card card-body justify-content-center">
                     <header class="text-center">
                         <h5>{% if lang == 'ru' %}Характеристики{% else %}Characteristics{% endif %}</h5>
                     </header>
