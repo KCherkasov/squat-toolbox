@@ -39,7 +39,7 @@ Character sheet interactive mockup
                     </header>
                     {% for form in forms|get_by_dict_key:'stats' %}
                         {% if not forloop.counter|divisibleby:2 %}
-                            <div class="card-group">
+                            <div class="card-group justify-content-center">
                         {% endif %}
                         {% include 'stat_upgrade_form.html' %}
                         {% if forloop.counter|divisibleby:2 or forloop.last %}
