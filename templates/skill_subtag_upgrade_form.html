@@ -15,10 +15,10 @@
             {% if form.subtag != 'SK_ANY' %}
                 <div>
                     <b class="text-dark">
-                        {{ form.subtag }}{% if form.advance >= 0 %}+{{ form.advance }}&nbsp;>>&nbsp;{% endif %}+{{ form.advance_new }}
+                        {{ form.subtag }}{% if form.advance >= 0 %}+{{ form.advance }}&nbsp;>>&nbsp;{% else %}{% endif %}+{{ form.advance_new }}
                     </b>
                 </div>
-            <input type="hidden" name="subtag" value="{{ form.subtag }}">
+                <input type="hidden" name="subtag" value="{{ form.subtag }}">
             {% else %}
                 {% for field in form.fields %}
                 <div class="form-group charlist-inline">
