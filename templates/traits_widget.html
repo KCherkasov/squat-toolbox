@@ -7,7 +7,7 @@
         </b>
     </div>
     <hr>
-    <div class="charlist-content justify-content-center">
+    <div class="d-flex flex-column justify-content-center">
     {% for trait_key, trait in character.traits.items %}
         {% include 'trait_widget.html' %}
     {% endfor %}
