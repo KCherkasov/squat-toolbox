@@ -6,7 +6,7 @@
                 <b>
                     <i>
                         <a href="" class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
-                           data-bs-target="#c{{character.pk}}-{{ talent_key }}-{{ lang }}-info" title="Подробнее">
+                           data-bs-target="#c{{character.id}}-{{ talent_key }}-{{ lang }}-info" title="Подробнее">
                             {{ facade|get_talent_description:talent_key|get_tldescr_name:lang }}
                             {% if not facade|get_talent_description:talent_key|get_tldescr_is_specialist %}
                                 {% if facade|get_talent_description:talent_key|get_tldescr_is_stackable %}
@@ -31,12 +31,12 @@
     </div>
 </div>
 
-    <div class="modal fade" id="c{{character.pk}}-{{ talent_key }}-{{ lang }}-info" tabindex="-1"
-         aria-labelledby="c{{character.pk}}-{{ talent_key }}-{{ lang }}-info-label">
+    <div class="modal fade" id="c{{character.id}}-{{ talent_key }}-{{ lang }}-info" tabindex="-1"
+         aria-labelledby="c{{character.id}}-{{ talent_key }}-{{ lang }}-info-label">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <b id="c{{character.pk}}-{{ talent_key }}-{{ lang }}-info-label">
+                    <b id="c{{character.id}}-{{ talent_key }}-{{ lang }}-info-label">
                         {{ facade|get_talent_description:talent_key|get_tldescr_name:lang }}
                     </b>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
