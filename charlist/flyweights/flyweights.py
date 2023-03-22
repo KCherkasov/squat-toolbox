@@ -215,3 +215,6 @@ class Facade:
 
     def skill_tags(self):
         return charlist.constants.tags.SKILL_TAGS
+
+    def spec_skills(self):
+        return SUBTAGGED_SKILLS

@@ -11,18 +11,18 @@
 
 <div class="card card-body charlist-content justify-content-center align-items-center alert-{{ form.colour }} w300">
     <div>
-        <b class="text-dark">{{ facade|get_stat_description:form.stat_tag|get_stdescr_name:lang }}</b>
+        <b class="text-dark">{{ facade|get_skill_description:form.stat_tag|get_skdescr_name:lang }}</b>
     </div>
     <form class="form-horizontal" method="post" action="">
         {% csrf_token %}
         <div class="charlist-inline align-items-center mb-1">
             <div class="{% if forloop.counter|divisibleby:2 %}ps-3{% endif %}">
                 <b class="text-dark">
-                    {{ form.stat_value }}&nbsp;>>&nbsp;{{ form.stat_value_new }}
+                    {{ form.advance }}&nbsp;>>&nbsp;{{ form.advance_new }}
                 </b>
             </div>
 
-            <input type="hidden" name="stat_tag" value="{{ form.stat_tag }}">
+            <input type="hidden" name="skill_tag" value="{{ form.skill_tag }}">
             <input type="hidden" name="cost" value="{{ form.cost }}">
             <button class="btn btn-primary {% if form.cost > character.xp_current %}disabled{%endif%} ms-4 {% if not forloop.counter|divisibleby:2%} me-3{% endif %}"
                     name="upg-stat-confirm" type="submit">

@@ -49,6 +49,7 @@ from charlist.forms.player_todos.manual.get_trauma_ip_form import GetTraumaIPFor
 from charlist.forms.player_todos.manual.increase_stat_alt_form import IncreaseStatAltForm
 from charlist.forms.player_todos.manual.increase_stat_roll_form import IncreaseStatRollForm
 from charlist.forms.upgrading.stat_upgrade_form import StatUpgradeForm
+from charlist.forms.upgrading.skill_upgrade_form import SkillUpgradeForm
 
 
 class TokenGenerator(PasswordResetTokenGenerator):
@@ -1010,6 +1011,12 @@ def upg_data_to_forms(character: CharacterModel):
                 StatUpgradeForm(stat_tag, character.stats().get(stat_tag).value(),
                                 upg_costs.get('stats').get(stat_tag).get('cost'),
                                 upg_costs.get('stats').get(stat_tag).get('colour')))
+    for skill_tag in upg_costs.get('skills').keys():
+        if not flyweights.skill_descriptions().get(skill_tag).is_specialist():
+            forms.get('skills').append(
+                SkillUpgradeForm(skill_tag, upg_costs.get('skills').get(skill_tag).get('cost'),
+                                 character.skills().get(skill_tag).get_adv_bonus(),
+                                 upg_costs.get('skills').get(skill_tag).get('colour')))
     return forms
 
 
@@ -1059,6 +1066,19 @@ def upgrade_stat(request, character: models.Character, character_model: Characte
     return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
+def upgrade_skill(request, character: models.Character, character_model: CharacterModel):
+    skill_tag = request.POST.get('skill_tag')
+    cost = request.POST.get('cost')
+    form = SkillUpgradeForm(skill_tag, cost, 0, 'success', request.POST)
+    if form.is_valid():
+        if character_model.xp_current() >= cost:
+            character_model.spend_xp(cost)
+            character_model.improve_skill(skill_tag)
+            character.character_data = character_model.toJSON()
+            character.save()
+    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char-id': character.pk, }))
+
+
 def character_upgrade(request, char_id):
     character = models.Character.objects.get(pk=char_id)
     character_model = character.data_to_model()
@@ -1066,6 +1086,8 @@ def character_upgrade(request, char_id):
     if request.method == 'POST':
         if 'upg-stat-confirm' in request.POST:
             upgrade_stat(request, character, character_model)
+        if 'upg-skill-confirm' in request.POST:
+            upgrade_skill(request, character, character_model)
     return render(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': flyweights,
                                                       'character': character_model, 'forms': forms,
                                                       'return': True, 'char_view': character.get_view_url(), })
