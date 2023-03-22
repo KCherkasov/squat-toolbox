@@ -9,21 +9,23 @@
     </div>
 {% endfor %}
 
-<div class="card charlist-content justify-content-center align-items-center alert-{{ form.colour }}">
+<div class="card charlist-content justify-content-center align-items-center alert-{{ form.colour }} w300">
     <div>
         <b>{{ facade|get_stat_description:form.stat_tag|get_stdescr_name:'en' }}</b>
     </div>
     <form class="form-horizontal" method="post" action="">
-        <div class="{% if forloop.counter|divisibleby:2 %}ps-3{% endif %}">
-            <b>
-                {{ form.stat_value }}&nbsp;>>&nbsp;{{ form.stat_value_new }}
-            </b>
+        <div class="charlist-inline">
+            <div class="{% if forloop.counter|divisibleby:2 %}ps-3{% endif %}">
+                <b>
+                    {{ form.stat_value }}&nbsp;>>&nbsp;{{ form.stat_value_new }}
+                </b>
+            </div>
+            <input type="hidden" name="stat_tag" value="{{ form.stat_tag }}">
+            <input type="hidden" name="cost" value="{{ form.cost }}">
+            <button class="btn btn-primary {% if form.cost > character.xp_current %}disabled{%endif%} ps-2 {% if not forloop.counter|divisibleby:2%}pe-3{% endif %}"
+                    name="upg-stat-confirm" type="submit">
+                {{ form.cost }}&nbsp;XP
+            </button>
         </div>
-        <input type="hidden" name="stat_tag" value="{{ form.stat_tag }}">
-        <input type="hidden" name="cost" value="{{ form.cost }}">
-        <button class="btn btn-primary {% if form.cost > character.xp_current %}disabled{%endif%} ps-2 {% if not forloop.counter|divisibleby:2%}pe-3{% endif %}"
-                name="upg-stat-confirm" type="submit">
-            {{ form.cost }}&nbsp;XP
-        </button>
     </form>
 </div>
