@@ -1005,7 +1005,7 @@ def upg_data_to_forms(character: CharacterModel):
     upg_costs = character.make_upg_costs(flyweights)
     forms = {'stats': list(), 'skills': dict(), 'talents': dict()}
     for stat_tag in flyweights.stat_tags():
-        if stat_tag != ST_INFLUENCE:
+        if stat_tag in upg_costs.get('stats').keys():
             forms.get('stats').append(
                 StatUpgradeForm(stat_tag, character.stats().get(stat_tag).value(),
                                 upg_costs.get('stats').get(stat_tag).get('cost'),
