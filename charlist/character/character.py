@@ -327,10 +327,10 @@ class CharacterModel(object):
         if sk_tag in self.__skills.keys():
             if self.__skills.get(sk_tag).upgradeable_subtag(sk_subtag):
                 self.__skills.get(sk_tag).upgrade_subtag(sk_subtag)
-        elif sk_tag in facade.skill_descriptions().keys() \
-                and facade.skill_descriptions().get(sk_tag).is_specialist():
-            skill = Skill(sk_tag, {sk_subtag: 1})
-            self.__skills[sk_tag] = skill
+        else:
+            if facade.skill_descriptions().get(sk_tag).is_specialist():
+                skill = Skill(sk_tag, {sk_subtag: 1})
+                self.__skills[sk_tag] = skill
 
     def get_skill_diff(self, sk_tag: str, stat: str):
         if (sk_tag not in self.__skills.keys()) or (stat not in self.__stats.keys()):
