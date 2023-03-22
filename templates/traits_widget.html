@@ -6,7 +6,6 @@
             {% if lang == 'ru' %}Черты{% else %}Traits{% endif %}
         </b>
     </header>
-    <hr>
     <div>
     {% for trait_key, trait in character.traits.items %}
         {% include 'trait_widget.html' %}
