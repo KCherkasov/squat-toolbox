@@ -62,7 +62,7 @@ Character sheet interactive mockup
                     <header class="text-center">
                         <b>{% if lang == 'ru' %}Умения{% else %}Skills{% endif %}</b>
                     </header>
-                    <div class="card-group">
+                    <div class="charlist-inline justify-content-center">
                         <div class="card skills-list">
                         {% for form in forms|get_by_dict_key:'skills' %}
                             {% if not forloop.counter|divisibleby:2 %}
