@@ -84,12 +84,19 @@ Character sheet interactive mockup
                             </div>
                         </div>
                     </div>
-                    <div class="charlist-inline">
-                        <div class="card card-body">
-                            {% include 'talents_widget.html' %}
-                        </div>
-                        <div class="card card-body">
-                            {% include 'traits_widget.html' %}
+                    <div class="charlist-content">
+                        <header class="charlist-content justify-content-center">
+                            <h5 class="text-center">
+                                {% if lang == 'ru' %}Таланты и черты{% else %}Talents and traits{% endif %}
+                            </h5>
+                        </header>
+                        <div class="charlist-inline">
+                            <div class="card card-body">
+                                {% include 'talents_widget.html' %}
+                            </div>
+                            <div class="card card-body">
+                                {% include 'traits_widget.html' %}
+                            </div>
                         </div>
                     </div>
                     <div class="card-group">
