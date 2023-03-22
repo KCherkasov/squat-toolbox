@@ -15,6 +15,7 @@
             <input type="hidden" name="subtag_skill" value="{{ form.subtag_skill }}">
             {% if form.subtag_skill == 'SK_ANY' %}
                 {% for field in form %}
+                <div class="form-group charlist-inline align-items-center">
                     <div class="col-sm-5 ms-2">
                         {{ field }}
                     </div>
