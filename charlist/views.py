@@ -1005,7 +1005,7 @@ def parse_manual_cmds(request, character: models.Character, character_model: Cha
 
 def upg_data_to_forms(character: CharacterModel):
     upg_costs = character.make_upg_costs(flyweights)
-    forms = {'stats': list(), 'skills': list(), 'talents': list()}
+    forms = {'stats': list(), 'skills': {'common': list(), 'spec': list()}, 'talents': list()}
     for stat_tag in flyweights.stat_tags():
         if stat_tag in upg_costs.get('stats').keys():
             forms.get('stats').append(
@@ -1014,7 +1014,7 @@ def upg_data_to_forms(character: CharacterModel):
                                 upg_costs.get('stats').get(stat_tag).get('colour')))
     for skill_tag in upg_costs.get('skills').keys():
         if not flyweights.skill_descriptions().get(skill_tag).is_specialist():
-            forms.get('skills').append(
+            forms.get('skills').get('common').append(
                 SkillUpgradeForm(skill_tag, upg_costs.get('skills').get(skill_tag).get('cost'),
                                  character.skills().get(skill_tag).get_adv_bonus(),
                                  upg_costs.get('skills').get(skill_tag).get('colour')))
@@ -1032,7 +1032,7 @@ def upg_data_to_forms(character: CharacterModel):
                         adv_bonus = -20
                     form_map.get('forms').append(SkillSubtagUpgradeForm(
                         skill_tag, key, value, adv_bonus))
-            forms.get('skills').append(form_map)
+            forms.get('skills').get('spec').append(form_map)
     return forms
 
 

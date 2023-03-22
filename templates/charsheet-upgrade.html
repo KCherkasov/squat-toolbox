@@ -64,21 +64,18 @@ Character sheet interactive mockup
                     </header>
                     <div class="charlist-inline justify-content-center">
                         <div class="card skills-list">
-                        {% for form in forms|get_by_dict_key:'skills' %}
+                        {% for form in forms|get_by_dict_key:'skills'|get_by_dict_key:'common' %}
                             {% if not forloop.counter|divisibleby:2 %}
                                 <div class="card-group justify-content-center">
                             {% endif %}
-                                    {% if form.skill_tag not in facade.spec_skills %}
-                                        {% include 'skill_upgrade_form.html' %}
-                                    {% endif %}
+                                    {% include 'skill_upgrade_form.html' %}
                             {% if forloop.counter|divisibleby:2 or forloop.last %}
                                 </div>
                             {% endif %}
                         {% endfor %}
                         </div>
                         <div class="card charlist-content skills-list">
-                        {% for form_map in forms|get_by_dict_key:'skills' %}
-                            {% if form_map|get_by_dict_key:'skill_tag' in facade.spec_skills %}
+                        {% for form_map in forms|get_by_dict_key:'skills'|get_by_dict_key:'spec' %}
                                 {% with form_map|get_by_dict_key:'skill_tag' as skill_tag %}
                                 {% with form_map|get_by_dict_key:'colour' as colour %}
                                     <div class="card card-body charlist-content justify-content-center align-items-center alert-{{ colour }} w400-skill">
