@@ -1032,6 +1032,7 @@ def upg_data_to_forms(character: CharacterModel):
                         adv_bonus = -20
                     form_map.get('forms').append(SkillSubtagUpgradeForm(
                         skill_tag, key, value, adv_bonus))
+            form_map.get('skills').append(form_map)
     return forms
 
 
