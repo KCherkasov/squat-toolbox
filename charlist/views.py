@@ -1004,7 +1004,7 @@ def parse_manual_cmds(request, character: models.Character, character_model: Cha
 
 def upg_data_to_forms(character: CharacterModel):
     upg_costs = character.make_upg_costs(flyweights)
-    forms = {'stats': list(), 'skills': dict(), 'talents': dict()}
+    forms = {'stats': list(), 'skills': list(), 'talents': list()}
     for stat_tag in flyweights.stat_tags():
         if stat_tag in upg_costs.get('stats').keys():
             forms.get('stats').append(
