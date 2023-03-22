@@ -1068,7 +1068,7 @@ def upgrade_stat(request, character: models.Character, character_model: Characte
 
 def upgrade_skill(request, character: models.Character, character_model: CharacterModel):
     skill_tag = request.POST.get('skill_tag')
-    cost = request.POST.get('cost')
+    cost = int(request.POST.get('cost'))
     form = SkillUpgradeForm(skill_tag, cost, 0, 'success', request.POST)
     if form.is_valid():
         if character_model.xp_current() >= cost:
