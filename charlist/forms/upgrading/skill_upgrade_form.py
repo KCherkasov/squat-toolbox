@@ -6,7 +6,7 @@ class SkillUpgradeForm(Form):
     def __init__(self, sk_tag: str, cost: int, advance: int, colour: str, *args, **kwargs):
         super(SkillUpgradeForm, self).__init__(*args, **kwargs)
         self.__sk_tag = sk_tag
-        self.__cost = cost,
+        self.__cost = cost
         self.__advance = advance
         self.__colour = colour
 
