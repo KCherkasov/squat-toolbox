@@ -5,10 +5,10 @@
             {% if lang == 'ru' %}Таланты{% else %}Talents{% endif %}
         </b>
     </div>
-    <hr>
-    <div class="charlist-content justify-content-center align-items-center">
+    <div>
+        <hr>
+    </div>
     {% for talent_key, talent in character.talents.items %}
         {% include 'talent_widget.html' %}
     {% endfor %}
-    </div>
 </div>
