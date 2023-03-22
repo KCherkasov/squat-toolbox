@@ -64,7 +64,7 @@ Character sheet interactive mockup
                     </header>
                     {% for form_map in forms|get_by_dict_key:'skills' %}
                         {% if not forloop.counter|divisibleby:2 %}
-                            <div class="card-group justify-content-center skill-list">
+                            <div class="card-group justify-content-center skills-list">
                         {% endif %}
                                 {% if form_map.skill_tag not in facade.spec_skills %}
                                     {% with form_map as form %}
