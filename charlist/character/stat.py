@@ -15,7 +15,7 @@ class Stat(object):
         self.__advances = advances
 
     def is_upgradeable(self):
-        return (self.__tag != ST_INFLUENCE) or (self.__advances >= STAT_UPGRADES_CAP)
+        return (self.__tag != ST_INFLUENCE) or (self.__advances < STAT_UPGRADES_CAP)
 
     def get_base(self):
         return self.__base
