@@ -14,11 +14,6 @@
             <input type="hidden" name="skill_tag" value="{{ form.skill_tag }}">
             {% if form.subtag != 'SK_ANY' %}
                 <input type="hidden" name="subtag" value="{{ form.subtag }}">
-                <div>
-                    <b class="text-dark">
-                        {{ form.subtag }}&nbsp;{% if form.advance >= 0 %}+{{ form.advance }}&nbsp;>>&nbsp;{% else %}{% endif %}+{{ form.advance_new }}
-                    </b>
-                </div>
             {% else %}
                 {% for field in form %}
                 <div class="form-group charlist-inline">
@@ -29,6 +24,11 @@
                 </div>
                 {% endfor %}
             {% endif %}
+                <div>
+                    <b class="text-dark">
+                        {% if form.subtag != 'SK_ANY'%}{{ form.subtag }}&nbsp;{% endif %}{% if form.advance >= 0 %}+{{ form.advance }}&nbsp;>>&nbsp;{% else %}{% endif %}+{{ form.advance_new }}
+                    </b>
+                </div>
             <input type="hidden" name="cost" value="{{ form.cost }}">
             <button class="btn btn-primary {% if form.cost > character.xp_current %}disabled{%endif%} ms-4"
                     name="upg-skill-subtag-confirm" type="submit">
