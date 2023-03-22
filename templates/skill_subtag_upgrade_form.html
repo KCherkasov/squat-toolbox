@@ -13,7 +13,7 @@
         <div class="charlist-inline align-items-center mb-1">
             <input type="hidden" name="skill_tag" value="{{ form.skill_tag }}">
             {% if form.subtag_skill != 'SK_ANY' %}
-                <input type="hidden" name="subtag_skill" value="{{ form.subtag }}">
+                <input type="hidden" name="subtag_skill" value="{{ form.subtag_skill }}">
             {% else %}
                 {% for field in form %}
                 <div class="form-group charlist-inline align-items-center">
