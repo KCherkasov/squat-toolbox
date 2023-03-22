@@ -1,9 +1,6 @@
 {% load filters %}
 <div class="card justify-content-center w300">
-    <div class="d-flex flex-column">
-        <div>
-            <div class="text-center">
-                <b>
+                <p>
                     <i>
                         <a href="" class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
                            data-bs-target="#c{{character.pk}}-{{ trait_key }}-{{ lang }}-info" title="Подробнее">
@@ -12,23 +9,16 @@
                                 {% if facade|get_trait_description:trait_key|get_trdescr_is_stackable %}
                                     ({{ trait.taken }})
                                 {% endif %}
+                            {% else %}
+                            {% for subtag, tk in trait.taken.items %}
+                            {% if forloop.first %}({% endif %}
+                                {{ subtag }} {% if facade|get_trait_description:trait_key|get_trdescr_is_stackable %}({{ tk }}){% endif %}
+                            {% if not forloop.last %},&nbsp;{% else %}){% endif %}
+                            {% endfor %}
                             {% endif %}
                         </a>
                     </i>
-                </b>
-            </div>
-            {% if facade|get_trait_description:trait_key|get_trdescr_is_specialist %}
-            <div class="d-flex flex-column ps-2">
-                <b>{% if lang == 'ru' %}Взятые подкатегории{% else %}Taken specializations{% endif %}:</b>
-                {% for subtag, tk in trait.taken.items %}
-                    <div>
-                        <p>{{ subtag }} {% if facade|get_trait_description:trait_key|get_trdescr_is_stackable %}({{ tk }}){% endif %}</p>
-                    </div>
-                {% endfor %}
-            </div>
-            {% endif %}
-        </div>
-    </div>
+                </p>
 </div>
 
     <div class="modal fade" id="c{{character.pk}}-{{ trait_key }}-{{ lang }}-info" tabindex="-1"
