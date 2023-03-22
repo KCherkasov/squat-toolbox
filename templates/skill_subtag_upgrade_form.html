@@ -11,24 +11,22 @@
     <form class="form-horizontal alert-{{ colour }}" method="post" action="">
         {% csrf_token %}
         <div class="charlist-inline align-items-center mb-1">
+            <input type="hidden" name="skill_tag" value="{{ form.skill_tag }}">
+            {% if form.subtag != 'SK_ANY' %}
             <div>
                 <b class="text-dark">
                     {% if form.subtag != 'SK_ANY' %}{{ form.subtag }}{% endif %}
                     {% if form.advance >= 0 %}+{{ form.advance }}&nbsp;>>&nbsp;{% endif %}+{{ form.advance_new }}
                 </b>
             </div>
-
-            <input type="hidden" name="skill_tag" value="{{ form.skill_tag }}">
-            {% if form.subtag != 'SK_ANY' %}
-                <input type="hidden" name="subtag" value="{{ form.subtag }}">
-                <div></div>
+            <input type="hidden" name="subtag" value="{{ form.subtag }}">
             {% else %}
                 {% for field in form.fields %}
                     <label for="{{ field.name }}" class="col-sm-2 control-label">{{ field.label }}</label>
                     <div class="col-sm-5 ms-2">
                         {{ field }}
                     </div>
-                    {% endfor %}
+                {% endfor %}
             {% endif %}
             <input type="hidden" name="cost" value="{{ form.cost }}">
             <button class="btn btn-primary {% if form.cost > character.xp_current %}disabled{%endif%} ms-4"
