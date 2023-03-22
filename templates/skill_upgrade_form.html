@@ -11,7 +11,7 @@
 
 <div class="card card-body charlist-content justify-content-center align-items-center alert-{{ form.colour }} w300">
     <div>
-        <b class="text-dark">{{ facade|get_skill_description:form.stat_tag|get_skdescr_name:lang }}</b>
+        <b class="text-dark">{{ facade|get_skill_description:form.skill_tag|get_skdescr_name:lang }}</b>
     </div>
     <form class="form-horizontal" method="post" action="">
         {% csrf_token %}
