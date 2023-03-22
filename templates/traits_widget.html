@@ -6,7 +6,7 @@
             {% if lang == 'ru' %}Черты{% else %}Traits{% endif %}
         </b>
     </header>
-    <div>
+    <div class="d-flex flex-column justify-content-center">
     {% for trait_key, trait in character.traits.items %}
         {% include 'trait_widget.html' %}
     {% endfor %}
