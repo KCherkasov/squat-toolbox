@@ -11,13 +11,13 @@
 
 <div class="card charlist-content justify-content-center align-items-center alert-{{ form.colour }} w300">
     <div>
-        <b>{{ facade|get_stat_description:form.stat_tag|get_stdescr_name:lang }}</b>
+        <b class="text-dark">{{ facade|get_stat_description:form.stat_tag|get_stdescr_name:lang }}</b>
     </div>
     <form class="form-horizontal" method="post" action="">
         {% csrf_token %}
-        <div class="charlist-inline">
+        <div class="charlist-inline align-items-center">
             <div class="{% if forloop.counter|divisibleby:2 %}ps-3{% endif %}">
-                <b>
+                <b class="text-dark">
                     {{ form.stat_value }}&nbsp;>>&nbsp;{{ form.stat_value_new }}
                 </b>
             </div>
