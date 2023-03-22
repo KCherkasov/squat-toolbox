@@ -1,13 +1,13 @@
 {% load filters %}
 
-<div class="d-flex flex-column justify-content-center">
-    <div class="text-center">
+<div class="card card-body">
+    <header class="text-center">
         <b>
             {% if lang == 'ru' %}Черты{% else %}Traits{% endif %}
         </b>
-    </div>
+    </header>
     <hr>
-    <div class="d-flex flex-column justify-content-center">
+    <div>
     {% for trait_key, trait in character.traits.items %}
         {% include 'trait_widget.html' %}
     {% endfor %}

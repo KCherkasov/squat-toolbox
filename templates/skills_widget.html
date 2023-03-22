@@ -1,11 +1,11 @@
 {% load filters %}
-<div class="card card-body" id="skills-{{ lang }}">
+<div class="card card-body" id="c{{ character.id}}-skills-{{ lang }}">
     <header class="text-center">
         <h5>
             {% if lang == 'ru' %}Умения{% else %}Skills{% endif %}
         </h5>
     </header>
-    <div class="charlist-content skills-list">
+    <div class="skills-list">
         {% for skill_key in facade.skill_tags %}
             {% if character.skills|get_by_dict_key:skill_key %}
                 {% with character.skills|get_by_dict_key:skill_key as skill %}

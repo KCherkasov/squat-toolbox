@@ -1,14 +1,13 @@
 {% load filters %}
-<div class="d-flex flex-column justify-content-center">
-    <div class="text-center">
-        <b>
+<div class="card card-body">
+    <header class="text-center">
+        <h5>
             {% if lang == 'ru' %}Таланты{% else %}Talents{% endif %}
-        </b>
-    </div>
+        </h5>
+    </header>
     <div>
-        <hr>
-    </div>
     {% for talent_key, talent in character.talents.items %}
         {% include 'talent_widget.html' %}
     {% endfor %}
+    </div>
 </div>
