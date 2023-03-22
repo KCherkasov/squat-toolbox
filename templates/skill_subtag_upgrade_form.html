@@ -26,7 +26,7 @@
             {% endif %}
                 <div>
                     <b class="text-dark">
-                        {% if form.subtag != 'SK_ANY'%}{{ form.subtag }}&nbsp;{% endif %}{% if form.advance >= 0 %}+{{ form.advance }}&nbsp;>>&nbsp;{% else %}{% endif %}+{{ form.advance_new }}
+                        {% if form.subtag != 'SK_ANY'%}{{ form.subtag }}&nbsp;{% endif %}{% if form.advance >= 0 %}+{{ form.advance }}&nbsp;>>&nbsp;{% endif %}+{{ form.advance_new }}
                     </b>
                 </div>
             <input type="hidden" name="cost" value="{{ form.cost }}">
