@@ -1076,7 +1076,7 @@ def upgrade_skill(request, character: models.Character, character_model: Charact
             character_model.improve_skill(skill_tag)
             character.character_data = character_model.toJSON()
             character.save()
-    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char-id': character.pk, }))
+    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
 def character_upgrade(request, char_id):
