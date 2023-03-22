@@ -1,1 +1,7 @@
 {% load filters %}
+
+{% for ea_id in character.ea_id %}
+    {% with facade.elite_advances|get_by_dict_key:ea_id as elite_advance %}
+
+    {% endwith %}
+{% endfor %}

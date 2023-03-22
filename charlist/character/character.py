@@ -645,6 +645,10 @@ class CharacterModel(object):
         spec_fields = ['stats', 'skills', 'talents', 'traits']
         for key, val in fields_preset.items():
             field_key = key[17:]
+            if field_key == 'ea_id':
+                if not isinstance(val, list):
+                    if val == -1:
+                        fields[field_key] = list()
             if field_key == 'cp_teste_passed':
                 field_key = 'cp_tests'
                 fields[field_key] = val
