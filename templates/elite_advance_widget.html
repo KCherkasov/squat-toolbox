@@ -1,20 +1,16 @@
 {% load filters %}
-<header class="text-center">
-    <h5>{% if lang == 'ru' %}Элитные улучшения{% else %}Elite advances{% endif %}</h5>
-</header>
-<div class="card card-body">
+<div class="charlist-inline">
+    <b>{% if lang == 'ru' %}Элитные улучшения{% else %}Elite advances{% endif %}
 {% for ea_id in character.ea_id %}
+        {% if forloop.first %}:&nbsp;{% endif %}
     {% with facade.elite_advances|get_by_dict_key:ea_id as elite_advance %}
-        <div class="text-start ps-4">
-            <p>
                 <i>
                     <a href="" class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
                        data-bs-target="#c{{ character.id }}-eaInfo-popup-{{ lang }}">
                         {{ elite_advance|get_ea_name:lang }}
                     </a>
                 </i>
-            </p>
-        </div>
+            {% if not forloop.last %},&nbsp;{% endif %}
         <div class="modal fade" id="c{{ character.id }}-eaInfo-popup-{{ lang }}" tabindex="-1"
              aria-labelledby="c{{ character.id }}-eaInfo-popup-{{ lang }}-label">
             <div class="modal-dialog" role="document">
@@ -43,9 +39,8 @@
             </div>
         </div>
     {% endwith %}
-{% empty %}
-<div class="text-start ps-4">
-    <p>Нет</p>
-</div>
-{% endfor %}
+    {% empty %}
+        {% if lang == 'ru' %}Нет{% else %}None{% endif %}
+    {% endfor %}
+    </b>
 </div>
