@@ -2,6 +2,7 @@
 <header class="text-center">
     <h5>{% if lang == 'ru' %}Элитные улучшения{% else %}Elite advances{% endif %}</h5>
 </header>
+<div class="card card-body">
 {% for ea_id in character.ea_id %}
     {% with facade.elite_advances|get_by_dict_key:ea_id as elite_advance %}
         <div class="text-start ps-4">
@@ -47,3 +48,4 @@
     <p>Нет</p>
 </div>
 {% endfor %}
+</div>
