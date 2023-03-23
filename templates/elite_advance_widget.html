@@ -1,7 +1,45 @@
 {% load filters %}
-
+<header class="text-center">
+    <h5>{% if lang == 'ru' %}Элитные улучшения{% else %}Elite advances{% endif %}</h5>
+</header>
 {% for ea_id in character.ea_id %}
     {% with facade.elite_advances|get_by_dict_key:ea_id as elite_advance %}
-
+        <div class="text-start ps-4">
+            <p>
+                <i>
+                    <a href="" class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
+                       data-bs-target="#c{{ character.id }}-eaInfo-popup-{{ lang }}">
+                        {{ elite_advance|get_ea_name:lang }}
+                    </a>
+                </i>
+            </p>
+        </div>
+        <div class="modal fade" id="c{{ character.id }}-eaInfo-popup-{{ lang }}" tabindex="-1"
+             aria-labelledby="c{{ character.id }}-eaInfo-popup-{{ lang }}-label">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <b id="c{{ character.id }}-eaInfo-popup-{{ lang }}-label">
+                            {{ elite_advance|get_ea_name:lang }}
+                        </b>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{ elite_advance|get_ea_description:lang }}</p>
+                        {% if elite_advance.get_hints %}
+                            <b>{% if lang == 'ru' %}Эффекты{% else %}Effects{% endif %}</b>
+                        {% endif %}
+                        {% for hint in elite_advance.get_hints %}
+                            <p>
+                                {% if lang == 'ru' %}
+                                    {{ hint|get_hint_description:lang }}
+                                {% else %}
+                                    {{ hint|get_hint_description:'en' }}
+                                {% endif %}
+                            </p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
     {% endwith %}
 {% endfor %}
