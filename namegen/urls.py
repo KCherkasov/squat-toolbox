@@ -26,7 +26,7 @@ from namegen import views, settings
 urlpatterns = [
     path(r'', views.main, name='main'),
     path(r'admin/', admin.site.urls),
-                  path(r'namegen/', views.namegen, name='namegen'),
+    path(r'namegen/', views.namegen, name='namegen'),
 
     path(r'dev/signup/', charviews.signup, name='signup'),
     path(r'dev/signin/', charviews.signin, name='signin'),
