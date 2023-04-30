@@ -1,0 +1,37 @@
+{% block loaders %}
+{% load filters %}
+{% load static %}
+{% endblock %}
+
+<div class="page-header text-center">
+    <h3>Stage 1: name, base characteristic value and initial experience</h3>
+    <span class="form-control"><meter max="6" value="1"></meter></span>
+</div>
+<hr/>
+{% for err in form.non_field_errors %}
+<div class="alert alert-danger" role="alert">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    {{ err }}
+</div>
+{% endfor %}
+<div class="charlist-content justify-content-center">
+    <form class="form-horizontal" method="post" action="">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="form-group charlist-inline justify-content-center mt-2">
+            <label for="{{ field.name }}" class="col-sm-2 control-label">{{ field.label }}</label>
+            <div class="col-sm-5 ms-2">
+                {{ field }}
+            </div>
+        </div>
+        {% endfor %}
+        <div class="form-group charlist-inline justify-content-center mt-2">
+            <div class="col-sm-offset-2 col-sm-2">
+                <button type="submit" class="btn btn-primary" name="char-cr-next">Next</button>
+            </div>
+            <div class="col-sm-offset-2 col-sm-2">
+                <a class="btn btn-danger" href="{% url 'characters-list' %}">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>

@@ -3,7 +3,6 @@
 from typing import Dict, List
 
 
-
 class Prerequisite(object):
     def __init__(self, tag: str, value: int, subtag: List[str] = None, alt: Dict = None):
         self.tag = tag
@@ -57,22 +56,35 @@ class Prerequisite(object):
         return self.tag[:2] == 'TR'
 
     def is_homeworld_prereq(self):
-        return self.tag[:2] == 'HW'
+        return (self.tag[:2] == 'HW') or (self.tag[:3] == 'RHW')
 
     def is_pr_prereq(self):
         return self.tag == 'PR'
 
+    def is_xp_prereq(self):
+        return self.tag == 'XP'
+
     def is_psy_power_prereq(self):
         return self.tag[:2] == 'PP'
 
+    def is_insanity_prereq(self):
+        return self.tag == 'IP'
+
+    def is_corruption_prereq(self):
+        return self.tag == 'CP'
+
     def match_alts(self, character):
         flg = False  # True when prerequisite is NOT matched
+        if character.is_rt():
+            hw_prefix = 'RH'
+        else:
+            hw_prefix = 'HW'
         if self.is_alt_list():
             for alt in self.alt:
                 flg = False
                 alt_tag = alt.get('tag')
                 alt_value = alt.get('value')
-                if alt_tag[:2] == 'HW':
+                if alt_tag[:2] == hw_prefix:
                     flg = character.hw_id() != alt_tag
                 if alt_tag[:2] == 'BG':
                     flg = character.bg_id() != alt_tag
@@ -85,23 +97,50 @@ class Prerequisite(object):
                         skill = character.skills().get(alt_tag)
                         if skill.is_specialist():
                             if 'subtag' in alt.keys():
-                                if alt.get('subtag') in skill.advances().keys():
-                                    flg = skill.get_adv_bonus_subtag(alt.get('subtag')) < alt_value
-                                else:
-                                    flg = True
+                                for subtag in alt.get('subtag'):
+                                    if subtag in skill.advances().keys():
+                                        flg = skill.get_adv_bonus_subtag(subtag) < alt_value
+                                        if not flg:
+                                            break
+                                    else:
+                                        flg = True
+                            else:
+                                for subtag in character.skills().get(alt_tag).advances().keys():
+                                    flg = character.skills().get(alt_tag).get_adv_bonus_subtag(subtag) < alt_value
+                                    if not flg:
+                                        break
                         else:
                             flg = skill.get_adv_bonus() < alt_value
                     else:
-                        flg = True
+                        if alt_tag == 'SK_ANY':
+                            for sk_tag, skill in character.skills().items():
+                                if skill.is_specialist():
+                                    for subtag in skill.advances().keys():
+                                        flg = skill.get_adv_bonus_subtag(subtag) < alt_value
+                                        if not flg:
+                                            break
+                                    if not flg:
+                                        break
+                                else:
+                                    flg = skill.get_adv_bonus() < alt_value
+                                    if not flg:
+                                        break
+                        else:
+                            flg = True
                 if alt_tag[:2] == 'TL':
                     if alt_tag in character.talents().keys():
                         talent = character.talents().get(alt_tag)
                         if talent.is_specialist():
                             if 'subtag' in alt.keys():
-                                if alt.get('subtag') in talent.taken().keys():
-                                    flg = talent.taken_subtag(alt.get('subtag')) < alt_value
-                                else:
-                                    flg = True
+                                for subtag in alt.get('subtag'):
+                                    if alt.get('subtag') in talent.taken().keys():
+                                        flg = talent.taken_subtag(subtag) < alt_value
+                                        if not flg:
+                                            break
+                                    else:
+                                        flg = True
+                            else:
+                                flg = not character.has_talent(alt_tag)
                         else:
                             flg = talent.taken() < alt_value
                     else:
@@ -125,13 +164,17 @@ class Prerequisite(object):
                     flg = alt_tag not in character.psy_powers()
                 if alt_tag[:2] == 'EA':
                     flg = alt_tag not in character.ea_id()
+                if alt_tag == 'IP':
+                    flg = alt_value > character.insanity()
+                if alt_tag == 'CP':
+                    flg = alt_value > character.corruption()
                 if not flg:
                     return True
             return False
         else:
             alt_tag = self.alt.get('tag')
             alt_value = self.alt.get('value')
-            if alt_tag[:2] == 'HW':
+            if alt_tag[:2] == hw_prefix:
                 flg = character.hw_id() != alt_tag
             if alt_tag[:2] == 'BG':
                 flg = character.bg_id() != alt_tag
@@ -144,23 +187,50 @@ class Prerequisite(object):
                     skill = character.skills().get(alt_tag)
                     if skill.is_specialist():
                         if 'subtag' in self.alt.keys():
-                            if self.alt.get('subtag') in skill.advances().keys():
-                                flg = skill.get_adv_bonus_subtag(self.alt.get('subtag')) < alt_value
-                            else:
-                                flg = True
+                            for subtag in self.alt.get('subtag'):
+                                if subtag in skill.advances().keys():
+                                    flg = skill.get_adv_bonus_subtag(subtag) < alt_value
+                                    if not flg:
+                                        break
+                                else:
+                                    flg = True
+                        else:
+                            for subtag in character.skills().get(alt_tag).advances().keys():
+                                flg = character.skills().get(alt_tag).get_adv_bonus_subtag(subtag) < alt_value
+                                if not flg:
+                                    break
                     else:
                         flg = skill.get_adv_bonus() < alt_value
                 else:
-                    flg = True
+                    if alt_tag == 'SK_ANY':
+                        for sk_tag, skill in character.skills().items():
+                            if skill.is_specialist():
+                                for subtag in skill.advances().keys():
+                                    flg = skill.get_adv_bonus_subtag(subtag) < alt_value
+                                    if not flg:
+                                        break
+                                if not flg:
+                                    break
+                            else:
+                                flg = skill.get_adv_bonus() < alt_value
+                                if not flg:
+                                    break
+                    else:
+                        flg = True
             if alt_tag[:2] == 'TL':
                 if alt_tag in character.talents().keys():
                     talent = character.talents().get(alt_tag)
                     if talent.is_specialist():
                         if 'subtag' in self.alt.keys():
-                            if self.alt.get('subtag') in talent.taken().keys():
-                                flg = talent.taken_subtag(self.alt.get('subtag')) < alt_value
-                            else:
-                                flg = True
+                            for subtag in self.alt.get('subtag'):
+                                if subtag in talent.taken().keys():
+                                    flg = talent.taken_subtag(subtag) < alt_value
+                                    if not flg:
+                                        break
+                                else:
+                                    flg = True
+                        else:
+                            flg = not character.has_talent(alt_tag)
                     else:
                         flg = talent.taken() < alt_value
                 else:
@@ -170,10 +240,13 @@ class Prerequisite(object):
                     trait = character.traits().get(alt_tag)
                     if trait.is_specialist():
                         if 'subtag' in self.alt.keys():
-                            if self.alt.get('subtag') in trait.taken().keys():
-                                flg = trait.taken_subtag(self.alt.get('subtag')) < alt_value
-                            else:
-                                flg = True
+                            for subtag in self.alt.get('subtag'):
+                                if subtag in trait.taken().keys():
+                                    flg = trait.taken_subtag(subtag) < alt_value
+                                    if not flg:
+                                        break
+                                else:
+                                    flg = True
                     else:
                         flg = trait.taken() < alt_value
                 else:
@@ -184,6 +257,10 @@ class Prerequisite(object):
                 flg = alt_tag not in character.psy_powers()
             if alt_tag[:2] == 'EA':
                 flg = alt_tag not in character.ea_id()
+            if alt_tag == 'IP':
+                flg = alt_value > character.insanity()
+            if alt_tag == 'CP':
+                flg = alt_value > character.corruption()
             if flg:
                 return False
             else:
@@ -191,6 +268,8 @@ class Prerequisite(object):
 
     def matched(self, character):
         flg = False  # True when prerequisite is NOT matched
+        if self.is_xp_prereq():
+            flg = character.xp_spent() < self.value
         if self.is_homeworld_prereq():
             flg = character.hw_id() != self.tag
         if self.is_background_prereq():
@@ -217,19 +296,43 @@ class Prerequisite(object):
                                 flg = skill.get_adv_bonus_subtag(self.subtag) < self.value
                             else:
                                 flg = True
+                    else:
+                        for subtag in character.skills().get(self.tag).advances().keys():
+                            flg = character.skills().get(self.tag).get_adv_subtag(subtag) < self.value
+                            if not flg:
+                                break
                 else:
                     flg = skill.get_adv_bonus() < self.value
             else:
-                flg = True
+                if self.tag == 'SK_ANY':
+                    for sk_tag, skill in character.skills().items():
+                        if skill.is_specialist():
+                            for subtag in skill.advances().keys():
+                                flg = skill.get_adv_bonus_subtag(subtag) < self.value
+                                if not flg:
+                                    break
+                            if not flg:
+                                break
+                        else:
+                            flg = skill.get_adv_bonus() < self.value
+                            if not flg:
+                                break
+                else:
+                    flg = True
         if self.is_talent_prereq():
             if self.tag in character.talents().keys():
                 talent = character.talents().get(self.tag)
                 if talent.is_specialist():
                     if self.has_subtag():
-                        if self.subtag in talent.taken().keys():
-                            flg = talent.taken_subtag(self.subtag) < self.value
-                        else:
-                            flg = True
+                        for subtag in self.subtag:
+                            if subtag in talent.taken().keys():
+                                flg = talent.taken_subtag(subtag) < self.value
+                                if not flg:
+                                    break
+                            else:
+                                flg = True
+                    else:
+                        flg = not character.has_talent(self.tag)
                 else:
                     flg = talent.taken() < self.value
             else:
@@ -256,10 +359,10 @@ class Prerequisite(object):
             if self.value == 0:
                 flg = not flg
         if flg:
-            return False
-        else:
             if self.has_alt():
                 return self.match_alts(character)
+            return False
+        else:
             return True
 
     @classmethod

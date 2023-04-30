@@ -1,0 +1,590 @@
+{
+  "types": [
+    {
+      "tag": "AT_FULL",
+      "name": {
+        "ru": "Полное действие",
+        "en": "Full action"
+      }
+    },
+    {
+      "tag": "AT_HALF",
+      "name": {
+        "ru": "Полудействие",
+        "en": "Half action"
+      }
+    },
+    {
+      "tag": "AT_REACT",
+      "name": {
+        "ru": "Реакция",
+        "en": "Reaction"
+      }
+    },
+    {
+      "tag": "AT_VARY",
+      "name": {
+        "ru": "Различное",
+        "en": "Varied"
+      }
+    },
+    {
+      "tag": "AT_EXT",
+      "name": {
+        "ru": "Продолжительное действие",
+        "en": "Extended Action"
+      }
+    }
+  ],
+  "keywords": [
+    {
+      "tag": "KW_CON",
+      "name": {
+        "ru": "Концентрация",
+        "en": "Concentration"
+      }
+    },
+    {
+      "tag": "KW_ATK",
+      "name": {
+        "ru": "Атака",
+        "en": "Attack"
+      }
+    },
+    {
+      "tag": "KW_MELEE",
+      "name": {
+        "ru": "Ближний бой",
+        "en": "Melee"
+      }
+    },
+    {
+      "tag": "KW_RNG",
+      "name": {
+        "ru": "Стрельба",
+        "en": "Ranged"
+      }
+    },
+    {
+      "tag": "KW_MOVE",
+      "name": {
+        "ru": "Перемещение",
+        "en": "Movement"
+      }
+    },
+    {
+      "tag": "KW_MISC",
+      "name": {
+        "ru": "Разное",
+        "en": "Miscellaneous"
+      }
+    }
+  ],
+  "actions": [
+    {
+      "tag": "CA_AIM",
+      "name": {
+        "ru": "Прицеливание",
+        "en": "Aim"
+      },
+      "description": {
+        "ru": ["Бонус +10 (Полудействие) или +20 (Полное действие) к следующей Атаке персонажа."],
+        "en": ["+10 (Half) or +20 (Full) bonus to character’s next Attack."]
+      },
+      "types": ["AT_FULL", "AT_HALF"],
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "CA_AOA",
+      "name": {
+        "ru": "Атака всеми силами",
+        "en": "All out attack"
+      },
+      "description": {
+        "ru": ["Невозможность использовать Избегание до начала следующего хода в обмен на бонус +30 к НР на одиночную атаку."],
+        "en": ["Give up that round’s Evasion reaction to gain +30 WS."]
+      },
+      "types": ["AT_FULL"],
+      "keywords": ["KW_ATK", "KW_MELEE"]
+    },
+    {
+      "tag": "CA_BHW",
+      "name": {
+        "ru": "Подготовить тяжелое оружие",
+        "en": "Brace heavy weapon"
+      },
+      "description": {
+        "ru": ["Подготовить Тяжелое оружие к стрельбе, установив его на опору, присев на колено или расставив ноги для устойчивости. Стрельба из неподготовленного Тяжелого оружия ведется со штрафом -30 к НС. Подготовленное оружие может быть повернуто на 45 градусов, или больше (до 180, если в качестве опоры используется тренога). Подготовка снимается только при перемещении оружия."],
+        "en": ["Support a Heavy weapon for proper firing. Shooting from not-braced Heavy weapon inflicts -30 BS penalty. Braced weapon can be pivoted in 45 degrees or more (up to 180 degrees if it's braced on a tripod). Bracing is ceased only when the weapon is moved."]
+      },
+      "types": ["AT_HALF"],
+      "keywords": ["KW_MISC"]
+    },
+    {
+      "tag": "CA_CSH",
+      "name": {
+        "ru": "Объявленная атака",
+        "en": "Called shot"
+      },
+      "description": {
+        "ru": ["Провести Атаку по выбранной зоне цели со штрафом -20 к НР или НС."],
+        "en": ["Attack a specific location on a target with a –20 to WS or BS."]
+      },
+      "types": ["AT_FULL"],
+      "keywords": ["KW_ATK", "KW_CON", ["KW_MELEE", "KW_RNG"]]
+    },
+    {
+      "tag": "CA_CHR",
+      "name": {
+        "ru": "Натиск",
+        "en": "Charge"
+      },
+      "description": {
+        "ru": [
+          "Атака с разбега с +20 к НР. Цель должна находиться не дальше дистанции Натиска персонажа (бонус Ловкости х3), 4 последних метра до цели должны преодолеваться по прямой.",
+          "В случае успеха персонаж может:",
+          "1. Нанести цели 1 удар своим оружием;",
+          "2. Начать Борьбу (см. Борьба)",
+          "3. Попытаться Сбить с ног противника (см. Сбить с ног)."
+        ],
+        "en": [
+          "Character charges at opponent within Charge distance (AgB x3) with +20 to WS, last 4 meters to target shall be a straight line.",
+          "Succeeding in his attack, character can:",
+          "1. Make one hit with his weapon;",
+          "2. Initiate Grapple (see Grapple)",
+          "3. Attempt to Knock down his opponent (see Knock down)"
+        ]
+      },
+      "types": ["AT_FULL"],
+      "keywords": ["KW_ATK", "KW_MELEE", "KW_MOV"]
+    },
+    {
+      "tag": "CA_DFS",
+      "name": {
+        "ru": "Оборонительная стойка",
+        "en": "Defensive stance"
+      },
+      "description": {
+        "ru": ["Получить дополнительную Реакцию до начала следующего хода персонажа. Атаки ближнего боя по персонажу проводятся со штрафом -20 к НР."],
+        "en": ["Gain an additional Reaction until the beginning of character's next turn. Opponents suffer –20 WS."]
+      },
+      "types": ["AT_FULL"],
+      "keywords": ["KW_CON", "KW_MELEE"]
+    },
+    {
+      "tag": "CA_DLY",
+      "name": {
+        "ru": "Отложенное действие",
+        "en": "Delay"
+      },
+      "description": {
+        "ru": ["Возможность совершить Полудействие до начала следующего хода персонажа."],
+        "en": ["May make a Half action before character's next turn."]
+      },
+      "types": ["AT_FULL"],
+      "keywords": ["KW_MISC"]
+    },
+    {
+      "tag": "CA_DSN",
+      "name": {
+        "ru": "Разрыв дистанции",
+        "en": "Disengage"
+      },
+      "description": {
+        "ru": ["Выйти из ближнего боя, не провоцируя свободную атаку по себе."],
+        "en": ["Break from melee without incurring a free attack."]
+      },
+      "types": ["AT_FULL"],
+      "keywords": ["KW_MOV"]
+    },
+    {
+      "tag": "CA_EVN",
+      "name": {
+        "ru": "Избегание",
+        "en": "Evasion"
+      },
+      "description": {
+        "ru": [
+          "Используется с Умением Уклонения(Перемещение) или Парирования(Ближний бой) для избегания атак по персонажу.Нельзя использовать в свой ход.",
+          "Для избегания одиночной атаки достаточно пройти проверку выбранного навыка.",
+          "При избегании множественных атак каждая Степень Успеха снимает 1 попадание (2 если персонаж был атакован оружием с качеством Штурмовое).",
+          "При избегании площадных атак с помощью Уклонения в случае успеха персонаж перемещается на расстояние до своего бонуса Ловкости, пытаясь выйти из зоны воздействия. Если этого недостаточно, персонаж попадает под действие атаки."
+        ],
+        "en": [
+          "Used with either the Dodge(Movement) or Parry(Melee) skill to avoid incoming attacks. Can't be used at character's own turn.",
+          "To evade a Standard Attack it is enough to pass used Skill test.",
+          "When evading multiple attacks, each DoS removes one hit (two if weapon has Storm quality).",
+          "When evading area effect attacks with Dodge, success moves character up to his Agility bonus away from the effect area. If it isn't enough, character remains in the area and suffers the attack."
+        ]
+      },
+      "types": ["AT_REACT"],
+      "keywords": [["KW_MOV", "KW_MELEE"]]
+    },
+    {
+      "tag": "CA_FNT",
+      "name": {
+        "ru": "Финт",
+        "en": "Feint"
+      },
+      "description": {
+        "ru": ["Пройти Соревновательную проверку НР с целью: в случае победы персонажа цель не может Парировать или Уклониться от его атаки."],
+        "en": ["Opposed WS test; if character wins his next attack cannot be Dodged or Parried."]
+      },
+      "types": ["AT_HALF"],
+      "keywords": ["KW_MELEE"]
+    },
+    {
+      "tag": "CA_FCP",
+      "name": {
+        "ru": "Фокусировка силы",
+        "en": "Focus power"
+      },
+      "description": {
+        "ru": "Использовать Психосилу",
+        "en": "Use a Psychic Power"
+      },
+      "types": ["AT_VARY"],
+      "keywords": ["KW_VARY"]
+    },
+    {
+      "tag": "CA_FAB",
+      "name": {
+        "ru": "Длинная очередь",
+        "en": "Full auto burst"
+      },
+      "description": {
+        "ru": ["Стрелковая атака со штрафом -10 НС, одно попадание за каждую степень успеха. Оружие должно иметь возможность вести огонь длинными очередями. Максимальное количество попаданий определяется профилем оружия."],
+        "en": ["–10 BS, one hit for every degree of success. Weapon shall support full auto firing. Maximum number of hits is determined by weapon's profile."]
+      },
+      "types": ["AT_HALF"],
+      "keywords": ["KW_ATK", "KW_RNG"]
+    },
+    {
+      "tag": "CA_GRP",
+      "name": {
+        "ru": "Борьба",
+        "en": "Grapple"
+      },
+      "description": {
+        "ru": [
+          "Данное Действие может быть зявлено ТОЛЬКО, если персонаж УЖЕ вовлечен в Борьбу. Чтобы начать Борьбу, используйте Действия Стандартная Атака или Натиск.",
+          "Борьба накладывает следующие правила на всех участников:",
+          "1. участники не могут использовать Реакции;",
+          "2. участники считаются вовлеченными в ближний бой;",
+          "3. участники могут заявлять в качестве Действия только Борьбу;",
+          "4. контролирующий Борьбу участник может по своему желанию прекратить ее за Свободное Действие;",
+          "5. другие персонажи получают бонус +20 к НР на броски атаки по участникам Борьбы (в дополнение к другим применимым модификаторам);",
+          "6. в Борьбе могут участвовать только два персонажа, но каждому из них могут Помогать до двух ассистентов.",
+          "Чтобы продолжать Борьбу, Контролирующий персонаж ДОЛЖЕН заявлять Борьбу Полным Действием в начале своего хода, иначе Борьба немедленно прекращается. Действия Контролирующего персонажа (выбрать одно на ход):",
+          "1. Ударить оппонента: пройти Состязательную проверку Силы против оппонента (обоим участникам можно Помогать), в случае победы нанести 1d5-3+БС Ударного урона в Тело оппонента;",
+          "2. Уронить оппонента: пройти Состязательную проверку Силы против оппонента (обоим участникам можно Помогать), в случае победы оппонент становится Сбитым с ног. Контролирующий персонаж получает бонус +10 ко всем проверкам Борьбы (сочетается с бонус +10 на Атаку ближнего боя по Сбитому с ног персонажу), если продолжает Борьбу, или может завершить ее за Свободное Действие;",
+          "3. Толкнуть оппонента: пройти Состязательную проверку Силы против оппонента (обоим участникам можно Помогать), в случае победы активный персонаж выбирает направление, в котором толкает оппонента на 1+Степени Успеха метров, но не дальше чем дистанция Половинного Движения Контролирующего персонажа. Чтобы сдвинуть оппонента и продолжить Борьбу, Контролирующий персонаж обязан следовать за оппонентом, но может за Свободное Действие отпустить его, прекратив Борьбу. В этом случае Оппонент останется на месте;",
+          "4. Подготовить предмет: Контролирующий персонаж может Подготовить один из своих предметов (см. соответствующее Действие). По решению Мастера, персонаж может схватить один из предметов оппонента и Подготовить его;",
+          "5. Встать: если оба участника Борьбы Сбиты с ног, Контролирующий персонаж может встать при помощи этого действия. Он также может пройти Состязательную проверку Силы против оппонента (обоим участникам можно Помогать), чтобы силком поднять своего оппонента на ноги;",
+          "6. Использовать предмет: Контролирующий персонаж может использовать предмет, который до этого Подгтовил (см. соответствующее Действие).",
+          "Цель Борьбы ОБЯЗАНА в свой ход заявить Борьбу как Полудействие в начале своего хода пока не Вырвется, Выскользнет или Захватит контроль. Доступные Цели Действия:",
+          "1. Вырваться: Цель может пройти Состязательную проверку Силы против оппонента (обоим участникам можно Помогать), выиграв которую она освободится и сможет использовать любое Полудействие в остаток своего хода;",
+          "2. Выскользнуть: Цель может пройти проверку Акробатики +0, чтобы освободиться. В случае успеха Цель может использовать любое Полудействие в остаток своего хода;",
+          "3. Захватить Контроль: Цель может пройти Состязательную проверку Силы против оппонента (обоим участникам можно Помогать), в случае победы становясь Контролирующим персонажем. В этом случае персонаж может заявлять только доступные Контролирующему персонажу действия в остаток своего хода."
+        ],
+        "en": [
+          "Action is used ONLY if character is ALREADY in a Grapple. To initiate a Grapple use either Standard Attack action or Charge action",
+          "Grapple involves following for all participants:",
+          "1. participants can't use Reactions;",
+          "2. participants are considered to be engaged in melee combat;",
+          "3. participants can use only Grapple action;",
+          "4. controller can voluntarily end the Grapple as a Free action during his turn;",
+          "5. others gain +20 bonus to their WS to hit any participant of the Grapple in addition to other applicable modifiers;",
+          "6. only two characters can be involved in the same Grapple, but each of them can have up to two Assistants.",
+          "To maintain the Grapple, Controller MUST declare Grapple as Full Action at the beginning of his turn, otherwise it ends immediately. Grapple Controller's actions (choose one per turn):",
+          "1. Damage opponent: perform an Opposed Strength test vs. opponent, if active character wins, deal 1d5-3+StrB Impact damage at opponents Body. This test can be Assisted;",
+          "2. Throw down opponent: perform an Opposed Strength test vs. opponent (both characters can be Assisted), if active character wins, his opponent becomes Prone. Controller may end Grapple as Free Action, or keep Grappling Prone opponent, gaining +10 bonus to all future Grapple tests until the opponent will manage to stand up (+10 bonus for attacking Prone opponents still applicable);",
+          "3. Push opponent: perform an Opposed Strength test vs. opponent (both characters can be Assisted), if active character wins, he chooses direction and pushes opponent 1+DoS metres in this direction up to active character's Half Move distance. Active character must follow his opponent to maintain the Grapple or he can release him and end the Grapple (in this case opponent isn't pushed);",
+          "4. Ready: controller can Ready one of his items (see Ready action). If GM allows, he can grab an item belonging to his opponent and Ready it;",
+          "5. Stand: if both grappling characters are Prone, controller can stand up with his action. He can attempt an Opposed Strength test vs. his opponent (both characters can be Assisted) to stand him up as well;",
+          "6. Use item: controller can Use item he previously Readied (see Use Item action).",
+          "Grapple Target MUST declare Grapple as Half Action in the beginning of his turn until Breaking Free or Taking Control over Grapple. Grapple Target's options:",
+          "1. Break Free: target can attempt an Opposed Strength test vs. the controller (both characters can be Assisted). By winning it, target is free and may perform any Half Action;",
+          "2. Slip Free: target can attempt an Acrobatics +0 test to slip free and perform any Half Action;",
+          "3. Take Control: target can attempt an Opposed Strength test (both characters can be assisted) to become controller by winning it. If active character wins this test, he can declare only Grapple Controller's actions this turn."
+        ]
+      },
+      "types": ["AT_HALF", "AT_FULL"],
+      "keywords": ["KW_ATK", "KW_MELEE"]
+    },
+    {
+      "tag": "CA_GDA",
+      "name": {
+        "ru": "Осторожное Действие",
+        "en": "Guarded Action"
+      },
+      "description": {
+        "ru": ["Получить штраф -10 к проверкам НР и НС и бонус +10 к любым проверкам Избегания до начала своего следующего хода."],
+        "en": ["–10 to WS or BS, +10 to all Evasion tests until start of character's next turn."]
+      },
+      "types": ["AT_HALF"],
+      "keywords": ["KW_CON", ["KW_RNG", "KW_MELEE"]]
+    },
+    {
+      "tag": "CA_JMP",
+      "name": {
+        "ru": "Прыжок",
+        "en": "Jump/Leap"
+      },
+      "description": {
+        "ru": [
+          "Прыгнуть в высоту или в длину.",
+          "Прыжки в высоту с места обычно не требуют проверок, но Мастер вправе назначить проверку Ловкости +0 если персонаж, к примеру, тяжело нагружен. В среднем персонаж может достать до объекта или поверхнсти на высоте до 1.5 метров над головой. Персонаж может схватиться за поверхность и подтянуться, чтобы залезть на нее, пройдя проверку Силы +0.",
+          "Чтобы спрыгнуть с высоты, персонаж должен пройти проверку Ловкости +0, преуспев в которой он может безопасно спрыгнуть, приземлившись на ноги, с высоты, равной его бонусу Ловкости + Степени Успеха метров. Если этого недостаточно, он падает, оказываясь Сбитым с ног и получает урон от падения за оставшуюся высоту (1d10+высота Ударного урона в случайную область тела с игнорированием брони, но не Выносливости). При провале персонаж так же падает, получая урон от падения с полной высоты.",
+          "Прыжки в высоту с разбега: чтобы взять разбег, персонажу необходимо пространство не менее 4 метров до точки прыжка. Каждые 4 метра сверх первых дают +10 к тесту Ловкости до максимума в +30. Успешное прохождение теста Ловкости позволяет добавить к высоте прыжка 0.5x бонус Силы метров + 0.5м за каждую Степень Успеха выше первой. При провале теста персонаж спотыкается и оказывается Сбит с ног.",
+          "Прыжки в длину с места: пройти проверку Ловкости +0, чтобы прыгнуть на расстояние, равное бонусу Силы в метрах + 0.5м за каждую Степень Успеха выше первой. При провале дистанция прыжка составляет половину бонуса Силы в метрах - 0.5м за каждую Степень Провала выше первой до минимума в 0.5м. Если это важно, высота такого прыжка равна четверти его длины.",
+          "Прыжки в длину с разбега: Разбег берется по правилам для прыжков в высоту и дает те же бонусы к проверке Ловкости. Расстояние и высота прыжка рассчитываются так же, как и для прыжков в длину с места."
+        ],
+        "en": [
+          "Jump vertically or Leap horizontally.",
+          "Standing Vertical jumps usually don't require tests and allow character to reach a ledge or item overhead up to 1.5m metres above averagely. If character is carrying heavy items, an Agility test may be required. Character can grab the ledge and pull up to climb on it by passing Strength +0",
+          "Jumping down requires an Agility +0 test. On success character can jump from his AgB+DoS metres height without damage. Failing, he falls Prone and suffers damage of full distance. If his AgB+DoS isn't enough to cover full height, he falls Prone and suffer the damage of remaining distance (1d10+height Impact on random location ignoring Armour, but not Toughness).",
+          "Running Jumps: to have a run-up for vertical Jumps character makes an Agility +0 test or falls Prone stumbling. It shall be possible to run at least 4 meters straight to the jump point. Success adds 0.5xStrB metres + 0.5m for every DoS beyond first to Jump's height gives him +10 bonus for every 4 meters beyond first 4 up to +30.",
+          "Standing horizontal Leaps: pass Agility +0 test to leap StrB metres + 0.5m per each DoS beyond first. On failure he leaps 0.5xStrB metres - 0.5m per each DoF beyond first down to 0.5m. If it's important, leap's peak height is equal to its distance x0.25.",
+          "Running Leaps: to have a run-up, same conditions as at Running Jumps apply. Every 4 metres of run-up beyond first 4 give +10 to Agility test (up to +30). Leap's distance and height are calculated similarly to Standing Leaps."
+        ]
+      },
+      "types": ["AT_FULL"],
+      "keywords": ["KW_MOVE"]
+    },
+    {
+      "tag": "CA_KND",
+      "name": {
+        "ru": "Сбить с ног",
+        "en": "Knock down"
+      },
+      "description": {
+        "ru": ["Атакующий должен пройти Состязательную проверку Силы против цели. Если это действие является частью Натиска или предпринимается сразу после Полудвижения, атакующий получает бонус +10. Если атакующий побеждает, цель оказывается Сбита с ног. Если разница составляет 2 и более Степеней Успеха, атакующий может нанести цели 1d5-3+бонус Силы Ударного урона и 1 уровень Усталости. Если выигрывает цель, она остается стоять. Если цель выигрывает с разницей в 2 и более Степеней Успеха, атакующий оказывается Сбит с ног."],
+        "en": ["Attacker has to pass an Opposed Strength test vs. target with +10 if it is a part of Charge Action or if Knock Down is declared right after Half Move action. If attacker wins, target becomes Prone. If he wins by 2 DoS or more, he can additionally inflict 1d5-3+StrB Impact damage and 1 Fatigue level to target. If attacker loses, target remains standing. If attacker loses by more than 2 DoS, he becomes Prone."]
+      },
+      "types": ["AT_HALF"],
+      "keywords": ["KW_ATK", "KW_MELEE"]
+    },
+    {
+      "tag": "CA_LTA",
+      "name": {
+        "ru": "Молниеносная Атака",
+        "en": "Lightning Attack"
+      },
+      "description": {
+        "ru": ["Атакующий ДОЛЖЕН иметь талант Молниеносная Атака, чтобы использовать данное Действие. Атакующий проходит проверку НР с -10, чтобы нанести ударов по числу Степеней Успеха, но не более своего бонуса НР. Возможно выполнять с двумя оружиями."],
+        "en": ["Attacker MUST have Lightning Attack talent to use this Action. Attacker makes WS test -10 to inflict DoS hits up to his WS bonus. Can be performed with two weapons."]
+      },
+      "types": ["AT_HALF"],
+      "keywords": ["KW_ATK", "KW_MELEE"]
+    },
+    {
+      "tag": "CA_MAN",
+      "name": {
+        "ru": "Маневр",
+        "en": "Manoeuvre"
+      },
+      "description": {
+        "ru": ["атакующий должен пройти Состязательную проверку НР с целью. В случае успеха атакующий может сдвинуть цель на 1 метр в любом направлении. Атакующий может последовать за целью. Таким спосом нельзя толкнуть цель в препятствие или другого персонажа, но можно сбросить с края платформы, столкнуть с лестницы и т.п."],
+        "en": ["pass an Opposed WS test versus target. On success active character can move the target 1 metre in chosen direction. Attacker can follow the target. Target can't be forced into another character or obstacle like wall, but can be pushed of ledges."]
+      },
+      "types": ["AT_HALF"],
+      "keywords": ["KW_MELEE", "KW_MOV"]
+    },
+    {
+      "tag": "CA_MOV",
+      "name": {
+        "ru": "Движение",
+        "en": "Move"
+      },
+      "description": {
+        "ru": [
+          "Персонаж может потратить Полудействие, чтобы переместиться на расстояние до своего Рейтинга Перемещения, или Полное Действие, чтобы переместиться на расстояние до удвоенного Рейтинга Перемещения.",
+          "Если движение заканчивается рядом с противником, персонаж может вступить с ним в ближний бой.",
+          "Если персонаж в результате движения удаляется от оппонента, с которым вовлечен в ближний бой, оппонент может провести Стандартную Атаку по нему за Свободное Действие."
+        ],
+        "en": [
+          "Character may spend Half Action to move up to his Movement Rating metres, or Full Action to move up to his double Movement Rating metres.",
+          "If the movement ends next to an enemy, character can engage in a melee.",
+          "If character moves away from an opponent he is engaged in melee, it inflicts a free Standard Attack from that opponent as Free Action."
+        ]
+      },
+      "types": ["AT_HALF", "AT_FULL"],
+      "keywords": ["KW_MOV"]
+    },
+    {
+      "tag": "CA_OVR",
+      "name": {
+        "ru": "Наблюдение",
+        "en": "Overwatch"
+      },
+      "description": {
+        "ru": ["Персонаж выбирает направление, в котором он контролирует сектор шириной 45 градусов. Затем выбирается тип Стрелковой Атаки (Одиночный Выстрел, Короткая или Длинная очередь), которую он использует, и условие, при котором он откроет огонь. Даже если он промахнется по вошедшей в зону контроля цели, она должна пройти тест на Подавление +0 или стать Подавленной огнем. Цель может попытаться Избежать данной Атаки."],
+        "en": ["Character chooses the direction, in which he establishes a 45 degrees-wide kill zone. He then specifies a Ranged Attack (Standard, Semi or Full Auto Burst) he will unleash at this kill zone, and conditions under which he'll unleash chosen attack. Even if he misses, attack's target must pass a +0 Pinning test or become Pinned where he entered the kill zone. Target can try to Evade this Attack."]
+      },
+      "types": ["AT_FULL"],
+      "keywords": ["KW_ATK", "KW_CON", "KW_RNG"]
+    },
+    {
+      "tag": "CA_READY",
+      "name": {
+        "ru": "Подготовить предмет",
+        "en": "Ready"
+      },
+      "description": {
+        "ru": ["Извлечь оружие, достать предмет из подсумка или кармана (бросить предмет считается Свободным Действием)"],
+        "en": ["Draw a weapon or retrieve an item from pouch or pocket (dropping an item is still Free Action)."]
+      },
+      "types": ["AT_HALF"],
+      "keywords": ["KW_MISC"]
+    },
+    {
+      "tag": "CA_RLD",
+      "name": {
+        "ru": "Перезарядить оружие",
+        "en": "Reload"
+      },
+      "description": {
+        "ru": ["Перезарядить стрелковое оружие. Требует наличия снаряженных магазинов/боеприпасов для этого оружия. Длительность перезарядки указана в профиле оружия."],
+        "en": ["Reload a ranged weapon. Requires ammo clips for that weapon. Reload duration is listed in weapon's profile."]
+      },
+      "types": ["AT_HALF", "AT_FULL", "AT_EXT"],
+      "keywords": ["KW_MISC"]
+    },
+    {
+      "tag": "CA_RUN",
+      "name": {
+        "ru": "Бег",
+        "en": "Run"
+      },
+      "description": {
+        "ru": ["Переместиться на дистанцию вплоть до шестикратного Рейтинга Движения. До начала следующего хода персонажа, все дистанционные атаки по нему проводятся со штрафом с -20 к НС, но атаки ближнего боя по персонажу проводятся с бонусом +20 НР."],
+        "en": ["Move to a distance up to character's Run movement (Movement Rating x6). Until character's next turn, all Ranged Attacks targeting him suffer -20 BS penalty, but Melee attacks against him gain a +20 WS bonus."]
+      },
+      "types": ["AT_FULL"],
+      "keywords": ["KW_MOV"]
+    },
+    {
+      "tag": "CA_SAB",
+      "name": {
+        "ru": "Короткая очередь",
+        "en": "Semi-auto burst"
+      },
+      "description": {
+        "ru": ["пройти проверку НС +0, чтобы нанести по 1 попаданию за каждую нечетную Степень Успеха, вплоть до указанного в профиле оружия максимума. Может быть использовано с парным оружием."],
+        "en": ["pass a +0 BS test, on success deal 1 hit per each odd DoS, up to listed in weapon's profile. Can be used with two weapons."]
+      },
+      "types": ["AT_FULL"],
+      "keywords": ["KW_ATK", "KW_RNG"]
+    },
+    {
+      "tag": "CA_SMD",
+      "name": {
+        "ru": "Встать/Оседлать/Спешиться",
+        "en": "Stand/Mount/Dismount"
+      },
+      "description": {
+        "ru": ["Встать, если персонаж лежит или сидит, оседлать или слезть с ездового животного, войти в машину или покинуть ее."],
+        "en": ["Stand up if character is lying or sitting, mount or dismount a vehicle or beast."]
+      },
+      "types": ["AT_HALF"],
+      "keywords": ["KW_MOV"]
+    },
+    {
+      "tag": "CA_STA",
+      "name": {
+        "ru": "Стандартная атака",
+        "en": "Standard Attack"
+      },
+      "description": {
+        "ru": ["Пройти проверку НР/НС с +10, чтобы нанести один удар в ближнем бою или сделать одиночный выстрел. Можно использовать с парным оружием. Если атакующий вовлечен в ближний бой и безоружен, он может начать Борьбу (см. Борьба)."],
+        "en": ["Make a single shot or melee attack by passing a WS/BS +10 test. Can be used with two weapons. If attacking character is engaged in melee and unarmed, he can initiate Grapple (see Grapple)."]
+      },
+      "types": ["AT_HALF"],
+      "keywords": ["KW_ATK", ["KW_MELEE", "KW_RNG"]]
+    },
+    {
+      "tag": "CA_STN",
+      "name": {
+        "ru": "Оглушить",
+        "en": "Stun"
+      },
+      "description": {
+        "ru": [
+          "Вооруженный оружием ближнего боя или безоружный персонаж может попытаться Оглушить цель вместо нанесения ей урона.",
+          "Чтоб ысделать это, он должен пройти проверку НР со штрафом -20. При успехе, бросьте 1d10 и прибавьте бонус Силы атакующего.",
+          "Если результат больше либо равен сумме бонуса Выносливости цели и брони на ее Голове, цель становится Оглушенной на число ходов, равное разности между сравниваемыми числами, а также получает 1 уровень Усталости."
+        ],
+        "en": [
+          "If character is armed with melee weapon or unarmed, he can attempt to Stun his target instead of dealing damage.",
+          "He has to pass a WS -20 test, on success rolling 1d10 and adding StrB.",
+          "If the result is greater or equal to target's Toughness bonus plus Head armour, target is Stunned for a number of rounds equal to difference between these values and gains 1 Fatigue."
+        ]
+      },
+      "types": ["AT_HALF"],
+      "keywords": ["KW_ATK", "KW_MELEE"]
+    },
+    {
+      "tag": "CA_SPF",
+      "name": {
+        "ru": "Огонь на подавление",
+        "en": "Suppressing Fire"
+      },
+      "description": {
+        "ru": [
+          "Для данного действия персонаж должен быть вооружен стрелковым оружием, способным вести огонь короткими или длинными очередями. Персонаж должен выбрать, будет он стрелять короткой или длинной очередью и направление, в котором он откроет огонь на подавление.",
+          "Огонь на подавление покрывает сектор в 30 (для короткой очереди) или 45 (для длинной) градусов шириной. Персонаж тратит указанное в профиле оружие количество боеприпасов на ведение огня выбранным режимом.",
+          "Затем все попавшие в область Огня на подавление должны пройти проверку Силы Воли со штрафом -10 (для короткой очереди) или -20 (для длинной) или оказаться Прижатыми огнем.",
+          "Стреляющий персонаж проходит проверку НС со штрафом -20 (при результате 94+ оржие Заклинит), на каждую нечетную Степень Успеха нанося 1 попадание в случайную цель, в накрытой Огнем на подавление области (максимум - число выстрелов, указанное в профиле оружия для выбранного режима огня)."
+        ],
+        "en": [
+          "Character must be armed with a weapon capable of semi-automatic or full automatic fire. Then he must choose a fire mode (semi-auto or full auto burst) and direction he'll be shooting at.",
+          "The 30 (for semi-auto burst) or 45 (for full auto burst) degrees-wide area in said direction is covered with Suppressing Fire. Shooting character spends required amount of ammo for his chosen firing mode.",
+          "Everyone withing this area has to pass a WP -10 (for semi-auto burst) or -20 (for full auto burst) WP test or become Pinned.",
+          "Also, shooting character has to pass a BS -20 test (94+ roll results in Weapon Jam). If he succeeds he makes 1 hit per every odd DoS he scored up to listed in weapon's profile amount of shots for chosen firing mode."
+        ]
+      },
+      "types": ["AT_FULL"],
+      "keywords": ["KW_ATK", "KW_RNG"]
+    },
+    {
+      "tag": "CA_SWA",
+      "name": {
+        "ru": "Стремительная Атака",
+        "en": "Swift Attack"
+      },
+      "description": {
+        "ru": ["Персонаж проходит проверку НР +0 (можно использовать Прицеливание), чтобы нанести по 1 попаданию за каждую нечетную Степень Успеха до максимума в бонус НР. Дополнительные попадания могут быть распределены в исходную цель или в других противников, вовлеченных в ближний бой с атакующим. Можно использовать с парным оружием."],
+        "en": ["Character passes a WS +0 test (Aim can be used), inflicting 1 hit per each odd DoS he scored, up to his WS bonus. Extra hits can be allocated to the original targets or any other engaged in melee with the attacker. Can be used with two weapons."]
+      },
+      "types": ["AT_HALF"],
+      "keywords": ["KW_ATK", "KW_MELEE"]
+    },
+    {
+      "tag": "CA_TCA",
+      "name": {
+        "ru": "Тактическое продвижение",
+        "en": "Tactical Advance"
+      },
+      "description": {
+        "ru": ["Персонаж движется от укрытия к укрытию. Он может переместиться на расстояние до своего Полудвижения, сохраняя преимущества от покинутого укрытия во время движения."],
+        "en": ["Character moves from cover to cover. He can move up to his Half Move distance, benefitting from the cover he left while moving."]
+      },
+      "types": ["AT_FULL"],
+      "keywords": ["KW_MOV", "KW_CON"]
+    },
+    {
+      "tag": "CA_USK",
+      "name": {
+        "ru": "Использовать Умение",
+        "en": "Use a Skill"
+      },
+      "description": {
+        "ru": ["Персонаж может использовать Умение. Обычно данное действие включает в себя прохождение проверки Умения. Использование Умения может занять до Продолжительного Действия в зависимости от обстановки и выбранного Умения."],
+        "en": ["Character can use a skill. Usually it involves passing a skill test. It can take up to an Extended Action depending on circumstances and chosen Skill."]
+      },
+      "types": ["AT_HALF", "AT_FULL", "AT_EXT"],
+      "keywords": ["KW_CON", "KW_MISC"]
+    }
+  ]
+}

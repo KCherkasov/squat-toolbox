@@ -1,0 +1,14 @@
+{% block loaders %}
+    {% load filters %}
+{% endblock %}
+
+{% with facade.motivations|get_by_dict_key:character.motivation_id as motive %}
+<div class="charlist-inline">
+    <div>
+        <b>
+            {% if lang == 'ru' %}Мотивация{% else %}Motivation{% endif %}:&nbsp;
+            <i>{{ motive.name|get_by_dict_key:lang }}</i>
+        </b>
+    </div>
+</div>
+{% endif %}

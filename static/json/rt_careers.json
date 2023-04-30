@@ -1,0 +1,576 @@
+{
+  "careers": [
+    {
+      "tag": "CR_RT",
+      "name": {
+        "ru": "Вольный Торговец",
+        "en": "Rogue Trader"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [
+        {
+          "tag": "CR_RT_H1",
+          "description": {
+            "ru": "Раз в раунд за свободное действие Вольный Торговец может дать бонус +10 к любой проверке одному союзнику в поле зрения, который может его слышать",
+            "en": "As a free action once per round Rogue Trader can give +10 bonus to any test to an ally he can see and who can hear him"
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
+      "aptitudes": ["A_FEL", "A_LDR", "A_FIN"],
+      "skills": [
+        {
+          "tag": "SK_CMD"
+        },
+        {
+          "tag": "SK_CMR"
+        },
+        {
+          "tag": "SK_CH"
+        },
+        {
+          "tag": "SK_CML",
+          "subtag": "Imperium"
+        },
+        {
+          "tag": "SK_DCV"
+        },
+        {
+          "tag": "SK_LIT"
+        },
+        {
+          "tag": "SK_SCL",
+          "subtag": "Astromancy"
+        },
+        {
+          "tag": "SK_LNG",
+          "subtag": "High Gothic"
+        },
+        {
+          "tag": "SK_LNG",
+          "subtag": "Low Gothic"
+        },
+        {
+          "tag": "SK_LNG",
+          "subtag": "Trader's Cant"
+        }
+      ],
+      "traits": [],
+      "talents": [
+        {
+          "tag": "TL_AROA"
+        },
+        {
+          "tag": "TL_WPT",
+          "subtag": "Power"
+        }
+      ],
+      "choices": [
+        [
+          {
+            "tag": "A_INT"
+          },
+          {
+            "tag": "A_PER"
+          }
+        ],
+        [
+          {
+            "tag": "TL_WPT",
+            "subtag": "Solid projectile"
+          },
+          {
+            "tag": "TL_WPT",
+            "subtag": "Plasma"
+          }
+        ]
+      ],
+      "commands": []
+    },
+    {
+      "tag": "CR_ARML",
+      "name": {
+        "ru": "Архмилитант",
+        "en": "Arch-militant"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [
+        {
+          "tag": "CR_ARML_H1",
+          "description": {
+            "ru": "Выберите один класс оружия (Рукопашное, Пистолеты, Ручное, Тяжелое). Персонаж получает бонус +10 к броскам на попадание, +2 к наносимому урону и +2 к Инициативе пока использует оруже выбранного класса.",
+            "en": "Choose one class of weapons (Melee, Pistols, Basic, Heavy). Character gains +10 to hit tests, +2 to damage, +2 to Initiative while using weapons of chosen class."
+          },
+          "targets": ["ST_WS", "ST_BS", "IN"]
+        }
+      ],
+      "aptitudes": ["A_OFF", "A_DEF"],
+      "skills": [
+        {
+          "tag": "SK_CML",
+          "subtag": "War"
+        },
+        {
+          "tag": "SK_DDG"
+        },
+        {
+          "tag": "SK_INTM"
+        },
+        {
+          "tag": "SK_SCL",
+          "subtag": "Tactica Imperialis"
+        },
+        {
+          "tag": "SK_PAR"
+        },
+        {
+          "tag": "SK_LNG",
+          "subtag": "Low Gothic"
+        }
+      ],
+      "traits": [],
+      "talents": [
+        {
+          "tag": "TL_WPT",
+          "subtag": "Chain"
+        },
+        {
+          "tag": "TL_WPT",
+          "subtag": "Bolt"
+        },
+        {
+          "tag": "TL_SC"
+        }
+      ],
+      "choices": [
+        [
+          {
+            "tag": "A_WS"
+          },
+          {
+            "tag": "A_BS"
+          }
+        ],
+        [
+          {
+            "tag": "A_T"
+          },
+          {
+            "tag": "A_STR"
+          }
+        ],
+        [
+          {
+            "tag": "TL_WPT",
+            "subtag": "Solid projectile"
+          },
+          {
+            "tag": "TL_WPT",
+            "subtag": "Las"
+          }
+        ]
+      ],
+      "commands": []
+    },
+    {
+      "tag": "CR_ASPT",
+      "name": {
+        "ru": "Санкционированный псайкер",
+        "en": "Sanctioned psyker"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "aptitudes": ["A_WP", "A_PER", "A_FLD", "A_KNG"],
+      "skills": [
+        {
+          "tag": "SK_AWR"
+        },
+        {
+          "tag": "SK_CML",
+          "subtag": "Adeptus Astra Telepathica"
+        },
+        {
+          "tag": "SK_FBL",
+          "subtag": "Psykers"
+        },
+        {
+          "tag": "SK_FBL",
+          "subtag": "Warp"
+        },
+        {
+          "tag": "SK_PSY"
+        },
+        {
+          "tag": "SK_CPR"
+        },
+        {
+          "tag": "SK_LNG",
+          "subtag": "High Gothic"
+        },
+        {
+          "tag": "SK_LNG",
+          "subtag": "Low Gothic"
+        }
+      ],
+      "traits": ["TR_SNC"],
+      "talents": ["TL_WS"],
+      "choices": [
+        [
+          {
+            "tag": "TL_WPT",
+            "subtag": "Las"
+          },
+          {
+            "tag": "TL_WPT",
+            "subtag": "Solid projectile"
+          }
+        ]
+      ],
+      "commands": [
+        {
+          "command": "GainEliteAdvance",
+          "tag": "EA_PSY"
+        },
+        {
+          "command": "IncreasePR",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "tag": "CR_EXPL",
+      "name": {
+        "ru": "Эксплоратор",
+        "en": "Exlporator"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "aptitudes": ["A_INT", "A_TECH", "A_KNG"],
+      "skills": [
+        {
+          "tag": "SK_CML",
+          "subtag": "Machine Cult"
+        },
+        {
+          "tag": "SK_CML",
+          "subtag": "Tech"
+        },
+        {
+          "tag": "SK_FBL",
+          "subtag": "Archeotech"
+        },
+        {
+          "tag": "SK_FBL",
+          "subtag": "Adeptus Mechanicus"
+        },
+        {
+          "tag": "SK_LIT"
+        },
+        {
+          "tag": "SK_LNG",
+          "subtag": "Explorator Binary"
+        },
+        {
+          "tag": "SK_LNG",
+          "subtag": "Low Gothic"
+        },
+        {
+          "tag": "SK_LNG",
+          "subtag": "Techna-Lingua"
+        },
+        {
+          "tag": "SK_TECH"
+        },
+        {
+          "tag": "SK_TRD",
+          "subtag": "Technomat"
+        }
+      ],
+      "traits": ["TR_MECH_IMPL"],
+      "talents": [],
+      "choices": [
+        [
+          {
+            "tag": "A_T"
+          },
+          {
+            "tag": "A_PER"
+          }
+        ],
+        [
+          {
+            "tag": "TL_WPT",
+            "subtag": "Bolt"
+          },
+          {
+            "tag": "TL_WPT",
+            "subtag": "Las"
+          }
+        ],
+        [
+          {
+            "tag": "TL_WPT",
+            "subtag": "Shock"
+          },
+          {
+            "tag": "TL_WPT",
+            "subtag": "Power"
+          }
+        ]
+      ],
+      "commands": []
+    },
+    {
+      "tag": "CR_",
+      "name": {
+        "ru": "Миссионер",
+        "en": "Missionary"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "aptitudes": ["A_LDR", "A_OFF"],
+      "skills": [
+        {
+          "tag": "SK_CML",
+          "subtag": "Imperial Creed"
+        },
+        {
+          "tag": "SK_CML",
+          "subtag": "Imperium"
+        },
+        {
+          "tag": "SK_FBL",
+          "subtag": "Heresy"
+        },
+        {
+          "tag": "SK_MED"
+        },
+        {
+          "tag": "SK_SCL",
+          "subtag": "Imperial Creed"
+        },
+        {
+          "tag": "SK_LNG",
+          "subtag": "High Gothic"
+        },
+        {
+          "tag": "SK_LNG",
+          "subtag": "Low Gothic"
+        }
+      ],
+      "traits": ["TR_PRFT"],
+      "talents": [
+        {
+          "tag": "TL_WPT",
+          "subtag": "Flame"
+        },
+        {
+          "tag": "TL_WPT",
+          "subtag": "Chain"
+        },
+        {
+          "tag": "TL_USFT"
+        }
+      ],
+      "choices": [
+        [
+          {
+            "tag": "A_WS"
+          },
+          {
+            "tag": "A_FEL"
+          }
+        ],
+        [
+          {
+            "tag": "A_WP"
+          },
+          {
+            "tag": "A_STR"
+          }
+        ]
+      ],
+      "commands": []
+    },
+    {
+      "tag": "CR_SNSL",
+      "name": {
+        "ru": "Сенешаль",
+        "en": "Seneshal"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [
+        {
+          "tag": "CR_SNSL_H1",
+          "description": {
+            "ru": "Персонаж может потратить Очко Судьбы, чтобы автоматически пройти проверку Логики, Знаний или Шифров, затратив минимально необходимое время.",
+            "en": "Character can spend a Fate Point to automatically succeed in any Logic, Lore or Ciphers test, spending minimal time required"
+          },
+          "targets": ["SK_CML", "SK_SCL", "SK_FBL", "FP"]
+        },
+        {
+          "tag": "CR_SNSL_H2",
+          "description": {
+            "ru": "Персонаж получает одну дополнительную Степень Успеха при успешном прохождении проверок Дознания или Коммерции",
+            "en": "Character adds one bonus Degee of Success to any successful Commerce or Inquiry test"
+          },
+          "targets": ["SK_CMR", "SK_INQ"]
+        }
+      ],
+      "aptitudes": ["A_FEL", "A_INT", "A_SOC", "A_KNG"],
+      "skills": [
+        {
+          "tag": "SK_AWR"
+        },
+        {
+          "tag": "SK_CMR"
+        },
+        {
+          "tag": "SK_CML",
+          "subtag": "Underworld"
+        },
+        {
+          "tag": "SK_DCV"
+        },
+        {
+          "tag": "SK_FBL",
+          "subtag": "Archeotech"
+        },
+        {
+          "tag": "SK_INQ"
+        },
+        {
+          "tag": "SK_LIT"
+        },
+        {
+          "tag": "SK_LNG",
+          "subtag": "Low Gothic"
+        },
+        {
+          "tag": "SK_LNG",
+          "subtag": "High Gothic"
+        },
+        {
+          "tag": "SK_LNG",
+          "subtag": "Trader's Cant"
+        }
+      ],
+      "traits": [],
+      "talents": [
+        {
+          "tag": "TL_WPT",
+          "subtag": "Las"
+        }
+      ],
+      "choices": [
+        [
+          {
+            "tag": "TL_WPT",
+            "subtag": "Melta"
+          },
+          {
+            "tag": "TL_WPT",
+            "subtag": "Bolt"
+          }
+        ]
+      ],
+      "commands": []
+    },
+    {
+      "tag": "CR_VDMS",
+      "name": {
+        "ru": "Войдмастер",
+        "en": "Void-master"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "aptitudes": ["A_FLD", "A_TECH", "A_AG"],
+      "skills": [
+        {
+          "tag": "SK_CML",
+          "subtag": "Imperial Navy"
+        },
+        {
+          "tag": "SK_CML",
+          "subtag": "War"
+        },
+        {
+          "tag": "SK_FBL",
+          "subtag": "Xenos"
+        },
+        {
+          "tag": "SK_NVG",
+          "subtag": "Stellar"
+        },
+        {
+          "tag": "SK_OPR",
+          "subtag": "Spacecraft"
+        },
+        {
+          "tag": "SK_OPR",
+          "subtag": "Flyers"
+        },
+        {
+          "tag": "SK_SCL",
+          "subtag": "Astromancy"
+        },
+        {
+          "tag": "SK_LNG",
+          "subtag": "Low Gothic"
+        }
+      ],
+      "traits": [],
+      "talents": [
+        {
+          "tag": "TL_NOS"
+        },
+        {
+          "tag": "TL_WPT",
+          "subtag": "Power"
+        }
+      ],
+      "choices": [
+        [
+          {
+          "tag": "A_INT"
+          },
+          {
+            "tag": "A_BS"
+          }
+        ],
+        [
+          {
+            "tag": "TL_WPT",
+            "subtag": "Solid projectile"
+          },
+          {
+            "tag": "TL_WPT",
+            "subtag": "Bolt"
+          }
+        ]
+      ],
+      "commands": []
+    }
+  ]
+}

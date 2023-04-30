@@ -1,15 +1,3 @@
-{% extends 'charlist_main.html' %}
-
-{% load filters %}
-
-{% block pg_title %}
-Character sheet interactive mockup
-{% endblock %}
-
-{% block title %}
-Макет листа персонажа ver.{{ version }}
-{% endblock %}
-
 {% block app_content %}
 <div class="charlist_container">
     <div>
@@ -141,9 +129,7 @@ Character sheet interactive mockup
                 <header class="text-center">
                     <h4>{% if lang == 'ru' %}Боевой листок{% else %}Combat card{% endif %}</h4>
                 </header>
-                <div class="">
-                    <h5>W. I. P.</h5>
-                </div>
+                {% include 'combat_card_widget.html' %}
             </div>
         </div>
     </div>

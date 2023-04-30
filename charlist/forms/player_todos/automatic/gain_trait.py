@@ -1,3 +1,4 @@
+import charlist.constants.tags
 from charlist.character.character import CharacterModel
 from charlist.forms.player_todos.base_command import BaseCommand
 from charlist.flyweights.flyweights import Facade
@@ -23,6 +24,8 @@ class GainTraitCommand(BaseCommand):
                 if not taken.isnumeric():
                     if taken == 'CPB':
                         taken = character.corruption_bonus()
+                    if taken == 'WPB':
+                        taken = character.stats().get(charlist.constants.tags.ST_WILLPOWER).bonus()
                     if 'modifier' in data.keys():
                         taken = round(taken * data.get('modifier'))
             if tr.is_specialist():

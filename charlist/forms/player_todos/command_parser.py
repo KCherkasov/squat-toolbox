@@ -1,15 +1,13 @@
-from charlist.character.character import CharacterModel
-from charlist.flyweights.flyweights import Facade
 from charlist.forms.player_todos.automatic.decrease_stat_fix import DecreaseStatFixCommand
-from charlist.forms.player_todos.automatic.gain_fix_disorder import GainFixDisorderCommand
-from charlist.forms.player_todos.automatic.gain_talent import GainTalentCommand
-from charlist.forms.player_todos.automatic.increase_stat_fix import IncreaseStatFixCommand
-from charlist.forms.player_todos.automatic.gain_elite_advance import GainEliteAdvanceCommand
-from charlist.forms.player_todos.automatic.gain_pr import GainPRCommand
-from charlist.forms.player_todos.automatic.gain_fate import GainFateCommand
 from charlist.forms.player_todos.automatic.gain_aptitude import GainAptitudeCommand
-from charlist.forms.player_todos.automatic.increase_pr import IncreasePRCommand
+from charlist.forms.player_todos.automatic.gain_elite_advance import GainEliteAdvanceCommand
+from charlist.forms.player_todos.automatic.gain_fate import GainFateCommand
+from charlist.forms.player_todos.automatic.gain_fix_disorder import GainFixDisorderCommand
+from charlist.forms.player_todos.automatic.gain_pr import GainPRCommand
+from charlist.forms.player_todos.automatic.gain_talent import GainTalentCommand
 from charlist.forms.player_todos.automatic.gain_trait import GainTraitCommand
+from charlist.forms.player_todos.automatic.increase_pr import IncreasePRCommand
+from charlist.forms.player_todos.automatic.increase_stat_fix import IncreaseStatFixCommand
 from charlist.forms.player_todos.command_tags import *
 from charlist.forms.player_todos.manual.decrease_stat_alt_form import DecreaseStatAltForm
 from charlist.forms.player_todos.manual.decrease_stat_roll_form import DecreaseStatRollForm
@@ -26,6 +24,7 @@ from charlist.forms.player_todos.manual.get_trauma_ip_form import GetTraumaIPFor
 from charlist.forms.player_todos.manual.increase_stat_alt_form import IncreaseStatAltForm
 from charlist.forms.player_todos.manual.increase_stat_roll_form import IncreaseStatRollForm
 
+
 # TODO: check conditional commands and alter where needed!
 
 
@@ -39,7 +38,7 @@ class Reminder(object):
 
 
 class CommandParser(object):
-    def __init__(self, facade: Facade):
+    def __init__(self, facade):
         super(CommandParser, self).__init__()
         self.__facade = facade
         self.__commands = CommandParser.make_commands(facade)
@@ -79,11 +78,21 @@ class CommandParser(object):
                 return True
         return False
 
-    def condition_met(self, character: CharacterModel, data):
+    def is_career_condition(self, data):
+        if self.is_conditional(data):
+            if data.get('condition').get('tag')[:2] == "CR":
+                return True
+        return False
+
+    def condition_met(self, character, data):
         result = None
         if self.is_conditional(data):
-            if self.is_background_condition(data):
-                result = character.bg_id() == data.get('condition').get('tag')
+            if character.is_rt():
+                if self.is_career_condition(data):
+                    result = character.career_id() == data.get('condition').get('tag')
+            else:
+                if self.is_background_condition(data):
+                    result = character.bg_id() == data.get('condition').get('tag')
             if self.is_talent_condition(data):
                 if self.__facade.talent_descriptions().get(data.get('condition').get('tag')).is_specialist():
                     if 'subtag' in data.get('condition').keys():
@@ -122,7 +131,7 @@ class CommandParser(object):
             return not result
         return False
 
-    def make_reminder(self, cmd, character: CharacterModel):
+    def make_reminder(self, cmd, character):
         reminder = None
         form = None
         colour = 'info'
@@ -174,7 +183,7 @@ class CommandParser(object):
         reminder = Reminder(cmd.get('command'), form, self.__links[cmd.get('command')], colour, cmd.get('cmd_id'))
         return reminder
 
-    def process_character(self, character: CharacterModel):
+    def process_character(self, character):
         completed = list()
         for command in character.pending():
             if command.get('command') in self.__commands.keys():
@@ -190,7 +199,7 @@ class CommandParser(object):
         return character
 
     @classmethod
-    def make_commands(cls, facade: Facade):
+    def make_commands(cls, facade):
         commands = dict()
 
         commands[INC_STAT_FIX] = IncreaseStatFixCommand(facade)

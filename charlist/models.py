@@ -6,6 +6,7 @@ from django.urls import reverse
 
 import charlist.character.character
 from charlist.character.json.decoders.character_decoder import CharacterDecoder
+from charlist.character.rt_creation_data import RTCreationDataModel
 from urllib.parse import unquote
 import json
 
@@ -76,6 +77,7 @@ class Character(models.Model):
     creation_date = models.DateField(auto_now_add=True)
     character_data = models.CharField(max_length=2500)
     notes = models.TextField(max_length=10000, default="")
+    is_rt = models.BooleanField(default=False)
 
     objects = CharacterManager()
 
@@ -164,6 +166,26 @@ class CreationData(models.Model):
 
     def get_delete_url(self):
         return unquote(reverse('char-data-delete', kwargs={'creation_id': self.pk}), encoding='utf-8', errors='replace')
+
+
+class RTCreationData(models.Model):
+    owner = models.ForeignKey(CharsheetUser, on_delete=models.CASCADE)
+    last_mod_date = models.DateField(auto_now_add=True)
+    curr_stage = models.CharField(max_length=15, default='init')
+    name = models.CharField(max_length=50, default='')
+
+    character_data = models.CharField(max_length=2500)
+
+    objects = CreationDataManager()
+
+    def data_to_model(self):
+        return RTCreationDataModel.from_json(str(self.character_data))
+
+    def get_edit_url(self):
+        return unquote(reverse('rt-char-data-edit', kwargs={'creation_id': self.pk}), encoding='utf-8', errors='replace')
+
+    def get_delete_url(self):
+        return unquote(reverse('rt-char-data-delete', kwargs={'creation_id': self.pk}), encoding='utf-8', errors='replace')
 
 
 class LogEntry(models.Model):

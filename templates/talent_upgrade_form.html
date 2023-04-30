@@ -1,0 +1,82 @@
+{% block loaders %}
+    {% load filters %}
+{% endblock %}
+
+{% for err in form.non_field_errors %}
+    <div class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        {{ err }}
+    </div>
+{% endfor %}
+
+<div class="card card-body charlist-content justify-content-center align-items-center alert-{{ form.colour }} w300">
+    <div>
+        <a href="" class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
+                           data-bs-target="#c{{character.id}}-{{ talent_key }}-{{ lang }}-upg-info" title="Подробнее">
+            <b class="text-dark">{{ facade|get_talent_description:form.tl_tag|get_tldescr_name:lang }}</b>
+        </a>
+    </div>
+
+    <div class="modal fade" id="c{{character.id}}-{{ talent_key }}-{{ lang }}-upg-info" tabindex="-1"
+         aria-labelledby="c{{character.id}}-{{ talent_key }}-{{ lang }}-upg-info-label">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <b id="c{{character.id}}-{{ talent_key }}-{{ lang }}-upg-info-label">
+                        {{ facade|get_talent_description:form.tl_tag|get_tldescr_name:lang }}
+                    </b>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="charlist-inline">
+                        <div>
+                            <b class="text-dark">
+                                <i>{% if lang == 'ru' %}Эффекты{% else %}Effects{% endif %}</i>
+                            </b>
+                        </div>
+                    </div>
+                    <div>
+                        {% for hint in facade|get_talent_description:form.tl_tag|get_tldescr_hints %}
+                            <div class="card card-body">
+                                <p class="card-text">{{ hint|get_hint_description:lang }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="charlist-inline">
+                        <b>
+                            <i>{% if lang == 'ru' %}Описание{% else %}Description{% endif %}</i>
+                        </b>
+                    </div>
+                    <div class="card card-body">
+                        <p class="card-text">
+                            {{ facade|get_talent_description:form.tl_tag|get_tldescr_description:lang }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form class="form-horizontal" method="post" action="">
+        {% csrf_token %}
+        <div class="charlist-inline align-items-center mb-1">
+            <div>
+                <b class="text-dark">
+                    {% if form.taken >= 0 %}{{ form.taken }}&nbsp;>>&nbsp;{{ form.taken_new }}{%endif%}
+                </b>
+            </div>
+
+            <input type="hidden" name="tl_tag" value="{{ form.tl_tag }}">
+            <input type="hidden" name="cost" value="{{ form.cost }}">
+            <button class="btn btn-primary {% if form.cost > character.xp_current or talent_unavailable %}disabled{%endif%} ms-4"
+                    name="upg-talent-confirm" type="submit">
+                {{ form.cost }}&nbsp;XP
+            </button>
+        </div>
+        {% if talent_unavailable %}
+            {% include 'prerequisites_widget.html' %}
+        {% endif %}
+    </form>
+</div>

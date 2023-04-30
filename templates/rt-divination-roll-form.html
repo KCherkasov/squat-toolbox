@@ -1,0 +1,51 @@
+{% block loaders %}
+{% load filters %}
+{% endblock %}
+
+<div class="page-header text-center">
+    <h3>Stage 6: divination, fate and wound rolls</h3>
+    <span class="form-control"><meter max="6" value="6"></meter></span>
+</div>
+<hr/>
+{% for err in form.non_field_errors %}
+<div class="alert alert-danger" role="alert">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    {{ err }}
+</div>
+{% endfor %}
+<div class="charlist-content justify-content-center">
+    <form class="form-horizontal" method="post" action="">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="form-group charlist-inline justify-content-center mt-2">
+            <label for="{{ field.name }}" class="col-sm-2 control-label">
+                {{ field.label }}
+                {% if field.name == 'fate_roll' %}
+                    &nbsp;(extra fate on&nbsp;{{ form.min_blesing }}+)
+                {% endif %}
+            </label>
+            <div class="col-sm-5 charlist-inline justify-content-center ms-2">
+                {% if field.name == 'wounds_roll' %}
+                    <div class="btn btn-outline-dark disabled">
+                        <p>{{ field.base_wounds }}</p>
+                    </div>
+                {% endif %}
+                {%if field.name == 'blessing_roll' %}
+                {% endif %}
+                    {{ field }}
+            </div>
+        </div>
+        {% endfor %}
+        <div class="form-group charlist-inline justify-content-center mt-2">
+            <div class="col-sm-offset-2 col-sm-2">
+                <button type="submit" class="btn btn-primary" name="char-div-next">Далее</button>
+            </div>
+            <div class="col-sm-offset-2 col-sm-2">
+                <button type="submit" class="btn btn-primary" name="char-div-prev">Назад</button>
+            </div>
+            <div class="col-sm-offset-2 col-sm-2">
+                <a class="btn btn-danger" href="{% url 'characters-list' %}">Отмена</a>
+            </div>
+        </div>
+    </form>
+</div>

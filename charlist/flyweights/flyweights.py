@@ -100,6 +100,13 @@ class Facade:
         mutations = MutationDescription.from_file(
             json.load(open(prefix + resources_paths[11], 'r', encoding='utf-8')))
         self.__mutations = to_map(mutations)
+        self.__psy_schools = dict()  # TODO: fill psy powers resource and plug it here
+        self.__power_types = dict()  # TODO: fill power types resource and plut it here
+        self.__psy_powers = dict()  # TODO: fill psy powers resource and plug it here
+        self.__combat_actions = dict()  # TODO: fill combat actions resource and plug it here
+        self.__action_types = dict()  # TODO: fill action types resource and plug it here
+        self.__keywords = dict()
+
         self.__spec_skills_subtags = SUBTAG_SKILLS_MAP
         self.__st_adv_range = range(1, 6)
         self.__sk_adv_range = range(1, 5)
@@ -145,6 +152,24 @@ class Facade:
     def mutations(self):
         return self.__mutations
 
+    def psy_powers(self):
+        return self.__psy_powers
+
+    def psy_schools(self):
+        return self.__psy_schools
+
+    def psy_types(self):
+        return self.__power_types
+
+    def combat_actions(self):
+        return self.__combat_actions
+
+    def action_types(self):
+        return self.__action_types
+
+    def keywords(self):
+        return self.__keywords
+
     def spec_skills_subtags(self):
         return self.__spec_skills_subtags
 
@@ -182,6 +207,9 @@ class Facade:
         if matches == 1:
             return round(cost * 1.5)
         return cost
+
+    def pr_upg_cost(self, pr: int):
+        return pr * 200
 
     def count_stat_apt_matches(self, st_tag: str, apts: List[str]):
         res = 0

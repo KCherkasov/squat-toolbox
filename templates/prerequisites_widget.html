@@ -1,0 +1,277 @@
+{% block loaders %}
+    {% load filters %}
+{% endblock %}
+
+<div>
+    <div class="text-center">
+        <b>{% if lang == 'ru' %}Требования{% else %}Prerequisites{%%}</b>
+    </div>
+    {% with facade.talent_descriptions|get_by_dict_key:form.tl_tag as tal %}
+    <ul>
+        {% for prereq in tal.get_prerequisites %}
+        <li>
+            {% if prereq.is_stat_prereq %}
+                {{ facade.stat_descriptions|get_by_dict_key:prereq.tag|get_stdescr_name:lang }}&nbsp;>=&nbsp;{{ prereq.value }}
+            {% endif %}
+            {% if prereq.is_skill_prereq %}
+                {% if prereg.tag != 'SK_ANY' %}
+                    {{ facade.skill_descriptions|get_by_dict_key:prereq.tag|get_skdescr_name:lang }}
+                    {% if prereq.has_subtag %}
+                        (
+                        {% for subtag prereq.subtag %}
+                            {{ subtag }}
+                            {% if not forloop.last %}
+                                &nbsp;/&nbsp;
+                            {% endif %}
+                        {% endfor %}
+                        )
+                    {% endif %}
+                {% else %}
+                    {% if lang == 'ru' %}Любой навык{% else %}Any skill{% endif %}
+                {% endif %}
+                &nbsp;>=&nbsp;+{{ prereq.value }}
+            {% endif %}
+            {% if prereq.is_talent_prereq %}
+                {{ facade.talent_descriptions|get_by_dict_key:prereq.tag|get_tldescr_name:lang }}
+                {% if prereq.has_subtag %}
+                    (
+                    {% for subtag prereq.subtag %}
+                        {{ subtag }}
+                        {% if not forloop.last %}
+                            &nbsp;/&nbsp;
+                        {% endif %}
+                    {% endfor %}
+                    )
+                {% endif %}
+                {% if prereq.value > 1 %}
+                    &nbsp;>=&nbsp;{{ prereq.value }}
+                {% endif %}
+            {% endif %}
+            {% if prereq.is_role_prereq %}
+                {% if lang == 'ru' %}Роль{% else %}Role{% endif %}:&nbsp;{{ facade.roles|get_by_dict_name:prereq.tag|get_role_name:lang }}
+            {% endif %}
+            {% if prereq.is_background_prereq %}
+                {% if lang == 'ru' %}Предыстория{% else %}Background{% endif %}:&nbsp;{{ facade.backgrounds|get_by_dict_name:prereq.tag|get_bg_name:lang }}
+            {% endif %}
+            {% if prereq.is_ea_prereq %}
+                {% if prereq.value == 0 %}
+                    {% if lang == 'ru' %}Не иметь элитного улучшения{% else %}Not have elite advance{% endif %}&nbsp;
+                {% endif %}
+                {{ facade.elite_advances|get_by_dict_key:prereq.tag|get_ea_name:lang }}
+            {% endif %}
+            {% if prereq.is_trait_prereq %}
+                {{ facade.trait_descriptions|get_by_dict_key:prereq.tag|get_trdescr_name:lang }}
+                {% if prereq.has_subtag %}
+                    (
+                    {% for subtag in prereq.subtag %}
+                        {{ subtag }}
+                        {% if not forloop.last %}&nbsp;/&nbsp;{% endif %}
+                    {% endfor %}
+                    )
+                {% endif %}
+                {% if prereq.value > 1 %}
+                    &nbsp;>=&nbsp;{{ prereq.value }}
+                {% endif %}
+            {% endif %}
+            {% if prereq.is_homeworld_prereq %}
+                {% if lang == 'ru' %}Родной мир{% else %}Homeworld{% endif %}:&nbsp;{{ facade.homeworlds|get_by_dict_key:prereq.tag|get_hw_name:lang }}
+            {% endif %}
+            {% if prereq.is_pr_prereq %}
+                {% if lang == 'ru' %}Пси-рейтинг{% else %}Psy-rating{% endif %}&nbsp;>=&nbsp;{{ prereq.value }}
+            {% endif %}
+            {% if prereq.is_psy_power_prereq %}
+                {{ facade.psy_powers|get_by_dict_key:prereq.tag|get_pp_name:lang }}
+            {% endif %}
+            {% if prereq.is_insanity_prereq %}
+                {% if lang == 'ru' %}Очки безумия{% else %}Insanity points{% endif %}:&nbsp;>=&nbsp;{{ prereq.value }}
+            {% endif %}
+            {% if prereq.is_corruption_prereq %}
+                {% if lang == 'ru' %}Очки порчи{% else %}Corruption points{% endif %}:&nbsp;>=&nbsp;{{ prereq.value }}
+            {% endif %}
+            {% if prereq.has_alt %}
+                <br>
+                {% if lang == 'ru' %}Или{% else %}Or{% endif %}:
+                <br>
+                <ul>
+                    {% if prereq.is_alt_list %}
+                        {% for alt in prereq.get_alt %}
+                            <li>
+                                {% with alt|get_by_dict_key:'tag' as alt_tag %}
+                                {% with alt|get_by_dict_key:'value' as alt_value %}
+                                {% if alt_tag|starts_with:'ST' %}
+                                    {{ facade.stat_descriptions|get_by_dict_key:alt_tag|get_stdescr_name:lang }}&nbsp;>=&nbsp;{{ alt_value }}
+                                {% endif %}
+                                {% if alt_tag|starts_with:'SK' %}
+                                    {% if alt_tag != 'SK_ANY' %}
+                                        {{ facade.skill_descriptions|get_by_dict_key:alt_tag|get_skdescr_name:lang }}
+                                        {% if alt.has_key:'subtag' %}
+                                            (
+                                            {% for subtag alt|get_by_dict_key:'subtag' %}
+                                                {{ subtag }}
+                                                {% if not forloop.last %}
+                                                    &nbsp;/&nbsp;
+                                                {% endif %}
+                                            {% endfor %}
+                                            )
+                                        {% endif %}
+                                    {% else %}
+                                        {% if lang == 'ru' %}Любой навык{% else %}Any skill{% endif %}
+                                    {% endif %}
+                                    &nbsp;>=&nbsp;+{{ prereq.value }}
+                                {% endif %}
+                                {% if alt_tag|starts_with:'TL' %}
+                                    {{ facade.talent_descriptions|get_by_dict_key:alt_tag|get_tldescr_name:lang }}
+                                    {% if alt|has_key:'subtag' %}
+                                        (
+                                        {% for subtag alt|get_by_dict_key:'subtag' %}
+                                            {{ subtag }}
+                                            {% if not forloop.last %}
+                                                &nbsp;/&nbsp;
+                                            {% endif %}
+                                        {% endfor %}
+                                        )
+                                    {% endif %}
+                                    {% if alt_value > 1 %}
+                                        &nbsp;>=&nbsp;{{ alt_value }}
+                                    {% endif %}
+                                {% endif %}
+                                {% if alt_tag|starts_with:'RL' or alt_tag|starts_with:'CR' %}
+                                    {% if lang == 'ru' %}Роль{% else %}Role{% endif %}:&nbsp;{{ facade.roles|get_by_dict_name:alt_tag|get_role_name:lang }}
+                                {% endif %}
+                                {% if alt_tag|starts_with:'BG' %}
+                                    {% if lang == 'ru' %}Предыстория{% else %}Background{% endif %}:&nbsp;{{ facade.backgrounds|get_by_dict_name:alt_tag|get_bg_name:lang }}
+                                {% endif %}
+                                {% if alt_tag|starts_with:'EA' %}
+                                    {% if prereq.value == 0 %}
+                                        {% if lang == 'ru' %}Не иметь элитного улучшения{% else %}Not have elite advance{% endif %}&nbsp;
+                                    {% endif %}
+                                    {{ facade.elite_advances|get_by_dict_key:alt_tag|get_ea_name:lang }}
+                                {% endif %}
+                                {% if alt_tag|starts_with:'TR' %}
+                                    {{ facade.trait_descriptions|get_by_dict_key:alt_tag|get_trdescr_name:lang }}
+                                    {% if alt|has_key:'subtag' %}
+                                        (
+                                        {% for subtag in alt|get_by_dict_key:'subtag' %}
+                                            {{ subtag }}
+                                            {% if not forloop.last %}&nbsp;/&nbsp;{% endif %}
+                                        {% endfor %}
+                                        )
+                                    {% endif %}
+                                    {% if alt_value > 1 %}
+                                        &nbsp;>=&nbsp;{{ alt_value }}
+                                    {% endif %}
+                                {% endif %}
+                                {% if alt_tag|starts_with:'HW' %}
+                                    {% if lang == 'ru' %}Родной мир{% else %}Homeworld{% endif %}:&nbsp;{{ facade.homeworlds|get_by_dict_key:alt_tag|get_hw_name:lang }}
+                                {% endif %}
+                                {% if alt_tag == 'PR' %}
+                                    {% if lang == 'ru' %}Пси-рейтинг{% else %}Psy-rating{% endif %}&nbsp;>=&nbsp;{{ prereq.value }}
+                                {% endif %}
+                                {% if alt_tag|starts_with:'PP' %}
+                                    {{ facade.psy_powers|get_by_dict_key:alt_tag|get_pp_name:lang }}
+                                {% endif %}
+                                {% if alt_tag == 'IP' %}
+                                    {% if lang == 'ru' %}Очки безумия{% else %}Insanity points{% endif %}:&nbsp;>=&nbsp;{{ prereq.value }}
+                                {% endif %}
+                                {% if alt_tag == 'CP' %}
+                                    {% if lang == 'ru' %}Очки порчи{% else %}Corruption points{% endif %}:&nbsp;>=&nbsp;{{ prereq.value }}
+                                {% endif %}
+                                {% if not forloop.last}<br>{%if lang == 'ru'%}Или{% else %}Or{% endif %}<br>{% endif %}
+                                {% endwith %}
+                                {% endwith %}
+                            </li>
+                        {% endfor %}
+                    {% else %}
+                        <li>
+                            {% with alt|get_by_dict_key:'tag' as alt_tag %}
+                                {% with alt|get_by_dict_key:'value' as alt_value %}
+                                {% if alt_tag|starts_with:'ST' %}
+                                    {{ facade.stat_descriptions|get_by_dict_key:alt_tag|get_stdescr_name:lang }}&nbsp;>=&nbsp;{{ alt_value }}
+                                {% endif %}
+                                {% if alt_tag|starts_with:'SK' %}
+                                    {% if alt_tag != 'SK_ANY' %}
+                                        {{ facade.skill_descriptions|get_by_dict_key:alt_tag|get_skdescr_name:lang }}
+                                        {% if alt.has_key:'subtag' %}
+                                            (
+                                            {% for subtag alt|get_by_dict_key:'subtag' %}
+                                                {{ subtag }}
+                                                {% if not forloop.last %}
+                                                    &nbsp;/&nbsp;
+                                                {% endif %}
+                                            {% endfor %}
+                                            )
+                                        {% endif %}
+                                    {% else %}
+                                        {% if lang == 'ru' %}Любой навык{% else %}Any skill{% endif %}
+                                    {% endif %}
+                                    &nbsp;>=&nbsp;+{{ prereq.value }}
+                                {% endif %}
+                                {% if alt_tag|starts_with:'TL' %}
+                                    {{ facade.talent_descriptions|get_by_dict_key:alt_tag|get_tldescr_name:lang }}
+                                    {% if alt|has_key:'subtag' %}
+                                        (
+                                        {% for subtag alt|get_by_dict_key:'subtag' %}
+                                            {{ subtag }}
+                                            {% if not forloop.last %}
+                                                &nbsp;/&nbsp;
+                                            {% endif %}
+                                        {% endfor %}
+                                        )
+                                    {% endif %}
+                                    {% if alt_value > 1 %}
+                                        &nbsp;>=&nbsp;{{ alt_value }}
+                                    {% endif %}
+                                {% endif %}
+                                {% if alt_tag|starts_with:'RL' or alt_tag|starts_with:'CR' %}
+                                    {% if lang == 'ru' %}Роль{% else %}Role{% endif %}:&nbsp;{{ facade.roles|get_by_dict_name:alt_tag|get_role_name:lang }}
+                                {% endif %}
+                                {% if alt_tag|starts_with:'BG' %}
+                                    {% if lang == 'ru' %}Предыстория{% else %}Background{% endif %}:&nbsp;{{ facade.backgrounds|get_by_dict_name:alt_tag|get_bg_name:lang }}
+                                {% endif %}
+                                {% if alt_tag|starts_with:'EA' %}
+                                    {% if prereq.value == 0 %}
+                                        {% if lang == 'ru' %}Не иметь элитного улучшения{% else %}Not have elite advance{% endif %}&nbsp;
+                                    {% endif %}
+                                    {{ facade.elite_advances|get_by_dict_key:alt_tag|get_ea_name:lang }}
+                                {% endif %}
+                                {% if alt_tag|starts_with:'TR' %}
+                                    {{ facade.trait_descriptions|get_by_dict_key:alt_tag|get_trdescr_name:lang }}
+                                    {% if alt|has_key:'subtag' %}
+                                        (
+                                        {% for subtag in alt|get_by_dict_key:'subtag' %}
+                                            {{ subtag }}
+                                            {% if not forloop.last %}&nbsp;/&nbsp;{% endif %}
+                                        {% endfor %}
+                                        )
+                                    {% endif %}
+                                    {% if alt_value > 1 %}
+                                        &nbsp;>=&nbsp;{{ alt_value }}
+                                    {% endif %}
+                                {% endif %}
+                                {% if alt_tag|starts_with:'HW' %}
+                                    {% if lang == 'ru' %}Родной мир{% else %}Homeworld{% endif %}:&nbsp;{{ facade.homeworlds|get_by_dict_key:alt_tag|get_hw_name:lang }}
+                                {% endif %}
+                                {% if alt_tag == 'PR' %}
+                                    {% if lang == 'ru' %}Пси-рейтинг{% else %}Psy-rating{% endif %}&nbsp;>=&nbsp;{{ prereq.value }}
+                                {% endif %}
+                                {% if alt_tag|starts_with:'PP' %}
+                                    {{ facade.psy_powers|get_by_dict_key:alt_tag|get_pp_name:lang }}
+                                {% endif %}
+                                {% if alt_tag == 'IP' %}
+                                    {% if lang == 'ru' %}Очки безумия{% else %}Insanity points{% endif %}:&nbsp;>=&nbsp;{{ prereq.value }}
+                                {% endif %}
+                                {% if alt_tag == 'CP' %}
+                                    {% if lang == 'ru' %}Очки порчи{% else %}Corruption points{% endif %}:&nbsp;>=&nbsp;{{ prereq.value }}
+                                {% endif %}
+                                {% if not forloop.last}<br>{%if lang == 'ru'%}Или{% else %}Or{% endif %}<br>{% endif %}
+                                {% endwith %}
+                                {% endwith %}
+                        </li>
+                    {% endif %}
+                </ul>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endwith %}
+</div>

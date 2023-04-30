@@ -1,0 +1,14 @@
+{% block loaders %}
+    {% load filters %}
+{% endblock %}
+
+{% with facade.lures|get_by_dict_key:character.lure_id as lure %}
+<div class="charlist-inline">
+    <div>
+        <b>
+            {% if lang == 'ru' %}Соблазн Пустоты{% else %}Lure of the Void{% endif %}:&nbsp;
+            <i>{{ lure.name|get_by_dict_key:lang }}</i>
+        </b>
+    </div>
+</div>
+{% endif %}

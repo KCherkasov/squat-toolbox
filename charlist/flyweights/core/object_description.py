@@ -11,6 +11,9 @@ class ObjectDescription(NamelessDescription):
         super().__init__(tag, description)
         self.__name = name
 
+    def name(self):
+        return self.__name
+
     def get_name(self, lang=RU):
         return self.__name.get(lang)
 

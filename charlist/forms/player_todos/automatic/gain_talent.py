@@ -1,18 +1,15 @@
-from charlist.character.character import CharacterModel
 from charlist.forms.player_todos.base_command import BaseCommand
 from charlist.forms.player_todos.command_tags import *
-from charlist.flyweights.flyweights import Facade
-from charlist.forms.player_todos.automatic.increase_stat_fix import IncreaseStatFixCommand
 
 
 class GainTalentCommand(BaseCommand):
-    def __init__(self, facade: Facade):
+    def __init__(self, facade):
         super(GainTalentCommand, self).__init__(GET_TALENT_FIX, facade)
 
     def is_automatic(self):
         return True
 
-    def do_logic(self, character: CharacterModel, data=None):
+    def do_logic(self, character, data=None):
         if data is not None:
             if 'tag' in data.keys():
                 talent = self.get_facade().talent_descriptions().get(data.get('tag'))

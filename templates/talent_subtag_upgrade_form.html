@@ -1,0 +1,42 @@
+{% block loaders %}
+    {% load filters %}
+{% endblock %}
+
+{% for err in form.non_field_errors %}
+    <div class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        {{ err }}
+    </div>
+{% endfor %}
+    <form class="form-horizontal alert-{{ colour }}" method="post" action="">
+        {% csrf_token %}
+        <div class="charlist-inline align-items-center mb-1">
+            <input type="hidden" name="tl_tag" value="{{ form.tl_tag }}">
+            <input type="hidden" name="subtag_tl" value="{{ form.subtag }}">
+            {% if form.subtag_skill == 'SK_ANY' %}
+                {% for field in form %}
+                <div class="form-group charlist-inline align-items-center">
+                    <div class="col-sm-5 ms-2">
+                        {{ field }}
+                    </div>
+                </div>
+                {% endfor %}
+            {% endif %}
+                <div class="ms-2">
+                    <b class="text-dark">
+                        {% if form.subtag_skill != 'SK_ANY' %}
+                            {{ form.subtag }}&nbsp;
+                        {% endif %}
+                        {% if form.taken >= 0 %}
+                            {{ form.taken }}&nbsp;>>&nbsp;
+                        {% endif %}
+                        {{ form.taken_new }}
+                    </b>
+                </div>
+            <input type="hidden" name="cost" value="{{ form.cost }}">
+            <button class="btn btn-primary {% if form.cost > character.xp_current %}disabled{%endif%} ms-4"
+                    name="upg-tl-subtag-confirm" type="submit">
+                {{ form.cost }}&nbsp;XP
+            </button>
+        </div>
+    </form>

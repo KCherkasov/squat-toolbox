@@ -1,11 +1,10 @@
 from abc import ABC, abstractmethod
 
 from charlist.character.character import CharacterModel
-from charlist.flyweights.flyweights import Facade
 
 
 class BaseCommand(ABC):
-    def __init__(self, tag: str, facade: Facade):
+    def __init__(self, tag: str, facade):
         super(BaseCommand, self).__init__()
         self.__tag = tag
         self.__facade = facade
@@ -50,7 +49,7 @@ class BaseCommand(ABC):
                 return True
         return False
 
-    def condition_met(self, character: CharacterModel, data):
+    def condition_met(self, character, data):
         result = None
         if self.is_conditional(data):
             if self.is_background_condition(data):

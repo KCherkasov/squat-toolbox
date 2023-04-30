@@ -1102,6 +1102,20 @@
       ],
       "is_stackable": false,
       "is_specialist": false
+    },
+    {
+      "tag": "TR_PRFT",
+      "name": {
+        "ru": "Чистая вера",
+        "en": "Pure Faith"
+      },
+      "description": {
+        "ru": "Вера персонажа в Бога-Императора Человечества, его божественную силу и благодать тотальна и завершена. Эта вера окутывает его и наполняет его душу, защищая от порочного влияния и оружия еретиков. \nЧистая Вера даёт следующие преимущества: Персонаж невосприимчив к эффектам Демонического Присутствия, включая негативные модификаторы его Силы Воли.\nИсследователь может потратить Очко Судьбы, чтобы не проходить тесты на Страх, не набирать очки Безумия и не получать очков Порчи. Эти меры предосторожности сохраняются на время столкновения.\nИсследователь может сжечь Очко Судьбы, чтобы противостоять воздействию любой одиночной демонической или психической атаки, что позволяет ему выйти невредимым, словно чудом.",
+        "en": "The Explorer’s faith in the God Emperor of Mankind, his divine power and grace, is total and complete. This faith wraps around him and suffuses his soul, armouring him against the foul inﬂuences and weapons of the heretic. Pure Faith provides all of the following benefts:\nThe Explorer is always immune to the effects of Daemonic Presence including the negative modifers to his Willpower.\nThe Explorer may spend a Fate Point to not take Fear Tests, not acquire Insanity Points, and not gain any Corruption Points. These safeguards remain for the duration of the encounter.\nThe Explorer may burn a Fate Point to resist the effects of any single daemonic or psychic attack, effectively allowing him to emerge unscathed as if by a miracle."
+      },
+      "hints": [],
+      "is_stackable": false,
+      "is_specialist": false
     }
   ]
 }

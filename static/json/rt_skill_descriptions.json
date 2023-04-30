@@ -1,0 +1,452 @@
+{
+  "skills": [
+    {
+      "tag" : "SK_ACR",
+      "name" : {
+        "ru" : "Акробатика",
+        "en" : "Acrobatics"
+      },
+      "description": {
+        "ru": "Акробатика ответственна за множество способов проворного передвижения, отточенного движения и мастерство баланса. С помощью этого умения персонажи перепрыгивают глубокие расселины, поддерживают равновесие на качающейся палубе корабля или приземляются на землю, не ломая ноги. В бою опытный акробат кружится, кувыркается и отпрыгивает от врагов, уклоняясь от вражеского оружия или скользя меж врагов подобно размытой тени. Зачастую персонажи развивают полезную для Акробатики Ловкость как часть иного обучения. Курьер или вор может изучить эти трюки для передвижения через густонаселённые районы. Для гладиаторов, выживальщиков и танцоров акробатические трюки являются частью повседневного труда. Даже техноадепты посвящают часть дня телесным упражнениям, готовя своё мясное тело к работе в тесных помещениях, вроде узких воздуховодов.",
+        "en": "Acrobatics covers feats of agile movement, graceful motion, and mastery of balance and form. With this skill, characters can leap nimbly across gaping chasms, maintain their balance on a pitching ship deck, or fall gracefully to the ground without snapping their limbs. In combat, an accomplished acrobat can somersault, flip, or cartwheel away from foes, twisting his body out of reach of his enemy or slipping past foes in a blur of motion. Often, characters develop a knack for Acrobatics as part of their training in another field. A courier or thief might learn these knacks as part of travel through densely populated areas. Gladiators, survivalists, and dancers need to be able to perform acrobatic motions as part of their daily routines. Even a Tech-Adept accustomed to working in particularly confined quarters devotes his daily flesh-exhortations to improving flexibility, so that he might more effectively work within narrow ductwork."
+      },
+      "aptitudes": ["A_GEN", "A_AG"],
+      "stats": ["ST_AG", "ST_STR"],
+      "is_specialist": false
+    },
+    {
+      "tag" : "SK_ATHL",
+      "name" : {
+        "ru" : "Атлетика",
+        "en" : "Athletics"
+      },
+      "description": {
+        "ru": "Аколиты часто зависят от своих физических данных, особенно когда ситуация накаляется. Атлетика отвечает за способность персонажа бегать на длинные дистанции не уставая, вскарабкиваться на отвесные поверхности и поднимать тяжести. Также она позволяет персонажу поднять свой уровень стойкости и игнорировать последствия усталости от бега, плавания и скалолазания. Предыстория персонажа может наделить персонажа склонностью к некоторым видам атлетики. МИ может учитывать это при назначении сложности проверки. Например, персонажу из пустынного мира переплыть реку значительно сложнее, чем аколиту, родившемуся на водном агро-мире.",
+        "en": "Acolytes are often dependent upon their physical abilities, particularly when situations become violent. Athletics measures a character’s ability to run long distances without tiring, climb sheer surfaces, and lift heavy loads. It also allows a character to push himself to greater levels of endurance and shrug off the effects of fatigue when running, swimming, or climbing. A character’s background might dispose him more towards certain types of athletics. A GM can keep this in mind when determining the difficulty of a test. For example, a character from a desert world or could be required to make more difficult Athletics tests to swim across a river than an Acolyte who grew up on an aquatic agri-world would."
+      },
+      "aptitudes": ["A_GEN", "A_STR"],
+      "stats": ["ST_STR", "ST_T"],
+      "is_specialist": false
+    },
+    {
+      "tag" : "SK_AWR",
+      "name" : {
+        "ru" : "Бдительность",
+        "en" : "Awareness"
+      },
+      "description": {
+        "ru": "Бдительность отображает общее внимание персонажем своего окружения и способность замечать несоответствия, которые прочие могут пропустить. Умение ответственно за общую внимательность к изменениям, включая те, что можно обнаружить обычными органами чувств, включая визуальные сигналы, звуки, запахи и даже давление воздуха. Очень бдительный персонаж способен заметить и идентифицировать появление нового фактора, поскольку любой может сулить угрозу. В каждой тени может скрываться угроза Человечеству, так что малейший намёк может иметь величайшее значение.",
+        "en": "Awareness represents the character’s general awareness of his surroundings and the ability to notice inconsistencies that others might dismiss. It encompasses a basic alertness to any changes that might be detected by the senses, including visual cues, sounds, odours, and even air pressure. A highly-trained observer is just as capable of noticing and identifying the presence of a new factor as they are the absence of a common one. Threats to the Mankind can lurk in the shadows of any location, and often the subtlest of cues can reveal far deeper meanings."
+      },
+      "aptitudes": ["A_PER", "A_FLD"],
+      "stats": ["ST_PER", "ST_FEL", "ST_INT"],
+      "is_specialist": false
+    },
+    {
+      "tag" : "SK_CH",
+      "name" : {
+        "ru" : "Обаяние",
+        "en" : "Charm"
+      },
+      "description": {
+        "ru": "Обаянием измеряется способность персонажа впечатлять людей и влиять на их реакции. Различие между этим умением и другими умениями Взаимодействия заключается в отношениях между целью и персонажем: Обаяние подразумевает невраждебные отношения и отсутствие что явных, что скрытых угроз. Вместо этого используются отзывчивость и добрые намерения. Такой подход может показаться совершенно чуждым некоторым аколитам, предпочитающим убеждения, основывающиеся на силе или логике. Другие персонажи, особенно происходящие из высших слоёв общества или являющиеся мастерами манипуляций, могут использовать благожелательный подход ко всем проблем.",
+        "en": "Charm is a measure of a character’s knack for impressing people and swaying their reactions. The acting character’s attitude is key in distinguishing between this and other types of Interaction skills. Charm requires the Acolyte to assume a non-hostile attitude and not make any explicit or implicit threats. Instead, the character’s persuasive efforts are dependent upon perceived generosity and good intentions. Such an approach may be completely foreign to some Acolytes, who find persuasion more appealing when matched with force or logic. Others, particularly those who come from luxury or who are masters of manipulation, might use this as their favoured approach to all problems."
+      },
+      "aptitudes": ["A_FEL", "A_SOC"],
+      "stats": ["ST_FEL", "ST_IFL"],
+      "is_specialist": false
+    },
+    {
+      "tag": "SK_CPR",
+      "name": {
+        "ru": "Шифры",
+        "en": "Cyphers"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "aptitudes": ["A_INT", "A_KNG"],
+      "stats": ["ST_INT"],
+      "is_specialist": false
+    },
+    {
+      "tag" : "SK_CMD",
+      "name" : {
+        "ru" : "Командование",
+        "en" : "Command"
+      },
+      "description": {
+        "ru": "Часто отдельный персонаж не в состоянии разрешить кризис. Иногда на это не способен даже отряд аколитов. В таких ситуациях, возможно, персонажам потребуется собрать большую группу сторонников. Координация союзников для максимально эффективного их использования требует умения Командование. Оно отображает способность умело мотивировать и организовывать окружающих. Персонажи с благородной предысторией уже умеют управлять другими. Имеющие военный опыт уже сталкивались с этим умением, даже те, кто только получал приказы, знаком с основами и способен их отдавать. Другие персонажи могли столкнуться с ним в руках старшего бюрократа или вождя племени. С другой стороны, персонажи, привыкшие работать в одиночку, мало способны к командованию, равно как и исполнению команд.",
+        "en": "Often, a single character is unable to adequately resolve a crisis. At times, even a warband of Acolytes are inadequate to the challenge. Under these circumstances, characters may need to rally a much larger group to assist. Coordinating their allies so that everyone can work together effectively relies upon the Command skill. It represents the ability to effectively motivate and organise others. Characters with a noble background might have some training in this skill. Those with military service are of course practiced with it; even those who have only been given commands are very familiar with the practice and can issue them as well. Other characters might have learned it as a bureaucratic manager or a tribal leader. In contrast, characters accustomed to working independently could have little aptitude for commanding (or being commanded by) others."
+      },
+      "aptitudes": ["A_FEL", "A_LDR"],
+      "stats": ["ST_FEL", "ST_WP", "ST_STR", "ST_INT"],
+      "is_specialist": false
+    },
+    {
+      "tag" : "SK_CMR",
+      "name" : {
+        "ru" : "Коммерция",
+        "en" : "Commerce"
+      },
+      "description": {
+        "ru": "Миры Империума очень специализированы и сплетены в огромную взаимосвязанную сеть транспортировки товаров и услуг, обеспечивающую их выживание. Немногие миры способны пережить несколько месяцев без внешних поставок, да и эти подсчёты проверены только теорией. Миры-кузницы нуждаются в продуктах питания и сырье с других планет, агро-миры редко способны производить сельскохозяйственное оборудование, необходимое для сбора урожаев, а миры-ульи застроены настолько плотно, что могут производить только население. Умение Коммерция отображает понимание торговли, стоимости и обмена, как на уровне межпланетной сети торговых связей, так и местного хаб-рынка. Многие члены имперской бюрократии и даже военные знакомы с этим умением. В определённой степени все люди его практикуют, поскольку приобретают товары и услуги. Но, в конечном счёте наиболее искусны воры и торговцы, поскольку им требуется точно знать стоимость товаров, которые они планируют украсть или купить.",
+        "en": "The worlds of the Imperium are highly specialised and woven together in a huge, interconnected web to transport goods and services to ensure mutual survival. Few, if any, planets could hope  to survive on their own for more than a few months without external support. Forge worlds need food and raw materials from other systems, agri-worlds can seldom produce the machinery required for their harvests, and hive worlds are often so densely occupied that their only local product is the world’s population. The Commerce skill represents the understanding of trade, value, and exchange, which allows these worlds to continue to exist at a planetary level, and also more locally at a habway marketplace. Many within the Imperium’s vast bureaucracy, and even its military, learn this skill. All humans must practise it to a certain degree, as they acquire the basic necessities for life. Ultimately, thieves and merchants are the most adept, as they must know the value of any goods they plan to steal or sell."
+      },
+      "aptitudes": ["A_FEL", "A_KNG"],
+      "stats": ["ST_INT", "ST_FEL"],
+      "is_specialist": false
+    },
+    {
+      "tag" : "SK_CML",
+      "name" : {
+        "ru" : "Общие знания",
+        "en" : "Common lore"
+      },
+      "description": {
+        "ru": "Все умения группы Общие Знания отображают всю информацию, доступную обычному человеку о подразделениях, традициях, процедурах, знаменитостях и суевериях конкретного мира, группы, организации или расы. Эти знания глубже, чем просто информация о существовании объекта, что указывает на некоторый интерес к данной области. Данное умение отлично как от Учёных Знаний, отображающих более научные знания, получаемые путём изучения и исследований, так и от Запретных Знаний, показывающих сокрытые и запрещённые познания. Общие Знания имеют дело с обычными познаниями, получаемыми вследствие длительного контакта с культурой или областью.",
+        "en": "All Common Lore skills represent the common knowledge an individual might know about the general information, procedures, divisions, traditions, famed individuals, and superstitions of a particular world, group, organisation, or race. Such information is deeper than mere knowledge of the subject’s existence, and more reflects a degree of familiarity that indicates a measure of dedicated interest in the area. This skill differs from Scholastic Lore, which represents scholarly learning one might gain through study and research, and Forbidden Lore, which involves hidden or proscribed knowledge. Common Lore deals with basic information gained from prolonged exposure to a culture or area."
+      },
+      "aptitudes": ["A_INT", "A_KNG"],
+      "stats": ["ST_INT", "ST_FEL"],
+      "is_specialist": true
+    },
+    {
+      "tag" : "SK_SCL",
+      "name" : {
+        "ru" : "Учёное знание",
+        "en" : "Scholastic lore"
+      },
+      "description": {
+        "ru": "Все умения группы Учёные Знания отображают наличие у аколита знаний, которые можно приобрести при формальном образовании или в учебном заведении, будь то мудрый наставник, организация или тщательное изучение древних фолиантов. В отличие от Общих Знаний, эта информация не всегда доступна обычному обитателю планеты, но, в сравнении с Запрещёнными, само обладание ею не является преступлением.",
+        "en": "All Scholastic Lore skills represent information that an Acolyte would need to learn in a formal setting or institution of learning, whether from a knowledgeable mentor, an organisation, or even the careful study of rare tomes. Unlike Common Lore, this information is not readily available to the average inhabitant of a planet, but differs from Forbidden Lore in that it is not proscribed from study."
+      },
+      "aptitudes": ["A_INT", "A_KNG"],
+      "stats": ["ST_INT", "ST_FEL"],
+      "is_specialist": true
+    },
+    {
+      "tag" : "SK_FBL",
+      "name" : {
+        "ru" : "Запретное знание",
+        "en" : "Forbidden lore"
+      },
+      "description": {
+        "ru": "Все умения группы Запретные Знания отображают наличие у персонажа запрещённых или скрытых от обычного жителя Империума познаний. Во многих случаях тяжким преступлением является само обладание такими знаниями, более того оно может привлечь внимание Инквизиции (даже если обладатель сам работает на инквизитора).",
+        "en": "All Forbidden Lore skills represent information proscribed or hidden from the average Imperial citizen. In many cases, it is a heinous crime to even possess such data and can quickly draw Inquisitorial attention (even if the possessor himself is working for an Inquisitor)."
+      },
+      "aptitudes": ["A_INT", "A_KNG"],
+      "stats": ["ST_INT", "ST_FEL"],
+      "is_specialist": true
+    },
+    {
+      "tag" : "SK_DCV",
+      "name" : {
+        "ru" : "Обман",
+        "en" : "Deceive"
+      },
+      "description": {
+        "ru": "Зачастую аколитам приходиться вводить в заблуждение окружающих, ведь секреты, относящиеся к делам Инквизиции, зачастую способны сокрушить слабые разумы невинных обывателей. Виновные же редко сотрудничают, особенно если не видят в этом выгоды. Но, вне зависимости от мотивов и целей, неправда может служить во имя Императора и часто делает это.",
+        "en": "Acolytes often need to mislead those around them, as the Inquisition’s cause involves secrets that could shatter the minds of unprepared innocents. Perpetrators are seldom cooperative, unless they believe that there might be some reward for their service. No matter the motive or the target, all of these untruths are spoken in the service of the Emperor."
+      },
+      "aptitudes": ["A_FEL", "A_SOC"],
+      "stats": ["ST_FEL", "ST_INT"],
+      "is_specialist": false
+    },
+    {
+      "tag" : "SK_DDG",
+      "name" : {
+        "ru" : "Уклонение",
+        "en" : "Dodge"
+      },
+      "description": {
+        "ru": "Уклонение отображает способность избежать удара в ближнем бою, ускользнуть из-под вражеского огня или отпрыгнуть от падающих обломков. Оно сочетает проворство движений, отточенные рефлексы и чутьё на все виды опасностей.",
+        "en": "Dodge is the ability to avoid blows in melee, elude incoming fire, or leap out of the way of falling debris. It combines nimbleness of movement with trained reflexes and an awareness of all kinds of danger."
+      },
+      "aptitudes": ["A_AG", "A_DEF"],
+      "stats": ["ST_AG"],
+      "is_specialist": false
+    },
+    {
+      "tag": "SK_GMB",
+      "name": {
+        "ru": "Азартные игры",
+        "en": "Gamble"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "aptitudes": ["A_INT", "A_SOC"],
+      "stats": ["A_INT"],
+      "is_specialist": false
+    },
+    {
+      "tag" : "SK_INQ",
+      "name" : {
+        "ru" : "Дознание",
+        "en" : "Inquiry"
+      },
+      "description": {
+        "ru": "Данное умение применяется при получении информации путём расспросов, перевода разговоров на интересующие темы и просто подслушиванием — всё это важно для разоблачения ересей и выявления умышляющих против Человечества. В отличие от Обаяния и Запугивания, направленных на изменение отношения к персонажу или влиянию на конкретных индивидов, Дознание можно сосредоточить как на конкретных персонажах, так и на крупных группах, хотя это может потребовать много времени и усилий.",
+        "en": "Inquiry is used to gain information by asking questions, stimulating conversation, or simply eavesdropping—all essential for unravelling heresies and identifying those who would act against Mankind. Unlike Charm or Intimidate, which focus on changing a character’s disposition or influencing specific individuals, Inquiry can focus on gaining information from both individuals and large groups, and may involve a great deal of time and effort."
+      },
+      "aptitudes": ["A_FEL", "A_SOC"],
+      "stats": ["ST_FEL", "ST_INT", "ST_PER"],
+      "is_specialist": false
+    },
+    {
+      "tag" : "SK_INTR",
+      "name" : {
+        "ru" : "Допрос",
+        "en" : "Interrogation"
+      },
+      "description": {
+        "ru": "субъекта и настойчивости допроса. Это умение позволяет персонажу извлекать информацию из не желающего этого субъекта. Сам процесс, однако, не подразумевает физических пыток. Скорее это умелое применение психологии, различных устройств, сывороток правды и иных, обычно не наносящих физического урона, методов.",
+        "en": "Interrogation allows a character to extract information from an unwilling subject. The application differs from brutal torture, which involves more physical damage. Rather, it represents skilled application of psychology, various devices, serums, and other, usually less physically-damaging, techniques."
+      },
+      "aptitudes": ["A_WP", "A_LDR"],
+      "stats": ["ST_WP", "ST_FEL"],
+      "is_specialist": false
+    },
+    {
+      "tag" : "SK_INTM",
+      "name" : {
+        "ru" : "Запугивание",
+        "en" : "Intimidate"
+      },
+      "description": {
+        "ru": "Империум Человечества вечно воюет. Мятежные глупцы изнутри и хищные ксеносы извне приближают падение Человечества. Но угрозы есть не только открытые и сформировавшиеся, важно помешать глупцам реализовать свои фантазии и вмешаться в дела, находящиеся за гранью их понимания. Иногда для предотвращения восстания и ереси лучшее оружие — страх.",
+        "en": "The Imperium of Man is constantly at war. Seditious fools across its reach and xenos races from outside its boundaries all work to bring about the downfall of humanity. It is not enough to stop those who have already taken action; it is also vital to prevent others from following these fools or dabbling in matters far beyond their understanding. Fear often serves as the preferred tool for preventing insurrection and heresy."
+      },
+      "aptitudes": ["A_STR", "A_LDR"],
+      "stats": ["ST_STR", "ST_WP"],
+      "is_specialist": false
+    },
+    {
+      "tag" : "SK_LNG",
+      "name" : {
+        "ru" : "Лингвистика",
+        "en" : "Speak Language"
+      },
+      "description": {
+        "ru": "Это умение отображает способность говорить, читать и писать на отдельном языке, коде или шифре. Специальности отображают знакомый персонажу язык, будь то низкий готик для рядовых жителей, региональный диалект дикого мира или язык ксеносов. При попытке использовать знакомый персонажу язык проверка Лингвистики требуется только в особых случаях, таких как перевод с архаичной версии языка или попытка разобрать перехваченную вокс-предачу. Однако использование неизвестного языка, даже на базовом уровне, всегда требуется проверка Лингвистики. Персонажу может понадобиться поговорить с жителем мира, изолированного тысячелетиями или расшифровать пророчество ксеносов, записанное задолго до начала Великого Крестового Похода. Общение с теми, чей язык неизвестен, зависит от знаний персонажа и его способностей в Лингвистике.",
+        "en": "Linguistics represents the ability to speak, read, and write specific languages, codes, and ciphers. Talents determine the languages a specific character knows, such as the Low Gothic of the masses, a feral world’s regional dialect, or even a xenos tongue. When attempting to use a language the character knows, a Linguistics test is only required for a particularly difficult task, such as translating an ancient version of the language or attempting to understand a garbled vox-intercept. Unknown languages, however, always require a Linguistics test to understand on even a basic level. A character might need to speak with a human from a rediscovered world that was forgotten for millennia, or a researcher may need to comprehend a xenos prophecy that predates the Great Crusade. Communicating with those whose language is foreign depends upon a character’s knowledge and aptitude in the Linguistics skill."
+      },
+      "aptitudes": ["A_INT", "A_GEN"],
+      "stats": ["ST_INT", "ST_FEL"],
+      "is_specialist": true
+    },
+    {
+      "tag": "SK_LIT",
+      "name": {
+        "ru": "Грамотность",
+        "en": "Literacy"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "aptitudes": ["A_INT", "A_GEN"],
+      "stats": ["ST_INT"],
+      "is_specialist": false
+    },
+    {
+      "tag" : "SK_LOG",
+      "name" : {
+        "ru" : "Логика",
+        "en" : "Logic"
+      },
+      "description": {
+        "ru": "Умение Логика отображает способности персонажа к рациональному мышлению, решению головоломок и быстрому и чёткому анализу информации. Его можно применить для анализа сложных статистических данных, архитектурных аномалий и даже получения некоторого понимания сложных технологий. Также это умение включает базовое понимание математики, физики и инженерии.",
+        "en": "The Logic skill represents the ability to think rationally, solve puzzles, and dissect information clearly and quickly. It can be applied to analyse complex statistics, architectural anomalies, or even achieve some degree of understanding with regards to complex technologies. This skill encompasses the character’s basic functional understanding of mathematics, physics, and engineering."
+      },
+      "aptitudes": ["A_INT", "A_KNG"],
+      "stats": ["ST_INT", "ST_AG"],
+      "is_specialist": false
+    },
+    {
+      "tag" : "SK_MED",
+      "name" : {
+        "ru" : "Медика",
+        "en" : "Medicae"
+      },
+      "description": {
+        "ru": "Умение Медика представляет способности персонажа в лечении ран, вправлении сломанных костей и совершении сложных операций, таких как установка аугметики. Используемые методы лечения значительно различаются и во многом зависят от предыстории персонажа. Персонаж, учившийся выживать в мире смерти, использует методики лечения, которые существенно отличаются от изученных выходцем с мира кузницы. Более того, различие врачебных школ часто приводит не только к различным результатам, но и к различным ожиданиям. К примеру, страшная болезнь, неизлечимая в мире-улье, вполне может поддаваться лечению травяными отварами знахаря с дикого мира. Все персонажи, часто сталкивающиеся с травмами, в той или иной мере владеют медицинскими навыками. Вполне возможно, что этого будет достаточно для перевязки собственных ран и избежать появления за собой кровавого следа. Те же персонажи, что специализируются в этой области, могут стать спасителями своих пациентов. Впрочем, в иных местах их могут счесть богохульниками, вмешивающимися в вещи безраздельно контролируемые Императором или Омниссией.",
+        "en": "Medicae represents the ability to set broken bones, heal wounds, or even perform complicated surgeries such as attaching cybernetics. The techniques involved in treatment may vary substantially based upon the character’s background. A character that learned basic survival skills on a death world might know substantially different treatment methods than one who dwelt within a forge world. Varied backgrounds often lead to changes in the expected outcomes for medical conditions and treatments. A terrible disease that is considered untreatable on a hive world might have a routinely available herbal remedy on a feral world, for example. All characters who face frequent physical trauma achieve some degree of competence in Medicae. This may simply be enough to bind their own wounds in order to avoid an easily-followed trail of blood. Those who specialise in this field may be viewed as saviours by their patients. Alternatively, some may see the healers as blasphemers who have dabbled in treatments that might only be the province of the Emperor or the Omnissiah."
+      },
+      "aptitudes": ["A_INT", "A_FLD"],
+      "stats": ["ST_INT", "ST_AG", "ST_PER"],
+      "is_specialist": false
+    },
+    {
+      "tag" : "SK_NVG",
+      "name" : {
+        "ru" : "Навигация",
+        "en" : "Navigate"
+      },
+      "description": {
+        "ru": "Расследующие угрозы человечеству аколиты часто вынуждены посещать самые неожиданные места. Ересь может скрываться где угодно, от глубин планетd, до сырых коридоров пустотного судна. Временами необходимо путешествовать даже методами вовсе не приспособленными для представителей рода человеческого. Навигация отображает способность персонажа сориентироваться и проложить маршрут из одной точки в другую, на поверхности планет или в холодном космосе. Для применения умения у персонажа должен быть доступ к карте соответствующего региона. В качестве альтернативы умение Навигация можно использовать для создания карты или инструктирования тех, кто не знаком с маршрутом. В таких случаях персонаж часто начинает с грубой картой или вовсе пустым пергаментом и для начала он должен указать ориентиры. Удобство и простота пользования конечным продуктом зависит от набранных при проверке успехов.",
+        "en": "Acolytes charged with investigating threats against humanity must often travel to foreign locations in order to perform their holy duties. Heresy can lurk anywhere, hidden within a planet’s depths or even in the dank corridors of a voidcraft. At times, characters might even need to travel among inhuman passages designed by xenos sensibilities. Navigate represents the ability to plot and follow a course from one point to another, either on the surface of a planet or across the stars. In order to use this skill, the character must have access to a map of the relevant region. Alternatively, Navigate can also be used to generate a map or to provide directions to someone unfamiliar with a route. In these cases, the character often starts with only a rough map or a blank parchment and must first construct the guide. The usability of the product created is directly proportionate to the success on the test made to create it."
+      },
+      "aptitudes": ["A_INT", "A_FLD"],
+      "stats": ["ST_INT", "ST_PER"],
+      "is_specialist": true
+    },
+    {
+      "tag": "SK_PERF",
+      "name": {
+        "ru": "Исполнительское мастерство",
+        "en": "Performer"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "aptitudes": ["A_FEL", "A_SOC"],
+      "stats": ["ST_AG"],
+      "is_specialist": false
+    },
+    {
+      "tag" : "SK_OPR",
+      "name" : {
+        "ru" : "Пилотирование",
+        "en" : "Pilot"
+      },
+      "description": {
+        "ru": "Умение Управление отображает способность персонажа водить и контролировать транспортные средства и тяжёлое оборудование различных типов. Благодаря выдающейся систематичности Стандартных Шаблонных Конструкций системы управления самых различных транспортных средств очень схожи. Во многих случаях это может быть взаимодействие между духом наземной машины и системой управления воздушного судна. В других это происходит из-за упрощения или стандартизации, направленной на упрощение обучению использования машины.",
+        "en": "The Operate skill represents a character’s aptitude to control and direct all manner of vehicles and heavy equipment. Through the remarkable consistency of Standard Template Construction, the control systems used to operate dramatically different vehicles are extremely similar. In many instances, this may be due to an interaction between the vehicle’s machine spirit and the controlled systems used to direct the craft. In other cases, this is due to a simplification or approximation of controls, intended to reduce the effort required to learn to operate the vehicle."
+      },
+      "aptitudes": ["A_AG", "A_FLD"],
+      "stats": ["ST_AG", "ST_INT"],
+      "is_specialist": true
+    },
+    {
+      "tag" : "SK_PAR",
+      "name" : {
+        "ru" : "Парирование",
+        "en" : "Parry"
+      },
+      "description": {
+        "ru": "Во время схватки избежать удара противника не менее важно, чем поразить его самому. Парирование отображает способность заблокировать атаки противника в ближнем бою, отклоняя их оружием или голыми руками. Когда аколит становится целью рукопашной атаки, он может использовать умение Парирование и получить шанс избежать её. Её использование считается Реакцией (и, в общем случае, применяется один раз за ход) которая может использоваться только против рукопашной атаки, совершённой противником, находящимся в рукопашной с персонажем. В случае успеха — атака парирована и не наносит персонажу попаданий. При атаках, наносящих несколько попаданий (например за талант Молниеносная Атака) каждая степень успеха проверки Парирования отменяет одно попадание. Любые неотменённые Парированием попадания применяются к персонажу как обычно.",
+        "en": "When engaged in combat, avoiding an opponent’s assault is often every bit as crucial as striking the critical blow. Parry is the ability to block attacks in close combat, deflecting them using one’s hands or weapons. An Acolyte targeted by melee attacks can turn aside these attacks using the Parry skill. This is a Reaction (and as such can usually only be attempted once each turn) and can only be used against close combat attacks from foes engaged with the character in melee. A success indicates that the attack has been parried and does not hit the character. In the case of attacks which cause multiple hits (such as those from a foe with the Lightning Attack talent) each degree of success a character achieves on his Parry test discounts one hit from the attack. Any excess hits not discounted by Parrying are then applied to the character as normal."
+      },
+      "aptitudes": ["A_WS", "A_DEF"],
+      "stats": ["ST_WS"],
+      "is_specialist": false
+    },
+    {
+      "tag" : "SK_PSY",
+      "name" : {
+        "ru" : "Психонаука",
+        "en" : "Psyniscience"
+      },
+      "description": {
+        "ru": "Обладающие умением Психонаука способны ощущать потоки и водовороты Варпа и Имматериума. Персонажи могут использовать это умение для обнаружения демонов и использования психических сил. Помимо этого, Психонаука позволяет выявлять психические феномены, нарушения, пустоты и иные области, где поток Имматериума находится в беспокойстве или вовсе отсутствует.",
+        "en": "Those with the Psyniscience skill sense the currents and eddies of the Warp and Immaterium. Characters can use the skill to detect the presence or absence of Daemons and the use of psychic powers. Psyniscience also allows detection of psychic phenomena, disturbances, voids, or other areas where the flow of the Immaterium has been unsettled or disrupted."
+      },
+      "aptitudes": ["A_PER", "A_PSY"],
+      "stats": ["ST_PER", "ST_WP"],
+      "is_specialist": false
+    },
+    {
+      "tag" : "SK_SCR",
+      "name" : {
+        "ru" : "Проницательность",
+        "en" : "Scrutiny"
+      },
+      "description": {
+        "ru": "Умение Проницательность помогает оценить людей и объекты, с которыми сталкиваются аколиты. Персонаж может использовать это умение для определения правдивости индивида, его мотивов, личности и темперамента. Кроме этого Проницательность можно использовать для анализа объекта или получения подробных сведений, определения информации, которая скрыта или не очевидна.",
+        "en": "The Scrutiny skill helps assess the people or objects an Acolyte encounters. A character can use this skill to determine an individual’s truthfulness, his motives, and appraise his personality and temperament. It can also be used to analyse an object or display in detail, determining information that may be hidden or simply not readily apparent."
+      },
+      "aptitudes": ["A_PER", "A_GEN"],
+      "stats": ["ST_PER", "ST_FEL"],
+      "is_specialist": false
+    },
+    {
+      "tag" : "SK_SEC",
+      "name" : {
+        "ru" : "Безопасность",
+        "en" : "Security"
+      },
+      "description": {
+        "ru": "Данное умение имеет дело с мастерством взаимодействия с замками и средствами защиты, в том числе проникновением в охраняемые места и защитой от такого проникновения. Персонаж с умением Безопасность обучен обходить запоры и побеждать коды, будь то запреты когитаторов и чары машинных духов или же простые механические устройства, вроде щеколды. Аколиты с Безопасностью также способны защищать системы и области путём усиления пассивной обороны и даже установки ловушек.",
+        "en": "The Security skill deals with mastery of locks and safeguards, including breaking into secure places or protecting them from intrusion. A character with the Security skill is trained to bypass locks or defeat codes, whether using cogitators and tech against machine spirits or simple mechanical devices against physical latches. Acolytes with Security are also able to safeguard systems and locales by making passive defences more secure, and even setting traps for unwary intruders and thieves."
+      },
+      "aptitudes": ["A_INT", "A_TECH"],
+      "stats": ["ST_INT", "ST_AG"],
+      "is_specialist": false
+    },
+    {
+      "tag" : "SK_SOH",
+      "name" : {
+        "ru" : "Ловкость рук",
+        "en" : "Sleight of hands"
+      },
+      "description": {
+        "ru": "Аколиты используют Ловкость Рук при любой задаче, требующей сочетания обмана и ловкости. При совершении своих преступлений шарлатаны и мошенники делят, в целом, один арсенал с карманниками. Проверка может помочь подменить документ, снять украшение, а то и вытащить у цели клятвенный механизм или личную печать. Кроме того Ловкость Рук позволяет персонажу скрыть свои действия от чужого взгляда, например спрятать оружие при обыске.",
+        "en": "Acolytes use the Sleight of Hand skill for any task requiring a combination of deception and dexterity. A charlatan or confidence man utilises very comparable skills to those of a pickpocket when committing his crimes. The test can substitute papers, remove jewellery, or obtain a target’s oath-cog or ident-seal. Sleight of Hand also allows a character to conceal his actions when in plain sight, such as hiding weapons from someone searching his person."
+      },
+      "aptitudes": ["A_AG", "A_KNG"],
+      "stats": ["ST_AG", "ST_INT"],
+      "is_specialist": false
+    },
+    {
+      "tag" : "SK_STL",
+      "name" : {
+        "ru" : "Скрытность",
+        "en" : "Stealth"
+      },
+      "description": {
+        "ru": "Умение Скрытность отображает способность персонажа оставаться незамеченным во время движения среди гудящих толп улья, открытых полей агро-мира или воронок на поле боя. В некоторых случаях персонаж может стать в буквальном смысле невидимкой, но в других куда полезнее стать неприметным. Персонаж, способный затеряться среди толп чернорабочих мануфакторума, не менее успешно проникнет туда, чем перепрыгивающий стены во тьме ночной. Обладающий данным умением аколит способен двигаться бесшумно и незаметно, таким образом, скрываясь от врагов или заставая их врасплох.",
+        "en": "Stealth is a measure of a character’s ability to remain unnoticed while moving through the dense crowds of a hive, the open croplands of an agri-world, or the blast craters of a scarred battlefield. In some environments, this requires the character to remain unseen, but in others it is far more important for the character to be inconspicuous. A character that can blend in amongst the massed labourers of a manufactorum might be just as adept at infiltrating a complex as one who might scale the walls in the dead of night. An Acolyte with this skill can move silently or conceal himself from others, either to escape from his foes or take them by surprise."
+      },
+      "aptitudes": ["A_AG", "A_FLD"],
+      "stats": ["ST_AG", "ST_PER"],
+      "is_specialist": false
+    },
+    {
+      "tag" : "SK_SRV",
+      "name" : {
+        "ru" : "Выживание",
+        "en" : "Survival"
+      },
+      "description": {
+        "ru": "Данное умение позволяет персонажу прокормиться без помощи цивилизации. Оно жизненно необходимо живущим в диких пустошах, вдали от укреплённых лагерей и городов. Обитателям городских джунглей подулья и городских руин также полезны некоторые познания в этой области, поскольку зависимость от ненадёжных источников воды и пищи подобна смерти. Некоторое представление о Выживании часто имеют даже жители цивилизованных мест, особенно обладатели независимого характера. Персонаж с умением Выживание могут жить за счёт земли, укрощать животных и предугадывать погоду с минимумом оборудования и без резкой необходимости в пополнении запасов и помощи. Это умение можно использовать для создания примитивных предметов, таких как луки и клинки, а также обычной одежды. Помимо этого Выживание используется при выслеживании добычи (что разумной, что нет) в местности любого вида с помощью оставляемых ею следов.",
+        "en": "Skill Use: Full Action. The Survival skill is a measure of a character’s ability to subsist without the support of civilisation. It is absolutely vital for those who dwell in the untamed wilds, far from the protection of fortified encampments or cities. Those who live within the urban jungles of underhives or city ruins must also achieve some mastery of this field, as they cannot depend upon reliable sources of food and water. The knacks associated with this field often have applications even within structured society, especially for those with a more independent nature. A character with the Survival skill can live off the land, ride beasts, and predict weather with only a minimum of equipment and without the need for resupply or support. It can be used to create primitive items such as bows or blades, as well as basic clothing. Survival is also used to track prey (human or otherwise) across all kinds of terrain by following the tell-tale signs they leave on the environment around them."
+      },
+      "aptitudes": ["A_PER", "A_FLD"],
+      "stats": ["ST_PER", "ST_AG", "ST_INT"],
+      "is_specialist": false
+    },
+    {
+      "tag" : "SK_TECH",
+      "name" : {
+        "ru" : "Техпользование",
+        "en" : "Tech-Use"
+      },
+      "description": {
+        "ru": "Умение Техпользование отображает способность аколита использовать и взаимодействовать с технологическими устройствами всех видов, от должного исполнения Обряда Зажигания, до определения, какую температуру святой смазки дух конкретной машины считает наиболее успокаивающей. Также умение может быть использовано, при наличии должного времени и материалов, для создания обычных и сложных технических устройств. Однако, Техпользование более относится к знанию Благословений Омниссии и ритуалов Культа Машины, чем к подлинному пониманию технологии с научной точки зрения, впрочем в 41-ом тысячелетии всё сводится к этому.",
+        "en": "Tech-Use is a measure of an Acolyte’s ability to use and interact with all manner of technological devices, from proper implementation of the Rites of Striking to the temperatures of holy lubricants a machine spirit finds most soothing. It can also be used to build basic or complex technical devices with the right amount of time and materials. Tech-Use is more an understanding of the Blessings of the Omnissiah and the rites of the Machine Cult than it is an actual knowledge of the science behind technology—in the 41st Millennium, however, this amounts to the same thing."
+      },
+      "aptitudes": ["A_INT", "A_TECH"],
+      "stats": ["ST_INT", "ST_AG"],
+      "is_specialist": false
+    },
+    {
+      "tag" : "SK_TRD",
+      "name" : {
+        "ru" : "Ремесло",
+        "en" : "Trade"
+      },
+      "description": {
+        "ru": "Умение Ремесло позволяет аколиту совершать самые разнообразные действия, от приготовления прекрасного обеда, до консервации трупа. Кроме того, персонажи могут идентифицировать работу особенно прославленных или проклинаемых мастеров, а также обладать информацией о предметах своего ремесла.",
+        "en": "Trade skills allow Acolytes to practice a craft, from cooking a fine dinner to preserving a corpse. They can identify the work of particularly famous or infamous artisans, or recall information concerning items of their trade."
+      },
+      "aptitudes": ["A_INT", "A_GEN"],
+      "stats": ["ST_INT", "ST_AG", "ST_FEL"],
+      "is_specialist": true
+    }
+  ]
+}

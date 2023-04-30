@@ -1,38 +1,2976 @@
 {
   "schools": [
     {
-      "tag": "PS_",
+      "tag": "PS_BIO",
       "name": {
-        "ru": "",
-        "en": ""
+        "ru": "Биомансия",
+        "en": "Biomancy"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Биоманты, эти мастера живой плоти, могут расширять возможности своих тел, выводя их за рамки доступного человеку, и даже управлять биологическими процессами других людей. Эти силы позволяют псайкеру не только увеличивать свои способности и помогать союзникам, но и останавливать вражеские сердца одной лишь мыслью.",
+        "en": "Artists of living flesh, Biomancers can push their own bodies beyond human limits, and even control the biological processes of others. These powers allow a psyker to enhance his own abilities and aid his allies, but can also be used stop a foe’s heart with but a thought"
+      }
+    },
+    {
+      "tag": "PS_DIV",
+      "name": {
+        "ru": "Предсказание",
+        "en": "Divination"
+      },
+      "description": {
+        "ru": "Одна из самых древних психических дисциплин, Предсказание, позволяет узнавать будущее. Гадатель, используя внутренности животных или наблюдая за движением звёзд, обращается за ответами к безвременью Варпа. Возможности Предсказания бесценны для инквизитора и его аколитов в их стремлении исполнить свой долг, как на поле яростной битвы, так и в сложном расследовании.",
+        "en": "Perhaps the most ancient of psychic disciplines, divination foretells the future. Though diviners may seek answers by scattering animal entrails or studying the movement of stars, it is in fact the timeless realm of the Warp to which they turn. The powers of divination are of inestimable use to an Inquisitor and his Acolytes in the pursuit of their duties, both in the frenzied arena of combat and while undertaking investigative pursuits"
+      }
+    },
+    {
+      "tag": "PS_PYR",
+      "name": {
+        "ru": "Пиромансия",
+        "en": "Pyromancy"
+      },
+      "description": {
+        "ru": "Самая разрушительная из дисциплин, Пиромантия, позволяет псайкеру силой своего разума создавать и контролировать пламя. Её психосилы предназначены для сражения – будь то вспышки пламени, пожирающего врагов изнутри или стены огня, защищающие союзников. Пиромантов часто боятся, зная, какое опустошение может принести вышедшее из-под контроля пламя.",
+        "en": "The most destructive discipline, pyromancy allows a psyker to control and create flame using his mind. These powers focus on combat, from incinerating foes from within to summoning walls of flame to shield allies. Pyromancers are greatly feared, for their powers are often difficult to control once released, and can inflict great collateral damage"
+      }
+    },
+    {
+      "tag": "PS_TLK",
+      "name": {
+        "ru": "Телекинез",
+        "en": "Telekinesis"
+      },
+      "description": {
+        "ru": "Используя энергии Варпа, телекинетик может придать своим психическим импульсам физическую природу. Телепатия, как психическая дисциплина, позволяет пренебрегать гравитацией, разрывать врагов на части разрядами незримой энергии и даже терзать саму ткань реальности, образуя в ней зияющие дыры. Подобные силы будут полезны во множестве ситуаций, ибо они позволяют псайкеру воздействовать на реальность, не ограничивая себя возможностями своего физического тела.",
+        "en": "Through the power of the Warp, telekines translate mental impulses into physical force. Powers from the telekinesis discipline can defy gravity, blast opponents with invisible bolts of force, and even tear holes in the very fabric of reality. Such powers offer great utility in a variety of situations, for they allow a psyker to affect the world around him without the constraints of his physical body."
+      }
+    },
+    {
+      "tag": "PS_TLP",
+      "name": {
+        "ru": "Телепатия",
+        "en": "Telepathy"
+      },
+      "description": {
+        "ru": "Часто люди уравнивают все психические способности и телепатию, считая что первые сводятся к последней, вероятно, из-за того, что астропаты – самый распространенный вид псайкеров. В действительности, лишь небольшая часть псайкеров обладает талантом к проникновению в чужой разум и ещё меньшая – талантом сохранить в целости свой. Эта дисциплина может и не внушать благоговения, как иные, менее тонкие, но недооценивать её нельзя – опытный телепат может закончить любой бой ещё до того, как будет сделан первый выстрел.",
+        "en": "Perhaps due to Astropaths being amongst the more common types of psyker, many individuals equate all psychic ability with telepathy. In fact, only certain psykers possess the talent to enter the minds of others, and even fewer the strength of will to maintain their own sanity in the face of constant exposure to others’ thoughts. These powers may not inspire awe in the same way as other, less subtle, disciplines, but a skilled telepath can end a battle before a single shot is fired."
+      }
+    },
+    {
+      "tag": "PS_MIN",
+      "name": {
+        "ru": "Малые психосилы",
+        "en": "Minor powers"
+      },
+      "description": {
+        "ru": "Санкционированные псайкеры Адептус Астра Телепатика проходят тщательное тестирование и обучение, прежде чем они получают возможность использовать свои силы на благо Империума. Неотъемлемой частью этого процесса является обучение структурированию их врожденной силы в утвержденных приложениях, установленных тысячелетия назад, известных как дисциплины — подходящее название для этих предопределенных применений, а не опасных экспериментов и откровений, укрепляющие дисциплину, необходимую для избегания хищной сути Варпа. Некоторые псайкеры проявляют силу вне дисциплин, часто без сознательного намерения. Такие второстепенные силы чаще всего принадлежат ведьме и вирду, тем, кто не прошел обучение в Схоластика Псайкана. Эти нечистые псайкеры часто проявляют свои способности в раннем возрасте, и многие даже не осознают этого. Некоторые санкционированные псайкеры учатся забывать о таких способностях во время тренировок, или их способность принудительно сжигается в их умах. Однако даже некоторые санкционированные псайкеры через некоторое время начинают проявлять такие способности, возможно, в ответ на неожиданные и разносторонние потребности инквизитора.",
+        "en": "The sanctioned psykers of the Adeptus Astra Telepathica undergo rigorous testing and training before they ever receive the opportunity to put their powers to use for the good of the Imperium. An integral part of this training involves learning to structure their innate power in approved applications set down millennia ago, known as disciplines—an appropriate name, for these predetermined uses, rather than dangerous experimentation and openness, reinforce the discipline necessary to avoid the predations of the Warp. Some psykers exhibit powers outside of the disciplines, often without consciously intending to. Such minor powers are most often the purview of the witch and wyrd, those who have not received the training of the Scholastica Psykana. These rogue psykers often exhibit such powers early in life, and many are not even aware of doing so. Some sanctioned psykers learn to forget such abilities during their training, or have the capability forcefully burned from their minds. However, even some sanctioned psykers begin to display such abilities after a time, perhaps as a response to the unexpected and versatile needs of service to an Inquisitor"
+      }
+    },
+    {
+      "tag": "PS_SAN",
+      "name": {
+        "ru": "Священное демоноборчество",
+        "en": "Sanctic Daemonology"
+      },
+      "description": {
+        "ru": "Направленная против демонов дисциплина является одним из самых сложных искусств, которому псайкеры только могут научиться, и одним из самых мощных. Немногие обладают достаточной волей для этой дисциплины, входящей в сферу компетенции легендарных Серых Рыцарей. Многие пытавшиеся овладеть этой дисциплиной потеряли рассудок и поддались искушению тёмной ветви Демонологии.",
+        "en": "The practice of Sanctic Daemonology is amongst the most difficult arts a psyker can study, and amongst the most potent. Few have the necessary will to excel in this discipline, which is the purview of the legendary Grey Knights. Many who have attempted to master the discipline have lost their sanity or succumbed to the temptation offered by the darker branch of Daemonology"
+      }
+    },
+    {
+      "tag": "PS_MAL",
+      "name": {
+        "ru": "Малефицизм",
+        "en": "Malefic Daemonology"
+      },
+      "description": {
+        "ru": "Эта изначально пагубная дисциплина не рассматривается Адептус Астра Телепатика как психическая дисциплина, а относится к тягчайшему колдовству и варповству. На практике, Демонология-Малефик открывает душу порче и коли будет обнаружена знающий её будет заклеймён отлучённым предателем.",
+        "en": "Malefic Daemonology is not viewed as a psychic discipline by the Adeptus Astra Telepathica, but as the gravest of sorcery and Warpcraft. To practice this discipline is to invite corruption and, should it be discovered, the branding of Excommunicate Traitoris"
+      }
+    }
+  ],
+  "types": [
+    {
+      "tag": "PT_BUFF",
+      "name": {
+        "ru": "Усиление/Ослабление",
+        "en": "Buff/Debuff"
+      },
+      "description": {
+        "ru": "Эта психосила изменяет характеристики персонажа, дает ему дополнительные возможности или ослабляет его.",
+        "en": "This power alters target's characteristics, gives him extra possibilities or weakens him."
+      }
+    },
+    {
+      "tag": "PT_BOLT",
+      "name": {
+        "ru": "Пси-разряд",
+        "en": "Psychic bolt"
+      },
+      "description": {
+        "ru": "Пси-атака, поражающая цель одиночным разрядом наподобие Стандартной Атаки.",
+        "en": "Psychic attack hitting target with a single charge, like a Standard Attack."
+      }
+    },
+    {
+      "tag": "PT_BAR",
+      "name": {
+        "ru": "Пси-шквал",
+        "en": "Psychic barrage"
+      },
+      "description": {
+        "ru": "Пси-атака, поражающая цель несколько раз, наподобие Короткой Очереди (количество попаданий равно количеству нечетных Степеней Успеха на проверке Фокусировки до максимума в эффективный пси-рейтинг псайкера, использованный для наложения данной психосилы).",
+        "en": "Psychic attack hitting target with a multiple times, like a Semi-Auto Burst (number of hits equals number of odd DoS scored on Focus test up to psyker's effective PR used to manifest this power)."
+      }
+    },
+    {
+      "tag": "PT_STORM",
+      "name": {
+        "ru": "Пси-шторм",
+        "en": "Psychic Storm"
+      },
+      "description": {
+        "ru": "Пси-атака, обрушивающая шквал ударов на цель, наподобие Длинной Очереди (количество попаданий равно Степеням Успеха на проверке Фокусировки вплоть до максиума в эффективный пси-рейтинг псайкера, использованный при наложении данной психосилы).",
+        "en": "Psychic attack unleashing flood of strikes on the target, like a Full Auto Burst (number of hits equals number of DoS on Focus test up to psykers effective PR used to manifest this power)."
+      }
+    },
+    {
+      "tag": "PT_BLAST",
+      "name": {
+        "ru": "Пси-взрыв",
+        "en": "Psychic blast"
+      },
+      "description": {
+        "ru": "Психосила, покрывающая обширную область, воздействуя сразу на несколько целей. Псайкер выбирает точку в пределах видимости, которая будет эпицентром психосилы. При успешном прохождении проверки Фокусировки все в радиусе действия от данной точки попадают под воздействия данной психосилы.",
+        "en": "Psychic power covering a wide area, affecting multiple targets simultaneously. Psyker nominates a point withing his line of sight, which will be the Blast's center. If Focus Power test will be successful, everyone withing this power's Blast radius from nominated point will be affected by the power."
+      }
+    },
+    {
+      "tag": "PT_RIT",
+      "name": {
+        "ru": "Ритуал",
+        "en": "Ritual"
+      },
+      "description": {
+        "ru": "Данная психосила требует специальных условий и длительной подготовки для сотворения, потому не может быть использована во время боя.",
+        "en": "This psychic power requires special conditions and preparations to be manifested, therefore it can't be used during encounters."
       }
     }
   ],
   "powers": [
     {
-      "tag": "PP_",
+      "tag": "PP_ENF",
       "name": {
-        "ru": "",
-        "en": ""
+        "ru": "Ослабление",
+        "en": "Enfeeble"
       },
       "description": {
-        "ru": "",
-        "en": ""
+        "ru": "Псайкер прикасается к своей цели множеством усиков энергии Варпа. Мерзкая сила быстро лишает жертву жизненных сил, истощая её дух с каждым прикосновением.",
+        "en": "The psyker lashes at his target with tendrils of Warp energy. The vile power quickly strips the victim of vitality, draining its spirit with every caress."
       },
-      "school": "PS_",
+      "school": "PS_BIO",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер указывает одну цель, находящуюся в дистанции применения психосилы и на линии прямой видимости самого псайкера. Эта цель должна пройти Встречную проверку Выносливости против Силы Воли псайкера (то есть, против проверки Фокусировки, совершённой при сотворении психосилы). В случае провала цель получает Оглушение на один раунд. Кроме того, если во время действия этой психосилы цель выкинет дубль при любой проверке, она получает количество уровней Усталости, равное половине пси-рейтинга псайкера (округлять вниз). Одна цель может находиться под действием только одной психосилы 'Ослабление' одновременно."],
+        "en": ["The psyker nominates a single target in range and line of sight who opposes this power with a Toughness test. If the target fails to resist the power, it is Stunned for one round. In addition, as long as this power remains in effect, if the target rolls doubles on any test it makes, it suffers a number of levels of Fatigue equal to half the psyker’s psy rating (rounded down). A single target can only be affected by one instance of the Enfeeble power at a time, with other usages on the same target having no further effect."]
+      },
       "cost": 100,
-      "prerequisites": [],
-      "sustainable": "",
+      "prerequisites": [
+        {
+          "tag": "ST_T",
+          "value": 35
+        },
+        {
+          "tag": "PP_SMT",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": 0,
+      "focus_opposed": true,
+      "range": 20,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON", "KW_ATK"]
+    },
+    {
+      "tag": "PP_END",
+      "name": {
+        "ru": "Живучесть",
+        "en": "Endurance"
+      },
+      "description": {
+        "ru": ["Фокусируя силы своего разума на израненных телах товарищей, псайкер напитывает их энергией, ускоряя рост клеток. В мгновения раздробленные кости срастаются, зияющие раны закрываются и исцеляются, а весь понесённый в бою урон пропадает."],
+        "en": ["Focussing his mind on the injured bodies of his allies, the psyker energises their biology, initiating rapid cell growth. In moments, shattered bones re-knit, gaping wounds close and heal, and the effects of combat damage disappear."]
+      },
+      "school": "PS_BIO",
+      "cost": 300,
+      "prerequisites": [
+        {
+          "tag": "ST_T",
+          "value": 30
+        },
+        {
+          "tag": "PP_SHF",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": -10,
+      "focus_opposed": false,
+      "range": 3,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_HMR",
+      "name": {
+        "ru": "Кровоизлияние",
+        "en": "Haemorrhage"
+      },
+      "description": {
+        "ru": "Опираясь на своё мастерство манипуляций с живыми телами, биомант ускоряет ритм сердцебиения своей жертвы, делая его слишком быстрым для человека. Преданная собственным телом, цель чувствует, как её кровь вскипает, изливается в мозг, выплескивается из разорванных давлением вен. Эта же судьба ждет тех людей, чьи сердца подхватили этот неестественный ритм.",
+        "en": "Drawing on his mastery of the living body, the biomancer accelerates his victim’s heart rate beyond the bounds of biological possibility. Betrayed by his own body, the target’s blood boils over, flooding his brain and bursting his over-taxed veins. Those nearby have their own hearts caught in the unnatural rhythm, suffering the same fate."
+      },
+      "school": "PS_BIO",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер указывает одну цель, находящуюся в дистанции применения психосилы и на линии прямой видимости самого псайкера. Эта цель должна пройти Встречную проверку Выносливости против Силы Воли псайкера (то есть, против проверки Силы Воли, сделанной при сотворении психосилы). Если цель проваливает эту проверку, она получает количество очков Энергетического урона, равное пси-рейтингу псайкера, плюс одно дополнительное очко урона за каждсутюе пень провала проверки Выносливости. Этот урон игнорирует Броню и бонус Выносливости. Если цель была убита при помощи этой психосилы, псайкер может немедленно, в качестве Свободного действия, применить эту психосилу на другую цель, находящуюся на расстоянии не более 5 метров от первоначальной (вторая цель также должна находится в дистанции 10*пси-рейтинг метров и быть видима для псайкера)."],
+        "en": ["The psyker nominates a single target in range and line of sight who opposes this power with a Toughness test. If the target fails to resist the power, it suffers Energy damage equal to the psyker’s psy rating, plus one additional damage per degree of failure on its Toughness test; this damage ignores Toughness bonus and Armour. If this damage successfully kills the target, the psyker may immediately recast this psychic power as a Free Action on any legal target within 5 metres of the original target."]
+      },
+      "cost": 400,
+      "prerequisites": [
+        {
+          "tag": "PR",
+          "value": 4
+        },
+        {
+          "tag": "PP_LLC",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": -10,
+      "focus_opposed": true,
+      "range": 10,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON", "KW_ATK"]
+    },
+    {
+      "tag": "PP_INV",
+      "name": {
+        "ru": "Укрепление сил",
+        "en": "Invigourate"
+      },
+      "description": {
+        "ru": "Псайкер черпает энергии из Варпа для того, чтобы укреплять силы своих товарищей. Иногда это, несмотря на всю опасность, может быть необходимо для того, чтобы отряд продолжал действовать — отбросившие усталость аколиты эффективнее возьмутся за дело.",
+        "en": "The psyker draws upon the energies of the Warp to galvanise the flesh, a possibly hazardous endeavour but one that can be essential to continue the warband’s efforts. Newly empowered, the Acolytes can continue afresh."
+      },
+      "school": "PS_BIO",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер может снять один или несколько уровней Усталости с себя или своих союзников, находящихся в пределах области применения силы. Он может выбрать, сколько уровней снимать с каждого из персонажей, но общее количество снятой таким образом Усталости не может превышать пси-рейтинг псайкера. Применение этой психосилы очень утомительно и в следующий раз она может быть применена не ранее чем через 12 часов."],
+        "en": ["The psyker can remove a number of levels of Fatigue from himself and allies within range. He can chose how many levels to reduce per character, but the sum of all levels removed from all characters cannot exceed his psy rating. This power is very taxing and requires at least 12 hours of recovery before it can be used again."]
+      },
+      "cost": 100,
+      "prerequisites": [
+        {
+          "tag": "ST_T",
+          "value": 30
+        }
+      ],
+      "sustainable": false,
       "focus_check": "ST_WP",
       "focus_mod": 0,
       "focus_opposed": false,
-      "range": "",
-      "action": "",
+      "range": 1,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_IRA",
+      "name": {
+        "ru": "Железная плоть",
+        "en": "Iron arm"
+      },
+      "description": {
+        "ru": "Плоть псайкера изменяется, превращаясь в закаленный живой металл, тяжёлый, но невероятно прочный. Эта новая форма позволяет ему не обращать внимания на огонь стрелкового оружия и крушить своих врагов голыми руками.",
+        "en": "The psyker’s flesh transforms, hardening into a slick, living metal, weighing him down but also rendering him incredibly resistant. His new form allows him to shrug off small arms fire and crush his enemies with his bare hands."
+      },
+      "school": "PS_BIO",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["На всё время, пока эта психосила активна, псайкер получает черты Сверхчеловеческая Сила и Сверхчеловеческая Выносливость с рейтингом, равным половине его пси-рейтинга (округлять вверх). Однако, эта крепкая плоть непривычная для псайкера и налагает штраф -10 на все проверки Ловкости на время действия этой психосилы."],
+        "en": ["While this power is in effect, the psyker gains the Unnatural Toughness and Unnatural Strength traits with ratings equal to half his psy rating, rounded up. However, his flesh’s sturdier form weighs the psyker down, causing him to suffer a –10 penalty to his Agility characteristic while the power is in effect."]
+      },
+      "cost": 400,
+      "prerequisites": [
+        {
+          "tag": "ST_T",
+          "value": 35
+        },
+        {
+          "tag": "ST_STR",
+          "value": 35
+        },
+        {
+          "tag": "PP_SHF",
+          "value": 1
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_FREE",
+      "focus_check": "ST_WP",
+      "focus_mod": -20,
+      "focus_opposed": false,
+      "range": 0,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_LLC",
+      "name": {
+        "ru": "Вытягивание Жизни",
+        "en": "Life leech"
+      },
+      "description": {
+        "ru": "Псайкер ухватывается за средоточие жизненных сил жертвы и вытягивает их из её беспомощного тела. Он вбирает украденную силу в себя, исцеляя и укрепляя собственную плоть.",
+        "en": "The psyker latches on to his target’s life force and tears it from the hapless victim’s body. The psyker absorbs this stolen essence, using it to reinvigourate and bolster his own flesh."
+      },
+      "school": "PS_BIO",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер указывает одну цель, находящуюся в дистанции применения психосилы и на линии прямой видимости самого псайкера. Эта цель должна пройти Встречную проверку Выносливости против Силы Воли псайкера (то есть, против проверки Силы Воли, сделанной при сотворении психосилы). Если цель проваливает проверку, она уменьшает свою Выносливость на 1к10 + пси-рейтинг псайкера. Псайкер же получает черту Сверхчеловеческая Выносливость (1), рейтинг которой увеличивается на 1 за каждые полные 5 очков поглощенной Выносливости. Эта черта сохраняется у псайкера на время действия психосилы."],
+        "en": ["The psyker nominates a single target in range and line of sight who opposes this power with a Toughness test. If the target fails to resist the power, he suffers 1d10 + psy rating Toughness damage, and the psyker gains Unnatural Toughness (1) trait, with its value increased by 1 for every full 5 points of Toughness damage the power inflicts. This Unnatural Toughness trait remains for as long as the power’s effect persists."]
+      },
+      "cost": 400,
+      "prerequisites": [
+        {
+          "tag": "ST_T",
+          "value": 40
+        },
+        {
+          "tag": "PP_ENF",
+          "value": 1
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_FREE",
+      "focus_check": "ST_WP",
+      "focus_mod": -10,
+      "focus_opposed": true,
+      "range": 10,
+      "action": "AT_FULL",
+      "keywords": ["KW_CON", "KW_ATK"]
+    },
+    {
+      "tag": "PP_SHF",
+      "name": {
+        "ru": "Скульптор плоти",
+        "en": "Shape flesh"
+      },
+      "description": {
+        "ru": "Могущественные биоманты способны с немалой искусностью изменять живые тела одними лишь усилиями своей воли. Достигнувший вершин мастерства псайкер может творить с плотью такие вещи, что ему позавидует любой скульптор.",
+        "en": "Powerful biomancers are able to bend the living body to their will with great finesse. At the heights of ability, a psyker can mould flesh with an expertise any sculptor would envy."
+      },
+      "school": "PS_BIO",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": [
+          "Псайкер должен выбрать цель – себя или любой другой, находящийся в дистанции применения силы органический объект, до которого он может физически коснуться. Внешний вид цели меняется – форма нового облика остается на усмотрение псайкера и сохраняется на протяжении действия психосилы. Количество и качество трансформации зависит от пси-рейтинга. Ниже приведено несколько примеров, но МИ может изменить действие психосилы, если это потребуется:",
+          "Пси-рейтинг 1-3: Псайкер может исказить внешний вид цели, изменив её форму и цвет. Он не имеет прямого контроля над тем, как именно будет выглядеть конечный результат.",
+          "Пси-рейтинг 4-6: Псайкер может изменять плоть, волосы, глаза и другие конкретные физические особенности внешнего вида. Он может выбрать, как именно измениться та или иная особенность, но не может точно изменять мимику цели.",
+          "Пси-рейтинг 7-9: Псайкер может изменить любую физическую черту цели так, чтобы цель была похожа на другого конкретного человека. Однако для этого псайкер должен был видеть этого человека раньше или иметь его пикт-изображение.",
+          "Пси-рейтинг 10+: Псайкер может вылепить из своей цели точное подобие другого человека, скопировав даже его мимику. Кроме того, он может использовать свои силы, для превращения своей цели в нечто, не похожее на человека.",
+          "Все проверки, направленные на то, чтобы изобличить подлинную сущность измененного этой психосилой существе получают штраф, равный 5 * пси-рейтинг псайкера. На время, пока психосила поддерживается, её эффект не изменяется, независимо от того, как далеко от цели находится псайкер."
+        ],
+        "en": [
+          "The psyker chooses himself or an organic target that he can physically touch. The target’s physical appearance changes to a new form of the psyker’s choosing for the duration of the power. The amount and precision of the alterations depend on the final psy rating used. Following are some broad guidelines, but GMs can further alter the range of the power as needed.",
+          "PR 1–3: The psyker can alter subtle flesh shapes, tones, and colours to distort the appearance of the target. He does not have direct control over what the end result looks like.",
+          "PR 4–6: The psyker can alter flesh, hair, eyes, and any other physical features. He can choose how the features will be altered, but does not have the precision to mimic others.",
+          "PR 7–9: The psyker can change any physical feature of the target to resemble another individual. However, the psyker must have a pic record of the individual, or have seen him before.",
+          "PR 10+: The psyker can shape his target to exactly mimic another individual. Additionally, he can use the power to morph the target into a form that no longer appears human.",
+          "All tests to identify the target’s true identity suffer a penalty equal to 5 x PR for the duration of the power. The effects of the power on a target other than the psyker remain in effect for the duration of the power, regardless of how far away from the psyker the target becomes."
+        ]
+      },
+      "cost": 200,
+      "prerequisites": [
+        {
+          "tag": "ST_PER",
+          "value": 35
+        },
+        {
+          "tag": "ST_T",
+          "value": 30
+        },
+        {
+          "tag": "PP_SMT",
+          "value": 1
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_FREE",
+      "focus_check": "ST_WP",
+      "focus_mod": 10,
+      "focus_opposed": false,
+      "range": 1,
+      "action": "AT_FULL",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_SMT",
+      "name": {
+        "ru": "Разряд",
+        "en": "Smite"
+      },
+      "description": {
+        "ru": "Черпая энергию из электрического поля собственного тела, псайкер создает разрывающий разряд биомолнии, превращающий его жизненную энергию в разрушительную. Прорицатели часто говорят, что ничто столь много не говорит о состоянии души биоманта, сколько цвет и внешний вид проявления этой психосилы.",
+        "en": "Drawing on the electric field of his own body, the psyker projects crackling bolts of bio-lightning, transforming his very life force into destructive energy. Diviners often claim that one can tell much about the state of a biomancer’s soul from the colour and appearance of this power."
+      },
+      "school": "PS_BIO",
+      "type": ["PT_BAR"],
+      "effect": {
+        "description": {
+          "ru": [],
+          "en": []
+        },
+        "dice": 10,
+        "count": 1,
+        "bonus": 0,
+        "pr_bonus": 1,
+        "type": {
+          "ru": "Э",
+          "en": "E"
+        },
+        "pen": 4,
+        "pr_pen": 0,
+        "traits": []
+      },
+      "cost": 200,
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 40
+        },
+        {
+          "tag": "PP_INV",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": 20,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON", "KW_ATK"]
+    },
+    {
+      "tag": "PP_WPS",
+      "name": {
+        "ru": "Варп-скорость",
+        "en": "Warp speed"
+      },
+      "description": {
+        "ru": "Вбирая в себя мощь Эмпирея, псайкер наполняет своё тело энергией, выводящей его из рамок доступного смертному. Находясь под воздействием этой психосилы, псайкер передвигается с невероятной скоростью, гарантирующей, что ни один еретик не будет достаточно быстр, чтобы уйти от правосудия.",
+        "en": "Tapping into the power of the Empyrean, the psyker suffuses his body with energy, pushing himself beyond physical limits. While under the effects of this power, the psyker moves with unbelievable speed, ensuring that no heretic is swift enough to escape justice."
+      },
+      "school": "PS_BIO",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер получает черты Сверхчеловеческий Навык Рукопашной, Сверхчеловеческий Навык Стрельбы и Сверхчеловеческую Ловкость. Рейтинг этих черт равен пси-рейтингу псайкера."],
+        "en": ["The psyker gains the Unnatural Weapon Skill, Unnatural Ballistic Skill, and Unnatural Agility traits, all at values equal to his psy rating."]
+      },
+      "cost": 500,
+      "prerequisites": [
+        {
+          "tag": "PR",
+          "value": 5
+        },
+        {
+          "tag": "PP_IRA",
+          "value": 1,
+          "alt": {
+            "tag": "PP_END",
+            "value": 1
+          }
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_FREE",
+      "focus_check": "ST_WP",
+      "focus_mod": -10,
+      "focus_opposed": false,
+      "range": 0,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_FBD",
+      "name": {
+        "ru": "Предчувствие",
+        "en": "Foreboding"
+      },
+      "description": {
+        "ru": "Псайкер получает сверхъестественное шестое чувство. Необъяснимое озарение показывает ему, где и как ударит противник, и он уклоняется от вражеских ударов и лазразрядов с презрительной и пугающей легкостью.",
+        "en": "The psyker gains an unnatural sixth sense. With this inexplicable insight, he knows how and where his enemies will attack, dodging blows and lasblasts with contemptuous and frightening ease."
+      },
+      "school": "PS_DIV",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["В любой ситуации когда персонаж способен сделать любую проверку Избегания, он может, вместо этого, сотворить эту силу. Если проявление психосилы удалось, псайкер избегает вражеской атаки так, как если бы успешно прошёл проверку Избегания, число степеней успеха которой равно числу степеней успеха в проверки Фокусировке Силы."],
+        "en": ["In any situation where the psyker would be called upon to make an Evasion test, he may instead attempt to use this power. If the power is successful, the psyker avoids the attack exactly as if he has passed an Evasion test with the number of degrees of success he scored on the Focus Power test."]
+      },
+      "cost": 200,
+      "prerequisites": [
+        {
+          "tag": "SK_PSY",
+          "value": 0
+        },
+        {
+          "tag": "PP_WPR",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_PER",
+      "focus_mod": -10,
+      "focus_opposed": false,
+      "range": 0,
+      "action": "AT_REACT",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_FWR",
+      "name": {
+        "ru": "Предостережение",
+        "en": "Forewarning"
+      },
+      "description": {
+        "ru": "Предвидя намерения своих противников, псайкер оказывает легчайшее воздействие на ход событий, отправляя в Варп импульс, подобный маленькому камешку, падающему в воду. Не шевельнув и пальцем, псайкер спасает своих союзников от неминуемых ранений и сбивает врага с толку.",
+        "en": "Foreseeing his foes’ intentions, the psyker taps into the Warp and, like dropping a small pebble into a pool, sends ripples to slightly shift the course of events. Without moving a muscle, the psyker saves his ally from certain injury and leaves his enemy baffled."
+      },
+      "school": "PS_DIV",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["На время действия психосилы число союзников, равное пси-рейтингу псайкера и находящееся в дистанции действия психосилы, а также сам псайкер получают бонус ко всем проверкам Избегания, равный удвоенному пси-рейтингу псайкера. Союзники, получающие этот бонус, теряют его, если покинут зону действия психосилы."],
+        "en": ["For the duration of this power, a number of allies within range equal to the psyker’s psy rating, plus the psyker himself, gain a bonus to all Evasion tests equal to twice the psyker’s psy rating. Allies affected by this power lose its benefits as soon as they move out of range."]
+      },
+      "cost": 400,
+      "prerequisites": [
+        {
+          "tag": "ST_PER",
+          "value": 50
+        },
+        {
+          "tag": "PP_FBD",
+          "value": 1
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_FREE",
+      "focus_check": "SK_PS",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": 3,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_MSF",
+      "name": {
+        "ru": "Несчастье",
+        "en": "Misfortune"
+      },
+      "description": {
+        "ru": "Псайкер сосредотачивает свой внутренний взор на одной цели, убеждаясь, что та пострадает ото всех возможных бедствий, с которыми столкнёт её сплетенная псайкером судьба. От мелких досадных проблем до вопросов жизни и смерти – неудача будет преследовать цель на каждом шагу.",
+        "en": "Twisting fate, the psyker focuses his inner eye to ensure that his foe suffers every possible calamity that ill-fortune could provide. From embarrassing mishaps to life-and-death struggles, chance itself betrays the target at every turn."
+      },
+      "school": "PS_DIV",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер указывает одну цель, находящуюся в дистанции действия психосилы и на линии его прямой видимости, которая должна пройти Встречную проверку Силы Воли против проверки Фокусировки Силы псайкера. Если цель проваливает проверку, несчастья начинают преследовать её повсюду. До конца действия психосилы количество очков Брони цели на всех зонах попадания уменьшается на число, равное половине пси-рейтинга псайкера (округлять вверх). Кроме того, оружие цели заклинивает при каждом промахе."],
+        "en": ["The psyker nominates a single target in range and line of sight who opposes this power with a Willpower test. If the target fails to resist the power, misfortune follows it wherever it goes. For the duration of this power, the target’s Armour points are reduced in all locations by half the psyker’s psy rating, rounded up. The target’s weapons also jam on any attack in which they fail to hit their target."]
+      },
+      "cost": 300,
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 45
+        },
+        {
+          "tag": "PP_FBD",
+          "value": 1
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_FREE",
+      "focus_check": "ST_WP",
+      "focus_mod": -10,
+      "focus_opposed": true,
+      "range": 20,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON", "KW_ATK"]
+    },
+    {
+      "tag": "PP_PTM",
+      "name": {
+        "ru": "Идеальный расчет времени",
+        "en": "Perfect timing"
+      },
+      "description": {
+        "ru": "Предчувствия прорицателя столь точны, что он может предсказать момент, когда враг покажется из укрытия, подставившись под огонь. Кроме того, прорицатель может переплетать свою судьбу с судьбами своих союзников, создавая мысленную связь, заставляющую их выстрелы звучать в унисон, поражая врага раньше, чем тот сможет осознать это.",
+        "en": "So accurate are the diviner’s premonitions, that he can predict the exact moment his foe will expose himself as a target. Further, the psyker can forge a link with his allies, momentarily intertwining their fortunes, so that they might fire in perfect unison, already squeezing their weapons’ triggers before the foe is aware."
+      },
+      "school": "PS_DIV",
+      "cost": 300,
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["На время действия психосилы число союзников равное пси-рейтингу псайкера и находящееся в дистанции действия психосилы, а также сам псайкер, стреляя по врагу, игнорируют эффекты его укрытия. Если атака псайкера или его союзников попадает во врага, получающего преимущества от укрытия, эти преимущества не действуют. Союзники, получающие эту особенность, теряют её, если покинут зону действия психосилы."],
+        "en": ["For the duration of this power, the psyker and a number of allies equal to his psy rating within range, ignore the effects of cover when firing on a target. If their attacks would strike a Hit Location on the enemy that would benefit from cover, that benefit is ignored. Allies affected by this power lose its benefits as soon as they move out of range."]
+      },
+      "prerequisites": [
+        {
+          "tag": "ST_PER",
+          "value": 55
+        },
+        {
+          "tag": "PP_FWR",
+          "value": 1
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_HALF",
+      "focus_check": "SK_PSY",
+      "focus_mod": -10,
+      "focus_opposed": false,
+      "range": 3,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_PRC",
+      "name": {
+        "ru": "Прекогниция",
+        "en": "Precognition"
+      },
+      "description": {
+        "ru": "Одна из самых часто применяемых возможностей Предсказания – вызов ярких и реалистичных видений своего ближайшего будущего. Вглядываясь в картины ещё не произошедших событий, псайкер может использовать полученную оттуда информацию для того, чтобы предотвратить их или изменить свою судьбу.",
+        "en": "In one of the most viscerally intense applications of the Divination discipline, the psyker witnesses solid and perfectly lifelike visions of his own future. Peering into moments yet to come, he can use this information to ensure or avoid future fates."
+      },
+      "school": "PS_DIV",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["До начала своего следующего хода псайкер получает количество перебросов, равное его пси-рейтингу. Когда, на протяжении раунда, псайкер или его союзники, находящиеся в дистанции действия психосилы бросают проверку или определяют броском костей нанесенный урон, псайкер может потратить один из данных ему психосилой перебросов на то, чтобы перебросить кости. Если псайкер до начала своего следующего хода будет убит или впадёт в беспамятство, все неиспользованные перебросы теряются."],
+        "en": ["The psyker gains a number of re-rolls equal to his psy rating that last until the beginning of the his next turn. For the duration of that round, whenever the psyker or an ally in range makes a test or damage roll, the psyker may spend one of the rerolls to allow that ally to re-roll all dice involved in the roll. If the psyker is killed or rendered Unconscious before the beginning of his next turn, all remaining re-rolls are lost."]
+      },
+      "cost": 400,
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 45
+        },
+        {
+          "tag": "ST_PER",
+          "value": 45
+        },
+        {
+          "tag": "PP_SCG",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "SK_PSY",
+      "focus_mod": -20,
+      "focus_opposed": false,
+      "range": 5,
+      "action": "AT_FULL",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_PRS",
+      "name": {
+        "ru": "Предвидение",
+        "en": "Prescience"
+      },
+      "description": {
+        "ru": "Краткие, нечёткие вспышки видений из ближайшего будущего позволяют псайкеру точно направить удар всего отряда в нужную цель. Хоть эти проблески и кратки, иногда подобное предвидение может означать разницу между жизнью и смертью.",
+        "en": "The psyker sees brief, fuzzy flashes into his immediate future, which he can use to guide the warband’s aim against their enemies. Though the glimpses are short, such foretelling can mean the difference between life and death when in combat."
+      },
+      "school": "PS_DIV",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["На время действия психосилы число союзни,к ов равное пси-рейтингу псайкера и находящееся в дистанции действия психосилы, а также сам псайкер получают бонус, равный удвоенному пси-рейтингу псайкера, к проверкам Навыка Рукопашной и Навыка Стрельбы. Союзники, получающие этот бонус, теряют его, если покинут зону действия психосилы."],
+        "en": ["For the duration of this power, the psyker and a number of allies equal to his psy rating within range, gain a bonus to their Weapon Skill and Ballistic Skill tests equal to twice the psyker’s psy rating. Allies affected by this power lose its benefit as soon as they move out of range."]
+      },
+      "cost": 200,
+      "prerequisites": [
+        {
+          "tag": "SK_PSY",
+          "value": 0
+        },
+        {
+          "tag": "PP_WPR",
+          "value": 1
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_HALF",
+      "focus_check": "SK_PSY",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": 3,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_SCG",
+      "name": {
+        "ru": "Ясновидение",
+        "en": "Scrier's gaze"
+      },
+      "description": {
+        "ru": "Самые опытные прорицатели умеют видеть не только будущее, но и настоящее. Не связанные физическими ограничениями, их разумы зрят далеко и глубоко и мало кто может укрыться от этого взора.",
+        "en": "The most accomplished diviners are not only able to see into the future, but also the present. Unbound by the limits of mere physical vision, his mind peers far and wide, with little able to hide from his sight."
+      },
+      "school": "PS_DIV",
+      "type": ["PT_RIT"],
+      "effect": {
+        "ru": ["Чтобы начать ритуал, псайкер должен провести хотя бы полчаса с психофокусом, концентрируя свой разум. Он может раскладывать карты Таро, бросать руны, вглядываться в огонь – способов существует больше, чем звёзд в Империуме. По прошествии этого времени, псайкер совершает проверку Фокусировки Силы, чтобы пронзить Варп своим взглядом. Если проверка успешна, МИ сообщает игроку информацию, количество которой зависит от количества степеней успеха проверки Фокусировки Силы."],
+        "en": ["To begin the ritual, the psyker must spend at least thirty minutes using assorted psychic foci to concentrate his vision—drawing Tarot cards, casting runes, gazing deep into fire, or other methods as varied as the stars of the Imperium. At the end of this time, he makes his Focus Power test to project his vision over the area, with the GM revealing information based on the degrees of success."]
+      },
+      "cost": 200,
+      "prerequisites": [
+        {
+          "tag": "SK_PSY",
+          "value": 10
+        },
+        {
+          "tag": "PP_PRS",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "SK_PSY",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": 0,
+      "action": "AT_EXT",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_WPR",
+      "name": {
+        "ru": "Варп-чувства",
+        "en": "Warp perception"
+      },
+      "description": {
+        "ru": "Псайкер позволяет неестественным энергиям Варпа проникнуть в его чувства, усиливая и обостряя их. Не связанный более ограничениями плоти, он намного лучше видит и чует добычу.",
+        "en": "The psyker opens his senses to the Warp, allowing unnatural tendrils of energy to augment his own perceptions. His flesh no longer limited, he casts his gaze wider and hungrily scents prey from farther afield."
+      },
+      "school": "PS_DIV",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер получает черту Сверхъестественные Чувства (Х), где Х равен его удесятеренному пси-рейтингу."],
+        "en": ["The psyker gains the Unnatural Senses (X) trait, where the X value is equal to the psy rating multiplied by 10."]
+      },
+      "cost": 100,
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 35
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_HALF",
+      "focus_check": "SK_PSY",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": 0,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_WFT",
+      "name": {
+        "ru": "Виток судьбы",
+        "en": "Winding fate"
+      },
+      "description": {
+        "ru": "Прикасаясь к человеку или предмету, псайкер видит его прошлое и будущее. Эти образы, пусть и затуманенные и нечёткие, раскрывают не только то, что случилось, но и то, чему только предстоит случиться.",
+        "en": "By touching a character or item, the psyker sees visions into that subject’s future and past. Though ghostly and laced with tendrils of Warp-smoke, these images reveal not only what was, but what is yet to be."
+      },
+      "school": "PS_DIV",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер получает видения, что длятся количество секунд, равное его удвоенному пси-рейтингу, и относятся к событиям, что произойдут или произошли в период, отстоящий от настоящего времени на количество дней, не превышающее пси-рейтинг псайкера. Чем выше пси-рейтинг прорицателя, тем лучше он может контролировать свои видения (на усмотрение МИ)."],
+        "en": ["The vision lasts for a number of seconds equal to the twice the psy rating, and can be from the subject’s future or past a number of days equal to the psy rating. The higher the psy rating, the more the psyker can control what his flashes focus on (at the GM’s discretion)."]
+      },
+      "cost": 500,
+      "prerequisites": [
+        {
+          "tag": "ST_PER",
+          "value": 50
+        },
+        {
+          "tag": "PP_SCG",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "SK_PSY",
+      "focus_mod": -10,
+      "focus_opposed": false,
+      "range": 0,
+      "action": "AT_FULL",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_CTR",
+      "name": {
+        "ru": "Прижигание",
+        "en": "Cauterize"
+      },
+      "description": {
+        "ru": "Аккуратным применением своей силы псайкер прижигает рану своего союзника или свою собственную, останавливая льющуюся из неё кровь. Это больно, но все же куда лучше, чем истечь кровью до смерти. Использование этой силы создает целенаправленный и интенсивный нагрев, так что по своей эффективности эта психосила может соперничать с лучшим медицинским оборудованием и оставляет далеко позади более простые способы.",
+        "en": "With careful application of his powers, the psyker applies intense heat to a wound on his own flesh or to the flesh of an ally, quenching the flow of blood. The effect is quite painful, but certainly preferable to bleeding to death. The use of this power generates a focused and intense heat that rivals advanced medicae equipment, and certainly far exceeds the effects of ordinary battlefield cauterisations."
+      },
+      "school": "PS_PYR",
+      "cost": 300,
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер останавливает Кровотечение одной цели, страдающей от него, или самому себе. Цель должна находиться в дистанции применения силы, а псайкер должен быть в состоянии дотронуться до неё."],
+        "en": ["The psyker chooses himself or another character he can physically touch. If the target is suffering from Blood Loss, successfully using the power removes that condition."]
+      },
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 45
+        },
+        {
+          "tag": "PP_FSH",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": 20,
+      "focus_opposed": false,
+      "range": 1,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_FBR",
+      "name": {
+        "ru": "Пламенное дыхание",
+        "en": "Flame breath"
+      },
+      "description": {
+        "ru": "Используя своё тело как канал для поглощаемой из Варпа энергии, псайкер извергает поток огня из своего рта и глаз. Вид сгорающих в этом жутком пламени врагов может показаться ужасающим даже для других аколитов.",
+        "en": "Using his body as a conduit for his Warp-drawn power, the psyker expels a torrent of flame from his mouth and eyes. Even his allies can find the sight terrifying as his foes are burned with his unnatural exhalations."
+      },
+      "school": "PS_PYR",
+      "type": ["PT_BAR"],
+      "effect": {
+        "description": {
+          "ru": [],
+          "en": []
+        },
+        "dice": 10,
+        "count": 1,
+        "bonus": 2,
+        "pr_bonus": 2,
+        "type": {
+          "ru": "Э",
+          "en": "E"
+        },
+        "pen": 0,
+        "pr_pen": 0,
+        "traits": ["Flame"]
+      },
+      "cost": 300,
+      "prerequisites": [
+        {
+          "tag": "PR",
+          "value": 3
+        },
+        {
+          "tag": "PP_SCM",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": 20,
+      "action": "AT_HALF",
+      "keywords": ["KW_ATK"]
+    },
+    {
+      "tag": "PP_FRF",
+      "name": {
+        "ru": "Пылающая форма",
+        "en": "Fiery form"
+      },
+      "description": {
+        "ru": "Сверхъестественное пламя охватывает всё тело псайкера. Этот огонь, скрывая за собой его фигуру со всех сторон, каким-то образом не вредит ему, но наносит ужасные ожоги всем, оказавшимся рядом.",
+        "en": "Unnatural flame engulfs the psyker’s entire body. He is cloaked in sheets of fire that somehow do not harm him, but burns any nearby with horrifying results."
+      },
+      "school": "PS_PYR",
+      "type": ["PT_BUFF", "PT_BLAST"],
+      "effect": {
+        "description": {
+          "ru": ["На все время, пока эта психосила активна, все атаки псайкера в ближнем бою наносят дополнительный Энергетический урон, количество которого равно пси-рейтингу псайкера. Этот урон имеет качество Огненный. Кроме того, при поддержании этой психосилы, в конце каждого хода псайкера, он испускает Психический взрыв, центр которого приходится на точку, где находится сам псайкер, а радиус равен пси-рейтингу псайкера в метрах. Каждый, находящийся в зоне поражения, за исключением самого псайкера, получает удар."],
+          "en": ["While this power is in effect, all of the psyker’s melee attacks deal additional Energy damage equal to his psy rating and gain the Flame quality. In addition, at the end of each of the psyker’s turns in which he sustains this power, he emits a Psychic Blast centred on his location. Each character within the area of the blast, with the exception of the psyker himself, are struck."]
+        },
+        "dice": 10,
+        "count": 1,
+        "bonus": 0,
+        "pr_bonus": 1,
+        "type": {
+          "ru": "Э",
+          "en": "E"
+        },
+        "pen": 0,
+        "pr_pen": 0,
+        "traits": ["Blast(PR)", "Flame"]
+      },
+      "cost": 400,
+      "prerequisites": [
+        {
+          "tag": "PR",
+          "value": 4
+        },
+        {
+          "tag": "PP_FSH",
+          "value": 1
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_HALF",
+      "focus_check": "ST_WP",
+      "focus_mod": -10,
+      "focus_opposed": false,
+      "range": 0,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_FSH",
+      "name": {
+        "ru": "Огненный щит",
+        "en": "Fire shield"
+      },
+      "description": {
+        "ru": "Одним жестом псайкер создает перед собой стену из сверхъестественного, мерцающего пламени. Любой, кто попытается повредить пироманту, столкнётся с огненным возмездием – каждая отправленная в псайкера пуля или лазразряд вызовут вспышку обжигающего пламени, рвущегося к нападающему.",
+        "en": "With but a gesture, the psyker summons a wall of shimmering, unnatural fire in the air before him. Any who would strike the pyromancer must contend with fiery retribution, as flames leap outward, travelling in reverse down the path of the bullet or lasbolt to strike the psyker’s assailant."
+      },
+      "school": "PS_PYR",
+      "type": ["PT_BUFF", "PT_BOLT"],
+      "effect": {
+        "description": {
+          "ru": ["На все время, пока эта психосила активна, любой персонаж, (который должен находиться в дистанции действия психосилы и на линии прямой видимости псайкера), успешно атаковавший псайкера, немедленно получает атаку Психическим разрядом, наносящим Энергетический урон, количество которого равно пси-рейтингу псайкера. Количество степеней успеха этой атаки равно количеству степеней успеха проверки Фокусировки Силы. От урона, нанесенного этой атакой, не спасают ни Броня, ни бонус Выносливости."],
+          "en": ["While this power is in effect, any character in range and line of sight that successfully strikes the psyker with an attack immediately suffers Energy damage equal to the psyker’s psy rating. The degrees of success on this attack are equal to those from the Focus Power test, and the inflicted damage is not reduced by Armour or Toughness bonus."]
+        },
+        "dice": 10,
+        "count": 0,
+        "bonus": 0,
+        "pr_bonus": 1,
+        "type": {
+          "ru": "Э",
+          "en": "E"
+        },
+        "pen": 0,
+        "pr_pen": 0,
+        "traits": ["Flame"]
+      },
+      "cost": 300,
+      "prerequisites": [
+        {
+          "tag": "ST_AG",
+          "value": 40
+        },
+        {
+          "tag": "PP_MFL",
+          "value": 1
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_FREE",
+      "focus_check": "ST_WP",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": 20,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_INF",
+      "name": {
+        "ru": "Инферно",
+        "en": "Inferno"
+      },
+      "description": {
+        "ru": "Враги псайкера оказываются в самом центре жестокого пламени, когда пиромант, сосредоточившись, заставляет вспыхнуть сам воздух вокруг них.",
+        "en": "Focussing his power, the psyker ignites the very atmosphere surrounding his target, placing his foe in the midst of a sudden and violent conflagration."
+      },
+      "school": "PS_PYR",
+      "type": ["PT_BLAST"],
+      "effect": {
+        "description": {
+          "ru": [],
+          "en": []
+        },
+        "dice": 10,
+        "count": 2,
+        "bonus": 0,
+        "pr_bonus": 3,
+        "type": {
+          "ru": "Э",
+          "en": "E"
+        },
+        "pen": 0,
+        "pr_pen": 0,
+        "traits": ["Blast (PR)", "Flame"]
+      },
+      "cost": 500,
+      "prerequisites": [
+        {
+          "tag": "PR",
+          "value": 5
+        },
+        {
+          "tag": "PP_MBM",
+          "value": 1,
+          "alt": {
+            "tag": "PP_SNB",
+            "value": 1
+          }
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": -10,
+      "focus_opposed": false,
+      "range": 10,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON", "KW_ATK"]
+    },
+    {
+      "tag": "PP_MFL",
+      "name": {
+        "ru": "Управление пламенем",
+        "en": "Manipulate flame"
+      },
+      "description": {
+        "ru": "Силой своего разума, псайкер заставляет пламя подчиняться его желаниям. Оно будет танцевать под его дудку, перемещаться туда, куда он пожелает или тихо гаснуть по приказу своего повелителя.",
+        "en": "Reaching out with his mind, the psyker grasps nearby flame and moulds it to his desire. The flames dance to his tune, moving to untouched areas or falling quiet at their master’s command."
+      },
+      "school": "PS_PYR",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер выбирает находящуюся в дистанции действия психосилы частицу пламени, которую может видеть, и радиусом не превышающую его пси-рейтинг (в метрах). Он может погасить этот огонь усилием воли (проверка не требуется – пламя просто затухает и действие психосилы прекращается) или как-либо управлять им. За один раунд псайкер может переместить контролируемое им пламя на количество метров, равное его пси-рейтингу. Пламя можно перемещать только по горючей поверхности, ведь по своей природе это обычный огонь, и он не может гореть без топлива."],
+        "en": ["The psyker chooses a patch of fire in range and line of sight with a radius no greater than PR metres. Each round, he can either extinguish or control the fire. If he extinguishes the fire, this power ends and the fire goes out. If he controls the fire, he can move it up to a number of metres equal to his psy rating per round along a flammable surface."]
+      },
+      "cost": 100,
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 35
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_HALF",
+      "focus_check": "ST_WP",
+      "focus_mod": 20,
+      "focus_opposed": false,
+      "range": 10,
+      "action": "AT_HALF",
+      "keywords": ["KW_ATK"]
+    },
+    {
+      "tag": "PP_MBM",
+      "name": {
+        "ru": "Расплавляющий луч",
+        "en": "Molten beam"
+      },
+      "description": {
+        "ru": "Пиромант создает бьющий из его рук ослепительно яркий луч солнечной энергии. Прикосновение этого пылающего луча превращает пласталь в жидкость, а человеческую плоть – в пепел.",
+        "en": "The pyrokine projects from his hands a blindingly bright beam of sun-hot energy. At the touch of this blazing ray, plasteel liquefies and flesh bursts into ash."
+      },
+      "school": "PS_PYR",
+      "type": ["PT_BOLT"],
+      "effect": {
+        "description": {
+          "ru": [],
+          "en": []
+        },
+        "dice": 10,
+        "count": 1,
+        "bonus": 5,
+        "pr_bonus": 3,
+        "type": {
+          "ru": "Э",
+          "en": "E"
+        },
+        "pen": 0,
+        "pr_pen": 2,
+        "traits": ["Melta"]
+      },
+      "cost": 400,
+      "prerequisites": [
+        {
+          "tag": "PR",
+          "value": 4
+        },
+        {
+          "tag": "PP_SCM",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": 5,
+      "action": "AT_HALF",
+      "keywords": ["KW_ATK"]
+    },
+    {
+      "tag": "PP_SCM",
+      "name": {
+        "ru": "Самопроизвольное возгорание",
+        "en": "Spontaneous combustion"
+      },
+      "description": {
+        "ru": "Это одно из чистейших проявлений Пиромантии – сила, заставляющая врагов псайкера вспыхнуть и сжигающая их заживо. Кровь жертвы вскипает, плоть обугливается, а когда ярость пироманта достигает своей вершины, тело его противника взрывается, разлетаясь в стороны пеплом и пламенем.",
+        "en": "In one of the purest displays of his power, the psyker ignites his enemies, burning them alive. The target’s blood boils and flesh smoulders, and as the psyker’s rage reaches its pinnacle, the target’s body begins to explode in blasts of ash and flame."
+      },
+      "school": "PS_PYR",
+      "type": ["PT_BOLT"],
+      "effect": {
+        "description": {
+          "ru": [],
+          "en": []
+        },
+        "dice": 10,
+        "count": 1,
+        "bonus": 2,
+        "pr_bonus": 2,
+        "type": {
+          "ru": "Э",
+          "en": "E"
+        },
+        "pen": 0,
+        "pr_pen": 0,
+        "traits": ["Flame"]
+      },
+      "cost": 200,
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 40
+        },
+        {
+          "tag": "PP_MFL",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": 10,
+      "focus_opposed": false,
+      "range": 20,
+      "action": "AT_HALF",
+      "keywords": ["KW_ATK"]
+    },
+    {
+      "tag": "PP_SNB",
+      "name": {
+        "ru": "Солнечная вспышка",
+        "en": "Sunburst"
+      },
+      "description": {
+        "ru": "Псайкер высвобождает в своей ярости подобный сверхновой звезде вихрь огненной энергии из своего тела. При проявлении этой психосилы, вокруг пироманта возникает и ширится сверкающая аура, становясь все ярче и горячей, прежде чем вспыхнуть испепеляющим пламенем. Сам же псайкер, подобно кораблю, попавшему в око бури, остается невредимым, когда все вокруг обращается в прах и пепел.",
+        "en": "The psyker releases a nova of fiery energy from his body. As the psyker focuses his power, a blazing aura coalesces around him, growing brighter and hotter before rapidly expanding outward in all directions. As the calm at the eye of the firestorm, the psyker is untouched, while all around him is reduced to ash and cinder."
+      },
+      "school": "PS_PYR",
+      "type": ["PT_STORM"],
+      "effect": {
+        "description": {
+          "ru": [],
+          "en": []
+        },
+        "dice": 10,
+        "count": 1,
+        "bonus": 2,
+        "pr_bonus": 2,
+        "type": {
+          "ru": "Э",
+          "en": "E"
+        },
+        "pen": 0,
+        "pr_pen": 0,
+        "traits": ["Flame"]
+      },
+      "cost": 400,
+      "prerequisites": [
+        {
+          "tag": "PR",
+          "value": 1
+        },
+        {
+          "tag": "PP_FBR",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": 20,
+      "action": "AT_HALF",
+      "keywords": ["KW_ATK"]
+    },
+    {
+      "tag": "PP_ASL",
+      "name": {
+        "ru": "Швыряние",
+        "en": "Assail"
+      },
+      "description": {
+        "ru": "Псайкер тянется силой своего разума к какому-либо предмету и метает его во врага. Если никакого подходящего объекта рядом нет, телекинетик может прямо направить свои ментальные энергии в противника, ударив его невидимым разрядом психической силы.",
+        "en": "The psyker reaches out with his mind to pluck up whatever objects are available and hurl them at his target. If there is nothing suitable nearby, the psyker can direct his mental energies directly at his foe, pounding him with bolts of invisible force."
+      },
+      "school": "PS_TLK",
+      "cost": 200,
+      "type": ["PT_BOLT"],
+      "effect": {
+        "description": {
+          "ru": ["Если псайкер набирает три или более степеней успеха при проверке Фокусировки Силы, цель, получив обычный урон, отбрасывается на 1к5 метров и падает на землю. Очень большие цели – боевые танки, великие демоны, титаны – могут быть невосприимчивы к этому эффекту (по решению МИ)."],
+          "en": ["If the psyker scores at least three degrees of success on the Focus Power test for this attack, the target is also thrown 1d5 metres away and knocked Prone. Certain especially large targets such as battle tanks, Greater Daemons, and Titans are immune to this effect at the Game Master’s discretion."]
+        },
+        "dice": 10,
+        "count": 1,
+        "bonus": 0,
+        "pr_bonus": 1,
+        "type": {
+          "ru": "У",
+          "en": "I"
+        },
+        "pen": 2,
+        "pr_pen": 0,
+        "traits": []
+      },
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 40
+        },
+        {
+          "tag": "PP_TLC",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": 10,
+      "focus_opposed": false,
+      "range": 20,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON", "KW_ATK"]
+    },
+    {
+      "tag": "PP_CRS",
+      "name": {
+        "ru": "Сдавливание",
+        "en": "Crush"
+      },
+      "description": {
+        "ru": "Вместо того чтобы использовать свои силы, превращая неодушевленные предметы в оружие, телекинетик может сфокусироваться на враге, сжимая его невидимым психическим кулаком. Цель испытает пронзительную боль от сдавливающего её веса, даже если сможет сопротивляться этому психическому натиску.",
+        "en": "Rather than using his abilities to turn inanimate objects into weapons, the telekine focuses directly on his enemy to squeeze him in an invisible fist of power. Unless the target can repel the psychokinetic assault, he is bludgeoned horridly. Even should he survive, the overwhelming psychic force nonetheless pins him in place under a tremendous weight."
+      },
+      "school": "PS_TLK",
+      "type": ["PT_BOLT"],
+      "effect": {
+        "description": {
+          "ru": ["Псайкер указывает одну цель, находящуюся в дистанции действия психосилы и на линии его прямой видимости, которая должна пройти Встречную проверку Выносливости против проверки Фокусировки Силы псайкера. Если цель проваливает проверку, то на неё действует эффект силы."],
+          "en": ["The psyker nominates a single target in range and line of sight who opposes this power with a Toughness test. If the target fails to resist the power, it suffers the attack below."]
+        },
+        "dice": 10,
+        "count": 1,
+        "bonus": 0,
+        "pr_bonus": 1,
+        "type": {
+          "ru": "У",
+          "en": "I"
+        },
+        "pen": 2,
+        "pr_pen": 0,
+        "traits": []
+      },
+      "cost": 300,
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 45
+        },
+        {
+          "tag": "PP_ASL",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": 0,
+      "focus_opposed": true,
+      "range": 10,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON", "KW_ATK"]
+    },
+    {
+      "tag": "PP_GOF",
+      "name": {
+        "ru": "Врата бесконечности",
+        "en": "Gate of infinity"
+      },
+      "description": {
+        "ru": "Не будучи какой-либо психической атакой, эта психосила, тем не менее, остается одной из самых опасных возможностей Телекинеза. С её помощью псайкер разрывает ткань реальности для того, чтобы попасть в Варп и пройти через него. Другие люди могут отказаться следовать этим путем, опасаясь даже приближаться к Имматериуму и его жутким обитателям.",
+        "en": "Though it offers no physical attack, this power is nonetheless one of the most dangerous uses of the Telekinesis discipline. With it, the psyker tears open a hole in space so that he might pass through the Warp. Others might refuse to pass through the unreal pathway, however, fearful of any proximity to the Immaterium and its terrible denizens."
+      },
+      "school": "PS_TLK",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": [
+          "Псайкер выбирает точку на расстоянии не более чем 5 метров * пси-рейтинг от себя и открывает врата в Имматериум в этой точке. Затем он выбирает точку в радиусе действия силы и открывает в ней «выход» из врат. Псайкер должен знать место, где он создает выход из врат – бывать там раньше, видеть его издали или просто помнить его местонахождение по карте.",
+          "Врата остаются открытыми количество раундов, равное пси-рейтингу псайкера, и имеют радиус, равный пси-рейтингу псайкера в метрах. На протяжении действия силы обе стороны ворот связаны между собой, и любой человек или предмет может пройти через них, если физически сможет в них пролезть.",
+          "Применение этой психосилы очень утомительно и в следующий раз она может быть использована не ранее чем через 12 часов."
+        ],
+        "en": [
+          "The psyker chooses a point anywhere within 5 metres times his psy rating, and opens a gate to the Immaterium at that point. He then chooses a point within range of the power, and opens an exit to the gate at that location. The psyker must be aware of the location in which he is opening the exit to the gate, either having visited it before, seen it from afar, or simply studied it on a map.",
+          "The gate lasts for a number of rounds equal to the psyker’s psy rating, and has a radius in metres equal to the psyker’s psy rating as well. For the duration of the power, the two sides of the gate are linked, and any person or objects may pass between them freely provided they can fit through the gate.",
+          "This power is incredibly taxing and requires at least 12 hours of recovery before it may be used again."
+        ]
+      },
+      "cost": 400,
+      "prerequisites": [
+        {
+          "tag": "PR",
+          "value": 5
+        },
+        {
+          "tag": "PP_TLD",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": -20,
+      "focus_opposed": false,
+      "range": 1000,
+      "action": "AT_EXT",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_OBM",
+      "name": {
+        "ru": "Объюрацион Механикум",
+        "en": "Objuration Mechanicum"
+      },
+      "description": {
+        "ru": "Применяя эту психосилу, псайкер нарушает работу находящихся рядом машин, заклинивая шестерни, сжигая предохранители и разрывая силовые кабели. Те, кто полагаются на силу технологии, лишаются её поддержки и остаются беспомощными.",
+        "en": "With this power, the psyker reaches into and disrupts the inner workings of nearby machines, jamming gears, blowing fuses, and severing power couplings. Those who rely on technology find themselves bereft of their support and helpless."
+      },
+      "school": "PS_TLK",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер выбирает точку, находящуюся в дистанции действия психосилы и на линии прямой видимости самого псайкера. Психосила создает Электромагнитное Поле с центром в этой точке. Радиус поля равен пси-рейтингу псайкера в метрах."],
+        "en": ["The psyker chooses a point anywhere within range and line of sight. This power creates a Haywire Field centred at this point, with a radius in metres equal to the psyker’s psy rating."]
+      },
+      "cost": 300,
+      "prerequisites": [
+        {
+          "tag": "ST_INT",
+          "value": 40
+        },
+        {
+          "tag": "PP_CRS",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": 10,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_SHW",
+      "name": {
+        "ru": "Акустическая волна",
+        "en": "Shockwave"
+      },
+      "description": {
+        "ru": "Псайкер, используя свои сверхъестественные способности, может воздействовать на звук, усиливая его до невероятных пределов. Хлопками в ладоши, ударами ног по полу или даже криком, псайкер создает звук, который превращается в мощную акустическую волну, сбивающую врагов с ног и разрывающую их барабанные перепонки.",
+        "en": "The psyker uses his unnatural control of the physical world to amplify a sound to impossible levels. From clapping his hands together, stamping on a hab floor, or even shouting, the psyker creates a sound that transforms into a powerful shockwave, bursting eardrums and knocking people off their feet."
+      },
+      "school": "PS_TLK",
+      "type": ["PT_BLAST"],
+      "effect": {
+        "description": {
+          "ru": ["Каждый, находящийся в зоне поражения (исключая псайкера) получает урон от этой силы. Кроме того, всех, находящихся в зоне поражения отбрасывает от псайкера на количество метров, равное его пси-рейтингу."],
+          "en": ["Each character in the area of effect (other than the psyker) suffers the damage below. He is also pushed directly away from the psyker a number of metres equal to the psyker’s psy rating."]
+        },
+        "dice": 10,
+        "count": 1,
+        "bonus": 0,
+        "pr_bonus": 1,
+        "type": {
+          "ru": "В",
+          "en": "X"
+        },
+        "pen": 0,
+        "pr_pen": 0,
+        "traits": ["Blast (PR)"]
+      },
+      "cost": 300,
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 50
+        },
+        {
+          "tag": "PP_CRS",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": 0,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON", "KW_ATK"]
+    },
+    {
+      "tag": "PP_TLD",
+      "name": {
+        "ru": "Телекинетический купол",
+        "en": "Telekine dome"
+      },
+      "description": {
+        "ru": "Псайкер скрывает себя и находящихся рядом союзников куполом психической энергии, размер которого позволяет защитить целый отряд. Защитное поле отражает пули и лазерные разряды, заставляя их рикошетить во все стороны.",
+        "en": "The psyker shields himself and nearby allies with a dome of mental force, large enough to surround his group and protect them from harm. The protective shield deflects bullets and lasblasts, sending them ricocheting in all directions."
+      },
+      "school": "PS_TLK",
+      "cost": 300,
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер выбирает точку, находящуюся в дистанции действия психосилы и на линии прямой видимости самого псайкера и создает купол невидимой энергии с центром в этой точке. Радиус купола равен половине пси-рейтинга псайкера в метрах (округлять вверх). Каждый союзник псайкера (а также, возможно, и сам псайкер), находящийся внутри купола получает количество очков Брони, равное пси-рейтингу псайкера на все зоны попадания. Эта броня защищает только от атак, исходящих из-за границ купола. Однако пройти через купол можно безо всяких штрафов."],
+        "en": ["The psyker chooses a point in range and line of sight, and creates a dome of invisible energy centred on that point with a radius equal to half the psyker’s psy rating, rounded up. Each ally (including the psyker, potentially) standing inside the dome gains a number of Armour points equal to the psy rating to all Hit Locations against any attack that originated outside of the dome’s radius. However, characters may still physically pass through the dome at no penalty."]
+      },
+      "prerequisites": [
+        {
+          "tag": "PR",
+          "value": 4
+        },
+        {
+          "tag": "PP_TLS",
+          "value": 1
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_FREE",
+      "focus_check": "ST_WP",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": 5,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_TLS",
+      "name": {
+        "ru": "Телекинетический щит",
+        "en": "Telekine shield"
+      },
+      "description": {
+        "ru": "Используя энергии Варпа, псайкер воздвигает стену из осязаемой энергии, что движется перед ним. Сияющая преграда останавливает пули и отражает удары клинков, однако чем больше ударов попадает в неё, тем сложнее псайкеру поддерживать этот психический щит.",
+        "en": "Using the energy of the Warp, the psyker erects a wall of tangible force that moves with him. The shimmering barrier stops bullets and deflects blades, but as more and more kinetic energy is directed at him, the psyker’s mental shield wears down."
+      },
+      "school": "PS_TLK",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["На всё время, пока эта психосила активна, псайкер считается целиком находящимся за укрытием, имеющим показатель Брони, равный половине пси-рейтинга псайкера. Этот щит может быть уничтожен, как обычное укрытие — нанесением урона, что снизит его показатель Брони. Как только показатель брони щита уменьшится до 0, психосила прекращает своё действие и больше не поддерживается."],
+        "en": ["For the duration of the power, all of the psyker’s Hit Locations count as being protected by cover with an Armour Value equal to half this power’s psy rating. This shield can be damaged just like normal cover by damage that exceeds the shield’s Armour Value. If the shield is reduced to 0 Armour points, the power stops, and is no longer sustained."]
+      },
+      "cost": 200,
+      "prerequisites": [
+        {
+          "tag": "ST_INT",
+          "value": 40
+        },
+        {
+          "tag": "PP_ASL",
+          "value": 1
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_FREE",
+      "focus_check": "ST_WP",
+      "focus_mod": 20,
+      "focus_opposed": false,
+      "range": 0,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_TLC",
+      "name": {
+        "ru": "Телекинетический контроль",
+        "en": "Telkinetic control"
+      },
+      "description": {
+        "ru": "Псайкер призывает свои силы для того, чтобы дотянуться туда, куда не достанет он сам. Телекинетик искажает реальность, хватая предметы своими нематериальными, сверхъестественными руками. Мало кто может заметить манипуляции этих невидимых пальцев – их выдают разве что появляющийся на предметах лёгкий покров инея да слабое движение воздуха.",
+        "en": "The telekine calls on his powers to reach out farther than his flesh can extend, distorting reality to grasp objects with eldritch hands. With invisible fingers perhaps only betrayed with frosted rime or whispered breezes, few can notice his subtle manipulations."
+      },
+      "school": "PS_TLK",
+      "type": "PT_BUFF",
+      "effect": {
+        "ru": ["Псайкер выбирает объект, находящийся в дистанции действия психосилы и на линии прямой видимости самого псайкера и весящий не больше 2*ПР килограмм. В начале каждого своего хода псайкер может переместить этот объект в любом направлении на количество метров, равное своему удвоенному пси-рейтингу. Если объект покидает зону действия психосилы, психосила прекращает действовать."],
+        "en": ["The psyker chooses an object in range and line of sight with a weight no greater than 2 x PR kilograms. At the beginning of each of his turns, he can move the object in any direction up to a number of metres equal to twice his psy rating. If the object ever leaves the range of the power, the power ends."]
+      },
+      "cost": 100,
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 35
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_HALF",
+      "focus_check": "ST_WP",
+      "focus_mod": 20,
+      "focus_opposed": false,
+      "range": 10,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_VOD",
+      "name": {
+        "ru": "Погибельный вихрь",
+        "en": "Vortex of doom"
+      },
+      "description": {
+        "ru": "Вероятно, вершина мастерства псайкера-телекинетика – разверзающаяся дыра в реальности, из которой вырывается вихрь энергии Варпа, не подчиняющийся законам материальной вселенной и пожирающий все вокруг с яростью истинного хищника Хаоса. Это очень опасная психосила, и не только для врагов псайкера. Вихрь способен подпитывать себя сам, не нуждаясь в призвавшем его псайкере.",
+        "en": "In perhaps the ultimate display of his mastery of both the physical world and the Warp, the psyker tears open a hole twixt the two. Around the roiling vortex, the laws of physical space are undone as the ravenous predations of Chaos devour all in the vicinity. This power is extraordinarily dangerous, and not only to the psyker’s enemies. The Vortex of Doom feeds on itself and can sustain its power without need of the psyker."
+      },
+      "school": "PS_TLK",
+      "type": ["PT_BLAST"],
+      "effect": {
+        "description": {
+          "ru": [
+            "Псайкер выбирает точку, находящуюся в дистанции действия психосилы и на линии прямой видимости самого псайкера. В этой точке он создает вихрь энергии радиусом в 2 метра. Каждый затронутый Погибельным вихрем, в конце хода псайкера получает урон от него.",
+            "Псайкер не может по своей поле прекратить поддержание этой психосилы. Во время её действия, в начале каждого своего хода, псайкер делает Серьёзную (+0) проверку Силы Воли со штрафом -5 за каждый метр радиуса вихря. В случае успеха, псайкер может предпринять одно из следующих действий:",
+            "1. Увеличить радиус вихря на 1 метр;",
+            "2. Уменьшить радиус вихря на 1 метр",
+            "3. Переместить вихрь в любом направлении на количество метров, равное своему пси-рейтингу",
+            "Если псайкер проваливает свою проверку Силы Воли или, по каким-либо обстоятельствам не может её сделать, размер вихря увеличивается на 1 метр, и он смещается в случайном направлении на количество метров, равное пси-рейтингу псайкера.",
+            "Если радиус вихря снижается до нуля, психосила прекращает своё действие, и вихрь исчезает. Если радиус вихря превысит пси-рейтинг псайкера, вихрь взрывается, нанося урон всем вокруг. Действие психосилы при этом также прекращается. Псайкер получает урон от этого взрыва независимо от того, находится он в зоне поражение или нет, поскольку призванные им энергии Варпа, выйдя из-под контроля, нещадно бичуют его.",
+            "Урон от взрыва вихря: 2d10+4xПР (В), Проб.: Радиус вихря, Взрыв (2хПР)."
+          ],
+          "en": [
+            "The psyker chooses a point in range and line of sight, and creates a vortex of energy centred on that point that starts with a radius of 2 metres. Each character who is touching the vortex at the end of the psyker’s turn suffers damage as detailed below.",
+            "The psyker cannot voluntarily stop sustaining this power. Instead, at the beginning of each turn the psyker is sustaining the vortex, he must make a Challenging (+0) Willpower test with a –5 penalty for each metre in the vortex’s current radius. If he passes the test, he may perform one of the following actions:",
+            "1. Increase vortex's radius by one;",
+            "2. Decreas vortex's radius by one;",
+            "3. Move the vortex any direction a number of metres equal to the psyker's psy rating.",
+            "If the psyker fails the Willpower test to sustain the vortex, or if he is unable to make the test due to other circumstances, its radius increases by one metre and it moves a number of metres equal to the psyker’s psy rating in a random direction.",
+            "If the vortex’s radius ever decreases to zero metres, the power ends and the vortex disappears. If the vortex’s radius ever grows larger than the psyker’s psy rating, it explodes, ending the power, and destroying the vortex. The psyker is hit by this damage regardless of his proximity to the exploding vortex as the energy of the Warp he was channelling lashes back into him.",
+            "Vortex explosion damage: 2d10+4xPR (X), Pen: Vortex radius, Blast (2xPR)"
+          ]
+        },
+        "dice": 10,
+        "count": 2,
+        "bonus": 0,
+        "pr_bonus": 2,
+        "type": {
+          "ru": "В",
+          "en": "X"
+        },
+        "pen": 0,
+        "pr_pen": 0,
+        "traits": ["Blast (2)", "Pen = vortex current radius"]
+      },
+      "cost": 400,
+      "prerequisites": [
+        {
+          "tag": "PR",
+          "value": 5
+        },
+        {
+          "tag": "PP_TLD",
+          "value": 1,
+          "alt": {
+            "tag": "PP_SHW",
+            "value": 1
+          }
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_HALF",
+      "focus_check": "ST_WP",
+      "focus_mod": -10,
+      "focus_opposed": false,
+      "range": 5,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON", "KW_ATK"]
+    },
+    {
+      "tag": "PP_DOM",
+      "name": {
+        "ru": "Доминирование",
+        "en": "Dominate"
+      },
+      "description": {
+        "ru": "Демонстрируя превосходство своего мутировавшего разума, телепат подчиняет волю своего противника, заставляя того действовать против своих желаний. Немногих психических способностей опасаются так как этой.",
+        "en": "Demonstrating the superiority of his mutant mind, the telepath subverts his foe’s will and forces him to act against his every inclination. Few psychic abilities are so rightly feared."
+      },
+      "school": "PS_TLP",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер выбирает несколько целей, находящихся в дистанции применения психосилы и на линии прямой видимости псайкера. Количество целей не должно превышать половину пси-рейтинга псайкера (округлять вверх). Каждая выбранная цель должна пройти Встречную проверку Силы Воли против проверки Фокусировки Силы псайкера. Цели, провалившие эту проверку, вынуждены подчиняться приказам псайкера, таким как «Беги», «Упади», «Напади на своих друзей». Если приказ псайкера явно опасен для жизни, цель получает бонус +20 на свою проверку Силы Воли при сопротивлении Доминированию. В любом случае, приказ псайкера должен быть таким, чтобы цель могла выполнить его в течение одного хода."],
+        "en": ["The psyker nominates a number targets in range and line of sight up to half his psy rating (rounded up) who oppose this power with a Willpower test. Each target that fails to resist the power must follow a simple command given by the psyker. Some example orders include 'Flee', 'Fall', or 'Attack your friend.' If the command is a potentially suicidal act, each target receives a +20 to its Willpower test to Oppose the power. In all cases, the command must be achievable in a single round."]
+      },
+      "cost": 200,
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 40
+        },
+        {
+          "tag": "PP_ERS",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": 0,
+      "focus_opposed": true,
+      "range": 5,
+      "action": "AT_FULL",
+      "keywords": ["KW_CON", "KW_ATK"]
+    },
+    {
+      "tag": "PP_ERS",
+      "name": {
+        "ru": "Стирание",
+        "en": "Erasure"
+      },
+      "description": {
+        "ru": "Подобно хирургу, псайкер вскрывает разум своей цели и отсекает частицу её памяти, удаляя её навсегда. Такая способность очень ценна для инквизитора, особенно того, что желает работать тайно, без лишней суеты, что обычно сопровождает казни.",
+        "en": "With a surgeon’s skill, the psyker opens up his target’s mind and slices away a memory, removing it forever. This power is of immense utility to an Inquisitor’s work, particularly one who wishes to operate discreetly, without the usual mess of an execution."
+      },
+      "school": "PS_TLP",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер выбирает одного противника, находящегося в дистанции применения психосилы и на линии прямой видимости псайкера. Эта цель должна пройти Встречную проверку Силы Воли против проверки Фокусировки Силы псайкера. Если цель проваливает эту проверку, псайкер стирает из её памяти воспоминания о недавних событиях. Псайкер может вырезать отрезок памяти не длиннее чем 10*пси-рейтинг минут, который должен был произойти не раньше, чем Х часов назад, где Х равен пси-рейтингу псайкера. «Обработанный» таким образом враг остается с «зазором» в своей памяти – он не помнит, что происходило в «стёртом» участке памяти."],
+        "en": ["The psyker chooses a single foe in range and line of sight who opposes this power with a Willpower test. If he fails, the psyker removes a memory of a recent event from the target’s mind. The psyker can only remove an amount of time from the target’s memory up to 10 x PR minutes, and the event removed cannot have occurred more than PR hours prior to the use of this power. The enemy is left with a gap in his memory, with no recollection of what occurred during that time."]
+      },
+      "cost": 100,
+      "prerequisites": [
+        {
+          "tag": "ST_FEL",
+          "value": 40
+        },
+        {
+          "tag": "PP_TLL",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": 0,
+      "focus_opposed": true,
+      "range": 5,
+      "action": "AT_FULL",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_HAL",
+      "name": {
+        "ru": "Галлюцинации",
+        "en": "Hallucination"
+      },
+      "description": {
+        "ru": "Человеческое сознание очень слабо цепляется за действительность и легко поддаётся манипуляциям. С помощью своих психических способностей телепат прикасается к разуму жертвы и разрывает её связь с реальностью.",
+        "en": "The human mind’s grasp on reality is fragile and easily manipulated with sufficient power. With his own psychic senses, the telepath touches the psyche of his target and severs its connection to normal existence."
+      },
+      "school": "PS_TLP",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер выбирает одного человека, находящегося в дистанции применения психосилы и на линии прямой видимости псайкера. Эта цель должна пройти Встречную проверку Силы Воли против проверки Фокусировки Силы псайкера. Если цель проваливает эту проверку, она должна сделать бросок по таблице 5-11 «Эффекты галлюциногенов» и принять выпавший результат. Этот эффект сохраняется в течение количества раундов, равного половине пси-рейтинга псайкера (округлять вверх)."],
+        "en": ["The psyker nominates a single target in range and line of sight who opposes this power with a Willpower test. If the target fails to resist the power, it must roll on Table 5–3: Hallucinogenic Effects, and immediately apply the effects. The effect rolled on the table lasts for a number of rounds equal to half the psyker’s psy rating, rounded up."]
+      },
+      "cost": 200,
+      "prerequisites": [
+        {
+          "tag": "ST_FEL",
+          "value": 40
+        },
+        {
+          "tag": "PP_TLL",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": 0,
+      "focus_opposed": true,
+      "range": 10,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_IVS",
+      "name": {
+        "ru": "Невидимость",
+        "en": "Invisibility"
+      },
+      "description": {
+        "ru": "Эта психосила затуманивает разум врагов, лишая их возможности замечать союзников псайкера. Хотя глаза противников всё так же видят, их сознание неспособно воспринять факт присутствия кого-либо ещё, отмечая лишь легкие искажения зрения.",
+        "en": "Clouding enemy minds, the psyker obscures his allies from their foes’ senses. Though eyes and other senses detect them as normal, their minds do not perceive them, save for a slight distortion in their vision."
+      },
+      "school": "PS_TLP",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер указывает одну цель, находящуюся в дистанции применения психосилы и на линии прямой видимости псайкера (это может быть и он сам). На протяжении действия психосилы, цель считается обладающей умением Скрытность (Знает (уровень 1)), проверки которого получают бонус +5 за каждую единицу пси-рейтинга псайкера. Кроме того, все дистанционные атаки, произведённые по цели, на которую действует эта психосила, получают штраф -5 за каждую единицу пси-рейтинга псайкера. Цель, получающая этот бонус, теряет его, если покидает зону действия психосилы."],
+        "en": ["The psyker nominates a single target within range and line of sight (this can be the psyker himself). For the duration of the power, the target counts having the Stealth skill at Known (rank 1), and gains a bonus to Stealth tests equal to +5 times the psyker’s psy rating. Additionally, all ranged attacks made against the target suffer a penalty equal to –5 times the psyker’s psy rating. If the target moves beyond the power’s range, he loses this power’s benefits."]
+      },
+      "cost": 400,
+      "prerequisites": [
+        {
+          "tag": "ST_AG",
+          "value": 30
+        },
+        {
+          "tag": "PR",
+          "value": 4
+        },
+        {
+          "tag": "PP_TRF",
+          "value": 1
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_FREE",
+      "focus_check": "ST_WP",
+      "focus_mod": -10,
+      "focus_opposed": false,
+      "range": 10,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_MNF",
+      "name": {
+        "ru": "Ментальная стойкость",
+        "en": "Mental fortitude"
+      },
+      "description": {
+        "ru": "Используя безграничные возможности Варпа, псайкер усиливает психические способности своих целей, даруя им защиту от кошмаров сражения и ужасов галактики.",
+        "en": "Drawing from the limitless potential of the Warp, the psyker augments the mental abilities of his targets, providing defence against the stresses of combat and the terrors of the galaxy."
+      },
+      "school": "PS_TLP",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["На протяжении действия психосилы союзники псайкера, находящиеся в дистанции действия психосилы, получают талант Несокрушимая Вера. Число союзников, получающих этот бонус, не может превышать пси-рейтинг псайкера. Союзники, получающие этот бонус, теряют его, если покинут зону действия психосилы."],
+        "en": ["For the duration of this power, a number of allies up to the psyker’s psy rating within range count as having the Adamantium Faith talent. Allies affected by this power lose its benefits as soon as they move out of range."]
+      },
+      "cost": 300,
+      "prerequisites": [
+        {
+          "tag": "TL_ADFT",
+          "value": 1
+        },
+        {
+          "tag": "PP_DOM",
+          "value": 1,
+          "alt": {
+            "tag": "PP_TRF",
+            "value": 1
+          }
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_FREE",
+      "focus_check": "ST_WP",
+      "focus_mod": -10,
+      "focus_opposed": false,
+      "range": 3,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_PSH",
+      "name": {
+        "ru": "Психический вопль",
+        "en": "Psychic shriek"
+      },
+      "description": {
+        "ru": "Из глубин своего сознания псайкер призывает варп-шквал, опаляющий души всех оказавшихся у него на пути. Жестокая волна психической энергии сокрушает и гасит разумы тех, кого коснется, оставляя выживших оцепеневшими и ошеломлёнными.",
+        "en": "Drawing a deep soul-breath, the psyker unleashes a rippling Warp tide that sears the souls and blasts the minds of those in its path. The violent psychic wave is enough to overwhelm and shut down the minds of those it strikes, while those not slain outright are left reeling and dazed."
+      },
+      "school": "PS_TLP",
+      "cost": 300,
+      "prerequisites": [
+        {
+          "tag": "PR",
+          "value": 3
+        },
+        {
+          "tag": "PP_HAL",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "type": ["PT_BOLT"],
+      "effect": {
+        "description": {
+          "ru": [],
+          "en": []
+        },
+        "dice": 10,
+        "count": 1,
+        "bonus": 2,
+        "pr_bonus": 2,
+        "type": {
+          "ru": "В",
+          "en": "X"
+        },
+        "pen": 0,
+        "pr_pen": 0,
+        "traits": ["Concussive (1)"]
+      },
+      "focus_check": "ST_WP",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": 10,
+      "action": "AT_HALF",
+      "keywords": ["KW_ATK"]
+    },
+    {
+      "tag": "PP_PPM",
+      "name": {
+        "ru": "Кукловод",
+        "en": "Puppet master"
+      },
+      "description": {
+        "ru": "В самом могущественном проявлении сил Телепатии, псайкер полностью сокрушает волю своей жертвы, запирая её в тёмном уголке сознания и получая полный контроль над телом своего противника. Испытавшие воздействие этой силы на себе, скорее всего уже никогда не будут уверены, в том, действительно ли совершаемые ими поступки совершены по их воле, а присущие им желания – действительно присущи им.",
+        "en": "In the ultimate expression of telepathic power, the psyker utterly crushes his target’s will, locking him away in a dark corner of his own mind and taking complete control of his body. After recovering their wits, those subjected to this power are often struck with bouts of insecurity, never certain again if their actions are truly their own."
+      },
+      "school": "PS_TLP",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер указывает одну цель, находящуюся в дистанции применения психосилы и на линии прямой видимости псайкера и обладающую общим количество ран, не превышающим утроенный пси-рейтинг псайкера. Эта цель должна пройти Встречную проверку Силы Воли против проверки Фокусировки Силы псайкера. Если цель проваливает эту проверку, псайкер может контролировать её как свою марионетку. Пока эта психосила действует, псайкер может делить свои действия между собой и своей жертвой. Контролируемая цель использует свои обычные характеристики, но получает штраф -10 на все проверки из-за трудности управления ей. Как только псайкер попытается заставить марионетку сделать что-то, потенциально опасное для её жизни, она немедленно может пройти Сложную (-10) Встречную проверку Силы Воли и, в случае успеха, освободиться из-под контроля. Кроме того, психосила перестает действовать, в том случае, если марионетка выходит из дистанции применения силы."],
+        "en": ["The psyker nominates a single target in range and line of sight with total wounds no greater than 3 times the psyker’s psy rating, who opposes this power with a Willpower test. If the target fails to resist the power, it is controlled by the psyker like a puppet. For the duration of the power, the psyker can divide his Actions between himself and the target. The dominated target uses its own Characteristics, but at –10 due to the crudity of the control. If at any point the psyker would make the target perform a potentially suicidal action, the target can attempt a Challenging (+0) Opposed Willpower test to try to break free of the power. Additionally, the power breaks as soon as the target moves out of range."]
+      },
+      "cost": 400,
+      "prerequisites": [
+        {
+          "tag": "ST_FEL",
+          "value": 55
+        },
+        {
+          "tag": "PP_DOM",
+          "value": 1,
+          "alt": {
+            "tag": "PP_TRF",
+            "value": 1
+          }
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_VARY",
+      "focus_check": "ST_WP",
+      "focus_mod": -10,
+      "focus_opposed": true,
+      "range": 10,
+      "action": "AT_FULL",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_TLL",
+      "name": {
+        "ru": "Телепатическая связь",
+        "en": "Telepathic link"
+      },
+      "description": {
+        "ru": "Эта психосила – самое простое и чистое проявление возможностей Телепатии. Псайкер устанавливает мысленный контакт с другим человеком, что позволяет им обмениваться мыслями, объединив свои разумы. Такое бесшумное общение идеально, если аколитам требуется скрытность.",
+        "en": "In this, the simplest yet purest expression of his powers, the telepath establishes a mental connection to another, linking their minds and allowing him to receive or transmit thoughts. When stealth is essential, such silent communication is ideal."
+      },
+      "school": "PS_TLP",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": [
+          "Псайкер выбирает одного человека, находящегося в дистанции применения психосилы и на линии прямой видимости псайкера. Эта цель должна пройти Встречную проверку Силы Воли против проверки Фокусировки Силы псайкера. Если цель проваливает эту проверку, псайкер получает возможность прочесть мысли своей цели или послать ей короткое мысленное сообщение.",
+          "1. Чтение мыслей: Псайкер читает мысли цели. Природа полученной им информации остается на усмотрение МИ. Большее количество степеней успеха, набранных во время проверки Фокусировки Силы, дадут больше информации. Высокий пси-рейтинг телепата обеспечит доступ к более секретной информации.",
+          "2. Передача мыслей: Псайкер отправляет цели сообщение, которое цель воспримет так, будто только что услышала его произнесенным вслух. Сообщение не может быть длиннее чем 5*пси-рейтинг секунд.",
+          "Если цель знает о том, что псайкер пытается применить эту психосилу, она может добровольно провалить проверку Силы Воли, так как будто выбросила 100."
+        ],
+        "en": [
+          "The psyker chooses a person in range and line of sight who opposes this power with a Willpower test. If the target fails, the psyker can either read the person’s thoughts or send him a brief mental message.",
+          "1. Thought Reading: The psyker reads the target’s thoughts, with the GM determining the nature of the information gained. The more degrees of success scored on the Focus Power test, the more information is gained overall. The higher the PR of the power, the more secretive the information gained.",
+          "2. Thought Sending: The psyker causes a message to appear in the target’s mind as if he has just heard it spoken aloud. The message can be no longer than 5 x PR seconds long.",
+          "If the target of this power is aware of what the psyker is trying to do, he can voluntarily fail the opposed Willpower test, counting as having rolled a 100."
+        ]
+      },
+      "cost": 100,
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 35
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": -10,
+      "focus_opposed": true,
+      "range": 20,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_TRF",
+      "name": {
+        "ru": "Устрашение",
+        "en": "Terrify"
+      },
+      "description": {
+        "ru": "Дергая на нужные ниточки, псайкер открывает самые потаенные и глубокие страхи своей жертвы, скрытые в глубинах её разума. Этих кошмарных видений хватает, чтобы даже сильнейшего сделать жалким безумцем.",
+        "en": "Turning an eldritch key, the psyker unlocks his target’s deepest and strongest fears, exposing him to the worst recesses of his own psyche. These nightmarish visions are enough to drive even the strongest helplessly mad."
+      },
+      "school": "PS_TLP",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": [
+          "Проникая глубоко в разум своей жертвы, псайкер извлекает изн её величайшие страхи, провалы и слабости. Используя это как инструмент воздействия, телепат может даже храбрейшего воина превратить в жалкого, плачущего труса.",
+          "Псайкер указывает одну цель, находящуюся в дистанции применения психосилы и на линии прямой видимости псайкера. Эта цель должна пройти Встречную проверку Силы Воли против проверки Фокусировки Силы псайкера. Если цель проваливает эту проверку, она должна сделать бросок по Таблице Шока, добавляя к результату +10 за каждую единицу пси-рейтинга псайкера (прибавлять ещё +10 за количество степеней провала не нужно) и немедленно принять результат."
+        ],
+        "en": [
+          "Slithering deep into the mind of his victim, the psyker unearths their greatest failings, greatest weaknesses, and greatest fears. Using these as tools against his opponent, the psyker can turn even the most courageous warriors into pathetic, whimpering cowards before him.",
+          "The psyker nominates a single target in range and line of sight who opposes this power with a Willpower test. If the target fails to resist the power, it must roll on Table 8–11: Shock, adding +10 times the psyker’s psy rating to the roll in place of the normal addition for degrees of failure, and immediately apply the effects."
+        ]
+      },
+      "cost": 400,
+      "prerequisites": [
+        {
+          "tag": "ST_FEL",
+          "value": 45
+        },
+        {
+          "tag": "PP_HAL",
+          "value": 1,
+          "alt": {
+            "tag": "PP_MNF",
+            "value": 1
+          }
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": -10,
+      "focus_opposed": true,
+      "range": 10,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_AOF",
+      "name": {
+        "ru": "Аура страха",
+        "en": "Aura of fear"
+      },
+      "description": {
+        "ru": "Взывая к своим жутким силам по собственной воле, псайкер создает ауру страха. Все те, кто его видит, видят свои глубочайшие страхи, спроецированные на псайкера, но не перед своими глазами, а в своих мыслях.",
+        "en": "Summoning his eldritch powers, the psyker projects a fearful aura. All those who witness him see their own deepest fears projected onto the psyker, not with their eyes, but in their minds."
+      },
+      "school": "PS_MIN",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": [
+          "Псайкер получает черту Страх (1) до тех пор, пока поддерживает эту психосилу.",
+          "Вместо того, чтобы делать бросок на Психический Феномен, если ситуация требует этого, псайкер вместо этого должен пройти проверку на Страх (4), а также перенести Варп-шок, если он потерпит неудачу."
+        ],
+        "en": [
+          "The psyker gains the Fear (1) trait as long as he sustains this power.",
+          "Instead of rolling for Psychic Phenomena should the situation call for it, the psyker instead must take a Fear (4) test and also suffer Warp Shock if he fails."
+        ]
+      },
+      "cost": 200,
+      "prerequisites": [
+        {
+          "tag": "ST_FEL",
+          "value": 35
+        },
+        {
+          "tag": "IP",
+          "value": 5
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_HALF",
+      "focus_check": "ST_WP",
+      "focus_mod": -20,
+      "focus_opposed": false,
+      "range": 0,
+      "action": "AT_FULL",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_DJV",
+      "name": {
+        "ru": "Дежавю",
+        "en": "Deja vu"
+      },
+      "description": {
+        "ru": "Псайкер проникает в разум своей цели и на мгновение скребет синапсы и воспоминания, заставляя цель пережить последние несколько мгновений его жизни.",
+        "en": "The psyker reaches into his target’s mind and momentarily scrambles synapses and memories, causing the target to relive his last few moments."
+      },
+      "school": "PS_MIN",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер выбирает одну цель, которая противостоит Ординарной (+10) проверкой Силы Воли. Если псайкер преуспеет, цель должна повторить своё последние действие, такое как стрельба из пистолета по цели, которой больше нет, или прыжок в укрытие от уже взорвавшейся гранаты. Этот повторный поступок считается действием цели этого раунда. Если действие будет очевидно вредным для цели (но не для союзника), цель автоматически выигрывает Встречную проверку, набирая на 1 степень успеха больше, чем псайкера."],
+        "en": ["The psyker selects a single target, who opposes the test with an Ordinary (+10) Willpower test. If the psyker succeeds, the target must repeat his last exploit, such as firing a gun at a target who is no longer there or diving for cover from a grenade that has already detonated. This repeated deed counts as the target’s Action for the round. If the action would be obviously harmful to the target (but not to an ally), the target automatically wins the Opposed test (scoring 1 more degree of success than the psyker)."]
+      },
+      "cost": 200,
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 35
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": -10,
+      "focus_opposed": true,
+      "range": 5,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_FTL",
+      "name": {
+        "ru": "Предвестие",
+        "en": "Foretelling"
+      },
+      "description": {
+        "ru": "Сосредоточив свои сверхъестественные чувства на другом человеке или объекте, псайкер получает краткосрочное представление о будущем.",
+        "en": "Focussing his preternatural senses onto another person or object, the psyker receives a brief glimpse of the future."
+      },
+      "school": "PS_MIN",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер выбирает одного персонажа или предмет в пределах досягаемости и получает краткое и неясное представление о будущем, давая ему приблизительное представление об одной вещи, которая произойдет с целью в течение количества минут, равного его пси-рейтингу. МИ решает, какую информацию получает псайкер, с дополнительными степенями успеха проверки Фокусировки Силы, дающими более важную информацию. Например, псайкер может узнать, что персонаж станет целью нападения или сам проявит жестокость, или что к когитатору получит доступ неизвестный человек. Псайкер не может выбрать себя в качестве цели этой силы."],
+        "en": ["The psyker chooses a single character or item within range and receives a brief and unclear image of the future, giving him a rough idea of one thing that will happen to the target within a number of minutes up to the psyker’s PR. The GM decides what information the psyker receives, with additional degrees of success on the Focus Power test yielding more important information. For example, the psyker might learn that the character will be the target of an attack or will himself become violent, or that a cogitator will be accessed by an unknown individual. The psyker cannot select himself as the target of this power."]
+      },
+      "cost": 100,
+      "prerequisites": [
+        {
+          "tag": "ST_PER",
+          "value": 35
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "SK_PSY",
+      "focus_mod": -10,
+      "focus_opposed": false,
+      "range": 5,
+      "action": "AT_FULL",
       "keywords": ["Concentration"]
+    },
+    {
+      "tag": "PP_IGN",
+      "name": {
+        "ru": "Воспламенение",
+        "en": "Ignite"
+      },
+      "description": {
+        "ru": "Псайкер полагается на свой гнев, сознательно или нет, и направляет Варп, чтобы явить физическое проявление своей пылающей ярости.",
+        "en": "The psyker draws upon his anger, whether knowingly or not, and channels the Warp to produce a physical manifestation of his burning rage."
+      },
+      "school": "PS_MIN",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер создает небольшое пламя, примерно в сантиметре в поперечнике, в точке видимости. Пламя недостаточное велико или горячо, чтобы нанести ущерб, но может освещать примерно 5 метров в радиусе. Он также может воспламенить горючие материалы по усмотрению МИ, причем вероятность воспламенения объекта увеличивается, чем дольше псайкер поддерживает силу. Если целью этой силы является персонаж, он должен проходить Серьёзную (+0) проверку Ловкости каждый раунд, когда псайкер поддерживает силу после первого, или загореться. Цель получает бонус +30 к этой проверке в любом раунде, в течение которого она выполняет действие подтипа Движение."],
+        "en": ["The psyker creates a small flame, approximately a centimetre across, at a point within range and line of sight. The flame is not large or hot enough to inflict damage, but can illuminate roughly a 5 metre radius. It can also ignite combustible materials at the GM’s discretion, with the chance of igniting an object increasing the longer the psyker sustains the power. If the target of this power is a character, he must pass a Challenging (+0) Agility test each round the psyker sustains the power after the first, or catch fire. The target gains a +30 bonus to this test on any round during which he performs an action with the Movement subtype."]
+      },
+      "cost": 100,
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 30
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_HALF",
+      "focus_check": "ST_WP",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": 5,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON", "KW_ATK"]
+    },
+    {
+      "tag": "PP_IOM",
+      "name": {
+        "ru": "Дурное предзнаменование",
+        "en": "Ill omen"
+      },
+      "description": {
+        "ru": "Опираясь на естественные и зачастую вполне оправданные, суеверные страхи, псайкер выпускает незначительное влияние Варпа на мир. Результат, хотя и может быть логически объясним, тем не менее внушает глубокое беспокойство тем, кто его видит, — безошибочное ощущение худших событий. Точная природа предзнаменования может принимать любое количество форм, включая трижды каркнувшую ворону, увядание растений, тревожно знакомую патину ржавчины, животных, пугающихся без видимой причины, или что-либо ещё, что может расстроить цель.",
+        "en": "Drawing on Mankind’s natural, and often quite justified, superstitious fears, the psyker bleeds just a miniscule drop of the Warp’s influence into the world. The result, while perhaps logically explainable, nonetheless instils a deep unease in those who witness it — an unmistakable sense of worse things to come. The exact nature of the omen could take any number of forms, including a raven crying three times, a small nplant wilting, a disturbingly familiar patina of rust, animals spooking with no apparent cause, or anything else that might unnerve the target."
+      },
+      "school": "PS_MIN",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер выбирает одну цель в пределах досягаемости и прямой видимости, которая противостоит этой силе с помощью Серьёзной (+0) проверки Логики. Если сила используется в структурированном времени, и цель не смогла сопротивляться, это налагает штраф -10 ко всем её проверкам в течении [Пси-рейтинг] раундов. При использовании в повествовательном времени псайкер вместо этого выбирает время в диапазоне [Пси-рейтинг] часов, чтобы цель испытала предзнаменование. Мастер определяет влияние на поведение цели, но вероятным результатом является то, что цель переосмысливает свой текущий курс действий или пути, по которому она идёт. МИ должен использовать степени успеха и пси-рейтинг псайкера, а также свое предложение о форме приметы при определении результата."],
+        "en": ["The psyker chooses a single target within range and line of sight, who opposes this power with a Challenging (+0) Logic test. If the power is used during structured time and the target fails to resist, he suffers a –10 penalty to all tests for PR rounds. If used during narrative time, the psyker instead chooses a time within the next PR hours for the target to experience the omen. The GM determines the effects on the target’s behaviour, but a likely result is that the target rethinks his current course of action or direction he is travelling. The GM should use the psyker’s degrees of success and PR, as well as his suggestion for the form of the omen, in determining the outcome."]
+      },
+      "cost": 200,
+      "prerequisites": [
+        {
+          "tag": "SK_PSY",
+          "value": 0
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": -10,
+      "focus_opposed": false,
+      "range": 10,
+      "action": "AT_FULL",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_IPL",
+      "name": {
+        "ru": "Толчок",
+        "en": "Impel"
+      },
+      "description": {
+        "ru": "Развивающиеся псайкеры часто инстинктивно демонстрируют рудиментарные версии способностей, демонстрируемых в дисциплинах Схоластик Псайкана. В то время как опытный телекинетик может манипулировать объектами с большей ловкостью, чем своими собственными руками, неподготовленный псайкер может просто набрасываться, толкая объекты тупой, но действенной, ментальной силой.",
+        "en": "Developing psykers often instinctively exhibit rudimentary versions of the abilities shown in the disciplines of the Scholastica Psykana. Whereas an accomplished telekine can manipulate objects with more deftness than he could with his actual hands, an untrained psyker might simply lash out, shoving objects with blunt, yet effective, mental force."
+      },
+      "school": "PS_MIN",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер выбирает цель, которая может быть объектом или персонажем, и отталкивает ее от него на [Пси-рейтинг] метров. Чтобы определить максимальный вес, который может двигать псайкер, сверьтесь с таблицей в Основной книге правил, заменив на пси-рейтинг и бонус Силы Воли псайкера бонусы Силы и Выносливости. Если целью является персонаж, он противостоит силе с помощью Серьёзной (+0) проверки Силы. Если цель проваливает проверку на две или более степени, она также сбита с ног. Если псайкер выигрывает с 3 или более степенями успеха, цель получает 1к5 + пси-рейтинг урона и 1 уровень Усталости."],
+        "en": ["The psyker chooses a target, which can be an object or character, and pushes it directly away from him a number of metres equal to his psy rating. To determine the maximum weight the psyker can push, consult the table in the DARK HERESY Core Rulebook, substituting the psyker’s PR and WPB for SB and TB. If the target is a character, he opposes the power with a Challenging (+0) Strength test. If the target fails with two or more degrees of failure, he is also knocked Prone. If the psyker wins by 3 or more degrees of success, the target suffers 1d5+PR damage and 1 level of Fatigue."]
+      },
+      "cost": 100,
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 30
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": 5,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON", "KW_ATK"]
+    },
+    {
+      "tag": "PP_LCK",
+      "name": {
+        "ru": "Удача",
+        "en": "Luck"
+      },
+      "description": {
+        "ru": "Многие скрытые псайкеры известны своей удачей и везением. Такие псайкеры могут даже не осознавать свою истинную природу, но подсознательно манипулировать событиями с помощью различных психических эффектов, от телепатических намеков до телекинетических подталкиваний. Конечно, если бы другие знали истинную причину их способности, они бы считали этих псайкеров не удачливыми, а проклятыми, как и сам псайкер.",
+        "en": "Many undiscovered psykers are known for their luck or good fortune. Such psykers might not even be aware of their own true nature, but subconsciously manipulate events through a variety of psychic effects, from telepathic hints to telekinetic nudges. Of course, if others knew the true reason for their ability to seemingly defy the odds, they would not consider these psykers fortunate, but damned — as might a psyker himself."
+      },
+      "school": "PS_MIN",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Если проверка Фокусировки Силы успешна, псайкер получает бонус величиной 5 + его пси-рейтинг для следующей проверки, которую он пройдёт в этом раунде. Если псайкер проваливает проверку Фокусировки Силы на 2 или более степени, его ошибочная попытка призвать силы Варпа и возникающая в результате психическая рябь накладывают штраф, равный его удвоенному пси-рейтингу на его следующую проверку в этом раунде."],
+        "en": ["If the Focus Power test is successful, the psyker gains a bonus of 5 plus his psy rating on the next test he attempts this round. If the psyker fails the Focus Power test by 2 or more degrees of failure, his misguided attempt to call on the Warp backfires, and the resultant psychic ripples inflict a penalty equal to twice his psy rating on his next test this round."]
+      },
+      "cost": 100,
+      "prerequisites": [
+        {
+          "tag": "ST_PER",
+          "value": 30
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "SK_AWR",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": 0,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_SGS",
+      "name": {
+        "ru": "Предположение",
+        "en": "Suggestion"
+      },
+      "description": {
+        "ru": "Несмотря на то, что многие зарождающиеся псайкеры далеки от тех приемов, которыми влияют на сознание обученные телепаты, они обладают сверхъестественной способностью убеждать других в маленьких ложных утверждениях. Как и во многих способностях, которые демонстрируют такие псайкеры, это полезный механизм выживания, позволяющий псайкеру уклоняться от обнаружения.",
+        "en": "Although a far cry from the mind-influencing techniques of a trained telepath, many wyrds and nascent psykers possess a preternatural ability to convince others of small falsehoods. As with many of the powers such psykers evince, this is a useful survival mechanism, allowing the psyker to evade detection."
+      },
+      "school": "PS_MIN",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер убеждает цель в небольшой, но потенциально важной лжи. Цель противостоит этому с помощью Серьёзной (+0) проверки Силы Воли, сложность которой МИ может изменить, основываясь на достоверности и масштабах лжи. В случае явно невозможной лжи, цель преуспевает автоматически (набирает на 1 степень успеха больше, чем псайкер). Например, если охранник уже проверил его идентификацию, то псайкер человек уже не сможет убедить того же охранника в том, что псайкер — это космический десантник."],
+        "en": ["The psyker convinces the target of a small, but potentially important lie. The target opposes this with a Challenging (+0) Willpower test, which the GM should modify based on the credibility and scope of the lie. In the case of clearly impossible lies, the target succeeds automatically (scoring 1 more degree of success than the psyker). For instance, a human psyker might suggest that a guard has already checked his identification, but would have no possibility of convincing that same guard that the psyker is a Space Marine."]
+      },
+      "cost": 200,
+      "prerequisites": [
+        {
+          "tag": "SK_DCV",
+          "value": 0
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": -10,
+      "focus_opposed": true,
+      "range": 1,
+      "action": "AT_FULL",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_SMV",
+      "name": {
+        "ru": "Призыв вредителей",
+        "en": "Summon vermin"
+      },
+      "description": {
+        "ru": "Протягивая разум, псайкер взывает к близлежащим существам, которые неосознанно прислушиваются к его призыву.",
+        "en": "Reaching out with his mind, the psyker calls out to nearby minor creatures, who unknowingly heed his summons."
+      },
+      "school": "PS_MIN",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Множество мелких животных — таких как крысы, змеи и подобные мелкие существа — в пределах досягаемости в зависимости от пси-рейтинга псайкера, устремляются в текущее местоположение псайкера как можно быстрее. Время появления существ зависит от их скорости и близости, они могут прибыть в течение нескольких раундов или минут. Когда существа прибывают, они ведут себя нормально и не обязаны подчиняться псайкеру."],
+        "en": ["A number of small animals — such as rats, snakes, and similar small creatures — up to the psyker’s PR within range come to the psyker’s current location as quickly as possible. The time until the creatures appear depends on their speed and proximity, and they are likely to arrive over the course of several rounds or minutes. Once the creatures arrive, they behave normally and are not compelled to obey the psyker."]
+      },
+      "cost": 100,
+      "prerequisites": [
+        {
+          "tag": "ST_FEL",
+          "value": 30
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": 1000,
+      "action": "AT_FULL",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_WJX",
+      "name": {
+        "ru": "Сглазить оружие",
+        "en": "Weapon jinx"
+      },
+      "description": {
+        "ru": "Псайкер тянется своей силой, портя механизмы ближайшего оружия.",
+        "en": "The psyker reaches out with his power, fouling the mechanisms of nearby weapons."
+      },
+      "school": "PS_MIN",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер выбирает [Пси-рейтинг] экземпляров оружия дальнего боя в пределах досягаемости. При этом оружие Лучшего качества считается как два оружия для целей этой силы. Пораженное оружие считается оружием Низкого качества, пока не будет отремонтировано. Если степени успеха псайкера проверки Фокусировки Силы превышают пси-рейтинг психосилы, то пораженное оружие также немедленно заклинит. Если псайкер провалит проверку на 2 или более степени, его собственное оружие дальнего боя немедленно заклинит."],
+        "en": ["The psyker chooses a number of ranged weapons within range up to the psyker’s psy rating, with each Best craftsmanship weapon counting as two weapons for the purposes of this power. Affected weapons count as Poor craftsmanship until repaired. If the psyker’s degrees of success on the Focus Power test exceed the psy rating of the power, then the affected weapons also jam immediately. Should the psyker fail the test with 2 or more degrees of failure, his own ranged weapons jam immediately."]
+      },
+      "cost": 100,
+      "prerequisites": [
+        {
+          "tag": "ST_INT",
+          "value": 35
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": -10,
+      "focus_opposed": false,
+      "range": 5,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_WOB",
+      "name": {
+        "ru": "Повелитель зверей",
+        "en": "Word of beasts"
+      },
+      "description": {
+        "ru": "Многие нетренированные псайкеры, как на диких мирах, так и в глубинах городов-ульев, развивают инстинктивную способность общаться со зверями и низшими существами. Невозможно сказать, является ли эта способность истинной телепатией или чем-то иным.",
+        "en": "Many untrained psykers, both in the wilds of feral worlds and the depths of hive cities, develop an instinctive ability to communicate with beasts and lower creatures. Whether this ability represents true telepathy or something else is impossible to say."
+      },
+      "school": "PS_MIN",
+      "cost": 100,
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": [
+          "Псайкер устанавливает ограниченную телепатическую связь с животным, которое противостоит силе с помощью Серьёзной (+0) проверки Силы Воли. Если псайкер побеждает, он выбирает один из следующих эффектов:",
+          "1. Чтение Впечатлений: Псайкер получает мысленное впечатление о недавнем опыте животного. Это не мысли в смысле чувствующего существа, а просто смутные впечатления и неясные образы. Мастер определяет уровень детализации и форму получаемой информации, основываясь на интеллекте и чувствах животного, а также на пси-рейтинге псайкера. Объём информации зависит от степени успеха псайкера при проверке Фокусировки Силы.",
+          "2. Эмпатическая связь: Псайкер устанавливает связь с животным, которая сохраняется после окончания телепатической связи. Животное следует за псайкером и подчиняется его командам в меру своих способностей, точно так же, как если бы персонаж приручил и обучил его Дрессурой, специальным использованием умения Выживание."
+        ],
+        "en": [
+          "The psyker opens a limited telepathic link with an animal, which resists the power with a Challenging (+0) Willpower test. If the psyker succeeds, he chooses one of the following effects:",
+          "1. Impression Reading: The psyker receives a mental impression of the animal’s recent experiences. These are not thoughts in the sense of a sentient being, but merely vague impressions and unclear images. The GM determines the level of detail and form of the information received based on the intelligence and senses of the animal, as well as the PR of the psyker. The amount of information is based on the psyker’s degrees of success on the Focus Power test.",
+          "2. Empathic Link: The psyker establishes a bond with the animal that persists after the telepathic link ends. The animal follows the psyker and obeys his commands to the best of its ability, exactly as if he had tamed and trained it with the Wrangling special use of the Survival skill."
+        ]
+      },
+      "prerequisites": [
+        {
+          "tag": "ST_FEL",
+          "value": 35
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": -10,
+      "focus_opposed": true,
+      "range": 10,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_BNS",
+      "name": {
+        "ru": "Изгнание",
+        "en": "Banishment"
+      },
+      "description": {
+        "ru": "Произнося слова изгнания псайкер опирается на свою веру и старается разорвать узы, связывающие демона с реальностью. В случае успеха демон не способен удержаться в реальности и отбрасывается назад, в глубины Варпа.",
+        "en": "Speaking words of banishment, the psyker draws on his faith and reaches out to sever the cords tying a Daemon to reality. Its hold in real space broken, the Daemon is cast back into the depths of the Warp."
+      },
+      "school": "PS_SAN",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер выбирает в пределах дальности и в зоне прямой видимости цель, которая должна обладать чертой Варп-нестабильность. Целевой демон немедленно должен совершить проверку Силы Воли, со штрафом -5 за каждую степень успеха проверки Фокусировки Силы. Цель получает 1 очко энергетического урона (игнорирующего броню и бонус Выносливости) за каждую степень провала. Если таким образом будет нанесён урон, равный или превышающий оставшиеся у цели раны, она немедленно выбрасывается обратно в Варп."],
+        "en": ["The psyker selects a target in range and line of sight, which must possess the Warp Instability trait. The targeted Daemon must immediately make a Willpower test, with a –5 penalty for each degree of success on the Focus Power test. The target suffers 1 point of Energy damage per degree of failure on the test, ignoring Toughness bonus and armour. If this would deal damage equal to or in excess of the target’s remaining wounds, it is immediately cast back into the Warp."]
+      },
+      "cost": 300,
+      "prerequisites": [
+        {
+          "tag": "PR",
+          "value": 3
+        },
+        {
+          "tag": "PP_EXR",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": -20,
+      "focus_opposed": false,
+      "range": 10,
+      "action": "AT_FULL",
+      "keywords": ["KW_CON", "KW_ATK"]
+    },
+    {
+      "tag": "PP_CLF",
+      "name": {
+        "ru": "Очищающее пламя",
+        "en": "Cleansing flame"
+      },
+      "description": {
+        "ru": "Псайкер воплощает собственную чистоту в поток священного пламени. Лазурный огонь пылает ярче любого обычного, ибо он — праведность Императора. Еретики и демоны не могут надеяться устоять против очищающего пламени.",
+        "en": "The psyker projects his purity in a great gout of holy flames. The azure fires burn hotter than any mundane flame, blazing with the righteousness of the Emperor. Heretics and Daemons cannot hope to stand against the purifying flame."
+      },
+      "school": "PS_SAN",
+      "type": ["PT_BOLT"],
+      "effect": {
+        "description": {
+          "ru": [],
+          "en": []
+        },
+        "dice": 10,
+        "count": 1,
+        "bonus": "WPB",
+        "pr_bonus": 1,
+        "type": {
+          "ru": "Э",
+          "en": "E"
+        },
+        "pen": 0,
+        "pr_pen": 0,
+        "traits": ["Flame", "Spray", "Sanctified"]
+      },
+      "cost": 300,
+      "prerequisites": [
+        {
+          "tag": "PR",
+          "value": 4
+        },
+        {
+          "tag": "PP_PRS",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": 5,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON", "KW_ATK"]
+    },
+    {
+      "tag": "PP_EXR",
+      "name": {
+        "ru": "Экзорцизм",
+        "en": "Exorcism"
+      },
+      "description": {
+        "ru": "Многие следующие по пути Демонологии псайкеры знают, что лучшее оружие против демона, это вера и психические силы; только с помощью энергии Варпа можно успешно бороться с ним. Подкрепляя ритуал психическим давлением псайкер может изгнать демона.",
+        "en": "Many psykers who follow the path of Daemonology know that the best weapons against the Daemon are faith and psychic powers; only with the energies of the Warp is it truly possible to fight the Warp. Bolstering his ritual with psychic current, the psyker prepares to exorcise a Daemon."
+      },
+      "school": "PS_SAN",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер выбирает одного целевого персонажа с чертой Демонический, который противостоит психосиле с помощью проверки Силы Воли. Если псайкер выигрывает встречную проверку, персонаж получает урон Силе Воли, равный пси-рейтингу пользователя за каждую степень успеха проверки псайкера."],
+        "en": ["The psyker selects a single target character with the Daemonic trait, which opposes the power with a Willpower test. If the psyker wins the opposed test, the character suffers Willpower damage equal to the user’s psy rating for each degree of success on the psyker’s test."]
+      },
+      "cost": 200,
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 40
+        },
+        {
+          "tag": "PP_WOE",
+          "value": 1
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_HALF",
+      "focus_check": "ST_WP",
+      "focus_mod": -10,
+      "focus_opposed": true,
+      "range": 5,
+      "action": "AT_FULL",
+      "keywords": ["KW_CON", "KW_ATK"]
+    },
+    {
+      "tag": "PP_HMH",
+      "name": {
+        "ru": "Рука-молот",
+        "en": "Hammerhand"
+      },
+      "description": {
+        "ru": "Наполняя свои мышцы психической силой псайкер обрушивает гнев Императора могучими ударами, которые разрушают керамит и пласталь.",
+        "en": "Imbuing his muscles with psychic force, the psyker brings down the wrath of the Emperor of Mankind in powerful strikes that shatter ceramite and plasteel."
+      },
+      "school": "PS_SAN",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер выбирает равное своему пси-рейтингу количество союзников, в том числе он может выбирать себя. Пока сила поддерживается выбранные персонажи получают черту Сверхъестественная Сила (X), где X равняется пси-рейтингу пользователя, или увеличивают значение имеющейся черты на 4. Действие преимущества оканчивается, если персонаж выходит за пределы дальности силы."],
+        "en": ["The psyker selects a number of allies within range equal to his psy rating (which may include the psyker). While the power persists, the affected characters gain the Unnatural Strength (X) trait where X is equal to the user’s psy rating, or increases their existing trait’s value by 4. This benefit ends if a character moves out of range."]
+      },
+      "cost": 300,
+      "prerequisites": [
+        {
+          "tag": "PR",
+          "value": 3
+        },
+        {
+          "tag": "PP_PRS",
+          "value": 1
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_FREE",
+      "focus_check": "ST_WP",
+      "focus_mod": -10,
+      "focus_opposed": false,
+      "range": 5,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_HLC",
+      "name": {
+        "ru": "Холокост",
+        "en": "Holocaust"
+      },
+      "description": {
+        "ru": "Псайкер воспламеняет собственную душу разрушительным пожаром, который распространяется от него во все стороны. Поговаривают, что порождаемое этой силой пламя сжигает не только плоть, но и души врагов псайкера, обрекая их на окончательное уничтожение, а также то, что псайкер рискует полностью сжечь свою душу в процессе.",
+        "en": "The psyker ignites his very soul in a devastating conflagration that washes out from him in all directions. It is said that the flames of this power burn not only flesh, but the very souls of the psyker’s enemies, destroying them utterly—and that the psyker risks consuming his own soul in the process."
+      },
+      "school": "PS_SAN",
+      "type": ["PT_BLAST"],
+      "effect": {
+        "description": {
+          "ru": ["Каждый раунд, пока псайкер поддерживает Холокост, он испускает психический взрыв, центрированный на нём самом. Псайкер не подвержен эффекту взрыва, но за каждый ход поддержания этой силы он получает 1к10 + пси-рейтинг очков энергетического урона (игнорирующего броню и бонус Выносливости)."],
+          "en": ["Each round the psyker sustains Holocaust, he emits a psychic blast centred on himself. He is not affected by the blast, but each turn the psyker sustains the power he suffers 1d10+psy rating Energy damage, ignoring armour and Toughness bonus."]
+        },
+        "dice": 10,
+        "count": 1,
+        "bonus": 0,
+        "pr_bouns": 1,
+        "type": {
+          "ru": "Э",
+          "en": "E"
+        },
+        "pen": 0,
+        "pr_pen": 0,
+        "traits": ["Blast (PR)", "Flame", "Warp weapon"]
+      },
+      "cost": 500,
+      "prerequisites": [
+        {
+          "tag": "PR",
+          "value": 5
+        },
+        {
+          "tag": "PP_SNC",
+          "value": 1,
+          "alt": {
+            "tag": "PP_CLF",
+            "value": 1
+          }
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_FULL",
+      "focus_check": "ST_WP",
+      "focus_mod": -20,
+      "focus_opposed": false,
+      "range": 0,
+      "action": "AT_FULL",
+      "keywords": ["KW_CON", "KW_ATK"]
+    },
+    {
+      "tag": "PP_PSC",
+      "name": {
+        "ru": "Психическое единство",
+        "en": "Psychic communion"
+      },
+      "description": {
+        "ru": "Установив между союзниками психическую связь псайкер гарантирует, что сообща они покарают врагов Императора.",
+        "en": "Establishing a psychic link with his allies, the psyker ensures that they act in concert, the better to deliver righteous judgement on the Emperor’s foes."
+      },
+      "school": "PS_SAN",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер выбирает равное своему пси-рейтингу количество союзников в пределах дальности пси-силы. Пока сила поддерживается, псайкер и выбранные союзники получают +2 к Инициативе. Этот бонус может изменить существующий порядок инициативы."],
+        "en": ["The psyker selects a number of allies up to psy rating within range. While the power persists, the psyker and his affected allies add +2 to their Initiative. This can change an already established Initiative order."]
+      },
+      "cost": 100,
+      "prerequisites": [
+        {
+          "tag": "ST_PER",
+          "value": 35
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_FREE",
+      "focus_check": "ST_WP",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": 10,
+      "action": "AT_FULL",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_PRS",
+      "name": {
+        "ru": "Очищение души",
+        "en": "Purge soul"
+      },
+      "description": {
+        "ru": "Используя порчу в душе врага как топливо псайкер сжигает развращённую душу цели.",
+        "en": "Using the corruption in his target’s soul as kindling, the psyker ignites an inner fire, burning away the target’s tainted soul."
+      },
+      "school": "PS_SAN",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер выбирает в пределах дальности и в зоне прямой видимости цель, которая противостоит силе проверкой Силы Воли. Если псайкер выигрывает встречную проверку, то цель получает 1 очко энергетического урона за каждую степень успеха, плюс количество урона равное, собственному бонусу Порчи (это урон игнорирует броню и бонус Выносливости)."],
+        "en": ["The psyker chooses a target within range and line of sight, who opposes the power with a Willpower test. If the psyker wins the Opposed test, the target suffers 1 point of Energy damage per degree of success on the test, plus an amount equal to the target’s Corruption bonus, ignoring armour and Toughness bonus."]
+      },
+      "cost": 200,
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 35
+        },
+        {
+          "tag": "PP_WOE",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": -10,
+      "focus_opposed": false,
+      "range": 10,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON", "KW_ATK"]
+    },
+    {
+      "tag": "PP_SNC",
+      "name": {
+        "ru": "Святилище",
+        "en": "Sanctuary"
+      },
+      "description": {
+        "ru": "Псайкер призывает барьер святой силы, отталкивающий демонов и отражающий удары еретиков.",
+        "en": "The psyker summons a barrier of holy force, pushing back the Daemon and deflecting the blows of heretics."
+      },
+      "school": "PS_SAN",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер выбирает равное своему пси-рейтингу количество союзников, в том числе он может выбирать себя, на расстоянии не более [10 x свой пси-рейтинг] метров. Пока сила поддерживается выбранные персонажи получают преимущества силового поля с рейтингом защиты 5 x ПР и без шанса на перегрузку. Помимо этого, демоны обязаны пройти Серьёзную (+0) проверку Силы Воли чтобы подойти к выбранному персонажу."],
+        "em": ["The psyker selects a number of allies up to psy rating (which may include the psyker) within 10 metres x psy rating. For the duration of the power, each affected character benefits from a force field with a protection rating of 5 x PR and no overload chance. In addition, Daemons must pass a Challenging (+0) Willpower test in order to move toward an affected character."]
+      },
+      "cost": 400,
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 45
+        },
+        {
+          "tag": "PP_BNS",
+          "value": 1
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_HALF",
+      "focus_check": "ST_WP",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": 0,
+      "action": "AT_FULL",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_WOE",
+      "name": {
+        "ru": "Слово Императора",
+        "en": "Word of the Emperor"
+      },
+      "description": {
+        "ru": "Псайкер говорит голосом самого Императора, заставляя врагов съёживаться от ужаса и боли. Подкрепляя обличения и катехизисы ненависти психическим резонансом псайкер гарантирует, что еретики и демоны должны, прежде чем поднять на него руку, пересилить святые слова.",
+        "en": "The psyker speaks with the very voice of the Emperor, causing his enemies to cringe in pain and terror. Bolstering his denunciations and catechisms of hate with psychic resonance, the psyker ensures that heretics and Daemons must struggle past his holy words in order to lay hand or claw upon him."
+      },
+      "school": "PS_SAN",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Пока сила действует, всякий раз, когда персонаж в радиусе действия силы совершает действие Атака по псайкеру, атакующий должен пройти Серьёзную (+0) проверку Силы Воли или получить штраф -5 к броску атаки за каждую степень провала."],
+        "en": ["Whilst the power remains in effect, whenever a character within range takes an Attack action targeting the psyker, the attacker must pass a Challenging (+0) Willpower test or suffer a –5 penalty to his attack roll for each degree of failure."]
+      },
+      "cost": 200,
+      "prerequisites": [
+        {
+          "tag": "ST_FEL",
+          "value": 30
+        },
+        {
+          "tag": "PP_PCM",
+          "value": 1
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_HALF",
+      "focus_check": "ST_WP",
+      "focus_mod": -10,
+      "focus_opposed": false,
+      "range": 10,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_DFL",
+      "name": {
+        "ru": "Темное пламя",
+        "en": "Dark flame"
+      },
+      "description": {
+        "ru": "Опираясь на собственную порчу псайкер проецирует сгусток тёмного варп-огня. Противоестественное пламя горит огнём проклятия псайкера и пожирает души врагов не менее верно, нежели тела.",
+        "en": "Drawing on his own corruption, the psyker projects a gout of dark Warp-fire. The unnatural flames burn with the fires of the psyker’s own damnation, consuming the souls of his enemies as surely as their bodies."
+      },
+      "school": "PS_MAL",
+      "type": ["PT_BOLT"],
+      "effect": {
+        "decription": {
+          "ru": ["Любой получивший урон от Тёмного Пламени персонаж должен пройти Лёгкую (+30) проверку Силы Воли или получить 1 очко Порчи за каждую степень провала."],
+          "en": ["Any character who suffers damage from Dark Flame must succeed at an Easy (+30) Willpower test or gain 1 Corruption point for each degree of failure."]
+        },
+        "dice": 10,
+        "count": 1,
+        "bonus": 0,
+        "pr_bonus": 1,
+        "cp_bonus": 1,
+        "type": {
+          "ru": "Э",
+          "en": "E"
+        },
+        "pen": "CPB",
+        "traits": ["Flame", "Spray"]
+      },
+      "cost": 100,
+      "prerequisites": [
+        {
+          "tag": "CP",
+          "value": 10
+        },
+        {
+          "tag": "PP_CRE",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": 5,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON", "KW_ATK"]
+    },
+    {
+      "tag": "PP_CRE",
+      "name": {
+        "ru": "Проклятая земля",
+        "en": "Cursed earth"
+      },
+      "description": {
+        "ru": "Псайкер вызывает трещащие нити чёрной энергии, наполняющие окружающую землю силой Варпа. Эта область проклятой земли ослабляет завесу между Материумом и Варпом, что помогает демонам удерживаться в реальности. Ступившие на проклятую землю испытывают отвращение и ужас, отшатываются от нечестивого присутствия.",
+        "en": "The psyker calls forth crackling tendrils of dark energy to imbue an area of ground with the power of the Warp. This area of cursed earth helps Daemons sustain their grip in reality, weakening the veil between realspace and the Warp. Those who step on the cursed ground feel revulsion and terror, recoiling from the unnatural presence."
+      },
+      "school": "PS_MAL",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Псайкер выбирает участок земли радиусом [его пси-рейтинг] метров. Пока сила поддерживается находящиеся в этой области демоны увеличивают значение своей черты Демонический на половину пси-рейтинга и получают бонус 5 x пси-рейтинг на проверки Варп-нестабильности. Кроме того, используемые в затронутой области психические силы добавляют +10 проверкам Фокусировки Силы и броскам по таблице 6-2: Психические Феномены (см. стр. 242 ОКП Dark Heresy). Находящиеся на проклятой земле могут испытать тревожащие эффекты варп-феноменов на усмотрение МИ."],
+        "en": ["The psyker selects an area of ground with a radius in metres equal to psy rating. While the power is sustained, Daemons standing within this area increase the value of their Daemonic trait by half psy rating and receive a bonus of +5 x psy rating to Warp Instability tests. In addition, psychic powers used within the affected area add +10 to Focus Power tests and rolls on Psychic Phenomena. Those in the presence of the Cursed Earth may experience disturbing Warp phenomena at the GM’s discretion."]
+      },
+      "cost": 100,
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 40
+        },
+        {
+          "tag": "PP_SMN",
+          "value": 1
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_FREE",
+      "focus_check": "ST_WP",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": 1,
+      "action": "AT_FULL",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_ING",
+      "name": {
+        "ru": "Адский взор",
+        "en": "Infernal gaze"
+      },
+      "description": {
+        "ru": "Псайкер открывает свою душу Варпу, а глаза его отражают тёмные видения Царства Хаоса. Узревшие это оказываются травмированы до глубины души.",
+        "en": "Drawing on his own corruption, the psyker projects a gout of dark Warp-fire. The unnatural flames burn with the fires of the psyker’s own damnation, consuming the souls of his enemies as surely as their bodies."
+      },
+      "school": "PS_MAL",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Эта сила влияет на всех, что дружественных, что враждебных, персонажей в пределах видимости, за и исключением обладающих чертой Демонический. Каждый затронутый персонаж противостоит силе Серьёзной (+0) проверкой Силы Воли. Любой проваливший персонаж получает [пси-рейтинг + бонус Порчи псайкера] очков энергетического урона (это урон игнорирует броню и бонус Выносливости), плюс [половина пси-рейтинга псайкера] очков Порчи и Безумия."],
+        "en": ["This power affects all characters within range and line of sight, friend and foe, who do not possess the Daemonic trait. Each affected character opposes the power with a Challenging (+0) Willpower test. Any character who fails suffers Energy damage equal to the user’s psy rating plus Corruption bonus, ignoring armour and Toughness bonus, and gains Insanity points and Corruption points equal to half the user’s psy rating."]
+      },
+      "cost": 200,
+      "prerequisites": [
+        {
+          "tag": "CP",
+          "value": 15
+        },
+        {
+          "tag": "ST_WP",
+          "value": 45
+        },
+        {
+          "tag": "PP_DFL",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": -10,
+      "focus_opposed": false,
+      "range": "AT_HALF",
+      "action": 5,
+      "keywords": ["KW_CON", "KW_ATK"]
+    },
+    {
+      "tag": "PP_ICR",
+      "name": {
+        "ru": "Вторжение",
+        "en": "Incursion"
+      },
+      "description": {
+        "ru": "Не довольствуясь простым призывам демона в реальность, псайкер направляет свои противоестественные силы на устрашение нечестивых сущностей. Манипулируя веществом Варпа, из которого созданы демоны, псайкер подчиняет демонов своей воле.",
+        "en": "Not content with merely summoning Daemons forth into reality, the psyker bends his unnatural powers toward the cowing of these unholy entities. Channelling the stuff of the Warp from which they are made, the psyker binds Daemons to his will."
+      },
+      "school": "PS_MAL",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["До тех пор, пока сила активна псайкер получает бонус к проверкам на Владычество над демоном, равный 10 x пси-рейтинг."],
+        "en": ["As long as this power remains in effect, the psyker gains a bonus to his Daemonic Mastery tests of +10 x psy rating."]
+      },
+      "cost": 100,
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 45
+        },
+        {
+          "tag": "PP_CRE",
+          "value": 1
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_FREE",
+      "focus_check": "ST_WP",
+      "focus_mod": -10,
+      "focus_opposed": false,
+      "range": 0,
+      "action": "AT_FULL",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_PSN",
+      "name": {
+        "ru": "Одержимость",
+        "en": "Possession"
+      },
+      "description": {
+        "ru": "Для большинства псайкеров возможность того, что их телом овладеет демон, является набольшим страхом, с которым им предстоит бороться при каждом применении своих сил. Для некоторых же, это лишь ещё один пусть к власти. Уверенный в своей силе воли псайкер позволяет малой варп-твари временно войти в свою плоть, наделяя себя нечестивой силой и стойкостью.",
+        "en": "For most psykers, the possibility of a Daemon of the Warp possessing their body is their greatest fear, a fear that they must contend with each time they use their unnatural powers. For some, however, it is merely another path to power. Confident in his own strength of will, the psyker allows a minor Warp beast to temporarily enter his flesh, imbuing him with unholy resilience and strength."
+      },
+      "school": "PS_MAL",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": [
+          "Эффект: До тех пор, пока сила поддерживается, псайкер получает черты Демонический (X) и Сверхъестественная Сила (X), где X равняется половине пси-рейтинга, а также черту Смертоносное Природное Оружие. Кроме того, каждый раунд, пока сила поддерживается, псайкер должен проходить Серьёзную (+0) проверку Силы Воли или войти в состояние Неистовство, как при одноимённом таланте. Будучи в Неистовстве псайкер должен продолжать поддерживать эту силу (вопреки обычному запрету на поддержание психических сил в Неистовстве).",
+          "Психический феномен: Приглашение персонажа принял более сильный демон, выбранный МИ. Псайкер должен пройти Встречную проверку против Силы Воли демона или стать одержимым."
+        ],
+        "en": [
+          "Effect: While the power is sustained, the psyker gains the Daemonic (X) and Unnatural Strength (X) traits, where X equals half his psy rating, as well as the Deadly Natural Weapons trait. In addition, the psyker must succeed at a Challenging (+0) Willpower test each round the power is sustained or enter a Frenzied state per the Frenzy talent. While Frenzied, the psyker must continue to sustain the power (in a special exception to the prohibition on using psychic powers while Frenzied).",
+          "Psychic Phenomena: A result of Psychic Phenomena when using this power means that a more powerful Daemon, as chosen by the GM, has taken the psyker’s invitation. The psyker must succeed in an Opposed Willpower test against the Daemon or become possessed."
+        ]
+      },
+      "cost": 200,
+      "prerequisites": [
+        {
+          "tag": "CP",
+          "value": 20
+        },
+        {
+          "tag": "PP_ING",
+          "value": 1,
+          "alt": {
+            "tag": "PP_SCF",
+            "value": 1
+          }
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_FREE",
+      "focus_check": "ST_WP",
+      "focus_mod": -10,
+      "focus_opposed": false,
+      "range": 0,
+      "action": "AT_FULL",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_SCF",
+      "name": {
+        "ru": "Жертвоприношение",
+        "en": "Sacrifice"
+      },
+      "description": {
+        "ru": "Псайкер использует плоть и кровь жертвы, безотносительно её желаний, для подпитки своих тёмных сил. Будь то прерывание жизни или просто вскрытие вены, но жертвоприношение взывает к Варпу, привлекая внимание демонов и усиливая злобные способности псайкера.",
+        "en": "The psyker uses the flesh and blood of a willing or unwilling victim to fuel his dark powers. Whether ending a life or merely opening a vein, the sacrifice calls out to the Warp, drawing the attentions of Daemons and bolstering the psyker’s malevolent abilities."
+      },
+      "school": "PS_MAL",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Эта сила может быть использована только в том случае, если псайкер нанёс урон цели (или самому себе) с начала предыдущего раунда. Если проверка Фокусировки Силы пройдена, псайкер получает бонус +5 за каждое очко нанесённого урона (после снижения бронёй и бонусом Выносливости) к следующей проверке Фокусировки Силы. Этот бонус должен быть использован в течении 1 часа."],
+        "en": ["This power can only be used if the psyker has inflicted damage on a target (possibly himself) since the beginning of the previous round. If the Focus Power test succeeds, the psyker gains a +5 bonus to his next Focus Power test for each point of damage inflicted (after reductions for armour and Toughness bonus) with the preceding attack. This bonus must be used within 1 hour."]
+      },
+      "cost": 100,
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 45
+        },
+        {
+          "tag": "PP_ICR",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": 10,
+      "focus_opposed": false,
+      "range": 0,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_SMN",
+      "name": {
+        "ru": "Призыв",
+        "en": "Summoning"
+      },
+      "description": {
+        "ru": "Опираясь на свои дарованные Варпом силы псайкер ославляет завесу между реальностью и Имматериумом, прокладывая путь его нечестивым обитателям.",
+        "en": "Drawing on his Warp-born powers, the psyker weakens the veil twixt reality and the Immaterium, paving the way to summon forth its unholy denizens."
+      },
+      "school": "PS_MAL",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["До тех пор, пока сила поддерживается, псайкер получает бонус +10 x пси-рейтинг к проверкам Запретных Знаний (Демонология) при призыве демонов."],
+        "en": ["As long as this power is sustained, the psyker gains a bonus of +10 x psy rating to Forbidden Lore (Daemonology) tests made to summon Daemons."]
+      },
+      "cost": 50,
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 35
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_FREE",
+      "focus_check": "ST_WP",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": 0,
+      "action": "AT_FULL",
+      "keywords": ["KW_CON"]
     }
   ]
 }

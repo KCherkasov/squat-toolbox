@@ -1,0 +1,458 @@
+{
+  "motivations": [
+    {
+      "tag": "MT_VGN",
+      "name": {
+        "ru": "Vengeance",
+        "en": "Vengeance"
+      },
+      "hints": [],
+      "choices": [
+        [
+          {
+            "tag": "TL_HTRD",
+            "subtag": "TL_ANY"
+          }
+        ]
+      ],
+      "commands": [],
+      "aptitudes": ["A_FIN", "A_OFF"],
+      "cost": 0
+    },
+    {
+      "tag": "MT_RNW",
+      "name": {
+        "ru": "Renown",
+        "en": "Renown"
+      },
+      "hints": [],
+      "choices": [
+        [
+          {
+            "tag": "TL_PR",
+            "subtag": "TL_ANY"
+          },
+          {
+            "tag": "TL_AROA"
+          }
+        ]
+      ],
+      "commands": [],
+      "aptitudes": ["A_LDR", "A_SOC"],
+      "cost": 0
+    },
+    {
+      "tag": "MT_PRD",
+      "name": {
+        "ru": "Pride",
+        "en": "Pride"
+      },
+      "hints": [],
+      "choices": [],
+      "commands": [
+        {
+          "command": "IncreaseStat",
+          "tag": "ST_T",
+          "amount": 3
+        }
+      ],
+      "aptitudes": ["A_DEF", "A_KNG"],
+      "cost": 0
+    },
+    {
+      "tag": "MT_PRST",
+      "name": {
+        "ru": "Prestige",
+        "en": "Prestige"
+      },
+      "hints": [],
+      "choices": [
+        [
+          {
+            "tag": "TL_PR",
+            "subtag": "TL_ANY"
+          },
+          {
+            "tag": "TL_TLTD",
+            "subtag": "TL_ANY"
+          }
+        ]
+      ],
+      "commands": [],
+      "aptitudes": ["A_FIN", "A_SOC"],
+      "cost": 0
+    },
+    {
+      "tag": "MT_ENSC",
+      "name": {
+        "ru": "Enmey in the Sector",
+        "en": "Enemy in the Sector"
+      },
+      "hints": [],
+      "choices": [],
+      "commands": [
+        {
+          "command": "IncreaseStat",
+          "tag": "ST_PER",
+          "amount": 3
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_PRN"
+        }
+      ],
+      "aptitudes": ["A_DEF", "A_OFF"],
+      "cost": 300
+    },
+    {
+      "tag": "MT_HBTOS",
+      "name": {
+        "ru": "Haunted by thy own sins",
+        "en": "Haunted by thy own sins"
+      },
+      "hints": [],
+      "choices": [],
+      "commands": [
+        {
+          "command": "GainTalent",
+          "tag": "TL_DSL"
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_FLGT"
+        },
+        {
+          "command": "GainCorruptionRoll"
+        }
+      ],
+      "aptitudes": ["A_OFF", "A_FIN"],
+      "cost": 200
+    },
+    {
+      "tag": "MT_TBTU",
+      "name": {
+        "ru": "Tormented by the unspeakable",
+        "en": "Tormented by the unspeakable"
+      },
+      "hints": [],
+      "choices": [],
+      "commands": [
+        {
+          "command": "GainTalent",
+          "tag": "TL_LTSL"
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_JD"
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_RST",
+          "subtag": "Fear"
+        },
+        {
+          "command": "GainInsanityRoll"
+        }
+      ],
+      "aptitudes": ["A_KNG", "A_DEF"],
+      "cost": 200
+    },
+    {
+      "tag": "MT_NWHR",
+      "name": {
+        "ru": "New Horizons",
+        "en": "New Horizons"
+      },
+      "hints": [],
+      "choices": [
+        [
+          {
+            "tag": "SK_SCL",
+            "subtag": "Astromancy"
+          },
+          {
+            "tag": "SK_TRD",
+            "subtag": "Explorator"
+          }
+        ]
+      ],
+      "commands": [
+        {
+          "command": "GainSkill",
+          "tag": "SK_CML",
+          "subtag": "Sector Crucis"
+        }
+      ],
+      "aptitudes": ["A_TECH", "A_KNG"],
+      "cost": 100
+    },
+    {
+      "tag": "MT_TOWR",
+      "name": {
+        "ru": "Thrill of War",
+        "en": "Thirll of War"
+      },
+      "hints": [],
+      "choices": [],
+      "commands": [
+        {
+          "command": "IncreaseStatAlt",
+          "tags": ["ST_WS", "ST_BS"],
+          "amount": 3
+        },
+        {
+          "command": "DecreaseStat",
+          "tag": "ST_FEL",
+          "amount": 3
+        },
+        {
+          "command": "GainSkill",
+          "tag": "SK_SCL",
+          "subtag": "Tactica Imperialis"
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_NOS"
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_QD"
+        }
+      ],
+      "aptitudes": ["A_OFF", "A_FLD"],
+      "cost": 300
+    },
+    {
+      "tag": "MT_NJUX",
+      "name": {
+        "ru": "No joy unexplored",
+        "en": "No joy unexplored"
+      },
+      "hints": [],
+      "choices": [],
+      "commands": [
+        {
+          "command": "IncreaseStatAlt",
+          "tags": ["ST_T", "ST_FEL"],
+          "amount": 3
+        },
+        {
+          "command": "DecreaseStat",
+          "tag": "ST_WP",
+          "amount": 3
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_JD"
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_RST",
+          "subtag": "Poisons"
+        },
+        {
+          "command": "GainCorruptionRoll"
+        }
+      ],
+      "aptitudes": ["A_SOC", "A_FIN"],
+      "cost": 300
+    },
+    {
+      "tag": "MT_KILLIK",
+      "name": {
+        "ru": "Knowledge is life, life is knowledge",
+        "en": "Knowledge is life, life is knowledge"
+      },
+      "hints": [],
+      "choices": [
+        [
+          {
+            "tag": "SK_SCL",
+            "subtag": "SK_ANY"
+          }
+        ],
+        [
+          {
+            "tag": "SK_SCL",
+            "subtag": "SK_ANY"
+          }
+        ]
+      ],
+      "commands": [
+        {
+          "command": "GainTalent",
+          "tag": "TL_TTRC"
+        }
+      ],
+      "aptitudes": ["A_KNG", "A_TECH"],
+      "cost": 300
+    },
+    {
+      "tag": "MT_KTF",
+      "name": {
+        "ru": "Know thy foe",
+        "en": "Know thy foe"
+      },
+      "hints": [],
+      "choices": [
+        [
+          {
+            "tag": "SK_FBL",
+            "subtag": "SK_ANY"
+          }
+        ],
+        [
+          {
+            "tag": "TL_HTRD",
+            "subtag": "TL_ANY"
+          }
+        ]
+      ],
+      "commands": [],
+      "aptitudes": ["A_OFF", "A_KNG"],
+      "cost": 200
+    },
+    {
+      "tag": "MT_KIPGIW",
+      "name": {
+        "ru": "Knowledge is power, guard it well",
+        "en": "Knowledge is power, guard it well"
+      },
+      "hints": [],
+      "choices": [
+        [
+          {
+            "tag": "SK_CML",
+            "subtag": "SK_ANY"
+          },
+          {
+            "tag": "SK_SCL",
+            "subtag": "SK_ANY"
+          }
+        ]
+      ],
+      "commands": [
+        {
+          "command": "IncreaseStatAlt",
+          "tags": ["ST_INT", "ST_PER"],
+          "amount": 3
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_FRST"
+        }
+      ],
+      "aptitudes": ["A_KNG", "A_DEF"],
+      "cost": 200
+    },
+    {
+      "tag": "MT_DVCR",
+      "name": {
+        "ru": "Devotion to the Creed",
+        "en": "Devotion to the Creed"
+      },
+      "hints": [],
+      "choices": [],
+      "commands": [
+        {
+          "command": "GainSkill",
+          "tag": "SK_CH"
+        },
+        {
+          "command": "GainSkill",
+          "tag": "SK_CML",
+          "subtag": "Imperial Creed"
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_INWR"
+        }
+      ],
+      "aptitudes": ["A_LDR", "A_SOC"],
+      "cost": 200
+    },
+    {
+      "tag": "MT_DVDT",
+      "name": {
+        "ru": "Devotion to the duty",
+        "en": "Devotion to the duty"
+      },
+      "hints": [],
+      "choices": [],
+      "commands": [
+        {
+          "command": "GainTalentAlt",
+          "tags": ["TL_ARCN", "TL_USFT"]
+        },
+        {
+          "command": "IncreaseStat",
+          "tag": "ST_WP",
+          "amount": 3
+        }
+      ],
+      "aptitudes": ["A_DEF", "A_OFF"],
+      "cost": 300
+    },
+    {
+      "tag": "MT_LLT",
+      "name": {
+        "ru": "Loyalty",
+        "en": "Loyalty"
+      },
+      "hints": [
+        {
+          "tag": "MT_LLT_H1",
+          "description": {
+            "ru": "+5 к проверкам Силы Воли и Общительности пока персонаж находится на родном корабле",
+            "en": "+5 bonus to Willpower and Fellowship test made while aboard the ship characters lives on"
+          },
+          "targets": ["ST_WP", "ST_FEL"]
+        }
+      ],
+      "choices": [],
+      "commands": [
+        {
+          "command": "GainSkill",
+          "tag": "SK_TRD",
+          "subtag": "Voidfarer"
+        }
+      ],
+      "aptitudes": ["A_FLD", "A_FIN"],
+      "cost": 0
+    },
+    {
+      "tag": "MT_ENDR",
+      "name": {
+        "ru": "Endurance",
+        "en": "Endurance"
+      },
+      "hints": [],
+      "choices": [],
+      "commands": [
+        {
+          "command": "GainTalent",
+          "tag": "TL_SC"
+        }
+      ],
+      "aptitudes": ["A_FLD", "A_DEF"],
+      "cost": 0
+    },
+    {
+      "tag": "MT_FRTN",
+      "name": {
+        "ru": "Fortune",
+        "en": "Fortune"
+      },
+      "hints": [],
+      "choices": [],
+      "commands": [
+        {
+          "command": "GainFate",
+          "amount": 1
+        }
+      ],
+      "aptitudes": ["A_WS", "A_BS", "A_STR", "A_T", "A_AG", "A_PER", "A_INT", "A_WP", "A_FEL", "A_OFF", "A_DEF", "A_FIN", "A_FLD", "A_KNG", "A_TECH", "A_LDR", "A_SOC", "A_PSY"],
+      "cost": 0
+    }
+  ]
+}

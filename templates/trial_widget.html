@@ -1,0 +1,14 @@
+{% block loaders %}
+    {% load filters %}
+{% endblock %}
+
+{% with facade.trials|get_by_dict_key:character.trial_id as trial %}
+<div class="charlist-inline">
+    <div>
+        <b>
+            {% if lang == 'ru' %}Испытания и бедствия{% else %}Trials and travails{% endif %}:&nbsp;
+            <i>{{ trial.name|get_by_dict_key:lang }}</i>
+        </b>
+    </div>
+</div>
+{% endif %}

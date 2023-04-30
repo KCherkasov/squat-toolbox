@@ -51,6 +51,10 @@ from charlist.forms.player_todos.manual.increase_stat_roll_form import IncreaseS
 from charlist.forms.upgrading.stat_upgrade_form import StatUpgradeForm
 from charlist.forms.upgrading.skill_upgrade_form import SkillUpgradeForm
 from charlist.forms.upgrading.skill_subtag_upgrade_form import SkillSubtagUpgradeForm
+from charlist.forms.upgrading.talent_upgrade_form import TalentUpgradeForm
+from charlist.forms.upgrading.talent_subtag_upgrade_form import TalentUpgradeSubtagForm
+
+from rt_views import rt_flyweights, rt_commands_parser
 
 
 class TokenGenerator(PasswordResetTokenGenerator):
@@ -1005,7 +1009,20 @@ def parse_manual_cmds(request, character: models.Character, character_model: Cha
 
 def upg_data_to_forms(character: CharacterModel):
     upg_costs = character.make_upg_costs(flyweights)
-    forms = {'stats': list(), 'skills': {'common': list(), 'spec': list()}, 'talents': list()}
+    forms = {'stats': list(),
+             'skills': {'common': list(), 'spec': list()},
+             'talents': {'available': dict(), 'unavailable': dict()},
+             'psy': {'available': dict(), 'unavailable': dict()},
+             'ea': {'available': list(), 'unavailable': list()}
+             }
+
+    forms.get('talents').get('available')[1] = {'common': list(), 'spec': list()}
+    forms.get('talents').get('available')[2] = {'common': list(), 'spec': list()}
+    forms.get('talents').get('available')[3] = {'common': list(), 'spec': list()}
+
+    forms.get('talents').get('unavailable')[1] = {'common': list(), 'spec': list()}
+    forms.get('talents').get('unavailable')[2] = {'common': list(), 'spec': list()}
+    forms.get('talents').get('unavailable')[3] = {'common': list(), 'spec': list()}
     for stat_tag in flyweights.stat_tags():
         if stat_tag in upg_costs.get('stats').keys():
             forms.get('stats').append(
@@ -1033,6 +1050,42 @@ def upg_data_to_forms(character: CharacterModel):
                     form_map.get('forms').append(SkillSubtagUpgradeForm(
                         skill_tag, key, value, adv_bonus))
             forms.get('skills').get('spec').append(form_map)
+    for tier in upg_costs.get('talents').get('available').keys():
+        for tl_tag, talent in upg_costs.get('talents').get('available').get(tier).items():
+            if not flyweights.talent_descriptions().get(tl_tag).is_specialist():
+                if not character.has_talent(tl_tag):
+                    if flyweights.talent_descriptions().get(tl_tag).is_stackable():
+                        taken = character.talents().get(tl_tag).taken()
+                    else:
+                        taken = -1
+                else:
+                    if flyweights.talent_descriptions().get(tl_tag).is_stackable():
+                        taken = 0
+                    else:
+                        taken = -1
+                forms.get('talents').get('available')[tier].get('common').append(
+                    TalentUpgradeForm(tl_tag, talent.get('cost'), talent.get('colour'), taken))
+            else:
+                form_map = dict()
+                form_map['tl_tag'] = tl_tag
+                form_map['forms'] = list()
+                for key, value in talent.items():
+                    if key == 'colour':
+                        form_map[key] = value
+                    else:
+                        if key == 'TL_ANY':
+                            if flyweights.talent_descriptions().get(tl_tag).is_stackable():
+                                taken = 0
+                            else:
+                                taken = -1
+                        else:
+                            if character.has_talent_subtag(tl_tag, key):
+                                taken = character.talents().get(tl_tag).taken_subtag(key)
+                            else:
+                                taken = 0
+                        form_map.get('forms').append(TalentUpgradeSubtagForm(tl_tag, key, talent.get('cost'), taken))
+                forms.get('talents').get('available')[tier].get('spec').append(form_map)
+
     return forms
 
 
@@ -1042,31 +1095,37 @@ def character_view(request, char_id):
     insanity_form = None
     corruption_form = None
     reminders = None
+    if character_model.is_rt():
+        facade = rt_flyweights
+        parser = rt_commands_parser
+    else:
+        facade = flyweights
+        parser = commands_parser
     if (request.user is not None) and (request.user == character.owner):
         if request.method == 'POST':
             parse_manual_cmds(request, character, character_model)
         insanity_form = GainInsanityRollForm()
         corruption_form = GainCorruptionRollForm()
-        character_model = commands_parser.process_character(character_model)
+        character_model = parser.process_character(character_model)
         reminders = list()
         # TODO: controls (stats/skills/talents upgrading, XP gaining, etc.
         if len(character_model.pending()) > 0:
             for cmd in character_model.pending():
-                reminder = commands_parser.make_reminder(cmd, character_model)
+                reminder = parser.make_reminder(cmd, character_model)
                 if reminder is not None:
                     reminders.append(reminder)
                 else:
                     character_model.pending().remove(cmd)
         character.character_data = character_model.toJSON()
         character.save()
-    return render(request, "charsheet-mockup-interactive.html", {'version': VERSION, 'facade': flyweights,
-                                                                 'command_parser': commands_parser,
-                                                                 'character': character_model,
-                                                                 'hookups': character_model.make_hookups(flyweights),
-                                                                 'insanity_form': insanity_form,
-                                                                 'corruption_form': corruption_form,
-                                                                 'reminders': reminders,
-                                                                 'upg_view': character.get_upgrade_url(), })
+    return render(request, "charsheet.html", {'version': VERSION, 'facade': facade,
+                                              'command_parser': parser,
+                                              'character': character_model,
+                                              'hookups': character_model.make_hookups(facade),
+                                              'insanity_form': insanity_form,
+                                              'corruption_form': corruption_form,
+                                              'reminders': reminders,
+                                              'upg_view': character.get_upgrade_url(), })
 
 
 def upgrade_stat(request, character: models.Character, character_model: CharacterModel):
@@ -1123,7 +1182,11 @@ def character_upgrade(request, char_id):
             upgrade_skill(request, character, character_model)
         if 'upg-skill-subtag-confirm' in request.POST:
             upgrade_subskill(request, character, character_model)
-    return render(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': flyweights,
+    if character_model.is_rt():
+        facade = rt_flyweights
+    else:
+        facade = flyweights
+    return render(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
                                                       'character': character_model, 'forms': forms,
                                                       'return': True, 'char_view': character.get_view_url(), })
 

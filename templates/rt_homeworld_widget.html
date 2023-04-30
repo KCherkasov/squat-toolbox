@@ -1,0 +1,39 @@
+{% load filters %}
+
+{% with facade.rt_homeworlds|get_by_dict_key:character.hw_id as hw %}
+<div class="charlist-inline">
+    <div>
+        <b>
+            {% if lang == 'ru' %}Родной мир{% else %}Homeworld{% endif %}:&nbsp;
+            <a class="text-dark text-decoration-none" data-bs-toggle="modal" href="" role="button"
+               data-bs-target="#worldInfo-{{ lang }}" title="Подробнее">
+                <i>{{ hw.name|get_by_dict_key:lang }}</i>
+            </a>
+        </b>
+    </div>
+</div>
+
+<div class="modal fade" id="worldInfo-{{ lang }}" tabindex="-1" aria-labelledby="#worldInfo-{{ lang }}-label">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <b>
+                {{ hw.name|get_by_dict_key:lang }}
+            </b>
+            <button>
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <hr>
+        <div class="modal-body">
+            <p>{{ hw.description|get_by_dict_key:lang }}</p>
+            <br>
+            <b>{% if lang == 'ru' %}Бонус родного мира{% else %}Homeworld bonus{% endif %}:</b>
+            <p>
+                {{ hw.get_bonus|get_bonus_description:lang }}
+            </p>
+        </div>
+        </div>
+    </div>
+</div>
+{% endwith %}

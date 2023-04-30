@@ -1,0 +1,446 @@
+{
+  "trials": [
+    {
+      "tag": "TOT_HOW",
+      "name": {
+        "ru": "Рука войны",
+        "en": "Hand of War"
+      },
+      "hints": [
+        {
+          "tag": "TOT_HOW_H1",
+          "description": {
+            "ru": "-10 ко всем проверкам Общительности при взаимодействии с врагом. При малейшей провокации персонаж прибегнет к насилию (можно пройти проверку Силы Воли, чтобы этого избежать)",
+            "en": "-10 to all Fellowship tests when dealing with your Enemy. Also, given the slightest provocation you'll react violently towards them (you may take a Willpower test to avoid that)"
+          },
+          "targets": ["ST_FEL", "ST_WP"]
+        }
+      ],
+      "choices": [
+        [
+          {
+            "tag": "TL_LU"
+          },
+          {
+            "tag": "TL_WPT",
+            "subtag": "TL_ANY"
+          }
+        ],
+        [
+          {
+            "tag": "TL_HTRD",
+            "subtag": "Orks"
+          },
+          {
+            "tag": "TL_HTRD",
+            "subtag": "Eldar"
+          },
+          {
+            "tag": "TL_HTRD",
+            "subtag": "Mutants"
+          },
+          {
+            "tag": "TL_HTRD",
+            "subtag": "Chaos worshippers"
+          },
+          {
+            "tag": "TL_HTRD",
+            "subtag": "Astra Militarum"
+          },
+          {
+            "tag": "TL_HTRD",
+            "subtag": "Imperial Navy"
+          },
+          {
+            "tag": "TL_HTRD",
+            "subtag": "Void pirates"
+          }
+        ]
+      ],
+      "commands": [],
+      "cost": 0
+    },
+    {
+      "tag": "TOT_PRGN",
+      "name": {
+        "ru": "Press-ganged",
+        "en": "Press-ganged"
+      },
+      "hints": [
+        {
+          "tag": "TOT_PRGN_H1",
+          "description": {
+            "ru": "Персонаж агрессивно реагирует на возможность заключения под стражу или лишения/ограничения свободы (можно пройти тест Силы Воли, чтобы этого избежать)",
+            "en": "Character reacts violently on any prospect of imprisonment or loosing freedom (character may take a Willpower test to avoid that)"
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
+      "choices": [
+        [
+          {
+            "tag": "SK_CML",
+            "subtag": "SK_ANY"
+          }
+        ]
+      ],
+      "commands": [],
+      "cost": 0
+    },
+    {
+      "tag": "TOT_CLM",
+      "name": {
+        "ru": "Calamity",
+        "en": "Calamity"
+      },
+      "hints": [],
+      "choices": [
+        [
+          {
+            "tag": "TL_HRD"
+          },
+          {
+            "tag": "TL_NOS"
+          }
+        ]
+      ],
+      "commands": [
+        {
+          "command": "GainTalent",
+          "tag": "TL_LTSL"
+        }
+      ],
+      "cost": 0
+    },
+    {
+      "tag": "TOT_DKVG",
+      "name": {
+        "ru": "Dark voyage",
+        "en": "Dark voyage"
+      },
+      "hints": [],
+      "choices": [
+        [
+          {
+            "tag": "SK_FBL",
+            "subtag": "SK_ANY"
+          },
+          {
+            "tag": "TL_RST",
+            "subtag": "Fear"
+          }
+        ]
+      ],
+      "commands": [
+        {
+          "command": "GainInsanityRoll"
+        }
+      ],
+      "cost": 0
+    },
+    {
+      "tag": "TOT_HGVD",
+      "name": {
+        "ru": "High vendetta",
+        "en": "High vendetta"
+      },
+      "hints": [
+        {
+          "tag": "TOT_HGVD_H1",
+          "description": {
+            "ru": "Персонаж не оставляет без ответа оскорблений в свой адрес или в адрес тех, кто находится под его защитой (можно пройти тест Силы Воли, чтобы это игнорировать)",
+            "en": "Character won't allow no serious offence to his honour and person under his protection to pass unchallenged. He may take a Willpower test to avoid that."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
+      "choices": [
+        {
+          "tag": "TL_DH"
+        },
+        {
+          "tag": "TL_PRN"
+        }
+      ],
+      "commands": [
+        {
+          "command": "GainSkill",
+          "tag": "SK_INQ"
+        }
+      ],
+      "cost": 0
+    },
+    {
+      "tag": "TOT_FBKN",
+      "name": {
+        "ru": "Forbidden Knowledge",
+        "en": "Forbidden Knowledge"
+      },
+      "hints": [],
+      "choices": [
+        [
+          {
+            "tag": "SK_CML",
+            "subtag": "SK_ANY"
+          }
+        ],
+        [
+          {
+            "tag": "SK_FBL",
+            "subtag": "SK_ANY"
+          }
+        ],
+        [
+          {
+            "tag": "TL_ENM",
+            "subtag": "TL_ANY"
+          }
+        ]
+      ],
+      "commands": [
+        {
+          "command": "GainTalent",
+          "tag": "TL_PRN"
+        }
+      ],
+      "cost": 200
+    },
+    {
+      "tag": "TOT_WPIN",
+      "name": {
+        "ru": "Warp Incursion",
+        "en": "Warp Incursion"
+      },
+      "hints": [],
+      "choices": [],
+      "commands": [
+        {
+          "command": "GainTalent",
+          "tag": "TL_RST",
+          "subtag": "Psychic powers"
+        },
+        {
+          "command": "GainTalent",
+          "tag": "LTSL"
+        },
+        {
+          "command": "GainCorruptionRoll"
+        }
+      ],
+      "cost": 100
+    },
+    {
+      "tag": "TOT_DKSCT",
+      "name": {
+        "ru": "Dark secret",
+        "en": "Dark secret"
+      },
+      "hints": [
+        {
+          "tag": "TOT_DKSCT_H1",
+          "description": {
+            "ru": "Персонаж хранит темный секрет, от которого старается избавиться",
+            "en": "Character harbours a dark secret he struggles to get rid of"
+          },
+          "targets": ["FP"]
+        }
+      ],
+      "choices": [],
+      "commands": [
+        {
+          "command": "IncreaseStatAlt",
+          "tags": ["ST_WS", "ST_BS", "ST_STR", "ST_T", "ST_AG", "ST_PER", "ST_INT", "ST_WP", "ST_FEL"],
+          "amount": 6
+        },
+        {
+          "command": "GainInsanityRoll"
+        }
+      ],
+      "cost": 200
+    },
+    {
+      "tag": "TOT_LSDN",
+      "name": {
+        "ru": "Lost dynasty",
+        "en": "Lost dynasty"
+      },
+      "hints": [],
+      "choices": [],
+      "commands": [
+        {
+          "command": "GainFate",
+          "amount": 1
+        }
+      ],
+      "cost": 400
+    },
+    {
+      "tag": "TOT_RGPL",
+      "name": {
+        "ru": "Rogue planet",
+        "en": "Rogue planet"
+      },
+      "hints": [],
+      "choices": [],
+      "commands": [
+        {
+          "command": "IncreaseStat",
+          "tag": "ST_WP",
+          "amount": 3
+        },
+        {
+          "command": "GainInsanityRoll"
+        }
+      ],
+      "cost": 200
+    },
+    {
+      "tag": "TOT_BTPL",
+      "name": {
+        "ru": "Beyond the pale",
+        "en": "Beyond the pale"
+      },
+      "hints": [],
+      "choices": [
+        [
+          {
+            "tag": "SK_FBL",
+            "subtag": "SK_ANY"
+          }
+        ],
+        [
+          {
+            "tag": "SK_FBL",
+            "subtag": "SK_ANY"
+          }
+        ]
+      ],
+      "commands": [
+        {
+          "command": "GainInsanityRoll"
+        },
+        {
+          "command": "GainCorruptionRoll"
+        }
+      ],
+      "cost": 100
+    },
+    {
+      "tag": "TOT_NWBL",
+      "name": {
+        "ru": "New blood",
+        "en": "New blood"
+      },
+      "hints": [],
+      "choices": [],
+      "commands": [
+        {
+          "command": "GainTalent",
+          "tag": "TL_ENM",
+          "subtag": "Nobility"
+        }
+      ],
+      "cost": 200
+    },
+    {
+      "tag": "TOT_RVLS",
+      "name": {
+        "ru": "Rivals",
+        "en": "Rivals"
+      },
+      "hints": [],
+      "choices": [
+        [
+          {
+            "tag": "TL_PR",
+            "subtag": "TL_ANY"
+          }
+        ],
+        [
+          {
+            "tag": "TL_ENM",
+            "subtag": "TL_ANY"
+          }
+        ]
+      ],
+      "commands": [
+        {
+          "command": "IncreaseStat",
+          "tag": "ST_FEL",
+          "amount": 3
+        }
+      ],
+      "cost": 100
+    },
+    {
+      "tag": "TOT_DCDN",
+      "name": {
+        "ru": "Decadent",
+        "en": "Decadent"
+      },
+      "hints": [
+        {
+          "tag": "TOT_DCDN",
+          "description": {
+            "ru": "+5  проверкам Обаяния",
+            "en": "+5 to Charm tests"
+          },
+          "targets": ["SK_CH"]
+        }
+      ],
+      "choices": [],
+      "commands": [
+        {
+          "command": "IncreaseStat",
+          "tag": "ST_WP",
+          "amount": 3
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_JD"
+        },
+        {
+          "command": "GainCorruptionRoll"
+        }
+      ],
+      "cost": 150
+    },
+    {
+      "tag": "TOT_SHLN",
+      "name": {
+        "ru": "Ship-lorn",
+        "en": "Ship-lorn"
+      },
+      "hints": [
+        {
+          "tag": "TOT_SHLN_H1",
+          "description": {
+            "ru": "Когда персонаж тратит Очко Судьбы, чтобы излечиться, он может перебросить кубик для опередения количества восстановленных ран, но обязан принять результат переброса",
+            "en": "Whenever character spends a fate point to recover wounds, he may re-roll the result (reroll result must be accepted)"
+          },
+          "targets": ["FP"]
+        },
+        {
+          "tag": "TOT_SHLN_H2",
+          "description": {
+            "ru": "Персонаж получает штраф -5 к проверкам Общительности, когда имеет дело с пустоходами, пустотниками и Вольными Торговцами, которые не являются его друзьями и в курсе репутации персонажа.",
+            "en": "Character suffers -5 Fellowship penalty when dealing with voidborn, Rogue Traders, other voidfarers that aren't his friends and have heard about character's reputation"
+          },
+          "targets": ["ST_FEL"]
+        }
+      ],
+      "choices": [
+        [
+          {
+            "tag": "SK_SRV"
+          },
+          {
+            "tag": "TL_DSL"
+          }
+        ]
+      ],
+      "commands": [],
+      "cost": 0
+    }
+  ]
+}

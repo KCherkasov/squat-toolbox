@@ -1,0 +1,18 @@
+{% extends 'charlist_main.html' %}
+
+{% load filters %}
+
+{% block pg_title %}
+Character sheet interactive mockup
+{% endblock %}
+
+{% block title %}
+Макет листа персонажа ver.{{ version }}&nbsp;|&nbsp;{% if character.is_rt %}RT2.0{% else %}DH2{% endif %}
+{% endblock %}
+
+
+{% if character.is_rt %}
+    {% include 'rt-charsheet-interactive.html' %}
+{% else %}
+    {% include 'charsheet-mockup-interactive.html' %}
+{% endif %}

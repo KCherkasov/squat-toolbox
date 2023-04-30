@@ -1,0 +1,141 @@
+{% block app_content %}
+<div class="charlist_container">
+    <div>
+        <ul class="nav nav-tabs" role="tablist">
+            {% for lang in facade.langs %}
+            <li class="nav-item" role="presentation">
+                <a class="nav-link {% if forloop.first %}active{% endif %}" data-bs-toggle="tab" id="{{ lang }}-tab" href="#{{ lang }}-card" aria-current="page">
+                    {% if lang == 'ru' %}Русский{% else %}English{% endif %}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<div class="tab-content charlist-container">
+    {% for lang in facade.langs %}
+    <div class="tab-pane fade show charlist-container {% if forloop.first %}active{% endif %}" id="{{ lang }}-card" role="tabpanel" aria-labelledby="{{lang}}-tab">
+        <div>
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" data-bs-toggle="tab" id="general-tab-{{ lang }}" href="#general-{{ lang }}" aria-current="page">
+                        {% if lang == 'ru' %}Карточка персонажа{% else %}Character card{% endif %}
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" data-bs-toggle="tab" id="psy-tab-{{ lang }}" href="#psy-{{ lang }}">
+                        {% if lang == 'ru' %}Психосилы{% else %}Psychic powers{% endif %}
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" data-bs-toggle="tab" id="equipment-tab-{{ lang }}" href="#equipment-{{ lang }}">
+                        {% if lang == 'ru' %}Имущество{% else %}Equipment{% endif %}
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" data-bs-toggle="tab" id="combat-tab-{{ lang }}" href="#combat-{{ lang }}">
+                        {% if lang == 'ru' %}Боевой листок{% else %}Combat card{% endif %}
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content charsheet-card">
+            <header class="text-center">
+                <h3>{{ character.name }}</h3>
+                {% include 'xp_widget.html' %}
+            </header>
+            <div class="justify-content-center">
+                {% include 'reminders_widget.html' %}
+            </div>
+            <div class="tab-pane fade show charlist-container active justify-content-center" id="general-{{ lang }}" role="tabpanel" aria-labelledby="general-tab-{{ lang }}">
+                <hr>
+                <header class="text-center">
+                    <h4>{% if lang == 'ru' %}Карточка персонажа{% else %}Character card{% endif %}</h4>
+                </header>
+                <div class="charlist-content">
+                    <div>
+                        <div class="charlist-inline justify-content-center">
+                            <div class="card card-body">
+                                {% include 'rt_homeworld_widget.html' %}
+                                {% include 'birthright_widget.html' %}
+                                {% include 'lure_widget.html' %}
+                                {% include 'trial_widget.html' %}
+                                {% include 'motivation_widget.html' %}
+                                {% include 'career_widget.html' %}
+                                {% include 'elite_advance_widget.html' %}
+                                {% include 'divination_widget.html' %}
+                                {% include 'fate_widget.html' %}
+                                {% include 'wounds_widget.html' %}
+                                {% include 'char_apts_widget.html' %}
+                                {% include 'stats_widget.html' %}
+                                {% include 'fatigue_widget.html' %}
+                            </div>
+                            <div class="card card-body">
+                                {% include 'skills_widget.html' %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="charlist-content">
+                        <header class="charlist-content justify-content-center">
+                            <h5 class="text-center">
+                                {% if lang == 'ru' %}Таланты и черты{% else %}Talents and traits{% endif %}
+                            </h5>
+                        </header>
+                        <div class="charlist-inline">
+                            {% include 'talents_widget.html' %}
+                            {% include 'traits_widget.html' %}
+                        </div>
+                    </div>
+                    <div class="card-group">
+                        <div class="card card-body">
+                            {% include 'insanity_widget.html' %}
+                        </div>
+                        <div class="card card-body">
+                            {% include 'corruption_widget.html' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade show" id="psy-{{ lang }}" role="tabpanel" aria-labelledby="psy-tag-{{ lang }}">
+                <hr>
+                <header class="text-center">
+                    <h4>{% if lang == 'ru' %}Психосилы{% else %}Psychic powers{% endif %}</h4>
+                </header>
+                <div class="">
+                    {% if character.pr > 0 %}
+                        <h5>{% if lang == 'ru' %}Психический рейтинг{% else %}Psy-rating{% endif %}:{{ character.pr }}</h5>
+                        <div class="charlist-content">
+                            <h5>{% if lang == 'ru' %}Психосилы{% else %}Psychic powers{% endif %}:</h5>
+                            {% for psy in character.psy %}
+                                {% include 'psy_power_widget.html' %}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <h5>{% if lang == 'ru' %}Данный персонаж не обладает даром псайкерства{% else %}This character isn't gifted with psychic powers.{% endif %}</h5>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="tab-pane fade show" id="equipment-{{ lang }}" role="tabpanel" aria-labelledby="equipment-tag-{{ lang }}">
+                <hr>
+                <header class="text-center">
+                    <h4>{% if lang == 'ru' %}Имущество{% else %}Equipment{% endif %}</h4>
+                </header>
+                <div class="">
+                    <h5>W.I.P.</h5>
+                </div>
+            </div>
+
+            <div class="tab-pane fade show" id="combat-{{ lang }}" role="tabpanel" aria-labelledby="combat-tag-{{ lang }}">
+                <hr>
+                <header class="text-center">
+                    <h4>{% if lang == 'ru' %}Боевой листок{% else %}Combat card{% endif %}</h4>
+                </header>
+                {% include 'combat_card_widget.html' %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

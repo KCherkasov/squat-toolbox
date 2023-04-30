@@ -1,0 +1,878 @@
+{
+  "homeworlds": [
+    {
+      "tag": "RHW_DTWL",
+      "name": {
+        "ru": "Мир смерти",
+        "en": "Death world"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_STR": 5,
+        "ST_T": 5,
+        "ST_FEL": -5
+      },
+      "fate": 2,
+      "blessing": 5,
+      "bonus": {
+        "tag": "RHW_DTWL_BONUS",
+        "name": {
+          "ru": "",
+          "en": "Homeworld bonus"
+        },
+        "description": {
+          "ru": "",
+          "en": "-10 penalty to interaction skills in formal surroundings; +10 bonus to resist Shock and Pinning"
+        },
+        "hints": [
+          {
+            "tag": "RHW_DTWL_BONUS_H1",
+            "descripton": {
+              "ru": "штраф -10 к проверкам Взаимодействия в формальной обстановке",
+              "en": "-10 penalty on Interaction skills in formal surroundings"
+            },
+            "targets": ["SK_CH", "SK_CMD", "SK_DCV", "SK_INTM", "SK_CMR", "SK_INQ", "SK_INTR", "SK_PERF"]
+          },
+          {
+            "tag": "RHW_DTWL_BONUS_H2",
+            "description": {
+              "ru": "бонус +10 к проверкам сопротивления Шоку и Подавлению",
+              "en": "+10 bonus to resist Shock and Pinning"
+            },
+            "targets": ["ST_WP"]
+          }
+        ],
+        "commands": []
+      },
+      "aptitude": "A_T",
+      "wounds": 9,
+      "skills": [],
+      "skill_choices": [],
+      "talents": [
+        {
+          "tag":"TL_WPT",
+          "subtag": "Low-tech"
+        }
+      ],
+      "talent_choices": [
+        [
+          {
+            "tag": "TL_JD"
+          },
+          {
+            "tag": "TL_RST",
+            "subtag": "Poisons"
+          }
+        ]
+      ]
+    },
+    {
+      "tag": "RHW_FRWL",
+      "name": {
+        "ru": "Мир-фронтир",
+        "en": "Frontier world"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_STR": 5,
+        "ST_AG": 5,
+        "ST_INT": -5
+      },
+      "fate": 2,
+      "blessing": 3,
+      "bonus": {
+        "tag": "RHW_FRWL_BONUS",
+        "name": {
+          "ru": "Бонус родного мира",
+          "en": "Homeworld bonus"
+        },
+        "description": {
+          "ru": "",
+          "en": "-10 penalty on all Fellowship tests dealing with someone not previously met; immune to Fear(2) caused by xenos; -5 penalty on all Interaction tests with members of Imperial Cult."
+        },
+        "hints": [
+          {
+            "tag": "RHW_FRWL_BONUS_H1",
+            "description": {
+              "ru": "штраф -10 на все проверки Общительности при взаимодействии с незнакомцами",
+              "en": "-10 penalty on all Fellowship tests dealing with someone not previously met"
+            },
+            "targets": ["ST_FEL", "SK_CH", "SK_CMD", "SK_INQ", "SK_INTM", "SK_INTR", "SK_DCV", "SK_CMR", "SK_PERF"]
+          },
+          {
+            "tag": "RHW_FRWL_BONUS_H2",
+            "description": {
+              "ru": "невосприимчивость к Страху(2), вызываемому ксеносами",
+              "en": "immune to Fear(2) caused by xenos"
+            },
+            "targets": ["ST_WP"]
+          },
+          {
+            "tag": "RHW_FRWL_BONUS_H3",
+            "description": {
+              "ru": "штраф -5 на все проверки Взаимодействия с членами Имперского Культа",
+              "en": "-5 penalty on all Interaction tests when dealing with members of the Imperial Cult"
+            },
+            "targets": ["SK_CH", "SK_CMD", "SK_INQ", "SK_INTM", "SK_INTR", "SK_DCV", "SK_CMR", "SK_PERF"]
+          }
+        ],
+        "commands": [
+
+        ]
+      },
+      "aptitude": "A_STR",
+      "wounds": 9,
+      "skills": [
+        {
+          "tag": "SK_SRV"
+        }
+      ],
+      "skill_choices": [],
+      "talents": [
+        {
+          "tag": "TL_SC"
+        }
+      ],
+      "talent_choices": []
+    },
+    {
+      "tag": "RHW_VDBN",
+      "name": {
+        "ru": "Пустотник",
+        "en": "Voidborn"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_WP": 5,
+        "ST_INT": 5,
+        "ST_STR": -5
+      },
+      "fate": 3,
+      "blessing": 5,
+      "bonus": {
+        "tag": "RHW_VDBN_BONUS",
+        "name": {
+          "ru": "Бонус родного мира",
+          "en": "Homeworld bonus"
+        },
+        "description": {
+          "ru": "",
+          "en": "whenever spends a fate point, roll a 1d10. On natural 10 Fate point is not lost; immmune to space travel sickness, zero- or low-gravity are not considered Difficult Terrain"
+        },
+        "hints": [
+          {
+            "tag": "RHW_VDBN_BONUS_H1",
+            "description": {
+              "ru": "при трате Очка Судьбы бросьте 1d10 - при выпадении натуральной 10 Очко Судьбы не тратится",
+              "en": "whenever spends a fate point, roll a 1d10. On natural 10 Fate point is not lost"
+            },
+            "targets": ["FP"]
+          },
+          {
+            "tag": "RHW_VDBN_BONUS_H2",
+            "description": {
+              "ru": "персонаж невосприимчив к тяготам пустотных перелетов, нулевая или низкая гравитация не считаются Пересеченной Местностью",
+              "en": "immmune to space travel sickness, zero- or low-gravity are not considered Difficult Terrain"
+            },
+            "targets": ["ST_AG", "SK_ACR", "SK_ATHL"]
+          }
+        ],
+        "commands": [
+
+        ]
+      },
+      "aptitude": "A_WP",
+      "wounds": 7,
+      "skills": [],
+      "skill_choices": [
+        [
+          {
+            "tag": "SK_NVG",
+            "subtag": "Stellar"
+          },
+          {
+            "tag": "SK_OPR",
+            "subtag": "Spacecraft"
+          }
+        ]
+      ],
+      "talents": [
+        {
+          "tag": "TL_PR",
+          "subtag": "Voidborn"
+        }
+      ],
+      "talent_choices": []
+    },
+    {
+      "tag": "RHW_BRNS",
+      "name": {
+        "ru": "Барнсмурит",
+        "en": "Barnsmoorian"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_AG": 5,
+        "ST_FEL": 5,
+        "ST_T": -5
+      },
+      "fate": 3,
+      "blessing": 8,
+      "bonus": {
+        "tag": "RHW_BRNS_BONUS",
+        "name": {
+          "ru": "Бонус родного мира",
+          "en": "Homeworld bonus"
+        },
+        "description": {
+          "ru": "",
+          "en": "-5 penalty on all Scholastic Lore checks except information about Sector Crucis, gain Polyglot talent; gain Psyniscience as Known skill (though do not count as psykers) and Enemy(Inquisition) talent"
+        },
+        "hints": [
+          {
+            "tag": "RHW_BRNS_BONUS_H1",
+            "description": {
+              "ru": "штраф -5 к проверкам Ученого Знания, если они не касаются информации о секторе Круцис",
+              "en": "-5 penalty on all Scholastic Lore checks except information about Sector Crucis"
+            },
+            "targets": ["SK_SCL"]
+          },
+          {
+            "tag": "RHW_BRNS_BONUS_H2",
+            "description": {
+              "ru": "получено умение Психонаука, однако персонаж не считается псайкером",
+              "en": "gain Psyniscience as Known skill (though do not count as psykers)"
+            },
+            "targets": ["SK_PSY"]
+          }
+        ],
+        "commands": [
+          {
+            "command": "GainTalent",
+            "tag": "TL_PLG"
+          },
+          {
+            "command": "GainSkill",
+            "tag": "SK_PSY"
+          },
+          {
+            "command": "GainTalent",
+            "tag": "TL_ENM",
+            "subtag": "Inquisition"
+          }
+        ]
+      },
+      "aptitude": "A_FEL",
+      "wounds": 7,
+      "skills": [
+        {
+          "tag": "SK_CML",
+          "subtag": "Sector Crucis"
+        }
+      ],
+      "skill_choices": [],
+      "talents": [
+        {
+          "tag": "TL_PR",
+          "subtag": "TL_ANY"
+        }
+      ],
+      "talent_choices": []
+    },
+    {
+      "tag": "RHW_FGWL",
+      "name": {
+        "ru": "Мир-кузница",
+        "en": "Forge world"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_INT": 5,
+        "ST_T": 5,
+        "ST_FEL": -5
+      },
+      "fate": 3,
+      "blessing": 8,
+      "bonus": {
+        "tag": "RHW_FGWL_BONUS",
+        "name": {
+          "ru": "Бонус родного мира",
+          "en": "Homeworld bonus"
+        },
+        "description": {
+          "ru": "",
+          "en": "may increase any Characteristic by +3; -10 penalty on all tests involving Imperial Creed knowledge; -5 on Fellowship tests when dealing with Ecclesiarchy members."
+        },
+        "hints": [
+          {
+            "tag": "RHW_FGWL_BONUS_H1",
+            "description": {
+              "ru": "Штраф -10 ко всем проверкам, связанным со знанием Имперского Кредо",
+              "en": "-10 penalty on all tests involving Imperial Creed knowledge"
+            },
+            "targets": ["ST_INT", "ST_FEL"]
+          },
+          {
+            "tag": "RHW_FGWL_BONUS_H2",
+            "description": {
+              "ru": "штраф -5 к проверкам Общительности при взаимодействии с членами Экклезиархии",
+              "en": "-5 on Fellowship tests when dealing with Ecclesiarchy members"
+            },
+            "targets": ["ST_FEL"]
+          }
+        ],
+        "commands": [
+          {
+            "command": "IncreaseStatAlt",
+            "tag": ["ST_WS", "ST_BS", "ST_STR", "ST_T", "ST_AG", "ST_PER", "ST_INT", "ST_WP", "ST_FEL"],
+            "amount": 3
+          }
+        ]
+      },
+      "aptitude": "A_INT",
+      "wounds": 8,
+      "skills": [
+        {
+          "tag": "SK_CML",
+          "subtag": "Tech"
+        }
+      ],
+      "skill_choices": [],
+      "talents": [],
+      "talent_choices": [
+        [
+          {
+            "tag": "TL_TK"
+          },
+          {
+            "tag": "TL_WTC"
+          }
+        ]
+      ]
+    },
+    {
+      "tag": "RHW_FRTS",
+      "name": {
+        "ru": "Мир-крепость",
+        "en": "Fortress world"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_BS": 5,
+        "ST_WP": 5,
+        "ST_FEL": -5
+      },
+      "fate": 3,
+      "blessing": 6,
+      "bonus": {
+        "tag": "RHW_FRTS_BONUS",
+        "name": {
+          "ru": "Бонус родного мира",
+          "en": "Homeworld bonus"
+        },
+        "description": {
+          "ru": "штраф -5 на любые Социальные Взаимодействия, не касающиеся тем, связанных с войнами и сражениями.",
+          "en": "-5 penalty on any Social Interactions regarding non-combat topics"
+        },
+        "hints": [
+          {
+            "tag": "RHW_FRTS_BONUS_H1",
+            "description": {
+              "ru": "штраф -5 на любые Социальные Взаимодействия, не касающиеся тем, связанных с войнами и сражениями.",
+              "en": "-5 penalty on any Social Interactions regarding non-combat topics"
+            },
+            "targets": ["ST_FEL"]
+          }
+        ],
+        "commands": [
+
+        ]
+      },
+      "aptitude": "A_BS",
+      "wounds": 8,
+      "skills": [
+        {
+          "tag": "SK_CML",
+          "subtag": "War"
+        }
+      ],
+      "skill_choices": [],
+      "talents": [],
+      "talent_choices": [
+        [
+          {
+            "tag": "TL_HTRD",
+            "subtag": "TL_ANY"
+          },
+          {
+            "tag": "TL_NOS"
+          }
+        ],
+        [
+          {
+            "tag": "TL_WPT",
+            "subtag": "Las"
+          },
+          {
+            "tag": "TL_WPT",
+            "subtag": "Solid projectile"
+          }
+        ]
+      ]
+    },
+    {
+      "tag": "RHW_HVWL",
+      "name": {
+        "ru": "Мир-улей",
+        "en": "Hive world"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_AG": 5,
+        "ST_FEL": 5,
+        "ST_WP": -5
+      },
+      "fate": 2,
+      "blessing": 6,
+      "bonus": {
+        "tag": "RHW_HVWL_BONUS",
+        "name": {
+          "ru": "Бонус родного мира",
+          "en": "Homeworld bonus"
+        },
+        "description": {
+          "ru": "",
+          "en": "Crowds don't count as Difficult Terrain; don't suffer Agility penalties when Running or Charging through dense crowds; -10 penalty to all Survival(Int) tests and -5 penalty to  all Intelligence test whilst out of 'proper hab'"
+        },
+        "hints": [
+          {
+            "tag": "RHW_HVWL_BONUS_H1",
+            "description": {
+              "ru": "Толпа не считается пересеченной местностью",
+              "en": "Crowds don't count as Difficult Terrain"
+            },
+            "targets": ["ST_AG", "ST_ACR"]
+          },
+          {
+            "tag": "RHW_HVWL_BONUS_H2",
+            "description": {
+              "ru": "Персонаж не получает штрафов при Беге или Натиске сквозь толпу.",
+              "en": "don't suffer Agility penalties when Running or Charging through dense crowds"
+            },
+            "targets": ["ST_WS", "ST_AG", "SK_ACR"]
+          }
+        ],
+        "commands": [
+
+        ]
+      },
+      "aptitude": "A_AG",
+      "wounds": 8,
+      "skills": [],
+      "skill_choices": [
+        [
+          {
+            "tag": "SK_LNG",
+            "subtag": "Low Gothic"
+          },
+          {
+            "tag": "SK_AWR"
+          }
+        ]
+      ],
+      "talents": [
+        {
+          "tag": "TL_CFTC"
+        }
+      ],
+      "talent_choices": []
+    },
+    {
+      "tag": "RHW_BTFL",
+      "name": {
+        "ru": "Имперский флот",
+        "en": "Battlefleet"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_WP": 5,
+        "ST_FEL": 5,
+        "ST_PER": -5
+      },
+      "fate": 2,
+      "blessing": 2,
+      "bonus": {
+        "tag": "RHW_BTFL_BONUS",
+        "name": {
+          "ru": "Бонус родного мира",
+          "en": "Homeworld bonus"
+        },
+        "description": {
+          "ru": "",
+          "en": "+5 bonus to all Command tests while aboard any spacecraft; -2 to Initiative and doubled Ballistic Skill penalties for Long and Extreme Range shooting while character is on the planet and not fighting in confined spaces like tunnels"
+        },
+        "hints": [
+          {
+            "tag": "RHW_BTFL_BONUS_H1",
+            "description": {
+              "ru": "бонус +5 ко всем проверкам Командования на борту любого космического корабля",
+              "en": "+5 bonus to all Command tests while aboard any spacecraft"
+            },
+            "targets": ["SK_CMD"]
+          },
+          {
+            "tag": "RHW_BTFL_BONUS_H2",
+            "description": {
+              "ru": "-2 к Инициативе и удвоенные штрафы к Навыку Стрельбы при ведении огня на Дальнюю и Предельную дистанции когда персонаж находится на планете и не сражается в замкнутых пространствах наподобие туннелей.",
+              "en": "-2 to Initiative and doubled Ballistic Skill penalties for Long and Extreme Range shooting while character is on the planet and not fighting in confined spaces like tunnels"
+            },
+            "targets": ["IN", "ST_BS"]
+          }
+        ],
+        "commands": [
+
+        ]
+      },
+      "aptitude": "A_WP",
+      "wounds": 7,
+      "skills": [
+        {
+          "tag": "SK_CML",
+          "subtag": "Imperial Navy"
+        },
+        {
+          "tag": "SK_OPR",
+          "subtag": "Spacecraft"
+        }
+      ],
+      "skill_choices": [],
+      "talents": [],
+      "talent_choices": []
+    },
+    {
+      "tag": "RHW_IMWL",
+      "name": {
+        "ru": "Имперский мир",
+        "en": "Imperial world"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_WP": 5,
+        "ST_PER": 5,
+        "ST_INT": -5
+      },
+      "fate": 3,
+      "blessing": 6,
+      "bonus": {
+        "tag": "RHW_IMWL_BONUS",
+        "name": {
+          "ru": "Бонус родного мира",
+          "en": "Homeworld bonus"
+        },
+        "description": {
+          "ru": "штраф -5 к проверкам Запретного Знания",
+          "en": "-5 penalty on Forbidden Lore(Int) tests"
+        },
+        "hints": [
+          {
+            "tag": "RHW_IMWL_BONUS_H1",
+            "description": {
+              "ru": "штраф -5 к проверкам Запретного Знания",
+              "en": "-5 penalty on Forbidden Lore(Int) tests"
+            },
+            "targets": ["SK_FBL"]
+          }
+        ],
+        "commands": [
+
+        ]
+      },
+      "aptitude": "A_WP",
+      "wounds": 7,
+      "skills": [
+        {
+          "tag": "SK_LIT"
+        },
+        {
+          "tag": "SK_LNG",
+          "subtag": "High Gothic"
+        }
+      ],
+      "skill_choices": [
+        [
+          {
+          "tag": "SK_CML",
+          "subtag": "Imperial Creed"
+          },
+          {
+            "tag": "SK_CML",
+            "subtag": "Imperium"
+          }
+        ]
+      ],
+      "talents": [],
+      "talent_choices": []
+    },
+    {
+      "tag": "RHW_PNWL",
+      "name": {
+        "ru": "Мир-тюрьма",
+        "en": "Penal worlds"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_WS": 5,
+        "ST_PER": 5,
+        "ST_WP": -5
+      },
+      "fate": 3,
+      "blessing": 5,
+      "bonus": {
+        "tag": "RHW_PNWL_BONUS",
+        "name": {
+          "ru": "Бонус родного мира",
+          "en": "Homeworld bonus"
+        },
+        "description": {
+          "ru": "штраф -20 на проверки Взаимодействия с представителями Адептус Арбитрес, Энфорсмента и военными",
+          "en": "-20 penalty on Interaction tests when dealing with Adeptus Arbites, Enforcers and Military; 1d5 Insanity points and Light sleeper talent"
+        },
+        "hints": [
+          {
+            "tag": "RHW_PNWL_BONUS_H1",
+            "description": {
+              "ru": "штраф -20 на проверки Взаимодействия с представителями Адептус Арбитрес, Энфорсмента и военными",
+              "en": "-20 penalty on Interaction tests when dealing with Adeptus Arbites, Enforcers and Military"
+            },
+            "targets": ["ST_FEL", "SK_CH", "SK_CMD", "SK_DCV", "SK_CMR", "SK_PERF", "SK_INQ", "SK_INTM", "SK_INTR"]
+          }
+        ],
+        "commands": [
+          {
+            "command": "GainInsanityRoll",
+            "dice": 5
+          }
+        ]
+      },
+      "aptitude": "A_WS",
+      "wounds": 8,
+      "skills": [],
+      "skill_choices": [
+        [
+          {
+            "tag": "SK_DCV"
+          },
+          {
+            "tag": "SK_INTM"
+          }
+        ]
+      ],
+      "talents": [
+        {
+          "tag": "TL_PR",
+          "subtag": "Underworld"
+        },
+        {
+          "tag": "TL_LTSL"
+        }
+      ]
+    },
+    {
+      "tag": "RHW_NBL",
+      "name": {
+        "ru": "Нобилитет",
+        "en": "Noble born"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_FEL": 5,
+        "ST_PER": 5,
+        "ST_WP": -5
+      },
+      "fate": 4,
+      "blessing": 10,
+      "bonus": {
+        "tag": "RHW_NBL_BONUS",
+        "name": {
+          "ru": "Бонус родного мира",
+          "en": "Homeworld bonus"
+        },
+        "description": {
+          "ru": "бонус +10 к проверкам Взаимодействия в официальной обстановке и при взаимодействиями с высокопоставленными представителями власти",
+          "en": "+10 bonus to Interaction Skills tests in formal situations and when dealing with high authorities"
+        },
+        "hints": [
+          {
+            "tag": "RHW_NBL_BONUS_H1",
+            "description": {
+              "ru": "бонус +10 к проверкам Взаимодействия в официальной обстановке и при взаимодействиями с высокопоставленными представителями власти",
+              "en": "+10 bonus to Interaction Skills tests in formal situations and when dealing with high authorities"
+            },
+            "targets": ["ST_FEL", "SK_CH", "SK_CMD", "SK_PERF", "SK_DCV", "SK_CMR", "SK_INTM", "SK_INTR"]
+          }
+        ],
+        "commands": [
+
+        ]
+      },
+      "aptitude": "A_FEL",
+      "wounds": 7,
+      "skills": [],
+      "skill_choices": [
+        [
+          {
+            "tag": "SK_LIT"
+          },
+          {
+            "tag": "SK_LNG",
+            "subtag": "High Gothic"
+          }
+        ]
+      ],
+      "talents": [
+        {
+          "tag": "TL_ENM",
+          "subtag": "TL_ANY"
+        }
+      ],
+      "talent_choices": [
+        [
+          {
+            "tag": "TL_PR",
+            "subtag": "Academics"
+          },
+          {
+            "tag": "TL_PR",
+            "subtag": "Adeptus Mechanicus"
+          },
+          {
+            "tag": "TL_PR",
+            "subtag": "Adeptus Administratum"
+          },
+          {
+            "tag": "TL_PR",
+            "subtag": "Astropaths"
+          },
+          {
+            "tag": "TL_PR",
+            "subtag": "Ecclesiarchy"
+          },
+          {
+            "tag": "TL_PR",
+            "subtag": "Government"
+          },
+          {
+            "tag": "TL_PR",
+            "subtag": "Mercantile"
+          },
+          {
+            "tag": "TL_PR",
+            "subtag": "Military"
+          },
+          {
+            "tag": "TL_PR",
+            "subtag": "Underworld"
+          }
+        ]
+      ]
+    },
+    {
+      "tag": "RHW_COD",
+      "name": {
+        "ru": "Потомок династии",
+        "en": "Child of dynasty"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_FEL": 5,
+        "ST_INT": 5,
+        "ST_T": -5
+      },
+      "fate": 3,
+      "blessing": 4,
+      "bonus": {
+        "tag": "RHW_COD_BONUS",
+        "name": {
+          "ru": "Бонус родного мира",
+          "en": "Homeworld bonus"
+        },
+        "description": {
+          "ru": "бонус +5 ко всем проверкам Общительности при взаимодействии с высокопоставленными чиновниками и представителями нобилитета в формальной обстановке",
+          "en": "+5 bonus to all Fellowship tests with high-ranking officials of the Imperium and members of nobility in formal setting; Enemy talent"
+        },
+        "hints": [
+          {
+            "tag": "RHW_COD_BONUS_H1",
+            "description": {
+              "ru": "бонус +5 ко всем проверкам Общительности при взаимодействии с высокопоставленными чиновниками и представителями нобилитета в формальной обстановке",
+              "en": "+5 bonus to all Fellowship tests with high-ranking officials of the Imperium and members of nobility in formal setting; Enemy talent"
+            },
+            "targets": ["ST_FEL"]
+          }
+        ],
+        "commands": [
+
+        ]
+      },
+      "aptitude": "A_FEL",
+      "wounds": 7,
+      "skills": [
+        {
+          "tag": "SK_LIT"
+        },
+        {
+          "tag": "SK_LNG",
+          "subtag": "High gothic"
+        }
+      ]
+    }
+  ]
+}

@@ -40,6 +40,16 @@ def member(obj, key: str):
     return getattr(obj, key, None)
 
 
+@register.filter
+def starts_with(tag: str, start: str):
+    return tag[:len(start)] == start
+
+
+@register.filter
+def has_key(tgt: Dict, key: str):
+    return key in tgt.keys()
+
+
 # charsheet filters
 
 

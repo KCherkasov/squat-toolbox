@@ -15,7 +15,7 @@ class Trait(object):
     def is_specialist(self):
         return isinstance(self.__taken, dict)
 
-    def is_stackable(self, facade: Facade):
+    def is_stackable(self, facade):
         traits = facade.trait_descriptions()
         if traits and (self.__tag in traits.keys()):
             return traits.get(self.__tag).is_stackable()
@@ -32,11 +32,11 @@ class Trait(object):
         else:
             return None
 
-    def take(self, facade: Facade):
+    def take(self, facade):
         if not self.is_specialist() and self.is_stackable(facade):
             self.__taken += 1
 
-    def take_subtag(self, facade: Facade, subtag: str):
+    def take_subtag(self, facade, subtag: str):
         if self.taken_subtag(subtag) > 0:
             if self.is_stackable(facade):
                 self.__taken[subtag] += 1

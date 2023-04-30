@@ -1,0 +1,545 @@
+{
+  "birthrights": [
+    {
+      "tag": "BR_SCV",
+      "name": {
+        "ru": "Scavenger",
+        "en": "Scavenger"
+      },
+      "choices": [
+        [
+          {
+            "tag": "TL_UNRM"
+          },
+          {
+            "tag": "TL_RST",
+            "subtag": "Fear"
+          }
+        ]
+      ],
+      "commands": [
+        {
+          "command": "IncreaseStatAlt",
+          "tags": ["ST_AG", "ST_WP"],
+          "amount": 3
+        }
+      ],
+      "aptitude_choices": ["A_AG", "A_WP"],
+      "cost": 0
+    },
+    {
+      "tag": "BR_SCP",
+      "name": {
+        "ru": "Scapegrace",
+        "en": "Scapegrace"
+      },
+      "choices": [
+        [
+          {
+            "tag": "SK_SOH"
+          },
+          {
+            "tag": "SK_STL"
+          }
+        ],
+        [
+          {
+            "tag": "GainCorruptionRoll"
+          },
+          {
+            "tag": "GainInsanityRoll"
+          }
+        ]
+      ],
+      "commands": [],
+      "aptitude_choices": ["A_T", "A_AG"],
+      "cost": 0
+    },
+    {
+      "tag": "BR_STJ",
+      "name": {
+        "ru": "Stubjack",
+        "en": "Stubjack"
+      },
+      "choices": [],
+      "commands": [
+        {
+          "command": "IncreaseStatAlt",
+          "tags": ["ST_WS", "ST_BS"],
+          "amount": 5
+        },
+        {
+          "command": "DecreasStat",
+          "tag": "ST_FEL",
+          "amount": 5
+        },
+        {
+          "command": "GainInsanityRoll"
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_QD"
+        }
+      ],
+      "aptitude_choices": ["A_BS", "A_WS"],
+      "cost": 0
+    },
+    {
+      "tag": "BR_COC",
+      "name": {
+        "ru": "Дитя Кредо",
+        "en": "Child of the Creed"
+      },
+      "choices": [
+        [
+          {
+            "tag": "SK_CML",
+            "subtag": "Imperial Creed"
+          },
+          {
+            "tag": "TL_USFT"
+          }
+        ]
+      ],
+      "commands": [
+        {
+          "command": "IncreaseStatAlt",
+          "tags": ["ST_WP", "ST_FEL"],
+          "amount": 3
+        },
+        {
+          "command": "DecreaseStat",
+          "tag": "ST_BS",
+          "amount": 3
+        },
+        {
+          "command": "GainInsanityRoll"
+        }
+      ],
+      "aptitude_choices": ["A_WP", "A_FEL"],
+      "cost": 0
+    },
+    {
+      "tag": "BR_SVT",
+      "name": {
+        "ru": "Савант",
+        "en": "Savant"
+      },
+      "choices": [
+        [
+          {
+            "tag": "SK_LOG"
+          },
+          {
+            "tag": "TL_PR",
+            "subtag": "Academic"
+          }
+        ]
+      ],
+      "commands": [
+        {
+          "command": "IncreaseStatAlt",
+          "tags": ["ST_INT", "ST_PER"],
+          "amount": 3
+        },
+        {
+          "command": "DecreaseStat",
+          "tag": "ST_T",
+          "amount": 3
+        }
+      ],
+      "aptitude_choices": ["A_INT", "A_PER"],
+      "cost": 0
+    },
+    {
+      "tag": "BR_VNT",
+      "name": {
+        "ru": "Vaunted",
+        "en": "Vaunted"
+      },
+      "choices": [],
+      "commands": [
+        {
+          "command": "IncreaseStatAlt",
+          "tags": ["ST_AG", "ST_FEL"],
+          "amount": 3
+        },
+        {
+          "command": "DecreaseStat",
+          "tag": "ST_PER",
+          "amount": 3
+        },
+        {
+          "command": "GainCorruptionRoll"
+        }
+      ],
+      "aptitude_choices": ["A_FEL", "A_AG"],
+      "cost": 0
+    },
+    {
+      "tag": "BR_THD",
+      "name": {
+        "ru": "Tithed",
+        "en": "Tithed"
+      },
+      "choices": [
+        [
+          {
+            "tag": "SK_CML",
+            "subtag": "Adeptus Astra Telepathica"
+          },
+          {
+            "tag": "SK_CML",
+            "subtag": "Adeptus Administratum"
+          },
+          {
+            "tag": "SK_CML",
+            "subtag": "Imperial Creed"
+          },
+          {
+            "tag": "SK_CML",
+            "subtag": "Astra Militarum"
+          },
+          {
+            "tag": "SK_CML",
+            "subtag": "Imperium"
+          },
+          {
+            "tag": "SK_CML",
+            "subtag": "War"
+          }
+        ],
+        [
+          {
+            "tag": "SK_OPR",
+            "subtag": "Surface"
+          },
+          {
+            "tag": "SK_OPR",
+            "subtag": "Aeronautica"
+          },
+          {
+            "tag": "SK_OPR",
+            "subtag": "Spacecraft"
+          },
+          {
+            "tag": "SK_MED"
+          },
+          {
+            "tag": "SK_NVG",
+            "subtag": "Surface"
+          },
+          {
+            "tag": "SK_SRV"
+          },
+          {
+            "tag": "SK_TECH"
+          }
+        ]
+      ],
+      "commands": [
+        {
+          "command": "IncreaseStatAlt",
+          "tags": ["ST_WP", "ST_BS"],
+          "amount": 3
+        }
+      ],
+      "aptitude_choices": ["A_BS", "A_WP"],
+      "cost": 350
+    },
+    {
+      "tag": "BR_BTL",
+      "name": {
+        "ru": "Born to lead",
+        "en": "Born to lead"
+      },
+      "choices": [
+        [
+          {
+            "tag": "SK_SCL",
+            "subtag": "Bureaucracy"
+          },
+          {
+            "tag": "SK_SCL",
+            "subtag": "Imperial Creed"
+          },
+          {
+            "tag": "SK_SCL",
+            "subtag": "Judgement"
+          },
+          {
+            "tag": "SK_SCL",
+            "subtag": "Tactica Imperialis"
+          }
+        ]
+      ],
+      "commands": [
+        {
+          "command": "IncreaseStatAlt",
+          "tags": ["ST_INT", "ST_FEL"],
+          "amount": 3
+        },
+        {
+          "command": "DecreaseStat",
+          "tag": "ST_T",
+          "amount": 3
+        },
+        {
+          "command": "GainSkill",
+          "tag": "SK_CMD"
+        },
+        {
+          "command": "GainSkill",
+          "tag": "SK_LIT"
+        }
+      ],
+      "aptitude_choices": ["A_FEL", "A_INT"],
+      "cost": 200
+    },
+    {
+      "tag": "BR_OAB",
+      "name": {
+        "ru": "Один из миллиардов",
+        "en": "One amongst billions"
+      },
+      "choices": [
+        [
+          {
+            "tag": "SK_TRD",
+            "subtag": "SK_ANY"
+          },
+          {
+            "tag": "SK_CML",
+            "subtag": "SK_ANY"
+          }
+        ]
+      ],
+      "commands": [
+        {
+          "command": "IncreaseStatAlt",
+          "tags": ["ST_PER", "ST_INT"],
+          "amount": 3
+        },
+        {
+          "command": "DecreaseStat",
+          "tag": "ST_STR",
+          "amount": 3
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_PRN"
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_UNRM"
+        }
+      ],
+      "aptitude_choices": ["A_PER", "A_INT"],
+      "cost": 200
+    },
+    {
+      "tag": "BR_SRV",
+      "name": {
+        "ru": "Выживальщик",
+        "en": "Survivalist"
+      },
+      "choices": [],
+      "commands": [
+        {
+          "command": "GainFate",
+          "amount": 1
+        },
+        {
+          "command": "GainInsanityRoll"
+        },
+        {
+          "command": "GainSkill",
+          "tag": "SK_SRV"
+        },
+        {
+          "command": "IncreaseStatAlt",
+          "tags": ["ST_PER", "ST_T"]
+        }
+      ],
+      "aptitude_choices": ["A_T", "A_PER"],
+      "cost": 300
+    },
+    {
+      "tag": "BR_HRT",
+      "name": {
+        "ru": "Еретех",
+        "en": "Heretek"
+      },
+      "choices": [
+        [
+          {
+            "tag": "SK_TRD",
+            "subtag": "Chemist"
+          },
+          {
+            "tag": "SK_CML",
+            "subtag": "Tech"
+          },
+          {
+            "tag": "SK_FBL",
+            "subtag": "Archeotech"
+          },
+          {
+            "tag": "SK_TECH"
+          },
+          {
+            "tag": "SK_MED"
+          },
+          {
+            "tag": "SK_SCL",
+            "subtag": "SK_ANY"
+          }
+        ]
+      ],
+      "commands": [
+        {
+          "command": "GainTalent",
+          "tag": "TL_ENM",
+          "subtag": "Adeptus Mechanicus"
+        },
+        {
+          "command": "GainCorruptionRoll"
+        }
+      ],
+      "aptitude_choices": ["A_INT"],
+      "cost": 100
+    },
+    {
+      "tag": "BR_PTF",
+      "name": {
+        "ru": "Pit fighter",
+        "en": "Pit fighter"
+      },
+      "choices": [],
+      "commands": [
+        {
+          "command": "IncreaseStatAlt",
+          "tags": ["ST_T", "ST_STR"],
+          "amount": 3
+        },
+        {
+          "command": "IncreaseStat",
+          "tag": "ST_WS",
+          "amount": 3
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_ENM",
+          "subtag": "Underworld"
+        },
+        {
+          "command": "GainCorruptionRoll"
+        }
+      ],
+      "aptitude_choices": ["A_WS", "A_STR"],
+      "cost": 200
+    },
+    {
+      "tag": "BR_CNEN",
+      "name": {
+        "ru": "Contaminated Environments",
+        "en": "Contaminated Environments"
+      },
+      "choices": [],
+      "commands": [
+        {
+          "command": "IncreaseStatAlt",
+          "tags": ["ST_T", "ST_WP"],
+          "amount": 3
+        },
+        {
+          "command": "DecreaseStat",
+          "tag": "ST_FEL",
+          "amount": 3
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_PR",
+          "subtag": "Mutants"
+        }
+      ],
+      "aptitude_choices": ["A_T", "A_WP"],
+      "cost": 100
+    },
+    {
+      "tag": "BR_FLM",
+      "name": {
+        "ru": "False man",
+        "en": "False man"
+      },
+      "choices": [],
+      "commands": [
+        {
+          "command": "IncreaseStatAlt",
+          "tags": ["ST_WS", "ST_BS", "ST_STR", "ST_T", "ST_AG", "ST_PER", "ST_INT", "ST_WP", "ST_FEL"],
+          "amount": 3
+        },
+        {
+          "command": "IncreaseStatAlt",
+          "tags": ["ST_WS", "ST_BS", "ST_STR", "ST_T", "ST_AG", "ST_PER", "ST_INT", "ST_WP", "ST_FEL"],
+          "amount": 3
+        },
+        {
+          "command": "DecreaseStatAlt",
+          "tags": ["ST_WS", "ST_BS", "ST_STR", "ST_T", "ST_AG", "ST_PER", "ST_INT", "ST_WP", "ST_FEL"],
+          "amount": 3
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_AMB"
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_ATSN"
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_CHGD"
+        },
+        {
+          "command": "GainInsanityRoll"
+        }
+      ],
+      "aptitude_choices": ["A_WS", "A_BS", "A_STR", "A_T", "A_AG", "A_PER", "A_INT", "A_WP", "A_FEL"],
+      "cost": 300
+    },
+    {
+      "tag": "BR_TBW",
+      "name": {
+        "ru": "Затронутый Варпом",
+        "en": "Tainted by Warp"
+      },
+      "choices": [],
+      "commands": [
+        {
+          "command": "IncreaseStatAlt",
+          "tags": ["ST_PER", "ST_WP"],
+          "amount": 3
+        },
+        {
+          "command": "DecreaseStat",
+          "tag": "ST_FEL",
+          "amount": 3
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_JD"
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_DSL"
+        },
+        {
+          "command": "GainCorruptionRoll"
+        }
+      ],
+      "aptitude_choices": ["A_WP", "A_PSY"],
+      "cost": 200
+    }
+  ]
+}

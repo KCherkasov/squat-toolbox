@@ -1,0 +1,38 @@
+{% load filters %}
+
+{% with facade.careers|get_by_dict_key:character.career_id as career %}
+<div class="charlist-inline">
+    <div>
+        <b>
+            {% if lang == 'ru' %}Роль{% else %}Role{% endif %}:&nbsp;
+            <a class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
+               href="" title="Подробнее" data-bs-target="#careerInfo-{{ lang }}-popup">
+                <i>{{ career.name|get_by_dict_key:lang }}</i>
+            </a>
+        </b>
+    </div>
+</div>
+<div class="modal fade" id="careerInfo-{{ lang }}-popup" tabindex="-1" role="dialog"
+     aria-labelledby="#careerInfo-{{ lang }}-popup-label">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <b class="modal-title" id="careerInfo-{{ lang }}-popup-label">
+                    {{ career.name|get_by_dict_key:lang }}
+                </b>
+            </div>
+            <div class="modal-body">
+                <p class="card-text">{{ career.description|get_by_dict_key:lang }}</p>
+                <br>
+                <b class="card-title">{% if lang == 'ru' %}Бонус роли{% else %}Role bonus{% endif %}:</b>
+                <p class="card-text">
+                    {% for hint in career.hints %}
+                        {{ hint.description|get_by_dict_key:lang }}
+                        {% if not forloop.last %}<br><br>{% endif %}
+                    {% endfor %}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endwith %}

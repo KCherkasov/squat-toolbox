@@ -105,3 +105,7 @@ h5.collapse-toggler {
     max-height: 300px;
     overflow-y: auto;
 }
+
+.modal-dialog {
+    max-width: 750 px;
+}

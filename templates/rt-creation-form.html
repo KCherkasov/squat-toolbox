@@ -1,0 +1,36 @@
+{% extends 'charlist_main.html' %}
+
+{% load filters %}
+{% load static %}
+
+{% block pg_title %}Create new character{% endblock %}
+
+{% block app_content %}
+<div class="page-header text-center">
+    <h4>New character creation (RT2.0 ruleset)</h4>
+</div>
+<div class="charlist-content justify-content-center">
+    {% if stage == 'init' %}
+    {% include 'rt-name-and-settings-form.html' %}
+    {% endif %}
+    {% if stage == 'origin-and-career' %}
+    {% include 'rt-origin-and-career-form.html' %}
+    {% endif %}
+    {% if stage == 'stat-distr' %}
+    {% include 'rt-stat-distribution-form.html' %}
+    {% endif %}
+    {% if stage == 'choices' %}
+    {% include 'rt-choices-form.html' %}
+    {% endif %}
+    {% if stage == 'double-apts' %}
+    {% include 'rt-double-apts.html' %}
+    {% endif %}
+    {% if stage == 'divination' %}
+    {% include 'rt-divination-roll-form.html' %}
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/form_helpers.js' %}"></script>
+{% endblock %}

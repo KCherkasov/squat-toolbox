@@ -1,11 +1,9 @@
-from  django import forms
+from django import forms
 from django.forms import Form
-
-from charlist.flyweights.flyweights import Facade
 
 
 class GainMalignancyChoiceForm(Form):
-    def __init__(self, flyweights: Facade, cmd: dict = None, *args, **kwargs):
+    def __init__(self, flyweights, cmd: dict = None, *args, **kwargs):
         super(GainMalignancyChoiceForm, self).__init__(*args, **kwargs)
         self.__cmd_id = -1
         if cmd is not None:

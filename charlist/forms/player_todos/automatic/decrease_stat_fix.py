@@ -1,17 +1,15 @@
-from charlist.character.character import CharacterModel
-from charlist.flyweights.flyweights import Facade
 from charlist.forms.player_todos.base_command import BaseCommand
 from charlist.forms.player_todos.command_tags import *
 
 
 class DecreaseStatFixCommand(BaseCommand):
-    def __init__(self, facade: Facade):
+    def __init__(self, facade):
         super(DecreaseStatFixCommand, self).__init__(DEC_STAT_FIX, facade)
 
     def is_automatic(self):
         return True
 
-    def do_logic(self, character: CharacterModel, data=None):
+    def do_logic(self, character, data=None):
         if data is not None:
             if data.get('tag') in character.stats().keys():
                 character.damage_stat(data.get('tag'), data.get('amount'))

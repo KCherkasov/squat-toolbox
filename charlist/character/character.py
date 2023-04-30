@@ -31,7 +31,7 @@ class CharacterModel(object):
                  traits: Dict[str, Trait], psy: List[str], equipment: List[str],
                  disorders: List[str], malignancies: List[str],
                  mutations: List[str], pending: List[Dict], completed: List[str],
-                 used_stats: List[str], cp_tests: int, ip_tests: int, cmd_count: int=0):
+                 used_stats: List[str], cp_tests: int, ip_tests: int, cmd_count: int = 0):
         self.__cid = cid
         self.__squad_id = squad_id
         self.__name = name
@@ -67,6 +67,9 @@ class CharacterModel(object):
         self.__cp_tests = cp_tests
         self.__ip_tests = ip_tests
         self.__cmd_count = cmd_count
+
+    def is_rt(self):
+        return False
 
     def id(self):
         return self.__cid
@@ -323,7 +326,7 @@ class CharacterModel(object):
         else:
             self.__skills[sk_tag] = Skill(sk_tag, 1)
 
-    def improve_skill_subtag(self, sk_tag: str, sk_subtag: str, facade: Facade):
+    def improve_skill_subtag(self, sk_tag: str, sk_subtag: str, facade):
         if sk_tag in self.__skills.keys():
             if self.__skills.get(sk_tag).upgradeable_subtag(sk_subtag):
                 self.__skills.get(sk_tag).upgrade_subtag(sk_subtag)
@@ -355,7 +358,7 @@ class CharacterModel(object):
     def talents(self):
         return self.__talents
 
-    def gain_talent(self, tl_tag: str, facade: Facade):
+    def gain_talent(self, tl_tag: str, facade):
         if tl_tag in facade.talent_descriptions().keys():
             if not facade.talent_descriptions().get(tl_tag).is_specialist():
                 if tl_tag not in self.__talents.keys():
@@ -364,7 +367,7 @@ class CharacterModel(object):
                 elif facade.talent_descriptions().get(tl_tag).is_stackable():
                     self.__talents.get(tl_tag).take(facade)
 
-    def gain_talent_subtag(self, tl_tag: str, tl_subtag: str, facade: Facade):
+    def gain_talent_subtag(self, tl_tag: str, tl_subtag: str, facade):
         if tl_tag in facade.talent_descriptions().keys():
             if facade.talent_descriptions().get(tl_tag).is_specialist():
                 if tl_tag in self.__talents.keys():
@@ -382,7 +385,7 @@ class CharacterModel(object):
     def traits(self):
         return self.__traits
 
-    def gain_trait(self, tr_tag: str, facade: Facade):
+    def gain_trait(self, tr_tag: str, facade):
         if tr_tag in facade.trait_descriptions().keys():
             if tr_tag in self.__traits.keys():
                 self.__traits.get(tr_tag).take(facade)
@@ -390,7 +393,7 @@ class CharacterModel(object):
                 trait = Trait(tr_tag, 1)
                 self.__traits[tr_tag] = trait
 
-    def gain_trait_subtag(self, tr_tag: str, tr_subtag: str, facade: Facade):
+    def gain_trait_subtag(self, tr_tag: str, tr_subtag: str, facade):
         if tr_tag in facade.trait_descriptions().keys():
             if facade.trait_descriptions().get(tr_tag).is_specialist():
                 if tr_tag in self.__traits.keys():
@@ -447,55 +450,65 @@ class CharacterModel(object):
     def inc_cmd_count(self):
         self.__cmd_count += 1
 
+    def half_move(self):
+        return self.__stats['ST_AG'].bonus()
+
+    def full_move(self):
+        if self.has_talent('TL_SPRN'):
+            return self.__stats['ST_AG'].bonus() * 3
+        return self.__stats['ST_AG'].bonus() * 2
+
+    def charge(self):
+        if self.has_talent('TL_PRSP'):
+            return self.run()
+        return self.__stats['ST_AG'].bonus() * 3
+
+    def run(self):
+        return self.__stats['ST_AG'].bonus() * 6
+
     # TODO - add psy powers!!!
 
-    def make_hookups(self, facade: Facade):
+    def make_hookups(self, facade):
         hookups = dict()
         hw_name = dict()
         for lang in ['ru', 'en']:
             hw_name[lang] = facade.homeworlds().get(self.__hw_id).get_bonus().get_name(lang)
-        map_hints(hookups, facade.homeworlds().get(self.__hw_id).get_bonus().get_hints(), hw_name, facade)
+        map_hints(hookups, facade.homeworlds().get(self.__hw_id).get_bonus().get_hints(), hw_name)
         bg_name = dict()
         for lang in ['ru', 'en']:
             bg_name[lang] = facade.backgrounds().get(self.__bg_id).get_bonus().get_name(lang)
-        map_hints(hookups, facade.backgrounds().get(self.__bg_id).get_bonus().get_hints(), bg_name, facade)
+        map_hints(hookups, facade.backgrounds().get(self.__bg_id).get_bonus().get_hints(), bg_name)
         role_name = dict()
         for lang in ['ru', 'en']:
             role_name[lang] = facade.roles().get(self.__role_id).get_bonus().get_name(lang)
-        map_hints(hookups, facade.roles().get(self.__role_id).get_bonus().get_hints(), role_name, facade)
+        map_hints(hookups, facade.roles().get(self.__role_id).get_bonus().get_hints(), role_name)
         div_name = dict()
         for lang in ['ru', 'en']:
             div_name[lang] = facade.divinations().get(self.__div_id).get_name(lang)
-        map_hints(hookups, facade.divinations().get(self.__div_id).get_hints(), div_name, facade)
+        map_hints(hookups, facade.divinations().get(self.__div_id).get_hints(), div_name)
         for tl_tag in self.__talents.keys():
             tmp_name = dict()
             for lang in ['ru', 'en']:
                 tmp_name[lang] = facade.talent_descriptions().get(tl_tag).get_name(lang)
-            map_hints(hookups, facade.talent_descriptions().get(tl_tag).get_hints(), tmp_name, facade)
+            map_hints(hookups, facade.talent_descriptions().get(tl_tag).get_hints(), tmp_name)
         for tr_tag in self.__traits.keys():
             tmp_name = dict()
             for lang in ['ru', 'en']:
                 tmp_name[lang] = facade.trait_descriptions().get(tr_tag).get_name(lang)
-            map_hints(hookups, facade.trait_descriptions().get(tr_tag).get_hints(), tmp_name, facade)
-        # TODO: think on disorders
-        # for disorder in self.__disorders:
-        #     tmp_name = dict()
-        #     for lang in ['ru', 'en']:
-        #         tmp_name[lang] = facade.disorders().get(disorder).get_name(lang)
-        #     map_hints(hookups, facade.disorders().get(disorder).get_hints(), tmp_name, facade)
+            map_hints(hookups, facade.trait_descriptions().get(tr_tag).get_hints(), tmp_name)
         for malign in self.__malignancies:
             tmp_name = dict()
             for lang in ['ru', 'en']:
                 tmp_name[lang] = facade.malignancies().get(malign).get_name(lang)
-            map_hints(hookups, facade.malignancies().get(malign).get_hints(), tmp_name, facade)
+            map_hints(hookups, facade.malignancies().get(malign).get_hints(), tmp_name)
         for mutation in self.__mutations:
             tmp_name = dict()
             for lang in ['ru', 'en']:
                 tmp_name[lang] = facade.mutations().get(mutation).get_name(lang)
-            map_hints(hookups, facade.mutations().get(mutation).get_hints(), tmp_name, facade)
+            map_hints(hookups, facade.mutations().get(mutation).get_hints(), tmp_name)
         return hookups
 
-    def make_upg_costs(self, flyweights: Facade):
+    def make_upg_costs(self, flyweights):
         upg_costs = {'stats': {}, 'skills': {}, 'talents': {}}
 
         for st_tag, stat in self.stats().items():
@@ -609,6 +622,38 @@ class CharacterModel(object):
                             upg_costs.get('talents').get('unavailable')[talent.get_tier()] = dict()
                         upg_costs.get('talents').get('unavailable').get(talent.get_tier())[tl_tag] = \
                             {'cost': flyweights.talent_upg_cost(talent.get_tier(), apts), 'colour': colour}
+
+        if self.has_ea_id('EA_PSY'):
+            upg_costs['pr'] = flyweights.pr_upg_cost(self.pr() + 1)
+            upg_costs['psy'] = {'available': dict(), 'unavailable': dict()}
+            for psy_tag, psy_power in flyweights.psy_powers().items():
+                if psy_tag not in self.psy_powers():
+                    flg = True
+                    for prereq in psy_power.prerequisites():
+                        if not prereq.matched(self):
+                            flg = False
+                            break
+                    if flg:
+                        if psy_power.school() not in upg_costs.get('psy').get('available').items():
+                            upg_costs.get('psy').get('available')[psy_power.school()] = dict()
+                        upg_costs.get('psy').get('available').get(psy_power.school())[psy_tag] = psy_power.cost()
+                    else:
+                        if psy_power.school() not in upg_costs.get('psy').get('unavailable').items():
+                            upg_costs.get('psy').get('unavailable')[psy_power.school()] = dict()
+                        upg_costs.get('psy').get('unavailable').get(psy_power.school())[psy_tag] = psy_power.cost()
+
+        upg_costs['ea'] = {'available': dict(), 'unavailable': dict()}
+        for ea_id, ea in flyweights.elite_advances().items():
+            if ea_id not in self.ea_id():
+                flg = True
+                for prereq in ea.prerequisites():
+                    if not prereq.matched(self):
+                        flg = False
+                        break
+                if flg:
+                    upg_costs.get('ea').get('available')[ea_id] = ea.cost()
+                else:
+                    upg_costs.get('ea').get('unavailable')[ea_id] = ea.cost()
         return upg_costs
 
     @classmethod

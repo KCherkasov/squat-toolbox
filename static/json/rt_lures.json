@@ -1,0 +1,683 @@
+{
+  "lures": [
+    {
+      "tag": "LOV_BNHT",
+      "name": {
+        "ru": "Охотник за головами",
+        "en": "Bounty hunter"
+      },
+      "hints": [],
+      "choices": [
+        [
+          {
+            "tag": "GainCorruptionRoll"
+          },
+          {
+            "tag": "GainInsanityRoll"
+          }
+        ]
+      ],
+      "commands": [
+        {
+          "command": "IncreaseStatAlt",
+          "tags": ["ST_WP", "ST_FEL"],
+          "amount": 3
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_DESH"
+        }
+      ],
+      "cost": 250
+    },
+    {
+      "tag": "LOV_XNHT",
+      "name": {
+        "ru": "Xeno Hunter",
+        "en": "Xeno Hunter"
+      },
+      "hints": [],
+      "choices": [
+        [
+          {
+            "tag": "SK_SRV"
+          },
+          {
+            "tag": "SK_SCL",
+            "subtag": "Beasts"
+          }
+        ],
+        [
+          {
+            "tag": "TL_LU"
+          },
+          {
+            "tag": "TL_SPRN"
+          }
+        ]
+      ],
+      "commands": [
+        {
+          "command": "IncreaseStatAlt",
+          "tags": ["ST_WS", "ST_BS"],
+          "amount": 3
+        }
+      ],
+      "cost": 200
+    },
+    {
+      "tag": "LOV_HTD",
+      "name": {
+        "ru": "Hunted",
+        "en": "Hunted"
+      },
+      "hints": [],
+      "choices": [
+        [
+          {
+            "tag": "TL_PRN"
+          },
+          {
+            "tag": "TL_LTSL"
+          }
+        ],
+        [
+          {
+            "tag": "TL_ENM",
+            "subtag": "TL_ANY"
+          }
+        ]
+      ],
+      "commands": [
+        {
+          "command": "IncreaseStat",
+          "tag": "ST_PER",
+          "amount": 3
+        }
+      ],
+      "cost": 100
+    },
+    {
+      "tag": "LOV_WTFG",
+      "name": {
+        "ru": "Wanted fugitive",
+        "en": "Wanted fugitive"
+      },
+      "hints": [],
+      "choices": [],
+      "commands": [
+        {
+          "command": "GainTalent",
+          "tag": "TL_ENM",
+          "subtag": "Adeptus Arbites"
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_PR",
+          "subtag": "Underworld"
+        }
+      ],
+      "cost": 0
+    },
+    {
+      "tag": "LOV_HBCB",
+      "name": {
+        "ru": "Hunted by a crime baron",
+        "en": "Hunted by a crime baron"
+      },
+      "hints": [],
+      "choices": [],
+      "commands": [
+        {
+          "command": "GainTalent",
+          "tag": "TL_ENM",
+          "subtag": "Underworld"
+        },
+        {
+          "command": "IncreaseStat",
+          "tag": "ST_PER",
+          "amount": 3
+        }
+      ],
+      "cost": 0
+    },
+    {
+      "tag": "LOV_JAFW",
+      "name": {
+        "ru": "Judged and found wanting",
+        "en": "Judged and found wanting"
+      },
+      "hints": [],
+      "choices": [],
+      "commands": [
+        {
+          "command": "DecreaseStat",
+          "tag": "ST_FEL",
+          "amount": 5
+        }
+      ],
+      "cost": 0
+    },
+    {
+      "tag": "LOV_RCD",
+      "name": {
+        "ru": "Рецидивист",
+        "en": "Recidivist"
+      },
+      "hints": [],
+      "choices": [],
+      "commands": [
+        {
+          "command": "GainSkill",
+          "tag": "SK_SRV"
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_ENM",
+          "subtag": "Adeptus Arbites"
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_RST",
+          "subtag": "Interrogation"
+        }
+      ],
+      "cost": 0
+    },
+    {
+      "tag": "LOV_FRT",
+      "name": {
+        "ru": "Free thinker",
+        "en": "Free thinker"
+      },
+      "hints": [],
+      "choices": [],
+      "commands": [
+        {
+          "command": "IncreaseStatAlt",
+          "tags": ["ST_INT", "ST_PER"],
+          "amount": 3
+        },
+        {
+          "command": "DecreaseStat",
+          "tag": "ST_WP",
+          "amount": 3
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_ENM",
+          "subtag": "Ecclesiarchy"
+        }
+      ],
+      "cost": 0
+    },
+    {
+      "tag": "LOV_DVSN",
+      "name": {
+        "ru": "Dark visionary",
+        "en": "Dark visionary"
+      },
+      "hints": [],
+      "choices": [
+        [
+          {
+            "tag": "SK_FBL",
+            "subtag": "SK_ANY"
+          }
+        ],
+        [
+          {
+            "tag": "IncreaseCorruptionRoll"
+          },
+          {
+            "tag": "IncreaseInsanityRoll"
+          }
+        ]
+      ],
+      "commands": [
+        {
+          "command": "GainTalent",
+          "tag": "TL_DSL"
+        }
+      ],
+      "cost": 0
+    },
+    {
+      "tag": "LOV_COW",
+      "name": {
+        "ru": "Call to war",
+        "en": "Call to war"
+      },
+      "hints": [],
+      "choices": [
+        [
+          {
+            "tag": "TL_HTRD",
+            "subtag": "Eldar"
+          },
+          {
+            "tag": "TL_HTRD",
+            "subtag": "Orks"
+          },
+          {
+            "tag": "TL_HTRD",
+            "subtag": "Necrons"
+          },
+          {
+            "tag": "TL_HTRD",
+            "subtag": "Tau"
+          },
+          {
+            "tag": "TL_HTRD",
+            "subtag": "Kroot"
+          },
+          {
+            "tag": "TL_HTRD",
+            "subtag": "Chaos"
+          }
+        ]
+      ],
+      "commands": [
+        {
+          "command": "IncreaseStat",
+          "tag": "ST_BS",
+          "amount": 5
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_PR",
+          "subtag": "Military"
+        },
+        {
+          "command": "GainInsanityRoll"
+        }
+      ],
+      "cost": 150
+    },
+    {
+      "tag": "LOV_CTE",
+      "name": {
+        "ru": "Chasing the enemy",
+        "en": "Chasing the enemy"
+      },
+      "hints": [],
+      "choices": [
+        [
+          {
+            "tag": "TL_HTRD",
+            "subtag": "TL_ANY"
+          }
+        ]
+      ],
+      "commands": [
+        {
+          "command": "IncreaseStatAlt",
+          "tags": ["ST_INT", "ST_WP"],
+          "amount": 3
+        }
+      ],
+      "cost": 150
+    },
+    {
+      "tag": "LOV_WRR",
+      "name": {
+        "ru": "Warrior",
+        "en": "Warrior"
+      },
+      "hints": [],
+      "choices": [],
+      "commands": [
+        {
+          "command": "IncreaseStat",
+          "tag": "ST_WS",
+          "amount": 5
+        },
+        {
+          "command": "IncreaseStatAlt",
+          "tags": ["ST_T", "ST_AG"],
+          "amount": 5
+        },
+        {
+          "command": "DecreaseStat",
+          "tag": "ST_FEL",
+          "amount": 5
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_MDTN"
+        }
+      ],
+      "cost": 250
+    },
+    {
+      "tag": "LOV_DTTT",
+      "name": {
+        "ru": "Duty to the Throne",
+        "en": "Duty to the Throne"
+      },
+      "hints": [
+        {
+          "tag": "LOV_DTTT_H1",
+          "description": {
+            "ru": "штраф -10 к проверкам Взаимодействия с любыми источниками за пределами Империума",
+            "en": "-10 penalty to Interaction tests when dealing with any source outside Imperium"
+          },
+          "targets": ["ST_FEL","SK_CH", "SK_CMD", "SK_CMR", "SK_DCV", "SK_INQ", "SK_INTM", "SK_INTR", "SK_PERF"]
+        }
+      ],
+      "choices": [],
+      "commands": [
+        {
+          "command": "GainTalent",
+          "tag": "TL_ARCN",
+          "condition": {
+            "tag": "ST_WP",
+            "value": 40
+          }
+        },
+        {
+          "command": "IncreaseStat",
+          "tag": "ST_WP",
+          "amount": 3
+        }
+      ],
+      "cost": 0
+    },
+    {
+      "tag": "LOV_DTH",
+      "name": {
+        "ru": "Duty to humanity",
+        "en": "Duty to humanity"
+      },
+      "hints": [],
+      "choices": [],
+      "commands": [
+        {
+          "command": "IncreaseStatAlt",
+          "tags": ["ST_PER", "ST_INT"],
+          "amount": 3
+        }
+      ],
+      "cost": 0
+    },
+    {
+      "tag": "LOV_DOD",
+      "name": {
+        "ru": "Duty to dynasty",
+        "en": "Duty to dynasty"
+      },
+      "choices": [
+        [
+          {
+            "tag": "TL_ENM",
+            "subtag": "SK_ANY"
+          }
+        ]
+      ],
+      "commands": [
+        {
+          "command": "DecreaseStat",
+          "tag": "ST_T",
+          "amount": 3
+        }
+      ],
+      "cost": 0
+    },
+    {
+      "tag": "LOV_BLSC",
+      "name": {
+        "ru": "",
+        "en": "BlessedScars"
+      },
+      "hints": [
+        {
+          "tag": "LOV_BLSC_H1",
+          "description": {
+            "ru": "+10 к Запугиванию",
+            "en": "+10 to Intimidate"
+          },
+          "targets": ["SK_INTM"]
+        },
+        {
+          "tag": "LOV_BLSC_H1",
+          "description": {
+            "ru": "-10 к Обаянию",
+            "en": "-10 to Charm"
+          },
+          "targets": ["SK_CH"]
+        }
+      ],
+      "choices": [],
+      "commands": [],
+      "cost": 0
+    },
+    {
+      "tag": "LOV_UNCL",
+      "name": {
+        "ru": "Unnerving Clarity",
+        "en": "Unnerving Clarity"
+      },
+      "hints": [],
+      "choices": [
+        [
+          {
+            "tag": "DecreaseStat",
+            "stat": "ST_FEL",
+            "amount": 5
+          },
+          {
+            "tag": "GainInsanityRoll"
+          }
+        ]
+      ],
+      "commands": [
+        {
+          "command": "IncreaseStat",
+          "tag": "ST_WP"
+        }
+      ],
+      "cost": 0
+    },
+    {
+      "tag": "LOV_FBTF",
+      "name": {
+        "ru": "Favoured by the faithful",
+        "en": "Favoured by the faithful"
+      },
+      "hints": [],
+      "choices": [],
+      "commands": [
+        {
+          "command": "IncreaseStat",
+          "tag": "ST_FEL",
+          "amount": 5
+        },
+        {
+          "command": "DecreaseStat",
+          "tag": "ST_T",
+          "amount": 5
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_PR",
+          "subtag": "Ecclesiarchy"
+        }
+      ],
+      "cost": 0
+    },
+    {
+      "tag": "LOV_CODSOT",
+      "name": {
+        "ru": "Seeker of truth (Chosen by destiny)",
+        "en": "Seeker of truth (Chosen by destiny)"
+      },
+      "hints": [],
+      "choices": [
+        [
+          {
+            "tag": "TL_ENM",
+            "subtag": "Ecclesiarchy"
+          },
+          {
+            "tag": "TL_ENM",
+            "subtag": "Academics"
+          }
+        ]
+      ],
+      "commands": [
+        {
+          "command": "DecreaseStat",
+          "tag": "ST_WP",
+          "amount": 3
+        },
+        {
+          "command": "GainTalent",
+          "tag": "TL_FRST"
+        }
+      ],
+      "cost": 0
+    },
+    {
+      "tag": "LOV_XNP",
+      "name": {
+        "ru": "Ксенофил",
+        "en": "Xenophile"
+      },
+      "hints": [
+        {
+          "tag": "LOV_XNP_H1",
+          "description": {
+            "ru": "-5 к проверкам Силы Воли, связанным с ксеноартефактами и ксеносскими психосилами",
+            "en": "-5 to Willpower tests involving alien artifacts and alien psychic powers"
+          },
+          "targets": ["ST_WP"]
+        },
+        {
+          "tag": "LOV_XNP_H2",
+          "description": {
+            "ru": "+10 к проверкам Общительности, связанным с взаимодействием с ксенокультурами или расами",
+            "en": "+10 to Fellowship tests when dealing with alien races or cultures"
+          },
+          "targets": ["ST_FEL"]
+        }
+      ],
+      "choices": [],
+      "commands": [],
+      "cost": 0
+    },
+    {
+      "tag": "LOV_FOG",
+      "name": {
+        "ru": "Fated for greatness",
+        "en": "Fated for greatness"
+      },
+      "hints": [],
+      "choices": [],
+      "commands": [
+        {
+          "command": "GainFate",
+          "amount": 1
+        },
+        {
+          "command": "GainInsanityRoll"
+        }
+      ],
+      "cost": 0
+    },
+    {
+      "tag": "LOV_NHSOT",
+      "name": {
+        "ru": "Seeker of truth (New Horizons)",
+        "en": "Seeker of truth (New Horizons)"
+      },
+      "hints": [],
+      "choices": [
+        [
+          {
+            "tag": "SK_SCL",
+            "subtag": "SK_ANY"
+          }
+        ]
+      ],
+      "commands": [
+        {
+          "command": "IncreaseStat",
+          "tag": "ST_INT",
+          "amount": 3
+        },
+        {
+          "command": "GainCorruptionRoll"
+        }
+      ],
+      "cost": 100
+    },
+    {
+      "tag": "LOV_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "choices": [],
+      "commands": [],
+      "cost": 0
+    },
+    {
+      "tag": "LOV_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "choices": [],
+      "commands": [],
+      "cost": 0
+    },
+    {
+      "tag": "LOV_XNAR",
+      "name": {
+        "ru": "Xeno-Arcanist",
+        "en": "Xeno-Arcanist"
+      },
+      "hints": [],
+      "choices": [
+        {
+          "tag": "TL_PR",
+          "subtag": "Academics"
+        },
+        {
+          "tag": "SK_FBL",
+          "subtag": "Xenos"
+        }
+      ],
+      "commands": [
+        {
+          "command": "IncreaseStatAlt",
+          "tags": ["ST_INT", "ST_WP"],
+          "amount": 3
+        }
+      ],
+      "cost": 200
+    },
+    {
+      "tag": "LOV_ARTC",
+      "name": {
+        "ru": "Archeotechnologist",
+        "en": "Archeotechnologist"
+      },
+      "hints": [],
+      "choices": [],
+      "commands": [
+        {
+          "command": "IncreaseStatAlt",
+          "tags": ["ST_INT", "ST_PER"],
+          "amount": 3
+        },
+        {
+          "command": "GainSkill",
+          "tag": "SK_FBL",
+          "subtag": "Archeotech"
+        }
+      ],
+      "cost": 250
+    }
+  ]
+}

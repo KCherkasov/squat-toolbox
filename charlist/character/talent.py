@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 import json
 
-from charlist.flyweights.flyweights import Facade
-
 
 class Talent(object):
     def __init__(self, tag: str, taken):
@@ -12,7 +10,7 @@ class Talent(object):
     def is_specialist(self):
         return isinstance(self.__taken, dict)
 
-    def is_stackable(self, facade: Facade):
+    def is_stackable(self, facade):
         talents = facade.talent_descriptions()
         if talents and (self.__tag in talents.keys()):
             return talents.get(self.__tag).is_stackable()
@@ -34,11 +32,11 @@ class Talent(object):
         else:
             return False
 
-    def take(self, facade: Facade):
+    def take(self, facade):
         if not self.is_specialist() and self.is_stackable(facade):
             self.__taken += 1
 
-    def take_subtag(self, facade: Facade, subtag: str):
+    def take_subtag(self, facade, subtag: str):
         if self.is_specialist():
             if subtag in self.__taken.keys():
                 if self.is_stackable(facade):

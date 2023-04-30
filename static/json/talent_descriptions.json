@@ -817,7 +817,7 @@
         },
         {
           "tag": "SK_TRD",
-          "subtag": "Armourer",
+          "subtag": ["Armourer", "Оружейник"],
           "value": 0
         },
         {
@@ -1738,7 +1738,7 @@
         },
         {
           "tag": "TL_RST",
-          "subtag": "Psychic powers",
+          "subtag": ["Psychic powers", "Психосилы"],
           "value": 1
         }
       ],
@@ -1944,7 +1944,7 @@
         },
         {
           "tag": "TL_RST",
-          "subtag": "Fear",
+          "subtag": ["Fear", "Страх"],
           "value": 1
         },
         {
