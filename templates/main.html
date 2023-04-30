@@ -1,0 +1,53 @@
+{% extends 'base-wide.html' %}
+
+{% block pg_title %}Main{% endblock %}
+{% block title %}Главная{% endblock %}
+
+{% block app_content %}
+<header class="page-header">
+    <b>Добро пожаловать в скватский инструментарий!</b>
+</header>
+<div class="card-group justify-content-center">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-title"><b>Имягенератор</b></p>
+
+            <p class="card-subtitle">
+                Может выдумать персонажу имя. Не факт, что его будет просто выговорить.
+            </p>
+            <a class="btn btn-primary btn-large" href="{% url 'namegen' %}" role="button">Перейти</a>
+        </div>
+        <div class="card-footer">
+            <p>v.{{ ng_ver }}</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p class="card-title"><b>Чарник</b></p>
+            <p class="card-subtitle">
+                Страшная штука, вроде бы есть, а ее вроде нет... Где-то здесь была табличка "не влезай - убьет!"...
+            </p>
+            {% if user.is_authenticated and user.is_active %}
+            <a class="btn btn-primary btn-large" href="{% url 'characters-list' %}" role="button">
+                К списку персонажей
+            </a>
+            {% if user.is_master %}
+            <a class="btn btn-success btn-large" href="#" role="button">
+                К группам и кампейнам
+            </a>
+            {% endif %}
+            {% else %}
+            <a class="btn btn-primary btn-large" href="{% url 'signin' %}" role="button">
+                Войти
+            </a>
+            <a class="btn btn-success btn-large" href="{% url 'signup' %}" role="button">
+                Зарегистрироваться
+            </a>
+            {% endif %}
+        </div>
+        <div class="card-footer">
+            <p>v.{{ ch_ver }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

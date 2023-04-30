@@ -1,15 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from django.http import HttpResponseRedirect
-from django.shortcuts import render, reverse
+from django.shortcuts import render
+from django.views.decorators.clickjacking import xframe_options_sameorigin
 from rest_framework import status
 from rest_framework.decorators import api_view, parser_classes
 from rest_framework.parsers import JSONParser
 from rest_framework.response import Response
 
-
-from django.views.decorators.clickjacking import xframe_options_sameorigin
-
+from charlist.constants.constants import VERSION
 from .methods import *
 
 version = '1.15.8'
@@ -75,11 +73,11 @@ FIELD_VALUES = {
 
 @xframe_options_sameorigin
 def main(request):
-    return HttpResponseRedirect(reverse('index'))
+    return render(request, 'main.html', {'ng_ver': version, 'ch_ver': VERSION, })
 
 
 @xframe_options_sameorigin
-def index(request):
+def namegen(request):
     if request.method == 'POST':
         form = NamegenForm(request.POST)
         if form.is_valid():
