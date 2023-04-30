@@ -27,9 +27,41 @@ Characters list
     <h5>Незавершенных заготовок нет.</h5>
     {% endfor %}
 </div>
-<div class="charlist-content justify-content-center">
+
+<div>
     <div>
-        <a href="{% url 'create-character-start' %}" class="btn btn-lg btn-primary fs-3">Создать нового персонажа</a>
+        <p>
+            <i>
+                <a href="" class="btn btn-primary btn-large" role="button" data-bs-toggle="modal"
+                   data-bs-target="#c{{character.id}}-create-character-popup" title="Создать персонажа">
+                    Создать пероснажа
+                </a>
+            </i>
+        </p>
+    </div>
+
+    <div class="modal fade" id="c{{character.id}}-create-character-popup" tabindex="-1"
+         aria-labelledby="c{{character.id}}-create-character-popup-label">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <b id="c{{character.id}}-create-character-popup-label">
+                        {{ facade|get_talent_description:talent_key|get_tldescr_name:lang }}
+                    </b>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center text-dark">
+                        <b>Выберите систему, для которой хотите создать пероснажа:</b>
+                    </div>
+                    <a class="btn btn-success btn-large" role="button" href="{% url 'create-character-start' %}">
+                        <b>Dark Heresy 2<sup>nd</sup> edition</b>
+                    </a>
+                    <a class="btn btn-primary btn-large" role="button" href="{% url 'create-character-rt-start' %}">
+                        <b>Rogue Trader 2.0</b>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

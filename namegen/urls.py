@@ -19,13 +19,14 @@ from django.contrib import admin
 from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
 
+from charlist import rt_views
 from charlist import views as charviews
 from namegen import views, settings
 
 urlpatterns = [
     path(r'', views.main, name='main'),
     path(r'admin/', admin.site.urls),
-                  path(r'namegen/', views.index, name='namegen'),
+                  path(r'namegen/', views.namegen, name='namegen'),
 
     path(r'dev/signup/', charviews.signup, name='signup'),
     path(r'dev/signin/', charviews.signin, name='signin'),
@@ -49,10 +50,26 @@ urlpatterns = [
          name='create-character-role'),
     path(r'dev/create-character/choices/<int:creation_id>/', charviews.create_character_choices,
          name='create-character-choice'),
-    path(r'dev/create-character/double-apts/<int:creation_id>/', charviews.create_character_double_apts,
-         name='create-character-double-apts'),
+                  path(r'dev/create-character/rep-apts/<int:creation_id>/', charviews.create_character_double_apts,
+                       name='create-character-double-apts'),
     path(r'dev/create-character/divination/<int:creation_id>/', charviews.create_character_divination,
          name='create-character-divination'),
+
+                  path(r'dev/create-new-rt-character/', rt_views.create_character_rt_start,
+                       name='create-character-rt-start'),
+                  path(r'dev/create-character-rt/init/<int:creation_id>/',
+                       rt_views.rt_create_character_init, name='rt-create-character-init'),
+                  path(r'dev/create-character-rt/origin-and-career/<int:creation_id>/',
+                       rt_views.rt_create_character_oac_choice,
+                       name='rt-create-character-oac'),
+                  path(r'dev/create-character-rt/characteristics/<int:creation_id>/',
+                       rt_views.rt_create_character_stat_distribution, name='rt-create-character-stats'),
+                  path(r'dev/create-character-rt/choices/<int:creation_id>/', rt_views.rt_create_character_choices,
+                       name='rt-create-character-choices'),
+                  path(r'dev/create-character-rt/rep-apts/<int:creation_id>/', rt_views.create_character_double_apts,
+                       name='rt-create-character-double-apts'),
+                  path(r'dev/create-character-rt/divination/<int:creation_id>/', rt_views.create_character_divination,
+                       name='rt-create-character-divination'),
 
     path(r'dev/character/<int:char_id>/', charviews.character_view, name='character-details'),
     path(r'dev/character/<int:char_id>/delete', charviews.character_delete, name='character-delete'),
@@ -60,7 +77,6 @@ urlpatterns = [
 
     path(r'dev/creation-data/<int:creation_id>/', charviews.resume_creation_edit, name='char-data-edit'),
     path(r'dev/creation-data/<int:creation_id>/delete', charviews.creation_data_delete, name='char-data-delete'),
-
     path(r'dev/charsheet/test/', charviews.aptitudes_test, name='charsheet-test'),
     path(r'dev/charsheet/mockup/', charviews.charsheet_mockup, name='charsheet-mockup'),
     path(r'dev/charsheet/mockup-interactive/', charviews.interactive_charsheet_mockup, name='interactive-mockup'),

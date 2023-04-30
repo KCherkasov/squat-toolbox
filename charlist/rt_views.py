@@ -9,16 +9,14 @@ from charlist.character.rt_character import RTCharacterModel
 from charlist.character.rt_creation_data import RTCreationDataModel
 from charlist.character.skill import Skill
 from charlist.character.stat import Stat
-from charlist.character.talent import Talent
-from charlist.character.trait import Trait
 from charlist.constants.constants import *
 from charlist.flyweights.rt_flyweights import *
+from charlist.forms.generation.rt.choices_form import RTChoicesForm, STG_PREFIX
 from charlist.forms.generation.rt.creation_settings_form import CreationSettingsForm
+from charlist.forms.generation.rt.divination_form import DivinationForm
+from charlist.forms.generation.rt.double_apts_form import DoubleAptsForm
 from charlist.forms.generation.rt.origin_and_career_form import OriginAndCareerForm
 from charlist.forms.generation.rt.stat_distribution_form import StatDistributionForm
-from charlist.forms.generation.rt.choices_form import RTChoicesForm, STG_PREFIX
-from charlist.forms.generation.rt.double_apts_form import DoubleAptsForm
-from charlist.forms.generation.rt.divination_form import DivinationForm
 from charlist.forms.generation.rt_stages import *
 from charlist.forms.generation.stat_distribution_form import StatDistributionForm
 from charlist.forms.player_todos.command_parser import CommandParser
@@ -36,12 +34,11 @@ from charlist.forms.player_todos.manual.gain_talent_alt_form import GainTalentAl
 from charlist.forms.player_todos.manual.get_trauma_ip_form import GetTraumaIPForm
 from charlist.forms.player_todos.manual.increase_stat_alt_form import IncreaseStatAltForm
 from charlist.forms.player_todos.manual.increase_stat_roll_form import IncreaseStatRollForm
-from charlist.forms.upgrading.stat_upgrade_form import StatUpgradeForm
-from charlist.forms.upgrading.skill_upgrade_form import SkillUpgradeForm
 from charlist.forms.upgrading.skill_subtag_upgrade_form import SkillSubtagUpgradeForm
-from charlist.forms.upgrading.talent_upgrade_form import TalentUpgradeForm
+from charlist.forms.upgrading.skill_upgrade_form import SkillUpgradeForm
+from charlist.forms.upgrading.stat_upgrade_form import StatUpgradeForm
 from charlist.forms.upgrading.talent_subtag_upgrade_form import TalentUpgradeSubtagForm
-
+from charlist.forms.upgrading.talent_upgrade_form import TalentUpgradeForm
 
 resources = ['aptitudes.json', 'rt_stat_descriptions.json', 'rt_skill_descriptions.json', 'rt_talent_descriptions.json',
              'traits.json', 'homeworlds.json', 'backgrounds.json', 'roles.json', 'elite_advances.json',
@@ -52,7 +49,7 @@ rt_flyweights = RTFacade(resources)
 rt_commands_parser = CommandParser(rt_flyweights)
 
 
-def create_character_start(request):
+def create_character_rt_start(request):
     creation_data = models.RTCreationData()
     creation_data.owner = models.CharsheetUser.objects.get(pk=request.user.pk)
     creation_data.save()
