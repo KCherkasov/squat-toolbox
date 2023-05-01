@@ -74,8 +74,15 @@ urlpatterns = [
     path(r'dev/character/<int:char_id>/delete', charviews.character_delete, name='character-delete'),
     path(r'dev/character/<int:char_id>/upgrade', charviews.character_upgrade, name='character-upgrade'),
 
-    path(r'dev/creation-data/<int:creation_id>/', charviews.resume_creation_edit, name='char-data-edit'),
-    path(r'dev/creation-data/<int:creation_id>/delete', charviews.creation_data_delete, name='char-data-delete'),
+    path(r'dev/creation-data/<int:creation_id>/',
+         charviews.resume_creation_edit, name='char-data-edit'),
+    path(r'dev/creation-data/<int:creation_id>/delete',
+         charviews.creation_data_delete, name='char-data-delete'),
+    path(r'dev/rt-creation-data/<int:creation_id>/',
+         rt_views.resume_creation_edit, name='rt-char-data-edit'),
+    path(r'dev/rt-creation-data/<int:creation_id>/delete',
+         rt_views.creation_data_delete, name='rt-char-data-delete'),
+
     path(r'dev/charsheet/test/', charviews.aptitudes_test, name='charsheet-test'),
     path(r'dev/charsheet/mockup/', charviews.charsheet_mockup, name='charsheet-mockup'),
     path(r'dev/charsheet/mockup-interactive/', charviews.interactive_charsheet_mockup, name='interactive-mockup'),

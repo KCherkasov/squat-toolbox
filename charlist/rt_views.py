@@ -759,30 +759,26 @@ def character_delete(request, char_id):
 
 
 def creation_data_delete(request, creation_id):
-    cd = models.CreationData.objects.get(pk=creation_id)
+    cd = models.RTCreationData.objects.get(pk=creation_id)
     if (cd is not None) and (cd.owner == request.user):
         cd.delete()
     return reverse('characters-list')
 
 
 def resume_creation_edit(request, creation_id):
-    cd = models.CreationData.objects.get(pk=creation_id)
+    cd = models.RTCreationData.objects.get(pk=creation_id)
     if (cd is not None) and (cd.owner == request.user):
         if cd.curr_stage == 'init':
-            return HttpResponseRedirect(reverse('create-character-init', kwargs={'creation_id': cd.pk}))
-        if cd.curr_stage == 'hw_choice':
-            return HttpResponseRedirect(reverse('create-character-hw', kwargs={'creation_id': cd.pk}))
-        if cd.curr_stage == 'stat_distr':
-            return HttpResponseRedirect(reverse('create-character-stats', kwargs={'creation_id': cd.pk}))
-        if cd.curr_stage == 'bg_choice':
-            return HttpResponseRedirect(reverse('create-character-bg', kwargs={'creation_id': cd.pk}))
-        if cd.curr_stage == 'role_choice':
-            return HttpResponseRedirect(reverse('create-character-role', kwargs={'creation_id': cd.pk}))
+            return HttpResponseRedirect(reverse('rt-create-character-init', kwargs={'creation_id': cd.pk}))
+        if cd.curr_stage == 'origin-and-career':
+            return HttpResponseRedirect(reverse('rt-create-character-oac', kwargs={'creation_id': cd.pk}))
+        if cd.curr_stage == 'stat-distr':
+            return HttpResponseRedirect(reverse('rt-create-character-stats', kwargs={'creation_id': cd.pk}))
         if cd.curr_stage == 'choices':
-            return HttpResponseRedirect(reverse('create-character-choice', kwargs={'creation_id': cd.pk}))
-        if cd.curr_stage == 'double_apts':
-            return HttpResponseRedirect(reverse('create-character-double-apts', kwargs={'creation_id': cd.pk}))
+            return HttpResponseRedirect(reverse('rt-create-character-choices', kwargs={'creation_id': cd.pk}))
+        if cd.curr_stage == 'double-apts':
+            return HttpResponseRedirect(reverse('rt-create-character-double-apts', kwargs={'creation_id': cd.pk}))
         if cd.curr_stage == 'divination':
-            return HttpResponseRedirect(reverse('create-character-divination', kwargs={'creation_id': cd.pk}))
+            return HttpResponseRedirect(reverse('rt-create-character-divination', kwargs={'creation_id': cd.pk}))
     else:
         return reverse('characters-list')

@@ -15,6 +15,7 @@ from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 
 import charlist.models as models
+from charlist import rt_views
 from charlist.character.character import CharacterModel
 from charlist.character.skill import Skill
 from charlist.character.stat import Stat
@@ -48,13 +49,12 @@ from charlist.forms.player_todos.manual.gain_talent_alt_form import GainTalentAl
 from charlist.forms.player_todos.manual.get_trauma_ip_form import GetTraumaIPForm
 from charlist.forms.player_todos.manual.increase_stat_alt_form import IncreaseStatAltForm
 from charlist.forms.player_todos.manual.increase_stat_roll_form import IncreaseStatRollForm
-from charlist.forms.upgrading.stat_upgrade_form import StatUpgradeForm
-from charlist.forms.upgrading.skill_upgrade_form import SkillUpgradeForm
 from charlist.forms.upgrading.skill_subtag_upgrade_form import SkillSubtagUpgradeForm
-from charlist.forms.upgrading.talent_upgrade_form import TalentUpgradeForm
+from charlist.forms.upgrading.skill_upgrade_form import SkillUpgradeForm
+from charlist.forms.upgrading.stat_upgrade_form import StatUpgradeForm
 from charlist.forms.upgrading.talent_subtag_upgrade_form import TalentUpgradeSubtagForm
-
-from rt_views import rt_flyweights, rt_commands_parser
+from charlist.forms.upgrading.talent_upgrade_form import TalentUpgradeForm
+from charlist.rt_views import rt_flyweights, rt_commands_parser
 
 
 class TokenGenerator(PasswordResetTokenGenerator):
@@ -750,7 +750,9 @@ def create_character_divination(request, creation_id):
                                                                 'stage': CREATION_STAGES[7], 'form': form})
 
 
-def clean_completed(character_model: CharacterModel, request):
+def clean_completed(character_model, request):
+    if character_model.is_rt():
+        return rt_views.clean_completed(character_model, request)
     if int(request.POST.get('cmd_id')) >= 0:
         for cmd in character_model.pending():
             if cmd.get('cmd_id') == int(request.POST.get('cmd_id')):
@@ -759,7 +761,9 @@ def clean_completed(character_model: CharacterModel, request):
     return character_model
 
 
-def find_cmd(request, character_model: CharacterModel):
+def find_cmd(request, character_model):
+    if character_model.is_rt():
+        return rt_views.find_cmd(request, character_model)
     cmd = dict()
     for pcmd in character_model.pending():
         if pcmd.get('cmd_id') == int(request.POST.get('cmd_id')):
@@ -768,7 +772,9 @@ def find_cmd(request, character_model: CharacterModel):
     return cmd
 
 
-def gain_insanity(request, character: CharacterModel, character_record: models.Character):
+def gain_insanity(request, character, character_record: models.Character):
+    if character.is_rt():
+        return rt_views.gain_insanity(rt_views, character, character_record)
     if int(request.POST.get('cmd_id')) >= 0:
         cmd = find_cmd(request, character)
     else:
@@ -782,7 +788,9 @@ def gain_insanity(request, character: CharacterModel, character_record: models.C
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character_record.pk, }))
 
 
-def gain_corruption(request, character: CharacterModel, character_record: models.Character):
+def gain_corruption(request, character, character_record: models.Character):
+    if character.is_rt():
+        return rt_views.gain_corruption(request, character, character_record)
     if int(request.POST.get('cmd_id')) >= 0:
         cmd = find_cmd(request, character)
     else:
@@ -796,7 +804,9 @@ def gain_corruption(request, character: CharacterModel, character_record: models
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character_record.pk, }))
 
 
-def decrease_stat_alt(request, character_model: CharacterModel, character: models.Character):
+def decrease_stat_alt(request, character_model, character: models.Character):
+    if character_model.is_rt():
+        return rt_views.decrease_stat_alt(request, character_model, character)
     cmd = find_cmd(request, character_model)
     form = DecreaseStatAltForm(cmd, flyweights, request.POST)
     if form.is_valid():
@@ -807,7 +817,9 @@ def decrease_stat_alt(request, character_model: CharacterModel, character: model
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
-def increase_stat_alt(request, character_model: CharacterModel, character: models.Character):
+def increase_stat_alt(request, character_model, character: models.Character):
+    if character_model.is_rt():
+        return rt_views.increase_stat_alt(request, character_model, character)
     cmd = find_cmd(request, character_model)
     form = IncreaseStatAltForm(cmd, flyweights, request.POST)
     if form.is_valid():
@@ -818,7 +830,9 @@ def increase_stat_alt(request, character_model: CharacterModel, character: model
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
-def gain_talent_alt(request, character_model: CharacterModel, character: models.Character):
+def gain_talent_alt(request, character_model, character: models.Character):
+    if character_model.is_rt():
+        return rt_views.gain_talent_alt(request, character_model, character)
     cmd = find_cmd(request, character_model)
     form = GainTalentAltForm(cmd, flyweights, request.POST)
     if form.is_valid():
@@ -829,7 +843,9 @@ def gain_talent_alt(request, character_model: CharacterModel, character: models.
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
-def decrease_stat_roll(request, character_model: CharacterModel, character: models.Character):
+def decrease_stat_roll(request, character_model, character: models.Character):
+    if character_model.is_rt():
+        return rt_views.decrease_stat_roll(request, character_model, character)
     cmd = find_cmd(request, character_model)
     form = DecreaseStatRollForm(cmd, flyweights, request.POST)
     if form.is_valid():
@@ -840,7 +856,9 @@ def decrease_stat_roll(request, character_model: CharacterModel, character: mode
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
-def increase_stat_roll(request, character_model: CharacterModel, character: models.Character):
+def increase_stat_roll(request, character_model, character: models.Character):
+    if character_model.is_rt():
+        return rt_views.increase_stat_roll(request, character_model, character)
     cmd = find_cmd(request, character_model)
     form = IncreaseStatRollForm(cmd, flyweights, request.POST)
     if form.is_valid():
@@ -851,24 +869,32 @@ def increase_stat_roll(request, character_model: CharacterModel, character: mode
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
-def abort_gain(request, character_model: CharacterModel, character: models.Character):
+def abort_gain(request, character_model, character: models.Character):
+    if character_model.is_rt():
+        return rt_views.abort_gain(request, character_model, character)
     character_model = clean_completed(character_model, request)
     character.character_data = character_model.toJSON()
     character.save()
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
-def abort_gain_ip_conseq(request, character_model: CharacterModel, character: models.Character):
+def abort_gain_ip_conseq(request, character_model, character: models.Character):
+    if character_model.is_rt():
+        return rt_views.abort_gain_ip_conseq(request, character_model, character)
     character_model.inc_ip_tests()
     abort_gain(request, character_model, character)
 
 
-def abort_gain_cp_conseq(request, character_model: CharacterModel, character: models.Character):
+def abort_gain_cp_conseq(request, character_model, character: models.Character):
+    if character_model.is_rt():
+        return rt_views.abort_gain_cp_conseq(request, character_model, character)
     character_model.inc_cp_tests()
     abort_gain(request, character_model, character)
 
 
-def gain_disorder(request, character_model: CharacterModel, character: models.Character):
+def gain_disorder(request, character_model, character: models.Character):
+    if character_model.is_rt():
+        return rt_views.gain_disorder(request, character_model, character)
     cmd = find_cmd(request, character_model)
     form = GainDisorderIPForm(cmd, request.POST)
     if form.is_valid():
@@ -882,7 +908,9 @@ def gain_disorder(request, character_model: CharacterModel, character: models.Ch
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
-def gain_trauma(request, character_model: CharacterModel, character: models.Character):
+def gain_trauma(request, character_model, character: models.Character):
+    if character_model.is_rt():
+        return rt_views.gain_trauma(request, character_model, character)
     cmd = find_cmd(request, character_model)
     form = GetTraumaIPForm(cmd, request.POST)
     if form.is_valid():
@@ -893,7 +921,9 @@ def gain_trauma(request, character_model: CharacterModel, character: models.Char
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
-def gain_malignancy(request, character_model: CharacterModel, character: models.Character):
+def gain_malignancy(request, character_model, character: models.Character):
+    if character_model.is_rt():
+        return rt_views.gain_malignancy(request, character_model, character)
     cmd = find_cmd(request, character_model)
     form = GainMalignancyRollForm(cmd, request.POST)
     if form.is_valid():
@@ -912,7 +942,9 @@ def gain_malignancy(request, character_model: CharacterModel, character: models.
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
-def gain_mutation(request, character_model: CharacterModel, character: models.Character):
+def gain_mutation(request, character_model, character: models.Character):
+    if character_model.is_rt():
+        return rt_views.gain_mutation(request, character_model, character)
     cmd = find_cmd(request, character_model)
     form = GainMutationRollForm(cmd, request.POST)
     if form.is_valid():
@@ -931,7 +963,9 @@ def gain_mutation(request, character_model: CharacterModel, character: models.Ch
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
-def gain_malignance_choice(request, character_model: CharacterModel, character: models.Character):
+def gain_malignance_choice(request, character_model, character: models.Character):
+    if character_model.is_rt():
+        return  rt_views.gain_malignance_choice(request, character_model, character)
     cmd = find_cmd(request, character_model)
     form = GainMalignancyChoiceForm(flyweights, cmd, request.POST)
     if form.is_valid():
@@ -946,7 +980,9 @@ def gain_malignance_choice(request, character_model: CharacterModel, character: 
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
-def gain_mutation_choice(request, character_model: CharacterModel, character: models.Character):
+def gain_mutation_choice(request, character_model, character: models.Character):
+    if character_model.is_rt():
+        return rt_views.gain_mutation_choice(request, character_model, character)
     cmd = find_cmd(request, character_model)
     form = GainMutationChoiceForm(flyweights, cmd, request.POST)
     if form.is_valid():
@@ -961,7 +997,9 @@ def gain_mutation_choice(request, character_model: CharacterModel, character: mo
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
-def gain_stat_aptitude(request, character_model: CharacterModel, character: models.Character):
+def gain_stat_aptitude(request, character_model, character: models.Character):
+    if character_model.is_rt():
+        return rt_views.gain_stat_aptitude(request, character_model, character)
     cmd = find_cmd(request, character_model)
     form = GainStatAptitudeForm(character_model, flyweights, cmd, request.POST)
     if form.is_valid():
@@ -972,7 +1010,9 @@ def gain_stat_aptitude(request, character_model: CharacterModel, character: mode
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
-def parse_manual_cmds(request, character: models.Character, character_model: CharacterModel):
+def parse_manual_cmds(request, character: models.Character, character_model):
+    if character_model.is_rt():
+        return rt_views.parse_manual_cmds(request, character, character_model)
     if 'gain-insanity-confirm' in request.POST:
         gain_insanity(request, character_model, character)
     if 'gain-corruption-confirm' in request.POST:
@@ -1007,7 +1047,9 @@ def parse_manual_cmds(request, character: models.Character, character_model: Cha
         gain_stat_aptitude(request, character_model, character)
 
 
-def upg_data_to_forms(character: CharacterModel):
+def upg_data_to_forms(character):
+    if character.is_rt():
+        return rt_views.upg_data_to_forms(character)
     upg_costs = character.make_upg_costs(flyweights)
     forms = {'stats': list(),
              'skills': {'common': list(), 'spec': list()},
@@ -1128,7 +1170,9 @@ def character_view(request, char_id):
                                               'upg_view': character.get_upgrade_url(), })
 
 
-def upgrade_stat(request, character: models.Character, character_model: CharacterModel):
+def upgrade_stat(request, character: models.Character, character_model):
+    if character_model.is_rt():
+        return rt_views.upgrade_stat(request, character, character_model)
     stat_tag = request.POST.get('stat_tag')
     cost = int(request.POST.get('cost'))
     form = StatUpgradeForm(stat_tag, 0, cost, 'success', request.POST)
@@ -1141,7 +1185,9 @@ def upgrade_stat(request, character: models.Character, character_model: Characte
     return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
-def upgrade_skill(request, character: models.Character, character_model: CharacterModel):
+def upgrade_skill(request, character: models.Character, character_model):
+    if character_model.is_rt():
+        return rt_views.upgrade_skill(request, character, character_model)
     skill_tag = request.POST.get('skill_tag')
     cost = int(request.POST.get('cost'))
     form = SkillUpgradeForm(skill_tag, cost, 0, 'success', request.POST)
@@ -1154,7 +1200,9 @@ def upgrade_skill(request, character: models.Character, character_model: Charact
     return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
-def upgrade_subskill(request, character: models.Character, character_model: CharacterModel):
+def upgrade_subskill(request, character: models.Character, character_model):
+    if character_model.is_rt():
+        return rt_views.upgrade_subskill(request, character, character_model)
     skill_tag = request.POST.get('skill_tag')
     subtag = request.POST.get('subtag_skill')
     cost = int(request.POST.get('cost'))
@@ -1173,6 +1221,8 @@ def upgrade_subskill(request, character: models.Character, character_model: Char
 
 def character_upgrade(request, char_id):
     character = models.Character.objects.get(pk=char_id)
+    if character.is_rt:
+        return rt_views.character_upgrade(request, char_id)
     character_model = character.data_to_model()
     forms = upg_data_to_forms(character_model)
     if request.method == 'POST':
