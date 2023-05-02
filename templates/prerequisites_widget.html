@@ -48,11 +48,10 @@
             {% endif %}
             {% if prereq.is_role_prereq %}
                 {% if character.is_rt %}
-                    {% if lang == 'ru' %}Роль{% else %}Role{% endif %}
+                    {% if lang == 'ru' %}Роль{% else %}Role{% endif %}:&nbsp;{{ facade.roles|get_by_dict_key:prereq.tag|get_role_name:lang }}
                 {% else%}
-                    {% if lang == 'ru' %}Карьера{% else %}Career{% endif %}
-                {%endif%}:&nbsp;
-                {{ facade.roles|get_by_dict_name:prereq.tag|get_role_name:lang }}
+                    {% if lang == 'ru' %}Карьера{% else %}Career{% endif %}:&nbsp;{{ facade.careers|get_by_dict_key:prereq.tag|get_role_name:lang }}
+                {%endif%}
             {% endif %}
             {% if prereq.is_background_prereq %}
                 {% if lang == 'ru' %}Предыстория{% else %}Background{% endif %}:&nbsp;{{ facade.backgrounds|get_by_dict_name:prereq.tag|get_bg_name:lang }}
