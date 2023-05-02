@@ -1,0 +1,24 @@
+{% extends 'manual_cmd_form_base.html' %}
+
+{% block filters %}
+{% load filters %}
+{% endblock %}
+
+{% block form_title %}
+Хотите ли вы получить следующее улучшение от происхождения за {{ form.cost }} XP?
+{% endblock %}
+
+{% block form_extra %}
+<div>
+    {% for line in form.description %}
+    <p class="text-dark">{{ line }}</p>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block form_controls %}
+<div class="col-sm-offset-2 col-sm-2">
+    <button type="submit" class="btn btn-primary" name="origin-extra-confirm">Да</button>
+    <button type="submit" class="btn btn-primary" name="origin-extra-abort">Нет</button>
+</div>
+{% endblock %}

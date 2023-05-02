@@ -107,6 +107,7 @@ Character sheet interactive mockup
                                     <header class="text-center">
                                         <b>{{ tier }}&nbsp;{% if lang == 'ru' %}тир{% else %}tier{% endif %}</b>
                                     </header>
+                                    <div class="card charlist-content skills-list">
                                     {% for form in tier|get_by_dict_key:'common' %}
                                         {% include 'talent_upgrade_form.html' %}
                                     {% endfor %}
@@ -124,15 +125,18 @@ Character sheet interactive mockup
                                         {% endwith %}
                                         {% endwith %}
                                     {% endfor %}
+                                    </div>
                                 </div>
                             {% endfor %}
                         </div>
                     {% endwith %}
                     </div>
+                    {% character.pk as talent_unavailable %}
                     <div class="card card-body justify-content-center">
                         <header class="text-center">
                             <b>{% if lang == 'ru' %}Недоступные{% else %}Not available{% endif %}</b>
                         </header>
+                        {%  %}
                     {% with forms|get_by_dict_key:'talents'|get_by_dict_key:'unavailable' as unavailable %}
                         <div class="card-group">
                             {% for tier in unavailable %}
@@ -140,28 +144,108 @@ Character sheet interactive mockup
                                     <header class="text-center">
                                         <b>{{ tier }}&nbsp;{% if lang == 'ru' %}тир{% else %}tier{% endif %}</b>
                                     </header>
+                                    <div class="card charlist-content skills-list">
                                     {% for form in tier|get_by_dict_key:'common' %}
                                         {% include 'talent_upgrade_form.html' %}
                                     {% endfor %}
                                     {% for form_map in tier|get_by_dict_key:'spec' %}
                                         {% with form_map|get_by_dict_key:'tl_tag' as tl_tag %}
                                         {% with form_map|get_by_dict_key:'colour' as colour %}
+                                        {% with facade.talent_descriptions|get_by_dict_key:tl_tag as tal %}
                                         <div class="card card-body charlist-content justify-content-center align-items-center alert-{{ colour }} w400-skill">
                                             <div>
-                                                <b class="text-dark">{{ facade|get_talent_description:tl_tag|get_tldescr_name:lang }}</b>
+                                                <a href="" class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
+                                                   data-bs-target="#c{{character.id}}-{{ form.tl_tag }}-{{ lang }}-upg-info" title="Подробнее">
+                                                    <b class="text-dark">{{ tal.name|get_by_dict_key:lang }}</b>
+                                                </a>
+                                            </div>
+
+                                            <div class="modal fade" id="c{{character.id}}-{{ form.tl_tag }}-{{ lang }}-upg-info" tabindex="-1"
+                                                 aria-labelledby="c{{character.id}}-{{ form.tl_tag }}-{{ lang }}-upg-info-label">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <b id="c{{character.id}}-{{ form.tl_tag }}-{{ lang }}-upg-info-label">
+                                                                {{ tal.name|get_by_dict_key:lang }}
+                                                            </b>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="charlist-inline">
+                                                                <div>
+                                                                    <b class="text-dark">
+                                                                        <i>{% if lang == 'ru' %}Эффекты{% else %}Effects{% endif %}</i>
+                                                                    </b>
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                {% for hint in facade|get_talent_description:form.tl_tag|get_tldescr_hints %}
+                                                                <div class="card card-body">
+                                                                    <p class="card-text">{{ hint|get_hint_description:lang }}</p>
+                                                                </div>
+                                                                {% endfor %}
+                                                            </div>
+                                                            <div class="charlist-inline">
+                                                                <b>
+                                                                    <i>{% if lang == 'ru' %}Описание{% else %}Description{% endif %}</i>
+                                                                </b>
+                                                            </div>
+                                                            <div class="card card-body">
+                                                                <p class="card-text">
+                                                                    {{ tal.description|get_by_dict_key:lang }}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                             {% for form in form_map|get_by_dict_key:'forms' %}
                                                 {% include 'talent_subtag_upgrade_form.html' %}
                                             {% endfor %}
+                                            {% with tal.get_prerequisites as prereqs %}
+                                                {% include 'prerequisites_widget.html' %}
+                                            {% endwith %}
                                         </div>
                                         {% endwith %}
                                         {% endwith %}
+                                        {% endwith %}
                                     {% endfor %}
+                                    </div>
                                 </div>
                             {% endfor %}
                         </div>
                     {% endwith %}
                     </div>
+                </div>
+                <div class="card card-body justify-content-center">
+                    <header class="text-center">
+                        <b>
+                            {% if lang == 'ru' %}Элитные улучшения{% else %}Elite advances{% endif %}
+                        </b>
+                    </header>
+                    {% with forms|get_by_dict_key:'ea' as advances %}
+                    {% for availability, advs in advances.items %}
+                    <div class="card card-body justify-content-center">
+                        <header class="text-center">
+                            <b>
+                                {% if availability == 'available' %}
+                                    {% if lang == 'ru' %}Доступные{% else %}Available{% endif %}
+                                {% endif %}
+                                {% if availability == 'unavailable' %}
+                                    {% if lang == 'ru' %}Недоступные{% else %}Unavailable{% endif %}
+                                {% endif %}
+                            </b>
+                        </header>
+                        <div class="card charlist-content skills-list">
+                            {% for adv in advs %}
+                                {% include 'elite_advance_upgrade_form.html' %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endwith %}
                 </div>
                 {% if 'EA_PSY' in character.ea_id %}
                 <div class="card card-body justify-content-center">

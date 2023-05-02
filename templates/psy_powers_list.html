@@ -1,0 +1,32 @@
+{% block loaders %}
+{% load filters %}
+{% endblock %}
+
+<div>
+    {% for availability, schools in forms|get_by_dict_key:'psy' %}
+        <header class="text-center">
+            <b>
+                {% if availability == 'available' %}
+                    {% if lang == 'ru' %}Доступно{% else %}Available{% endif %}
+                {% endif %}
+                {% if availability == 'unavailable' %}
+                    {% if lang == 'ru' %}Недоступно{% else %}Unavailable{% endif %}
+                {% endif %}
+            </b>
+        </header>
+        {% for school, powers in schools %}
+            {% if forloop.counter0|divisibleby:3 %}
+                <div class="card-group">
+            {% endif %}
+                    {% include 'psy_school_widget.html' %}
+                    <div class="card charlist-content skills-list">
+                        {% for form in powers %}
+                            {% include 'psy_power_upgrade_form.html' %}
+                        {% endform %}
+                    </div>
+            {% if forloop.counter|divisibleby:3 or forloop.last %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+</div>

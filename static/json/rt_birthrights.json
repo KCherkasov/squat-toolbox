@@ -536,6 +536,22 @@
         },
         {
           "command": "GainCorruptionRoll"
+        },
+        {
+          "command": "GainExtraOption",
+          "cost": 300,
+          "description": [
+            "Получить талант Благоволение Варпа (Favoured by Warp) и 1d10 Очков Порчи"
+          ],
+          "commands": [
+            {
+              "command": "GainTalent",
+              "tag": "TL_FVBW"
+            },
+            {
+              "command": "GainCorruptionRoll"
+            }
+          ]
         }
       ],
       "aptitude_choices": ["A_WP", "A_PSY"],

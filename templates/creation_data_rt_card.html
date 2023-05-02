@@ -1,0 +1,47 @@
+{% load filters %}
+
+<div class="card charlist-content">
+    <div class="card-title">
+        <h4><a class="card-link" href="{{ cd.get_edit_url }}">{% if cd.curr_stage == 'init' %}Заготовка персонажа{% else %}{{ cd.name }}{% endif %}&nbsp;(DH2)</a></h4>
+    </div>
+    <div class="card-body justify-content-center">
+        <div>
+            <h5>
+                Этап создания:
+                {% if cd.curr_stage == 'init' %}Стартовые настройки, выбор имени{% endif %}
+                {% if cd.curr_stage == 'origin-and-career' %}Выбор происхождения и карьеры{% endif %}
+                {% if cd.curr_stage == 'stat-distr' %}Распределение характеристик{% endif %}
+                {% if cd.curr_stage == 'choices' %}Выбор альтернативных склонностей, навыков и талантов{% endif %}
+                {% if cd.curr_stage == 'double-apts' %}Замена повторяющихся склонностей{% endif %}
+                {% if cd.curr_stage == 'divination' %}Определение пророчества, завершение создания персонажа{% endif %}
+            </h5>
+        </div>
+        <div>
+            <h5>Дата последнего редактирования: {{ cd.last_mod_date }}</h5>
+        </div>
+    </div>
+    <div class="card-body charlist-inline justify-content-center">
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cd-delete-modal-{{ cd.pk }}">
+            Удалить
+        </button>
+        <a href="{{ cd.get_edit_url }}" class="btn btn-primary">Редактировать</a>
+
+        <div class="modal fade" id="cd-delete-modal-{{ cd.pk }}" tabindex="-1" aria-labelledby="cd-delete-modal-{{ cd.pk }}-label">
+            <div class="modal-dialog">
+               <div class="modal-content">
+                   <div class="modal-header">
+                       <h5 class="modal-title" id="cd-delete-modal-{{ cd.pk }}-label">Удаление заготовки персонажа</h5>
+                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                   </div>
+                   <div class="modal-body">
+                       <p>Вы уверены, что хотите удалить данную заготовку персонажа?</p>
+                   </div>
+                   <div class="modal-footer">
+                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                       <a href="{{ cd.get_delete_url }}" class="btn btn-danger">Удалить</a>
+                   </div>
+               </div>
+            </div>
+        </div>
+    </div>
+</div>

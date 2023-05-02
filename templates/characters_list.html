@@ -22,9 +22,14 @@ Characters list
 </div>
 <div class="charlist-content justify-content-center">
     {% for cd in in_progress %}
-    {% include 'creation_data_card.html' %}
+        {% include 'creation_data_card.html' %}
     {% empty %}
-    <h5>Незавершенных заготовок нет.</h5>
+        <h5>Незавершенных заготовок по Dark Heresy 2<sup>nd</sup> edition нет.</h5>
+    {% endfor %}
+    {% for cd in in_progress_rt %}
+        {% include 'creation_data_rt_card.html' %}
+    {% empty %}
+        <h5>Незавершенных заготовок по Rogue Trader 2.0 нет.</h5>
     {% endfor %}
 </div>
 

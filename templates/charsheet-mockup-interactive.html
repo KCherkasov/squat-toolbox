@@ -101,13 +101,13 @@
                 </header>
                 <div class="">
                     {% if character.pr > 0 %}
-                        <h5>{% if lang == 'ru' %}Психический рейтинг{% else %}Psy-rating{% endif %}:{{ character.pr }}</h5>
-                        <div class="charlist-content">
-                            <h5>{% if lang == 'ru' %}Психосилы{% else %}Psychic powers{% endif %}:</h5>
-                            {% for psy in character.psy %}
-                                {% include 'psy_power_widget.html' %}
-                            {% endfor %}
-                        </div>
+                    <p>
+                        <b>
+                            {% if lang == 'ru' %}Психический рейтинг{% else %}Psy-rating{% endif %}
+                        </b>
+                        :&nbsp;{{ character.pr }}
+                    </p>
+                        {% include 'psy_powers_widget.html' %}
                     {% else %}
                         <h5>{% if lang == 'ru' %}Данный персонаж не обладает даром псайкерства{% else %}This character isn't gifted with psychic powers.{% endif %}</h5>
                     {% endif %}

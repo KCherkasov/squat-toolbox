@@ -13,7 +13,7 @@
         <div class="charlist-inline align-items-center mb-1">
             <input type="hidden" name="tl_tag" value="{{ form.tl_tag }}">
             <input type="hidden" name="subtag_tl" value="{{ form.subtag }}">
-            {% if form.subtag_skill == 'SK_ANY' %}
+            {% if form.subtag_skill == 'TL_ANY' %}
                 {% for field in form %}
                 <div class="form-group charlist-inline align-items-center">
                     <div class="col-sm-5 ms-2">
@@ -24,7 +24,7 @@
             {% endif %}
                 <div class="ms-2">
                     <b class="text-dark">
-                        {% if form.subtag_skill != 'SK_ANY' %}
+                        {% if form.subtag_skill != 'TL_ANY' %}
                             {{ form.subtag }}&nbsp;
                         {% endif %}
                         {% if form.taken >= 0 %}
@@ -34,7 +34,7 @@
                     </b>
                 </div>
             <input type="hidden" name="cost" value="{{ form.cost }}">
-            <button class="btn btn-primary {% if form.cost > character.xp_current %}disabled{%endif%} ms-4"
+            <button class="btn btn-primary {% if form.cost > character.xp_current and not form.available %}disabled{%endif%} ms-4"
                     name="upg-tl-subtag-confirm" type="submit">
                 {{ form.cost }}&nbsp;XP
             </button>

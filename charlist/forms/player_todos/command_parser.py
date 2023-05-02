@@ -8,6 +8,7 @@ from charlist.forms.player_todos.automatic.gain_talent import GainTalentCommand
 from charlist.forms.player_todos.automatic.gain_trait import GainTraitCommand
 from charlist.forms.player_todos.automatic.increase_pr import IncreasePRCommand
 from charlist.forms.player_todos.automatic.increase_stat_fix import IncreaseStatFixCommand
+from charlist.forms.player_todos.automatic.lose_fate import LoseFateCommand
 from charlist.forms.player_todos.command_tags import *
 from charlist.forms.player_todos.manual.decrease_stat_alt_form import DecreaseStatAltForm
 from charlist.forms.player_todos.manual.decrease_stat_roll_form import DecreaseStatRollForm
@@ -23,6 +24,8 @@ from charlist.forms.player_todos.manual.gain_talent_alt_form import GainTalentAl
 from charlist.forms.player_todos.manual.get_trauma_ip_form import GetTraumaIPForm
 from charlist.forms.player_todos.manual.increase_stat_alt_form import IncreaseStatAltForm
 from charlist.forms.player_todos.manual.increase_stat_roll_form import IncreaseStatRollForm
+from charlist.forms.player_todos.manual.origin_xp_extra_choice import GainExtraOriginCommand
+from charlist.forms.player_todos.manual.gain_spec_skill_subtag import GainSpecSkillForm
 
 
 # TODO: check conditional commands and alter where needed!
@@ -180,6 +183,11 @@ class CommandParser(object):
         if cmd.get('command') == GET_MUT_CHOICE:
             form = GainMutationChoiceForm(self.__facade, cmd)
             colour = 'danger'
+        if cmd.get('command') == ORIGIN_EXTRA:
+            form = GainExtraOriginCommand(cmd)
+            colour = 'success'
+        if cmd.get('command') == GET_SUBTAG_SKILL:
+            form = GainSpecSkillForm(self.__facade, cmd)
         reminder = Reminder(cmd.get('command'), form, self.__links[cmd.get('command')], colour, cmd.get('cmd_id'))
         return reminder
 
@@ -212,6 +220,7 @@ class CommandParser(object):
         commands[GET_APT_FIX] = GainAptitudeCommand(facade)
         commands[INC_PR] = IncreasePRCommand(facade)
         commands[GET_TRAIT_FIX] = GainTraitCommand(facade)
+        commands[LOSE_FATE] = LoseFateCommand(facade)
 
         return commands
 
@@ -233,6 +242,8 @@ class CommandParser(object):
         templates[GET_MAL_CP_RT] = 'gain_malignance_form.html'
         templates[GET_MUT_CP_RT] = 'gain_mutation_form.html'
         templates[GET_MUT_CHOICE] = 'gain_mutation_choice_form.html'
+        templates[ORIGIN_EXTRA] = 'origin_extra_choice_form.html'
+        templates[GET_SUBTAG_SKILL] = 'gain_spec_skill_form.html'
 
         return templates
 
@@ -254,6 +265,8 @@ class CommandParser(object):
         titles[GET_MAL_CP_RT] = 'Получите случайную Малигнацию'
         titles[GET_MUT_CP_RT] = 'Получите случайную Мутацию'
         titles[GET_MUT_CHOICE] = 'Получите Мутацию на выбор'
+        titles[ORIGIN_EXTRA] = 'Дополнительная опция от происхождения'
+        titles[GET_SUBTAG_SKILL] = 'Получите специализацию в навыке'
 
         return titles
 

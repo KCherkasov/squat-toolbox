@@ -6,9 +6,8 @@
     <div class="text-center">
         <b>{% if lang == 'ru' %}Требования{% else %}Prerequisites{%%}</b>
     </div>
-    {% with facade.talent_descriptions|get_by_dict_key:form.tl_tag as tal %}
     <ul>
-        {% for prereq in tal.get_prerequisites %}
+        {% for prereq in prereqs %}
         <li>
             {% if prereq.is_stat_prereq %}
                 {{ facade.stat_descriptions|get_by_dict_key:prereq.tag|get_stdescr_name:lang }}&nbsp;>=&nbsp;{{ prereq.value }}
@@ -87,6 +86,9 @@
             {% endif %}
             {% if prereq.is_corruption_prereq %}
                 {% if lang == 'ru' %}Очки порчи{% else %}Corruption points{% endif %}:&nbsp;>=&nbsp;{{ prereq.value }}
+            {% endif %}
+            {% if prereq.is_xp_prereq %}
+                {% if lang == 'ru' %}Потрачено Очков Опыта{% else %}XP spent{% endif %}:&nbsp;>=&nbsp;{{ prereq.value }}
             {% endif %}
             {% if prereq.has_alt %}
                 <br>
@@ -273,5 +275,4 @@
         </li>
         {% endfor %}
     </ul>
-    {% endwith %}
 </div>

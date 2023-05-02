@@ -8,22 +8,22 @@
         {{ err }}
     </div>
 {% endfor %}
-
-<div class="card card-body charlist-content justify-content-center align-items-center alert-{{ form.colour }} w300">
+{% with facade.talent_descriptions|get_by_dict_key:form.tl_tag as tal %}
+ <div class="card card-body charlist-content justify-content-center align-items-center alert-{{ form.colour }} w300">
     <div>
         <a href="" class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
-                           data-bs-target="#c{{character.id}}-{{ talent_key }}-{{ lang }}-upg-info" title="Подробнее">
-            <b class="text-dark">{{ facade|get_talent_description:form.tl_tag|get_tldescr_name:lang }}</b>
+                           data-bs-target="#c{{character.id}}-{{ form.tl_tag }}-{{ lang }}-upg-info" title="Подробнее">
+            <b class="text-dark">{{ tal.name|get_by_dict_key:lang }}</b>
         </a>
     </div>
 
-    <div class="modal fade" id="c{{character.id}}-{{ talent_key }}-{{ lang }}-upg-info" tabindex="-1"
-         aria-labelledby="c{{character.id}}-{{ talent_key }}-{{ lang }}-upg-info-label">
+    <div class="modal fade" id="c{{character.id}}-{{ form.tl_tag }}-{{ lang }}-upg-info" tabindex="-1"
+         aria-labelledby="c{{character.id}}-{{ form.tl_tag }}-{{ lang }}-upg-info-label">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <b id="c{{character.id}}-{{ talent_key }}-{{ lang }}-upg-info-label">
-                        {{ facade|get_talent_description:form.tl_tag|get_tldescr_name:lang }}
+                    <b id="c{{character.id}}-{{ form.tl_tag }}-{{ lang }}-upg-info-label">
+                        {{ tal.name|get_by_dict_key:lang }}
                     </b>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -51,7 +51,7 @@
                     </div>
                     <div class="card card-body">
                         <p class="card-text">
-                            {{ facade|get_talent_description:form.tl_tag|get_tldescr_description:lang }}
+                            {{ tal.description|get_by_dict_key:lang }}
                         </p>
                     </div>
                 </div>
@@ -62,21 +62,27 @@
     <form class="form-horizontal" method="post" action="">
         {% csrf_token %}
         <div class="charlist-inline align-items-center mb-1">
+            {% if form.taken >= 0 %}
             <div>
                 <b class="text-dark">
-                    {% if form.taken >= 0 %}{{ form.taken }}&nbsp;>>&nbsp;{{ form.taken_new }}{%endif%}
+                    {{ form.taken }}&nbsp;>>&nbsp;{{ form.taken_new }}
                 </b>
             </div>
+            {% endif %}
 
             <input type="hidden" name="tl_tag" value="{{ form.tl_tag }}">
             <input type="hidden" name="cost" value="{{ form.cost }}">
-            <button class="btn btn-primary {% if form.cost > character.xp_current or talent_unavailable %}disabled{%endif%} ms-4"
+            <button class="btn btn-primary {% if form.cost > character.xp_current and not form.available %}disabled{%endif%} ms-4"
                     name="upg-talent-confirm" type="submit">
                 {{ form.cost }}&nbsp;XP
             </button>
         </div>
-        {% if talent_unavailable %}
-            {% include 'prerequisites_widget.html' %}
-        {% endif %}
     </form>
-</div>
+
+     {% if not form.available %}
+        {% with tal.get_prerequisites as prereqs %}
+            {% include 'prerequisites_widget.html' %}
+        {% endwith %}
+     {% endif %}
+ </div>
+{% endwith %}

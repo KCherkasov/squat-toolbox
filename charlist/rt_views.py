@@ -39,6 +39,11 @@ from charlist.forms.upgrading.skill_upgrade_form import SkillUpgradeForm
 from charlist.forms.upgrading.stat_upgrade_form import StatUpgradeForm
 from charlist.forms.upgrading.talent_subtag_upgrade_form import TalentUpgradeSubtagForm
 from charlist.forms.upgrading.talent_upgrade_form import TalentUpgradeForm
+from charlist.forms.player_todos.manual.origin_xp_extra_choice import GainExtraOriginCommand
+from charlist.forms.player_todos.manual.gain_spec_skill_subtag import GainSpecSkillForm
+from charlist.forms.upgrading.psy_power_upgrade_form import PsyPowerUpgradeForm
+from charlist.forms.upgrading.elite_advance_upgrade_form import EliteAdvanceUpgradeForm
+from charlist.forms.upgrading.pr_upgrade_form import PRUpgrageForm
 
 resources = ['aptitudes.json', 'rt_stat_descriptions.json', 'rt_skill_descriptions.json', 'rt_talent_descriptions.json',
              'traits.json', 'homeworlds.json', 'backgrounds.json', 'roles.json', 'elite_advances.json',
@@ -181,9 +186,14 @@ def rt_create_character_choices(request, creation_id):
                                               'subtag': cleaned_data.get(subtag_fld_name)}
                                 cdm.talents.append(res_choice)
                         else:
-                            cdm.talentss.append(choice)
+                            cdm.talents.append(choice)
                     else:
-                        cdm.commands.append(choice)    
+                        cmd = dict()
+                        cmd['command'] = choice.get('tag')
+                        if 'stat' in choice.keys():
+                            cmd['tag'] = choice.get('stat')
+                            cmd['amount'] = choice.get('amount')
+                        cdm.commands.append(cmd)
                 cd.curr_stage = 'double-apts'
                 cd.last_mod_date = datetime.datetime.now()
                 cd.character_data = cdm.to_json()
@@ -289,6 +299,7 @@ def create_character_divination(request, creation_id):
                 mutations = list()
                 disorders = list()
                 character = models.Character.objects.create(owner=request.user, character_data='')
+                character.is_rt = True
                 character.save()
                 character_model = RTCharacterModel(character.id, -1, cdm.name, cdm.hw_id, cdm.birthright_id,
                                                    cdm.lure_id, cdm.trial_id, cdm.motivation_id, cdm.career_id,
@@ -542,6 +553,40 @@ def gain_stat_aptitude(request, character_model: RTCharacterModel, character: mo
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
+def gain_spec_skill(request, character_model: RTCharacterModel, character: models.Character):
+    cmd = find_cmd(request, character_model)
+    form = GainSpecSkillForm(rt_flyweights, cmd, request.POST)
+    if form.is_valid():
+        character_model.improve_skill_subtag(form.sk_tag, form.cleaned_data['subtag'], rt_flyweights)
+        clean_completed(character_model, request)
+        character.character_data = character_model.toJSON()
+        character.save()
+    return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
+
+
+def origin_extra_confirm(request, character_model: RTCharacterModel, character: models.Character):
+    cmd = find_cmd(request, character_model)
+    form = GainExtraOriginCommand(cmd, request.POST)
+    if form.is_valid():
+        character_model.spend_xp(cmd.get('cost'))
+        for command in cmd.get('commands'):
+            character_model.pending().append(command)
+        character.character_data = character_model.toJSON()
+        clean_completed(character_model, request)
+        character.save()
+    return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
+
+
+def origin_extra_abort(request, character_model: RTCharacterModel, character: models.Character):
+    cmd = find_cmd(request, character_model)
+    form = GainExtraOriginCommand(cmd)
+    if form.is_valid():
+        clean_completed(character_model, request)
+        character.character_data = character_model.toJSON()
+        character.save()
+    return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
+
+
 def parse_manual_cmds(request, character: models.Character, character_model: RTCharacterModel):
     if 'gain-insanity-confirm' in request.POST:
         gain_insanity(request, character_model, character)
@@ -575,6 +620,12 @@ def parse_manual_cmds(request, character: models.Character, character_model: RTC
         gain_mutation_choice(request, character_model, character)
     if 'gain-stat-apt-confirm' in request.POST:
         gain_stat_aptitude(request, character_model, character)
+    if 'skill-spec-confirm' in request.POST:
+        gain_spec_skill(request, character_model, character)
+    if 'origin-extra-confirm' in request.POST:
+        origin_extra_confirm(request, character_model, character)
+    if 'origin-extra-abort' in request.POST:
+        origin_extra_abort(request, character_model, character)
 
 
 def upg_data_to_forms(character: RTCharacterModel):
@@ -582,7 +633,6 @@ def upg_data_to_forms(character: RTCharacterModel):
     forms = {'stats': list(),
              'skills': {'common': list(), 'spec': list()},
              'talents': {'available': dict(), 'unavailable': dict()},
-             'psy': {'available': dict(), 'unavailable': dict()},
              'ea': {'available': list(), 'unavailable': list()}
              }
 
@@ -634,7 +684,7 @@ def upg_data_to_forms(character: RTCharacterModel):
                     else:
                         taken = -1
                 forms.get('talents').get('available')[tier].get('common').append(
-                    TalentUpgradeForm(tl_tag, talent.get('cost'), talent.get('colour'), taken))
+                    TalentUpgradeForm(tl_tag, talent.get('cost'), talent.get('colour'), True, taken))
             else:
                 form_map = dict()
                 form_map['tl_tag'] = tl_tag
@@ -653,9 +703,61 @@ def upg_data_to_forms(character: RTCharacterModel):
                                 taken = character.talents().get(tl_tag).taken_subtag(key)
                             else:
                                 taken = 0
-                        form_map.get('forms').append(TalentUpgradeSubtagForm(tl_tag, key, talent.get('cost'), taken))
+                        form_map.get('forms').append(TalentUpgradeSubtagForm(
+                            tl_tag, key, talent.get('cost'), True, taken))
                 forms.get('talents').get('available')[tier].get('spec').append(form_map)
-
+    for tier in upg_costs.get('talents').get('unavailable').keys():
+        for tl_tag, talent in upg_costs.get('talents').get('unavailable').get(tier).items():
+            if not rt_flyweights.talent_descriptions().get(tl_tag).is_specialist():
+                if not character.has_talent(tl_tag):
+                    if rt_flyweights.talent_descriptions().get(tl_tag).is_stackable():
+                        taken = character.talents().get(tl_tag).taken()
+                    else:
+                        taken = -1
+                else:
+                    if rt_flyweights.talent_descriptions().get(tl_tag).is_stackable():
+                        taken = 0
+                    else:
+                        taken = -1
+                forms.get('talents').get('unavailable')[tier].get('common').append(
+                    TalentUpgradeForm(tl_tag, talent.get('cost'), talent.get('colour'), False, taken))
+            else:
+                form_map = dict()
+                form_map['tl_tag'] = tl_tag
+                form_map['forms'] = list()
+                for key, value in talent.items():
+                    if key == 'colour':
+                        form_map[key] = value
+                    else:
+                        if key == 'TL_ANY':
+                            if rt_flyweights.talent_descriptions().get(tl_tag).is_stackable():
+                                taken = 0
+                            else:
+                                taken = -1
+                        else:
+                            if character.has_talent_subtag(tl_tag, key):
+                                taken = character.talents().get(tl_tag).taken_subtag(key)
+                            else:
+                                taken = 0
+                        form_map.get('forms').append(TalentUpgradeSubtagForm(
+                            tl_tag, key, talent.get('cost'), False, taken))
+                forms.get('talents').get('unavailable')[tier].get('spec').append(form_map)
+    for ea_key, cost in upg_costs.get('ea').get('available'):
+        forms.get('ea').get('available').append(EliteAdvanceUpgradeForm(ea_key, cost, True))
+    for ea_key, cost in upg_costs.get('ea').get('unavailable'):
+        forms.get('ea').get('unavailable').append(EliteAdvanceUpgradeForm(ea_key, cost, False))
+    if 'pr' in upg_costs.keys():
+        forms['pr'] = PRUpgrageForm(character.pr(), upg_costs.get('pr'))
+    if 'psy' in upg_costs.keys():
+        forms['psy'] = {'available': dict(), 'unavailable': dict()}
+        for school, powers in upg_costs.get('psy').get('available').items():
+            forms.get('psy').get('available')[school] = list()
+            for power, cost in powers.items():
+                forms.get('psy').get('available').get(school).append(PsyPowerUpgradeForm(power, cost, True))
+        for school, powers in upg_costs.get('psy').get('unavailable').items():
+            forms.get('psy').get('unavailable')[school] = list()
+            for power, cost in powers.items():
+                forms.get('psy').get('unavailable').get(school).append(PsyPowerUpgradeForm(power, cost, False))
     return forms
 
 
@@ -735,6 +837,71 @@ def upgrade_subskill(request, character: models.Character, character_model: RTCh
     return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
+def upgrade_talent(request, character: models.Character, character_model: RTCharacterModel):
+    tl_tag = request.POST.get('tl_tag')
+    cost = int(request.POST.get('cost'))
+    form = TalentUpgradeForm(tl_tag, cost, 'success', True, 0, request.POST)
+    if form.is_valid():
+        if character_model.xp_current() >= cost:
+            character_model.spend_xp(cost)
+            character_model.gain_talent(tl_tag, rt_flyweights)
+            character.character_data = character_model.toJSON()
+            character.save()
+    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
+
+
+def upgrade_talent_subtag(request, character: models.Character, character_model: RTCharacterModel):
+    tl_tag = request.POST.get('tl_tag')
+    subtag = request.POST.get('subtag_tl')
+    cost = int(request.POST.get('cost'))
+    form = TalentUpgradeSubtagForm(tl_tag, subtag, cost, True, 0, request.POST)
+    if form.is_valid():
+        character_model.spend_xp(cost)
+        if subtag != 'TL_ANY':
+            tl_subtag = subtag
+        else:
+            tl_subtag = form.cleaned_data.get('subtag')
+        character_model.gain_talent_subtag(tl_tag, tl_subtag, rt_flyweights)
+        character.character_data = character_model.toJSON()
+        character.save()
+    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
+
+
+def upgrade_ea(request, character: models.Character, character_model: RTCharacterModel):
+    ea_tag = request.POST.get('ea_tag')
+    cost = request.POST.get('cost')
+    form = EliteAdvanceUpgradeForm(ea_tag, cost, True, request.POST)
+    if form.is_valid():
+        character_model.spend_xp(cost)
+        character_model.gain_ea_id(ea_tag)
+        character.character_data = character_model.toJSON()
+        character.save()
+    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
+
+
+def upgrade_pr(request, character: models.Character, character_model: RTCharacterModel):
+    cost = request.POST.get('cost')
+    form = PRUpgrageForm(character_model.pr(), cost, request.POST)
+    if form.is_valid():
+        character_model.spend_xp(cost)
+        character_model.gain_pr()
+        character.character_data = character_model.toJSON()
+        character.save()
+    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
+
+
+def upgrade_psy_power(request, character: models.Character, character_model: RTCharacterModel):
+    pp_tag = request.POST.get('pp_tag')
+    cost = request.POST.get('cost')
+    form = PsyPowerUpgradeForm(pp_tag, cost, True, request.POST)
+    if form.is_valid():
+        character_model.spend_xp(cost)
+        character_model.psy_powers().append(pp_tag)
+        character.character_data = character_model.toJSON()
+        character.save()
+    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
+
+
 def character_upgrade(request, char_id):
     character = models.Character.objects.get(pk=char_id)
     character_model = character.data_to_model()
@@ -746,6 +913,16 @@ def character_upgrade(request, char_id):
             upgrade_skill(request, character, character_model)
         if 'upg-skill-subtag-confirm' in request.POST:
             upgrade_subskill(request, character, character_model)
+        if 'upg-talent-confirm' in request.POST:
+            upgrade_talent(request, character, character_model)
+        if 'upg-tl-subtag-confirm' in request.POST:
+            upgrade_talent_subtag(request, character, character_model)
+        if 'upg-ea-confirm' in request.POST:
+            upgrade_ea(request, character, character_model)
+        if 'upg-pr-confirm' in request.POST:
+            upgrade_pr(request, character, character_model)
+        if 'upg-pp-confirm' in request.POST:
+            upgrade_psy_power(request, character, character_model)
     return render(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': rt_flyweights,
                                                       'character': character_model, 'forms': forms,
                                                       'return': True, 'char_view': character.get_view_url(), })

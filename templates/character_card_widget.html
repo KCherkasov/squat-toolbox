@@ -3,9 +3,38 @@
 <div class="card charlist-content">
     {% with char_data|get_by_dict_key:character.pk as char_model %}
     <div class="card-title">
-        <h4><a class="card-link" href="{{ character.get_view_url }}">{{ char_model.name }}</a></h4>
+        <h4><a class="card-link" href="{{ character.get_view_url }}">
+            {{ char_model.name }}&nbsp;({% if char_model.is_rt %}Rogue Trader 2.0{% else %}Dark Heresy 2<sup>nd</sup> edition{% endif %})
+        </a></h4>
     </div>
     <div class="card-body charlist-inline justify-content-center">
+        {% if char_model.is_rt %}
+        <div>
+            {% with facade.rt_homeworlds|get_by_dict_key:hw_id as hw %}
+            <h5>{{ hw.name|get_by_dict_key:lang }}</h5>
+            {% endwith %}
+        </div>
+        <div>
+            {% with facade.birthrights|get_by_dict_key:birthright_id as br %}
+            <h5>{{ br.name|get_by_dict_key:lang }}</h5>
+            {% endwith %}
+        </div>
+        <div>
+            {% with facade.lures|get_by_dict_key:lure_id as lure %}
+            <h5>{{ lure.name|get_by_dict_key:lang }}</h5>
+            {% endwith %}
+        </div>
+        <div>
+            {% with facade.trials|get_by_dict_key:trial_id as trial %}
+            <h5>{{ trial.name|get_by_dict_key:lang }}</h5>
+            {% endwith %}
+        </div>
+        <div>
+            {% with facade.rt_motivations|get_by_dict_key:motivation_id as motive %}
+            <h5>{{ motive.name|get_by_dict_key:lang }}</h5>
+            {% endwith %}
+        </div>
+        {% else %}
         <div>
             <h5>{{ facade|get_homeworld_description:char_model.hw_id|get_hw_name:'en' }}</h5>
         </div>
@@ -21,6 +50,7 @@
         <div>
             <h5>{{ facade|get_role_description_big:char_model.role_id|get_role_name:'en' }}</h5>
         </div>
+        {% endif %}
     </div>
     <div class="card-body charlist-inline justify-content-center">
         {% for stat_key, stat in char_model.stats.items %}

@@ -11,6 +11,10 @@ INC_STAT_ALT = "IncreaseStatAlt"  # requires form (form done, linked; template d
 DEC_STAT_FIX = "DecreaseStat"  # done
 DEC_STAT_ALT = "DecreaseStatAlt"  # requires form (form done, linked; template done, linked) done
 
+GET_SUBTAG_SKILL = "GainSpecSkill"  # done
+
+ORIGIN_EXTRA = "GainExtraOption"  # done
+
 GET_SKILL_FIX = "GainSkill"  # done
 
 GET_TRAIT_FIX = "GainTrait"  # done
@@ -37,3 +41,7 @@ GET_MUT_CHOICE = "GainMutation"  # requires form (form done, linked; template do
 GET_MUT_CP_RT = "GainMutationRollCP"  # requires form (form done, linked; template done, linked) done
 
 GET_FATE = "GainFate"  # done
+LOSE_FATE = "LoseFate"  # done
+
+
+

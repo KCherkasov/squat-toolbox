@@ -3,12 +3,13 @@ from django.forms import Form
 
 
 class TalentUpgradeSubtagForm(Form):
-    def __init__(self, tl_tag: str, subtag: str, cost: int, taken: int = -1, *args, **kwargs):
+    def __init__(self, tl_tag: str, subtag: str, cost: int, available: bool, taken: int = -1, *args, **kwargs):
         super(TalentUpgradeSubtagForm, self).__init__(*args, **kwargs)
         self.__tl_tag = tl_tag
         self.__subtag = subtag
         self.__cost = cost
         self.__taken = taken
+        self.available = available
         if subtag == 'TL_ANY':
             self.fields['subtag'] = forms.CharField(max_length=100, min_length=1)
 

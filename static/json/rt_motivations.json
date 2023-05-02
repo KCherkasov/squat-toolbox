@@ -282,6 +282,19 @@
         {
           "command": "GainTalent",
           "tag": "TL_TTRC"
+        },
+        {
+          "command": "GainExtraOption",
+          "cost": 200,
+          "commands": [
+            {
+              "command": "GainSpecSkill",
+              "tag": "SK_SCL"
+            }
+          ],
+          "description": [
+            "Получить дополнительную специализацию в Ученом Знании (Scholastic Lore)"
+          ]
         }
       ],
       "aptitudes": ["A_KNG", "A_TECH"],
@@ -308,7 +321,21 @@
           }
         ]
       ],
-      "commands": [],
+      "commands": [
+        {
+          "command": "GainExtraOption",
+          "cost": 200,
+          "commands": [
+            {
+              "command": "GainSpecSkill",
+              "tag": "SK_SCL"
+            }
+          ],
+          "description": [
+            "Получить дополнительную специализацию в Запретном знании (Forbidden Lore)"
+          ]
+        }
+      ],
       "aptitudes": ["A_OFF", "A_KNG"],
       "cost": 200
     },

@@ -1,0 +1,19 @@
+{% block loaders %}
+{% load filters %}
+{% endblock %}
+
+{% load filters %}
+<div class="card card-body">
+    <header class="text-center">
+        <b>
+            {% if lang == 'ru' %}Известные психосилы{% else %}Known psy powers{% endif %}
+        </b>
+    </header>
+    <div class="tt-list">
+        {% for pp_key in character.psy_powers %}
+            {% include 'psy_power_widget.html' %}
+        {% empty %}
+            {% if lang == 'ru' %}Псирейтинг-то есть, а толку от него нет...{% else %}This psyker can't make his existence useful without known psy-powers...{% endif %}
+        {% endfor %}
+    </div>
+</div>

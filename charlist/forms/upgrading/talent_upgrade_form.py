@@ -3,12 +3,13 @@ from django.forms import Form
 
 
 class TalentUpgradeForm(Form):
-    def __init__(self, tl_tag: str, cost: int, colour: str, taken: int = -1, *args, **kwargs):
+    def __init__(self, tl_tag: str, cost: int, colour: str, available: bool, taken: int = -1, *args, **kwargs):
         super(TalentUpgradeForm, self).__init__(*args, **kwargs)
         self.__tl_tag = tl_tag
         self.__cost = cost
         self.__colour = colour
         self.__taken = taken
+        self.available = available
 
     def tl_tag(self):
         return self.__tl_tag

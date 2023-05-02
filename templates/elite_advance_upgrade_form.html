@@ -1,0 +1,59 @@
+{% block loaders %}
+    {% load filters %}
+{% endblock %}
+
+{% for err in form.non_field_errors %}
+    <div class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        {{ err }}
+    </div>
+{% endfor %}
+{% with facade.elite_advances|get_by_dict_key:form.ea_tag as ea %}
+ <div class="card card-body charlist-content justify-content-center align-items-center alert-info w300">
+    <div>
+        <a href="" class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
+                           data-bs-target="#c{{character.id}}-{{ form.ea_tag }}-{{ lang }}-upg-info" title="Подробнее">
+            <b class="text-dark">{{ ea.name|get_by_dict_key:lang }}</b>
+        </a>
+    </div>
+
+    <div class="modal fade" id="c{{character.id}}-{{ form.ea_tag }}-{{ lang }}-upg-info" tabindex="-1"
+         aria-labelledby="c{{character.id}}-{{ form.ea_tag }}-{{ lang }}-upg-info-label">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <b id="c{{character.id}}-{{ form.ea_tag }}-{{ lang }}-upg-info-label">
+                        {{ ea.name|get_by_dict_key:lang }}
+                    </b>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <p class="card-text">{{ ea.description|get_by_dict_key:lang }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form class="form-horizontal" method="post" action="">
+        {% csrf_token %}
+        <div class="charlist-inline align-items-center mb-1">
+            <input type="hidden" name="ea_tag" value="{{ form.ea_tag }}">
+            <input type="hidden" name="cost" value="{{ form.cost }}">
+            <button class="btn btn-primary {% if form.cost > character.xp_current and not form.available %}disabled{%endif%} ms-4"
+                    name="upg-ea-confirm" type="submit">
+                {{ form.cost }}&nbsp;XP
+            </button>
+        </div>
+    </form>
+
+     {% if not form.available %}
+        {% with ea.get_prerequisites as prereqs %}
+            {% include 'prerequisites_widget.html' %}
+        {% endwith %}
+     {% endif %}
+ </div>
+{% endwith %}
