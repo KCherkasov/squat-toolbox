@@ -4186,7 +4186,7 @@
     {
       "tag": "TL_APMC",
       "name": {
-        "ru": "",
+        "ru": "Apostate Mechanic",
         "en": "Apostate Mechanic"
       },
       "description": {
@@ -4303,7 +4303,7 @@
     {
       "tag": "TL_",
       "name": {
-        "ru": "",
+        "ru": "Зачищай и очишай",
         "en": "Cleanse and Purify"
       },
       "description": {
@@ -4342,7 +4342,8 @@
           "value": 0,
           "alt": {
             "tag": "SK_FBL",
-            "subtag": ["Xenos", "Ксеносы"]
+            "subtag": ["Xenos", "Ксеносы"],
+            "value": 0
           }
         }
       ],
@@ -4916,7 +4917,7 @@
       "is_stackable": false
     },
     {
-      "tag": "TL_",
+      "tag": "TL_KLEY",
       "name": {
         "ru": "Killer's eye",
         "en": "Killer's eye"
