@@ -1229,9 +1229,9 @@ def upg_data_to_forms(character):
             forms.get('psy').get('available')[school] = list()
             for power, cost in upg_costs.get('psy').get('available').get(school).items():
                 forms.get('psy').get('available').get(school).append(PsyPowerUpgradeForm(power, cost, True))
-        for school, powers in upg_costs.get('psy').get('unavailable').items():
+        for school in upg_costs.get('psy').get('unavailable').keys():
             forms.get('psy').get('unavailable')[school] = list()
-            for power, cost in powers.items():
+            for power, cost in upg_costs.get('psy').get('unavailable').get(school).items():
                 forms.get('psy').get('unavailable').get(school).append(PsyPowerUpgradeForm(power, cost, False))
     return forms
 
