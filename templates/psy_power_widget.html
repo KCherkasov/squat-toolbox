@@ -124,7 +124,7 @@
                                 <b>{% if lang == 'ru' %}Дальность{% else %}Range{% endif %}</b>:&nbsp;
                                 {% if self.range > 0 %}
                                     {% if self.range == 1 %}
-                                        {% if lang == 'ru'}касание (1&nbsp;м){% else%}touch (1&nbsp;m){% endif %}
+                                        {% if lang == 'ru' %}касание (1&nbsp;м){% else %}touch (1&nbsp;m){% endif %}
                                     {% else %}
                                         {{ power.range }}xPR&nbsp;{% if lang == 'ru'}м{% else%}m{% endif %}
                                     {% endif %}
