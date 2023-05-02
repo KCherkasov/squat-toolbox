@@ -11,6 +11,6 @@ class IncreasePRCommand(BaseCommand):
 
     def do_logic(self, character, data=None):
         if data is not None:
-            for i in range(data.get('amount')):
+            for i in range(data.get('value')):
                 character.gain_pr()
         return character
