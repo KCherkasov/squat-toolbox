@@ -41,4 +41,7 @@ class GainTraitCommand(BaseCommand):
                         character.gain_trait(data.get('tag'), self.get_facade())
                 else:
                     character.gain_trait(data.get('tag'), self.get_facade())
+            for hint in tr.get_hints():
+                if hint.has_command():
+                    character.pending().append(hint.get_command())
         return character
