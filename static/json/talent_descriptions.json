@@ -2364,17 +2364,17 @@
         },
         {
           "tag": "SK_CML",
-          "subtag": "SK_ANY",
+          "subtag": ["SK_ANY"],
           "value": 0,
           "alt": [
             {
               "tag": "SK_SCL",
-              "subtag": "SK_ANY",
+              "subtag": ["SK_ANY"],
               "value": 0
             },
             {
               "tag": "SK_FBL",
-              "subtag": "SK_ANY",
+              "subtag": ["SK_ANY"],
               "value": 0
             }
           ]

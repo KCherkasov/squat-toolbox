@@ -44,9 +44,13 @@
                             {% if lang == 'ru' %}Любой{% else %}Any{% endif %}
                         {% else %}
                         {% for subtag in prereq.subtag %}
+                            {% if prereq.is_subtag_any %}
+                                {% if lang == 'ru' %}Любой{% else %}Any{% endif %}
+                            {% else %}
                             {{ subtag }}
                             {% if not forloop.last %}
                                 &nbsp;/&nbsp;
+                            {% endif %}
                             {% endif %}
                         {% endfor %}
                         {% endif %}
@@ -134,9 +138,13 @@
                                         {% if alt|has_key:'subtag' %}
                                             (
                                             {% for subtag in alt|get_by_dict_key:'subtag' %}
+                                                {% if subtag == 'SK_ANY' %}
+                                                    {% if lang == 'ru' %}Любой{% else %}Any{% endif %}
+                                                {% else %}
                                                 {{ subtag }}
                                                 {% if not forloop.last %}
                                                     &nbsp;/&nbsp;
+                                                {% endif %}
                                                 {% endif %}
                                             {% endfor %}
                                             )
@@ -151,10 +159,14 @@
                                     {% if alt|has_key:'subtag' %}
                                         (
                                         {% for subtag in alt|get_by_dict_key:'subtag' %}
-                                            {{ subtag }}
-                                            {% if not forloop.last %}
-                                                &nbsp;/&nbsp;
-                                            {% endif %}
+                                            {% if subtag == 'TL_ANY' %}
+                                                    {% if lang == 'ru' %}Любой{% else %}Any{% endif %}
+                                                {% else %}
+                                                {{ subtag }}
+                                                {% if not forloop.last %}
+                                                    &nbsp;/&nbsp;
+                                                {% endif %}
+                                                {% endif %}
                                         {% endfor %}
                                         )
                                     {% endif %}
@@ -231,9 +243,13 @@
                                         {% if alt|has_key:'subtag' %}
                                             (
                                             {% for subtag in alt|get_by_dict_key:'subtag' %}
+                                                {% if subtag == 'SK_ANY' %}
+                                                    {% if lang == 'ru' %}Любой{% else %}Any{% endif %}
+                                                {% else %}
                                                 {{ subtag }}
                                                 {% if not forloop.last %}
                                                     &nbsp;/&nbsp;
+                                                {% endif %}
                                                 {% endif %}
                                             {% endfor %}
                                             )
@@ -248,10 +264,14 @@
                                     {% if alt|has_key:'subtag' %}
                                         (
                                         {% for subtag in alt|get_by_dict_key:'subtag' %}
-                                            {{ subtag }}
-                                            {% if not forloop.last %}
-                                                &nbsp;/&nbsp;
-                                            {% endif %}
+                                            {% if subtag == 'TL_ANY' %}
+                                                    {% if lang == 'ru' %}Любой{% else %}Any{% endif %}
+                                                {% else %}
+                                                {{ subtag }}
+                                                {% if not forloop.last %}
+                                                    &nbsp;/&nbsp;
+                                                {% endif %}
+                                                {% endif %}
                                         {% endfor %}
                                         )
                                     {% endif %}
