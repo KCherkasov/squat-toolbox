@@ -13,22 +13,26 @@
                 {{ facade.stat_descriptions|get_by_dict_key:prereq.tag|get_stdescr_name:lang }}&nbsp;>=&nbsp;{{ prereq.value }}
             {% endif %}
             {% if prereq.is_skill_prereq %}
-                {% if prereg.tag != 'SK_ANY' %}
+                {% if prereg.tag == 'SK_ANY' %}
+                    {% if lang == 'ru' %}Любой навык{% else %}Any skill{% endif %}
+                {% else %}
                     {% with facade.skill_descriptions|get_by_dict_key:prereq.tag as skill %}
                     {% if skill is not None %}{{ skill.name|get_by_dict_key:lang }}{% else %}{{ prereq.tag }}{% endif %}
                     {% if prereq.has_subtag %}
                         (
+                        {% if prereq.is_subtag_any %}
+                            {% if lang == 'ru' %}Любой{% else %}Any{% endif %}
+                        {% else %}
                         {% for subtag in prereq.subtag %}
                             {{ subtag }}
                             {% if not forloop.last %}
                                 &nbsp;/&nbsp;
                             {% endif %}
                         {% endfor %}
+                        {% endif %}
                         )
                     {% endif %}
                     {% endwith %}
-                {% else %}
-                    {% if lang == 'ru' %}Любой навык{% else %}Any skill{% endif %}
                 {% endif %}
                 &nbsp;>=&nbsp;+{{ prereq.value }}
             {% endif %}
@@ -36,12 +40,16 @@
                 {{ facade.talent_descriptions|get_by_dict_key:prereq.tag|get_tldescr_name:lang }}
                 {% if prereq.has_subtag %}
                     (
-                    {% for subtag in prereq.subtag %}
-                        {{ subtag }}
-                        {% if not forloop.last %}
-                            &nbsp;/&nbsp;
+                    {% if prereq.is_subtag_any %}
+                            {% if lang == 'ru' %}Любой{% else %}Any{% endif %}
+                        {% else %}
+                        {% for subtag in prereq.subtag %}
+                            {{ subtag }}
+                            {% if not forloop.last %}
+                                &nbsp;/&nbsp;
+                            {% endif %}
+                        {% endfor %}
                         {% endif %}
-                    {% endfor %}
                     )
                 {% endif %}
                 {% if prereq.value > 1 %}
@@ -71,10 +79,16 @@
                 {{ facade.trait_descriptions|get_by_dict_key:prereq.tag|get_trdescr_name:lang }}
                 {% if prereq.has_subtag %}
                     (
-                    {% for subtag in prereq.subtag %}
-                        {{ subtag }}
-                        {% if not forloop.last %}&nbsp;/&nbsp;{% endif %}
-                    {% endfor %}
+                    {% if prereq.is_subtag_any %}
+                            {% if lang == 'ru' %}Любой{% else %}Any{% endif %}
+                    {% else %}
+                        {% for subtag in prereq.subtag %}
+                            {{ subtag }}
+                            {% if not forloop.last %}
+                                &nbsp;/&nbsp;
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
                     )
                 {% endif %}
                 {% if prereq.value > 1 %}
