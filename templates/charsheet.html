@@ -11,7 +11,7 @@ Character sheet interactive mockup
 {% endblock %}
 
 
-{% if character.is_rt %}
+{% if is_rt %}
     {% include 'rt-charsheet-interactive.html' %}
 {% else %}
     {% include 'charsheet-mockup-interactive.html' %}

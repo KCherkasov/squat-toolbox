@@ -1266,7 +1266,7 @@ def character_view(request, char_id):
         character.character_data = character_model.toJSON()
         character.save()
     return render(request, "charsheet.html", {'version': VERSION, 'facade': facade,
-                                              'command_parser': parser,
+                                              'command_parser': parser, 'is_rt': character.is_rt,
                                               'character': character_model,
                                               'hookups': character_model.make_hookups(facade),
                                               'insanity_form': insanity_form,
