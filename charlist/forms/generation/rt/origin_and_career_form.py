@@ -17,28 +17,28 @@ class OriginAndCareerForm(Form):
         for tag, br in facade.birthrights().items():
             name = br.name().get('en')
             if br.cost() > 0:
-                name.join('(').join(str(br.cost())).join(' XP)')
+                name += ' (' + str(br.cost()) + ' XP)'
             birthright_choices.append((tag, name))
         self.fields['br_id'].choices = birthright_choices
         lures = list()
         for tag, lure in facade.lures().items():
             name = lure.name().get('en')
             if lure.cost() > 0:
-                name = name.join('(').join(str(lure.cost())).join(' XP)')
+                name += ' (' + str(lure.cost()) + ' XP)'
             lures.append((tag, name))
         self.fields['lure_id'].choices = lures
         trials = list()
         for tag, trial in facade.trials().items():
             name = trial.name().get('en')
             if trial.cost() > 0:
-                name = name.join('(').join(str(trial.cost())).join(' XP)')
+                name += ' (' + str(trial.cost()) + ' XP)'
             trials.append((tag, name))
         self.fields['trial_id'].choices = trials
         motivations = list()
         for tag, motive in facade.motivations().items():
             name = motive.name().get('en')
             if motive.cost() > 0:
-                name = name.join('(').join(str(motive.cost())).join(' XP)')
+                name += ' (' + str(motive.cost()) + ' XP)'
             motivations.append((tag, name))
         self.fields['motivation_id'].choices = motivations
         careers = list()

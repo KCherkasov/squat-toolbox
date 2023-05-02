@@ -61,13 +61,12 @@ class RTChoicesForm(Form):
             if ('subtag' in choice.keys()) and (not subtagged):
                 if (choice.get('subtag') == 'SK_ANY') or (choice.get('subtag') == 'TL_ANY'):
                     subtagged = True
-        fld_name = 'choice-'
-        fld_name.join(str(i))
-        label = str(prefix).join(' choice').join(str(j))
+        fld_name = 'choice-' + str(i)
+        label = str(prefix) + ' choice ' + str(j)
         self.fields[fld_name] = forms.ChoiceField(label=label)
         self.fields[fld_name].choices = choices
         if subtagged:
-            stg_name = str(STG_PREFIX).join(fld_name)
+            stg_name = str(STG_PREFIX) + fld_name
             stg_label = 'Specialization:'
             self.fields[stg_name] = forms.CharField(label=stg_label, default='', required=False)
         i += 1
