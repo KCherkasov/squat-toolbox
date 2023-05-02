@@ -64,9 +64,6 @@ class RTCreationDataModel(object):
 
     def reset_traits(self, facade: RTFacade):
         self.traits = list()
-        if self.hw_id in facade.rt_homeworlds().keys():
-            for trait in facade.rt_homeworlds().get(self.hw_id).get_traits():
-                self.talents.append(trait)
         if self.career_id in facade.careers().keys():
             for trait in facade.careers().get(self.career_id).traits():
                 self.talents.append(trait)
