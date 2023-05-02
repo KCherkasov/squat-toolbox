@@ -3536,10 +3536,6 @@
         {
           "tag": "TL_HOCM",
           "value": 1
-        },
-        {
-          "tag": "TL_WOI",
-          "value": 1
         }
       ],
       "is_specialist": false,
@@ -3562,6 +3558,28 @@
         {
           "tag": "ST_WP",
           "value": 40
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_STCN",
+      "name": {
+        "ru": "Strength through conviction",
+        "en": "Strength through conviction"
+      },
+      "description": {
+        "ru": "Каждый раз когда персонаж получает любое количество очков Безумия, он может потратить Очко Судьбы и не получить их.",
+        "en": "Whenever this character would gain any amount of Insanity points, he may spend a Fate  point to gain 0 instead."
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": ["A_WP", "A_DEF"],
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 50
         }
       ],
       "is_specialist": false,
