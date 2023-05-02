@@ -200,7 +200,7 @@ class CommandParser(object):
                 if 'command' in command.keys():
                     cmd_tag = command.get('command')
                 else:
-                    cmd_tag = command.get('command')
+                    cmd_tag = command.get('commands')
                 if self.__commands[cmd_tag].is_automatic():
                     character = self.__commands[cmd_tag].do_logic(character, data=command)
                     completed.append(command)
