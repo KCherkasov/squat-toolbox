@@ -77,7 +77,7 @@
                     <div class="charlist-inline">
                         <div>
                             <p class="text-dark">
-                                {% if lang == 'ru' %}Поддерживаемое{% else %}Sustainable{% endif %}:&nbsp;
+                                <b>{% if lang == 'ru' %}Поддерживаемое{% else %}Sustainable{% endif %}</b>:&nbsp;
                                 {% if power.sustainable %}
                                     {% with facade.action_types|get_by_dict_key:power.sustain as action %}
                                         {% if lang == 'ru' %}{{ action.get_name_ru }}{% else %}{{ action.get_name_en }}{% endif %}
