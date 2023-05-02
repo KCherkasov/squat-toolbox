@@ -50,7 +50,10 @@
                 {% if character.is_rt %}
                     {% if lang == 'ru' %}Роль{% else %}Role{% endif %}:&nbsp;{{ facade.roles|get_by_dict_key:prereq.tag|get_role_name:lang }}
                 {% else%}
-                    {% if lang == 'ru' %}Карьера{% else %}Career{% endif %}:&nbsp;{{ facade.careers|get_by_dict_key:prereq.tag|get_role_name:lang }}
+                    {% if lang == 'ru' %}Карьера{% else %}Career{% endif %}:&nbsp;
+                    {% with facade.careers|get_by_dict_key:prereq.tag as career %}
+                    {{ career.name|get_by_dict_key:lang }}
+                    {% endwith %}
                 {%endif%}
             {% endif %}
             {% if prereq.is_background_prereq %}
@@ -288,7 +291,7 @@
                                 {% if alt_tag == 'CP' %}
                                     {% if lang == 'ru' %}Очки порчи{% else %}Corruption points{% endif %}:&nbsp;>=&nbsp;{{ prereq.value }}
                                 {% endif %}
-                                {% if not forloop.last}<br>{%if lang == 'ru'%}Или{% else %}Or{% endif %}<br>{% endif %}
+                                {% if not forloop.last %}<br>{%if lang == 'ru'%}Или{% else %}Or{% endif %}<br>{% endif %}
                                 {% endwith %}
                                 {% endwith %}
                         </li>
