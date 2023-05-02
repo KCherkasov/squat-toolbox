@@ -131,7 +131,7 @@
                                     {{ facade.talent_descriptions|get_by_dict_key:alt_tag|get_tldescr_name:lang }}
                                     {% if alt|has_key:'subtag' %}
                                         (
-                                        {% for subtag alt|get_by_dict_key:'subtag' %}
+                                        {% for subtag in alt|get_by_dict_key:'subtag' %}
                                             {{ subtag }}
                                             {% if not forloop.last %}
                                                 &nbsp;/&nbsp;
