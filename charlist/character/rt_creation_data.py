@@ -140,6 +140,5 @@ class RTCreationDataModel(object):
         fields_preset = self.__dict__
         fields = dict()
         for key, val in fields_preset.items():
-            field_key = key[22:]
-            fields[field_key] = val
+            fields[key] = val
         return json.dumps(self, default=lambda o: fields, sort_keys=True, indent=4)
