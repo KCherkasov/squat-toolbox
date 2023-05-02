@@ -1181,42 +1181,43 @@ def upg_data_to_forms(character):
                                 taken = 0
                         form_map.get('forms').append(TalentUpgradeSubtagForm(tl_tag, key, talent.get('cost'), taken))
                 forms.get('talents').get('available')[tier].get('spec').append(form_map)
-    for tier in upg_costs.get('talents').get('unavailable').keys():
-        for tl_tag, talent in upg_costs.get('talents').get('unavailable').get(tier).items():
-            if not rt_flyweights.talent_descriptions().get(tl_tag).is_specialist():
-                if not character.has_talent(tl_tag):
-                    if rt_flyweights.talent_descriptions().get(tl_tag).is_stackable():
-                        taken = 0
-                    else:
-                        taken = -1
-                else:
-                    if rt_flyweights.talent_descriptions().get(tl_tag).is_stackable():
-                        taken = character.talents().get(tl_tag).taken()
-                    else:
-                        taken = -1
-                forms.get('talents').get('unavailable')[tier].get('common').append(
-                    TalentUpgradeForm(tl_tag, talent.get('cost'), talent.get('colour'), False, taken))
-            else:
-                form_map = dict()
-                form_map['tl_tag'] = tl_tag
-                form_map['forms'] = list()
-                for key, value in talent.items():
-                    if key == 'colour':
-                        form_map[key] = value
-                    else:
-                        if key == 'TL_ANY':
-                            if rt_flyweights.talent_descriptions().get(tl_tag).is_stackable():
-                                taken = 0
-                            else:
-                                taken = -1
+    if 'unavailable' in upg_costs.get('talents').keys():
+        for tier in upg_costs.get('talents').get('unavailable').keys():
+            for tl_tag, talent in upg_costs.get('talents').get('unavailable').get(tier).items():
+                if not rt_flyweights.talent_descriptions().get(tl_tag).is_specialist():
+                    if not character.has_talent(tl_tag):
+                        if rt_flyweights.talent_descriptions().get(tl_tag).is_stackable():
+                            taken = 0
                         else:
-                            if character.has_talent_subtag(tl_tag, key):
-                                taken = character.talents().get(tl_tag).taken_subtag(key)
+                            taken = -1
+                    else:
+                        if rt_flyweights.talent_descriptions().get(tl_tag).is_stackable():
+                            taken = character.talents().get(tl_tag).taken()
+                        else:
+                            taken = -1
+                    forms.get('talents').get('unavailable')[tier].get('common').append(
+                        TalentUpgradeForm(tl_tag, talent.get('cost'), talent.get('colour'), False, taken))
+                else:
+                    form_map = dict()
+                    form_map['tl_tag'] = tl_tag
+                    form_map['forms'] = list()
+                    for key, value in talent.items():
+                        if key == 'colour':
+                            form_map[key] = value
+                        else:
+                            if key == 'TL_ANY':
+                                if rt_flyweights.talent_descriptions().get(tl_tag).is_stackable():
+                                    taken = 0
+                                else:
+                                    taken = -1
                             else:
-                                taken = 0
-                        form_map.get('forms').append(TalentUpgradeSubtagForm(
-                            tl_tag, key, talent.get('cost'), False, taken))
-                forms.get('talents').get('unavailable')[tier].get('spec').append(form_map)
+                                if character.has_talent_subtag(tl_tag, key):
+                                    taken = character.talents().get(tl_tag).taken_subtag(key)
+                                else:
+                                    taken = 0
+                            form_map.get('forms').append(TalentUpgradeSubtagForm(
+                                tl_tag, key, talent.get('cost'), False, taken))
+                    forms.get('talents').get('unavailable')[tier].get('spec').append(form_map)
     for ea_key, cost in upg_costs.get('ea').get('available'):
         forms.get('ea').get('available').append(EliteAdvanceUpgradeForm(ea_key, cost, True))
     for ea_key, cost in upg_costs.get('ea').get('unavailable'):
