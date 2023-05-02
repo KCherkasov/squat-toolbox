@@ -109,3 +109,9 @@ h5.collapse-toggler {
 .modal-dialog {
     max-width: 750 px;
 }
+
+.skills-list {
+    min-width: 350px;
+    max-height: 430px;
+    overflow-y: auto;
+}
