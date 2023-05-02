@@ -27,7 +27,7 @@
                         {% if form.subtag_tl != 'TL_ANY' %}
                             {{ form.subtag }}&nbsp;
                         {% endif %}
-                        {% if form.taken >= 0 %}
+                        {% if form.is_stackable %}
                             {{ form.taken }}&nbsp;>>&nbsp;{{ form.taken_new }}
                         {% endif %}
                     </b>

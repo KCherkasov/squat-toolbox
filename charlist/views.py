@@ -1178,7 +1178,7 @@ def upg_data_to_forms(character):
                                 taken = character.talents().get(tl_tag).taken_subtag(key)
                             else:
                                 taken = 0
-                        form_map.get('forms').append(TalentUpgradeSubtagForm(tl_tag, key, talent.get('cost'), taken))
+                        form_map.get('forms').append(TalentUpgradeSubtagForm(tl_tag, key, value, taken))
                 forms.get('talents').get('available')[tier].get('spec').append(form_map)
     if 'unavailable' in upg_costs.get('talents').keys():
         for tier in upg_costs.get('talents').get('unavailable').keys():
@@ -1215,7 +1215,7 @@ def upg_data_to_forms(character):
                                 else:
                                     taken = 0
                             form_map.get('forms').append(TalentUpgradeSubtagForm(
-                                tl_tag, key, talent.get('cost'), False, taken))
+                                tl_tag, key, value, False, taken))
                     forms.get('talents').get('unavailable')[tier].get('spec').append(form_map)
     for ea_key, cost in upg_costs.get('ea').get('available').items():
         forms.get('ea').get('available').append(EliteAdvanceUpgradeForm(ea_key, cost, True))
