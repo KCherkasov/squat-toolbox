@@ -10,11 +10,14 @@ class Prerequisite(object):
         self.value = value
         self.alt = alt
 
+    def is_tag_any(self):
+        return (self.tag == 'SK_ANY') or (self.tag == 'TL_ANY')
+
     def has_subtag(self):
         return not (self.subtag is None)
 
     def is_subtag_any(self):
-        return self.has_subtag() and not isinstance(self.subtag, list)\
+        return not isinstance(self.subtag, list)\
             and ((self.subtag == 'SK_ANY') or (self.subtag == 'TL_ANY'))
 
     def has_alt(self):

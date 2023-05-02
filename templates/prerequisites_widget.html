@@ -13,7 +13,7 @@
                 {{ facade.stat_descriptions|get_by_dict_key:prereq.tag|get_stdescr_name:lang }}&nbsp;>=&nbsp;{{ prereq.value }}
             {% endif %}
             {% if prereq.is_skill_prereq %}
-                {% if prereg.tag == 'SK_ANY' %}
+                {% if prereg.is_tag_any %}
                     {% if lang == 'ru' %}Любой навык{% else %}Any skill{% endif %}
                 {% else %}
                     {% with facade.skill_descriptions|get_by_dict_key:prereq.tag as skill %}
