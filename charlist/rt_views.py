@@ -796,6 +796,24 @@ def character_view(request, char_id):
 
 
 def upg_midlayer(request, char_id):
+    character = models.Character.objects.get(pk=char_id)
+    character_model = character.data_to_model()
+    if 'upg-stat-confirm' in request.POST:
+        upgrade_stat(request, character, character_model)
+    if 'upg-skill-confirm' in request.POST:
+        upgrade_skill(request, character, character_model)
+    if 'upg-skill-subtag-confirm' in request.POST:
+        upgrade_subskill(request, character, character_model)
+    if 'upg-talent-confirm' in request.POST:
+        upgrade_talent(request, character, character_model)
+    if 'upg-tl-subtag-confirm' in request.POST:
+        upgrade_talent_subtag(request, character, character_model)
+    if 'upg-ea-confirm' in request.POST:
+        upgrade_ea(request, character, character_model)
+    if 'upg-pr-confirm' in request.POST:
+        upgrade_pr(request, character, character_model)
+    if 'upg-pp-confirm' in request.POST:
+        upgrade_psy_power(request, character, character_model)
     return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': char_id, }))
 
 
@@ -809,7 +827,7 @@ def upgrade_stat(request, character: models.Character, character_model: RTCharac
             character_model.upgrade_stat(stat_tag)
             character.character_data = character_model.toJSON()
             character.save()
-    return HttpResponseRedirect(reverse('character-upg-midlayer', kwargs={'char_id': character.pk, }))
+    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
 def upgrade_skill(request, character: models.Character, character_model: RTCharacterModel):
@@ -822,7 +840,7 @@ def upgrade_skill(request, character: models.Character, character_model: RTChara
             character_model.improve_skill(skill_tag)
             character.character_data = character_model.toJSON()
             character.save()
-    return HttpResponseRedirect(reverse('character-upg-midlayer', kwargs={'char_id': character.pk, }))
+    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
 def upgrade_subskill(request, character: models.Character, character_model: RTCharacterModel):
@@ -839,7 +857,7 @@ def upgrade_subskill(request, character: models.Character, character_model: RTCh
         character_model.improve_skill_subtag(skill_tag, sk_subtag, rt_flyweights)
         character.character_data = character_model.toJSON()
         character.save()
-    return HttpResponseRedirect(reverse('character-upg-midlayer', kwargs={'char_id': character.pk, }))
+    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
 def upgrade_talent(request, character: models.Character, character_model: RTCharacterModel):
@@ -852,7 +870,7 @@ def upgrade_talent(request, character: models.Character, character_model: RTChar
             character_model.gain_talent(tl_tag, rt_flyweights)
             character.character_data = character_model.toJSON()
             character.save()
-    return HttpResponseRedirect(reverse('character-upg-midlayer', kwargs={'char_id': character.pk, }))
+    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
 def upgrade_talent_subtag(request, character: models.Character, character_model: RTCharacterModel):
@@ -869,7 +887,7 @@ def upgrade_talent_subtag(request, character: models.Character, character_model:
         character_model.gain_talent_subtag(tl_tag, tl_subtag, rt_flyweights)
         character.character_data = character_model.toJSON()
         character.save()
-    return HttpResponseRedirect(reverse('character-upg-midlayer', kwargs={'char_id': character.pk, }))
+    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
 def upgrade_ea(request, character: models.Character, character_model: RTCharacterModel):
@@ -881,7 +899,7 @@ def upgrade_ea(request, character: models.Character, character_model: RTCharacte
         character_model.gain_ea_id(ea_tag)
         character.character_data = character_model.toJSON()
         character.save()
-    return HttpResponseRedirect(reverse('character-upg-midlayer', kwargs={'char_id': character.pk, }))
+    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
 def upgrade_pr(request, character: models.Character, character_model: RTCharacterModel):
@@ -892,7 +910,7 @@ def upgrade_pr(request, character: models.Character, character_model: RTCharacte
         character_model.gain_pr()
         character.character_data = character_model.toJSON()
         character.save()
-    return HttpResponseRedirect(reverse('character-upg-midlayer', kwargs={'char_id': character.pk, }))
+    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
 def upgrade_psy_power(request, character: models.Character, character_model: RTCharacterModel):
@@ -904,30 +922,15 @@ def upgrade_psy_power(request, character: models.Character, character_model: RTC
         character_model.psy_powers().append(pp_tag)
         character.character_data = character_model.toJSON()
         character.save()
-    return HttpResponseRedirect(reverse('character-upg-midlayer', kwargs={'char_id': character.pk, }))
+    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
 def character_upgrade(request, char_id):
     character = models.Character.objects.get(pk=char_id)
+    if request.method == 'POST':
+        return HttpResponseRedirect(reverse('character-upg-midlayer'), kwargs={'char_id': character.pk, })
     character_model = character.data_to_model()
     forms = upg_data_to_forms(character_model)
-    if request.method == 'POST':
-        if 'upg-stat-confirm' in request.POST:
-            upgrade_stat(request, character, character_model)
-        if 'upg-skill-confirm' in request.POST:
-            upgrade_skill(request, character, character_model)
-        if 'upg-skill-subtag-confirm' in request.POST:
-            upgrade_subskill(request, character, character_model)
-        if 'upg-talent-confirm' in request.POST:
-            upgrade_talent(request, character, character_model)
-        if 'upg-tl-subtag-confirm' in request.POST:
-            upgrade_talent_subtag(request, character, character_model)
-        if 'upg-ea-confirm' in request.POST:
-            upgrade_ea(request, character, character_model)
-        if 'upg-pr-confirm' in request.POST:
-            upgrade_pr(request, character, character_model)
-        if 'upg-pp-confirm' in request.POST:
-            upgrade_psy_power(request, character, character_model)
     return render(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': rt_flyweights,
                                                       'character': character_model, 'forms': forms,
                                                       'return': True, 'char_view': character.get_view_url(), })
