@@ -16,7 +16,7 @@
             <div>
                 <b class="text-dark">
                     <a href="" class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
-                       data-bs-target="#c{{character.id}}-{{ pp_key }}-{{ lang }}-info" title="Подробнее">
+                       data-bs-target="#c{{character.id}}-{{ form.pp_tag }}-{{ lang }}-info" title="Подробнее">
                         {% with facade.psy_powers|get_by_dict_key:form.pp_tag as power %}
                             {{ power.name|get_by_dict_key:lang }}
                         {% endwith %}
@@ -41,13 +41,13 @@
         {% endwith %}
     {% endif %}
 
-    <div class="modal fade" id="c{{character.id}}-{{ pp_key }}-{{ lang }}-info" tabindex="-1"
-         aria-labelledby="c{{character.id}}-{{ pp_key }}-{{ lang }}-info-label">
+    <div class="modal fade" id="c{{character.id}}-{{ form.pp_tag }}-{{ lang }}-info" tabindex="-1"
+         aria-labelledby="c{{character.id}}-{{ form.pp_tag }}-{{ lang }}-info-label">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 {% with facade.psy_powers|get_by_dict_key:form.pp_tag as power %}
                 <div class="modal-header">
-                    <b id="c{{character.id}}-{{ pp_key }}-{{ lang }}-info-label">
+                    <b id="c{{character.id}}-{{ form.pp_tag }}-{{ lang }}-info-label">
                         {{ power.name|get_by_dict_key:lang }}
                     </b>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
