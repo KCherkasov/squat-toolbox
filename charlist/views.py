@@ -1396,7 +1396,7 @@ def upgrade_psy_power(request, character: models.Character, character_model):
         character_model.psy_powers().append(pp_tag)
         character.character_data = character_model.toJSON()
         character.save()
-    return HttpResponseRedirect(reverse('character-upg-midlayer', kwargs={'char_id': character.pk, }))
+    return HttpResponseRedirect(request.path_info)
 
 
 def character_upgrade(request, char_id):
