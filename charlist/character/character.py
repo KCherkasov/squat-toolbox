@@ -633,11 +633,11 @@ class CharacterModel(object):
                             flg = False
                             break
                     if flg:
-                        if psy_power.school() not in upg_costs.get('psy').get('available').items():
+                        if psy_power.school() not in upg_costs.get('psy').get('available').keys():
                             upg_costs.get('psy').get('available')[psy_power.school()] = dict()
                         upg_costs.get('psy').get('available').get(psy_power.school())[psy_tag] = psy_power.cost()
                     else:
-                        if psy_power.school() not in upg_costs.get('psy').get('unavailable').items():
+                        if psy_power.school() not in upg_costs.get('psy').get('unavailable').keys():
                             upg_costs.get('psy').get('unavailable')[psy_power.school()] = dict()
                         upg_costs.get('psy').get('unavailable').get(psy_power.school())[psy_tag] = psy_power.cost()
 
