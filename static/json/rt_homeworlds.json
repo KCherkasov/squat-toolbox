@@ -31,7 +31,7 @@
         "hints": [
           {
             "tag": "RHW_DTWL_BONUS_H1",
-            "descripton": {
+            "description": {
               "ru": "штраф -10 к проверкам Взаимодействия в формальной обстановке",
               "en": "-10 penalty on Interaction skills in formal surroundings"
             },
