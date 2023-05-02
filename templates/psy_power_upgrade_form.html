@@ -94,7 +94,7 @@
                                 <b>{% if lang == 'ru' %}Подтипы действий{% else %}Action subtypes{% endif %}</b>:&nbsp;
                                 {% for kw in power.keywords %}
                                     {% with facade.keywords|get_by_dict_key:kw as keyword %}
-                                        {{ keyword.get_names|get_by_dict_key:lang }}
+                                        {% if lang == 'ru' %}{{ keyword.get_name_ru }}{% else %}{{ keyword.get_name_en }}{% endif %}
                                     {% endwith %}
                                 {% endfor %}
                             </p>
