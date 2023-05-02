@@ -35,7 +35,7 @@
 
     {% if not form.available %}
         {% with facade.psy_powers|get_by_dict_key:form.pp_tag as power %}
-        {% with power.get_prerequisites as prereqs %}
+        {% with power.prerequisites as prereqs %}
             {% include 'prerequisites_widget.html' %}
         {% endwith %}
         {% endwith %}
