@@ -47,6 +47,10 @@
         {
           "command": "GainAptitude",
           "tag": "A_PSY"
+        },
+        {
+          "command": "IncreasePR",
+          "amount": 1
         }
       ]
     },
