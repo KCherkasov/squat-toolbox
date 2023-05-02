@@ -4,7 +4,7 @@
 
 <div>
     <div class="text-center">
-        <b>{% if lang == 'ru' %}Требования{% else %}Prerequisites{%%}</b>
+        <b>{% if lang == 'ru' %}Требования{% else %}Prerequisites{% endif %}</b>
     </div>
     <ul>
         {% for prereq in prereqs %}
