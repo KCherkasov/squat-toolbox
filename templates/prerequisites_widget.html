@@ -249,7 +249,7 @@
                                     {% endif %}
                                 {% endif %}
                                 {% if alt_tag|starts_with:'BG' %}
-                                    {% if lang == 'ru' %}Предыстория{% else %}Background{% endif %}:&nbsp;{{ facade.backgrounds|get_by_dict_name:alt_tag|get_bg_name:lang }}
+                                    {% if lang == 'ru' %}Предыстория{% else %}Background{% endif %}:&nbsp;{{ facade.backgrounds|get_by_dict_key:alt_tag|get_bg_name:lang }}
                                 {% endif %}
                                 {% if alt_tag|starts_with:'EA' %}
                                     {% if prereq.value == 0 %}
