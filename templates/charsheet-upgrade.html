@@ -179,7 +179,7 @@ Character sheet interactive mockup
                                                                 </div>
                                                             </div>
                                                             <div>
-                                                                {% for hint in facade|get_talent_description:form.tl_tag|get_tldescr_hints %}
+                                                                {% for hint in facade|get_talent_description:tl_tag|get_tldescr_hints %}
                                                                 <div class="card card-body">
                                                                     <p class="card-text">{{ hint|get_hint_description:lang }}</p>
                                                                 </div>
