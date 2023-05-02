@@ -26,7 +26,7 @@
 
             <input type="hidden" name="pp_tag" value="{{ form.pp_tag }}">
             <input type="hidden" name="cost" value="{{ form.cost }}">
-            <button class="btn btn-primary {% if form.cost > character.xp_current and form.available %}disabled{%endif%} ms-4"
+            <button class="btn btn-primary {% if form.cost > character.xp_current or form.available %}disabled{%endif%} ms-4"
                     name="upg-pp-confirm" type="submit">
                 {{ form.cost }}&nbsp;XP
             </button>
