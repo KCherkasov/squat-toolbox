@@ -1224,15 +1224,17 @@ def upg_data_to_forms(character):
     if 'pr' in upg_costs.keys():
         forms['pr'] = PRUpgrageForm(character.pr(), upg_costs.get('pr'))
     if 'psy' in upg_costs.keys():
-        forms['psy'] = {'available': dict(), 'unavailable': dict()}
-        for school in upg_costs.get('psy').get('available').keys():
-            forms.get('psy').get('available')[school] = list()
-            for power, cost in upg_costs.get('psy').get('available').get(school).items():
-                forms.get('psy').get('available').get(school).append(PsyPowerUpgradeForm(power, cost, True))
-        for school in upg_costs.get('psy').get('unavailable').keys():
-            forms.get('psy').get('unavailable')[school] = list()
-            for power, cost in upg_costs.get('psy').get('unavailable').get(school).items():
-                forms.get('psy').get('unavailable').get(school).append(PsyPowerUpgradeForm(power, cost, False))
+        forms['psy'] = upg_costs.get('psy')
+        for school in forms.get('psy').get('available').keys():
+            frms = list()
+            for power, cost in forms.get('psy').get('available').get(school).items():
+                frms.append(PsyPowerUpgradeForm(power, cost, True))
+            forms.get('psy').get('available')[school] = frms
+        for school in forms.get('psy').get('unavailable').keys():
+            frms = list()
+            for power, cost in forms.get('psy').get('unavailable').get(school).items():
+                frms.append(PsyPowerUpgradeForm(power, cost, False))
+            forms.get('psy').get('unavailable')[school] = frms
     return forms
 
 
