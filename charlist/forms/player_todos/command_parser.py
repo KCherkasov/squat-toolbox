@@ -197,13 +197,21 @@ class CommandParser(object):
         for command in character.pending():
             if (command.get('command') in self.__commands.keys())\
                     or (command.get('commands') in self.__commands.keys()):
-                if self.__commands[command.get('command')].is_automatic():
-                    character = self.__commands[command.get('command')].do_logic(character, data=command)
+                if 'command' in command.keys():
+                    cmd_tag = command.get('command')
+                else:
+                    cmd_tag = command.get('command')
+                if self.__commands[cmd_tag].is_automatic():
+                    character = self.__commands[cmd_tag].do_logic(character, data=command)
                     completed.append(command)
         for command in completed:
             character.completed().append(command)
             for cmd in character.pending():
-                if cmd.get('command') == command.get('command'):
+                if 'command' in cmd.keys():
+                    tag = 'command'
+                else:
+                    tag = 'commands'
+                if cmd.get(tag) == command.get(tag):
                     character.pending().remove(cmd)
                     break
         return character
