@@ -36,5 +36,5 @@ class PsyPowerType(object):
     def from_file(cls, fdata):
         types = list()
         for model in fdata['types']:
-           types.append(PsyPowerType.from_json(model))
+            types.append(PsyPowerType.from_json(model))
         return types
