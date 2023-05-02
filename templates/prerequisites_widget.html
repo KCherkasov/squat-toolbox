@@ -203,6 +203,7 @@
                         {% endfor %}
                     {% else %}
                         <li>
+                            {% with prereq.get_alt as alt %}
                             {% with alt|get_by_dict_key:'tag' as alt_tag %}
                                 {% with alt|get_by_dict_key:'value' as alt_value %}
                                 {% if alt_tag|starts_with:'ST' %}
@@ -293,7 +294,8 @@
                                 {% endif %}
                                 {% if not forloop.last %}<br>{%if lang == 'ru'%}Или{% else %}Or{% endif %}<br>{% endif %}
                                 {% endwith %}
-                                {% endwith %}
+                            {% endwith %}
+                            {% endwith %}
                         </li>
                     {% endif %}
                 </ul>
