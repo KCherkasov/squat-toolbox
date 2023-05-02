@@ -6,7 +6,7 @@ class TalentUpgradeSubtagForm(Form):
     def __init__(self, tl_tag: str, subtag: str, cost: int, available: bool, taken: int = -1, *args, **kwargs):
         super(TalentUpgradeSubtagForm, self).__init__(*args, **kwargs)
         self.__tl_tag = tl_tag
-        self.__subtag = subtag
+        self.__subtag_tl = subtag
         self.__cost = cost
         self.__taken = taken
         self.available = available
@@ -16,8 +16,8 @@ class TalentUpgradeSubtagForm(Form):
     def tl_tag(self):
         return self.__tl_tag
 
-    def subtag(self):
-        return self.__subtag
+    def subtag_tl(self):
+        return self.__subtag_tl
 
     def cost(self):
         return self.__cost

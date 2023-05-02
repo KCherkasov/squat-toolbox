@@ -12,8 +12,8 @@
         {% csrf_token %}
         <div class="charlist-inline align-items-center mb-1">
             <input type="hidden" name="tl_tag" value="{{ form.tl_tag }}">
-            <input type="hidden" name="subtag_tl" value="{{ form.subtag }}">
-            {% if form.subtag == 'TL_ANY' %}
+            <input type="hidden" name="subtag_tl" value="{{ form.subtag_tl }}">
+            {% if form.subtag_tl == 'TL_ANY' %}
                 {% for field in form %}
                 <div class="form-group charlist-inline align-items-center">
                     <div class="col-sm-5 ms-2">
@@ -24,7 +24,7 @@
             {% endif %}
                 <div class="ms-2">
                     <b class="text-dark">
-                        {% if form.subtag != 'TL_ANY' %}
+                        {% if form.subtag_tl != 'TL_ANY' %}
                             {{ form.subtag }}&nbsp;
                         {% endif %}
                         {% if form.taken >= 0 %}
