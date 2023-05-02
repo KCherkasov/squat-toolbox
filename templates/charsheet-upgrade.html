@@ -251,7 +251,11 @@ Character sheet interactive mockup
                 <div class="card card-body justify-content-center">
                     <header class="text-center">
                         <b>
-                            {% if lang == 'ru' %}Пси-рейтинг и психосилы{% else %}Psy-rating and psychic powers{% endif %}
+                            {% if lang == 'ru' %}
+                                Пси-рейтинг и психосилы (нажмите на название психосилы или дисциплины, чтобы увидеть больше информации)
+                            {% else %}
+                                Psy-rating and psychic powers (click on psychic power's or discipline's name to get more information)
+                            {% endif %}
                         </b>
                     </header>
                     {% with forms|get_by_dict_key:'pr' as form %}
