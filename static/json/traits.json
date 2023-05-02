@@ -694,7 +694,7 @@
           },
           "targets": ["SK_PSY", "PR"],
           "command": {
-            "command": "GainPR",
+            "command": "IncreasePR",
             "value": 1
           }
         }
