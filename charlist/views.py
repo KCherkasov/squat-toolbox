@@ -738,6 +738,10 @@ def create_character_divination(request, creation_id):
                     character_model.pending().append(cmd)
                 for cmd in role.get_bonus().get_commands():
                     character_model.pending().append(cmd)
+                for ea_id in character_model.ea_id():
+                    ea = flyweights.elite_advances().get(ea_id)
+                    for cmd in ea.commands():
+                        character_model.pending().append(cmd)
                 character_model = commands_parser.process_character(character_model)
                 character.character_data = character_model.toJSON()
                 character.creation_date = cd.last_mod_date
