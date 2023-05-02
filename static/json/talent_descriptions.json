@@ -3034,7 +3034,7 @@
           "value": 0
         },
         {
-          "tag": "TR_PR",
+          "tag": "PR",
           "value": 3
         }
       ],
@@ -3638,7 +3638,7 @@
       "aptitudes": ["A_PSY", "A_DEF"],
       "prerequisites": [
         {
-          "tag": "TR_PR",
+          "tag": "PR",
           "value": 1
         },
         {
@@ -3708,7 +3708,7 @@
       "aptitudes": ["A_KNG", "A_PSY"],
       "prerequisites": [
         {
-          "tag": "TR_PR",
+          "tag": "PR",
           "value": 1
         },
         {
