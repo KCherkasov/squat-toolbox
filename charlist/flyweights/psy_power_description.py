@@ -6,15 +6,15 @@ from charlist.flyweights.models.psy_powerr_description_model import PsyPowerDesc
 
 class PsyPowerDescription(object):
     def __init__(self, tag: str, name: Dict[str, str], description: [str, List[str]],
-                 school: str, type: List[str], effect: Dict, cost: int,
+                 school: str, types: List[str], effect: Dict, cost: int,
                  prerequisites: List[Prerequisite], sustainable: bool,
                  focus_check: str, focus_mod: int, focus_opposed: bool,
-                 range: int, action: str, keywords: List[str], sustain=None):
+                 ranges: int, action: str, keywords: List[str], sustain=None):
         self.__tag = tag
         self.__name = name
         self.__description = description
         self.__school = school
-        self.__type = type
+        self.__type = types
         self.__effect = effect
         self.__cost = cost
         self.__prerequisites = prerequisites
@@ -23,7 +23,7 @@ class PsyPowerDescription(object):
         self.__focus_check = focus_check
         self.__focus_mod = focus_mod
         self.__focus_opposed = focus_opposed
-        self.__range = range
+        self.__range = ranges
         self.__action = action
         self.__keywords = keywords
 
