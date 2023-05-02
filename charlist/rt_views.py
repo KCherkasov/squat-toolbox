@@ -743,9 +743,9 @@ def upg_data_to_forms(character: RTCharacterModel):
                             form_map.get('forms').append(TalentUpgradeSubtagForm(
                                 tl_tag, key, talent.get('cost'), False, taken))
                     forms.get('talents').get('unavailable')[tier].get('spec').append(form_map)
-    for ea_key, cost in upg_costs.get('ea').get('available'):
+    for ea_key, cost in upg_costs.get('ea').get('available').items():
         forms.get('ea').get('available').append(EliteAdvanceUpgradeForm(ea_key, cost, True))
-    for ea_key, cost in upg_costs.get('ea').get('unavailable'):
+    for ea_key, cost in upg_costs.get('ea').get('unavailable').items():
         forms.get('ea').get('unavailable').append(EliteAdvanceUpgradeForm(ea_key, cost, False))
     if 'pr' in upg_costs.keys():
         forms['pr'] = PRUpgrageForm(character.pr(), upg_costs.get('pr'))
