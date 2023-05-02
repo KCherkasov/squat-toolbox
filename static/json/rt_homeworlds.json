@@ -653,7 +653,7 @@
       "tag": "RHW_PNWL",
       "name": {
         "ru": "Мир-тюрьма",
-        "en": "Penal worlds"
+        "en": "Penal world"
       },
       "description": {
         "ru": "",
@@ -715,7 +715,8 @@
         {
           "tag": "TL_LTSL"
         }
-      ]
+      ],
+      "talent_choices": []
     },
     {
       "tag": "RHW_NBL",
@@ -872,7 +873,10 @@
           "tag": "SK_LNG",
           "subtag": "High gothic"
         }
-      ]
+      ],
+      "skill_choices": [],
+      "talents": [],
+      "talent_choices": []
     }
   ]
 }
