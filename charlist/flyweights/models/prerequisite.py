@@ -18,8 +18,8 @@ class Prerequisite(object):
         return not (self.subtag is None)
 
     def is_subtag_any(self):
-        return not isinstance(self.subtag, list)\
-            and ((self.subtag == 'SK_ANY') or (self.subtag == 'TL_ANY'))
+        return((self.subtag[0].casefold().strip() == 'SK_ANY'.casefold().strip())
+               or (self.subtag[0].casefold().strip() == 'TL_ANY'.casefold().strip()))
 
     def has_alt(self):
         return not (self.alt is None)
