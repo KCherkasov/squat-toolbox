@@ -33,7 +33,8 @@ class RTCreationDataModel(object):
         self.stat_base = stat_base
 
     @classmethod
-    def from_json(cls, data):
+    def from_json(cls, sdata):
+        data = json.loads(sdata)
         return cls(**data)
 
     def reset_stats(self, facade: RTFacade):
