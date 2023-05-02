@@ -78,7 +78,7 @@
                         <div>
                             <p class="text-dark">
                                 <b>{% if lang == 'ru' %}Типы{% else %}Types:{% endif %}</b>&nbsp;
-                                {% for kw in power.keywords %}
+                                {% for pt in power.type %}
                                     {% with facade.psy_types|get_by_dict_key:pt as type %}
                                         {{ type.name|get_by_dict_key:lang }}
                                     {% endwith %}
