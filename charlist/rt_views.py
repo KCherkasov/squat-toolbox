@@ -870,7 +870,7 @@ def upgrade_talent_subtag(request, character: models.Character, character_model:
 
 def upgrade_ea(request, character: models.Character, character_model: RTCharacterModel):
     ea_tag = request.POST.get('ea_tag')
-    cost = request.POST.get('cost')
+    cost = int(request.POST.get('cost'))
     form = EliteAdvanceUpgradeForm(ea_tag, cost, True, request.POST)
     if form.is_valid():
         character_model.spend_xp(cost)
@@ -881,7 +881,7 @@ def upgrade_ea(request, character: models.Character, character_model: RTCharacte
 
 
 def upgrade_pr(request, character: models.Character, character_model: RTCharacterModel):
-    cost = request.POST.get('cost')
+    cost = int(request.POST.get('cost'))
     form = PRUpgrageForm(character_model.pr(), cost, request.POST)
     if form.is_valid():
         character_model.spend_xp(cost)
@@ -893,7 +893,7 @@ def upgrade_pr(request, character: models.Character, character_model: RTCharacte
 
 def upgrade_psy_power(request, character: models.Character, character_model: RTCharacterModel):
     pp_tag = request.POST.get('pp_tag')
-    cost = request.POST.get('cost')
+    cost = int(request.POST.get('cost'))
     form = PsyPowerUpgradeForm(pp_tag, cost, True, request.POST)
     if form.is_valid():
         character_model.spend_xp(cost)

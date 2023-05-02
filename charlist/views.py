@@ -1362,7 +1362,7 @@ def upgrade_ea(request, character: models.Character, character_model):
     if character_model.is_rt():
         return rt_views.upgrade_ea(request, character, character_model)
     ea_tag = request.POST.get('ea_tag')
-    cost = request.POST.get('cost')
+    cost = int(request.POST.get('cost'))
     form = EliteAdvanceUpgradeForm(ea_tag, cost, True, request.POST)
     if form.is_valid():
         character_model.spend_xp(cost)
@@ -1375,7 +1375,7 @@ def upgrade_ea(request, character: models.Character, character_model):
 def upgrade_pr(request, character: models.Character, character_model):
     if character_model.is_rt():
         return rt_views.upgrade_pr(request, character, character_model)
-    cost = request.POST.get('cost')
+    cost = int(request.POST.get('cost'))
     form = PRUpgrageForm(character_model.pr(), cost, request.POST)
     if form.is_valid():
         character_model.spend_xp(cost)
@@ -1389,7 +1389,7 @@ def upgrade_psy_power(request, character: models.Character, character_model):
     if character_model.is_rt():
         return rt_views.upgrade_psy_power(request, character, character_model)
     pp_tag = request.POST.get('pp_tag')
-    cost = request.POST.get('cost')
+    cost = int(request.POST.get('cost'))
     form = PsyPowerUpgradeForm(pp_tag, cost, True, request.POST)
     if form.is_valid():
         character_model.spend_xp(cost)
