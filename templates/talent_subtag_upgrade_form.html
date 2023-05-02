@@ -28,9 +28,8 @@
                             {{ form.subtag }}&nbsp;
                         {% endif %}
                         {% if form.taken >= 0 %}
-                            {{ form.taken }}&nbsp;>>&nbsp;
+                            {{ form.taken }}&nbsp;>>&nbsp;{{ form.taken_new }}
                         {% endif %}
-                        {{ form.taken_new }}
                     </b>
                 </div>
             <input type="hidden" name="cost" value="{{ form.cost }}">
