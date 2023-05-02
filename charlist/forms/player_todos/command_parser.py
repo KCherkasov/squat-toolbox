@@ -188,6 +188,7 @@ class CommandParser(object):
             colour = 'success'
         if cmd.get('command') == GET_SUBTAG_SKILL:
             form = GainSpecSkillForm(self.__facade, cmd)
+            colour = 'success'
         reminder = Reminder(cmd.get('command'), form, self.__links[cmd.get('command')], colour, cmd.get('cmd_id'))
         return reminder
 
