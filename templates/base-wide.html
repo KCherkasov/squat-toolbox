@@ -31,7 +31,9 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top charlist-inline justify-content-between">
         <div>
             <h3 class="navbar-brand">
-                Скватский инструментарий | {% block title %}{% endblock %}
+                <a class="text-decoration-none" href="{% url 'main' %}">
+                    Скватский инструментарий | {% block title %}{% endblock %}
+                </a>
             </h3>
         </div>
         {% if user.is_authenticated and user.is_active %}
