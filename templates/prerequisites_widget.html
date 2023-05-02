@@ -54,7 +54,7 @@
                 {%endif%}
             {% endif %}
             {% if prereq.is_background_prereq %}
-                {% if lang == 'ru' %}Предыстория{% else %}Background{% endif %}:&nbsp;{{ facade.backgrounds|get_by_dict_name:prereq.tag|get_bg_name:lang }}
+                {% if lang == 'ru' %}Предыстория{% else %}Background{% endif %}:&nbsp;{{ facade.backgrounds|get_by_dict_key:prereq.tag|get_bg_name:lang }}
             {% endif %}
             {% if prereq.is_ea_prereq %}
                 {% if prereq.value == 0 %}
