@@ -406,6 +406,7 @@
         "ru": "Duty to dynasty",
         "en": "Duty to dynasty"
       },
+      "hints": [],
       "choices": [
         [
           {
@@ -610,26 +611,6 @@
         }
       ],
       "cost": 100
-    },
-    {
-      "tag": "LOV_",
-      "name": {
-        "ru": "",
-        "en": ""
-      },
-      "choices": [],
-      "commands": [],
-      "cost": 0
-    },
-    {
-      "tag": "LOV_",
-      "name": {
-        "ru": "",
-        "en": ""
-      },
-      "choices": [],
-      "commands": [],
-      "cost": 0
     },
     {
       "tag": "LOV_XNAR",
