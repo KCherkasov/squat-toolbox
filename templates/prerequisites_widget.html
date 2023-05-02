@@ -328,7 +328,6 @@
                                 {% if alt_tag == 'CP' %}
                                     {% if lang == 'ru' %}Очки порчи{% else %}Corruption points{% endif %}:&nbsp;>=&nbsp;{{ prereq.value }}
                                 {% endif %}
-                                {% if not forloop.last %}<br>{%if lang == 'ru'%}Или{% else %}Or{% endif %}<br>{% endif %}
                                 {% endwith %}
                             {% endwith %}
                             {% endwith %}
