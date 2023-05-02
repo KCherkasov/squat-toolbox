@@ -3546,6 +3546,28 @@
       "is_stackable": false
     },
     {
+      "tag": "TL_SHDS",
+      "name": {
+        "ru": "Общая судьба",
+        "en": "Shared destiny"
+      },
+      "description": {
+        "ru": "За Свободное действие персонаж может потратить два Очка Судьбы, дав другому персонажу в пределах 10 метров одно Очко Судьбы. Точно также, любой персонаж в 10 метрах может за Свободное действие потратить два очка Судьбы, дав этому персонажу одно Очко Судьбы. Этот талант не позволяет персонажу получить больше Очков Судьбы, чем его порог Судьбы.",
+        "en": "The character may spend two Fate points as a Free Action to grant another character within 10 metres a Fate point. Likewise, any character in 10 metres may spend two Fate points as a Free Action to grant this character a Fate point. This does not allow characters to gain Fate points in excess of their Fate threshold."
+      },
+      "hints": [],
+      "tier": 1,
+      "aptitudes": ["A_FEL", "A_LDR"],
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 40
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
       "tag": "TL_INCN",
       "name": {
         "ru": "Ревностные убеждения",
