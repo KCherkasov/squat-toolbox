@@ -34,7 +34,7 @@
                             <p class="text-dark">
                                 <b>{% if lang == 'ru' %}Школа{% else %}School:{% endif %}</b>&nbsp;
                                 {% with facade.psy_schools|get_by_dict_key:power.school as school %}
-                                    {{ school.name|get_by_dict_key:lang }}
+                                    {{ school.names|get_by_dict_key:lang }}
                                 {% endwith %}
                             </p>
                         </div>
@@ -68,7 +68,7 @@
                                 <b>{% if lang == 'ru' %}Подтипы действий{% else %}Action subtypes{% endif %}</b>:&nbsp;
                                 {% for kw in power.keywords %}
                                     {% with facade.keywords|get_by_dict_key:kw as keyword %}
-                                        {{ keyword.get_names|get_by_dict_name:lang }}
+                                        {{ keyword.get_names|get_by_dict_key:lang }}
                                     {% endwith %}
                                 {% endfor %}
                             </p>
@@ -93,7 +93,7 @@
                                 {% if lang == 'ru' %}Поддерживаемое{% else %}Sustainable{% endif %}:&nbsp;
                                 {% if power.sustainable %}
                                     {% with facade.action_types|get_by_dict_key:power.sustain as action %}
-                                        {{ action.get_names|get_by_dict_key:lang }}
+                                        {{ action.names|get_by_dict_key:lang }}
                                     {% endwith %}
                                 {% else %}
                                     {% if lang == 'ru' %}Нет{% else %}no{% endif %}
