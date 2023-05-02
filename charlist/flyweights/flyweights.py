@@ -17,6 +17,12 @@ from charlist.flyweights.talent_description import TalentDescription
 from charlist.flyweights.trait_description import TraitDescription
 from charlist.flyweights.malignance_description import MalignanceDescription
 from charlist.flyweights.mutation_description import MutationDescription
+from charlist.flyweights.models.psy_type import PsyPowerType
+from charlist.flyweights.psy_school_description import PsySchoolDescription
+from charlist.flyweights.psy_power_description import PsyPowerDescription
+from charlist.flyweights.combat_action import CombatAction
+from charlist.flyweights.models.keyword import Keyword
+from charlist.flyweights.models.action_type import CombatActionType
 
 STAT_SHORTS = {
     ST_WEAPON_SKILL: {"ru": "НР", "en": "WS"},
@@ -100,12 +106,20 @@ class Facade:
         mutations = MutationDescription.from_file(
             json.load(open(prefix + resources_paths[11], 'r', encoding='utf-8')))
         self.__mutations = to_map(mutations)
-        self.__psy_schools = dict()  # TODO: fill psy powers resource and plug it here
-        self.__power_types = dict()  # TODO: fill power types resource and plut it here
-        self.__psy_powers = dict()  # TODO: fill psy powers resource and plug it here
-        self.__combat_actions = dict()  # TODO: fill combat actions resource and plug it here
-        self.__action_types = dict()  # TODO: fill action types resource and plug it here
-        self.__keywords = dict()
+        psy_data = json.load(open(prefix + resources_paths[12], 'r', encoding='utf-8'))
+        schools = PsySchoolDescription.from_file(psy_data)
+        self.__psy_schools = to_map(schools)
+        power_types = PsyPowerType.from_file(psy_data)
+        self.__power_types = to_map(power_types)
+        powers = PsyPowerDescription.from_file(psy_data)
+        self.__psy_powers = to_map(powers)
+        ca_data = json.load(open(prefix + resources_paths[13], 'r', encoding='utf-8'))
+        combat_actions = CombatAction.from_file(ca_data)
+        self.__combat_actions = to_map(combat_actions)
+        action_types = CombatActionType.from_file(ca_data)
+        self.__action_types = to_map(action_types)
+        kwd = Keyword.from_file(ca_data)
+        self.__keywords = to_map(kwd)
 
         self.__spec_skills_subtags = SUBTAG_SKILLS_MAP
         self.__st_adv_range = range(1, 6)
