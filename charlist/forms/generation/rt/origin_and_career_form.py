@@ -24,23 +24,23 @@ class OriginAndCareerForm(Form):
         for tag, lure in facade.lures().items():
             name = lure.name().get('en')
             if lure.cost() > 0:
-                name.join('(').join(str(lure.cost())).join(' XP)')
+                name = name.join('(').join(str(lure.cost())).join(' XP)')
             lures.append((tag, name))
         self.fields['lure_id'].choices = lures
         trials = list()
         for tag, trial in facade.trials().items():
             name = trial.name().get('en')
             if trial.cost() > 0:
-                name.join('(').join(str(trial.cost())).join(' XP)')
+                name = name.join('(').join(str(trial.cost())).join(' XP)')
             trials.append((tag, name))
         self.fields['trial_id'].choices = trials
         motivations = list()
         for tag, motive in facade.motivations().items():
-
             name = motive.name().get('en')
             if motive.cost() > 0:
-                name.join('(').join(str(motive.cost())).join(' XP)')
+                name = name.join('(').join(str(motive.cost())).join(' XP)')
             motivations.append((tag, name))
+        self.fields['motivation_id'].choices = motivations
         careers = list()
         for tag, career in facade.careers().items():
             careers.append((tag, career.name().get('en')))
