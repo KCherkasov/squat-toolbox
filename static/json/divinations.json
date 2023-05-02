@@ -466,7 +466,7 @@
       ],
       "commands": [
         {
-          "commands": "DecreaseStat",
+          "command": "DecreaseStat",
           "tag": "ST_T",
           "amount": 3
         }
