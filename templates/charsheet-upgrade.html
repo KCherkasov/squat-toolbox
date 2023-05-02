@@ -135,7 +135,6 @@ Character sheet interactive mockup
                         <header class="text-center">
                             <b>{% if lang == 'ru' %}Недоступные{% else %}Not available{% endif %}</b>
                         </header>
-                        {%  %}
                     {% with forms|get_by_dict_key:'talents'|get_by_dict_key:'unavailable' as unavailable %}
                         <div class="card-group">
                             {% for tier in unavailable %}
