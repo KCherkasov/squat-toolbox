@@ -195,12 +195,11 @@ class CommandParser(object):
     def process_character(self, character):
         completed = list()
         for command in character.pending():
-            if (command.get('command') in self.__commands.keys())\
-                    or (command.get('commands') in self.__commands.keys()):
-                if 'command' in command.keys():
-                    cmd_tag = command.get('command')
-                else:
-                    cmd_tag = command.get('commands')
+            if 'command' in command.keys():
+                cmd_tag = command.get('command')
+            else:
+                cmd_tag = command.get('commands')
+            if command.get(cmd_tag) in self.__commands.keys():
                 if self.__commands[cmd_tag].is_automatic():
                     character = self.__commands[cmd_tag].do_logic(character, data=command)
                     completed.append(command)
