@@ -144,7 +144,14 @@
                                     {% endif %}
                                 {% endif %}
                                 {% if alt_tag|starts_with:'RL' or alt_tag|starts_with:'CR' %}
-                                    {% if lang == 'ru' %}Роль{% else %}Role{% endif %}:&nbsp;{{ facade.roles|get_by_dict_name:alt_tag|get_role_name:lang }}
+                                    {% if character.is_rt %}
+                                        {% if lang == 'ru' %}Карьера{% else %}Career{% endif %}:&nbsp;
+                                        {% with facade.careers|get_by_dict_name:alt_tag as career %}
+                                            {{ career.name|get_by_dict_key:lang }}
+                                        {% endwith %}
+                                    {% else %}
+                                        {% if lang == 'ru' %}Роль{% else %}Role{% endif %}:&nbsp;{{ facade.roles|get_by_dict_name:alt_tag|get_role_name:lang }}
+                                    {% endif %}
                                 {% endif %}
                                 {% if alt_tag|starts_with:'BG' %}
                                     {% if lang == 'ru' %}Предыстория{% else %}Background{% endif %}:&nbsp;{{ facade.backgrounds|get_by_dict_name:alt_tag|get_bg_name:lang }}
