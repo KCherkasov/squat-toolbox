@@ -26,14 +26,14 @@
             </div>
             {% endfor %}
             <div class="form-group charlist-inline justify-content-center mt-2">
-                <div class="col-sm-offset-2 col-sm-2">
+                <div class="col-sm-offset-2 col-sm-2 ps-3">
                     <button type="submit" class="btn btn-primary ps-3" name="char-origin-next">Next</button>
                 </div>
-                <div class="col-sm-offset-2 col-sm-2">
+                <div class="col-sm-offset-2 col-sm-2 ps-3">
                     <button type="submit" class="btn btn-primary ps-3" name="char-origin-prev">Back</button>
                 </div>
                 <div class="col-sm-offset-2 col-sm-2 ps-3">
-                    <a class="btn btn-danger" href="{% url 'characters-list' %}">Cancel</a>
+                    <a class="btn btn-danger ps-3" href="{% url 'characters-list' %}">Cancel</a>
                 </div>
             </div>
         </form>
