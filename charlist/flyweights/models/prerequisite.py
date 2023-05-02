@@ -11,7 +11,8 @@ class Prerequisite(object):
         self.alt = alt
 
     def is_tag_any(self):
-        return (self.tag == 'SK_ANY') or (self.tag == 'TL_ANY')
+        return (self.tag.casefold().strip() == 'SK_ANY'.casefold().strip())\
+            or (self.tag.casefold().strip() == 'TL_ANY'.casefold().strip())
 
     def has_subtag(self):
         return not (self.subtag is None)
