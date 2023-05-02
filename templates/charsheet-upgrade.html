@@ -261,6 +261,9 @@ Character sheet interactive mockup
                     {% with forms|get_by_dict_key:'pr' as form %}
                         {% include 'pr_upgrade_form.html' %}
                     {% endwith %}
+                    <div class="text-dark text-center card-title">
+                        <b>{% if lang == 'ru' %}Психосилы{% else %}Psychic powers{% endif %}</b>
+                    </div>
                     {% include 'psy_powers_list.html' %}
                 </div>
                 {% endif %}
