@@ -16,7 +16,7 @@
     <form class="form-horizontal" method="post" action="">
         {% csrf_token %}
         <div class="charlist-inline align-items-center mb-1">
-            <div class="{% if forloop.counter|divisibleby:2 %}ps-3{% endif %}">
+            <div>
                 <b class="text-dark">
                     {{ form.pr }}&nbsp;>>&nbsp;{{ form.pr_new }}
                 </b>
