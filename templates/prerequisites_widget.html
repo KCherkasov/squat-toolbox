@@ -34,7 +34,7 @@
                 {{ facade.talent_descriptions|get_by_dict_key:prereq.tag|get_tldescr_name:lang }}
                 {% if prereq.has_subtag %}
                     (
-                    {% for subtag prereq.subtag %}
+                    {% for subtag in prereq.subtag %}
                         {{ subtag }}
                         {% if not forloop.last %}
                             &nbsp;/&nbsp;
@@ -47,7 +47,12 @@
                 {% endif %}
             {% endif %}
             {% if prereq.is_role_prereq %}
-                {% if lang == 'ru' %}Роль{% else %}Role{% endif %}:&nbsp;{{ facade.roles|get_by_dict_name:prereq.tag|get_role_name:lang }}
+                {% if character.is_rt %}
+                    {% if lang == 'ru' %}Роль{% else %}Role{% endif %}
+                {% else%}
+                    {% if lang == 'ru' %}Карьера{% else %}Career{% endif %}
+                {%endif%}:&nbsp;
+                {{ facade.roles|get_by_dict_name:prereq.tag|get_role_name:lang }}
             {% endif %}
             {% if prereq.is_background_prereq %}
                 {% if lang == 'ru' %}Предыстория{% else %}Background{% endif %}:&nbsp;{{ facade.backgrounds|get_by_dict_name:prereq.tag|get_bg_name:lang }}
