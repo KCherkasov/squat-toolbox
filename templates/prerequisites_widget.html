@@ -278,7 +278,9 @@
                                     {% if lang == 'ru' %}Пси-рейтинг{% else %}Psy-rating{% endif %}&nbsp;>=&nbsp;{{ prereq.value }}
                                 {% endif %}
                                 {% if alt_tag|starts_with:'PP' %}
-                                    {{ facade.psy_powers|get_by_dict_key:alt_tag|get_pp_name:lang }}
+                                    {% with facade.psy_powers|get_by_dict_key:alt_tag as pp %}
+                                        {{ pp.name|get_by_dict_key:lang }}
+                                    {% endwith %}
                                 {% endif %}
                                 {% if alt_tag == 'IP' %}
                                     {% if lang == 'ru' %}Очки безумия{% else %}Insanity points{% endif %}:&nbsp;>=&nbsp;{{ prereq.value }}
