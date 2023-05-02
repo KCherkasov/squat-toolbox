@@ -102,16 +102,16 @@ Character sheet interactive mockup
                         </header>
                     {% with forms|get_by_dict_key:'talents'|get_by_dict_key:'available' as available %}
                         <div class="card-group">
-                            {% for tier in available %}
+                            {% for tier, talents in available.items %}
                                 <div class="card card-body justify-content-center">
                                     <header class="text-center">
                                         <b>{{ tier }}&nbsp;{% if lang == 'ru' %}тир{% else %}tier{% endif %}</b>
                                     </header>
                                     <div class="card charlist-content skills-list">
-                                    {% for form in tier|get_by_dict_key:'common' %}
+                                    {% for form in talents|get_by_dict_key:'common' %}
                                         {% include 'talent_upgrade_form.html' %}
                                     {% endfor %}
-                                    {% for form_map in tier|get_by_dict_key:'spec' %}
+                                    {% for form_map in talents|get_by_dict_key:'spec' %}
                                         {% with form_map|get_by_dict_key:'tl_tag' as tl_tag %}
                                         {% with form_map|get_by_dict_key:'colour' as colour %}
                                         <div class="card card-body charlist-content justify-content-center align-items-center alert-{{ colour }} w400-skill">
@@ -137,16 +137,16 @@ Character sheet interactive mockup
                         </header>
                     {% with forms|get_by_dict_key:'talents'|get_by_dict_key:'unavailable' as unavailable %}
                         <div class="card-group">
-                            {% for tier in unavailable %}
+                            {% for tier, talents in unavailable.items %}
                                 <div class="card card-body justify-content-center">
                                     <header class="text-center">
                                         <b>{{ tier }}&nbsp;{% if lang == 'ru' %}тир{% else %}tier{% endif %}</b>
                                     </header>
                                     <div class="card charlist-content skills-list">
-                                    {% for form in tier|get_by_dict_key:'common' %}
+                                    {% for form in talents|get_by_dict_key:'common' %}
                                         {% include 'talent_upgrade_form.html' %}
                                     {% endfor %}
-                                    {% for form_map in tier|get_by_dict_key:'spec' %}
+                                    {% for form_map in talents|get_by_dict_key:'spec' %}
                                         {% with form_map|get_by_dict_key:'tl_tag' as tl_tag %}
                                         {% with form_map|get_by_dict_key:'colour' as colour %}
                                         {% with facade.talent_descriptions|get_by_dict_key:tl_tag as tal %}
