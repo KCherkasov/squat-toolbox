@@ -51,7 +51,7 @@
     </form>
 
      {% if not form.available %}
-        {% with ea.get_prerequisites as prereqs %}
+        {% with ea.prerequisites as prereqs %}
             {% include 'prerequisites_widget.html' %}
         {% endwith %}
      {% endif %}
