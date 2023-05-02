@@ -60,7 +60,7 @@
                             <p class="text-dark">
                                 <b>{% if lang == 'ru' %}Школа{% else %}School:{% endif %}</b>&nbsp;
                                 {% with facade.psy_schools|get_by_dict_key:power.school as school %}
-                                    {{ school.name|get_by_dict_key:lang }}
+                                    {{ school.names|get_by_dict_key:lang }}
                                 {% endwith %}
                             </p>
                         </div>
