@@ -3407,11 +3407,11 @@
           "value": 1
         },
         {
-          "tag": "TL_SHOC",
+          "tag": "TL_ARCN",
           "value": 1
         },
         {
-          "tag": "TL_HTR",
+          "tag": "TL_HTRD",
           "value": 1
         }
       ],
@@ -3448,6 +3448,28 @@
         {
           "tag": "ST_WP",
           "value": 35
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_ARCN",
+      "name": {
+        "ru": "Броня презрения",
+        "en": "Armour of Contempt"
+      },
+      "description": {
+        "ru": "Когда персонаж получает Очки Порчи, общее количество полученных Очков Порчи уменьшается на 1 (до минимума в 0). Успешный тест Силы воли, предпринятый в качестве свободного действия, позволяет сбросить воздействие накопленной Порчи на один раунд.",
+        "en": "Whenever the Explorer gains Corruption Points, reduce the total by 1, to a minimum of 0. With a successful Willpower Test, taken as a Free Action, he may ignore the effects of accumulated Corruption Points for 1 Round."
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": ["A_T", "A_DEF"],
+      "prerequisites": [
+        {
+          "tag": "ST_WP",
+          "value": 40
         }
       ],
       "is_specialist": false,
@@ -3673,7 +3695,7 @@
       "aptitudes": ["A_OFF", "A_WP"],
       "prerequisites": [
         {
-          "tag": "TL_HTR",
+          "tag": "TL_HTRD",
           "value": 1
         }
       ],

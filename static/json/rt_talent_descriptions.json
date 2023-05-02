@@ -3626,7 +3626,7 @@
       "aptitudes": ["A_OFF", "A_WP"],
       "prerequisites": [
         {
-          "tag": "TL_HTR",
+          "tag": "TL_HTRD",
           "value": 1
         }
       ],
