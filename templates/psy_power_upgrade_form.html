@@ -69,7 +69,7 @@
                         <div>
                             <p class="text-dark">
                                 <b>{% if lang == 'ru' %}Тип психосилы{% else %}Types:{% endif %}</b>&nbsp;
-                                {% for pt in power.types %}
+                                {% for pt in power.type %}
                                     {% with facade.psy_types|get_by_dict_key:pt as type %}
                                         {{ type.name|get_by_dict_key:lang }}
                                     {% endwith %}
@@ -96,19 +96,6 @@
                                     {% with facade.keywords|get_by_dict_key:kw as keyword %}
                                         {% if lang == 'ru' %}{{ keyword.get_name_ru }}{% else %}{{ keyword.get_name_en }}{% endif %}
                                     {% endwith %}
-                                {% endfor %}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="charlist-inline">
-                        <div>
-                            <p class="text-dark">
-                                <b>{% if lang == 'ru' %}Типы{% else %}Types{% endif %}</b>:&nbsp;
-                                {% for pt in power.type %}
-                                    {% with facade.psy_types|get_by_dict_key:pt as type %}
-                                        {% if lang == 'ru' %}{{ type.name_ru }}{% else %}{{ type.name_en }}{% endif %}
-                                    {% endwith %}
-                                    {% if not forloop.last %};&nbsp;{% endif %}
                                 {% endfor %}
                             </p>
                         </div>
