@@ -45,9 +45,9 @@ class PsySchoolDescription(object):
         for model in fdata['schools']:
             school_models.append(PsySchoolDescriptionModel.from_json(model))
         if len(school_models) > 0:
-            psy_shools = list()
+            psy_schools = list()
             for model in school_models:
-                psy_shools.append(PsySchoolDescription.from_model(model))
+                psy_schools.append(PsySchoolDescription.from_model(model))
         else:
             psy_schools = None
         return psy_schools
