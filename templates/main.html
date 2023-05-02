@@ -4,26 +4,27 @@
 {% block title %}Главная{% endblock %}
 
 {% block app_content %}
-<header class="page-header">
-    <b>Добро пожаловать в скватский инструментарий!</b>
+<header class="page-header text-center">
+    <h4>Добро пожаловать в скватский инструментарий!</h4>
 </header>
-<div class="card-group justify-content-center">
+<div class="card-group align-items-center justify-content-center">
     <div class="card">
-        <div class="card-body">
-            <p class="card-title"><b>Имягенератор</b></p>
-
+        <div class="card-body text-center">
+            <h5 class="card-title"><b>Имягенератор</b></h5>
+            <br>
             <p class="card-subtitle">
                 Может выдумать персонажу имя. Не факт, что его будет просто выговорить.
             </p>
+            <br>
             <a class="btn btn-primary btn-large" href="{% url 'namegen' %}" role="button">Перейти</a>
         </div>
-        <div class="card-footer">
-            <p>v.{{ ng_ver }}</p>
+        <div class="card-footer text-center">
+            <p>ver.{{ ng_ver }}</p>
         </div>
     </div>
     <div class="card">
-        <div class="card-body">
-            <p class="card-title"><b>Чарник</b></p>
+        <div class="card-body text-center">
+            <h5 class="card-title"><b>Чарник</b></h5>
             <p class="card-subtitle">
                 Страшная штука, вроде бы есть, а ее вроде нет... Где-то здесь была табличка "не влезай - убьет!"...
             </p>
