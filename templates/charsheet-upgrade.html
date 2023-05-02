@@ -249,7 +249,14 @@ Character sheet interactive mockup
                 </div>
                 {% if 'EA_PSY' in character.ea_id %}
                 <div class="card card-body justify-content-center">
-                    {% include 'pr_upgrade_form.html' %}
+                    <header class="text-center">
+                        <b>
+                            {% if lang == 'ru' %}Пси-рейтинг и психосилы{% else %}Psy-rating and psychic powers{% endif %}
+                        </b>
+                    </header>
+                    {% with forms|get_by_dict_key:'pr' as form %}
+                        {% include 'pr_upgrade_form.html' %}
+                    {% endwith %}
                     {% include 'psy_powers_list.html' %}
                 </div>
                 {% endif %}
