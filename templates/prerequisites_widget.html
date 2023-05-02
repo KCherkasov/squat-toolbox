@@ -105,7 +105,7 @@
             {% endif %}
             {% if prereq.is_psy_power_prereq %}
                 {% with facade.psy_powers|get_by_dict_key:prereq.tag as pp %}
-                    {{ pp.name|get_by_dict_key:lang }}
+                    {% if lang == 'ru' %}{{ pp.name_ru }}{% else %}{{ pp.name_en }}{% endif %}
                 {% endwith %}
             {% endif %}
             {% if prereq.is_insanity_prereq %}
@@ -213,7 +213,7 @@
                                 {% endif %}
                                 {% if alt_tag|starts_with:'PP' %}
                                     {% with facade.psy_powers|get_by_dict_key:alt_tag as pp %}
-                                        {{ pp.name|get_by_dict_key:lang }}
+                                        {% if lang == 'ru' %}{{ pp.name_ru }}{% else %}{{ pp.name_en }}{% endif %}
                                     {% endwith %}
                                 {% endif %}
                                 {% if alt_tag == 'IP' %}
@@ -317,7 +317,7 @@
                                 {% endif %}
                                 {% if alt_tag|starts_with:'PP' %}
                                     {% with facade.psy_powers|get_by_dict_key:alt_tag as pp %}
-                                        {{ pp.name|get_by_dict_key:lang }}
+                                        {% if lang == 'ru' %}{{ pp.name_ru }}{% else %}{{ pp.name_en }}{% endif %}
                                     {% endwith %}
                                 {% endif %}
                                 {% if alt_tag == 'IP' %}

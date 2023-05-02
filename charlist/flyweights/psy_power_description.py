@@ -36,6 +36,12 @@ class PsyPowerDescription(object):
     def name(self):
         return self.__name
 
+    def name_ru(self):
+        return self.__name.get('ru')
+
+    def name_en(self):
+        return self.__name.get('en')
+
     def description(self):
         return self.__description
 
