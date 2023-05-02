@@ -209,7 +209,7 @@ def characters_list(request):
         char_data[character.pk] = character.data_to_model()
     in_progress = models.CreationData.objects.by_uid(user.pk)
     in_progress_rt = models.RTCreationData.objects.by_uid(user.pk)
-    return render(request, 'characters_list.html', {'version': VERSION, 'facade': flyweights, 'characters': characters,
+    return render(request, 'characters_list.html', {'version': VERSION, 'facade': rt_flyweights, 'characters': characters,
                                                     'in_progress': in_progress, 'in_progress_rt': in_progress_rt,
                                                     'char_data': char_data, })
 
