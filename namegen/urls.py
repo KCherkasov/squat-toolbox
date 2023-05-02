@@ -73,6 +73,7 @@ urlpatterns = [
     path(r'dev/character/<int:char_id>/', charviews.character_view, name='character-details'),
     path(r'dev/character/<int:char_id>/delete', charviews.character_delete, name='character-delete'),
     path(r'dev/character/<int:char_id>/upgrade', charviews.character_upgrade, name='character-upgrade'),
+    path(r'dev/character/<int:char_id>/processing', rt_views.upg_midlayer, name='character-upg-midlayer'),
 
     path(r'dev/creation-data/<int:creation_id>/',
          charviews.resume_creation_edit, name='char-data-edit'),

@@ -795,6 +795,10 @@ def character_view(request, char_id):
                                               'upg_view': character.get_upgrade_url(), })
 
 
+def upg_midlayer(request, char_id):
+    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': char_id, }))
+
+
 def upgrade_stat(request, character: models.Character, character_model: RTCharacterModel):
     stat_tag = request.POST.get('stat_tag')
     cost = int(request.POST.get('cost'))
@@ -805,7 +809,7 @@ def upgrade_stat(request, character: models.Character, character_model: RTCharac
             character_model.upgrade_stat(stat_tag)
             character.character_data = character_model.toJSON()
             character.save()
-    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
+    return HttpResponseRedirect(reverse('character-upg-midlayer', kwargs={'char_id': character.pk, }))
 
 
 def upgrade_skill(request, character: models.Character, character_model: RTCharacterModel):
@@ -818,7 +822,7 @@ def upgrade_skill(request, character: models.Character, character_model: RTChara
             character_model.improve_skill(skill_tag)
             character.character_data = character_model.toJSON()
             character.save()
-    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
+    return HttpResponseRedirect(reverse('character-upg-midlayer', kwargs={'char_id': character.pk, }))
 
 
 def upgrade_subskill(request, character: models.Character, character_model: RTCharacterModel):
@@ -835,7 +839,7 @@ def upgrade_subskill(request, character: models.Character, character_model: RTCh
         character_model.improve_skill_subtag(skill_tag, sk_subtag, rt_flyweights)
         character.character_data = character_model.toJSON()
         character.save()
-    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
+    return HttpResponseRedirect(reverse('character-upg-midlayer', kwargs={'char_id': character.pk, }))
 
 
 def upgrade_talent(request, character: models.Character, character_model: RTCharacterModel):
@@ -848,7 +852,7 @@ def upgrade_talent(request, character: models.Character, character_model: RTChar
             character_model.gain_talent(tl_tag, rt_flyweights)
             character.character_data = character_model.toJSON()
             character.save()
-    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
+    return HttpResponseRedirect(reverse('character-upg-midlayer', kwargs={'char_id': character.pk, }))
 
 
 def upgrade_talent_subtag(request, character: models.Character, character_model: RTCharacterModel):
@@ -865,7 +869,7 @@ def upgrade_talent_subtag(request, character: models.Character, character_model:
         character_model.gain_talent_subtag(tl_tag, tl_subtag, rt_flyweights)
         character.character_data = character_model.toJSON()
         character.save()
-    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
+    return HttpResponseRedirect(reverse('character-upg-midlayer', kwargs={'char_id': character.pk, }))
 
 
 def upgrade_ea(request, character: models.Character, character_model: RTCharacterModel):
@@ -877,7 +881,7 @@ def upgrade_ea(request, character: models.Character, character_model: RTCharacte
         character_model.gain_ea_id(ea_tag)
         character.character_data = character_model.toJSON()
         character.save()
-    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
+    return HttpResponseRedirect(reverse('character-upg-midlayer', kwargs={'char_id': character.pk, }))
 
 
 def upgrade_pr(request, character: models.Character, character_model: RTCharacterModel):
@@ -888,7 +892,7 @@ def upgrade_pr(request, character: models.Character, character_model: RTCharacte
         character_model.gain_pr()
         character.character_data = character_model.toJSON()
         character.save()
-    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
+    return HttpResponseRedirect(reverse('character-upg-midlayer', kwargs={'char_id': character.pk, }))
 
 
 def upgrade_psy_power(request, character: models.Character, character_model: RTCharacterModel):
@@ -900,7 +904,7 @@ def upgrade_psy_power(request, character: models.Character, character_model: RTC
         character_model.psy_powers().append(pp_tag)
         character.character_data = character_model.toJSON()
         character.save()
-    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
+    return HttpResponseRedirect(reverse('character-upg-midlayer', kwargs={'char_id': character.pk, }))
 
 
 def character_upgrade(request, char_id):
