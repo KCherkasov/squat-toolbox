@@ -114,7 +114,7 @@ def rt_create_character_oac_choice(request, creation_id):
         if 'char-origin-prev' in request.POST:
             return HttpResponseRedirect(reverse('rt-create-character-init', kwargs={'creation_id': cd.pk}))
     else:
-        form = OriginAndCareerForm
+        form = OriginAndCareerForm(rt_flyweights)
         return render(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
                                                          'stage': RT_CREATION_STAGES[1], 'form': form})
 
