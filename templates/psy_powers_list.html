@@ -19,9 +19,9 @@
             {% if forloop.counter0|divisibleby:3 %}
                 <div class="card-group">
             {% endif %}
-                    <div class=" card-body">
+                    <div class=" card-body justify-content-center">
                         {% include 'psy_school_widget.html' %}
-                        <div class="card-body charlist-content talents-list">
+                        <div class="card-body charlist-content talents-list justify-content-center">
                             {% for form in powers %}
                                 {% include 'psy_power_upgrade_form.html' %}
                             {% endfor %}
