@@ -247,8 +247,8 @@ Character sheet interactive mockup
                 </div>
                 {% if 'EA_PSY' in character.ea_id %}
                 <div class="card card-body justify-content-center">
-                    {% 'pr_upgrade_form.html' %}
-                    {% 'psy_powers_list.html' %}
+                    {% include 'pr_upgrade_form.html' %}
+                    {% include 'psy_powers_list.html' %}
                 </div>
                 {% endif %}
             </div>
