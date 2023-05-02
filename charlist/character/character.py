@@ -578,8 +578,7 @@ class CharacterModel(object):
                             for subtag in self.talents().get(talent.tag()).taken().keys():
                                 upg_costs.get('talents').get('available').get(talent.get_tier()).get(tl_tag)[subtag] = \
                                     cost
-                        upg_costs.get('talents').get('available').get(talent.get_tier()).get(tl_tag)['TL_ANY'] = \
-                            cost
+                    upg_costs.get('talents').get('available').get(talent.get_tier()).get(tl_tag)['TL_ANY'] = cost
                 else:
                     if 'unavailable' not in upg_costs.get('talents').keys():
                         upg_costs.get('talents')['unavailable'] = dict()
@@ -592,7 +591,7 @@ class CharacterModel(object):
                             for subtag in self.talents().get(talent.tag()).taken().keys():
                                 upg_costs.get('talents').get('unavailable') \
                                     .get(talent.get_tier()).get(tl_tag)[subtag] = cost
-                        upg_costs.get('talents').get('unavailable').get(talent.get_tier()).get(tl_tag)['TL_ANY'] = cost
+                    upg_costs.get('talents').get('unavailable').get(talent.get_tier()).get(tl_tag)['TL_ANY'] = cost
             else:
                 if (not self.has_talent(tl_tag)) or (talent.is_stackable()):
                     flg = True
