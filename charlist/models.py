@@ -82,7 +82,7 @@ class Character(models.Model):
     objects = CharacterManager()
 
     def data_to_model(self):
-        return CharacterDecoder.decode(str(self.character_data))
+        return CharacterDecoder.decode(str(self.character_data), self.is_rt)
 
     def get_view_url(self):
         return unquote(reverse('character-details', kwargs={'char_id': self.pk}), encoding='utf-8', errors='replace')
