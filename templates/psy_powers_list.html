@@ -3,7 +3,8 @@
 {% endblock %}
 
 <div>
-    {% for availability, schools in forms|get_by_dict_key:'psy' %}
+    {% with forms|get_by_dict_key:'psy' as psy_powers %}
+    {% for availability, schools in psy_powers.items %}
         <header class="text-center">
             <b>
                 {% if availability == 'available' %}
@@ -14,7 +15,7 @@
                 {% endif %}
             </b>
         </header>
-        {% for school, powers in schools %}
+        {% for school, powers in schools.items %}
             {% if forloop.counter0|divisibleby:3 %}
                 <div class="card-group">
             {% endif %}
@@ -29,4 +30,5 @@
             {% endif %}
         {% endfor %}
     {% endfor %}
+    {% endwith %}
 </div>
