@@ -239,10 +239,6 @@
         {
           "command": "GainEliteAdvance",
           "tag": "EA_PSY"
-        },
-        {
-          "command": "IncreasePR",
-          "amount": 1
         }
       ]
     },
