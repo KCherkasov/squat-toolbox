@@ -556,6 +556,7 @@ class CharacterModel(object):
                 flg = True
                 apts = flyweights.count_talent_apt_matches(tl_tag, self.aptitudes())
                 colour = 'success'
+                cost = flyweights.talent_upg_cost(talent.get_tier(), apts)
                 if apts == 1:
                     colour = 'warning'
                 if apts == 0:
@@ -574,11 +575,11 @@ class CharacterModel(object):
                     upg_costs.get('talents').get('available').get(talent.get_tier()).get(tl_tag)['colour'] = colour
                     if self.has_talent(tl_tag):
                         if talent.is_stackable():
-                            for subtag in talent.taken().keys():
+                            for subtag in self.talents().get(talent.tag()).taken().keys():
                                 upg_costs.get('talents').get('available').get(talent.get_tier()).get(tl_tag)[subtag] = \
-                                    flyweights.talent_upg_cost(talent.get_tier(), apts)
+                                    cost
                         upg_costs.get('talents').get('available').get(talent.get_tier()).get(tl_tag)['TL_ANY'] = \
-                            flyweights.talent_upg_cost(talent.get_tier(), apts)
+                            cost
                 else:
                     if 'unavailable' not in upg_costs.get('talents').keys():
                         upg_costs.get('talents')['unavailable'] = dict()
@@ -588,17 +589,16 @@ class CharacterModel(object):
                     upg_costs.get('talents').get('unavailable').get(talent.get_tier()).get(tl_tag)['colour'] = colour
                     if self.has_talent(tl_tag):
                         if talent.is_stackable():
-                            for subtag in talent.taken().keys():
+                            for subtag in self.talents().get(talent.tag()).taken().keys():
                                 upg_costs.get('talents').get('unavailable') \
-                                    .get(talent.get_tier()).get(tl_tag)[subtag] = \
-                                    flyweights.talent_upg_cost(tl_tag, apts)
-                        upg_costs.get('talents').get('unavailable').get(talent.get_tier()).get(tl_tag)['TL_ANY'] = \
-                            flyweights.talent_upg_cost(talent.get_tier(), apts)
+                                    .get(talent.get_tier()).get(tl_tag)[subtag] = cost
+                        upg_costs.get('talents').get('unavailable').get(talent.get_tier()).get(tl_tag)['TL_ANY'] = cost
             else:
                 if (not self.has_talent(tl_tag)) or (talent.is_stackable()):
                     flg = True
                     apts = flyweights.count_talent_apt_matches(tl_tag, self.aptitudes())
                     colour = 'success'
+                    cost = flyweights.talent_upg_cost(talent.get_tier(), apts)
                     if apts == 1:
                         colour = 'warning'
                     if apts == 0:
@@ -614,14 +614,14 @@ class CharacterModel(object):
                         if talent.get_tier() not in upg_costs.get('talents').get('available').keys():
                             upg_costs.get('talents').get('available')[talent.get_tier()] = dict()
                         upg_costs.get('talents').get('available').get(talent.get_tier())[tl_tag] = \
-                            {'cost': flyweights.talent_upg_cost(talent.get_tier(), apts), 'colour': colour}
+                            {'cost': cost, 'colour': colour}
                     else:
                         if 'unavailable' not in upg_costs.get('talents').keys():
                             upg_costs.get('talents')['unavailable'] = dict()
                         if talent.get_tier() not in upg_costs.get('talents').get('unavailable').keys():
                             upg_costs.get('talents').get('unavailable')[talent.get_tier()] = dict()
                         upg_costs.get('talents').get('unavailable').get(talent.get_tier())[tl_tag] = \
-                            {'cost': flyweights.talent_upg_cost(talent.get_tier(), apts), 'colour': colour}
+                            {'cost': cost, 'colour': colour}
 
         if self.has_ea_id('EA_PSY'):
             upg_costs['pr'] = flyweights.pr_upg_cost(self.pr() + 1)
