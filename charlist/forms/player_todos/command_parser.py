@@ -195,6 +195,7 @@ class CommandParser(object):
     def process_character(self, character):
         completed = list()
         for command in character.pending():
+            cmd_tag = ''
             if 'command' in command.keys():
                 cmd_tag = 'command'
             else:
