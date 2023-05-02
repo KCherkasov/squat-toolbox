@@ -39,7 +39,7 @@ class OriginAndCareerForm(Form):
 
             name = motive.name().get('en')
             if motive.cost() > 0:
-                name.join('(').join(motive.cost()).join(' XP)')
+                name.join('(').join(str(motive.cost())).join(' XP)')
             motivations.append((tag, name))
         careers = list()
         for tag, career in facade.careers().items():
