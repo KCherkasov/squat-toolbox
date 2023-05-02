@@ -16,6 +16,9 @@ class LureOfTheVoid(object):
     def tag(self):
         return self.__tag
 
+    def get_tag(self):
+        return self.tag()
+
     def name(self):
         return self.__name
 

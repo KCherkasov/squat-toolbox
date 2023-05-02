@@ -7,6 +7,9 @@ class PsyPowerType(object):
         self.name = name
         self.description = description
 
+    def get_tag(self):
+        return self.tag
+
     def get_name(self, lang = 'ru'):
         return self.name.get(lang)
 

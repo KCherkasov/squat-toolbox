@@ -16,6 +16,9 @@ class CombatAction(object):
     def tag(self):
         return self.__tag
 
+    def get_tag(self):
+        return self.tag()
+
     def names(self):
         return self.__name
 
