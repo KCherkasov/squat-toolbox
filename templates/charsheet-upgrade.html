@@ -107,7 +107,7 @@ Character sheet interactive mockup
                                     <header class="text-center">
                                         <b>{{ tier }}&nbsp;{% if lang == 'ru' %}тир{% else %}tier{% endif %}</b>
                                     </header>
-                                    <div class="card charlist-content skills-list">
+                                    <div class="card charlist-content talents-list">
                                     {% for form in talents|get_by_dict_key:'common' %}
                                         {% include 'talent_upgrade_form.html' %}
                                     {% endfor %}
@@ -142,7 +142,7 @@ Character sheet interactive mockup
                                     <header class="text-center">
                                         <b>{{ tier }}&nbsp;{% if lang == 'ru' %}тир{% else %}tier{% endif %}</b>
                                     </header>
-                                    <div class="card charlist-content skills-list">
+                                    <div class="card charlist-content talents">
                                     {% for form in talents|get_by_dict_key:'common' %}
                                         {% include 'talent_upgrade_form.html' %}
                                     {% endfor %}
@@ -236,7 +236,7 @@ Character sheet interactive mockup
                                 {% endif %}
                             </b>
                         </header>
-                        <div class="card charlist-content skills-list">
+                        <div class="card charlist-content talents-list justify-content-center">
                             {% for form in advs %}
                                 {% include 'elite_advance_upgrade_form.html' %}
                             {% endfor %}
