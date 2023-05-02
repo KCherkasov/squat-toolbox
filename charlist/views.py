@@ -1108,7 +1108,6 @@ def upg_data_to_forms(character):
     forms = {'stats': list(),
              'skills': {'common': list(), 'spec': list()},
              'talents': {'available': dict(), 'unavailable': dict()},
-             'psy': {'available': dict(), 'unavailable': dict()},
              'ea': {'available': list(), 'unavailable': list()}
              }
 
