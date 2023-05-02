@@ -1151,12 +1151,12 @@ def upg_data_to_forms(character):
             if not flyweights.talent_descriptions().get(tl_tag).is_specialist():
                 if not character.has_talent(tl_tag):
                     if flyweights.talent_descriptions().get(tl_tag).is_stackable():
-                        taken = character.talents().get(tl_tag).taken()
+                        taken = 0
                     else:
                         taken = -1
                 else:
                     if flyweights.talent_descriptions().get(tl_tag).is_stackable():
-                        taken = 0
+                        taken = character.talents().get(tl_tag).taken()
                     else:
                         taken = -1
                 forms.get('talents').get('available')[tier].get('common').append(
@@ -1186,12 +1186,12 @@ def upg_data_to_forms(character):
             if not rt_flyweights.talent_descriptions().get(tl_tag).is_specialist():
                 if not character.has_talent(tl_tag):
                     if rt_flyweights.talent_descriptions().get(tl_tag).is_stackable():
-                        taken = character.talents().get(tl_tag).taken()
+                        taken = 0
                     else:
                         taken = -1
                 else:
                     if rt_flyweights.talent_descriptions().get(tl_tag).is_stackable():
-                        taken = 0
+                        taken = character.talents().get(tl_tag).taken()
                     else:
                         taken = -1
                 forms.get('talents').get('unavailable')[tier].get('common').append(
