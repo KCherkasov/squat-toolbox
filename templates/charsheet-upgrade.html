@@ -150,7 +150,7 @@ Character sheet interactive mockup
                                         {% with form_map|get_by_dict_key:'tl_tag' as tl_tag %}
                                         {% with form_map|get_by_dict_key:'colour' as colour %}
                                         {% with facade.talent_descriptions|get_by_dict_key:tl_tag as tal %}
-                                        <div class="card card-body charlist-content justify-content-center align-items-center alert-{{ colour }} w400-skill">
+                                        <div class="card card-body charlist-content justify-content-center align-items-center alert-{{ colour }} w300">
                                             <div>
                                                 <a href="" class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
                                                    data-bs-target="#c{{character.id}}-{{ form.tl_tag }}-{{ lang }}-upg-info" title="Подробнее">
