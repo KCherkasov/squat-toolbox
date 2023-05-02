@@ -555,7 +555,7 @@ class RTCharacterModel(object):
                 if not self.has_talent(tl_tag):
                     for prereq in talent.get_prerequisites():
                         if not prereq.matched(self):
-                            flg: False
+                            flg = False
                             break
                 if flg:
                     if 'available' not in upg_costs.get('talents').keys():
@@ -598,7 +598,7 @@ class RTCharacterModel(object):
                     if not self.has_talent(tl_tag):
                         for prereq in talent.get_prerequisites():
                             if not prereq.matched(self):
-                                flg: False
+                                flg = False
                                 break
                     if flg:
                         if 'available' not in upg_costs.get('talents').keys():

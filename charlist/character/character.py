@@ -563,7 +563,7 @@ class CharacterModel(object):
                 if not self.has_talent(tl_tag):
                     for prereq in talent.get_prerequisites():
                         if not prereq.matched(self):
-                            flg: False
+                            flg = False
                             break
                 if flg:
                     if 'available' not in upg_costs.get('talents').keys():
@@ -589,9 +589,9 @@ class CharacterModel(object):
                     if self.has_talent(tl_tag):
                         if talent.is_stackable():
                             for subtag in talent.taken().keys():
-                                upg_costs.get('talents').get('unavailable')\
-                                    .get(talent.get_tier()).get(tl_tag)[subtag] =\
-                                    flyweights.talent_upg_cost(talent.get_tier(), apts)
+                                upg_costs.get('talents').get('unavailable') \
+                                    .get(talent.get_tier()).get(tl_tag)[subtag] = \
+                                    flyweights.talent_upg_cost(tl_tag, apts)
                         upg_costs.get('talents').get('unavailable').get(talent.get_tier()).get(tl_tag)['TL_ANY'] = \
                             flyweights.talent_upg_cost(talent.get_tier(), apts)
             else:
@@ -606,7 +606,7 @@ class CharacterModel(object):
                     if not self.has_talent(tl_tag):
                         for prereq in talent.get_prerequisites():
                             if not prereq.matched(self):
-                                flg: False
+                                flg = False
                                 break
                     if flg:
                         if 'available' not in upg_costs.get('talents').keys():
