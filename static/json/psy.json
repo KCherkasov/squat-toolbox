@@ -204,6 +204,11 @@
         "en": ["Focussing his mind on the injured bodies of his allies, the psyker energises their biology, initiating rapid cell growth. In moments, shattered bones re-knit, gaping wounds close and heal, and the effects of combat damage disappear."]
       },
       "school": "PS_BIO",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["число союзников, находящихся в радиусе действия психосилы, равное пси-рейтингу псайкера, а также сам псайкер восстанавливают количество ран, равное половине\nпси-рейтинга псайкера (округлять вверх). Кроме того,\nпопавшие под действие этой силы немедленно сбрасывают\nвсе эффекты Подавления (если имели таковые). Применение этой психосилы невероятно утомительно, и использовать её в следующий раз псайкер сможет не ранее чем через 12 часов."],
+        "en": ["A number of allies in range equal to the psyker’s psy rating, plus the psyker himself, recover wounds equal to half the psyker’s psy rating, rounded up. They can also immediately overcome the\neffects of Pinning. This power is incredibly taxing and requires at least 12 hours of recovery before it may be used again."]
+      },
       "cost": 300,
       "prerequisites": [
         {
