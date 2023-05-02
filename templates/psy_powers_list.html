@@ -22,7 +22,7 @@
                     <div class="card charlist-content skills-list">
                         {% for form in powers %}
                             {% include 'psy_power_upgrade_form.html' %}
-                        {% endform %}
+                        {% endfor %}
                     </div>
             {% if forloop.counter|divisibleby:3 or forloop.last %}
                 </div>
