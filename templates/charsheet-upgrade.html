@@ -153,17 +153,17 @@ Character sheet interactive mockup
                                         <div class="card card-body charlist-content justify-content-center align-items-center alert-{{ colour }} w300">
                                             <div>
                                                 <a href="" class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
-                                                   data-bs-target="#c{{character.id}}-{{ form.tl_tag }}-{{ lang }}-upg-info" title="Подробнее">
+                                                   data-bs-target="#c{{character.id}}-{{ tl_tag }}-{{ lang }}-upg-info" title="Подробнее">
                                                     <b class="text-dark">{{ tal.name|get_by_dict_key:lang }}</b>
                                                 </a>
                                             </div>
 
                                             <div class="modal fade" id="c{{character.id}}-{{ form.tl_tag }}-{{ lang }}-upg-info" tabindex="-1"
-                                                 aria-labelledby="c{{character.id}}-{{ form.tl_tag }}-{{ lang }}-upg-info-label">
+                                                 aria-labelledby="c{{character.id}}-{{ tl_tag }}-{{ lang }}-upg-info-label">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <b id="c{{character.id}}-{{ form.tl_tag }}-{{ lang }}-upg-info-label">
+                                                            <b id="c{{character.id}}-{{ tl_tag }}-{{ lang }}-upg-info-label">
                                                                 {{ tal.name|get_by_dict_key:lang }}
                                                             </b>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
