@@ -4470,7 +4470,8 @@
         },
         {
           "tag": "TL_ENM",
-          "subtag": ["Mechanicus", "Adeptus Mechanicus", "Механикус", "Адептус Механикус"]
+          "subtag": ["Mechanicus", "Adeptus Mechanicus", "Механикус", "Адептус Механикус"],
+          "value": 1
         }
       ],
       "is_specialist": false,
