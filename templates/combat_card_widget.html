@@ -9,7 +9,7 @@
         </p>
     </div>
     <div class="card-group">
-        <div class="card">
+        <div class="card justify-content-center">
             <div class="card-title">
 
             </div>
@@ -28,7 +28,7 @@
                 </div>
                 {% endif %}
                 <div class="ps-3">
-                    <b>{{ facade|get_stat_description:'ST_WS'|get_stdescr_name:lang }}</b>
+                    <b>{{ facade|get_short_stat:stat_key|get_short_stat_name:'en' }}</b>
                 </div>
             </div>
             <div class="justify-content-center">
