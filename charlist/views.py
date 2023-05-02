@@ -72,7 +72,7 @@ account_activation_token = TokenGenerator()
 
 resources = ['aptitudes.json', 'stat_descriptions.json', 'skill_descriptions.json', 'talent_descriptions.json',
              'traits.json', 'homeworlds.json', 'backgrounds.json', 'roles.json', 'elite_advances.json',
-             'divinations.json', 'malignancies.json', 'mutations.json', 'psy.json']
+             'divinations.json', 'malignancies.json', 'mutations.json', 'psy.json', 'combat_actions.json']
 flyweights = Facade(resources)
 commands_parser = CommandParser(flyweights)
 
