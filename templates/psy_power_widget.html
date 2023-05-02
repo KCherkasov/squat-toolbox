@@ -57,7 +57,7 @@
                             <p class="text-dark">
                                 <b>{% if lang == 'ru' %}Действие{% else %}Action:{% endif %}</b>&nbsp;
                                 {% with facade.action_types|get_by_dict_key:power.action as action %}
-                                    {{ action.name|get_by_dict_key:lang }}
+                                    {{ action.names|get_by_dict_key:lang }}
                                 {% endwith %}
                             </p>
                         </div>
