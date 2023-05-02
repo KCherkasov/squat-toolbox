@@ -49,7 +49,7 @@ resources = ['aptitudes.json', 'rt_stat_descriptions.json', 'rt_skill_descriptio
              'traits.json', 'homeworlds.json', 'backgrounds.json', 'roles.json', 'elite_advances.json',
              'divinations.json', 'malignancies.json', 'mutations.json', 'psy.json', 'combat_actions.json',
              'rt_homeworlds.json', 'rt_birthrights.json', 'rt_lures.json', 'rt_trials.json', 'rt_motivations.json',
-             'rt_careers']
+             'rt_careers.json']
 rt_flyweights = RTFacade(resources)
 rt_commands_parser = CommandParser(rt_flyweights)
 

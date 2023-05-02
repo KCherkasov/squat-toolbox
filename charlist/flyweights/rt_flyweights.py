@@ -143,7 +143,7 @@ class RTFacade:
         self.__lures = to_map(lures)
         trials = TrialAndTravail.from_file(json.load(open(prefix + resources_paths[17], 'r', encoding='utf-8')))
         self.__trials = to_map(trials)
-        motivations = Motivation.from_model(json.load(open(prefix + resources_paths[18], 'r', encoding='utf-8')))
+        motivations = Motivation.from_file(json.load(open(prefix + resources_paths[18], 'r', encoding='utf-8')))
         self.__motivations = to_map(motivations)
         careers = Career.from_file(json.load(open(prefix + resources_paths[19], 'r', encoding='utf-8')))
         self.__careers = to_map(careers)
