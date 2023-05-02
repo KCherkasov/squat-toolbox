@@ -14,7 +14,8 @@
             {% endif %}
             {% if prereq.is_skill_prereq %}
                 {% if prereg.tag != 'SK_ANY' %}
-                    {{ facade.skill_descriptions|get_by_dict_key:prereq.tag|get_skdescr_name:lang }}
+                    {% with facade.skill_descriptions|get_by_dict_key:prereq.tag as skill %}
+                    if {% skill is not None %}{{ skill.name|get_by_dict_key:lang }}{% else %}{{ prereq.tag }}{% endif %}
                     {% if prereq.has_subtag %}
                         (
                         {% for subtag in prereq.subtag %}
@@ -25,6 +26,7 @@
                         {% endfor %}
                         )
                     {% endif %}
+                    {% endwith %}
                 {% else %}
                     {% if lang == 'ru' %}Любой навык{% else %}Any skill{% endif %}
                 {% endif %}
