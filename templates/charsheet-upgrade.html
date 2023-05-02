@@ -142,7 +142,7 @@ Character sheet interactive mockup
                                     <header class="text-center">
                                         <b>{{ tier }}&nbsp;{% if lang == 'ru' %}тир{% else %}tier{% endif %}</b>
                                     </header>
-                                    <div class="card charlist-content talents">
+                                    <div class="card charlist-content talents-list">
                                     {% for form in talents|get_by_dict_key:'common' %}
                                         {% include 'talent_upgrade_form.html' %}
                                     {% endfor %}
