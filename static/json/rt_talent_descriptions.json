@@ -2990,10 +2990,6 @@
           "value": 1
         },
         {
-          "tag": "TL_BOD",
-          "value": 1
-        },
-        {
           "tag": "ST_WP",
           "value": 50
         }
