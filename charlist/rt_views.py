@@ -46,7 +46,7 @@ from charlist.forms.upgrading.elite_advance_upgrade_form import EliteAdvanceUpgr
 from charlist.forms.upgrading.pr_upgrade_form import PRUpgrageForm
 
 resources = ['aptitudes.json', 'rt_stat_descriptions.json', 'rt_skill_descriptions.json', 'rt_talent_descriptions.json',
-             'traits.json', 'homeworlds.json', 'backgrounds.json', 'roles.json', 'elite_advances.json',
+             'traits.json', 'homeworlds.json', 'backgrounds.json', 'roles.json', 'rt_elite_advances.json',
              'divinations.json', 'malignancies.json', 'mutations.json', 'psy.json', 'combat_actions.json',
              'rt_homeworlds.json', 'rt_birthrights.json', 'rt_lures.json', 'rt_trials.json', 'rt_motivations.json',
              'rt_careers.json']
