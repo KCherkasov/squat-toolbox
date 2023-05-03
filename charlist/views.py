@@ -1444,13 +1444,13 @@ def character_upgrade(request, char_id):
     if character.is_rt:
         return rt_views.character_upgrade(request, char_id)
     character_model = character.data_to_model()
-    forms = upg_data_to_forms(character_model)
     if request.method == 'POST':
         parse_upgrades(request, character, character_model)
     if character_model.is_rt():
         facade = rt_flyweights
     else:
         facade = flyweights
+    forms = upg_data_to_forms(character_model)
     return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
                                                                 'character': character_model, 'forms': forms,
                                                                 'return': True,
