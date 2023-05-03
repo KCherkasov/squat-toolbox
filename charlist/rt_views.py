@@ -124,12 +124,12 @@ def rt_create_character_stat_distribution(request, creation_id):
     cdm = cd.data_to_model()
     if request.method == 'POST':
         if 'char-origin-next' in request.POST:
-            form = RTStatDistributionForm(cdm, rt_flyweights)
+            form = RTStatDistributionForm(rt_flyweights)
             return TemplateResponse(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
                                                                        'stage': RT_CREATION_STAGES[2], 'form': form})
         if 'char-st-prev' in request.POST:
             return HttpResponseRedirect(reverse('rt-create-character-oac', kwargs={'creation_id': cd.pk}))
-        form = RTStatDistributionForm(cdm, rt_flyweights, request.POST)
+        form = RTStatDistributionForm(rt_flyweights, request.POST)
         if 'char-st-next' in request.POST:
             if form.is_valid():
                 for stat in STAT_TAGS:
@@ -139,9 +139,10 @@ def rt_create_character_stat_distribution(request, creation_id):
             cd.curr_stage = 'choices'
             return HttpResponseRedirect(reverse('rt-create-character-choices', kwargs={'creation_id': cd.pk}))
     else:
-        form = RTStatDistributionForm(cdm, rt_flyweights)
+        form = RTStatDistributionForm(rt_flyweights)
         return TemplateResponse(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
-                                                                   'stage': RT_CREATION_STAGES[2], 'form': form})
+                                                                   'cd': cdm, 'stage': RT_CREATION_STAGES[2],
+                                                                   'form': form})
 
 
 def rt_create_character_choices(request, creation_id):
