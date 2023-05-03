@@ -15,15 +15,16 @@ class DoubleAptsForm(Form):
     def __init__(self, cd: RTCreationDataModel, flyweights: RTFacade, *args, **kwargs):
         super().__init__(*args, **kwargs)
         choices = list()
+        self.current_apts = list
         for apt in cd.simplify_apts():
-            self.current_apts = flyweights.aptitudes().get(apt).get_name('en')
+            self.current_apts.append(flyweights.aptitudes().get(apt).get_name('en'))
         for apt in STAT_APTS:
             if apt not in cd.aptitudes:
                 choices.append((apt, flyweights.aptitudes().get(apt).get_name('en')))
         for i in range(cd.count_doubles()):
             label = 'Choose doubled aptitude ' + str(i + 1)
             name = 'apt-' + str(i + 1)
-            self.fields[name] = forms.ChoiceField(label=label)
+            self.fields[name] = forms.ChoiceField(label=label, choices=choices)
 
     def clean(self):
         cd = self.cleaned_data
