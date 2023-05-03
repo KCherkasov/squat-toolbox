@@ -13,7 +13,7 @@ class StatDistributionForm(Form):
     def __init__(self, cd: RTCreationDataModel, facade: RTFacade, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.base_values = dict()
-        for stat in STAT_TAGS:
+        for stat in RT_STAT_TAGS:
             self.base_values[stat] = cd.stats.get(stat)
             self.fields[stat] = forms.IntegerField(
                 label=facade.stat_descriptions().get(stat).get_name_en(),

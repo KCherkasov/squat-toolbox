@@ -18,7 +18,7 @@
         <div class="form-group charlist-inline justify-content-center mt-2">
             <label for="{{ field.name }}" class="col-sm-2 control-label">{{ field.label }}</label>
             <div class="btn btn-outline-dark disabled">
-                <p>{{ form.base_values|get_by_dict_key:field.name }}</p>
+                <p>{{ form.base_values }}</p>
             </div>
             <div>
                 <p>+</p>
@@ -30,13 +30,13 @@
         {% endfor %}
         <div class="form-group charlist-inline justify-content-center mt-2">
             <div class="col-sm-offset-2 col-sm-2">
-                <button type="submit" class="btn btn-primary" name="char-st-next">Далее</button>
+                <button type="submit" class="btn btn-primary" name="char-st-next">Next</button>
             </div>
             <div class="col-sm-offset-2 col-sm-2">
-                <button type="submit" class="btn btn-primary" name="char-st-prev">Назад</button>
+                <button type="submit" class="btn btn-primary" name="char-st-prev">Back</button>
             </div>
             <div class="col-sm-offset-2 col-sm-2">
-                <a class="btn btn-danger" href="{% url 'characters-list' %}">Отмена</a>
+                <a class="btn btn-danger" href="{% url 'characters-list' %}">Cancel</a>
             </div>
         </div>
     </form>
