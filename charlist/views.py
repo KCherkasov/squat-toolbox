@@ -14,7 +14,6 @@ from django.template.loader import render_to_string
 from django.template.response import TemplateResponse
 from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from django.views.decorators.cache import never_cache
 
 import charlist.models as models
 from charlist import rt_views
@@ -1287,7 +1286,6 @@ def character_view(request, char_id):
                                                         'upg_view': character.get_upgrade_url(), })
 
 
-@never_cache
 def upgrade_stat(request, character: models.Character, character_model):
     if character_model.is_rt():
         return rt_views.upgrade_stat(request, character, character_model)
@@ -1303,7 +1301,6 @@ def upgrade_stat(request, character: models.Character, character_model):
     return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
-@never_cache
 def upgrade_skill(request, character: models.Character, character_model):
     if character_model.is_rt():
         return rt_views.upgrade_skill(request, character, character_model)
@@ -1319,7 +1316,6 @@ def upgrade_skill(request, character: models.Character, character_model):
     return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
-@never_cache
 def upgrade_subskill(request, character: models.Character, character_model):
     if character_model.is_rt():
         return rt_views.upgrade_subskill(request, character, character_model)
@@ -1339,7 +1335,6 @@ def upgrade_subskill(request, character: models.Character, character_model):
     return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
-@never_cache
 def upgrade_talent(request, character: models.Character, character_model):
     if character_model.is_rt():
         return rt_views.upgrade_talent(request, character, character_model)
@@ -1355,7 +1350,6 @@ def upgrade_talent(request, character: models.Character, character_model):
     return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
-@never_cache
 def upgrade_talent_subtag(request, character: models.Character, character_model):
     if character_model.is_rt():
         return rt_views.upgrade_talent_subtag(request, character, character_model)
@@ -1375,7 +1369,6 @@ def upgrade_talent_subtag(request, character: models.Character, character_model)
     return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
-@never_cache
 def upgrade_ea(request, character: models.Character, character_model):
     if character_model.is_rt():
         return rt_views.upgrade_ea(request, character, character_model)
@@ -1390,7 +1383,6 @@ def upgrade_ea(request, character: models.Character, character_model):
     return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
-@never_cache
 def upgrade_pr(request, character: models.Character, character_model):
     if character_model.is_rt():
         return rt_views.upgrade_pr(request, character, character_model)
@@ -1404,7 +1396,6 @@ def upgrade_pr(request, character: models.Character, character_model):
     return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
-@never_cache
 def upgrade_psy_power(request, character: models.Character, character_model):
     if character_model.is_rt():
         return rt_views.upgrade_psy_power(request, character, character_model)
@@ -1438,7 +1429,6 @@ def parse_upgrades(request, character: models.Character, character_model):
         upgrade_psy_power(request, character, character_model)
 
 
-@never_cache
 def character_upgrade(request, char_id):
     character = models.Character.objects.get(pk=char_id)
     if character.is_rt:
