@@ -135,6 +135,7 @@ def rt_create_character_stat_distribution(request, creation_id):
         if 'char-st-next' in request.POST:
             if form.is_valid():
                 stats = dict()
+                cdm.reset_stats(rt_flyweights)
                 for stat in RT_STAT_TAGS:
                     stats[stat] = cdm.stats.get(stat) + form.cleaned_data[stat]
                 cdm.stats = stats
@@ -163,7 +164,12 @@ def rt_create_character_choices(request, creation_id):
                                                                        'stage': RT_CREATION_STAGES[3], 'form': form})
         form = RTChoicesForm(rt_flyweights, request.POST)
         if 'char-apts-prev' in request.POST:
-            cdm.full_reset()
+            cdm.reset_skills(rt_flyweights)
+            cdm.reset_talents(rt_flyweights)
+            cdm.reset_traits(rt_flyweights)
+            cdm.reset_apts(rt_flyweights)
+            cd.character_data = cdm.to_json()
+            cd.save()
             form.parse(cdm)
             return TemplateResponse(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
                                                                        'stage': RT_CREATION_STAGES[3], 'form': form})

@@ -166,6 +166,23 @@
       "is_stackable": false
     },
     {
+      "tag": "TL_UNRM",
+      "name": {
+        "ru": "Неприметный",
+        "en": "Unremarkable"
+      },
+      "description": {
+        "ru": "Попытки заметить персонажа среди других людей, описать его или вспомнить какие-то подробности получают штраф -20.",
+        "en": "Attempts to notice the character when amongst other people, or attempts to describe him or recall details incur a –20 penalty."
+      },
+      "hints": [],
+      "tier": 2,
+      "aptitudes": ["A_FEL", "A_SOC"],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
+    },
+    {
       "tag": "TL_DSRM",
       "name": {
         "ru": "Разоружение",
