@@ -135,7 +135,7 @@ def rt_create_character_stat_distribution(request, creation_id):
         if 'char-st-next' in request.POST:
             if form.is_valid():
                 for stat in RT_STAT_TAGS:
-                    cdm.stats[stat] += form.cleaned_data[stat]
+                    cdm.stats[stat] = cdm.stats.get(stat) + form.cleaned_data[stat]
             cd.character_data = cdm.to_json()
             cd.last_mod_date = datetime.datetime.now()
             cd.curr_stage = 'choices'
