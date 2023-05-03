@@ -6,6 +6,8 @@ from django import forms
 from django.forms import Form
 from django.forms import ValidationError
 
+import json
+
 from charlist.flyweights.rt_flyweights import RTFacade
 from charlist.character.rt_creation_data import RTCreationDataModel
 
@@ -55,7 +57,7 @@ class RTChoicesForm(Form):
         subtagged = False
         for choice in grp:
             name = parse_choice(choice, self.__facade)
-            choices.append((choice, name))
+            choices.append((json.dumps(choice), name))
             if ('subtag' in choice.keys()) and (not subtagged):
                 if (choice.get('subtag') == 'SK_ANY') or (choice.get('subtag') == 'TL_ANY'):
                     subtagged = True

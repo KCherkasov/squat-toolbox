@@ -182,7 +182,7 @@ def rt_create_character_choices(request, creation_id):
                     field_name = 'choice-' + str(i)
                     if field_name not in cleaned_data.keys():
                         break
-                    choice = cleaned_data[field_name]
+                    choice = json.loads(cleaned_data[field_name])
                     cdm.choices.append(choice)
                     if choice.get('tag')[:2] == 'A_':
                         cdm.aptitudes.append(choice.get('tag'))
