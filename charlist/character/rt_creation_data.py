@@ -71,7 +71,7 @@ class RTCreationDataModel(object):
     def reset_apts(self, facade: RTFacade):
         reset = ['A_GEN']
         if self.hw_id in facade.rt_homeworlds().keys():
-            reset.append(facade.rt_homeworlds().get(self.hw_id).aptitude())
+            reset.append(facade.rt_homeworlds().get(self.hw_id).get_aptitude())
         if self.career_id in facade.careers().keys():
             for apt in facade.careers().get(self.career_id).aptitudes():
                 reset.append(apt)
