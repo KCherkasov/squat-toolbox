@@ -167,6 +167,7 @@ def rt_create_character_choices(request, creation_id):
             cdm.reset_skills(rt_flyweights)
             cdm.reset_talents(rt_flyweights)
             cdm.reset_traits(rt_flyweights)
+            cdm.choices = list()
             cdm.reset_apts(rt_flyweights)
             cd.character_data = cdm.to_json()
             cd.save()
@@ -177,7 +178,7 @@ def rt_create_character_choices(request, creation_id):
             if form.is_valid():
                 cleaned_data = form.cleaned_data
                 cdm.choices = list()
-                for key, choice in cleaned_data.iteritems():
+                for key, choice in cleaned_data.items():
                     cdm.choices.append(choice)
                     if choice.get('tag')[:2] == 'A_':
                         cdm.aptitudes.append(choice.get('tag'))
