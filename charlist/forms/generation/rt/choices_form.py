@@ -27,30 +27,30 @@ class RTChoicesForm(Form):
         career = self.__facade.careers().get(cd.career_id)
         i = 0
         for grp in hw.get_skill_choices():
-            self.parse_group(grp, i, 'Homeworld skill')
+            i = self.parse_group(grp, i, 'Homeworld skill')
         for grp in hw.get_talent_choices():
-            self.parse_group(grp, i, 'Homeworld talent')
+            i = self.parse_group(grp, i, 'Homeworld talent')
         for grp in birthright.choices():
-            self.parse_group(grp, i, "Birthright")
+            i = self.parse_group(grp, i, "Birthright")
         birthright_apts = list()
         for apt in birthright.aptitude_choices():
             birthright_apts.append({'tag': apt})
-        self.parse_group(birthright_apts, i, 'Birthright aptitude')
+        i = self.parse_group(birthright_apts, i, 'Birthright aptitude')
         for grp in lure.choices():
-            self.parse_group(grp, i, 'Lure of the Void')
+            i = self.parse_group(grp, i, 'Lure of the Void')
         for grp in trial.choices():
-            self.parse_group(grp, i, 'Trial and Travail')
+            i = self.parse_group(grp, i, 'Trial and Travail')
         for grp in motive.choices():
-            self.parse_group(grp, i, 'Motivation')
+            i = self.parse_group(grp, i, 'Motivation')
         motivation_apts = list()
         for apt in motive.aptitudes():
             motivation_apts.append({'tag': apt})
-        self.parse_group(motivation_apts, i, 'Motivation aptitude')
+        i = self.parse_group(motivation_apts, i, 'Motivation aptitude')
         for grp in career.choices():
-            self.parse_group(grp, i, 'Career')
+            i = self.parse_group(grp, i, 'Career')
 
     def parse_group(self, grp: List, i: int, prefix: str):
-        j = 1
+        j = i + 1
         choices = list()
         subtagged = False
         for choice in grp:
@@ -68,7 +68,7 @@ class RTChoicesForm(Form):
             stg_label = 'Specialization:'
             self.fields[stg_name] = forms.CharField(label=stg_label, required=False)
         i += 1
-        j += 1
+        return i
 
     def clean(self):
         cd = self.cleaned_data
