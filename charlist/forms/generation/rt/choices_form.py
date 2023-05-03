@@ -30,8 +30,6 @@ class RTChoicesForm(Form):
             self.parse_group(grp, i, 'Homeworld skill')
         for grp in hw.get_talent_choices():
             self.parse_group(grp, i, 'Homeworld talent')
-        for grp in hw.get_trait_choices():
-            self.parse_group(grp, i, "Homeworld trait")
         for grp in birthright.choices():
             self.parse_group(grp, i, "Birthright")
         for grp in lure.choices():
