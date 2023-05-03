@@ -18,7 +18,7 @@
         <div class="form-group charlist-inline justify-content-center mt-2">
             <label for="{{ field.name }}" class="col-sm-2 control-label">{{ field.label }}</label>
             <div class="btn btn-outline-dark disabled">
-                <p>{{ form.base_values|get_by_dict_key:field.name }}</p>
+                <p>{{ cd.stats|get_by_dict_key:field.name }}</p>
             </div>
             <div>
                 <p>+</p>

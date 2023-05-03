@@ -2,7 +2,8 @@
 import datetime
 
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, reverse
+from django.shortcuts import reverse
+from django.template.response import TemplateResponse
 
 import charlist.models as models
 from charlist.character.rt_character import RTCharacterModel
@@ -66,8 +67,8 @@ def rt_create_character_init(request, creation_id):
     if request.method == 'POST':
         form = CreationSettingsForm(request.POST)
         if 'char-origin-prev' in request.POST:
-            return render(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
-                                                             'stage': RT_CREATION_STAGES[0], 'form': form})
+            return TemplateResponse(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
+                                                                       'stage': RT_CREATION_STAGES[0], 'form': form})
         else:
             if ('char-cr-next' in request.POST) and form.is_valid():
                 cleaned_data = form.cleaned_data
@@ -81,8 +82,8 @@ def rt_create_character_init(request, creation_id):
         return HttpResponseRedirect(reverse('rt-create-character-oac', kwargs={'creation_id': cd.pk}))
     else:
         form = CreationSettingsForm()
-        return render(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
-                                                         'stage': RT_CREATION_STAGES[0], 'form': form})
+        return TemplateResponse(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
+                                                                   'stage': RT_CREATION_STAGES[0], 'form': form})
 
 
 def rt_create_character_oac_choice(request, creation_id):
@@ -90,8 +91,8 @@ def rt_create_character_oac_choice(request, creation_id):
     if request.method == 'POST':
         if 'char-cr-next' in request.POST:
             form = OriginAndCareerForm(rt_flyweights)
-            return render(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
-                                                             'stage': RT_CREATION_STAGES[1], 'form': form})
+            return TemplateResponse(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
+                                                                       'stage': RT_CREATION_STAGES[1], 'form': form})
         form = OriginAndCareerForm(rt_flyweights, request.POST)
         if 'char-origin-next' in request.POST:
             if form.is_valid():
@@ -115,8 +116,8 @@ def rt_create_character_oac_choice(request, creation_id):
             return HttpResponseRedirect(reverse('rt-create-character-init', kwargs={'creation_id': cd.pk}))
     else:
         form = OriginAndCareerForm(rt_flyweights)
-        return render(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
-                                                         'stage': RT_CREATION_STAGES[1], 'form': form})
+        return TemplateResponse(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
+                                                                   'stage': RT_CREATION_STAGES[1], 'form': form})
 
 
 def rt_create_character_stat_distribution(request, creation_id):
@@ -124,12 +125,12 @@ def rt_create_character_stat_distribution(request, creation_id):
     cdm = cd.data_to_model()
     if request.method == 'POST':
         if 'char-origin-next' in request.POST:
-            form = StatDistributionForm(cdm)
-            return render(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
-                                                             'stage': RT_CREATION_STAGES[2], 'form': form})
+            form = StatDistributionForm(rt_flyweights)
+            return TemplateResponse(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
+                                                                       'stage': RT_CREATION_STAGES[2], 'form': form})
         if 'char-st-prev' in request.POST:
             return HttpResponseRedirect(reverse('rt-create-character-oac', kwargs={'creation_id': cd.pk}))
-        form = StatDistributionForm(cdm, request.POST)
+        form = StatDistributionForm(rt_flyweights, request.POST)
         if 'char-st-next' in request.POST:
             if form.is_valid():
                 for stat in STAT_TAGS:
@@ -139,9 +140,10 @@ def rt_create_character_stat_distribution(request, creation_id):
             cd.curr_stage = 'choices'
             return HttpResponseRedirect(reverse('rt-create-character-choices', kwargs={'creation_id': cd.pk}))
     else:
-        form = StatDistributionForm(cdm)
-        return render(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
-                                                         'stage': RT_CREATION_STAGES[2], 'form': form})
+        form = StatDistributionForm(rt_flyweights)
+        return TemplateResponse(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
+                                                                   'cd': cdm, 'stage': RT_CREATION_STAGES[2],
+                                                                   'form': form})
 
 
 def rt_create_character_choices(request, creation_id):
@@ -153,14 +155,14 @@ def rt_create_character_choices(request, creation_id):
         if 'char-st-next' in request.POST:
             form = RTChoicesForm(rt_flyweights)
             form.parse(cdm)
-            return render(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
-                                                             'stage': RT_CREATION_STAGES[3], 'form': form})
+            return TemplateResponse(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
+                                                                       'stage': RT_CREATION_STAGES[3], 'form': form})
         form = RTChoicesForm(rt_flyweights, request.POST)
         if 'char-apts-prev' in request.POST:
             cdm.full_reset()
             form.parse(cdm)
-            return render(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
-                                                             'stage': RT_CREATION_STAGES[3], 'form': form})
+            return TemplateResponse(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
+                                                                       'stage': RT_CREATION_STAGES[3], 'form': form})
         if 'char-choices-next' in request.POST:
             if form.is_valid():
                 cleaned_data = form.cleaned_data
@@ -200,13 +202,14 @@ def rt_create_character_choices(request, creation_id):
                 cd.save()
                 return HttpResponseRedirect(reverse('rt-create-character-double-apts', kwargs={'creation_id': cd.pk}))
             else:
-                return render(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
-                                                                 'stage': RT_CREATION_STAGES[3], 'form': form})
+                return TemplateResponse(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
+                                                                           'stage': RT_CREATION_STAGES[3],
+                                                                           'form': form})
     else:
         form = RTChoicesForm(rt_flyweights)
         form.parse(cdm)
-        return render(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
-                                                         'stage': RT_CREATION_STAGES[3], 'form': form})
+        return TemplateResponse(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
+                                                                   'stage': RT_CREATION_STAGES[3], 'form': form})
 
 
 def create_character_double_apts(request, creation_id):
@@ -225,8 +228,8 @@ def create_character_double_apts(request, creation_id):
             return HttpResponseRedirect(reverse('rt-create-character-choices', kwargs={'creation_id': cd.pk}))
         if 'char-choices-next' in request.POST:
             form = DoubleAptsForm(cdm, rt_flyweights)
-            return render(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
-                                                             'stage': RT_CREATION_STAGES[4], 'form': form})
+            return TemplateResponse(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
+                                                                       'stage': RT_CREATION_STAGES[4], 'form': form})
         form = DoubleAptsForm(cdm, rt_flyweights, request.POST)
         if form.is_valid():
             simple_apts = cdm.simplify_apts()
@@ -239,12 +242,12 @@ def create_character_double_apts(request, creation_id):
             cd.save()
             return HttpResponseRedirect(reverse('rt-create-character-divination', kwargs={'creation_id': cd.pk}))
         else:
-            return render(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
-                                                             'stage': RT_CREATION_STAGES[4], 'form': form})
+            return TemplateResponse(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
+                                                                       'stage': RT_CREATION_STAGES[4], 'form': form})
     else:
         form = DoubleAptsForm(cdm, rt_flyweights)
-        return render(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
-                                                         'stage': RT_CREATION_STAGES[4], 'form': form})
+        return TemplateResponse(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
+                                                                   'stage': RT_CREATION_STAGES[4], 'form': form})
 
 
 def prep_stats(cd: RTCreationDataModel):
@@ -318,17 +321,17 @@ def create_character_divination(request, creation_id):
                 cd.delete()
                 return HttpResponseRedirect(reverse('characters-list'))
             else:
-                return render(request, 'rt-creation-form.html',
-                              {'version': VERSION, 'facade': rt_flyweights,
-                               'stage': RT_CREATION_STAGES[5], 'form': form})
+                return TemplateResponse(request, 'rt-creation-form.html',
+                                        {'version': VERSION, 'facade': rt_flyweights,
+                                         'stage': RT_CREATION_STAGES[5], 'form': form})
         if 'char-apts-next' in request.POST:
             form = DivinationForm(rt_flyweights, cdm)
-            return render(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
-                                                             'stage': RT_CREATION_STAGES[5], 'form': form})
+            return TemplateResponse(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
+                                                                       'stage': RT_CREATION_STAGES[5], 'form': form})
     else:
         form = DivinationForm(rt_flyweights, cdm)
-        return render(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
-                                                         'stage': RT_CREATION_STAGES[5], 'form': form})
+        return TemplateResponse(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
+                                                                   'stage': RT_CREATION_STAGES[5], 'form': form})
 
 
 def clean_completed(character_model: RTCharacterModel, request):
@@ -785,14 +788,14 @@ def character_view(request, char_id):
                     character_model.pending().remove(cmd)
         character.character_data = character_model.toJSON()
         character.save()
-    return render(request, "charsheet.html", {'version': VERSION, 'facade': rt_flyweights,
-                                              'command_parser': rt_commands_parser,
-                                              'character': character_model,
-                                              'hookups': character_model.make_hookups(rt_flyweights),
-                                              'insanity_form': insanity_form,
-                                              'corruption_form': corruption_form,
-                                              'reminders': reminders,
-                                              'upg_view': character.get_upgrade_url(), })
+    return TemplateResponse(request, "charsheet.html", {'version': VERSION, 'facade': rt_flyweights,
+                                                        'command_parser': rt_commands_parser,
+                                                        'character': character_model,
+                                                        'hookups': character_model.make_hookups(rt_flyweights),
+                                                        'insanity_form': insanity_form,
+                                                        'corruption_form': corruption_form,
+                                                        'reminders': reminders,
+                                                        'upg_view': character.get_upgrade_url(), })
 
 
 def upg_midlayer(request, char_id):
@@ -932,9 +935,10 @@ def character_upgrade(request, char_id):
     if request.method == 'POST':
         parse_upgrades(request, character, character_model)
     forms = upg_data_to_forms(character_model)
-    return render(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': rt_flyweights,
-                                                      'character': character_model, 'forms': forms,
-                                                      'return': True, 'char_view': character.get_view_url(), })
+    return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': rt_flyweights,
+                                                                'character': character_model, 'forms': forms,
+                                                                'return': True,
+                                                                'char_view': character.get_view_url(), })
 
 
 def character_delete(request, char_id):
