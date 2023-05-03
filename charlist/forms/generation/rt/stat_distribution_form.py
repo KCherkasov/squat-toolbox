@@ -12,7 +12,6 @@ from charlist.flyweights.rt_flyweights import RTFacade
 class StatDistributionForm(Form):
     def __init__(self, facade: RTFacade, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.base_values = dict()
         for stat in RT_STAT_TAGS:
             self.fields[stat] = forms.IntegerField(
                 label=facade.stat_descriptions().get(stat).get_name_en(),
