@@ -1300,16 +1300,7 @@ def upgrade_stat(request, character: models.Character, character_model):
             character_model.upgrade_stat(stat_tag)
             character.character_data = character_model.toJSON()
             character.save()
-    request.method = 'GET'
-    forms = upg_data_to_forms(character_model)
-    if character_model.is_rt():
-        facade = rt_flyweights
-    else:
-        facade = flyweights
-    return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
-                                                                'character': character_model, 'forms': forms,
-                                                                'return': True,
-                                                                'char_view': character.get_view_url(), })
+    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
 @never_cache
@@ -1325,16 +1316,7 @@ def upgrade_skill(request, character: models.Character, character_model):
             character_model.improve_skill(skill_tag)
             character.character_data = character_model.toJSON()
             character.save()
-    request.method = 'GET'
-    forms = upg_data_to_forms(character_model)
-    if character_model.is_rt():
-        facade = rt_flyweights
-    else:
-        facade = flyweights
-    return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
-                                                                'character': character_model, 'forms': forms,
-                                                                'return': True,
-                                                                'char_view': character.get_view_url(), })
+    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
 @never_cache
@@ -1354,16 +1336,7 @@ def upgrade_subskill(request, character: models.Character, character_model):
         character_model.improve_skill_subtag(skill_tag, sk_subtag, flyweights)
         character.character_data = character_model.toJSON()
         character.save()
-    request.method = 'GET'
-    forms = upg_data_to_forms(character_model)
-    if character_model.is_rt():
-        facade = rt_flyweights
-    else:
-        facade = flyweights
-    return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
-                                                                'character': character_model, 'forms': forms,
-                                                                'return': True,
-                                                                'char_view': character.get_view_url(), })
+    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
 @never_cache
@@ -1379,16 +1352,7 @@ def upgrade_talent(request, character: models.Character, character_model):
             character_model.gain_talent(tl_tag, flyweights)
             character.character_data = character_model.toJSON()
             character.save()
-    request.method = 'GET'
-    forms = upg_data_to_forms(character_model)
-    if character_model.is_rt():
-        facade = rt_flyweights
-    else:
-        facade = flyweights
-    return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
-                                                                'character': character_model, 'forms': forms,
-                                                                'return': True,
-                                                                'char_view': character.get_view_url(), })
+    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
 @never_cache
@@ -1408,16 +1372,7 @@ def upgrade_talent_subtag(request, character: models.Character, character_model)
         character_model.gain_talent_subtag(tl_tag, tl_subtag, flyweights)
         character.character_data = character_model.toJSON()
         character.save()
-    request.method = 'GET'
-    forms = upg_data_to_forms(character_model)
-    if character_model.is_rt():
-        facade = rt_flyweights
-    else:
-        facade = flyweights
-    return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
-                                                                'character': character_model, 'forms': forms,
-                                                                'return': True,
-                                                                'char_view': character.get_view_url(), })
+    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
 @never_cache
@@ -1432,16 +1387,7 @@ def upgrade_ea(request, character: models.Character, character_model):
         character_model.gain_ea_id(ea_tag)
         character.character_data = character_model.toJSON()
         character.save()
-    request.method = 'GET'
-    forms = upg_data_to_forms(character_model)
-    if character_model.is_rt():
-        facade = rt_flyweights
-    else:
-        facade = flyweights
-    return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
-                                                                'character': character_model, 'forms': forms,
-                                                                'return': True,
-                                                                'char_view': character.get_view_url(), })
+    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
 @never_cache
@@ -1455,16 +1401,7 @@ def upgrade_pr(request, character: models.Character, character_model):
         character_model.gain_pr()
         character.character_data = character_model.toJSON()
         character.save()
-    request.method = 'GET'
-    forms = upg_data_to_forms(character_model)
-    if character_model.is_rt():
-        facade = rt_flyweights
-    else:
-        facade = flyweights
-    return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
-                                                                'character': character_model, 'forms': forms,
-                                                                'return': True,
-                                                                'char_view': character.get_view_url(), })
+    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
 @never_cache
@@ -1479,16 +1416,7 @@ def upgrade_psy_power(request, character: models.Character, character_model):
         character_model.psy_powers().append(pp_tag)
         character.character_data = character_model.toJSON()
         character.save()
-    request.method = 'GET'
-    forms = upg_data_to_forms(character_model)
-    if character_model.is_rt():
-        facade = rt_flyweights
-    else:
-        facade = flyweights
-    return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
-                                                                'character': character_model, 'forms': forms,
-                                                                'return': True,
-                                                                'char_view': character.get_view_url(), })
+    return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
 def parse_upgrades(request, character: models.Character, character_model):
