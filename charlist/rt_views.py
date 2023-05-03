@@ -178,14 +178,18 @@ def rt_create_character_choices(request, creation_id):
             if form.is_valid():
                 cleaned_data = form.cleaned_data
                 cdm.choices = list()
-                for key, choice in cleaned_data.items():
+                for i in range(len(cleaned_data)):
+                    field_name = 'choice-' + str(i)
+                    if field_name not in cleaned_data.keys():
+                        break
+                    choice = cleaned_data[field_name]
                     cdm.choices.append(choice)
                     if choice.get('tag')[:2] == 'A_':
                         cdm.aptitudes.append(choice.get('tag'))
                     elif choice.get('tag')[:2] == 'SK':
                         if 'subtag' in choice.keys():
                             if choice.get('subtag') == 'SK_ANY':
-                                subtag_fld_name = str(STG_PREFIX) + key
+                                subtag_fld_name = str(STG_PREFIX) + field_name
                                 res_choice = {'tag': choice.get('tag'),
                                               'subtag': cleaned_data.get(subtag_fld_name)}
                                 cdm.skills.append(res_choice)
@@ -194,7 +198,7 @@ def rt_create_character_choices(request, creation_id):
                     elif choice.get('tag')[:2] == 'TL':
                         if 'subtag' in choice.keys():
                             if choice.get('subtag') == 'SK_ANY':
-                                subtag_fld_name = str(STG_PREFIX) + key
+                                subtag_fld_name = str(STG_PREFIX) + field_name
                                 res_choice = {'tag': choice.get('tag'),
                                               'subtag': cleaned_data.get(subtag_fld_name)}
                                 cdm.talents.append(res_choice)
