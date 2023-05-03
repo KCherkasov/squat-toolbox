@@ -1435,14 +1435,14 @@ def character_delete(request, char_id):
     character = models.Character.objects.get(pk=char_id)
     if (character is not None) and (character.owner == request.user):
         character.delete()
-    return reverse('characters-list')
+    return HttpResponseRedirect(reverse('characters-list'))
 
 
 def creation_data_delete(request, creation_id):
     cd = models.CreationData.objects.get(pk=creation_id)
     if (cd is not None) and (cd.owner == request.user):
         cd.delete()
-    return reverse('characters-list')
+    return HttpResponseRedirect(reverse('characters-list'))
 
 
 def resume_creation_edit(request, creation_id):
