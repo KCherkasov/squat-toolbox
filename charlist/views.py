@@ -1399,6 +1399,25 @@ def upgrade_psy_power(request, character: models.Character, character_model):
     return HttpResponseRedirect(reverse('character-upg-midlayer', kwargs={'char_id': character.pk, }))
 
 
+def parse_upgrades(request, character: models.Character, character_model):
+    if 'upg-stat-confirm' in request.POST:
+        upgrade_stat(request, character, character_model)
+    if 'upg-skill-confirm' in request.POST:
+        upgrade_skill(request, character, character_model)
+    if 'upg-skill-subtag-confirm' in request.POST:
+        upgrade_subskill(request, character, character_model)
+    if 'upg-talent-confirm' in request.POST:
+        upgrade_talent(request, character, character_model)
+    if 'upg-tl-subtag-confirm' in request.POST:
+        upgrade_talent_subtag(request, character, character_model)
+    if 'upg-ea-confirm' in request.POST:
+        upgrade_ea(request, character, character_model)
+    if 'upg-pr-confirm' in request.POST:
+        upgrade_pr(request, character, character_model)
+    if 'upg-pp-confirm' in request.POST:
+        upgrade_psy_power(request, character, character_model)
+
+
 def character_upgrade(request, char_id):
     character = models.Character.objects.get(pk=char_id)
     if character.is_rt:
@@ -1406,22 +1425,7 @@ def character_upgrade(request, char_id):
     character_model = character.data_to_model()
     forms = upg_data_to_forms(character_model)
     if request.method == 'POST':
-        if 'upg-stat-confirm' in request.POST:
-            upgrade_stat(request, character, character_model)
-        if 'upg-skill-confirm' in request.POST:
-            upgrade_skill(request, character, character_model)
-        if 'upg-skill-subtag-confirm' in request.POST:
-            upgrade_subskill(request, character, character_model)
-        if 'upg-talent-confirm' in request.POST:
-            upgrade_talent(request, character, character_model)
-        if 'upg-tl-subtag-confirm' in request.POST:
-            upgrade_talent_subtag(request, character, character_model)
-        if 'upg-ea-confirm' in request.POST:
-            upgrade_ea(request, character, character_model)
-        if 'upg-pr-confirm' in request.POST:
-            upgrade_pr(request, character, character_model)
-        if 'upg-pp-confirm' in request.POST:
-            upgrade_psy_power(request, character, character_model)
+        parse_upgrades(request, character, character_model)
     if character_model.is_rt():
         facade = rt_flyweights
     else:
