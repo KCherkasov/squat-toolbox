@@ -2,6 +2,7 @@
 import datetime
 import logging
 
+from django.views.decorators.cache import never_cache
 from django.contrib.auth import get_user_model
 from django.contrib.auth import login
 from django.contrib.auth import logout as auth_logout
@@ -1275,6 +1276,7 @@ def character_view(request, char_id):
                                               'upg_view': character.get_upgrade_url(), })
 
 
+@never_cache
 def upgrade_stat(request, character: models.Character, character_model):
     if character_model.is_rt():
         return rt_views.upgrade_stat(request, character, character_model)
@@ -1298,6 +1300,7 @@ def upgrade_stat(request, character: models.Character, character_model):
                                                       'return': True, 'char_view': character.get_view_url(), })
 
 
+@never_cache
 def upgrade_skill(request, character: models.Character, character_model):
     if character_model.is_rt():
         return rt_views.upgrade_skill(request, character, character_model)
@@ -1321,6 +1324,7 @@ def upgrade_skill(request, character: models.Character, character_model):
                                                       'return': True, 'char_view': character.get_view_url(), })
 
 
+@never_cache
 def upgrade_subskill(request, character: models.Character, character_model):
     if character_model.is_rt():
         return rt_views.upgrade_subskill(request, character, character_model)
@@ -1348,6 +1352,7 @@ def upgrade_subskill(request, character: models.Character, character_model):
                                                       'return': True, 'char_view': character.get_view_url(), })
 
 
+@never_cache
 def upgrade_talent(request, character: models.Character, character_model):
     if character_model.is_rt():
         return rt_views.upgrade_talent(request, character, character_model)
@@ -1371,6 +1376,7 @@ def upgrade_talent(request, character: models.Character, character_model):
                                                       'return': True, 'char_view': character.get_view_url(), })
 
 
+@never_cache
 def upgrade_talent_subtag(request, character: models.Character, character_model):
     if character_model.is_rt():
         return rt_views.upgrade_talent_subtag(request, character, character_model)
@@ -1398,6 +1404,7 @@ def upgrade_talent_subtag(request, character: models.Character, character_model)
                                                       'return': True, 'char_view': character.get_view_url(), })
 
 
+@never_cache
 def upgrade_ea(request, character: models.Character, character_model):
     if character_model.is_rt():
         return rt_views.upgrade_ea(request, character, character_model)
@@ -1420,6 +1427,7 @@ def upgrade_ea(request, character: models.Character, character_model):
                                                       'return': True, 'char_view': character.get_view_url(), })
 
 
+@never_cache
 def upgrade_pr(request, character: models.Character, character_model):
     if character_model.is_rt():
         return rt_views.upgrade_pr(request, character, character_model)
@@ -1441,6 +1449,7 @@ def upgrade_pr(request, character: models.Character, character_model):
                                                       'return': True, 'char_view': character.get_view_url(), })
 
 
+@never_cache
 def upgrade_psy_power(request, character: models.Character, character_model):
     if character_model.is_rt():
         return rt_views.upgrade_psy_power(request, character, character_model)
@@ -1463,6 +1472,7 @@ def upgrade_psy_power(request, character: models.Character, character_model):
                                                       'return': True, 'char_view': character.get_view_url(), })
 
 
+@never_cache
 def parse_upgrades(request, character: models.Character, character_model):
     if 'upg-stat-confirm' in request.POST:
         upgrade_stat(request, character, character_model)
@@ -1482,6 +1492,7 @@ def parse_upgrades(request, character: models.Character, character_model):
         upgrade_psy_power(request, character, character_model)
 
 
+@never_cache
 def character_upgrade(request, char_id):
     character = models.Character.objects.get(pk=char_id)
     if character.is_rt:
