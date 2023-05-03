@@ -15,7 +15,7 @@ class DoubleAptsForm(Form):
     def __init__(self, cd: RTCreationDataModel, flyweights: RTFacade, *args, **kwargs):
         super().__init__(*args, **kwargs)
         choices = list()
-        self.current_apts = list
+        self.current_apts = list()
         for apt in cd.simplify_apts():
             self.current_apts.append(flyweights.aptitudes().get(apt).get_name('en'))
         for apt in STAT_APTS:
