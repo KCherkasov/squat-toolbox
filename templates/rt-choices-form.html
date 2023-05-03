@@ -9,32 +9,32 @@
     <div>
         <p><b>Name</b>:&nbsp;{{ cd.name }}</p>
         <p><b>Homeworld</b>:&nbsp;
-            {% facade.rt_homeworlds|get_by_dict_key:cd.hw_id with as hw %}
+            {% with facade.rt_homeworlds|get_by_dict_key:cd.hw_id with as hw %}
                 {{ hw.name|get_by_dict_key:'en' }}
             {% endwith %}
         </p>
         <p><b>Birthright</b>:&nbsp;
-            {% facade.birthrights|get_by_dict_key:cd.birthright_id with as br %}
+            {% with facade.birthrights|get_by_dict_key:cd.birthright_id with as br %}
                 {{ br.name|get_by_dict_key:'en' }}
             {% endwith %}
         </p>
         <p><b>Lure of the Void</b>:&nbsp;
-            {% facade.lures|get_by_dict_key:cd.lure_id with as lure %}
+            {% with facade.lures|get_by_dict_key:cd.lure_id with as lure %}
                 {{ lure.name|get_by_dict_key:'en' }}
             {% endwith %}
         </p>
         <p><b>Trial or Travail</b>:&nbsp;
-            {% facade.trials|get_by_dict_key:cd.trial_id with as trial %}
+            {% with facade.trials|get_by_dict_key:cd.trial_id with as trial %}
                 {{ trial.name|get_by_dict_key:'en' }}
             {% endwith %}
         </p>
         <p><b>Motivation</b>:&nbsp;
-            {% facade.motivations|get_by_dict_key:cd.motivation_id with as motive %}
+            {% with facade.motivations|get_by_dict_key:cd.motivation_id with as motive %}
                 {{ motive.name|get_by_dict_key:'en' }}
             {% endwith %}
         </p>
         <p><b>Career</b>:&nbsp;
-            {% facade.rt_careers|get_by_dict_key:cd.career_id with as career %}
+            {% with facade.rt_careers|get_by_dict_key:cd.career_id with as career %}
                 {{ career.name|get_by_dict_key:'en' }}
             {% endwith %}
         </p>
