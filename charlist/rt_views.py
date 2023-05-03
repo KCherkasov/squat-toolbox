@@ -230,8 +230,7 @@ def rt_create_character_choices(request, creation_id):
                                                                            'stage': RT_CREATION_STAGES[3], 'cd': cdm,
                                                                            'form': form})
     else:
-        form = RTChoicesForm(rt_flyweights)
-        form.parse(cdm)
+        form = RTChoicesForm(cdm, rt_flyweights)
         return TemplateResponse(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
                                                                    'cd': cdm, 'stage': RT_CREATION_STAGES[3],
                                                                    'form': form})
