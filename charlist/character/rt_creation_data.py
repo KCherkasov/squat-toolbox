@@ -80,6 +80,7 @@ class RTCreationDataModel(object):
         self.aptitudes = reset
 
     def full_reset(self, facade: RTFacade):
+        self.reset_stats(facade)
         self.reset_skills(facade)
         self.reset_talents(facade)
         self.reset_traits(facade)
