@@ -78,7 +78,7 @@ class RTChoicesForm(Form):
             if field_name[:len(STG_PREFIX)] == STG_PREFIX:
                 stripped_name = field_name[len(STG_PREFIX):]
                 if stripped_name in cd.keys():
-                    tag = cd.get(stripped_name).get('tag')
+                    tag = json.loads(cd.get(stripped_name)).get('tag')
                     if (value is not None) and (value != ''):
                         if tag[:2] == 'SK':
                             if not self.__facade.skill_descriptions().get(tag).is_specialist():
