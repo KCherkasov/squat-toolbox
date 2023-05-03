@@ -19,7 +19,6 @@ from charlist.forms.generation.rt.double_apts_form import DoubleAptsForm
 from charlist.forms.generation.rt.origin_and_career_form import OriginAndCareerForm
 from charlist.forms.generation.rt.stat_distribution_form import RTStatDistributionForm
 from charlist.forms.generation.rt_stages import *
-from charlist.forms.generation.stat_distribution_form import StatDistributionForm
 from charlist.forms.player_todos.command_parser import CommandParser
 from charlist.forms.player_todos.manual.decrease_stat_alt_form import DecreaseStatAltForm
 from charlist.forms.player_todos.manual.decrease_stat_roll_form import DecreaseStatRollForm
@@ -140,7 +139,7 @@ def rt_create_character_stat_distribution(request, creation_id):
             cd.curr_stage = 'choices'
             return HttpResponseRedirect(reverse('rt-create-character-choices', kwargs={'creation_id': cd.pk}))
     else:
-        form = StatDistributionForm(rt_flyweights)
+        form = RTStatDistributionForm(rt_flyweights)
         return TemplateResponse(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
                                                                    'cd': cdm, 'stage': RT_CREATION_STAGES[2],
                                                                    'form': form})
