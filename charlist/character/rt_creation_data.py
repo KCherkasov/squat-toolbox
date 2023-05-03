@@ -40,10 +40,7 @@ class RTCreationDataModel(object):
     def reset_stats(self, facade: RTFacade):
         hw = facade.rt_homeworlds().get(self.hw_id)
         for key in self.stats.keys():
-            md = 0
-            if hw is not None:
-                md = hw.get_stat_mods().get(key, 0)
-            self.stats[key] = self.stat_base + md
+            self.stats[key] = self.stat_base + hw.get_stat_mods().get(key, 0)
 
     def reset_skills(self, facade: RTFacade):
         self.skills = list()
