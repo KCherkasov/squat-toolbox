@@ -168,7 +168,7 @@ def rt_create_character_choices(request, creation_id):
             if form.is_valid():
                 cleaned_data = form.cleaned_data
                 cdm.choices = list()
-                for key, choice in cleaned_data.items():
+                for key, choice in cleaned_data.iteritems():
                     cdm.choices.append(choice)
                     if choice.get('tag')[:2] == 'A_':
                         cdm.aptitudes.append(choice.get('tag'))
