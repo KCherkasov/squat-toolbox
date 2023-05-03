@@ -73,8 +73,8 @@ def rt_create_character_init(request, creation_id):
                 cleaned_data = form.cleaned_data
                 cd.name = cleaned_data['name']
                 cd.curr_stage = 'origin-and-career'
-                cdm = RTCreationDataModel.new_cd(cleaned_data['name'], cleaned_data['characteristics_base'],
-                                                 int(cleaned_data['starting_xp']))
+                cdm = RTCreationDataModel.new_cd(cleaned_data['name'], int(cleaned_data['starting_xp']),
+                                                 int(cleaned_data['characteristics_base']))
                 cd.character_data = cdm.to_json()
                 cd.last_mod_date = datetime.datetime.now()
                 cd.save()

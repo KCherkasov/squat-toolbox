@@ -5,7 +5,6 @@ from django import forms
 from django.forms import Form
 
 from charlist.constants.tags import *
-from charlist.character.rt_creation_data import RTCreationDataModel
 from charlist.flyweights.rt_flyweights import RTFacade
 
 
