@@ -206,13 +206,14 @@ def rt_create_character_choices(request, creation_id):
                 return HttpResponseRedirect(reverse('rt-create-character-double-apts', kwargs={'creation_id': cd.pk}))
             else:
                 return TemplateResponse(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
-                                                                           'stage': RT_CREATION_STAGES[3],
+                                                                           'stage': RT_CREATION_STAGES[3], 'cd': cdm,
                                                                            'form': form})
     else:
         form = RTChoicesForm(rt_flyweights)
         form.parse(cdm)
         return TemplateResponse(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
-                                                                   'stage': RT_CREATION_STAGES[3], 'form': form})
+                                                                   'cd': cdm, 'stage': RT_CREATION_STAGES[3],
+                                                                   'form': form})
 
 
 def create_character_double_apts(request, creation_id):
