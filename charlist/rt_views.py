@@ -134,8 +134,10 @@ def rt_create_character_stat_distribution(request, creation_id):
         form = RTStatDistributionForm(rt_flyweights, request.POST)
         if 'char-st-next' in request.POST:
             if form.is_valid():
+                stats = dict()
                 for stat in RT_STAT_TAGS:
-                    cdm.stats[stat] = cdm.stats.get(stat) + form.cleaned_data[stat]
+                    stats[stat] = cdm.stats.get(stat) + form.cleaned_data[stat]
+                cdm.stats = stats
             cd.character_data = cdm.to_json()
             cd.last_mod_date = datetime.datetime.now()
             cd.curr_stage = 'choices'
