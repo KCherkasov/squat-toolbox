@@ -178,7 +178,7 @@ def rt_create_character_choices(request, creation_id):
             if form.is_valid():
                 cleaned_data = form.cleaned_data
                 cdm.choices = list()
-                log = ''
+                log = str(form.cleaned_data)
                 for i in range(len(cleaned_data)):
                     field_name = 'choice-' + str(i)
                     log += field_name + ': '
