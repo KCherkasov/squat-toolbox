@@ -14,5 +14,5 @@ class StatDistributionForm(Form):
         super().__init__(*args, **kwargs)
         for stat in RT_STAT_TAGS:
             self.fields[stat] = forms.IntegerField(
-                label=facade.stat_descriptions().get(stat).get_name_en(),
+                label=facade.stat_descriptions().get(stat).name().get('en'),
                 min_value=2, max_value=20, default=2, required=True)
