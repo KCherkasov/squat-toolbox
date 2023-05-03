@@ -139,7 +139,7 @@ def rt_create_character_stat_distribution(request, creation_id):
             cd.curr_stage = 'choices'
             return HttpResponseRedirect(reverse('rt-create-character-choices', kwargs={'creation_id': cd.pk}))
     else:
-        form = StatDistributionForm()
+        form = StatDistributionForm(cdm)
         return render(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
                                                          'stage': RT_CREATION_STAGES[2], 'form': form})
 
