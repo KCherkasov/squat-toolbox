@@ -9,9 +9,9 @@ from charlist.character.rt_creation_data import RTCreationDataModel
 from charlist.flyweights.rt_flyweights import RTFacade
 
 
-class StatDistributionForm(Form):
+class RTStatDistributionForm(Form):
     def __init__(self, facade: RTFacade, *args, **kwargs):
-        super(StatDistributionForm, self).__init__(*args, **kwargs)
+        super(RTStatDistributionForm, self).__init__(*args, **kwargs)
         for stat in RT_STAT_TAGS:
             self.fields[stat] = forms.IntegerField(
                 label=facade.stat_descriptions().get(stat).name().get('en'),
