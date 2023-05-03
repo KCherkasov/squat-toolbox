@@ -32,22 +32,22 @@ class RTChoicesForm(Form):
             self.parse_group(grp, i, 'Homeworld talent')
         for grp in birthright.choices():
             self.parse_group(grp, i, "Birthright")
+        birthright_apts = list()
+        for apt in birthright.aptitude_choices():
+            birthright_apts.append({'tag': apt})
+        self.parse_group(birthright_apts, i, 'Birthright aptitude')
         for grp in lure.choices():
             self.parse_group(grp, i, 'Lure of the Void')
         for grp in trial.choices():
             self.parse_group(grp, i, 'Trial and Travail')
         for grp in motive.choices():
             self.parse_group(grp, i, 'Motivation')
-        for grp in career.choices():
-            self.parse_group(grp, i, 'Career')
-        birthright_apts = list()
-        for apt in birthright.aptitude_choices():
-            birthright_apts.append({'tag': apt})
-        self.parse_group(birthright_apts, i, 'Birthright aptitude')
         motivation_apts = list()
         for apt in motive.aptitudes():
             motivation_apts.append({'tag': apt})
         self.parse_group(motivation_apts, i, 'Motivation aptitude')
+        for grp in career.choices():
+            self.parse_group(grp, i, 'Career')
 
     def parse_group(self, grp: List, i: int, prefix: str):
         j = 1
@@ -80,17 +80,15 @@ class RTChoicesForm(Form):
                     if (value is not None) and (value != ''):
                         if tag[:2] == 'SK':
                             if not self.__facade.skill_descriptions().get(tag).is_specialist():
-                                raise ValidationError(str('Specialization for non-specialist skill')
-                                                      .join(self.__facade.skill_descriptions()
-                                                            .get(tag).get_name('en')))
+                                raise ValidationError('Specialization for non-specialist skill'
+                                                      + self.__facade.skill_descriptions().get(tag).get_name('en'))
                         if tag[:2] == 'TL':
                             if not self.__facade.talent_descriptions().get(tag).is_specialist():
-                                raise ValidationError(str('Specialization for non-specialist talent')
-                                                      .join(self.__facade.talent_descriptions()
-                                                            .get(tag).get_name('en')))
+                                raise ValidationError('Specialization for non-specialist talent'
+                                                      + self.__facade.talent_descriptions().get(tag).get_name('en'))
                 else:
-                    err = str('Wrong-spawned text field: ').join(field_name).join(' has no ')\
-                        .join(stripped_name).join(' match in form fields')
+                    err = 'Wrong-spawned text field: ' + field_name + ' has no '\
+                          + stripped_name + ' match in form fields'
                     raise ValidationError(err)
         return cd
 
@@ -105,9 +103,9 @@ def parse_choice(choice: Dict, facade: RTFacade):
         name = facade.talent_descriptions().get(choice.get('tag')).get_name('en')
     if 'subtag' in choice.keys():
         if (choice.get('subtag') == 'SK_ANY') or (choice.get('subtag') == 'TL_ANY'):
-            name.join('(any)')
+            name += '(any)'
         else:
-            name.join('(').join(choice.get('subtag')).join(')')
+            name += '(' + choice.get('subtag') + ')'
     if choice.get('tag') == 'GainInsanityRoll':
         name = 'Gain insanity (make roll according to the table)'
     if choice.get('tag') == 'GainCorruptionRoll':

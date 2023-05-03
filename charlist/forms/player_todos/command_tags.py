@@ -12,6 +12,7 @@ DEC_STAT_FIX = "DecreaseStat"  # done
 DEC_STAT_ALT = "DecreaseStatAlt"  # requires form (form done, linked; template done, linked) done
 
 GET_SUBTAG_SKILL = "GainSpecSkill"  # done
+GET_SUBTAG_TALENT = "GainSpecTalent"  # done
 
 ORIGIN_EXTRA = "GainExtraOption"  # done
 

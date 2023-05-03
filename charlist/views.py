@@ -46,6 +46,7 @@ from charlist.forms.player_todos.manual.gain_malignancy_roll_form import GainMal
 from charlist.forms.player_todos.manual.gain_mutation_choice_form import GainMutationChoiceForm
 from charlist.forms.player_todos.manual.gain_mutation_roll_form import GainMutationRollForm
 from charlist.forms.player_todos.manual.gain_spec_skill_subtag import GainSpecSkillForm
+from charlist.forms.player_todos.manual.gain_spec_talent_subtag import GainSpecTalentForm
 from charlist.forms.player_todos.manual.gain_stat_aptitude_form import GainStatAptitudeForm
 from charlist.forms.player_todos.manual.gain_talent_alt_form import GainTalentAltForm
 from charlist.forms.player_todos.manual.get_trauma_ip_form import GetTraumaIPForm
@@ -1057,6 +1058,19 @@ def origin_extra_confirm(request, character_model, character: models.Character):
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
+def gain_spec_talent(request, character_model, character: models.Character):
+    if character_model.is_rt():
+        return rt_views.gain_spec_talent(request, character_model, character)
+    cmd = find_cmd(request, character_model)
+    form = GainSpecTalentForm(rt_flyweights, cmd, request.POST)
+    if form.is_valid():
+        character_model.gain_talent_subtag(form.sk_tag, form.cleaned_data['subtag'], rt_flyweights)
+        clean_completed(character_model, request)
+        character.character_data = character_model.toJSON()
+        character.save()
+    return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
+
+
 def origin_extra_abort(request, character_model, character: models.Character):
     if character_model.is_rt():
         return origin_extra_abort(request, character_model, character)
@@ -1106,6 +1120,8 @@ def parse_manual_cmds(request, character: models.Character, character_model):
         gain_stat_aptitude(request, character_model, character)
     if 'skill-spec-confirm' in request.POST:
         gain_spec_skill(request, character_model, character)
+    if 'talent-spec-confirm' in request.POST:
+        gain_spec_talent(request, character_model, character)
     if 'origin-extra-confirm' in request.POST:
         origin_extra_confirm(request, character_model, character)
     if 'origin-extra-abort' in request.POST:

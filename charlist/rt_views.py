@@ -41,6 +41,7 @@ from charlist.forms.upgrading.talent_subtag_upgrade_form import TalentUpgradeSub
 from charlist.forms.upgrading.talent_upgrade_form import TalentUpgradeForm
 from charlist.forms.player_todos.manual.origin_xp_extra_choice import GainExtraOriginCommand
 from charlist.forms.player_todos.manual.gain_spec_skill_subtag import GainSpecSkillForm
+from charlist.forms.player_todos.manual.gain_spec_talent_subtag import GainSpecTalentForm
 from charlist.forms.upgrading.psy_power_upgrade_form import PsyPowerUpgradeForm
 from charlist.forms.upgrading.elite_advance_upgrade_form import EliteAdvanceUpgradeForm
 from charlist.forms.upgrading.pr_upgrade_form import PRUpgrageForm
@@ -590,6 +591,17 @@ def origin_extra_abort(request, character_model: RTCharacterModel, character: mo
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
 
 
+def gain_spec_talent(request, character_model: RTCharacterModel, character: models.Character):
+    cmd = find_cmd(request, character_model)
+    form = GainSpecTalentForm(rt_flyweights, cmd, request.POST)
+    if form.is_valid():
+        character_model.gain_talent_subtag(form.sk_tag, form.cleaned_data['subtag'], rt_flyweights)
+        clean_completed(character_model, request)
+        character.character_data = character_model.toJSON()
+        character.save()
+    return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
+
+
 def parse_manual_cmds(request, character: models.Character, character_model: RTCharacterModel):
     if 'gain-insanity-confirm' in request.POST:
         gain_insanity(request, character_model, character)
@@ -625,6 +637,8 @@ def parse_manual_cmds(request, character: models.Character, character_model: RTC
         gain_stat_aptitude(request, character_model, character)
     if 'skill-spec-confirm' in request.POST:
         gain_spec_skill(request, character_model, character)
+    if 'talent-spec-confirm' in request.POST:
+        gain_spec_talent(request, character_model, character)
     if 'origin-extra-confirm' in request.POST:
         origin_extra_confirm(request, character_model, character)
     if 'origin-extra-abort' in request.POST:

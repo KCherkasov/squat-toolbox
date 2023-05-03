@@ -245,6 +245,7 @@ class CommandParser(object):
         templates[GET_MUT_CHOICE] = 'gain_mutation_choice_form.html'
         templates[ORIGIN_EXTRA] = 'origin_extra_choice_form.html'
         templates[GET_SUBTAG_SKILL] = 'gain_spec_skill_form.html'
+        templates[GET_SUBTAG_TALENT] = 'gain_spec_talent_form.html'
 
         return templates
 
@@ -268,6 +269,7 @@ class CommandParser(object):
         titles[GET_MUT_CHOICE] = 'Получите Мутацию на выбор'
         titles[ORIGIN_EXTRA] = 'Дополнительная опция от происхождения'
         titles[GET_SUBTAG_SKILL] = 'Получите специализацию в навыке'
+        titles[GET_SUBTAG_TALENT] = 'Получите специализацию в таланте'
 
         return titles
 

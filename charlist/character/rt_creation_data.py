@@ -123,11 +123,15 @@ class RTCreationDataModel(object):
             cmd = {'command': 'GainSkill', 'tag': skill.get('tag')}
             if 'subtag' in skill.keys():
                 cmd['subtag'] = skill.get('subtag')
+                if cmd.get('subtag') == 'SK_ANY':
+                    cmd['command'] = 'GainSpecSkill'
             self.commands.append(cmd)
         for talent in self.talents:
             cmd = {'command': 'GainTalent', 'tag': talent.get('tag')}
             if 'subtag' in talent.keys():
                 cmd['subtag'] = talent.get('subtag')
+                if cmd.get('subtag') == 'TL_ANY':
+                    cmd['command'] = 'GainSpecTalent'
             self.commands.append(cmd)
         for trait in self.traits:
             cmd = {'command': 'GainTrait', 'tag': trait.get('tag')}
