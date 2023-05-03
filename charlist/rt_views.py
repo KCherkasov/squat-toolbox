@@ -141,6 +141,7 @@ def rt_create_character_stat_distribution(request, creation_id):
             cd.character_data = cdm.to_json()
             cd.last_mod_date = datetime.datetime.now()
             cd.curr_stage = 'choices'
+            cd.save()
             return HttpResponseRedirect(reverse('rt-create-character-choices', kwargs={'creation_id': cd.pk}))
     else:
         form = RTStatDistributionForm(rt_flyweights)
