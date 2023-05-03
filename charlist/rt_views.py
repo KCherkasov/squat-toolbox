@@ -178,25 +178,20 @@ def rt_create_character_choices(request, creation_id):
             if form.is_valid():
                 cleaned_data = form.cleaned_data
                 cdm.choices = list()
-                log = str(form.cleaned_data)
                 for i in range(len(cleaned_data)):
                     field_name = 'choice-' + str(i)
-                    log += field_name + ': '
                     if field_name not in cleaned_data.keys():
                         break
                     choice = json.loads(cleaned_data.get(field_name))
-                    log += cleaned_data.get(field_name) + ' - tag: ' + choice.get('tag')
                     cdm.choices.append(choice)
                     if choice.get('tag')[:2] == 'A_':
                         cdm.aptitudes.append(choice.get('tag'))
                     elif choice.get('tag')[:2] == 'SK':
                         if 'subtag' in choice.keys():
-                            log += ' subtag: ' + choice.get('subtag')
                             if choice.get('subtag') == 'SK_ANY':
                                 subtag_fld_name = str(STG_PREFIX) + field_name
                                 res_choice = {'tag': choice.get('tag'),
                                               'subtag': cleaned_data.get(subtag_fld_name)}
-                                log += ': ' + cleaned_data.get(subtag_fld_name)
                                 cdm.skills.append(res_choice)
                             else:
                                 cdm.skills.append(choice)
@@ -204,12 +199,10 @@ def rt_create_character_choices(request, creation_id):
                             cdm.skills.append(choice)
                     elif choice.get('tag')[:2] == 'TL':
                         if 'subtag' in choice.keys():
-                            log += ' subtag: ' + choice.get('subtag')
                             if choice.get('subtag') == 'SK_ANY':
                                 subtag_fld_name = str(STG_PREFIX) + field_name
                                 res_choice = {'tag': choice.get('tag'),
                                               'subtag': cleaned_data.get(subtag_fld_name)}
-                                log += ': ' + cleaned_data.get(subtag_fld_name)
                                 cdm.talents.append(res_choice)
                             else:
                                 cdm.talents.append(choice)
@@ -220,12 +213,8 @@ def rt_create_character_choices(request, creation_id):
                         cmd['command'] = choice.get('tag')
                         if 'stat' in choice.keys():
                             cmd['tag'] = choice.get('stat')
-                            log += ' - stat: ' + choice.get('stat')
                             cmd['amount'] = choice.get('amount')
-                            log += ' - amount: ' + str(choice.get('amount'))
                         cdm.commands.append(cmd)
-                if len(cdm.choices) == 0:
-                    raise AttributeError({'log': log})
                 cd.curr_stage = 'double-apts'
                 cd.last_mod_date = datetime.datetime.now()
                 cd.character_data = cdm.to_json()

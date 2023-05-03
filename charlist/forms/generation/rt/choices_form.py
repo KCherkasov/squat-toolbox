@@ -73,8 +73,7 @@ class RTChoicesForm(Form):
         return i
 
     def clean(self):
-        cd = self.cleaned_data
-        log = str(self.cleaned_data)
+        cd = super(RTChoicesForm, self).clean()
         for field_name, value in cd.items():
             if field_name[:len(STG_PREFIX)] == STG_PREFIX:
                 stripped_name = field_name[len(STG_PREFIX):]
@@ -93,7 +92,6 @@ class RTChoicesForm(Form):
                     err = 'Wrong-spawned text field: ' + field_name + ' has no '\
                           + stripped_name + ' match in form fields'
                     raise ValidationError(err)
-        raise AttributeError({'log': log})
         return cd
 
 
