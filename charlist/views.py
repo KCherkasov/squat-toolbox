@@ -1491,7 +1491,6 @@ def upgrade_psy_power(request, character: models.Character, character_model):
                                                                 'char_view': character.get_view_url(), })
 
 
-@never_cache
 def parse_upgrades(request, character: models.Character, character_model):
     if 'upg-stat-confirm' in request.POST:
         upgrade_stat(request, character, character_model)
