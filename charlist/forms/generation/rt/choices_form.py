@@ -66,7 +66,7 @@ class RTChoicesForm(Form):
         if subtagged:
             stg_name = str(STG_PREFIX) + fld_name
             stg_label = 'Specialization:'
-            self.fields[stg_name] = forms.CharField(label=stg_label, default='', required=False)
+            self.fields[stg_name] = forms.CharField(label=stg_label, required=False)
         i += 1
         j += 1
 
