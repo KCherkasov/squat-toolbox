@@ -3,7 +3,7 @@
 from django import forms
 from django.forms import Form
 
-STAT_BASE_CHOICES = (['CS_20', 20], ['CS_25', 25])
+STAT_BASE_CHOICES = ([20, 20], [25, 25])
 
 GENDERS = (['G_MALE', u'Мужской'], ['G_FEMALE', u'Женский'])
 
