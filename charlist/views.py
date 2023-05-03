@@ -2,7 +2,6 @@
 import datetime
 import logging
 
-from django.views.decorators.cache import never_cache
 from django.contrib.auth import get_user_model
 from django.contrib.auth import login
 from django.contrib.auth import logout as auth_logout
@@ -10,10 +9,12 @@ from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
 from django.http import HttpResponseRedirect, HttpResponse
-from django.shortcuts import render, reverse
+from django.shortcuts import reverse
 from django.template.loader import render_to_string
+from django.template.response import TemplateResponse
 from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.views.decorators.cache import never_cache
 
 import charlist.models as models
 from charlist import rt_views
@@ -45,22 +46,21 @@ from charlist.forms.player_todos.manual.gain_malignancy_choice_form import GainM
 from charlist.forms.player_todos.manual.gain_malignancy_roll_form import GainMalignancyRollForm
 from charlist.forms.player_todos.manual.gain_mutation_choice_form import GainMutationChoiceForm
 from charlist.forms.player_todos.manual.gain_mutation_roll_form import GainMutationRollForm
+from charlist.forms.player_todos.manual.gain_spec_skill_subtag import GainSpecSkillForm
 from charlist.forms.player_todos.manual.gain_stat_aptitude_form import GainStatAptitudeForm
 from charlist.forms.player_todos.manual.gain_talent_alt_form import GainTalentAltForm
 from charlist.forms.player_todos.manual.get_trauma_ip_form import GetTraumaIPForm
 from charlist.forms.player_todos.manual.increase_stat_alt_form import IncreaseStatAltForm
 from charlist.forms.player_todos.manual.increase_stat_roll_form import IncreaseStatRollForm
+from charlist.forms.player_todos.manual.origin_xp_extra_choice import GainExtraOriginCommand
+from charlist.forms.upgrading.elite_advance_upgrade_form import EliteAdvanceUpgradeForm
+from charlist.forms.upgrading.pr_upgrade_form import PRUpgrageForm
+from charlist.forms.upgrading.psy_power_upgrade_form import PsyPowerUpgradeForm
 from charlist.forms.upgrading.skill_subtag_upgrade_form import SkillSubtagUpgradeForm
 from charlist.forms.upgrading.skill_upgrade_form import SkillUpgradeForm
 from charlist.forms.upgrading.stat_upgrade_form import StatUpgradeForm
 from charlist.forms.upgrading.talent_subtag_upgrade_form import TalentUpgradeSubtagForm
 from charlist.forms.upgrading.talent_upgrade_form import TalentUpgradeForm
-from charlist.forms.upgrading.elite_advance_upgrade_form import EliteAdvanceUpgradeForm
-from charlist.forms.upgrading.psy_power_upgrade_form import PsyPowerUpgradeForm
-from charlist.forms.upgrading.pr_upgrade_form import PRUpgrageForm
-from charlist.forms.player_todos.manual.gain_spec_skill_subtag import GainSpecSkillForm
-from charlist.forms.player_todos.manual.origin_xp_extra_choice import GainExtraOriginCommand
-from charlist.models import RTCreationData
 from charlist.rt_views import rt_flyweights, rt_commands_parser
 
 
@@ -81,11 +81,11 @@ commands_parser = CommandParser(flyweights)
 def aptitudes_test(request):
     logger = logging.getLogger('charlist_logger')
     logger.info('test')
-    return render(request, 'charlist_test.html', {'version': VERSION, 'facade': flyweights, })
+    return TemplateResponse(request, 'charlist_test.html', {'version': VERSION, 'facade': flyweights, })
 
 
 def charsheet_mockup(request):
-    return render(request, 'charsheet-mockup.html', {'version': VERSION, })
+    return TemplateResponse(request, 'charsheet-mockup.html', {'version': VERSION, })
 
 
 def interactive_charsheet_mockup(request):
@@ -137,9 +137,10 @@ def interactive_charsheet_mockup(request):
                                 "TL_IOHW": Talent("TL_IOHW", 1)}, {}, [], [], [], [], [], [], [], [], 0, 0)
     char_dump = character.toJSON()
     unpacked_char = CharacterModel.from_json(char_dump)
-    return render(request, "charsheet-mockup-interactive.html", {'version': VERSION, 'facade': flyweights,
-                                                                 'character': unpacked_char,
-                                                                 'hookups': character.make_hookups(flyweights)})
+    return TemplateResponse(request, "charsheet-mockup-interactive.html", {'version': VERSION, 'facade': flyweights,
+                                                                           'character': unpacked_char,
+                                                                           'hookups': character.make_hookups(
+                                                                               flyweights)})
 
 
 def signup(request):
@@ -159,14 +160,14 @@ def signup(request):
             email.send()
             return HttpResponseRedirect(reverse('signup-activate'))
         else:
-            return render(request, 'signup.html', {'version': VERSION, 'form': form, })
+            return TemplateResponse(request, 'signup.html', {'version': VERSION, 'form': form, })
     else:
         form = UserCreationForm()
-        return render(request, 'signup.html', {'version': VERSION, 'form': form, })
+        return TemplateResponse(request, 'signup.html', {'version': VERSION, 'form': form, })
 
 
 def signup_activate(request):
-    return render(request, 'activate.html', {'version': VERSION, })
+    return TemplateResponse(request, 'activate.html', {'version': VERSION, })
 
 
 def signin(request):
@@ -179,7 +180,7 @@ def signin(request):
             return HttpResponseRedirect(reverse('signin'))
     else:
         form = SignInForm()
-    return render(request, 'signin.html', {'version': VERSION, 'form': form, })
+    return TemplateResponse(request, 'signin.html', {'version': VERSION, 'form': form, })
 
 
 def logout(request):
@@ -210,9 +211,10 @@ def characters_list(request):
         char_data[character.pk] = character.data_to_model()
     in_progress = models.CreationData.objects.by_uid(user.pk)
     in_progress_rt = models.RTCreationData.objects.by_uid(user.pk)
-    return render(request, 'characters_list.html', {'version': VERSION, 'facade': rt_flyweights, 'characters': characters,
-                                                    'in_progress': in_progress, 'in_progress_rt': in_progress_rt,
-                                                    'char_data': char_data, })
+    return TemplateResponse(request, 'characters_list.html',
+                            {'version': VERSION, 'facade': rt_flyweights, 'characters': characters,
+                             'in_progress': in_progress, 'in_progress_rt': in_progress_rt,
+                             'char_data': char_data, })
 
 
 def create_character_start(request):
@@ -227,8 +229,9 @@ def create_character_init(request, creation_id):
     if request.method == 'POST':
         form = CreationSettingsForm(request.POST)
         if 'char-hw-prev' in request.POST:
-            return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                    'stage': CREATION_STAGES[0], 'form': form})
+            return TemplateResponse(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                              'stage': CREATION_STAGES[0],
+                                                                              'form': form})
         else:
             if ('char-cr-next' in request.POST) and form.is_valid():
                 cleaned_data = form.cleaned_data
@@ -245,8 +248,8 @@ def create_character_init(request, creation_id):
         return HttpResponseRedirect(reverse('create-character-hw', kwargs={'creation_id': cd.pk}))
     else:
         form = CreationSettingsForm()
-        return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                'stage': CREATION_STAGES[0], 'form': form})
+        return TemplateResponse(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                          'stage': CREATION_STAGES[0], 'form': form})
 
 
 def create_character_hw_choice(request, creation_id):
@@ -254,8 +257,9 @@ def create_character_hw_choice(request, creation_id):
     if request.method == 'POST':
         if 'char-cr-next' in request.POST:
             form = HomeworldsChoiceForm()
-            return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                    'stage': CREATION_STAGES[1], 'form': form})
+            return TemplateResponse(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                              'stage': CREATION_STAGES[1],
+                                                                              'form': form})
         form = HomeworldsChoiceForm(request.POST)
         if 'char-hw-next' in request.POST:
             if form.is_valid():
@@ -268,8 +272,8 @@ def create_character_hw_choice(request, creation_id):
             return HttpResponseRedirect(reverse('create-character-init', kwargs={'creation_id': cd.pk}))
     else:
         form = HomeworldsChoiceForm()
-        return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                'stage': CREATION_STAGES[1], 'form': form})
+        return TemplateResponse(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                          'stage': CREATION_STAGES[1], 'form': form})
 
 
 def create_character_stat_distribution(request, creation_id):
@@ -277,8 +281,8 @@ def create_character_stat_distribution(request, creation_id):
     if request.method == 'POST':
         if 'char-hw-next' in request.POST:
             form = StatDistributionForm()
-            return render(request, 'character_creation_form', {'version': VERSION, 'facade': flyweights,
-                                                               'stage': CREATION_STAGES[2], 'form': form})
+            return TemplateResponse(request, 'character_creation_form', {'version': VERSION, 'facade': flyweights,
+                                                                         'stage': CREATION_STAGES[2], 'form': form})
         if 'char-st-prev' in request.POST:
             return HttpResponseRedirect(reverse('create-character-hw', kwargs={'creation_id': cd.pk}))
         form = StatDistributionForm(request.POST)
@@ -321,8 +325,8 @@ def create_character_stat_distribution(request, creation_id):
                 return HttpResponseRedirect(reverse('create-character-bg', kwargs={'creation_id': cd.pk}))
     else:
         form = StatDistributionForm()
-        return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                'stage': CREATION_STAGES[2], 'form': form})
+        return TemplateResponse(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                          'stage': CREATION_STAGES[2], 'form': form})
 
 
 def create_character_bg_choice(request, creation_id):
@@ -340,8 +344,8 @@ def create_character_bg_choice(request, creation_id):
                 return HttpResponseRedirect(reverse('create-character-role', kwargs={'creation_id': cd.pk}))
     else:
         form = BackgroundChoiceForm()
-        return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                'stage': CREATION_STAGES[3], 'form': form})
+        return TemplateResponse(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                          'stage': CREATION_STAGES[3], 'form': form})
 
 
 def create_character_role_choice(request, creation_id):
@@ -349,8 +353,9 @@ def create_character_role_choice(request, creation_id):
     if request.method == 'POST':
         if 'char-st-next' in request.POST:
             form = RoleChoiceForm()
-            return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                    'stage': CREATION_STAGES[4], 'form': form})
+            return TemplateResponse(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                              'stage': CREATION_STAGES[4],
+                                                                              'form': form})
         if 'char-role-prev' in request.POST:
             return HttpResponseRedirect(reverse('create-character-bg', kwargs={'creation_id': cd.pk}))
         form = RoleChoiceForm(request.POST)
@@ -364,8 +369,8 @@ def create_character_role_choice(request, creation_id):
 
     else:
         form = RoleChoiceForm()
-        return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                'stage': CREATION_STAGES[4], 'form': form})
+        return TemplateResponse(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                          'stage': CREATION_STAGES[4], 'form': form})
 
 
 def create_character_choices(request, creation_id):
@@ -375,12 +380,14 @@ def create_character_choices(request, creation_id):
             return HttpResponseRedirect(reverse('create-character-role', kwargs={'creation_id': cd.pk}))
         if 'char-role-next' in request.POST:
             form = ChoicesForm(flyweights, cd)
-            return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                    'stage': CREATION_STAGES[5], 'form': form})
+            return TemplateResponse(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                              'stage': CREATION_STAGES[5],
+                                                                              'form': form})
         form = ChoicesForm(flyweights, cd, request.POST)
         if 'char-apts-prev' in request.POST:
-            return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                    'stage': CREATION_STAGES[5], 'form': form})
+            return TemplateResponse(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                              'stage': CREATION_STAGES[5],
+                                                                              'form': form})
         if 'char-choices-next' in request.POST:
             if form.is_valid():
                 cleaned_data = form.cleaned_data
@@ -407,12 +414,13 @@ def create_character_choices(request, creation_id):
                 cd.save()
                 return HttpResponseRedirect(reverse('create-character-double-apts', kwargs={'creation_id': cd.pk}))
             else:
-                return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                        'stage': CREATION_STAGES[5], 'form': form})
+                return TemplateResponse(request, 'character_creation_form.html',
+                                        {'version': VERSION, 'facade': flyweights,
+                                         'stage': CREATION_STAGES[5], 'form': form})
     else:
         form = ChoicesForm(flyweights, cd)
-        return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                'stage': CREATION_STAGES[5], 'form': form})
+        return TemplateResponse(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                          'stage': CREATION_STAGES[5], 'form': form})
 
 
 def count_doubles(cd, hw, role):
@@ -474,8 +482,9 @@ def create_character_double_apts(request, creation_id):
             return HttpResponseRedirect(reverse('create-character-choice', kwargs={'creation_id': cd.pk}))
         if 'char-choices-next' in request.POST:
             form = DoubleAptsChoiceForm(doubled, apts, flyweights)
-            return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                    'stage': CREATION_STAGES[6], 'form': form})
+            return TemplateResponse(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                              'stage': CREATION_STAGES[6],
+                                                                              'form': form})
         form = DoubleAptsChoiceForm(doubled, apts, flyweights, request.POST)
         if form.is_valid():
             cd.apt_1 = form.cleaned_data['apt_choice']
@@ -488,12 +497,13 @@ def create_character_double_apts(request, creation_id):
             cd.save()
             return HttpResponseRedirect(reverse('create-character-divination', kwargs={'creation_id': cd.pk}))
         else:
-            return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                    'stage': CREATION_STAGES[6], 'form': form})
+            return TemplateResponse(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                              'stage': CREATION_STAGES[6],
+                                                                              'form': form})
     else:
         form = DoubleAptsChoiceForm(doubled, apts, flyweights)
-        return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                'stage': CREATION_STAGES[6], 'form': form})
+        return TemplateResponse(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                          'stage': CREATION_STAGES[6], 'form': form})
 
 
 def prep_stats(cd: models.CreationData):
@@ -746,17 +756,18 @@ def create_character_divination(request, creation_id):
                 cd.delete()
                 return HttpResponseRedirect(reverse('characters-list'))
             else:
-                return render(request, 'character_creation_form.html',
-                              {'version': VERSION, 'facade': flyweights,
-                               'stage': CREATION_STAGES[7], 'form': form})
+                return TemplateResponse(request, 'character_creation_form.html',
+                                        {'version': VERSION, 'facade': flyweights,
+                                         'stage': CREATION_STAGES[7], 'form': form})
         if 'char-apts-next' in request.POST:
             form = DivinationForm(flyweights, cd, background)
-            return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                    'stage': CREATION_STAGES[7], 'form': form})
+            return TemplateResponse(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                              'stage': CREATION_STAGES[7],
+                                                                              'form': form})
     else:
         form = DivinationForm(flyweights, cd, background)
-        return render(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
-                                                                'stage': CREATION_STAGES[7], 'form': form})
+        return TemplateResponse(request, 'character_creation_form.html', {'version': VERSION, 'facade': flyweights,
+                                                                          'stage': CREATION_STAGES[7], 'form': form})
 
 
 def clean_completed(character_model, request):
@@ -974,7 +985,7 @@ def gain_mutation(request, character_model, character: models.Character):
 
 def gain_malignance_choice(request, character_model, character: models.Character):
     if character_model.is_rt():
-        return  rt_views.gain_malignance_choice(request, character_model, character)
+        return rt_views.gain_malignance_choice(request, character_model, character)
     cmd = find_cmd(request, character_model)
     form = GainMalignancyChoiceForm(flyweights, cmd, request.POST)
     if form.is_valid():
@@ -1266,14 +1277,14 @@ def character_view(request, char_id):
                     character_model.pending().remove(cmd)
         character.character_data = character_model.toJSON()
         character.save()
-    return render(request, "charsheet.html", {'version': VERSION, 'facade': facade,
-                                              'command_parser': parser, 'is_rt': character.is_rt,
-                                              'character': character_model,
-                                              'hookups': character_model.make_hookups(facade),
-                                              'insanity_form': insanity_form,
-                                              'corruption_form': corruption_form,
-                                              'reminders': reminders,
-                                              'upg_view': character.get_upgrade_url(), })
+    return TemplateResponse(request, "charsheet.html", {'version': VERSION, 'facade': facade,
+                                                        'command_parser': parser, 'is_rt': character.is_rt,
+                                                        'character': character_model,
+                                                        'hookups': character_model.make_hookups(facade),
+                                                        'insanity_form': insanity_form,
+                                                        'corruption_form': corruption_form,
+                                                        'reminders': reminders,
+                                                        'upg_view': character.get_upgrade_url(), })
 
 
 @never_cache
@@ -1295,9 +1306,10 @@ def upgrade_stat(request, character: models.Character, character_model):
         facade = rt_flyweights
     else:
         facade = flyweights
-    return render(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
-                                                      'character': character_model, 'forms': forms,
-                                                      'return': True, 'char_view': character.get_view_url(), })
+    return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
+                                                                'character': character_model, 'forms': forms,
+                                                                'return': True,
+                                                                'char_view': character.get_view_url(), })
 
 
 @never_cache
@@ -1319,9 +1331,10 @@ def upgrade_skill(request, character: models.Character, character_model):
         facade = rt_flyweights
     else:
         facade = flyweights
-    return render(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
-                                                      'character': character_model, 'forms': forms,
-                                                      'return': True, 'char_view': character.get_view_url(), })
+    return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
+                                                                'character': character_model, 'forms': forms,
+                                                                'return': True,
+                                                                'char_view': character.get_view_url(), })
 
 
 @never_cache
@@ -1347,9 +1360,10 @@ def upgrade_subskill(request, character: models.Character, character_model):
         facade = rt_flyweights
     else:
         facade = flyweights
-    return render(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
-                                                      'character': character_model, 'forms': forms,
-                                                      'return': True, 'char_view': character.get_view_url(), })
+    return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
+                                                                'character': character_model, 'forms': forms,
+                                                                'return': True,
+                                                                'char_view': character.get_view_url(), })
 
 
 @never_cache
@@ -1371,9 +1385,10 @@ def upgrade_talent(request, character: models.Character, character_model):
         facade = rt_flyweights
     else:
         facade = flyweights
-    return render(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
-                                                      'character': character_model, 'forms': forms,
-                                                      'return': True, 'char_view': character.get_view_url(), })
+    return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
+                                                                'character': character_model, 'forms': forms,
+                                                                'return': True,
+                                                                'char_view': character.get_view_url(), })
 
 
 @never_cache
@@ -1399,9 +1414,10 @@ def upgrade_talent_subtag(request, character: models.Character, character_model)
         facade = rt_flyweights
     else:
         facade = flyweights
-    return render(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
-                                                      'character': character_model, 'forms': forms,
-                                                      'return': True, 'char_view': character.get_view_url(), })
+    return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
+                                                                'character': character_model, 'forms': forms,
+                                                                'return': True,
+                                                                'char_view': character.get_view_url(), })
 
 
 @never_cache
@@ -1422,9 +1438,10 @@ def upgrade_ea(request, character: models.Character, character_model):
         facade = rt_flyweights
     else:
         facade = flyweights
-    return render(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
-                                                      'character': character_model, 'forms': forms,
-                                                      'return': True, 'char_view': character.get_view_url(), })
+    return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
+                                                                'character': character_model, 'forms': forms,
+                                                                'return': True,
+                                                                'char_view': character.get_view_url(), })
 
 
 @never_cache
@@ -1444,9 +1461,10 @@ def upgrade_pr(request, character: models.Character, character_model):
         facade = rt_flyweights
     else:
         facade = flyweights
-    return render(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
-                                                      'character': character_model, 'forms': forms,
-                                                      'return': True, 'char_view': character.get_view_url(), })
+    return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
+                                                                'character': character_model, 'forms': forms,
+                                                                'return': True,
+                                                                'char_view': character.get_view_url(), })
 
 
 @never_cache
@@ -1467,9 +1485,10 @@ def upgrade_psy_power(request, character: models.Character, character_model):
         facade = rt_flyweights
     else:
         facade = flyweights
-    return render(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
-                                                      'character': character_model, 'forms': forms,
-                                                      'return': True, 'char_view': character.get_view_url(), })
+    return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
+                                                                'character': character_model, 'forms': forms,
+                                                                'return': True,
+                                                                'char_view': character.get_view_url(), })
 
 
 @never_cache
@@ -1505,9 +1524,10 @@ def character_upgrade(request, char_id):
         facade = rt_flyweights
     else:
         facade = flyweights
-    return render(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
-                                                      'character': character_model, 'forms': forms,
-                                                      'return': True, 'char_view': character.get_view_url(), })
+    return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
+                                                                'character': character_model, 'forms': forms,
+                                                                'return': True,
+                                                                'char_view': character.get_view_url(), })
 
 
 def character_delete(request, char_id):
