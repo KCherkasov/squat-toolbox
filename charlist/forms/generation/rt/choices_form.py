@@ -18,43 +18,43 @@ class RTChoicesForm(Form):
     def __init__(self, cd: RTCreationDataModel, facade: RTFacade, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.__facade = facade
-        hw = self.__facade.rt_homeworlds().get(cd.hw_id)
-        birthright = self.__facade.birthrights().get(cd.birthright_id)
-        lure = self.__facade.lures().get(cd.lure_id)
-        trial = self.__facade.trials().get(cd.trial_id)
-        motive = self.__facade.motivations().get(cd.motivation_id)
-        career = self.__facade.careers().get(cd.career_id)
+        hw = facade.rt_homeworlds().get(cd.hw_id)
+        birthright = facade.birthrights().get(cd.birthright_id)
+        lure = facade.lures().get(cd.lure_id)
+        trial = facade.trials().get(cd.trial_id)
+        motive = facade.motivations().get(cd.motivation_id)
+        career = facade.careers().get(cd.career_id)
         i = 0
         for grp in hw.get_skill_choices():
-            i = parse_group(grp, i, 'Homeworld skill', self.fields)
+            i = parse_group(grp, i, 'Homeworld skill', self.fields, facade)
         for grp in hw.get_talent_choices():
-            i = parse_group(grp, i, 'Homeworld talent', self.fields)
+            i = parse_group(grp, i, 'Homeworld talent', self.fields, facade)
         for grp in birthright.choices():
-            i = parse_group(grp, i, "Birthright", self.fields)
+            i = parse_group(grp, i, "Birthright", self.fields, facade)
         birthright_apts = list()
         for apt in birthright.aptitude_choices():
             birthright_apts.append({'tag': apt})
-        i = parse_group(birthright_apts, i, 'Birthright aptitude', self.fields)
+        i = parse_group(birthright_apts, i, 'Birthright aptitude', self.fields, facade)
         for grp in lure.choices():
-            i = parse_group(grp, i, 'Lure of the Void', self.fields)
+            i = parse_group(grp, i, 'Lure of the Void', self.fields, facade)
         for grp in trial.choices():
-            i = parse_group(grp, i, 'Trial and Travail', self.fields)
+            i = parse_group(grp, i, 'Trial and Travail', self.fields, facade)
         for grp in motive.choices():
-            i = parse_group(grp, i, 'Motivation', self.fields)
+            i = parse_group(grp, i, 'Motivation', self.fields, facade)
         motivation_apts = list()
         for apt in motive.aptitudes():
             motivation_apts.append({'tag': apt})
-        i = parse_group(motivation_apts, i, 'Motivation aptitude', self.fields)
+        i = parse_group(motivation_apts, i, 'Motivation aptitude', self.fields, facade)
         for grp in career.choices():
-            i = parse_group(grp, i, 'Career', self.fields)
+            i = parse_group(grp, i, 'Career', self.fields, facade)
 
 
-def parse_group(grp: List, i: int, prefix: str, fields):
+def parse_group(grp: List, i: int, prefix: str, fields, facade: RTFacade):
     j = i + 1
     choices = list()
     subtagged = False
     for choice in grp:
-        name = parse_choice(choice, self.__facade)
+        name = parse_choice(choice, facade)
         choices.append((json.dumps(choice), name))
         if ('subtag' in choice.keys()) and (not subtagged):
             if (choice.get('subtag') == 'SK_ANY') or (choice.get('subtag') == 'TL_ANY'):
@@ -69,31 +69,6 @@ def parse_group(grp: List, i: int, prefix: str, fields):
         fields[stg_name] = forms.CharField(label=stg_label, required=False)
     i += 1
     return i
-
-
-def clean(self):
-    cd = self.cleaned_data
-    log = str(cd)
-    for field_name, value in cd.items():
-        if field_name[:len(STG_PREFIX)] == STG_PREFIX:
-            stripped_name = field_name[len(STG_PREFIX):]
-            if stripped_name in cd.keys():
-                tag = json.loads(cd.get(stripped_name)).get('tag')
-                if (value is not None) and (value != ''):
-                    if tag[:2] == 'SK':
-                        if not self.__facade.skill_descriptions().get(tag).is_specialist():
-                            raise ValidationError('Specialization for non-specialist skill'
-                                                  + self.__facade.skill_descriptions().get(tag).get_name('en'))
-                    if tag[:2] == 'TL':
-                        if not self.__facade.talent_descriptions().get(tag).is_specialist():
-                            raise ValidationError('Specialization for non-specialist talent'
-                                                  + self.__facade.talent_descriptions().get(tag).get_name('en'))
-            else:
-                err = 'Wrong-spawned text field: ' + field_name + ' has no ' \
-                      + stripped_name + ' match in form fields'
-                raise ValidationError(err)
-    raise AttributeError({'log': log})
-    return cd
 
 
 def parse_choice(choice: Dict, facade: RTFacade):
