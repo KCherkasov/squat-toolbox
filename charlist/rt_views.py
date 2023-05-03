@@ -175,7 +175,7 @@ def rt_create_character_choices(request, creation_id):
                     elif choice.get('tag')[:2] == 'SK':
                         if 'subtag' in choice.keys():
                             if choice.get('subtag') == 'SK_ANY':
-                                subtag_fld_name = str(STG_PREFIX).join(key)
+                                subtag_fld_name = str(STG_PREFIX) + key
                                 res_choice = {'tag': choice.get('tag'),
                                               'subtag': cleaned_data.get(subtag_fld_name)}
                                 cdm.skills.append(res_choice)
@@ -184,7 +184,7 @@ def rt_create_character_choices(request, creation_id):
                     elif choice.get('tag')[:2] == 'TL':
                         if 'subtag' in choice.keys():
                             if choice.get('subtag') == 'SK_ANY':
-                                subtag_fld_name = str(STG_PREFIX).join(key)
+                                subtag_fld_name = str(STG_PREFIX) + key
                                 res_choice = {'tag': choice.get('tag'),
                                               'subtag': cleaned_data.get(subtag_fld_name)}
                                 cdm.talents.append(res_choice)
