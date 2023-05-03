@@ -158,11 +158,10 @@ def rt_create_character_choices(request, creation_id):
         if 'char-choices-prev' in request.POST:
             return HttpResponseRedirect(reverse('create-character-role', kwargs={'creation_id': cd.pk}))
         if 'char-st-next' in request.POST:
-            form = RTChoicesForm(rt_flyweights)
-            form.parse(cdm)
+            form = RTChoicesForm(cdm, rt_flyweights)
             return TemplateResponse(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
                                                                        'stage': RT_CREATION_STAGES[3], 'form': form})
-        form = RTChoicesForm(rt_flyweights, request.POST)
+        form = RTChoicesForm(cdm, rt_flyweights, request.POST)
         if 'char-apts-prev' in request.POST:
             cdm.reset_skills(rt_flyweights)
             cdm.reset_talents(rt_flyweights)
