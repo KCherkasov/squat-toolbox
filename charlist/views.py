@@ -1404,7 +1404,7 @@ def character_upgrade(request, char_id):
     if character.is_rt:
         return rt_views.character_upgrade(request, char_id)
     if request.method == 'POST':
-        return HttpResponseRedirect(reverse('character-upg-midlayer'), kwargs={'char_id': character.pk, })
+        return HttpResponseRedirect(reverse('character-upg-midlayer', kwargs={'char_id': character.pk, }))
     character_model = character.data_to_model()
     forms = upg_data_to_forms(character_model)
     if character_model.is_rt():
