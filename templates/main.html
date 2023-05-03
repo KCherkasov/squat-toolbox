@@ -12,11 +12,9 @@
     <div class="card">
         <div class="card-body text-center">
             <h5 class="card-title"><b>Имягенератор</b></h5>
-            <br>
-            <p class="card-subtitle">
+            <p class="card-subtitle mb-3">
                 Может выдумать персонажу имя. Не факт, что его будет просто выговорить.
             </p>
-            <br class="mt-2 mb-2">
             <a class="btn btn-primary btn-large" href="{% url 'namegen' %}" role="button">Перейти</a>
         </div>
         <div class="card-footer text-center">
@@ -26,10 +24,9 @@
     <div class="card">
         <div class="card-body text-center">
             <h5 class="card-title"><b>Чарник</b></h5>
-            <p class="card-subtitle">
+            <p class="card-subtitle mb-3">
                 Страшная штука, вроде бы есть, а ее вроде нет... Где-то здесь была табличка "не влезай - убьет!"...
             </p>
-            <br class="mt-2 mb-2">
             {% if user.is_authenticated and user.is_active %}
             <a class="btn btn-primary btn-large" href="{% url 'characters-list' %}" role="button">
                 К списку персонажей
