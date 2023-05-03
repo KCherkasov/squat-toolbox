@@ -21,8 +21,8 @@ class DoubleAptsForm(Form):
             if apt not in cd.aptitudes:
                 choices.append((apt, flyweights.aptitudes().get(apt).get_name('en')))
         for i in range(cd.count_doubles()):
-            label = str('Choose doubled aptitude ').join(str(i + 1))
-            name = str('apt-').join(str(i + 1))
+            label = 'Choose doubled aptitude ' + str(i + 1)
+            name = 'apt-' + str(i + 1)
             self.fields[name] = forms.ChoiceField(label=label)
 
     def clean(self):
