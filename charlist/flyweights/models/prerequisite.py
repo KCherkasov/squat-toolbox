@@ -102,7 +102,7 @@ class Prerequisite(object):
                     else:
                         flg = character.role_id() != alt_tag
                 if alt_tag[:2] == 'ST':
-                    if alt_tag[:2] == 'ST_IFL' and character.is_rt():
+                    if (alt_tag[:2] == 'ST_IFL') and character.is_rt():
                         flg = True
                     else:
                         flg = character.stats().get(alt_tag).value() < alt_value
@@ -198,7 +198,7 @@ class Prerequisite(object):
                 else:
                     flg = character.role_id() != alt_tag
             if alt_tag[:2] == 'ST':
-                if alt_tag[:2] == 'ST_IFL' and character.is_rt():
+                if (alt_tag[:2] == 'ST_IFL') and character.is_rt():
                     flg = True
                 else:
                     flg = character.stats().get(alt_tag).value() < alt_value
@@ -300,7 +300,7 @@ class Prerequisite(object):
             else:
                 flg = character.role_id() != self.tag
         if self.is_stat_prereq():
-            if self.tag[:2] == 'ST_IFL' and character.is_rt():
+            if (self.tag[:2] == 'ST_IFL') and character.is_rt():
                 flg = True
             else:
                 flg = character.stats().get(self.tag).value() < self.value
