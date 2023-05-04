@@ -14,10 +14,10 @@
             <div class="card-group">
         {% endif %}
         {% include 'stat_widget.html' %}
+        {% endwith %}
+        {% endif %}
         {% if forloop.counter|divisibleby:2 or forloop.last %}
             </div>
-        {% endif %}
-        {% endwith %}
         {% endif %}
         {% endfor %}
     </div>
