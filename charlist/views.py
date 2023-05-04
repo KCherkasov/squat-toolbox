@@ -209,6 +209,11 @@ def characters_list(request):
     char_data = dict()
     for character in characters:
         char_data[character.pk] = character.data_to_model()
+        if char_data.get(character.pk).is_rt():
+            if 'ST_IFL' in char_data.get(character.pk).stats().keys():
+                char_data.get(character.pk).stats().remove('ST_IFL')
+                character.character_data = char_data.get(character.pk).toJSON()
+                character.save()
     in_progress = models.CreationData.objects.by_uid(user.pk)
     in_progress_rt = models.RTCreationData.objects.by_uid(user.pk)
     return TemplateResponse(request, 'characters_list.html',

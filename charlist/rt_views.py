@@ -279,7 +279,7 @@ def create_character_double_apts(request, creation_id):
 
 def prep_stats(cd: RTCreationDataModel):
     stats = dict()
-    for stat in STAT_TAGS:
+    for stat in RT_STAT_TAGS:
         stats[stat] = Stat(stat, cd.stats.get(stat))
     return stats
 
