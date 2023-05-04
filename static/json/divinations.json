@@ -110,8 +110,8 @@
       "commands": [
         {
           "command": "GainTalent",
-          "tag": "TL_HTR",
-          "subtag": "ANY",
+          "tag": "TL_HTRD",
+          "subtag": "TL_ANY",
           "alt": {
             "command": "IncreaseStat",
             "tag": "ST_STR",
