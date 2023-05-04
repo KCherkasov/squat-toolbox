@@ -8,7 +8,7 @@ from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
-from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import reverse
 from django.template.loader import render_to_string
 from django.template.response import TemplateResponse
@@ -1462,11 +1462,10 @@ def character_upgrade(request, char_id):
     else:
         facade = flyweights
     forms = upg_data_to_forms(character_model)
-    return JsonResponse({'data': character.make_upg_costs(rt_flyweights)})
- #   return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
- #                                                               'character': character_model, 'forms': forms,
- #                                                               'return': True,
- #                                                               'char_view': character.get_view_url(), })
+    return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': facade,
+                                                                'character': character_model, 'forms': forms,
+                                                                'return': True,
+                                                                'char_view': character.get_view_url(), })
 
 
 def character_delete(request, char_id):

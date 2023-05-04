@@ -975,7 +975,7 @@ def character_upgrade(request, char_id):
     if request.method == 'POST':
         parse_upgrades(request, character, character_model)
     forms = upg_data_to_forms(character_model)
-    return JsonResponse({'data': character.make_upg_costs(rt_flyweights)})
+    return JsonResponse({'data': character_model.make_upg_costs(rt_flyweights)})
  #   return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': rt_flyweights,
  #                                                               'character': character_model, 'forms': forms,
  #                                                               'return': True,
