@@ -106,7 +106,7 @@ class RTCreationDataModel(object):
     def count_doubles(self):
         doubled = 0
         for i in range(len(self.aptitudes)):
-            for j in range(i, len(self.aptitudes)):
+            for j in range(i + 1, len(self.aptitudes)):
                 if (self.aptitudes[i] == self.aptitudes[j]) and (i != j):
                     doubled += 1
         return doubled
