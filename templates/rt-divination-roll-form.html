@@ -21,16 +21,14 @@
             <label for="{{ field.name }}" class="col-sm-2 control-label">
                 {{ field.label }}
                 {% if field.name == 'fate_roll' %}
-                    &nbsp;(extra fate on&nbsp;{{ form.min_blesing }}+)
+                    &nbsp;(extra fate on&nbsp;{{ form.min_blessing }}+)
                 {% endif %}
             </label>
             <div class="col-sm-5 charlist-inline justify-content-center ms-2">
-                {% if field.name == 'wounds_roll' %}
+                {% if field.name == 'wound_roll' %}
                     <div class="btn btn-outline-dark disabled">
-                        <p>{{ field.base_wounds }}</p>
+                        <p>{{ field.default_wounds }}</p>
                     </div>
-                {% endif %}
-                {%if field.name == 'blessing_roll' %}
                 {% endif %}
                     {{ field }}
             </div>
