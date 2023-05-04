@@ -26,6 +26,7 @@ from charlist.forms.player_todos.manual.increase_stat_alt_form import IncreaseSt
 from charlist.forms.player_todos.manual.increase_stat_roll_form import IncreaseStatRollForm
 from charlist.forms.player_todos.manual.origin_xp_extra_choice import GainExtraOriginCommand
 from charlist.forms.player_todos.manual.gain_spec_skill_subtag import GainSpecSkillForm
+from charlist.forms.player_todos.automatic.gain_skill import GainSkillCommand
 
 
 # TODO: check conditional commands and alter where needed!
@@ -222,6 +223,7 @@ class CommandParser(object):
         commands[INC_PR] = IncreasePRCommand(facade)
         commands[GET_TRAIT_FIX] = GainTraitCommand(facade)
         commands[LOSE_FATE] = LoseFateCommand(facade)
+        commands[GET_SKILL_FIX] = GainSkillCommand(facade)
 
         return commands
 
