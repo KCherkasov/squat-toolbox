@@ -5943,6 +5943,23 @@
       ],
       "is_specialist": false,
       "is_stackable": false
+    },
+    {
+      "tag": "TL_ATSN",
+      "name": {
+        "ru": "Автосангвина",
+        "en": "Autosanguine"
+      },
+      "description": {
+        "ru": "При применении исцеления персонаж всегда считается легкораненым и исцеляется с повышенной скоростью, убирая 2 единицы Урона в день.",
+        "en": "When applying healing, he is always considered Lightly Wounded, and heals at an increased rate, removing 2 points of Damage per day."
+      },
+      "hints": [],
+      "tier": 3,
+      "aptitudes": ["A_GEN", "A_GEN"],
+      "prerequisites": [],
+      "is_specialist": false,
+      "is_stackable": false
     }
   ]
 }
