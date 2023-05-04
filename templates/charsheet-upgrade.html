@@ -96,6 +96,9 @@ Character sheet interactive mockup
                     <header class="text-center">
                         <b class="text-center">{% if lang == 'ru' %}Таланты{% else %}Talents{% endif %}<i>(Нажмите на название таланта, чтобы просмотреть описание)</i></b>
                     </header>
+
+                    <input type="hidden" name="log" value="{{ character.make_upg_costs }}">
+
                     <div class="card card-body justify-content-center">
                         <header class="text-center">
                             <b>{% if lang == 'ru' %}Доступные{% else %}Available{% endif %}</b>
@@ -130,10 +133,6 @@ Character sheet interactive mockup
                             {% endfor %}
                         </div>
                     {% endwith %}
-
-                                        {% if character.is_rt %}
-                                            <input type="hidden" name="log" value="{{ character.make_upg_costs }}">
-                                        {% endif %}
                     </div>
                     <div class="card card-body justify-content-center">
                         <header class="text-center">
