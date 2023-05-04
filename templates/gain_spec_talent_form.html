@@ -5,7 +5,10 @@
 {% endblock %}
 
 {% block form_title %}
-Получите специализацию в таланте {{ form.tl_name }}
+Получите специализацию в таланте&nbsp;
+{% with facade.talent_descriptions|get_by_dict_key:form.tl_tag as tl %}
+    {{ tl.name|get_by_dict_key:'en' }}
+{% endwith %}
 {% endblock %}
 
 {% block form_controls %}
