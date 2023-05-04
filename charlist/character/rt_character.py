@@ -458,10 +458,6 @@ class RTCharacterModel(object):
         for lang in ['ru', 'en']:
             hw_name[lang] = facade.rt_homeworlds().get(self.__hw_id).get_bonus().get_name(lang)
         map_hints(hookups, facade.rt_homeworlds().get(self.__hw_id).get_bonus().get_hints(), hw_name)
-        birtright_name = dict()
-        for lang in ['ru', 'en']:
-            birtright_name[lang] = facade.birthrights().get(self.__birthright).name().get(lang)
-        map_hints(hookups, facade.birthrights().get(self.__birthright).hints(), birtright_name)
         trial_name = dict()
         for lang in ['ru', 'en']:
             trial_name[lang] = facade.trials().get(self.__trial_id).name().get(lang)
