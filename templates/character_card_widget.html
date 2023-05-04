@@ -10,27 +10,27 @@
     <div class="card-body charlist-inline justify-content-center">
         {% if char_model.is_rt %}
         <div>
-            {% with facade.rt_homeworlds|get_by_dict_key:hw_id as hw %}
+            {% with facade.rt_homeworlds|get_by_dict_key:char_model.hw_id as hw %}
             <h5>{{ hw.name|get_by_dict_key:lang }}</h5>
             {% endwith %}
         </div>
         <div>
-            {% with facade.birthrights|get_by_dict_key:birthright_id as br %}
+            {% with facade.birthrights|get_by_dict_key:char_model.birthright_id as br %}
             <h5>{{ br.name|get_by_dict_key:lang }}</h5>
             {% endwith %}
         </div>
         <div>
-            {% with facade.lures|get_by_dict_key:lure_id as lure %}
+            {% with facade.lures|get_by_dict_key:char_model.lure_id as lure %}
             <h5>{{ lure.name|get_by_dict_key:lang }}</h5>
             {% endwith %}
         </div>
         <div>
-            {% with facade.trials|get_by_dict_key:trial_id as trial %}
+            {% with facade.trials|get_by_dict_key:char_model.trial_id as trial %}
             <h5>{{ trial.name|get_by_dict_key:lang }}</h5>
             {% endwith %}
         </div>
         <div>
-            {% with facade.rt_motivations|get_by_dict_key:motivation_id as motive %}
+            {% with facade.rt_motivations|get_by_dict_key:char_model.motivation_id as motive %}
             <h5>{{ motive.name|get_by_dict_key:lang }}</h5>
             {% endwith %}
         </div>
