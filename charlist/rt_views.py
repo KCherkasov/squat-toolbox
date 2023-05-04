@@ -179,6 +179,7 @@ def rt_create_character_choices(request, creation_id):
                 cdm.reset_skills(rt_flyweights)
                 cdm.reset_talents(rt_flyweights)
                 cdm.reset_traits(rt_flyweights)
+                cdm.reset_apts(rt_flyweights)
                 cdm.choices = list()
                 for i in range(len(cleaned_data)):
                     field_name = 'choice-' + str(i)
@@ -230,6 +231,7 @@ def rt_create_character_choices(request, creation_id):
         cdm.reset_skills(rt_flyweights)
         cdm.reset_talents(rt_flyweights)
         cdm.reset_traits(rt_flyweights)
+        cdm.reset_apts(rt_flyweights)
         form = RTChoicesForm(cdm, rt_flyweights)
         return TemplateResponse(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
                                                                    'cd': cdm, 'stage': RT_CREATION_STAGES[3],

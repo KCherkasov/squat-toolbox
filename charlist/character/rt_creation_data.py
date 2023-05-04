@@ -109,6 +109,7 @@ class RTCreationDataModel(object):
             for j in range(i, len(self.aptitudes)):
                 if (self.aptitudes[i] == self.aptitudes[j]) and (i != j):
                     doubled += 1
+                    break
         return doubled
 
     def simplify_apts(self):
