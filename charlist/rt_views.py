@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import datetime
 
-from django.http import HttpResponseRedirect, JsonResponse
+from django.http import HttpResponseRedirect
 from django.shortcuts import reverse
 from django.template.response import TemplateResponse
 
@@ -975,11 +975,10 @@ def character_upgrade(request, char_id):
     if request.method == 'POST':
         parse_upgrades(request, character, character_model)
     forms = upg_data_to_forms(character_model)
-    return JsonResponse({'data': character_model.make_upg_costs(rt_flyweights)})
- #   return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': rt_flyweights,
- #                                                               'character': character_model, 'forms': forms,
- #                                                               'return': True,
- #                                                               'char_view': character.get_view_url(), })
+    return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': rt_flyweights,
+                                                                'character': character_model, 'forms': forms,
+                                                                'return': True,
+                                                                'char_view': character.get_view_url(), })
 
 
 def character_delete(request, char_id):
