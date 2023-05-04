@@ -73,6 +73,11 @@ h5.collapse-toggler {
     max-width: 650px;
 }
 
+.w750 {
+    min-width: 750px;
+    max-width: 800px;
+}
+
 .w470 {
     min-width: 450px;
     max-width: 470px;
