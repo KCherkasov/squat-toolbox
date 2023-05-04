@@ -13,6 +13,7 @@
 
 {% block form_controls %}
 <div class="col-sm-offset-2 col-sm-2">
+    <input type="hidden" name="skill_tag" value="{{ form.tl_tag }}">
     <button type="submit" class="btn btn-primary" name="talent-spec-confirm">Выбрать</button>
 </div>
 {% endblock %}
