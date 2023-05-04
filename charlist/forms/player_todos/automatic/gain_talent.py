@@ -15,17 +15,17 @@ class GainTalentCommand(BaseCommand):
                 talent = self.get_facade().talent_descriptions().get(data.get('tag'))
                 flg = False
                 if talent.is_specialist():
-                    if data.get('tag') in character.talents().keys():
-                        if character.talents().get(data.get('tag')).taken_subtag(self.get_facade(), data.get_subtag()):
-                            flg = True
-                        else:
-                            character.gain_talent_subtag(data.get('tag'), data.get('subtag'), self.get_facade())
+                    character.gain_talent_subtag(data.get('tag'), data.get('subtag'), self.get_facade())
                 elif data.get('tag') not in character.talents().keys():
                     character.gain_talent(data.get('tag'), self.get_facade())
                 else:
                     flg = True
-                if flg and ('alt' in data.keys()):
-                    alt_data = data.get('alt')
-                    character.pending().append(alt_data)  # TODO: test this approach, if not working - instantiate
-                    # TODO: required command and execute it manually from here
+                if flg:
+                    if 'alt' in data.keys():
+                        alt_data = data.get('alt')
+                        character.pending().append(alt_data)  # TODO: test this approach, if not working - instantiate
+                        # TODO: required command and execute it manually from here
+                    else:
+                        alt = {'command': 'GainSpecTalent', 'tag': 'TL_TLTD'}
+                        character.pending().append(alt)
         return character

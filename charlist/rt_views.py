@@ -187,7 +187,6 @@ def rt_create_character_choices(request, creation_id):
                     if field_name not in cleaned_data.keys():
                         break
                     choice = json.loads(cleaned_data.get(field_name))
-                    cdm.choices.append(choice)
                     if choice.get('tag')[:2] == 'A_':
                         cdm.aptitudes.append(choice.get('tag'))
                     elif choice.get('tag')[:2] == 'SK':
@@ -196,6 +195,7 @@ def rt_create_character_choices(request, creation_id):
                                 subtag_fld_name = str(STG_PREFIX) + field_name
                                 res_choice = {'tag': choice.get('tag'),
                                               'subtag': cleaned_data.get(subtag_fld_name)}
+                                choice['subtag'] = cleaned_data.get(subtag_fld_name)
                                 cdm.skills.append(res_choice)
                             else:
                                 cdm.skills.append(choice)
@@ -207,6 +207,7 @@ def rt_create_character_choices(request, creation_id):
                                 subtag_fld_name = str(STG_PREFIX) + field_name
                                 res_choice = {'tag': choice.get('tag'),
                                               'subtag': cleaned_data.get(subtag_fld_name)}
+                                choice['subtag'] = cleaned_data.get(subtag_fld_name)
                                 cdm.talents.append(res_choice)
                             else:
                                 cdm.talents.append(choice)
@@ -219,6 +220,7 @@ def rt_create_character_choices(request, creation_id):
                             cmd['tag'] = choice.get('stat')
                             cmd['amount'] = choice.get('amount')
                         cdm.commands.append(cmd)
+                    cdm.choices.append(choice)
                 cd.curr_stage = 'double-apts'
                 cd.last_mod_date = datetime.datetime.now()
                 cd.character_data = cdm.to_json()
