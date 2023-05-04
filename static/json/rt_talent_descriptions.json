@@ -3472,15 +3472,15 @@
         "en": "Into the jaws of hell"
       },
       "description": {
-        "ru": "Сила убеждений и веры инквизитора в Императора — или, возможно, страх перед его возмездием — вдохновляют тех, кто на его стороне, сражаться, даже несмотря на серьёзные трудности и ужасы галактики.",
-        "en": "The Inquisitor’s strength of conviction and faith in the Emperor—or perhaps the fear of his retribution—inspire those at his side to fight on, even in the face of overwhelming odds and the terrors of the galaxy."
+        "ru": "Сила убеждений и веры исследователя в Императора — или, возможно, страх перед его возмездием — вдохновляют тех, кто на его стороне, сражаться, даже несмотря на серьёзные трудности и ужасы галактики.",
+        "en": "The Explorer’s strength of conviction and faith in the Emperor—or perhaps the fear of his retribution—inspire those at his side to fight on, even in the face of overwhelming odds and the terrors of the galaxy."
       },
       "hints": [
         {
           "tag": "TL_IJOH_H1",
           "description": {
-            "ru": "Аколиты и союзники в радиусе 10 метров могут вычесть бонус Общительности инквизитора из степени их провала проверок Страха или Подавления, если инквизитор прошёл проверку. Если это снижает степень неудачи до 0 или меньше, персонаж считается прошедшим проверку с 1 степенью успеха. Эффекты этого таланта относятся к аколитам в отряде инквизитора и к другим служителям Империума, сражающимся по приказу инквизитора, а также к остальным на усмотрение МИ.",
-            "en": "Servants and allies within 10 metres can subtract the Inquisitor’s Fellowship bonus from their degrees of failure on a failed Fear or Pinning test, so long as the Inquisitor passes the test. If this reduces the degrees of failure to 0 or less, a character counts as having passed the test with 1 degree of success. The effects of this talent apply to Acolytes in the Inquisitor’s warband and to other servants of the Imperium fighting under the Inquisitor’s orders, as well as others at the GM’s discretion."
+            "ru": "Слуги и союзники в радиусе 10 метров могут вычесть бонус Общительности Исследователя из степени их провала проверок Страха или Подавления, если Исследователь прошёл проверку. Если это снижает степень неудачи до 0 или меньше, персонаж считается прошедшим проверку с 1 степенью успеха. Эффекты этого таланта относятся к подчиненным Исследователя и к другим служителям Империума, сражающимся по его приказу, а также к остальным на усмотрение МИ.",
+            "en": "Servants and allies within 10 metres can subtract the Explorer’s Fellowship bonus from their degrees of failure on a failed Fear or Pinning test, so long as the Explorer passes the test. If this reduces the degrees of failure to 0 or less, a character counts as having passed the test with 1 degree of success. The effects of this talent apply to Acolytes in the Explorer’s warband and to other servants of the Imperium fighting under the Explorer’s orders, as well as others at the GM’s discretion."
           },
           "targets": ["ST_FEL", "ST_WP"]
         }
@@ -3503,8 +3503,8 @@
         "en": "Indomitable conviction"
       },
       "description": {
-        "ru": "Инквизитор должен регулярно делиться частью своего бремени знаний и понимания с теми, кто служит рядом с ним. Хотя некоторые аколиты могут поддаться безумию и отчаянию, но те, кто пройдёт такие ментальные испытания со здоровой душой, станут ещё сильнее. Инквизитор также может извлечь выгоду из такого опыта, черпая силы у своих товарищей и возобновляя свою веру в долг перед Человечеством.",
-        "en": "An Inquisitor must often share a part of his burden of knowledge and understanding with those who serve alongside him. Although some Acolytes might succumb to madness and despair, those who undergo such mental trials with their sanity intact come out stronger for it. An Inquisitor can also benefit from such an experience, drawing strength from his comrades and renewing his faith in his duty to Mankind."
+        "ru": "Исследователь должен регулярно делиться частью своего бремени знаний и понимания с теми, кто служит рядом с ним. Хотя некоторые аколиты могут поддаться безумию и отчаянию, но те, кто пройдёт такие ментальные испытания со здоровой душой, станут ещё сильнее. Исследователь также может извлечь выгоду из такого опыта, черпая силы у своих товарищей и возобновляя свою веру в долг перед Человечеством.",
+        "en": "An Explorer must often share a part of his burden of knowledge and understanding with those who serve alongside him. Although some Acolytes might succumb to madness and despair, those who undergo such mental trials with their sanity intact come out stronger for it. An Explorer can also benefit from such an experience, drawing strength from his comrades and renewing his faith in his duty to Mankind."
       },
       "hints": [
         {
@@ -3590,8 +3590,8 @@
         "en": "Penitent psyker"
       },
       "description": {
-        "ru": "Псайкеров ненавидят и избегают по всему Империуму, и даже те псайкеры, которые служат Императору, часто борются со своим проклятием. Независимо от того, является ли он нечистым псайкером, взятым под крыло инквизитора, или санкционированным псайкером, чья вера осуждает его способности, такой человек может развить способность действовать как своего рода психический громоотвод, жертвуя собственной плотью, чтобы защитить своих союзников от силы ведьм и вирдов, порождённых Варпом.",
-        "en": "Psykers are hated and shunned throughout the Imperium, and even those psykers who serve the Emperor often struggle with their curse. Whether a rogue psyker taken under an Inquisitor’s wing or a sanctioned psyker whose faith condemns his abilities, such an individual might develop the ability to act as a kind of psychic lightning rod, sacrificing his own flesh in order to protect his allies from the Warp-spawned powers of the witch and wyrd."
+        "ru": "Псайкеров ненавидят и избегают по всему Империуму, и даже те псайкеры, которые служат Императору, часто борются со своим проклятием. Независимо от того, является ли он нечистым псайкером, взятым под крыло Исследователя, или санкционированным псайкером, чья вера осуждает его способности, такой человек может развить способность действовать как своего рода психический громоотвод, жертвуя собственной плотью, чтобы защитить своих союзников от силы ведьм и вирдов, порождённых Варпом.",
+        "en": "Psykers are hated and shunned throughout the Imperium, and even those psykers who serve the Emperor often struggle with their curse. Whether a rogue psyker taken under an Explorer’s wing or a sanctioned psyker whose faith condemns his abilities, such an individual might develop the ability to act as a kind of psychic lightning rod, sacrificing his own flesh in order to protect his allies from the Warp-spawned powers of the witch and wyrd."
       },
       "hints": [
         {
@@ -3699,8 +3699,8 @@
         "en": "Witch finder"
       },
       "description": {
-        "ru": "Чтобы искоренить ведьм, вирдов и колдунов, инквизитор или аколит должны быть в состоянии обнаружить и следовать по следам и знакам псайкера. Хотя некоторые из них сами являются псайкерами или пользуются их услугами, другие тренируют свои собственные чувства и ум, чтобы обнаружить даже самые тонкие следы психической деятельности.",
-        "en": "In order to root out the witch, wyrd, and sorcerer, an Inquisitor or Acolyte must be able to detect and follow the sign and spoor of the psyker. Although some are themselves psykers, or employ the services of such, others train their own senses and mind to detect even the subtlest traces of psychic activity."
+        "ru": "Чтобы искоренить ведьм, вирдов и колдунов, исследователи должны быть в состоянии обнаружить и следовать по следам и знакам псайкера. Хотя некоторые из них сами являются псайкерами или пользуются их услугами, другие тренируют свои собственные чувства и ум, чтобы обнаружить даже самые тонкие следы психической деятельности.",
+        "en": "In order to root out the witch, wyrd, and sorcerer, an Explorer must be able to detect and follow the sign and spoor of the psyker. Although some are themselves psykers, or employ the services of such, others train their own senses and mind to detect even the subtlest traces of psychic activity."
       },
       "hints": [
         {
