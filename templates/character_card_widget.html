@@ -30,7 +30,7 @@
             {% endwith %}
         </div>
         <div>
-            {% with facade.rt_motivations|get_by_dict_key:char_model.motivation_id as motive %}
+            {% with facade.motivations|get_by_dict_key:char_model.motivation_id as motive %}
             <h5>{{ motive.name|get_by_dict_key:'en' }}</h5>
             {% endwith %}
         </div>
