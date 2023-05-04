@@ -84,7 +84,7 @@ class RTCreationDataModel(object):
     def reset_commands(self, facade: RTFacade):
         commands = list()
         if self.hw_id in facade.rt_homeworlds().keys():
-            for cmd in facade.rt_homeworlds().get(self.hw_id).get_bonus().commands():
+            for cmd in facade.rt_homeworlds().get(self.hw_id).get_bonus().get_commands():
                 commands.append(cmd)
         if self.birthright_id in facade.birthrights().keys():
             for cmd in facade.birthrights().get(self.birthright_id).commands():
