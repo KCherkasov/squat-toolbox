@@ -59,7 +59,7 @@
                 {% endif %}
             {% endif %}
             {% if prereq.is_role_prereq %}
-                {% if character.is_rt %}
+                {% if not character.is_rt %}
                     {% if lang == 'ru' %}Роль{% else %}Role{% endif %}:&nbsp;{{ facade.roles|get_by_dict_key:prereq.tag|get_role_name:lang }}
                 {% else%}
                     {% if lang == 'ru' %}Карьера{% else %}Career{% endif %}:&nbsp;
