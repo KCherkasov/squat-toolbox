@@ -6,20 +6,6 @@
 </div>
 <hr/>
 <div class="charlist-inline justify-content-center">
-    <div>
-        {% for stat, value in cd.stats.items %}
-            <p>
-                <b>
-                    {% with facade.stat_descriptions|get_by_dict_key:stat as st %}
-                        {{ st.name|get_by_dict_key:'en' }}
-                    {% endwith %}
-                </b>:&nbsp;
-                {{ value }}
-            </p>
-        {% endfor %}
-    </div>
-</div>
-<div class="charlist-inline justify-content-center">
     {% for err in form.non_field_errors %}
     <div class="alert alert-danger" role="alert">
         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
