@@ -6,6 +6,7 @@
     <div class="ps-3">
         <b>{{ character.fatigue_current }}/{{ character.fatigue_cap }}</b>
     </div>
+    {% if is_owner %}
     <div class="charlist_inline ps-3">
         <input type="range" min="0" max="{% mtp 2.0 character.fatigue_cap %}" step="1" value="0">
         <button type="submit" name="restoreFatigue" class="btn btn-success">
@@ -15,4 +16,5 @@
             {% if lang == 'ru' %}Получить{% else %}Gain{% endif %}
         </button>
     </div>
+    {% endif %}
 </div>

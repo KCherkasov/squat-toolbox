@@ -1297,6 +1297,7 @@ def character_view(request, char_id):
                     character_model.pending().remove(cmd)
         character.character_data = character_model.toJSON()
         character.save()
+    is_owner = request.user == character.owner
     return TemplateResponse(request, "charsheet.html", {'version': VERSION, 'facade': facade,
                                                         'command_parser': parser, 'is_rt': character.is_rt,
                                                         'character': character_model,
@@ -1304,7 +1305,8 @@ def character_view(request, char_id):
                                                         'insanity_form': insanity_form,
                                                         'corruption_form': corruption_form,
                                                         'reminders': reminders,
-                                                        'upg_view': character.get_upgrade_url(), })
+                                                        'upg_view': character.get_upgrade_url(),
+                                                        'is_owner': is_owner })
 
 
 def upgrade_stat(request, character: models.Character, character_model):

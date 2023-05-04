@@ -7,7 +7,7 @@ Character sheet interactive mockup
 {% endblock %}
 
 {% block title %}
-Макет листа персонажа ver.{{ version }}&nbsp;|&nbsp;{% if character.is_rt %}RT2.0{% else %}DH2{% endif %}
+Лист персонажа ver.{{ version }}&nbsp;|&nbsp;{% if character.is_rt %}RT2.0{% else %}DH2{% endif %}
 {% endblock %}
 
 {% block app_content %}
@@ -56,9 +56,11 @@ Character sheet interactive mockup
                 <h3>{{ character.name }}</h3>
                 {% include 'xp_widget.html' %}
             </header>
+            {% if is_owner %}
             <div class="justify-content-center">
                 {% include 'reminders_widget.html' %}
             </div>
+            {% endif %}
             <div class="tab-pane fade show charlist-container active justify-content-center" id="general-{{ lang }}" role="tabpanel" aria-labelledby="general-tab-{{ lang }}">
                 <hr>
                 <header class="text-center">

@@ -16,6 +16,7 @@
     <span>
         &nbsp;&nbsp;
     </span>
+    {% if is_owner %}
     <div>
         <a class="btn btn-primary" href="{% if return %}{{ char_view }}{% else %}{{ upg_view }}{% endif %}">
             {% if return %}
@@ -25,4 +26,5 @@
             {% endif %}
         </a>
     </div>
+    {% endif %}
 </div>

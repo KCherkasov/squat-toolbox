@@ -23,6 +23,7 @@
             <button class="btn btn-outline-dark disabled fs-4">{{ character.insanity_bonus }}</button>
             <button class="btn btn-light disabled fs-5">{{ character.insanity_residue }}</button>
         </div>
+        {% if is_owner %}
         <button class="btn btn-danger" role="button" data-bs-toggle="modal"
                 data-bs-target="#gain-insanity-modal-{{ character.id }}">
             Получить
@@ -42,6 +43,7 @@
                 </div>
             </div>
         </div>
+        {% endif %}
     </div>
     <div>
         <b class="collapse-toggler">
