@@ -1,6 +1,6 @@
 {% load filters %}
 
-<div class="card charlist-content w600">
+<div class="card charlist-content w750">
     {% with char_data|get_by_dict_key:character.pk as char_model %}
     <div class="card-title">
         <h4><a class="card-link" href="{{ character.get_view_url }}">
