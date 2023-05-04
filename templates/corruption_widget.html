@@ -5,7 +5,7 @@
             <div>
                 <b>{% if lang == 'ru' %}Очки Порчи{% else %}Corruption points{% endif %}: &nbsp;</b>
             </div>
-            {% if hookups|get_by_dict_key:'IP' %}
+            {% if hookups|get_by_dict_key:'CP' %}
             <div class="btn-group dropend">
                 <span class="position-absolute top-0 start-100 translate-middle btn btn-success dropdown-toggle badge rounded-circle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 </span>
