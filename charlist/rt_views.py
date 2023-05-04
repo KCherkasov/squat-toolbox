@@ -674,6 +674,7 @@ def parse_manual_cmds(request, character: models.Character, character_model: RTC
 
 def upg_data_to_forms(character: RTCharacterModel):
     upg_costs = character.make_upg_costs(rt_flyweights)
+    raise AttributeError({'data': upg_costs})
     forms = {'stats': list(),
              'skills': {'common': list(), 'spec': list()},
              'talents': {'available': dict(), 'unavailable': dict()},
