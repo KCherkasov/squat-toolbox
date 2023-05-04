@@ -102,7 +102,10 @@ class Prerequisite(object):
                     else:
                         flg = character.role_id() != alt_tag
                 if alt_tag[:2] == 'ST':
-                    flg = character.stats().get(alt_tag).value() < alt_value
+                    if alt_tag[:2] == 'ST_IFL' and character.is_rt():
+                        flg = True
+                    else:
+                        flg = character.stats().get(alt_tag).value() < alt_value
                 if alt_tag[:2] == 'SK':
                     if alt_tag in character.skills().keys():
                         skill = character.skills().get(alt_tag)
@@ -195,7 +198,10 @@ class Prerequisite(object):
                 else:
                     flg = character.role_id() != alt_tag
             if alt_tag[:2] == 'ST':
-                flg = character.stats().get(alt_tag).value() < alt_value
+                if alt_tag[:2] == 'ST_IFL' and character.is_rt():
+                    flg = True
+                else:
+                    flg = character.stats().get(alt_tag).value() < alt_value
             if alt_tag[:2] == 'SK':
                 if alt_tag in character.skills().keys():
                     skill = character.skills().get(alt_tag)
@@ -294,7 +300,10 @@ class Prerequisite(object):
             else:
                 flg = character.role_id() != self.tag
         if self.is_stat_prereq():
-            flg = character.stats().get(self.tag).value() < self.value
+            if self.tag[:2] == 'ST_IFL' and character.is_rt():
+                flg = True
+            else:
+                flg = character.stats().get(self.tag).value() < self.value
         if self.is_skill_prereq():
             if self.tag in character.skills().keys():
                 skill = character.skills().get(self.tag)
