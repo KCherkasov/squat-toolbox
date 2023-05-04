@@ -28,7 +28,7 @@
                     <a class="nav-link {% if forloop.first %}active{% endif %}" id="c{{ character.id }}-{{skill_key}}-{{ stat }}-{{ lang }}-tag" data-bs-toggle="tab" aria-current="page" href="#c{{ character.id }}-{{ skill_key }}-{{ stat }}-{{ lang }}">{{ facade|get_short_stat:stat|get_short_stat_name:lang }}</a>
                 </li>
                 {% endif %}
-                {% endfor %}1
+                {% endfor %}
             </ul>
             <div class="card-body tab-content" id="c{{ character.id }}-tab-content-{{ skill_key }}-{{ lang }}">
                 {% for stat in facade|get_skill_description:skill_key|get_skdescr_stats %}
