@@ -98,7 +98,7 @@ class Prerequisite(object):
                     flg = character.bg_id() != alt_tag
                 if (alt_tag[:2] == 'RL') or (alt_tag[:2] == 'CR'):
                     if character.is_rt():
-                        flg = character.career() != alt_tag
+                        flg = character.career_id() != alt_tag
                     else:
                         flg = character.role_id() != alt_tag
                 if alt_tag[:2] == 'ST':
@@ -194,7 +194,7 @@ class Prerequisite(object):
                 flg = character.bg_id() != alt_tag
             if (alt_tag[:2] == 'RL') or (alt_tag[:2] == 'CR'):
                 if character.is_rt():
-                    flg = character.career() != alt_tag
+                    flg = character.career_id() != alt_tag
                 else:
                     flg = character.role_id() != alt_tag
             if alt_tag[:2] == 'ST':
@@ -296,7 +296,7 @@ class Prerequisite(object):
             flg = character.bg_id() != self.tag
         if self.is_role_prereq():
             if character.is_rt():
-                flg = character.career() != self.tag
+                flg = character.career_id() != self.tag
             else:
                 flg = character.role_id() != self.tag
         if self.is_stat_prereq():
