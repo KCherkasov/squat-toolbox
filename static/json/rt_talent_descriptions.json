@@ -4326,7 +4326,7 @@
       "is_stackable": false
     },
     {
-      "tag": "TL_",
+      "tag": "TL_CLPR",
       "name": {
         "ru": "Зачищай и очишай",
         "en": "Cleanse and Purify"
@@ -5885,23 +5885,6 @@
           "value": 35
         }
       ],
-      "is_specialist": false,
-      "is_stackable": false
-    },
-    {
-      "tag": "TL_",
-      "name": {
-        "ru": "",
-        "en": ""
-      },
-      "description": {
-        "ru": "",
-        "en": ""
-      },
-      "hints": [],
-      "tier": 1,
-      "aptitudes": [],
-      "prerequisites": [],
       "is_specialist": false,
       "is_stackable": false
     },
