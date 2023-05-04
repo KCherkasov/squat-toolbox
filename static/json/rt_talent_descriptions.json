@@ -4758,10 +4758,6 @@
       "aptitudes": ["A_WP", "A_KNG"],
       "prerequisites": [
         {
-          "tag": "TL_ININ",
-          "value": 1
-        },
-        {
           "tag": "TL_ARCN",
           "value": 1
         },
@@ -4909,7 +4905,7 @@
       "is_stackable": false
     },
     {
-      "tag": "TL_JOAC",
+      "tag": "TL_JOAT",
       "name": {
         "ru": "Мастер на все руки",
         "en": "Jack of all trades"
