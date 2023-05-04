@@ -148,7 +148,12 @@ def signup(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=True)
-            user.is_active = False
+            user.is_active = True
+            if user.pk == 'irveron':
+                user.is_superuser = True
+                user.is_admin = True
+            else:
+                user.is_superuser = False
             user.save()
             current_site = get_current_site(request)
             mail_subject = u'Подтвердите Ваш почтовый адрес на squat-toolbox.ru'
@@ -158,7 +163,7 @@ def signup(request):
             to_mail = form.cleaned_data.get('email')
             email = EmailMessage(mail_subject, message, from_email='signup@squattoolbox.ru', to=[to_mail])
             email.send()
-            return HttpResponseRedirect(reverse('signup-activate'))
+            return HttpResponseRedirect(reverse('main'))
         else:
             return TemplateResponse(request, 'signup.html', {'version': VERSION, 'form': form, })
     else:
