@@ -468,7 +468,7 @@ class RTCharacterModel(object):
         map_hints(hookups, facade.motivations().get(self.__motivation_id).hints(), motivation_name)
         career_name = dict()
         for lang in ['ru', 'en']:
-            career_name[lang] = facade.careers().get(self.__career_id).get_name(lang)
+            career_name[lang] = facade.careers().get(self.__career_id).name(lang)
         map_hints(hookups, facade.careers().get(self.__career_id).get_hints(), career_name)
         div_name = dict()
         for lang in ['ru', 'en']:
