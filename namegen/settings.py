@@ -96,6 +96,7 @@ CSP_DEFAULT_SRC = ["'none'"]
 CSP_SCRIPT_SRC = [
     "'self'",
     "'unsafe-inline'",
+    "'unsafe-eval'",
     "https://stackpath.bootstrapcdn.com",
     "https://cdn.jsdelivr.net",
     "https://code.jquery.com"
