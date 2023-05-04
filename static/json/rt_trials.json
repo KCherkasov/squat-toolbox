@@ -13,7 +13,10 @@
             "ru": "-10 ко всем проверкам Общительности при взаимодействии с врагом. При малейшей провокации персонаж прибегнет к насилию (можно пройти проверку Силы Воли, чтобы этого избежать)",
             "en": "-10 to all Fellowship tests when dealing with your Enemy. Also, given the slightest provocation you'll react violently towards them (you may take a Willpower test to avoid that)"
           },
-          "targets": ["ST_FEL", "ST_WP"]
+          "targets": [
+            "ST_FEL",
+            "ST_WP"
+          ]
         }
       ],
       "choices": [
@@ -73,7 +76,9 @@
             "ru": "Персонаж агрессивно реагирует на возможность заключения под стражу или лишения/ограничения свободы (можно пройти тест Силы Воли, чтобы этого избежать)",
             "en": "Character reacts violently on any prospect of imprisonment or loosing freedom (character may take a Willpower test to avoid that)"
           },
-          "targets": ["ST_WP"]
+          "targets": [
+            "ST_WP"
+          ]
         }
       ],
       "choices": [
@@ -151,16 +156,20 @@
             "ru": "Персонаж не оставляет без ответа оскорблений в свой адрес или в адрес тех, кто находится под его защитой (можно пройти тест Силы Воли, чтобы это игнорировать)",
             "en": "Character won't allow no serious offence to his honour and person under his protection to pass unchallenged. He may take a Willpower test to avoid that."
           },
-          "targets": ["ST_WP"]
+          "targets": [
+            "ST_WP"
+          ]
         }
       ],
       "choices": [
-        {
-          "tag": "TL_DH"
-        },
-        {
-          "tag": "TL_PRN"
-        }
+        [
+          {
+            "tag": "TL_DH"
+          },
+          {
+            "tag": "TL_PRN"
+          }
+        ]
       ],
       "commands": [
         {
@@ -242,14 +251,26 @@
             "ru": "Персонаж хранит темный секрет, от которого старается избавиться",
             "en": "Character harbours a dark secret he struggles to get rid of"
           },
-          "targets": ["FP"]
+          "targets": [
+            "FP"
+          ]
         }
       ],
       "choices": [],
       "commands": [
         {
           "command": "IncreaseStatAlt",
-          "tags": ["ST_WS", "ST_BS", "ST_STR", "ST_T", "ST_AG", "ST_PER", "ST_INT", "ST_WP", "ST_FEL"],
+          "tags": [
+            "ST_WS",
+            "ST_BS",
+            "ST_STR",
+            "ST_T",
+            "ST_AG",
+            "ST_PER",
+            "ST_INT",
+            "ST_WP",
+            "ST_FEL"
+          ],
           "amount": 6
         },
         {
@@ -385,7 +406,9 @@
             "ru": "+5  проверкам Обаяния",
             "en": "+5 to Charm tests"
           },
-          "targets": ["SK_CH"]
+          "targets": [
+            "SK_CH"
+          ]
         }
       ],
       "choices": [],
@@ -418,7 +441,9 @@
             "ru": "Когда персонаж тратит Очко Судьбы, чтобы излечиться, он может перебросить кубик для опередения количества восстановленных ран, но обязан принять результат переброса",
             "en": "Whenever character spends a fate point to recover wounds, he may re-roll the result (reroll result must be accepted)"
           },
-          "targets": ["FP"]
+          "targets": [
+            "FP"
+          ]
         },
         {
           "tag": "TOT_SHLN_H2",
@@ -426,7 +451,9 @@
             "ru": "Персонаж получает штраф -5 к проверкам Общительности, когда имеет дело с пустоходами, пустотниками и Вольными Торговцами, которые не являются его друзьями и в курсе репутации персонажа.",
             "en": "Character suffers -5 Fellowship penalty when dealing with voidborn, Rogue Traders, other voidfarers that aren't his friends and have heard about character's reputation"
           },
-          "targets": ["ST_FEL"]
+          "targets": [
+            "ST_FEL"
+          ]
         }
       ],
       "choices": [
