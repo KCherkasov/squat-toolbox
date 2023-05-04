@@ -4297,7 +4297,7 @@
           "value": 1
         },
         {
-          "tag": "TL_TEPC",
+          "tag": "TL_TEPR",
           "value": 1,
           "alt": {
             "tag": "TL_WOTR",
@@ -5664,7 +5664,7 @@
       "is_stackable": false
     },
     {
-      "tag": "TL_TEPC",
+      "tag": "TL_TEPR",
       "name": {
         "ru": "Император защищает",
         "en": "The Emperor protects"
