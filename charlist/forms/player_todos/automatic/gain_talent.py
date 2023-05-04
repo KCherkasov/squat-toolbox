@@ -15,7 +15,11 @@ class GainTalentCommand(BaseCommand):
                 talent = self.get_facade().talent_descriptions().get(data.get('tag'))
                 flg = False
                 if talent.is_specialist():
-                    character.gain_talent_subtag(data.get('tag'), data.get('subtag'), self.get_facade())
+                    if data.get('subtag') == 'TL_ANY':
+                        cmd = {'command': 'GainSpecTalent', 'tag': data.get('tag')}
+                        character.pending().append(cmd)
+                    else:
+                        character.gain_talent_subtag(data.get('tag'), data.get('subtag'), self.get_facade())
                 elif data.get('tag') not in character.talents().keys():
                     character.gain_talent(data.get('tag'), self.get_facade())
                 else:
