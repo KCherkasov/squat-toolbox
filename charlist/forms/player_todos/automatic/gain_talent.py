@@ -24,7 +24,7 @@ class GainTalentCommand(BaseCommand):
                     character.gain_talent(data.get('tag'), self.get_facade())
                 else:
                     flg = True
-                if flg:
+                if flg and ('alt' in data.keys()):
                     alt_data = data.get('alt')
                     character.pending().append(alt_data)  # TODO: test this approach, if not working - instantiate
                     # TODO: required command and execute it manually from here

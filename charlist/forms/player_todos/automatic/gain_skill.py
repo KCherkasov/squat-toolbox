@@ -14,15 +14,7 @@ class GainSkillCommand(BaseCommand):
             sk = self.get_facade().skill_descriptions().get(data.get('tag'))
             if sk is not None:
                 if sk.is_specialist():
-                    if not character.has_subskill(data.get('tag'), data.get('subtag')):
-                        character.improve_skill_subtag(data.get('tag'), data.get('subtag'), self.get_facade())
-                    else:
-                        if 'alt' in data.keys():
-                            character.pending().append(data.get('alt'))
+                    character.improve_skill_subtag(data.get('tag'), data.get('subtag'), self.get_facade())
                 else:
-                    if data.get('tag') not in character.skills():
-                        character.improve_skill(data.get('tag'))
-                    else:
-                        if 'alt' in data.keys():
-                            character.pending().append(data.get('alt'))
+                    character.improve_skill(data.get('tag'))
         return character

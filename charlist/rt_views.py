@@ -622,7 +622,7 @@ def gain_spec_talent(request, character_model: RTCharacterModel, character: mode
     cmd = find_cmd(request, character_model)
     form = GainSpecTalentForm(rt_flyweights, cmd, request.POST)
     if form.is_valid():
-        character_model.gain_talent_subtag(form.sk_tag, form.cleaned_data['subtag'], rt_flyweights)
+        character_model.gain_talent_subtag(form.tl_tag, form.cleaned_data['subtag'], rt_flyweights)
         clean_completed(character_model, request)
         character.character_data = character_model.toJSON()
         character.save()
