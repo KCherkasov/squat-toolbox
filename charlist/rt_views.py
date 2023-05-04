@@ -104,6 +104,7 @@ def rt_create_character_oac_choice(request, creation_id):
                 cdm.motivation_id = form.cleaned_data['motivation_id']
                 cdm.career_id = form.cleaned_data['career_id']
                 cdm.full_reset(rt_flyweights)
+                cdm.xp[0] = 0
                 cdm.xp[0] += rt_flyweights.birthrights().get(cdm.birthright_id).cost()
                 cdm.xp[0] += rt_flyweights.lures().get(cdm.lure_id).cost()
                 cdm.xp[0] += rt_flyweights.trials().get(cdm.trial_id).cost()
