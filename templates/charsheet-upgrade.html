@@ -125,6 +125,9 @@ Character sheet interactive mockup
                                         {% endwith %}
                                         {% endwith %}
                                     {% endfor %}
+                                        {% if character.is_rt %}
+                                            <input type="hidden" name="log" value="{{ character.make_upg_costs }}">
+                                        {% endif %}
                                     </div>
                                 </div>
                             {% endfor %}
