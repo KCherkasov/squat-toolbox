@@ -10,7 +10,7 @@
     <div class="card-body charlist-inline justify-content-center">
         {% if char_model.is_rt %}
         <div>
-            <h4>
+            <h5>
             {% with facade.rt_homeworlds|get_by_dict_key:char_model.hw_id as hw %}
                 {{ hw.name|get_by_dict_key:'en' }}
             {% endwith %}&nbsp;
@@ -26,7 +26,7 @@
             {% with facade.motivations|get_by_dict_key:char_model.motivation_id as motive %}
                 {{ motive.name|get_by_dict_key:'en' }}
             {% endwith %}
-            </h4>
+            </h5>
         </div>
         {% else %}
         <div>
