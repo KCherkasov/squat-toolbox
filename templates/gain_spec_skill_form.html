@@ -5,7 +5,10 @@
 {% endblock %}
 
 {% block form_title %}
-Получите специализацию в навыке {{ form.skill_name }}
+Получите специализацию в навыке&nbsp;
+    {% with facade.skill_descriptions|get_by_dict_key:form.sk_tag as skill %}
+        {{ skill.name|get_by_dict_key:'en }}
+    {% endwith %}
 {% endblock %}
 
 {% block form_controls %}
