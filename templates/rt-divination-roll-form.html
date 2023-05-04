@@ -27,7 +27,7 @@
             <div class="col-sm-5 charlist-inline justify-content-center ms-2">
                 {% if field.name == 'wound_roll' %}
                     <div class="btn btn-outline-dark disabled">
-                        <p>{{ field.default_wounds }}</p>
+                        <p>{{ form.default_wounds }}+</p>
                     </div>
                 {% endif %}
                     {{ field }}
