@@ -86,8 +86,10 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = ['https://wiki.pandhammer.ru']
 CORS_ORIGIN_WHITELIST = ['https://wiki.pandhammer.ru']
 
+SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 CSRF_COOKIE_SAMESITE = 'None'
+CSRF_COOKIE_HTTPONLY = True
 # CSRF_TRUSTED_ORIGINS = ['https://wiki.pandhammer.ru', 'https://kvcherk.pythonanywhere.com/']
 
 
