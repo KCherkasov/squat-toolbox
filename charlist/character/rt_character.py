@@ -641,6 +641,7 @@ class RTCharacterModel(object):
                     upg_costs.get('ea').get('available')[ea_id] = ea.cost()
                 else:
                     upg_costs.get('ea').get('unavailable')[ea_id] = ea.cost()
+        raise AttributeError({'data': upg_costs})
         return upg_costs
 
     @classmethod
