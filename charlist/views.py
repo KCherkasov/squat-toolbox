@@ -191,7 +191,7 @@ def signin(request):
 
 def logout(request):
     auth_logout(request)
-    return HttpResponseRedirect(reverse('index'))
+    return HttpResponseRedirect(reverse('main'))
 
 
 def activate(request, uidb64, token):
