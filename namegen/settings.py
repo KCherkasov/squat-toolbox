@@ -83,6 +83,7 @@ REST_FRAMEWORK = {
     ]
 }
 
+CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = ['https://wiki.pandhammer.ru']
 CORS_ORIGIN_WHITELIST = ['https://wiki.pandhammer.ru']
 
