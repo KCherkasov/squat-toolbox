@@ -10,7 +10,7 @@ from django.core.exceptions import ValidationError
 from charlist.models import CharsheetUser
 
 
-class UserCreationForm(Form):
+class UserCreationForm(forms.ModelForm):
     password_set = forms.CharField(label=u'Пароль', min_length=10, widget=forms.PasswordInput)
     password_confirm = forms.CharField(label=u'Подтверждение пароля', widget=forms.PasswordInput)
 
