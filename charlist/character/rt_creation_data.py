@@ -81,12 +81,35 @@ class RTCreationDataModel(object):
                     reset.append(choice.get('tag'))
         self.aptitudes = reset
 
+    def reset_commands(self, facade: RTFacade):
+        commands = list()
+        if self.hw_id in facade.rt_homeworlds().keys():
+            for cmd in facade.rt_homeworlds().get(self.hw_id).get_bonus().commands():
+                commands.append(cmd)
+        if self.birthright_id in facade.birthrights().keys():
+            for cmd in facade.birthrights().get(self.birthright_id).commands():
+                commands.append(cmd)
+        if self.lure_id in facade.lures().keys():
+            for cmd in facade.lures().get(self.lure_id).commands():
+                commands.append(cmd)
+        if self.trial_id in facade.trials().keys():
+            for cmd in facade.trials().get(self.trial_id).commands():
+                commands.append(cmd)
+        if self.motivation_id in facade.motivations().keys():
+            for cmd in facade.motivations().get(self.motivation_id).commands():
+                commands.append(cmd)
+        if self.career_id in facade.careers().keys():
+            for cmd in facade.careers().get(self.career_id).commands():
+                commands.append(cmd)
+        self.commands = commands
+
     def full_reset(self, facade: RTFacade):
         self.reset_apts(facade)
         self.reset_stats(facade)
         self.reset_skills(facade)
         self.reset_talents(facade)
         self.reset_traits(facade)
+        self.reset_commands(facade)
 
     @classmethod
     def new_cd(cls, name: str, xp: int, stat_base: int):

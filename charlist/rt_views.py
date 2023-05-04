@@ -328,6 +328,7 @@ def create_character_divination(request, creation_id):
                 for key in skdescrs.keys():
                     if not skdescrs.get(key).is_specialist():
                         skills[key] = Skill(key, 0)
+                cdm.reset_commands(rt_flyweights)
                 cdm.to_commands()
 
                 divination = rt_flyweights.divinations().get(div_tag)
