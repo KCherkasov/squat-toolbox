@@ -577,7 +577,7 @@ class RTCharacterModel(object):
                     if self.has_talent(tl_tag):
                         if talent.is_stackable():
                             for subtag in self.talents().get(talent.tag()).taken().keys():
-                                upg_costs.get('talents').get('unavailable')\
+                                upg_costs.get('talents').get('unavailable') \
                                     .get(talent.get_tier()).get(tl_tag)[subtag] = cost
                     upg_costs.get('talents').get('unavailable').get(talent.get_tier()).get(tl_tag)['TL_ANY'] = cost
             else:
