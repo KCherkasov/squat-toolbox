@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import datetime
 
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import reverse
 from django.template.response import TemplateResponse
 
@@ -674,7 +674,6 @@ def parse_manual_cmds(request, character: models.Character, character_model: RTC
 
 def upg_data_to_forms(character: RTCharacterModel):
     upg_costs = character.make_upg_costs(rt_flyweights)
-    raise AttributeError({'data': upg_costs})
     forms = {'stats': list(),
              'skills': {'common': list(), 'spec': list()},
              'talents': {'available': dict(), 'unavailable': dict()},
@@ -976,10 +975,11 @@ def character_upgrade(request, char_id):
     if request.method == 'POST':
         parse_upgrades(request, character, character_model)
     forms = upg_data_to_forms(character_model)
-    return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': rt_flyweights,
-                                                                'character': character_model, 'forms': forms,
-                                                                'return': True,
-                                                                'char_view': character.get_view_url(), })
+    return JsonResponse({'data': character.make_upg_costs(rt_flyweights)})
+ #   return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': rt_flyweights,
+ #                                                               'character': character_model, 'forms': forms,
+ #                                                               'return': True,
+ #                                                               'char_view': character.get_view_url(), })
 
 
 def character_delete(request, char_id):
