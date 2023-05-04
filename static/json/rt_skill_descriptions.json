@@ -179,7 +179,7 @@
         "en": ""
       },
       "aptitudes": ["A_INT", "A_SOC"],
-      "stats": ["A_INT"],
+      "stats": ["ST_INT", "ST_AG"],
       "is_specialist": false
     },
     {
