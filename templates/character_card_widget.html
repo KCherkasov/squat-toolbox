@@ -15,7 +15,7 @@
             {% endwith %}
         </div>
         <div>
-            {% with facade.birthrights|get_by_dict_key:char_model.birthright_id as br %}
+            {% with facade.birthrights|get_by_dict_key:char_model.birthright as br %}
             <h5>{{ br.name|get_by_dict_key:'en' }}</h5>
             {% endwith %}
         </div>
