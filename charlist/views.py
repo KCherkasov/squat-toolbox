@@ -14,6 +14,7 @@ from django.template.loader import render_to_string
 from django.template.response import TemplateResponse
 from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.views.decorators.csrf import csrf_exempt
 
 import charlist.models as models
 from charlist import rt_views
@@ -142,7 +143,7 @@ def interactive_charsheet_mockup(request):
                                                                            'hookups': character.make_hookups(
                                                                                flyweights)})
 
-
+@csrf_exempt
 def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -174,7 +175,7 @@ def signup(request):
 def signup_activate(request):
     return TemplateResponse(request, 'activate.html', {'version': VERSION, })
 
-
+@csrf_exempt
 def signin(request):
     if request.method == 'POST':
         form = SignInForm(request.POST)
@@ -234,6 +235,7 @@ def create_character_start(request):
     return HttpResponseRedirect(reverse('create-character-init', kwargs={'creation_id': creation_data.pk}))
 
 
+@csrf_exempt
 def create_character_init(request, creation_id):
     cd = models.CreationData.objects.get(pk=creation_id)
     if request.method == 'POST':
@@ -262,6 +264,7 @@ def create_character_init(request, creation_id):
                                                                           'stage': CREATION_STAGES[0], 'form': form})
 
 
+@csrf_exempt
 def create_character_hw_choice(request, creation_id):
     cd = models.CreationData.objects.get(pk=creation_id)
     if request.method == 'POST':
@@ -339,6 +342,7 @@ def create_character_stat_distribution(request, creation_id):
                                                                           'stage': CREATION_STAGES[2], 'form': form})
 
 
+@csrf_exempt
 def create_character_bg_choice(request, creation_id):
     cd = models.CreationData.objects.get(pk=creation_id)
     if request.method == 'POST':
@@ -358,6 +362,7 @@ def create_character_bg_choice(request, creation_id):
                                                                           'stage': CREATION_STAGES[3], 'form': form})
 
 
+@csrf_exempt
 def create_character_role_choice(request, creation_id):
     cd = models.CreationData.objects.get(pk=creation_id)
     if request.method == 'POST':
@@ -383,6 +388,7 @@ def create_character_role_choice(request, creation_id):
                                                                           'stage': CREATION_STAGES[4], 'form': form})
 
 
+@csrf_exempt
 def create_character_choices(request, creation_id):
     cd = models.CreationData.objects.get(pk=creation_id)
     if request.method == 'POST':
@@ -1272,7 +1278,7 @@ def upg_data_to_forms(character):
                 forms.get('psy').get('unavailable').get(school).append(PsyPowerUpgradeForm(power, cost, False))
     return forms
 
-
+@csrf_exempt
 def character_view(request, char_id):
     character = models.Character.objects.get(pk=char_id)
     character_model = character.data_to_model()
@@ -1456,7 +1462,7 @@ def parse_upgrades(request, character: models.Character, character_model):
     if 'upg-pp-confirm' in request.POST:
         upgrade_psy_power(request, character, character_model)
 
-
+@csrf_exempt
 def character_upgrade(request, char_id):
     character = models.Character.objects.get(pk=char_id)
     if character.is_rt:

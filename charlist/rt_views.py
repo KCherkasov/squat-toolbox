@@ -45,6 +45,7 @@ from charlist.forms.player_todos.manual.gain_spec_talent_subtag import GainSpecT
 from charlist.forms.upgrading.psy_power_upgrade_form import PsyPowerUpgradeForm
 from charlist.forms.upgrading.elite_advance_upgrade_form import EliteAdvanceUpgradeForm
 from charlist.forms.upgrading.pr_upgrade_form import PRUpgrageForm
+from django.views.decorators.csrf import csrf_exempt
 
 resources = ['aptitudes.json', 'rt_stat_descriptions.json', 'rt_skill_descriptions.json', 'rt_talent_descriptions.json',
              'traits.json', 'homeworlds.json', 'backgrounds.json', 'roles.json', 'rt_elite_advances.json',
@@ -61,7 +62,7 @@ def create_character_rt_start(request):
     creation_data.save()
     return HttpResponseRedirect(reverse('rt-create-character-init', kwargs={'creation_id': creation_data.pk}))
 
-
+@csrf_exempt
 def rt_create_character_init(request, creation_id):
     cd = models.RTCreationData.objects.get(pk=creation_id)
     if request.method == 'POST':
@@ -85,7 +86,7 @@ def rt_create_character_init(request, creation_id):
         return TemplateResponse(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
                                                                    'stage': RT_CREATION_STAGES[0], 'form': form})
 
-
+@csrf_exempt
 def rt_create_character_oac_choice(request, creation_id):
     cd = models.RTCreationData.objects.get(pk=creation_id)
     if request.method == 'POST':
@@ -122,6 +123,7 @@ def rt_create_character_oac_choice(request, creation_id):
                                                                    'stage': RT_CREATION_STAGES[1], 'form': form})
 
 
+@csrf_exempt
 def rt_create_character_stat_distribution(request, creation_id):
     cd = models.RTCreationData.objects.get(pk=creation_id)
     cdm = cd.data_to_model()
@@ -152,6 +154,7 @@ def rt_create_character_stat_distribution(request, creation_id):
                                                                    'form': form})
 
 
+@csrf_exempt
 def rt_create_character_choices(request, creation_id):
     cd = models.RTCreationData.objects.get(pk=creation_id)
     cdm = cd.data_to_model()
@@ -242,6 +245,7 @@ def rt_create_character_choices(request, creation_id):
                                                                    'form': form})
 
 
+@csrf_exempt
 def create_character_double_apts(request, creation_id):
     cd = models.RTCreationData.objects.get(pk=creation_id)
     cdm = cd.data_to_model()
@@ -290,6 +294,7 @@ def prep_stats(cd: RTCreationDataModel):
     return stats
 
 
+@csrf_exempt
 def create_character_divination(request, creation_id):
     cd = models.RTCreationData.objects.get(pk=creation_id)
     cdm = cd.data_to_model()
@@ -811,6 +816,7 @@ def upg_data_to_forms(character: RTCharacterModel):
     return forms
 
 
+@csrf_exempt
 def character_view(request, char_id):
     character = models.Character.objects.get(pk=char_id)
     character_model = character.data_to_model()
@@ -848,6 +854,7 @@ def upg_midlayer(request, char_id):
     return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': char_id, }))
 
 
+@csrf_exempt
 def upgrade_stat(request, character: models.Character, character_model: RTCharacterModel):
     stat_tag = request.POST.get('stat_tag')
     cost = int(request.POST.get('cost'))
@@ -861,6 +868,7 @@ def upgrade_stat(request, character: models.Character, character_model: RTCharac
     return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
+@csrf_exempt
 def upgrade_skill(request, character: models.Character, character_model: RTCharacterModel):
     skill_tag = request.POST.get('skill_tag')
     cost = int(request.POST.get('cost'))
@@ -874,6 +882,7 @@ def upgrade_skill(request, character: models.Character, character_model: RTChara
     return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
+@csrf_exempt
 def upgrade_subskill(request, character: models.Character, character_model: RTCharacterModel):
     skill_tag = request.POST.get('skill_tag')
     subtag = request.POST.get('subtag_skill')
@@ -891,6 +900,7 @@ def upgrade_subskill(request, character: models.Character, character_model: RTCh
     return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
+@csrf_exempt
 def upgrade_talent(request, character: models.Character, character_model: RTCharacterModel):
     tl_tag = request.POST.get('tl_tag')
     cost = int(request.POST.get('cost'))
@@ -904,6 +914,7 @@ def upgrade_talent(request, character: models.Character, character_model: RTChar
     return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
+@csrf_exempt
 def upgrade_talent_subtag(request, character: models.Character, character_model: RTCharacterModel):
     tl_tag = request.POST.get('tl_tag')
     subtag = request.POST.get('subtag_tl')
@@ -921,6 +932,7 @@ def upgrade_talent_subtag(request, character: models.Character, character_model:
     return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
+@csrf_exempt
 def upgrade_ea(request, character: models.Character, character_model: RTCharacterModel):
     ea_tag = request.POST.get('ea_tag')
     cost = int(request.POST.get('cost'))
@@ -933,6 +945,7 @@ def upgrade_ea(request, character: models.Character, character_model: RTCharacte
     return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
+@csrf_exempt
 def upgrade_pr(request, character: models.Character, character_model: RTCharacterModel):
     cost = int(request.POST.get('cost'))
     form = PRUpgrageForm(character_model.pr(), cost, request.POST)
@@ -944,6 +957,7 @@ def upgrade_pr(request, character: models.Character, character_model: RTCharacte
     return HttpResponseRedirect(reverse('character-upgrade', kwargs={'char_id': character.pk, }))
 
 
+@csrf_exempt
 def upgrade_psy_power(request, character: models.Character, character_model: RTCharacterModel):
     pp_tag = request.POST.get('pp_tag')
     cost = int(request.POST.get('cost'))
@@ -975,6 +989,7 @@ def parse_upgrades(request, character: models.Character, character_model: RTChar
         upgrade_psy_power(request, character, character_model)
 
 
+@csrf_exempt
 def character_upgrade(request, char_id):
     character = models.Character.objects.get(pk=char_id)
     character_model = character.data_to_model()
