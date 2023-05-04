@@ -981,7 +981,7 @@ def character_upgrade(request, char_id):
     if request.method == 'POST':
         parse_upgrades(request, character, character_model)
     forms = upg_data_to_forms(character_model)
-    is_owner = character.owner == request.user
+    is_owner = (character.owner == request.user)
     return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': rt_flyweights,
                                                                 'character': character_model, 'forms': forms,
                                                                 'return': True, 'is_owner': is_owner,
