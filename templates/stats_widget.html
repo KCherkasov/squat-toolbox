@@ -8,11 +8,11 @@
     </header>
     <div class="charlist-content">
         {% for stat_key in facade.stat_tags %}
-        {% if stat_key != 'ST_IFL' or not character.is_rt %}
-        {% with character.stats|get_by_dict_key:stat_key as stat %}
         {% if not forloop.counter|divisibleby:2 %}
             <div class="card-group">
         {% endif %}
+        {% if stat_key != 'ST_IFL' or not character.is_rt %}
+        {% with character.stats|get_by_dict_key:stat_key as stat %}
         {% include 'stat_widget.html' %}
         {% endwith %}
         {% endif %}
