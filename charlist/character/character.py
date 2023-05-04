@@ -643,7 +643,7 @@ class CharacterModel(object):
 
         upg_costs['ea'] = {'available': dict(), 'unavailable': dict()}
         for ea_id, ea in flyweights.elite_advances().items():
-            if ea_id not in self.ea_id():
+            if (ea_id not in self.ea_id()) and (ea_id not in flyweights.bad_eas()):
                 flg = True
                 for prereq in ea.prerequisites():
                     if not prereq.matched(self):

@@ -260,3 +260,6 @@ class Facade:
 
     def spec_skills(self):
         return SUBTAGGED_SKILLS
+
+    def bad_eas(self):
+        return BAD_EAS

@@ -305,3 +305,6 @@ class RTFacade:
 
     def spec_skills(self):
         return SUBTAGGED_SKILLS
+
+    def bad_eas(self):
+        return RT_BAD_EAS
