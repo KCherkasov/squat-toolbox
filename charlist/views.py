@@ -1181,12 +1181,12 @@ def upg_data_to_forms(character):
         for tl_tag, talent in upg_costs.get('talents').get('available').get(tier).items():
             if not flyweights.talent_descriptions().get(tl_tag).is_specialist():
                 if not character.has_talent(tl_tag):
-                    if flyweights.talent_descriptions().get(tl_tag).is_stackable():
+                    if rt_flyweights.talent_descriptions().get(tl_tag).is_stackable():
                         taken = 0
                     else:
                         taken = -1
                 else:
-                    if flyweights.talent_descriptions().get(tl_tag).is_stackable():
+                    if rt_flyweights.talent_descriptions().get(tl_tag).is_stackable():
                         taken = character.talents().get(tl_tag).taken()
                     else:
                         taken = -1
@@ -1201,7 +1201,7 @@ def upg_data_to_forms(character):
                         form_map[key] = value
                     else:
                         if key == 'TL_ANY':
-                            if flyweights.talent_descriptions().get(tl_tag).is_stackable():
+                            if rt_flyweights.talent_descriptions().get(tl_tag).is_stackable():
                                 taken = 0
                             else:
                                 taken = -1
