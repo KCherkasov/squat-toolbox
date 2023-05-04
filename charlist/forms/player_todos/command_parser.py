@@ -27,6 +27,7 @@ from charlist.forms.player_todos.manual.increase_stat_roll_form import IncreaseS
 from charlist.forms.player_todos.manual.origin_xp_extra_choice import GainExtraOriginCommand
 from charlist.forms.player_todos.manual.gain_spec_skill_subtag import GainSpecSkillForm
 from charlist.forms.player_todos.automatic.gain_skill import GainSkillCommand
+from charlist.forms.player_todos.manual.gain_spec_talent_subtag import GainSpecTalentForm
 
 
 # TODO: check conditional commands and alter where needed!
@@ -190,6 +191,8 @@ class CommandParser(object):
         if cmd.get('command') == GET_SUBTAG_SKILL:
             form = GainSpecSkillForm(self.__facade, cmd)
             colour = 'success'
+        if cmd.get('command') == GET_SUBTAG_TALENT:
+            form = GainSpecTalentForm(self.__facade, cmd)
         reminder = Reminder(cmd.get('command'), form, self.__links[cmd.get('command')], colour, cmd.get('cmd_id'))
         return reminder
 
