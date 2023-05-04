@@ -1,0 +1,14 @@
+{% block loaders %}
+    {% load filters %}
+{% endblock %}
+
+{% with facade.lures|get_by_dict_key:character.birthright as br %}
+<div class="charlist-inline">
+    <div>
+        <b>
+            {% if lang == 'ru' %}Происхождение{% else %}Birthright{% endif %}:&nbsp;
+            <i>{{ br.name|get_by_dict_key:lang }}</i>
+        </b>
+    </div>
+</div>
+{% endif %}
