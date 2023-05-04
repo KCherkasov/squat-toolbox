@@ -5664,7 +5664,7 @@
       "is_stackable": false
     },
     {
-      "tag": "TL_TEPR",
+      "tag": "TL_TEPC",
       "name": {
         "ru": "Император защищает",
         "en": "The Emperor protects"
@@ -5944,7 +5944,7 @@
       "is_stackable": false
     },
     {
-      "tag": "TL_WTOR",
+      "tag": "TL_WOTR",
       "name": {
         "ru": "Ярость праведников",
         "en": "Wrath of Righteous"
