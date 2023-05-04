@@ -2,7 +2,7 @@
     {% load filters %}
 {% endblock %}
 
-{% with facade.lures|get_by_dict_key:character.birthright as br %}
+{% with facade.birthrights|get_by_dict_key:character.birthright as br %}
 <div class="charlist-inline">
     <div>
         <b>
