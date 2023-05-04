@@ -97,7 +97,7 @@ Character sheet interactive mockup
                         <b class="text-center">{% if lang == 'ru' %}Таланты{% else %}Talents{% endif %}<i>(Нажмите на название таланта, чтобы просмотреть описание)</i></b>
                     </header>
 
-                    <input type="hidden" name="log" value="{{ character.make_upg_costs }}">
+                    <input type="hidden" name="log" value="{{ character.make_upg_costs.items }}">
 
                     <div class="card card-body justify-content-center">
                         <header class="text-center">
