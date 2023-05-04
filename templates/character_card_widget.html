@@ -11,27 +11,27 @@
         {% if char_model.is_rt %}
         <div>
             {% with facade.rt_homeworlds|get_by_dict_key:char_model.hw_id as hw %}
-            <h5>{{ hw.name|get_by_dict_key:lang }}</h5>
+            <h5>{{ hw.name|get_by_dict_key:'en' }}</h5>
             {% endwith %}
         </div>
         <div>
             {% with facade.birthrights|get_by_dict_key:char_model.birthright_id as br %}
-            <h5>{{ br.name|get_by_dict_key:lang }}</h5>
+            <h5>{{ br.name|get_by_dict_key:'en' }}</h5>
             {% endwith %}
         </div>
         <div>
             {% with facade.lures|get_by_dict_key:char_model.lure_id as lure %}
-            <h5>{{ lure.name|get_by_dict_key:lang }}</h5>
+            <h5>{{ lure.name|get_by_dict_key:'en' }}</h5>
             {% endwith %}
         </div>
         <div>
             {% with facade.trials|get_by_dict_key:char_model.trial_id as trial %}
-            <h5>{{ trial.name|get_by_dict_key:lang }}</h5>
+            <h5>{{ trial.name|get_by_dict_key:'en' }}</h5>
             {% endwith %}
         </div>
         <div>
             {% with facade.rt_motivations|get_by_dict_key:char_model.motivation_id as motive %}
-            <h5>{{ motive.name|get_by_dict_key:lang }}</h5>
+            <h5>{{ motive.name|get_by_dict_key:'en' }}</h5>
             {% endwith %}
         </div>
         {% else %}
