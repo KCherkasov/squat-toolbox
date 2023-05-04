@@ -107,7 +107,7 @@ class RTCreationDataModel(object):
         doubled = 0
         for i in range(len(self.aptitudes)):
             for j in range(i, len(self.aptitudes)):
-                if self.aptitudes[i] == self.aptitudes[j]:
+                if (self.aptitudes[i] == self.aptitudes[j]) and (i != j):
                     doubled += 1
         return doubled
 

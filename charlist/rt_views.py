@@ -176,6 +176,9 @@ def rt_create_character_choices(request, creation_id):
         if 'char-choices-next' in request.POST:
             if form.is_valid():
                 cleaned_data = form.cleaned_data
+                cdm.reset_skills(rt_flyweights)
+                cdm.reset_talents(rt_flyweights)
+                cdm.reset_traits(rt_flyweights)
                 cdm.choices = list()
                 for i in range(len(cleaned_data)):
                     field_name = 'choice-' + str(i)
@@ -224,6 +227,9 @@ def rt_create_character_choices(request, creation_id):
                                                                            'stage': RT_CREATION_STAGES[3], 'cd': cdm,
                                                                            'form': form})
     else:
+        cdm.reset_skills(rt_flyweights)
+        cdm.reset_talents(rt_flyweights)
+        cdm.reset_traits(rt_flyweights)
         form = RTChoicesForm(cdm, rt_flyweights)
         return TemplateResponse(request, 'rt-creation-form.html', {'version': VERSION, 'facade': rt_flyweights,
                                                                    'cd': cdm, 'stage': RT_CREATION_STAGES[3],
