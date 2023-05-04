@@ -258,6 +258,7 @@
                                     &nbsp;>=&nbsp;+{{ prereq.value }}
                                 {% endif %}
                                 {% if alt_tag|starts_with:'TL' %}
+                                    {% if alt_tag in facade.talent_descriptions.keys %}
                                     {{ facade.talent_descriptions|get_by_dict_key:alt_tag|get_tldescr_name:lang }}
                                     {% if alt|has_key:'subtag' %}
                                         (
@@ -275,6 +276,9 @@
                                     {% endif %}
                                     {% if alt_value > 1 %}
                                         &nbsp;>=&nbsp;{{ alt_value }}
+                                    {% endif %}
+                                    {% else %}
+                                        {{ alt_tag }}
                                     {% endif %}
                                 {% endif %}
                                 {% if alt_tag|starts_with:'RL' or alt_tag|starts_with:'CR' %}
