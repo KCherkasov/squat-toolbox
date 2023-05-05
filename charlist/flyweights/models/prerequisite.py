@@ -328,7 +328,7 @@ class Prerequisite(object):
                                         flg = True
                     else:
                         for subtag in character.skills().get(self.tag).advances().keys():
-                            flg = character.skills().get(self.tag).get_adv_subtag(subtag) < self.value
+                            flg = character.skills().get(self.tag).get_adv_bonus_subtag(subtag) < self.value
                             if not flg:
                                 break
                 else:
