@@ -312,7 +312,8 @@ class Prerequisite(object):
                         if isinstance(self.subtag, list):
                             for subtag in self.subtag:
                                 if subtag in skill.advances().keys():
-                                    if self.subtag == 'SK_ANY':
+                                    if subtag == 'SK_ANY':
+                                        flg = False
                                         break
                                     flg = skill.get_adv_bonus_subtag(subtag) < self.value
                                     if not flg:
