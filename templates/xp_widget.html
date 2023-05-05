@@ -16,7 +16,7 @@
     <span>
         &nbsp;&nbsp;
     </span>
-    {% if is_owner %}
+    {% if is_owner or user.is_admin %}
     <div>
         <a class="btn btn-primary" href="{% if return %}{{ char_view }}{% else %}{{ upg_view }}{% endif %}">
             {% if return %}
