@@ -309,23 +309,23 @@ class Prerequisite(object):
                 skill = character.skills().get(self.tag)
                 if skill.is_specialist():
                     if self.has_subtag:
-                        if isinstance(self.subtag, list):
-                            for subtag in self.subtag:
-                                if subtag in skill.advances().keys():
-                                    if subtag == 'SK_ANY':
-                                        flg = False
-                                        break
-                                    flg = skill.get_adv_bonus_subtag(subtag) < self.value
-                                    if not flg:
-                                        break
-                                else:
-                                    flg = True
+                        if self.is_subtag_any():
+                            flg = False
                         else:
-                            if self.subtag in skill.advances().keys():
-                                flg = skill.get_adv_bonus_subtag(self.subtag) < self.value
+                            if isinstance(self.subtag, list):
+                                for subtag in self.subtag:
+                                    if subtag in skill.advances().keys():
+                                        flg = skill.get_adv_bonus_subtag(subtag) < self.value
+                                        if not flg:
+                                            break
+                                    else:
+                                        flg = True
                             else:
-                                if self.subtag != "SK_ANY":
-                                    flg = True
+                                if self.subtag in skill.advances().keys():
+                                    flg = skill.get_adv_bonus_subtag(self.subtag) < self.value
+                                else:
+                                    if self.subtag != "SK_ANY":
+                                        flg = True
                     else:
                         for subtag in character.skills().get(self.tag).advances().keys():
                             flg = character.skills().get(self.tag).get_adv_subtag(subtag) < self.value
