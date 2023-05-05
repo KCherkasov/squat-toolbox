@@ -308,7 +308,7 @@ class Prerequisite(object):
             if self.tag in character.skills().keys():
                 skill = character.skills().get(self.tag)
                 if skill.is_specialist():
-                    if self.has_subtag:
+                    if self.has_subtag():
                         if self.is_subtag_any():
                             flg = False
                         else:
