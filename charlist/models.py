@@ -75,8 +75,8 @@ class CharacterManager(models.Manager):
 class Character(models.Model):
     owner = models.ForeignKey(CharsheetUser, on_delete=models.CASCADE)
     creation_date = models.DateField(auto_now_add=True)
-    character_data = models.CharField(max_length=2500)
-    notes = models.TextField(max_length=10000, default="")
+    character_data = models.CharField(max_length=25000)
+    notes = models.TextField(max_length=1000, default="")
     is_rt = models.BooleanField(default=False)
 
     objects = CharacterManager()
