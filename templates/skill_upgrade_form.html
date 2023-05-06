@@ -9,7 +9,7 @@
     </div>
 {% endfor %}
 
-<div class="card card-body charlist-content justify-content-center align-items-center alert-{{ form.colour }} w300">
+<div class="card card-body charlist-content justify-content-center align-items-center alert-{% if form.cost > character.xp_current %}secondary{% else %}{{ form.colour }}{% endif %} w300">
     <div>
         <b class="text-dark">{{ facade|get_skill_description:form.skill_tag|get_skdescr_name:lang }}</b>
     </div>

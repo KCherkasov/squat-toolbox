@@ -9,7 +9,7 @@
     </div>
 {% endfor %}
 
-<div class="card card-body charlist-content justify-content-center align-self-center align-items-center w300">
+<div class="card card-body charlist-content justify-content-center align-self-center align-items-center alert-{% if form.cost > character.xp_current %}secondary{% else %}primary{% endif %} w300">
     <div>
         <b class="text-dark">{% if lang == 'ru' %}Пси-рейтинг{% else %}Psy-rating{% endif %}</b>
     </div>
@@ -26,7 +26,7 @@
             <input type="hidden" name="is_en" value="">
             {% endif %}
             <input type="hidden" name="cost" value="{{ form.cost }}">
-            <button class="btn btn-primary {% if form.cost > character.xp_current %}disabled{%endif%} ms-4 {% if not forloop.counter|divisibleby:2%} me-3{% endif %}"
+            <button class="btn btn-primary {% if form.cost > character.xp_current %}disabled{%endif%} ms-4"
                     name="upg-pr-confirm" type="submit">
                 {{ form.cost }}&nbsp;XP
             </button>
