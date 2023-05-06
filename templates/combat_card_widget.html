@@ -52,7 +52,7 @@
                 </div>
                 {% endif %}
                 <div class="ps-3">
-                    <b>{{ facade|get_short_stat:'ST_BS'|get_short_stat_name:'en' }}</b>
+                    <b>{{ facade|get_short_stat:'ST_BS'|get_short_stat_name:lang }}</b>
                 </div>
             </div>
             <div class="justify-content-center">
@@ -79,7 +79,7 @@
                 </div>
                 {% endif %}
                 <div class="ps-3">
-                    <b>{{ facade.skill_descriptions|get_by_dict_key:'SK_DDG'|get_skdescr_name:'en' }}</b>
+                    <b>{{ facade.skill_descriptions|get_by_dict_key:'SK_DDG'|get_skdescr_name:lang }}</b>
                 </div>
             </div>
             <div class="justify-content-center">
@@ -104,7 +104,7 @@
                 </div>
                 {% endif %}
                 <div class="ps-3">
-                    <b>{{ facade.skill_descriptions|get_by_dict_key:'SK_PAR'|get_skdescr_name:'en' }}</b>
+                    <b>{{ facade.skill_descriptions|get_by_dict_key:'SK_PAR'|get_skdescr_name:lang }}</b>
                 </div>
             </div>
             <div class="justify-content-center">
