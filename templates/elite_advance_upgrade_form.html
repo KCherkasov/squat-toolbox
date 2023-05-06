@@ -41,6 +41,9 @@
     <form class="form-horizontal" method="post" action="">
         {% csrf_token %}
         <div class="charlist-inline align-items-center mb-1">
+            {% if lang == 'en' %}
+            <input type="hidden" name="is_en" value="">
+            {% endif %}
             <input type="hidden" name="ea_tag" value="{{ form.ea_tag }}">
             <input type="hidden" name="cost" value="{{ form.cost }}">
             <button class="btn btn-primary {% if form.cost > character.xp_current or not form.available %}disabled{%endif%} ms-4"

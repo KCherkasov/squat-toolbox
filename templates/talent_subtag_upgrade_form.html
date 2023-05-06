@@ -32,6 +32,9 @@
                         {% endif %}
                     </b>
                 </div>
+            {% if lang == 'en' %}
+            <input type="hidden" name="is_en" value="">
+            {% endif %}
             <input type="hidden" name="cost" value="{{ form.cost }}">
             <button class="btn btn-primary {% if form.cost > character.xp_current or not form.available %}disabled{%endif%} ms-4"
                     name="upg-tl-subtag-confirm" type="submit">
