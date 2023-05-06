@@ -3,13 +3,13 @@
 {% endblock %}
 
 {% load filters %}
-<div class="card card-body">
-    <header class="text-center">
+<div class="card card-body align-self-center">
+    <header class="text-center align-self-center">
         <b>
             {% if lang == 'ru' %}Известные психосилы{% else %}Known psy powers{% endif %}
         </b>
     </header>
-    <div class="tt-list">
+    <div class="tt-list align-self-center">
         {% for pp_key in character.psy_powers %}
             {% include 'psy_power_widget.html' %}
         {% empty %}
