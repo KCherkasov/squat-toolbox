@@ -1,12 +1,12 @@
 {% load filters %}
 
 <div class="card card-body">
-    <header class="text-center">
+    <header class="text-center align-self-center">
         <b>
             {% if lang == 'ru' %}Черты{% else %}Traits{% endif %}
         </b>
     </header>
-    <div class="tt-list">
+    <div class="tt-list align-self-center">
     {% for trait_key, trait in character.traits.items %}
         {% include 'trait_widget.html' %}
     {% endfor %}
