@@ -222,7 +222,11 @@
         }
       ],
       "traits": ["TR_SNC"],
-      "talents": ["TL_WS"],
+      "talents": [
+        {
+          "tag": "TL_WS"
+        }
+      ],
       "choices": [
         [
           {
