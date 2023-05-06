@@ -8,7 +8,7 @@
         {{ err }}
     </div>
 {% endfor %}
-    <form class="form-horizontal alert-{% if form.cost > character.xp_current or not form.available %}secondary{% else %}{{ colour }}{% endif %} flex-fill" method="post" action="">
+    <form class="form-horizontal alert-{% if form.cost > character.xp_current or not form.available %}secondary{% else %}{{ colour }}{% endif %} flex-grow" method="post" action="">
         {% csrf_token %}
         <div class="charlist-inline align-items-center mb-1">
             <input type="hidden" name="tl_tag" value="{{ form.tl_tag }}">
