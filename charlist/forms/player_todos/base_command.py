@@ -53,7 +53,10 @@ class BaseCommand(ABC):
         result = None
         if self.is_conditional(data):
             if self.is_background_condition(data):
-                result = character.bg_id() == data.get('condition').get('tag')
+                if character.is_rt():
+                    result = False
+                else:
+                    result = character.bg_id() == data.get('condition').get('tag')
             if self.is_talent_condition(data):
                 if self.get_facade().talent_descriptions().get(data.get('condition').get('tag')).is_specialist():
                     if 'subtag' in data.get('condition').keys():
@@ -93,7 +96,10 @@ class BaseCommand(ABC):
         return False
 
     def execute(self, character: CharacterModel, data=None):
-        return self.do_logic(character, data)
+        if not self.is_conditional(data) or self.condition_met(character, data):
+            return self.do_logic(character, data)
+        else:
+            return character
 
     @abstractmethod
     def do_logic(self, character: CharacterModel, data=None):
