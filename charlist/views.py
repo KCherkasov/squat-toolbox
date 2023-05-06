@@ -1306,6 +1306,7 @@ def character_view(request, char_id):
                     reminders.append(reminder)
                 else:
                     character_model.pending().remove(cmd)
+        character_model.check_fatigue_match()
         character.character_data = character_model.toJSON()
         character.save()
     is_owner = request.user == character.owner

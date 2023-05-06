@@ -9,6 +9,9 @@ class GainTalentCommand(BaseCommand):
     def is_automatic(self):
         return True
 
+    def is_special(self, talent_tag: str):
+        pass
+
     def do_logic(self, character, data=None):
         if data is not None:
             if 'tag' in data.keys():
