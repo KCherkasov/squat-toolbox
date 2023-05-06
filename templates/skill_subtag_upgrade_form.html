@@ -8,7 +8,7 @@
         {{ err }}
     </div>
 {% endfor %}
-    <div class="d-flex flex-row flex-grow-1 alert-{% if form.cost > character.xp_current %}secondary{% else %}{{ colour }}{% endif %}">
+    <div class="d-flex flex-row alert-{% if form.cost > character.xp_current %}secondary{% else %}{{ colour }}{% endif %} flex-fill">
     <form class="form-horizontal" method="post" action="">
         {% csrf_token %}
         <div class="charlist-inline align-items-center mb-1">
