@@ -9,7 +9,7 @@
     </div>
 {% endfor %}
 {% with facade.elite_advances|get_by_dict_key:form.ea_tag as ea %}
- <div class="card card-body charlist-content justify-content-center align-items-center alert-info w300">
+ <div class="card card-body charlist-content justify-content-center align-items-center align-self-center alert-info w300">
     <div>
         <a href="" class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
                            data-bs-target="#c{{character.id}}-{{ form.ea_tag }}-{{ lang }}-upg-info" title="Подробнее">
