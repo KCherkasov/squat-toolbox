@@ -2,6 +2,7 @@
 
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db import models
+from django.db.models import Count
 from django.urls import reverse
 
 import charlist.character.character
@@ -32,7 +33,7 @@ class CharsheetUserManager(BaseUserManager):
 
 
 class CharsheetUser(AbstractBaseUser):
-    id = models.CharField(verbose_name=u'Логин',max_length=40, unique=True, primary_key=True)
+    id = models.CharField(verbose_name=u'Логин', max_length=40, unique=True, primary_key=True)
     email = models.EmailField(max_length=40, unique=True)
     is_master = models.BooleanField(verbose_name=u'Мастер', default=False)
     is_active = models.BooleanField(default=False)
@@ -57,16 +58,87 @@ class CharsheetUser(AbstractBaseUser):
         return unquote(reverse('create-character-start', kwargs={'user_id': self.pk}),
                        encoding='utf-8', errors='replace')
 
+    def get_season_creation_link(self):
+        pass
+
+    def get_group_creation_link(self):
+        pass
+
+
+class SeasonQuerySet(models.QuerySet):
+    def with_creator(self):
+        return self.prefetch_related('creator')
+
+
+class SeasonManager(models.Manager):
+    def queryset(self):
+        query = SeasonQuerySet(self.model, using=self._db)
+        return query.with_creator()
+
+    def by_uid(self, uid):
+        return self.filter(creator=uid)
+
+
+class Season(models.Model):
+    name = models.CharField(max_length=100, default=u'')
+    description = models.TextField(max_length=5000, default=u'', verbose_name=u'Краткое описание')
+    creator = models.ForeignKey(CharsheetUser, on_delete=models.CASCADE)
+
+    objects = SeasonManager()
+
+    def get_edit_link(self):
+        pass
+
+    def get_delete_link(self):
+        pass
+
+
+class CharacterGroupManager(models.Manager):
+    def group_size(self):
+        return self.annotate(group_size=Count('character'))
+
+    def order_by_size(self):
+        return self.group_size().order_by('-group_size')
+
+    def get_by_name(self, name):
+        return self.get(name=name)
+
+    def get_by_name_id(self, name_id):
+        return self.get(name_id=name_id)
+
+
+class CharacterGroup(models.Model):
+    creator = models.ForeignKey(CharsheetUser, on_delete=models.CASCADE)
+    season = models.ForeignKey(Season, on_delete=models.CASCADE)
+    name_id = models.CharField(max_length=120, default=u'')
+    name = models.CharField(max_length=60, verbose_name=u'Название группы')
+    description = models.TextField(max_length=1000, verbose_name=u'Описание группы')
+    master_notes_url = models.TextField(max_length=500, default='')
+    group_notes_url = models.TextField(max_length=500, default='')
+    is_rt = models.BooleanField(default=False)
+    group_ifl = models.PositiveIntegerField(default=20)
+
+    objects = CharacterGroupManager()
+
+    def get_edit_link(self):
+        pass
+
+    def get_delete_link(self):
+        pass
+
 
 class CharacterQuerySet(models.QuerySet):
     def with_owner(self):
         return self.prefetch_related('owner')
 
+    def with_groups(self):
+        return self.prefetch_related('groups')
+
 
 class CharacterManager(models.Manager):
     def queryset(self):
         query = CharacterQuerySet(self.model, using=self._db)
-        return query.with_owner()
+        return query.with_owner().with_groups()
 
     def by_uid(self, uid):
         return self.filter(owner=uid)
@@ -74,6 +146,7 @@ class CharacterManager(models.Manager):
 
 class Character(models.Model):
     owner = models.ForeignKey(CharsheetUser, on_delete=models.CASCADE)
+    groups = models.ManyToManyField(CharacterGroup)
     creation_date = models.DateField(auto_now_add=True)
     character_data = models.CharField(max_length=25000)
     notes = models.TextField(max_length=1000, default="")
@@ -174,7 +247,7 @@ class RTCreationData(models.Model):
     curr_stage = models.CharField(max_length=15, default='init')
     name = models.CharField(max_length=50, default='')
 
-    character_data = models.CharField(max_length=2500)
+    character_data = models.CharField(max_length=25000)
 
     objects = CreationDataManager()
 
