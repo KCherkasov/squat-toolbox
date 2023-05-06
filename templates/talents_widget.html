@@ -5,7 +5,7 @@
             {% if lang == 'ru' %}Таланты{% else %}Talents{% endif %}
         </b>
     </header>
-    <div class="tt-list">
+    <div class="tt-list align-self-center">
     {% for talent_key, talent in character.talents.items %}
         {% include 'talent_widget.html' %}
     {% endfor %}
