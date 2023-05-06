@@ -646,7 +646,6 @@ class RTCharacterModel(object):
     def check_fatigue_match(self):
         wpt_sum = self.__stats.get('ST_T').bonus() + self.__stats.get('ST_WP').bonus()
         if wpt_sum > self.fatigue_cap():
-            self.__fatigue[CURRENT_ID] += wpt_sum - self.fatigue_cap()
             self.__fatigue[CAP_ID] += wpt_sum - self.fatigue_cap()
 
     @classmethod
