@@ -993,13 +993,16 @@ def parse_upgrades(request, character: models.Character, character_model: RTChar
 def character_upgrade(request, char_id):
     character = models.Character.objects.get(pk=char_id)
     character_model = character.data_to_model()
+    is_en = False
     if request.method == 'POST':
         parse_upgrades(request, character, character_model)
+        if 'is_en' in request.POST:
+            is_en = True
     forms = upg_data_to_forms(character_model)
     is_owner = character.owner == request.user
     return TemplateResponse(request, 'charsheet-upgrade.html', {'version': VERSION, 'facade': rt_flyweights,
                                                                 'character': character_model, 'forms': forms,
-                                                                'return': True, 'is_owner': is_owner,
+                                                                'return': True, 'is_owner': is_owner, 'is_en': is_en,
                                                                 'char_view': character.get_view_url(), })
 
 
