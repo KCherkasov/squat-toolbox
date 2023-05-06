@@ -230,7 +230,7 @@
         },
         {
           "command": "GainTalent",
-          "tag": "LTSL"
+          "tag": "TL_LTSL"
         },
         {
           "command": "GainCorruptionRoll"
