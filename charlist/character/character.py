@@ -490,11 +490,21 @@ class CharacterModel(object):
             tmp_name = dict()
             for lang in ['ru', 'en']:
                 tmp_name[lang] = facade.talent_descriptions().get(tl_tag).get_name(lang)
+                if facade.talent_descriptions().get(tl_tag).is_specialist():
+                    tmp_name[lang] += ' ('
+                    for tag in self.__talents.get(tl_tag).taken().keys():
+                        tmp_name[lang] += tag + ','
+                    tmp_name[lang] = tmp_name[lang][:len(tmp_name[lang]) - 1] + ')'
             map_hints(hookups, facade.talent_descriptions().get(tl_tag).get_hints(), tmp_name)
         for tr_tag in self.__traits.keys():
             tmp_name = dict()
             for lang in ['ru', 'en']:
                 tmp_name[lang] = facade.trait_descriptions().get(tr_tag).get_name(lang)
+                if facade.trait_descriptions().get(tr_tag).is_specialist():
+                    tmp_name[lang] += ' ('
+                    for tag in self.__traits.get(tr_tag).taken().keys():
+                        tmp_name[lang] += tag + ','
+                    tmp_name[lang] = tmp_name[lang][:len(tmp_name[lang]) - 1] + ')'
             map_hints(hookups, facade.trait_descriptions().get(tr_tag).get_hints(), tmp_name)
         for malign in self.__malignancies:
             tmp_name = dict()
