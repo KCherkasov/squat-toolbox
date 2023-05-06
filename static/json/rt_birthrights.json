@@ -69,7 +69,7 @@
           "amount": 5
         },
         {
-          "command": "DecreasStat",
+          "command": "DecreaseStat",
           "tag": "ST_FEL",
           "amount": 5
         },
