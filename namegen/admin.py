@@ -8,4 +8,5 @@ admin.site.register(models.Character)
 admin.site.register(models.RTCreationData)
 admin.site.register(models.CreationData)
 admin.site.register(models.Season)
+
 admin.register(models.CharacterGroup)
