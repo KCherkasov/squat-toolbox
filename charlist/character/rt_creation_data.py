@@ -66,7 +66,7 @@ class RTCreationDataModel(object):
         self.traits = list()
         if self.career_id in facade.careers().keys():
             for trait in facade.careers().get(self.career_id).traits():
-                self.talents.append(trait)
+                self.talents.append({"tag": trait})
 
     def reset_apts(self, facade: RTFacade):
         reset = ['A_GEN']
