@@ -26,7 +26,7 @@ Character sheet interactive mockup
 </div>
 <div class="tab-content charlist_container">
     {% for lang in facade.langs %}
-        <div class="tab-pane fade show charlist-container {% if forloop.first %}active{% endif %}"
+        <div class="tab-pane fade show charlist-container {% if lang == 'ru' %}{% if not is_en %}active{%endif%}{% else %}{% if is_en %}active{% endif %}{% endif %}"
              id="{{ lang }}-card" role="tabpanel" aria-labelledby="{{lang}}-tab">
             <div class="charsheet-card">
                 <header class="text-center">
