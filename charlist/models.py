@@ -146,10 +146,10 @@ class CharacterManager(models.Manager):
 
 class Character(models.Model):
     owner = models.ForeignKey(CharsheetUser, on_delete=models.CASCADE)
-    groups = models.ManyToManyField(CharacterGroup, null=True, default=None)
+    groups = models.ManyToManyField(CharacterGroup, blank=True, default=None)
     creation_date = models.DateField(auto_now_add=True)
     character_data = models.CharField(max_length=25000)
-    notes = models.TextField(max_length=1000, default="", null=True)
+    notes = models.TextField(max_length=1000, default="", blank=True)
     is_rt = models.BooleanField(default=False)
 
     objects = CharacterManager()
