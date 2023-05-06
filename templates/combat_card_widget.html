@@ -9,7 +9,7 @@
         </p>
     </div>
     <div class="card-group">
-        <div class="card justify-content-center">
+        <div class="card justify-content-center w170">
             <div class="charlist-inline w170 pt-3">
                 {% if hookups|get_by_dict_key:'ST_WS' %}
                 <div class="btn-group dropend">
@@ -36,7 +36,7 @@
                 </button>
             </div>
         </div>
-        <div class="card justify-content-center">
+        <div class="card justify-content-center w170">
             <div class="charlist-inline w170 pt-3">
                 {% if hookups|get_by_dict_key:'ST_BS' %}
                 <div class="btn-group dropend">
@@ -60,6 +60,56 @@
                     {% with character.stats|get_by_dict_key:'ST_BS' as stat %}
                         {{ stat.value }}
                     {% endwith %}
+                </button>
+            </div>
+        </div>
+        <div class="card justify-content-center w170">
+            <div class="charlist-inline w170 pt-3">
+                {% if hookups|get_by_dict_key:'SK_DDG' %}
+                <div class="btn-group dropend">
+                    <span class="position-absolute top-0 start-100 translate-middle btn btn-success dropdown-toggle badge rounded-circle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    </span>
+                    <ul class="dropdown-menu w400">
+                        {% for hint in hookups|get_by_dict_key:'SK_DDG' %}
+                        <li class="dropdown-item text-wrap">
+                            <p class="text-break">{{ hint.description|get_by_dict_key:lang }} <b>({% if lang == 'ru' %}от{% else %}from{% endif %}:{{ hint.talent_name|get_by_dict_key:lang }})</b></p>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+                <div class="ps-3">
+                    <b>{{ facade.skill_descriptions|get_by_dict_key:'SK_DDG'|get_skdescr_name:'en' }}</b>
+                </div>
+            </div>
+            <div class="justify-content-center">
+                <button class="btn btn-outline-dark disabled align-self-center fs-4">
+                    {% get_skill_diff character 'SK_DDG' 'ST_AG' %}
+                </button>
+            </div>
+        </div>
+        <div class="card justify-content-center w170">
+            <div class="charlist-inline w170 pt-3">
+                {% if hookups|get_by_dict_key:'SK_PAR' %}
+                <div class="btn-group dropend">
+                    <span class="position-absolute top-0 start-100 translate-middle btn btn-success dropdown-toggle badge rounded-circle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    </span>
+                    <ul class="dropdown-menu w400">
+                        {% for hint in hookups|get_by_dict_key:'SK_PAR' %}
+                        <li class="dropdown-item text-wrap">
+                            <p class="text-break">{{ hint.description|get_by_dict_key:lang }} <b>({% if lang == 'ru' %}от{% else %}from{% endif %}:{{ hint.talent_name|get_by_dict_key:lang }})</b></p>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+                <div class="ps-3">
+                    <b>{{ facade.skill_descriptions|get_by_dict_key:'SK_PAR'|get_skdescr_name:'en' }}</b>
+                </div>
+            </div>
+            <div class="justify-content-center">
+                <button class="btn btn-outline-dark disabled align-self-center fs-4">
+                    {% get_skill_diff character 'SK_PAR' 'ST_WS' %}
                 </button>
             </div>
         </div>
