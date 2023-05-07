@@ -1530,7 +1530,7 @@ def seasons_list(request):
         groups[season.pk] = list()
         for group in models.CharacterGroup.objects.get_by_season(season.pk):
             groups.get(season.pk).append(group)
-    return TemplateResponse('seasons_list.html', {'version': VERSION, 'seasons': seasons, 'groups': groups})
+    return TemplateResponse(request, 'seasons_list.html', {'version': VERSION, 'seasons': seasons, 'groups': groups})
 
 
 def create_season(request):
