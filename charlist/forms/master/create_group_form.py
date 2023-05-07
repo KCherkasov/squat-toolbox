@@ -21,7 +21,7 @@ class CreateGroupForm(Form):
         for character in characters:
             field_name = 'c' + str(character.pk)
             model = character.data_to_model()
-            self.fields[field_name] = forms.BooleanField(label=model.name())
+            self.fields[field_name] = forms.BooleanField(label=model.name(), required=False)
             if len(character.groups.all()) > 0:
                 for group in character.groups.all():
                     if group.name_id not in self.groups:
