@@ -35,4 +35,4 @@ class CreateGroupForm(Form):
 
     name = forms.CharField(label=u'Название группы', max_length=100)
     description = forms.CharField(label=u'Краткое описание', max_length=100)
-    is_rt = forms.BooleanField(label=u'Они будут строить из себя вольников?')
+    is_rt = forms.BooleanField(label=u'Они будут строить из себя вольников?', required=False)
