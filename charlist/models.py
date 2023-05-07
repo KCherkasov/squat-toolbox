@@ -80,10 +80,10 @@ class SeasonManager(models.Manager):
         return query.with_creator()
 
     def by_uid(self, uid):
-        return self.queryset().filter(creator=uid)
+        return self.queryset().all().filter(creator=uid)
 
     def by_name_id(self, name_id):
-        return self.queryset().get(name_id=name_id)
+        return self.queryset().all().get(name_id=name_id)
 
 
 class Season(models.Model):
