@@ -1631,7 +1631,14 @@ def group_view(request, group_id):
         facade = rt_flyweights
     else:
         facade = flyweights
+
+    is_captain = False
     for character in characters:
         character_models[character.pk] = character.data_to_model()
+        if (not is_captain) and group.is_rt:
+            is_captain = (request.user == character.owner)\
+                         and (character_models.get(character.pk).career_id() == 'CR_RT')
+    is_master = request.user == group.creator
     return TemplateResponse(request, 'group.html', {'version': VERSION, 'group': group, 'facade': facade,
-                                                    'characters': characters, 'char_data': character_models})
+                                                    'characters': characters, 'char_data': character_models,
+                                                    'is_master': is_master, 'is_captain': is_captain, })

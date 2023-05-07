@@ -3,7 +3,7 @@
 {% load filters %}
 
 {% block pg_title %}
-Group {{ season.name }}
+Group&nbsp;{{ group.name }}&nbsp;from&nbsp;{{ group.season.name }}&nbsp;campaign
 {% endblock %}
 
 {% block title %}
@@ -15,9 +15,27 @@ Group {{ season.name }}
     <h4>{{ group.name }}</h4>
     <p><i>{{ group.description }}</i></p>
 </header>
-<div class="align-self-center">
+<div class="d-flex flex-column justify-content-center align-self-center">
     {% for character in characters %}
         {% include 'character_card_widget.html' %}
     {% endfor %}
 </div>
+<div class="charlist-inline justify-content-center align-self-center">
+    <div>
+        <a role="button" class="btn btn-primary" href="{{ group.season.get_url }}">К кампании</a>
+    </div>
+    <div>
+        <a role="button" class="btn btn-success" href="{% url 'seasons-list' %}">К списку кампаний</a>
+    </div>
+</div>
+{% if is_master %}
+<div class="charlist-inline justify-content-center align-self-center">
+    <div>
+        <a role="button" class="btn btn-success" href="{{ group.get_edit_link }}">Редактировать</a>
+    </div>
+    <div>
+        <a role="button" class="btn btn-danger" href="{{ group.get_delete_link }}">Удалить</a>
+    </div>
+</div>
+{% endif %}
 {% endblock %}
