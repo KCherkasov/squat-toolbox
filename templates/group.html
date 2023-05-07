@@ -15,7 +15,7 @@ Group {{ season.name }}
     <h4>{{ group.name }}</h4>
     <p><i>{{ group.description }}</i></p>
 </header>
-<div>
+<div class="align-self-center">
     {% for character in characters %}
         {% include 'character_card_widget.html' %}
     {% endfor %}
