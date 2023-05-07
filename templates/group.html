@@ -17,6 +17,7 @@ Group {{ season.name }}
 </header>
 <div>
     {% for character in characters %}
-    {%  %}
+        {% include 'character_card_widget.html' %}
+    {% endfor %}
 </div>
 {% endblock %}
