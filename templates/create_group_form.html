@@ -59,10 +59,9 @@
                 <button type="submit" class="btn btn-primary">Создать</button>
             </div>
         </div>
-        <input type="hidden" name="parent" value="{{ campaign.name_id }}">
         <div class="form-group charlist-inline justify-content-center mt-2">
             <div class="col-sm-offset-2 col-sm-2">
-                <a href="{% url campaign.get_url %}" class="btn btn-danger">Отмена</a>
+                <a href="{% url season.get_url %}" class="btn btn-danger">Отмена</a>
             </div>
         </div>
     </form>
