@@ -38,12 +38,12 @@ Campaign {{ season.name }}
 </div>
     {% endif %}
 {% empty %}
-<div>
+<div class="text-center">
     <h5>Пока в кампании никто не участвует.&nbsp;{% if request.user == season.creator %}Пора бы это исправить...{% endif %}</h5>
 </div>
 {% endfor %}
 {% if request.user == season.creator %}
-<div class="align-self-center">
+<div class="align-self-center justify-content-center">
     <a role="button" class="btn btn-primary" href="{{ season.get_create_group_link }}">Создать группу</a>
 </div>
 <div class="align-self-center">
