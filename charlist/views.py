@@ -1627,7 +1627,7 @@ def group_view(request, group_id):
     group = models.CharacterGroup.objects.get_by_name_id(group_name)
     characters = models.Character.objects.by_group(group)
     character_models = dict()
-    if group.is_rt():
+    if group.is_rt:
         facade = rt_flyweights
     else:
         facade = flyweights
