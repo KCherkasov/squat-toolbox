@@ -22,7 +22,7 @@ class CreateGroupForm(Form):
             field_name = 'c' + str(character.pk)
             model = character.data_to_model()
             self.fields[field_name] = forms.BooleanField(label=model.name())
-            for group in character.groups:
+            for group in character.groups.all():
                 if group.name_id not in self.groups:
                     self.groups.append(group.name_id)
                     self.group_names[self.groups[len(self.groups) - 1]] = group.name
