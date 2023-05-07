@@ -34,9 +34,9 @@ Campaign {{ season.name }}
             </div>
         </div>
         {% if request.user == season.creator %}
-        <div class="charlist-inline align-self-center justify-content-center">
-            <a role="button" class="btn btn-success" href="{{ season.get_edit_link }}">Редактировать</a>
-            <a role="button" class="btn btn-danger" href="{{ season.get_delete_link }}">Удалить</a>
+        <div class="charlist-inline align-self-center justify-content-center mb-2">
+            <a role="button" class="btn btn-success me-2" href="{{ season.get_edit_link }}">Редактировать</a>
+            <a role="button" class="btn btn-danger ms-2" href="{{ season.get_delete_link }}">Удалить</a>
         </div>
         {% endif %}
     </div>
