@@ -1625,5 +1625,5 @@ def group_delete(request, group_id):
 def group_view(request, group_id):
     group_name = unquote(group_id, encoding='utf-8', errors='replace')
     group = models.CharacterGroup.objects.get_by_name_id(group_name)
-    characters = group.character_set.all()
+    characters = models.Character.objects.by_group(group)
     return TemplateResponse(request, 'group.html', {'version': VERSION, 'group': group, 'characters': characters})

@@ -173,6 +173,9 @@ class CharacterManager(models.Manager):
     def by_uid(self, uid):
         return self.filter(owner=uid)
 
+    def by_group(self, group):
+        return self.queryset().filter(groups=group)
+
 
 class Character(models.Model):
     owner = models.ForeignKey(CharsheetUser, on_delete=models.CASCADE)
