@@ -1,0 +1,63 @@
+{% extends 'charlist_main.html' %}
+
+{% block pg_title %}login{% endblock %}
+
+{% block app_content %}
+<div class="page-header text-center">
+    <h3>Создать группу</h3>
+</div>
+<hr/>
+{% for err in form.non_field_errors %}
+<div class="alert alert-danger" role="alert">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    {{ err }}
+</div>
+{% endfor %}
+<div class="charlist-content justify-content-center">
+    <form class="form-horizontal" method="post" action="">
+        {% csrf_token %}
+        {% regroup form by field.group as field_groups %}
+        {% for group in field_groups %}
+            {% if forloop.first or forloop.counter0|divisibleby:3 %}
+                <div class="card-group align-self-center justify-content-center">
+            {% endif %}
+                    <div class="card">
+                        <div class="card-body">
+                            <div>
+                                <p>
+                                    <b class="text-center card-title">
+                                        {{ form.group_names|get_by_dict_key:group.grouper }}
+                                    </b>
+                                </p>
+                                <p class="text-center card-subtitle">
+                                    {{ form.group_descriptions|get_by_dict_key:group.grouper}}
+                                </p>
+                            </div>
+                        {% for field in group.list %}
+                            <div class="form-group charlist-inline justify-content-center mt-2 align-self-center">
+                                <label for="{{ field.name }}" class="col-sm-2 control-label">{{ field.label }}</label>
+                                <div class="col-sm-5 ms-2">
+                                    {{ field }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                    {% if forloop.counter|divisibleby:3 or forloop.last %}
+                </div>
+                    {% endif %}
+        {% endfor %}
+        <div class="form-group charlist-inline justify-content-center mt-2">
+            <div class="col-sm-offset-2 col-sm-2">
+                <button type="submit" class="btn btn-primary">Создать</button>
+            </div>
+        </div>
+        <input type="hidden" name="parent" value="{{ campaign.name_id }}">
+        <div class="form-group charlist-inline justify-content-center mt-2">
+            <div class="col-sm-offset-2 col-sm-2">
+                <a href="{% url campaign.get_url %}" class="btn btn-danger">Отмена</a>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

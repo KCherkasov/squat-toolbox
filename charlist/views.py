@@ -64,6 +64,9 @@ from charlist.forms.upgrading.talent_subtag_upgrade_form import TalentUpgradeSub
 from charlist.forms.upgrading.talent_upgrade_form import TalentUpgradeForm
 from charlist.rt_views import rt_flyweights, rt_commands_parser
 
+from charlist.forms.master.create_season_form import CreateSeasonForm
+from charlist.forms.master.create_group_form import CreateGroupForm
+
 
 class TokenGenerator(PasswordResetTokenGenerator):
     def _make_hash_value(self, user, timestamp):
@@ -1518,3 +1521,53 @@ def resume_creation_edit(request, creation_id):
             return HttpResponseRedirect(reverse('create-character-divination', kwargs={'creation_id': cd.pk}))
     else:
         return reverse('characters-list')
+
+
+def create_season(request):
+    if request.method == 'POST':
+        if request.user.is_master:
+            form = CreateSeasonForm(request.POST)
+            if form.is_valid():
+                season = models.Season.objects.create(creator=request.user,
+                                                      name=form.cleaned_data.get('name'),
+                                                      description=form.cleaned_data.get('description'))
+                season.name_id = season.make_name_id()
+                season.save()
+                return HttpResponseRedirect(reverse('campaigns-list'))
+            else:
+                return TemplateResponse(request, 'create_season_form.html', {'form': form})
+        else:
+            return HttpResponseRedirect(reverse('main'))
+    else:
+        form = CreateSeasonForm()
+        return TemplateResponse(request, 'create_season_form.html', {'form': form})
+
+
+def create_group(request, season_id):
+    season = models.Season.objects.by_name_id(season_id)
+    if request.method == 'POST':
+        form = CreateGroupForm(request.POST)
+        if form.is_valid():
+            group = models.CharacterGroup.objects.create(creator=request.user, season=season,
+                                                         name=form.cleaned_data.get('name'),
+                                                         description=form.cleaned_data.get('description'),
+                                                         is_rt=form.cleaned_data.get('is_rt'))
+            group.name_id = group.make_name_id()
+            group.save()
+            for key, value in form.cleaned_data:
+                if key not in ['creator', 'name', 'description', 'is_rt']:
+                    if value:
+                        cid = int(key[1:])
+                        character = models.Character.objects.by_uid(cid)
+                        if character:
+                            character.groups.add(group)
+                            character.save()
+            return HttpResponseRedirect(reverse('season-view', kwargs={'season_name': season_id, }))
+        else:
+            return TemplateResponse(request, 'create_group_form.html', {'form': form})
+    else:
+        characters = models.Character.objects.all()
+
+        form = CreateGroupForm(characters)
+        return TemplateResponse(request, 'create_group_form.html', {'form': form})
+

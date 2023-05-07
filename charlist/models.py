@@ -10,6 +10,7 @@ from charlist.character.json.decoders.character_decoder import CharacterDecoder
 from charlist.character.rt_creation_data import RTCreationDataModel
 from urllib.parse import unquote
 import json
+import re
 
 
 class CharsheetUserManager(BaseUserManager):
@@ -69,6 +70,9 @@ class SeasonQuerySet(models.QuerySet):
     def with_creator(self):
         return self.prefetch_related('creator')
 
+    def with_groups(self):
+        return self.prefetch_related('character_groups')
+
 
 class SeasonManager(models.Manager):
     def queryset(self):
@@ -78,19 +82,30 @@ class SeasonManager(models.Manager):
     def by_uid(self, uid):
         return self.filter(creator=uid)
 
+    def by_name_id(self, name_id):
+        return self.get(name_id=name_id)
+
 
 class Season(models.Model):
     name = models.CharField(max_length=100, default=u'')
+    name_id = models.CharField(max_length=200, default=u'', unique=True)
     description = models.TextField(max_length=5000, default=u'', verbose_name=u'Краткое описание')
     creator = models.ForeignKey(CharsheetUser, on_delete=models.CASCADE)
+    master_notes = models.CharField(max_length=1000, default=u'', blank=True)
 
     objects = SeasonManager()
+
+    def get_url(self):
+        pass
 
     def get_edit_link(self):
         pass
 
     def get_delete_link(self):
         pass
+
+    def make_name_id(self):
+        return re.sub(' +', '_', self.name)
 
 
 class CharacterGroupManager(models.Manager):
@@ -99,6 +114,9 @@ class CharacterGroupManager(models.Manager):
 
     def order_by_size(self):
         return self.group_size().order_by('-group_size')
+
+    def get_by_season(self, season):
+        return self.order_by_size().filter(season=season)
 
     def get_by_name(self, name):
         return self.get(name=name)
@@ -110,21 +128,27 @@ class CharacterGroupManager(models.Manager):
 class CharacterGroup(models.Model):
     creator = models.ForeignKey(CharsheetUser, on_delete=models.CASCADE)
     season = models.ForeignKey(Season, on_delete=models.CASCADE)
-    name_id = models.CharField(max_length=120, default=u'')
+    name_id = models.CharField(max_length=120, default=u'', unique=True)
     name = models.CharField(max_length=60, verbose_name=u'Название группы')
     description = models.TextField(max_length=1000, verbose_name=u'Описание группы')
-    master_notes_url = models.TextField(max_length=500, default='')
-    group_notes_url = models.TextField(max_length=500, default='')
+    master_notes_url = models.TextField(max_length=500, default='', blank=True)
+    group_notes_url = models.TextField(max_length=500, default='', blank=True)
     is_rt = models.BooleanField(default=False)
-    group_ifl = models.PositiveIntegerField(default=20)
+    group_ifl = models.PositiveIntegerField(default=25)
 
     objects = CharacterGroupManager()
+
+    def get_url(self):
+        pass
 
     def get_edit_link(self):
         pass
 
     def get_delete_link(self):
         pass
+
+    def make_name_id(self):
+        return self.season.name_id + '_' + re.sub(' +', '_', self.name)
 
 
 class CharacterQuerySet(models.QuerySet):
@@ -255,10 +279,12 @@ class RTCreationData(models.Model):
         return RTCreationDataModel.from_json(str(self.character_data))
 
     def get_edit_url(self):
-        return unquote(reverse('rt-char-data-edit', kwargs={'creation_id': self.pk}), encoding='utf-8', errors='replace')
+        return unquote(reverse('rt-char-data-edit', kwargs={'creation_id': self.pk}),
+                       encoding='utf-8', errors='replace')
 
     def get_delete_url(self):
-        return unquote(reverse('rt-char-data-delete', kwargs={'creation_id': self.pk}), encoding='utf-8', errors='replace')
+        return unquote(reverse('rt-char-data-delete', kwargs={'creation_id': self.pk}),
+                       encoding='utf-8', errors='replace')
 
 
 class LogEntry(models.Model):
