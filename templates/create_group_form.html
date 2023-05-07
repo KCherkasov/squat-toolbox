@@ -25,7 +25,7 @@
         {% csrf_token %}
         {% regroup form by field.group as field_groups %}
         {% for group in field_groups %}
-            {% if forloop.first or forloop.counter0|divisibleby:3 %}
+            {% if forloop.first or forloop.counter0|divisibleby:3 or forloop.counter == 2 %}
                 <div class="card-group align-self-center justify-content-center">
             {% endif %}
                     <div class="card">
