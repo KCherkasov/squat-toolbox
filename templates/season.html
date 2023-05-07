@@ -44,7 +44,9 @@ Campaign {{ season.name }}
 {% endfor %}
 {% if request.user == season.creator %}
 <div class=" charlist-inline align-self-center justify-content-center">
-    <a role="button" class="btn btn-primary" href="{{ season.get_create_group_link }}">Создать группу</a>
+    <div>
+        <a role="button" class="btn btn-primary" href="{{ season.get_create_group_link }}">Создать группу</a>
+    </div>
 </div>
 <div class="align-self-center">
 
