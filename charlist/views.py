@@ -1594,7 +1594,7 @@ def create_group(request, season_id):
                 if key not in ['creator', 'name', 'description', 'is_rt']:
                     if value:
                         cid = int(key[1:])
-                        character = models.Character.objects.by_uid(cid)
+                        character = models.Character.objects.get(pk=cid)
                         if character:
                             character.groups.add(group)
                             character.save()
