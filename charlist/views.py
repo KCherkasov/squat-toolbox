@@ -1626,4 +1626,8 @@ def group_view(request, group_id):
     group_name = unquote(group_id, encoding='utf-8', errors='replace')
     group = models.CharacterGroup.objects.get_by_name_id(group_name)
     characters = models.Character.objects.by_group(group)
-    return TemplateResponse(request, 'group.html', {'version': VERSION, 'group': group, 'characters': characters})
+    character_models = dict()
+    for character in characters:
+        character_models[character.pk] = character.data_to_model()
+    return TemplateResponse(request, 'group.html', {'version': VERSION, 'group': group,
+                                                    'characters': characters, 'char_data': character_models})
