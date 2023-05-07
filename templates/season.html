@@ -24,7 +24,7 @@ Campaign {{ season.name }}
     {% endif%}
     <div class="card">
         <div class="card-body text-center">
-            <p class="card-title"><a href="{{ group.get_url }}">{{ group.name }}</a></p>
+            <p class="card-title"><b><a href="{{ group.get_url }}">{{ group.name }}</a></b></p>
             <p class="card-subtitle">{{ group.description }}</p>
             {% if request.user == group.creator %}
             <div class="charlist-inline align-self-center justify-content-center">
