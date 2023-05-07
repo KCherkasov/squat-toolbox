@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import datetime
 import logging
+from urllib.parse import unquote
 
 from django.contrib.auth import get_user_model
 from django.contrib.auth import login
@@ -1554,11 +1555,13 @@ def create_season(request):
 
 
 def season_edit(request, season_id):
+    season_name = unquote(season_id, encoding='utf-8', errors='replace')
     return HttpResponseRedirect(reverse('main'))
 
 
 def season_delete(request, season_id):
-    season = models.Season.objects.by_name_id(season_id)
+    season_name = unquote(season_id, encoding='utf-8', errors='replace')
+    season = models.Season.objects.by_name_id(season_name)
     if season is not None:
         if request.user.is_master and (request.user == season.creator):
             season.delete()
@@ -1566,7 +1569,8 @@ def season_delete(request, season_id):
 
 
 def season_view(request, season_id):
-    season = models.Season.objects.by_name_id(season_id)
+    season_name = unquote(season_id, encoding='utf-8', errors='replace')
+    season = models.Season.objects.by_name_id(season_name)
     groups = models.CharacterGroup.objects.get_by_season(season.pk)
     return TemplateResponse(request, 'season.html', {'version': VERSION, 'season': season, 'groups': groups, })
 
@@ -1574,7 +1578,8 @@ def season_view(request, season_id):
 def create_group(request, season_id):
     if not request.user.is_master:
         return HttpResponseRedirect(reverse('main'))
-    season = models.Season.objects.by_name_id(season_id)
+    season_name = unquote(season_id, encoding='utf-8', errors='replace')
+    season = models.Season.objects.by_name_id(season_name)
     if request.method == 'POST':
         form = CreateGroupForm(request.POST)
         if form.is_valid():
@@ -1605,11 +1610,13 @@ def create_group(request, season_id):
 
 
 def group_edit(request, group_id):
+    group_name = unquote(group_id, encoding='utf-8', errors='replace')
     return HttpResponseRedirect(reverse('main'))
 
 
 def group_delete(request, group_id):
-    group = models.CharacterGroup.objects.get_by_name_id(group_id)
+    group_name = unquote(group_id, encoding='utf-8', errors='replace')
+    group = models.CharacterGroup.objects.get_by_name_id(group_name)
     if group is not None:
         if request.user.is_master and (request.user == group.creator):
             group.delete()
@@ -1617,6 +1624,7 @@ def group_delete(request, group_id):
 
 
 def group_view(request, group_id):
-    group = models.CharacterGroup.objects.get_by_name_id(group_id)
+    group_name = unquote(group_id, encoding='utf-8', errors='replace')
+    group = models.CharacterGroup.objects.get_by_name_id(group_name)
     characters = group.character_set.all()
     return TemplateResponse(request, 'group.html', {'version': VERSION, 'group': group, 'characters': characters})
