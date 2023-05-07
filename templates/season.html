@@ -34,7 +34,7 @@ Campaign {{ season.name }}
             {% endif %}
         </div>
     </div>
-    {% if forloop.counter|divisibleby:3 %}
+    {% if forloop.counter|divisibleby:3 or forloop.last %}
 </div>
     {% endif %}
 {% empty %}
