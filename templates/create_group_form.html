@@ -50,7 +50,7 @@
                         {% endfor %}
                         </div>
                     </div>
-                    {% if forloop.counter|divisibleby:3 or forloop.last %}
+                    {% if forloop.counter|divisibleby:3 or forloop.last or group.grouper == 'group-data' %}
                 </div>
                     {% endif %}
         {% endfor %}
