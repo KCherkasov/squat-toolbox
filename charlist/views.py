@@ -1523,6 +1523,16 @@ def resume_creation_edit(request, creation_id):
         return reverse('characters-list')
 
 
+def seasons_list(request):
+    seasons = models.Season.objects.by_uid(request.user.pk)
+    groups = dict()
+    for season in seasons:
+        groups[season.pk] = list()
+        for group in models.CharacterGroup.objects.get_by_season(season.pk):
+            groups.get(season.pk).append(group)
+    return TemplateResponse('seasons_list.html', {'version': VERSION, 'seasons': seasons, 'groups': groups})
+
+
 def create_season(request):
     if request.method == 'POST':
         if request.user.is_master:
@@ -1533,17 +1543,37 @@ def create_season(request):
                                                       description=form.cleaned_data.get('description'))
                 season.name_id = season.make_name_id()
                 season.save()
-                return HttpResponseRedirect(reverse('campaigns-list'))
+                return HttpResponseRedirect(reverse('seasons-list'))
             else:
-                return TemplateResponse(request, 'create_season_form.html', {'form': form})
+                return TemplateResponse(request, 'create_season_form.html', {'version': VERSION, 'form': form})
         else:
             return HttpResponseRedirect(reverse('main'))
     else:
         form = CreateSeasonForm()
-        return TemplateResponse(request, 'create_season_form.html', {'form': form})
+        return TemplateResponse(request, 'create_season_form.html', {'version': VERSION, 'form': form})
+
+
+def season_edit(request, season_id):
+    return HttpResponseRedirect(reverse('main'))
+
+
+def season_delete(request, season_id):
+    season = models.Season.objects.by_name_id(season_id)
+    if season is not None:
+        if request.user.is_master and (request.user == season.creator):
+            season.delete()
+    return HttpResponseRedirect(reverse('seasons-list'))
+
+
+def season_view(request, season_id):
+    season = models.Season.objects.by_name_id(season_id)
+    groups = models.CharacterGroup.objects.get_by_season(season.pk)
+    return TemplateResponse(request, 'season.html', {'version': VERSION, 'season': season, 'groups': groups, })
 
 
 def create_group(request, season_id):
+    if not request.user.is_master:
+        return HttpResponseRedirect(reverse('main'))
     season = models.Season.objects.by_name_id(season_id)
     if request.method == 'POST':
         form = CreateGroupForm(request.POST)
@@ -1562,12 +1592,31 @@ def create_group(request, season_id):
                         if character:
                             character.groups.add(group)
                             character.save()
-            return HttpResponseRedirect(reverse('season-view', kwargs={'season_name': season_id, }))
+            return HttpResponseRedirect(reverse('season-view', kwargs={'season_id': season_id, }))
         else:
-            return TemplateResponse(request, 'create_group_form.html', {'form': form})
+            return TemplateResponse(request, 'create_group_form.html', {'version': VERSION, 'form': form,
+                                                                        'season': season, })
     else:
         characters = models.Character.objects.all()
 
         form = CreateGroupForm(characters)
-        return TemplateResponse(request, 'create_group_form.html', {'form': form})
+        return TemplateResponse(request, 'create_group_form.html', {'version': VERSION, 'form': form,
+                                                                    'season': season, })
 
+
+def group_edit(request, group_id):
+    return HttpResponseRedirect(reverse('main'))
+
+
+def group_delete(request, group_id):
+    group = models.CharacterGroup.objects.get_by_name_id(group_id)
+    if group is not None:
+        if request.user.is_master and (request.user == group.creator):
+            group.delete()
+    return HttpResponseRedirect(reverse('seasons-list'))
+
+
+def group_view(request, group_id):
+    group = models.CharacterGroup.objects.get_by_name_id(group_id)
+    characters = group.character_set.all()
+    return TemplateResponse(request, 'group.html', {'version': VERSION, 'group': group, 'characters': characters})

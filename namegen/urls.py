@@ -75,6 +75,17 @@ urlpatterns = [
     path(r'character/<int:char_id>/upgrade', charviews.character_upgrade, name='character-upgrade'),
     path(r'character/<int:char_id>/processing', rt_views.upg_midlayer, name='character-upg-midlayer'),
 
+    path(r'master/campaigns', charviews.seasons_list, name='seasons-list'),
+    path(r'master/campaign/create', charviews.create_season, name='create-season'),
+    path(r'master/campaign/<str:season_id>', charviews.season_view, name='season'),
+    path(r'master/campaign/<str:season_id>/edit', charviews.season_edit, name='edit-season'),
+    path(r'master/campaign/<str:season_id>/delete', charviews.season_delete, name='delete-season'),
+
+    path(r'master/group/create/<str:season_id>', charviews.create_group, name='create-group'),
+    path(r'master/group/<str:group_id>', charviews.group_view, name='group'),
+    path(r'master/group/<str:group_id>/edit', charviews.group_edit, name='edit-group'),
+    path(r'master/group/<str:group_id>/delete', charviews.group_delete, name='delete-group'),
+
     path(r'creation-data/<int:creation_id>/',
          charviews.resume_creation_edit, name='char-data-edit'),
     path(r'creation-data/<int:creation_id>/delete',

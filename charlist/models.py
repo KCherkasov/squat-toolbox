@@ -96,13 +96,19 @@ class Season(models.Model):
     objects = SeasonManager()
 
     def get_url(self):
-        pass
+        return unquote(reverse('season', kwargs={'season_id': self.name_id, }), encoding='utf-8', errors='replace')
 
     def get_edit_link(self):
-        pass
+        return unquote(reverse('edit-season', kwargs={'season_id': self.name_id, }),
+                       encoding='utf-8', errors='replace')
 
     def get_delete_link(self):
-        pass
+        return unquote(reverse('delete-season', kwargs={'season_id': self.name_id, }),
+                       encoding='utf-8', errors='replace')
+
+    def get_create_group_link(self):
+        return unquote(reverse('create-group', kwargs={'season_id': self.name_id, }),
+                       encoding='utf-8', errors='replace')
 
     def make_name_id(self):
         return re.sub(' +', '_', self.name)
@@ -139,13 +145,13 @@ class CharacterGroup(models.Model):
     objects = CharacterGroupManager()
 
     def get_url(self):
-        pass
+        return unquote(reverse('group', kwargs={'group_id': self.name_id}), encoding='utf-8', errors='replace')
 
     def get_edit_link(self):
-        pass
+        return unquote(reverse('edit-group', kwargs={'group_id': self.name_id}), encoding='utf-8', errors='replace')
 
     def get_delete_link(self):
-        pass
+        return unquote(reverse('delete-group', kwargs={'group_id': self.name_id}), encoding='utf-8', errors='replace')
 
     def make_name_id(self):
         return self.season.name_id + '_' + re.sub(' +', '_', self.name)

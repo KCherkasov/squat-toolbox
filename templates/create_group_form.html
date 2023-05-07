@@ -1,10 +1,17 @@
 {% extends 'charlist_main.html' %}
 
-{% block pg_title %}login{% endblock %}
+{% block pg_title %}Create group{% endblock %}
+
+{% block title %}
+Чарник ver.{{ version }}&nbsp;|&nbsp;Master edition
+{% endblock %}
+
+
+{% load filters %}
 
 {% block app_content %}
 <div class="page-header text-center">
-    <h3>Создать группу</h3>
+    <h3>Создать группу для кампании {{ season.name }}</h3>
 </div>
 <hr/>
 {% for err in form.non_field_errors %}
