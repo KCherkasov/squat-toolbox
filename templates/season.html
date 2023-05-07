@@ -23,13 +23,17 @@ Campaign {{ season.name }}
 <div class="card-group align-self-center justify-content-center">
     {% endif%}
     <div class="card">
-        <div class="card-body">
+        <div class="card-body text-center">
             <p class="card-title"><a href="{{ group.get_url }}">{{ group.name }}</a></p>
             <p class="card-subtitle">{{ group.description }}</p>
             {% if request.user == group.creator %}
-            <div class="charlist-inline align-self-center">
-                <a role="button" class="btn btn-success" href="{{ group.get_edit_link }}">Редактировать</a>
-                <a role="button" class="btn btn-danger" href="{{ group.get_delete_url }}">Удалить</a>
+            <div class="charlist-inline align-self-center justify-content-center">
+                <div>
+                    <a role="button" class="btn btn-success" href="{{ group.get_edit_link }}">Редактировать</a>
+                </div>
+                <div>
+                    <a role="button" class="btn btn-danger" href="{{ group.get_delete_url }}">Удалить</a>
+                </div>
             </div>
             {% endif %}
         </div>
