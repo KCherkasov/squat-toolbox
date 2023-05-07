@@ -1580,8 +1580,9 @@ def create_group(request, season_id):
         return HttpResponseRedirect(reverse('main'))
     season_name = unquote(season_id, encoding='utf-8', errors='replace')
     season = models.Season.objects.by_name_id(season_name)
+    characters = models.Character.objects.all()
     if request.method == 'POST':
-        form = CreateGroupForm(request.POST)
+        form = CreateGroupForm(characters, request.POST)
         if form.is_valid():
             group = models.CharacterGroup.objects.create(creator=request.user, season=season,
                                                          name=form.cleaned_data.get('name'),
@@ -1602,8 +1603,6 @@ def create_group(request, season_id):
             return TemplateResponse(request, 'create_group_form.html', {'version': VERSION, 'form': form,
                                                                         'season': season, })
     else:
-        characters = models.Character.objects.all()
-
         form = CreateGroupForm(characters)
         return TemplateResponse(request, 'create_group_form.html', {'version': VERSION, 'form': form,
                                                                     'season': season, })
