@@ -2,7 +2,7 @@
 
 <div class="card charlist-content w750 align-self-center">
     {% with char_data|get_by_dict_key:character.pk as char_model %}
-    <div class="card-title">
+    <div class="card-title text-center">
         <h4><a class="card-link" href="{{ character.get_view_url }}">
             {{ char_model.name }}&nbsp;({% if char_model.is_rt %}Rogue Trader 2.0{% else %}Dark Heresy 2<sup>nd</sup> edition{% endif %})
         </a></h4>
