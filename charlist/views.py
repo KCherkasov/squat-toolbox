@@ -1598,7 +1598,7 @@ def create_group(request, season_id):
                         if character:
                             character.groups.add(group)
                             character.save()
-            return HttpResponseRedirect(reverse('season-view', kwargs={'season_id': season_id, }))
+            return HttpResponseRedirect(reverse('season', kwargs={'season_id': season_id, }))
         else:
             return TemplateResponse(request, 'create_group_form.html', {'version': VERSION, 'form': form,
                                                                         'season': season, })
