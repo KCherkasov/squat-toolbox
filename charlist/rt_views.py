@@ -267,11 +267,8 @@ def create_character_double_apts(request, creation_id):
         form = DoubleAptsForm(cdm, rt_flyweights, request.POST)
         if form.is_valid():
             simple_apts = cdm.simplify_apts()
-            for i in range(len(form.cleaned_data)):
-                field_name = 'apt-' + str(i + 1)
-                if field_name not in form.cleaned_data.keys():
-                    break
-                simple_apts.append(form.cleaned_data.get(field_name))
+            for key, value in form.cleaned_data.items():
+                simple_apts.append(value)
             cd.aptitudes = simple_apts
             cd.character_data = cdm.to_json()
             cd.last_mod_date = datetime.datetime.now()
