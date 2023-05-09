@@ -358,7 +358,8 @@
         },
         {
           "command": "IncreaseStatAlt",
-          "tags": ["ST_PER", "ST_T"]
+          "tags": ["ST_PER", "ST_T"],
+          "amount": 3
         }
       ],
       "aptitude_choices": ["A_T", "A_PER"],
