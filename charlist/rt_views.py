@@ -269,7 +269,7 @@ def create_character_double_apts(request, creation_id):
             simple_apts = cdm.simplify_apts()
             for key, value in form.cleaned_data.items():
                 simple_apts.append(value)
-            cd.aptitudes = simple_apts
+            cdm.aptitudes = simple_apts
             cd.character_data = cdm.to_json()
             cd.last_mod_date = datetime.datetime.now()
             cd.curr_stage = 'divination'
