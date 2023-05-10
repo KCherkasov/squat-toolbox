@@ -34,7 +34,11 @@
                     <b>{% if lang == 'ru' %}Подтипы{% else %}Subtypes{% endif %}:&nbsp;</b>
                     {% for kw in combat_action.keywords %}
                         {% with facade.keywords|get_by_dict_key:kw as keyword %}
-                            {{ keyword.get_names|get_by_dict_key:lang }}
+                            {% if lang == 'ru' %}
+                                {{ keyword.get_name_ru }}
+                            {% else %}
+                                {{ keyword.get_name_en }}
+                            {% endif %}
                         {% endwith %}
                         {% if not forloop.last %};&nbsp;{% endif %}
                     {% endfor %}
