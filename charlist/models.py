@@ -141,6 +141,7 @@ class CharacterGroup(models.Model):
     group_notes_url = models.TextField(max_length=500, default='', blank=True)
     is_rt = models.BooleanField(default=False)
     group_ifl = models.PositiveIntegerField(default=25)
+    sessions_count = models.PositiveIntegerField(default=0)
 
     objects = CharacterGroupManager()
 
@@ -155,6 +156,55 @@ class CharacterGroup(models.Model):
 
     def make_name_id(self):
         return self.season.name_id + '_' + re.sub(' +', '_', self.name)
+
+    def get_create_session_link(self):
+        return unquote(reverse('create-session', kwargs={'group_id': self.name_id}),
+                       encoding='utf-8', errors='replace')
+
+    def get_create_crossover_link(self):
+        return unquote(reverse('create-crossover-session', kwargs={'group_id': self.name_id}),
+                       encoding='utf-8', errors='replace')
+
+
+class GameSessionQuerySet(models.QuerySet):
+    def with_creator(self):
+        return self.prefetch_related('creator')
+
+    def with_group(self):
+        return self.prefetch_related('group')
+
+
+class GameSessionManager(models.Manager):
+    def queryset(self):
+        query = GameSessionQuerySet(self.model, using=self._db)
+        return query.with_creator().with_group()
+
+    def get_by_creator(self, uid):
+        return self.filter(creator=uid)
+
+    def get_by_group(self, gid):
+        return self.filter(base_group=gid)
+
+    def get_active(self):
+        return self.filter(finished=False)
+
+    def get_finished(self):
+        return self.filter(finished=True)
+
+
+class GameSession(models.Model):
+    creator = models.ForeignKey(CharsheetUser, on_delete=models.CASCADE)
+    base_group = models.ForeignKey(CharacterGroup, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100, default=u'', blank=True)
+    finished = models.BooleanField(default=False)
+    date_created = models.DateTimeField(auto_now=True, auto_now_add=True)
+    date_finished = models.DateTimeField(auto_now=False, auto_now_add=False, blank=True)
+    xp_given = models.PositiveIntegerField(default=0)
+
+    objects = GameSessionManager()
+
+    def get_url(self):
+        return unquote(reverse('session', kwargs={'game_session_id': self.pk, }), encoding='utf-8', errors='replace')
 
 
 class CharacterQuerySet(models.QuerySet):
@@ -176,9 +226,13 @@ class CharacterManager(models.Manager):
     def by_group(self, group):
         return self.queryset().filter(groups=group)
 
+    def by_session(self, session):
+        return self.queryset().filter(sessions=session)
+
 
 class Character(models.Model):
     owner = models.ForeignKey(CharsheetUser, on_delete=models.CASCADE)
+    sessions = models.ManyToManyField(GameSession, blank=True, default=None)
     groups = models.ManyToManyField(CharacterGroup, blank=True, default=None)
     creation_date = models.DateField(auto_now_add=True)
     character_data = models.CharField(max_length=25000)
@@ -198,6 +252,9 @@ class Character(models.Model):
 
     def get_delete_url(self):
         return unquote(reverse('character-delete', kwargs={'char_id': self.pk}), encoding='utf-8', errors='replace')
+
+    def sessions_played(self):
+        return len(self.sessions.all())
 
 
 class CreationDataQuerySet(models.QuerySet):

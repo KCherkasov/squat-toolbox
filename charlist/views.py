@@ -2,6 +2,7 @@
 import datetime
 import logging
 from urllib.parse import unquote
+from operator import itemgetter
 
 from django.contrib.auth import get_user_model
 from django.contrib.auth import login
@@ -67,6 +68,15 @@ from charlist.rt_views import rt_flyweights, rt_commands_parser
 
 from charlist.forms.master.create_season_form import CreateSeasonForm
 from charlist.forms.master.create_group_form import CreateGroupForm
+from charlist.forms.master.create_game_session import CreateSessionForm
+from charlist.forms.master.end_session_form import EndSessionForm
+from charlist.forms.master.initiative_line_maker import InitiativeLineMaker
+from charlist.forms.master.influence_controls_form import InfluenceControlsForm
+from charlist.forms.master.group_xp_giver_form import GroupXPGiverForm
+
+from charlist.forms.player.fate_controls_form import FateControlsForm
+from charlist.forms.player.wound_controls_form import WoundControlsForm
+from charlist.forms.player.fatigue_controls_form import FatigueControlsForm
 
 
 class TokenGenerator(PasswordResetTokenGenerator):
@@ -1487,6 +1497,7 @@ def character_upgrade(request, char_id):
                                                                 'char_view': character.get_view_url(), })
 
 
+@csrf_exempt
 def character_delete(request, char_id):
     character = models.Character.objects.get(pk=char_id)
     if (character is not None) and (character.owner == request.user):
@@ -1534,6 +1545,7 @@ def seasons_list(request):
     return TemplateResponse(request, 'seasons_list.html', {'version': VERSION, 'seasons': seasons, 'groups': groups})
 
 
+@csrf_exempt
 def create_season(request):
     if request.method == 'POST':
         if request.user.is_master:
@@ -1554,11 +1566,13 @@ def create_season(request):
         return TemplateResponse(request, 'create_season_form.html', {'version': VERSION, 'form': form})
 
 
+@csrf_exempt
 def season_edit(request, season_id):
     season_name = unquote(season_id, encoding='utf-8', errors='replace')
     return HttpResponseRedirect(reverse('main'))
 
 
+@csrf_exempt
 def season_delete(request, season_id):
     season_name = unquote(season_id, encoding='utf-8', errors='replace')
     season = models.Season.objects.by_name_id(season_name)
@@ -1575,6 +1589,7 @@ def season_view(request, season_id):
     return TemplateResponse(request, 'season.html', {'version': VERSION, 'season': season, 'groups': groups, })
 
 
+@csrf_exempt
 def create_group(request, season_id):
     if not request.user.is_master:
         return HttpResponseRedirect(reverse('main'))
@@ -1608,11 +1623,13 @@ def create_group(request, season_id):
                                                                     'season': season, })
 
 
+@csrf_exempt
 def group_edit(request, group_id):
     group_name = unquote(group_id, encoding='utf-8', errors='replace')
     return HttpResponseRedirect(reverse('main'))
 
 
+@csrf_exempt
 def group_delete(request, group_id):
     group_name = unquote(group_id, encoding='utf-8', errors='replace')
     group = models.CharacterGroup.objects.get_by_name_id(group_name)
@@ -1622,9 +1639,96 @@ def group_delete(request, group_id):
     return HttpResponseRedirect(reverse('seasons-list'))
 
 
+@csrf_exempt
+def group_gain_influence(request, group: models.CharacterGroup):
+    form = InfluenceControlsForm(request.POST)
+    if form.is_valid():
+        group.group_ifl += int(form.cleaned_data.get('amount'))
+        group.save()
+    return HttpResponseRedirect(reverse('group', kwargs={'group_id': group.name_id}))
+
+
+@csrf_exempt
+def group_loose_influence(request, group: models.CharacterGroup):
+    form = InfluenceControlsForm(request.POST)
+    if form.is_valid():
+        group.group_ifl -= int(form.cleaned_data.get('amount'))
+        group.save()
+    return HttpResponseRedirect(reverse('group', kwargs={'group_id': group.name_id}))
+
+
+@csrf_exempt
+def group_gain_xp(request, group: models.CharacterGroup):
+    form = GroupXPGiverForm(group, request.POST)
+    if form.is_valid() and (request.user == group.creator):
+        amount = int(form.cleaned_data.get('amount'))
+        characters = models.Character.objects.by_group(group)
+        for character in characters:
+            model = character.data_to_model()
+            if form.cleaned_data.get('all') or form.cleaned_data.get('c'+str(character.pk)):
+                model.get_xp(amount)
+                character.character_data = model.toJSON()
+                character.save()
+    return HttpResponseRedirect(reverse('group', kwargs={'group_id': group.name_id}))
+
+
+def collect_facts(characters, facade):
+    facts = {'spec_skills': dict(), 'psy': dict(), 'talents': dict()}
+    for character in characters:
+        for skill in character.skills():
+            if skill.is_specialist():
+                if skill.tag() not in facts.get('spec_skills').keys():
+                    facts.get('spec_skills')[skill.tag()] = dict()
+                for subtag in skill.advances().keys():
+                    if subtag not in facts.get('spec_skills').get(skill.tag()).keys():
+                        facts.get('spec_skills').get(skill.tag())[subtag] = list()
+                    facts.get('spec_skills').get(skill.tag()).get(subtag).append(
+                        character.name() + ' ' + str(skill.get_adv_bonus_subtag(subtag)))
+            if skill.tag() == 'SK_PSY':
+                if skill.tag() not in facts.get('psy').keys():
+                    facts.get('psy')[skill.tag()] = list()
+                facts.get('psy').get(skill.tag()).append(character.name() + ' ' + str(skill.get_adv_bonus()))
+        for talent in character.talents():
+            if (talent.tag() in INTERESTING_TALENTS) and (talent.tag() in facade.talent_descriptions().keys()):
+                if talent.tag() not in facts.get('talents').keys():
+                    facts.get('talents')[talent.tag()] = list()
+                name = character.name() + ' ' + facade.talent_descriptions().get(talent.tag()).name().get('en')
+                if talent.is_specialist():
+                    name += ' ('
+                    for subtag in talent.taken().keys():
+                        name += ' ' + subtag + ','
+                    name = name[:len(name) - 1] + ')'
+                facts.get('talents').get(talent.tag()).append(name)
+        for trait in character.traits():
+            if trait.tag() == 'TR_PSY':
+                if trait.tag() not in facts.get('psy').keys():
+                    facts.get('psy')[trait.tag()] = list()
+                name = character.name()
+                if 'TR_SNC' in character.traits():
+                    name += u' (санкционат)'
+                else:
+                    name = u' (несанкционат)'
+                facts.get('psy').get(trait.tag()).append(name)
+        if character.is_rt():
+            facts['trials'] = dict()
+            if character.trial_id() in INTERESTING_TRIALS:
+                if character.trial_id() not in facts.get('trials'):
+                    facts.get('trials')[character.trial_id()] = list()
+                facts.get('trials').get(character.trial_id).append(character.name())
+    return facts
+
+
+@csrf_exempt
 def group_view(request, group_id):
     group_name = unquote(group_id, encoding='utf-8', errors='replace')
     group = models.CharacterGroup.objects.get_by_name_id(group_name)
+    if request.method == 'POST':
+        if 'ifl-get-confirm' in request.POST:
+            return group_gain_influence(request, group)
+        if 'ifl-loose-confirm' in request.POST:
+            return group_loose_influence(request, group)
+        if 'end-session-confirm' in request.POST:
+            return group_gain_xp(request, group)
     characters = models.Character.objects.by_group(group)
     character_models = dict()
     if group.is_rt:
@@ -1638,7 +1742,229 @@ def group_view(request, group_id):
         if (not is_captain) and group.is_rt:
             is_captain = (request.user == character.owner)\
                          and (character_models.get(character.pk).career_id() == 'CR_RT')
+            if is_captain:
+                break
     is_master = request.user == group.creator
+    active_sessions = models.GameSession.objects.get_by_group(group).get_active()
+    finished_sessions = models.GameSession.objects.get_by_group(group).get_finished()
+    ifl_form = None
+    xp_form = None
+    if is_master:
+        ifl_form = InfluenceControlsForm()
+        xp_form = GroupXPGiverForm(group)
+    if is_captain:
+        ifl_form = InfluenceControlsForm()
+    facts = collect_facts(character_models, facade)
     return TemplateResponse(request, 'group.html', {'version': VERSION, 'group': group, 'facade': facade,
                                                     'characters': characters, 'char_data': character_models,
-                                                    'is_master': is_master, 'is_captain': is_captain, })
+                                                    'is_master': is_master, 'is_captain': is_captain,
+                                                    'active': active_sessions, 'finished': finished_sessions,
+                                                    'ifl_form': ifl_form, 'xp_form': xp_form, 'facts': facts })
+
+
+def make_session_name(name: str, group: models.CharacterGroup):
+    const_part = u'Сессия №' + str(group.sessions_count + 1) + u' группы ' + group.name\
+                 + u' в кампании ' + group.season.name
+    if name and (len(name) > 0):
+        session_name = name + u' (' + const_part + u')'
+    else:
+        session_name = const_part
+    return session_name
+
+
+@csrf_exempt
+def create_session(request, group_id):
+    group_name = unquote(group_id, encoding='utf-8', errors='replace')
+    group = models.CharacterGroup.objects.get_by_name_id(group_name)
+    if request.user.is_master and (request.user == group.creator):
+        characters = models.Character.objects.by_group(group)
+        if request.method == 'POST':
+            form = CreateSessionForm(group, characters, False, request.POST)
+            if form.is_valid():
+                session = models.GameSession(creator=request.user, base_group=group,
+                                             name=make_session_name(form.cleaned_data['name'], group))
+                session.save()
+                for character in characters:
+                    character.sessions.add(session)
+                    character.save()
+                return HttpResponseRedirect(reverse('session', kwargs={'game_session_id': session.pk, }))
+            return TemplateResponse(request, 'create_session_form.html', {'version': VERSION, 'crossover': False,
+                                                                          'group': group, 'form': form })
+        else:
+            form = CreateSessionForm(group, characters, False)
+            return TemplateResponse(request, 'create_session_form.html', {'version': VERSION, 'crossover': False,
+                                                                          'group': group, 'form': form })
+    else:
+        HttpResponseRedirect(reverse('main'))
+
+
+@csrf_exempt
+def create_crossover_session(request, group_id):
+    group_name = unquote(group_id, encoding='utf-8', errors='replace')
+    group = models.CharacterGroup.objects.get_by_name_id(group_name)
+    if request.user.is_master and (request.user == group.creator):
+        characters = models.Character.objects.by_group(group)
+        if request.method == 'POST':
+            form = CreateSessionForm(group, characters, True, request.POST)
+            if form.is_valid():
+                session = models.GameSession(creator=request.user, base_group=group,
+                                             name=make_session_name(form.cleaned_data['name'], group))
+                session.save()
+                for character in characters:
+                    character.sessions.add(session)
+                    character.save()
+                return HttpResponseRedirect(reverse('session', kwargs={'game_session_id': session.pk, }))
+            return TemplateResponse(request, 'create_session_form.html', {'version': VERSION, 'crossover': True,
+                                                                          'group': group, 'form': form })
+        else:
+            form = CreateSessionForm(group, characters, False)
+            return TemplateResponse(request, 'create_session_form.html', {'version': VERSION, 'crossover': True,
+                                                                          'group': group, 'form': form })
+    else:
+        HttpResponseRedirect(reverse('main'))
+
+
+@csrf_exempt
+def session_gain_influence(request, session: models.GameSession):
+    form = InfluenceControlsForm(request.POST)
+    if form.is_valid():
+        session.base_group.group_ifl += int(form.cleaned_data.get('amount'))
+        session.base_group.save()
+    return HttpResponseRedirect(reverse('session', kwargs={'game_session_id': session.pk}))
+
+
+@csrf_exempt
+def session_loose_influence(request, session: models.GameSession):
+    form = InfluenceControlsForm(request.POST)
+    if form.is_valid():
+        session.base_group.group_ifl -= int(form.cleaned_data.get('amount'))
+        session.base_group.save()
+    return HttpResponseRedirect(reverse('session', kwargs={'game_session_id': session.pk}))
+
+
+@csrf_exempt
+def finish_session(request, session: models.GameSession):
+    form = EndSessionForm(request.POST)
+    if form.is_valid():
+        session.finished = True
+        session.base_group.sessions_count += 1
+        session.save()
+        session.base_group.save()
+        xp_gain = int(form.cleaned_data['xp_amount'])
+        participants = models.Character.objects.by_session(session)
+        for participant in participants:
+            model = participant.data_to_model()
+            model.gain_xp(xp_gain)
+            participant.character_data = model.toJSON()
+            participant.save()
+    return HttpResponseRedirect(reverse('group', kwargs={'group_id': session.base_group.name_id}))
+
+
+def parse_prompt(prompt: str):
+    raw_participants = prompt.split(';')
+    participants = list()
+    for i in range(len(raw_participants)):
+        if i > 0:
+            participants.append(raw_participants[i][1:len(raw_participants[i])])
+        else:
+            participants.append(raw_participants[i][:len(raw_participants[i])])
+    parsed = list()
+    for participant in participants:
+        splitted = participant.split('-', maxsplit=3)
+        parsed.append({'name': splitted[0], 'roll': int(splitted[1]), 'stat': int(splitted[2])})
+    return parsed
+
+
+@csrf_exempt
+def make_initiative_line(request, participants, facade, session):
+    characters = list()
+    for cid, model in participants.items():
+        characters.append(model)
+    form = InitiativeLineMaker(characters, facade, request.POST)
+    if form.is_valid():
+        parsed = parse_prompt(form.cleaned_data.get('prompt'))
+        for cid, character in participants.items():
+            roll_field = 'roll-c-' + str(cid)
+            stat_field = 'stat-c-' + str(cid)
+            parsed.append({'name': character.name(), 'roll': int(form.cleaned_data.get(roll_field)),
+                           'stat': character.stats().get(form.cleaned_data.get(stat_field)).value()})
+        parsed.sort(key=itemgetter('roll', 'stat', 'name'), reverse=True)
+        ifl_form = InfluenceControlsForm()
+        finish_form = EndSessionForm()
+        return TemplateResponse(request, 'session_view.html', {'version': VERSION, 'session': session,
+                                                               'char_data': participants, 'ifl_form': ifl_form,
+                                                               'finish_form': finish_form,
+                                                               'initiative_line': form, 'parsed': parsed, })
+
+
+@csrf_exempt
+def session_view(request, game_session_id):
+    session = models.GameSession.objects.get(pk=game_session_id)
+    group_chars = list()
+    crossover_chars = list()
+    participants = list()
+    character_models = dict()
+    if session.base_group.is_rt:
+        facade = rt_flyweights
+    else:
+        facade = flyweights
+    for character in models.Character.objects.all():
+        if session in character.sessions.all():
+            if session.base_group in character.groups.all():
+                group_chars.append(character)
+            else:
+                crossover_chars.append(character)
+            model = character.data_to_model()
+            character_models[character.pk] = model
+            participants.append(model)
+    if request.method == 'POST':
+        if 'ifl-get-confirm' in request.POST:
+            return session_gain_influence(request, session)
+        if 'ifl-loose-confirm' in request.POST:
+            return session_loose_influence(request, session)
+        if 'end-session-confirm' in request.POST:
+            return finish_session(request, session)
+        if 'mk-init-line' in request.POST:
+            return make_initiative_line(request, character_models, facade, session)
+        finish_form = None
+        initiative_line = None
+        ifl_form = None
+        for character in group_chars:
+            if request.user == character.owner:
+                initiative_line = InitiativeLineMaker(participants, facade)
+                if character.is_rt and (character.data_to_model().career_id() == 'CR_RT'):
+                    ifl_form = InfluenceControlsForm()
+                break
+        for character in crossover_chars:
+            if request.user == character.owner:
+                initiative_line = InitiativeLineMaker(participants, facade)
+                break
+        facts = collect_facts(character_models, facade)
+        return TemplateResponse(request, 'session_view.html', {'version': VERSION, 'session': session,
+                                                               'char_data': character_models, 'ifl_form': ifl_form,
+                                                               'finish_form': finish_form, 'facts': facts,
+                                                               'initiative_line': initiative_line, })
+    else:
+        if request.user.is_master and (request.user == session.creator):
+            ifl_form = InfluenceControlsForm()
+            finish_form = EndSessionForm()
+            initiative_line = InitiativeLineMaker(participants, facade)
+        else:
+            finish_form = None
+            initiative_line = None
+            ifl_form = None
+            for character in group_chars:
+                if request.user == character.owner:
+                    initiative_line = InitiativeLineMaker(participants, facade)
+                    if character.is_rt and (character.data_to_model().career_id() == 'CR_RT'):
+                        ifl_form = InfluenceControlsForm()
+                    break
+            for character in crossover_chars:
+                if request.user == character.owner:
+                    initiative_line = InitiativeLineMaker(participants, facade)
+                    break
+        facts = collect_facts(character_models, facade)
+        return TemplateResponse(request, 'session_view.html', {'version': VERSION, 'session': session,
+                                                               'char_data': character_models, 'ifl_form': ifl_form,
+                                                               'finish_form': finish_form, 'facts': facts,
+                                                               'initiative_line': initiative_line, })

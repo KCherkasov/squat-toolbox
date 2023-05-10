@@ -290,3 +290,15 @@ HOMEWORLD_FRONTIER = 'HW_FRWL'
 BAD_EAS = []
 
 RT_BAD_EAS = ['EA_INQV', 'EA_BTSS', 'EA_UNTC', 'EA_ASPT']
+
+INTERESTING_TALENTS = ['TL_JD',   'TL_PR',   'TL_WS',   'TL_LTSL', 'TL_MDTN', 'TL_FRLS', 'TL_UNRM', 'TL_ENM',
+                       'TL_KI',   'TL_QD',   'TL_TKD',  'TL_RST',  'TL_MGTR', 'TL_CMST', 'TL_CNVG', 'TL_CNNT',
+                       'TL_CVUP', 'TL_STMN', 'TL_ADFT', 'TL_FOIN', 'TL_INKN', 'TL_BG',   'TL_DMH',  'TL_WTFN',
+                       'TL_AMIM', 'TL_ARCH', 'TL_LXG',  'TL_XNS',  'TL_INCN', 'TL_AGOC', 'TL_AROA', 'TL_ARCN',
+                       'TL_CHGD', 'TL_CLSL', 'TL_CLRD', 'TL_CMFR', 'TL_DSVC', 'TL_ETVG', 'TL_FRST', 'TL_IRDS',
+                       'TL_MSCM', 'TL_MTMZ', 'TL_MMC',  'TL_OPCN', 'TL_PRN',  'TL_PLG',  'TL_RPRC', 'TL_RNWR',
+                       'TL_STCN', 'TL_WOEX']
+
+INTERESTING_TRAITS = ['TR_PSY', 'TR_SNC']
+
+INTERESTING_TRIALS = ['TOT_HOW', 'TOT_PRGN', 'TOT_HGVD']

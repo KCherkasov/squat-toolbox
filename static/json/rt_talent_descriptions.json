@@ -1049,7 +1049,7 @@
       },
       "hints": [
         {
-          "tag": "TL_CWUP_H1",
+          "tag": "TL_CNNT_H1",
           "description": {
             "ru": "Аколит может использовать свою Общительность вместо Влияния для проверок Реквизиции.",
             "en": "This Acolyte can use his Fellowship characteristic instead of Influence when making Requisition rolls."
@@ -4281,8 +4281,8 @@
         "en": "Blessed radiance"
       },
       "description": {
-        "ru": "Потратив Очко Судьбы на срабатывание Чистой Веры, персонаж может распространить свою невосприимчивость к демоническому присутствию на количество соратников, равное удвоенному бонусу Силы Воли. \nТакже в качестве свободного действия персонаж может передать одно Очко Судьбы союзнику. Если оно не будет потрачено, то в конце столкновения вернётся к хозяину.\nСжигая Очко Судьбы, персонаж и количество его союзников, равное его удвоенному Бонусу Силы воли, становятся невосприимчивы к воздействию демонического присутствия, Страха и Очков Порчи. Кроме того, все попавшие под действие этого таланта цели обретают бонус +10 к сопротивлению психическим атакам и другим видам психических манипуляций, а также получают только половину урона из психических и связанных с Варпом источников. Эти преимущества сохраняются до конца столкновения.",
-        "en": "When spending a Fate Point to activate the Pure Faith Talent, the Explorer extends the immunity to daemonic presence to a number of targets equal to twice his Willpower Bonus. \nAs a free action, he may bestow a single Fate Point to an ally. If the Fate Point is unspent, it returns at the end of the encounter.\nUpon burning a Fate Point, the Explorer and a number of allies equal to twice his Willpower Bonus become immune to the effects of daemonic presence, Fear Tests, and Corruption Points. In addition, all affected targets gain a +10 bonus on Tests made to resist psychic attack or any other form of psychic manipulation. In addition, affected targets take only half Damage from psychic and warp sources. These benefts last for the duration of the encounter."
+        "ru": "Потратив Очко Судьбы на срабатывание Чистой Веры, персонаж может распространить свою невосприимчивость к демоническому присутствию на количество соратников, равное удвоенному бонусу Силы Воли. Также в качестве свободного действия персонаж может передать одно Очко Судьбы союзнику. Если оно не будет потрачено, то в конце столкновения вернётся к хозяину. Сжигая Очко Судьбы, персонаж и количество его союзников, равное его удвоенному Бонусу Силы воли, становятся невосприимчивы к воздействию демонического присутствия, Страха и Очков Порчи. Кроме того, все попавшие под действие этого таланта цели обретают бонус +10 к сопротивлению психическим атакам и другим видам психических манипуляций, а также получают только половину урона из психических и связанных с Варпом источников. Эти преимущества сохраняются до конца столкновения.",
+        "en": "When spending a Fate Point to activate the Pure Faith Talent, the Explorer extends the immunity to daemonic presence to a number of targets equal to twice his Willpower Bonus. As a free action, he may bestow a single Fate Point to an ally. If the Fate Point is unspent, it returns at the end of the encounter. Upon burning a Fate Point, the Explorer and a number of allies equal to twice his Willpower Bonus become immune to the effects of daemonic presence, Fear Tests, and Corruption Points. In addition, all affected targets gain a +10 bonus on Tests made to resist psychic attack or any other form of psychic manipulation. In addition, affected targets take only half Damage from psychic and warp sources. These benefts last for the duration of the encounter."
       },
       "hints": [],
       "tier": 3,
@@ -4355,7 +4355,7 @@
         "en": "Cold Trader"
       },
       "description": {
-        "ru": "Когда персонаж приобретает эту черту характера, он должен выбрать один из двух путей: либо договориться с ксеносами, либо разграбить их. Если он решит заключить сделку с ксеносами, он получит талант Связи (Ксенос), применимый к видам ксеносов, с которыми он имеет дело. К несчастью для персонажа, если он выберет этот путь, его действия привлекут внимание Ордо Ксенос и он обретает Врага (Инквизицию).\nЕсли персонаж выберет путь грабителя, он получает Врага (Ксенос), связанного с выбранной им инопланетной добычей. \"\"Торговцы\"\" такого рода часто оказываются вовлеченными в насилие из-за своей добычи и в результате, как правило, ведут гораздо более воинственный образ жизни. Если персонаж выбирает этот путь, он получает талант Ненависти, применимый к этим конкретным ксеносам.",
+        "ru": "Когда персонаж приобретает эту черту характера, он должен выбрать один из двух путей: либо договориться с ксеносами, либо разграбить их. Если он решит заключить сделку с ксеносами, он получит талант Связи (Ксенос), применимый к видам ксеносов, с которыми он имеет дело. К несчастью для персонажа, если он выберет этот путь, его действия привлекут внимание Ордо Ксенос и он обретает Врага (Инквизицию). Если персонаж выберет путь грабителя, он получает Врага (Ксенос), связанного с выбранной им инопланетной добычей. 'Торговцы' такого рода часто оказываются вовлеченными в насилие из-за своей добычи и в результате, как правило, ведут гораздо более воинственный образ жизни. Если персонаж выбирает этот путь, он получает талант Ненависти, применимый к этим конкретным ксеносам.",
         "en": "When an Explorer acquires this Trait, he must choose one of two paths, to either deal directly with the xenos or to pillage their culture. If he chooses to deal with the xenos of his trade, he gains the Peer (Xenos) talent applicable to the xenos species he deals with. Unfortunately for the Explorer, if he chooses this path, his actions draw the gaze of the Ordo Xenos. and he gains the Enemy (Inquisition). If the Explorer chooses the path of the pillager, they gain the Enemy (Xenos) talent associated with their chosen alien prey. Brokers of this sort often find themselves involved in violence with their prey and as a result tend to live much more martial lives. If the Explorer chooses this path, he receives the Hatred talent applicable to his particular xenos."
       },
       "hints": [],
@@ -4405,7 +4405,7 @@
       },
       "description": {
         "ru": "Перед прохождением теста Коммерции, Бартера или Обаяния персонаж может пройти тест Обмана, которому противостоят Сила Воли или Проницательности цели. Если проверка будет успешной, персонаж получит от цели некоторую жизненно важную информацию, и затем может провести Серьёзный (0) тест Проницательности, чтобы оценить важность полученной информации. В случае успеха персонаж получает бонус +5 к своей следующей проверке Коммерции или Обаяния против цели за каждое очко Бонуса Восприятия. Он получил информацию о цели, которая поможет ему в его подаче, переговорах или дипломатии.",
-        "en": "Prior to making a Commerce, Barter, or Charm Test, the Charlatan may make a Deceive Test opposed by the target’s Willpower or Scrutiny. If the Deceive Test is a success, the Charlatan\nhas hooked the target into giving up some vital information and the Charlatan may then make a Challenging (+0) Scrutiny Test to assess the importance of the information gained. If successful,\nthe Charlatan gains a +5 bonus to his next Commerce or Charm Test against the target for each point of Perception Bonus. He has ascertained information about the target, which will aid him in his pitch, negotiations, or diplomacy."
+        "en": "Prior to making a Commerce, Barter, or Charm Test, the Charlatan may make a Deceive Test opposed by the target’s Willpower or Scrutiny. If the Deceive Test is a success, the Charlatan has hooked the target into giving up some vital information and the Charlatan may then make a Challenging (+0) Scrutiny Test to assess the importance of the information gained. If successful, the Charlatan gains a +5 bonus to his next Commerce or Charm Test against the target for each point of Perception Bonus. He has ascertained information about the target, which will aid him in his pitch, negotiations, or diplomacy."
       },
       "hints": [],
       "tier": 2,
@@ -5684,7 +5684,7 @@
     {
       "tag": "TL_TFIW",
       "name": {
-        "ru": "Полть слаба",
+        "ru": "Плоть слаба",
         "en": "The flesh is weak"
       },
       "description": {

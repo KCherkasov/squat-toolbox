@@ -16,9 +16,90 @@ Group&nbsp;{{ group.name }}&nbsp;from&nbsp;{{ group.season.name }}&nbsp;campaign
     <p><i>{{ group.description }}</i></p>
 </header>
 <div class="d-flex flex-column justify-content-center align-self-center">
-    {% for character in characters %}
-        {% include 'character_card_widget.html' %}
-    {% endfor %}
+    <div>
+        <div class="text-center">
+            <h5>Персонажи</h5>
+        </div>
+        <div class="d-flex flex-column justify-content-center align-self-center">
+            {% for character in characters %}
+                {% include 'character_card_widget.html' %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="d-flex flex-column justify-content-center align-self-center">
+        <div class="text-center">
+            <h5>Сессии</h5>
+        </div>
+        <div class="charlist-inline justify-content-center align-self-center">
+            <div class="text-center">
+                <p class="text-dark"><b>Активные</b></p>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-self-center">
+                {% for session in active %}
+
+                {% empty %}
+                <div class="text-center text-dark">
+                    <p><b>В настоящей момент у группы не запланировано игр.</b></p>
+                </div>
+                {% endfor %}
+                {% if is_master %}
+                    <div class="charlist-inline justify-content-center align-self-center mb-1 mt-2 text-center">
+                        <b class="text-dark">
+                            <a href="" class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
+                               data-bs-target="#g{{group.id}}-create-session-popup" title="Создать сессию">
+                                {% with facade.psy_powers|get_by_dict_key:form.pp_tag as power %}
+                                    {{ power.name|get_by_dict_key:lang }}
+                                {% endwith %}
+                            </a>
+                        </b>
+                    </div>
+                    <div class="modal fade" id="g{{group.id}}-create-session-popup" tabindex="-1"
+                         aria-labelledby="g{{group.id}}-create-session-popup">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-header">
+                                <b class="g{{group.id}}-create-session-popup">
+                                    Создать сессию для группы {{ group.name }}
+                                </b>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="text-center mb-2">
+                                <p class="text-dark">Какую сессию создать?</p>
+                            </div>
+                            <div class="charlist-inline justify-content-center align-self-center">
+                                <div>
+                                    <a role="button" class="btn btn-primary" href="{{ group.get_create_session_link }}">
+                                        Обычная сессия
+                                    </a>
+                                </div>
+                                <div>
+                                <div>
+                                    <a role="button" class="btn btn-success" href="{{ group.get_create_crossover_link }}">
+                                        Кроссовер
+                                    </a>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="charlist-inline justify-content-center align-self-center">
+            <div class="text-center">
+                <p class="text-dark"><b>Завершенные</b></p>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-self-center">
+                {% for session in finished %}
+
+                {% empty %}
+                <div class="text-center text-dark">
+                    <p><b>Группа еще ни разу не играла.</b></p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </div>
 <div class="charlist-inline justify-content-center align-self-center">
     <div>

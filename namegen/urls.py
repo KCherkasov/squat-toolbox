@@ -85,6 +85,11 @@ urlpatterns = [
     path(r'master/group/<str:group_id>', charviews.group_view, name='group'),
     path(r'master/group/<str:group_id>/edit', charviews.group_edit, name='edit-group'),
     path(r'master/group/<str:group_id>/delete', charviews.group_delete, name='delete-group'),
+    path(r'master/group/<str:group_id>/create-session', charviews.create_session, name='create-session'),
+    path(r'master/group/<str:group_id>/create-session-crossover', charviews.create_crossover_session,
+         name='create-crossover-session'),
+    path(r'master/session/<int:game_session_id>', charviews.session_view, name='session'),
+    path(r'master/sessions', charviews.sessions_list, name='sessions-list'),
 
     path(r'creation-data/<int:creation_id>/',
          charviews.resume_creation_edit, name='char-data-edit'),
