@@ -1,16 +1,16 @@
 # -**- coding: utf-8 -*-
 
+import json
+import re
+from urllib.parse import unquote
+
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db import models
 from django.db.models import Count
 from django.urls import reverse
 
-import charlist.character.character
 from charlist.character.json.decoders.character_decoder import CharacterDecoder
 from charlist.character.rt_creation_data import RTCreationDataModel
-from urllib.parse import unquote
-import json
-import re
 
 
 class CharsheetUserManager(BaseUserManager):
@@ -197,8 +197,8 @@ class GameSession(models.Model):
     base_group = models.ForeignKey(CharacterGroup, on_delete=models.CASCADE)
     name = models.CharField(max_length=100, default=u'', blank=True)
     finished = models.BooleanField(default=False)
-    date_created = models.DateTimeField(auto_now=True, auto_now_add=True)
-    date_finished = models.DateTimeField(auto_now=False, auto_now_add=False, blank=True)
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_finished = models.DateTimeField(blank=True)
     xp_given = models.PositiveIntegerField(default=0)
 
     objects = GameSessionManager()
