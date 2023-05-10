@@ -240,8 +240,8 @@
         "en": "Focus power"
       },
       "description": {
-        "ru": "Использовать Психосилу",
-        "en": "Use a Psychic Power"
+        "ru": ["Использовать Психосилу"],
+        "en": ["Use a Psychic Power"]
       },
       "types": ["AT_VARY"],
       "keywords": ["KW_VARY"]
