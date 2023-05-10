@@ -131,7 +131,7 @@
         "en": ["Attack a specific location on a target with a –20 to WS or BS."]
       },
       "types": ["AT_FULL"],
-      "keywords": ["KW_ATK", "KW_CON", ["KW_MELEE", "KW_RNG"]]
+      "keywords": ["KW_ATK", "KW_CON", "KW_MELEE", "KW_RNG"]
     },
     {
       "tag": "CA_CHR",
@@ -218,7 +218,7 @@
         ]
       },
       "types": ["AT_REACT"],
-      "keywords": [["KW_MOV", "KW_MELEE"]]
+      "keywords": ["KW_MOV", "KW_MELEE"]
     },
     {
       "tag": "CA_FNT",
@@ -323,7 +323,7 @@
         "en": ["–10 to WS or BS, +10 to all Evasion tests until start of character's next turn."]
       },
       "types": ["AT_HALF"],
-      "keywords": ["KW_CON", ["KW_RNG", "KW_MELEE"]]
+      "keywords": ["KW_CON", "KW_RNG", "KW_MELEE"]
     },
     {
       "tag": "CA_JMP",
@@ -501,7 +501,7 @@
         "en": ["Make a single shot or melee attack by passing a WS/BS +10 test. Can be used with two weapons. If attacking character is engaged in melee and unarmed, he can initiate Grapple (see Grapple)."]
       },
       "types": ["AT_HALF"],
-      "keywords": ["KW_ATK", ["KW_MELEE", "KW_RNG"]]
+      "keywords": ["KW_ATK", "KW_MELEE", "KW_RNG"]
     },
     {
       "tag": "CA_STN",
