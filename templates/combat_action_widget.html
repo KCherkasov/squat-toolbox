@@ -18,7 +18,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <p class="text-dark"><b>{{ combat_action.names:lang }}</b></p>
+                <p class="text-dark"><b>{{ combat_action.names|get_by_dict_key:lang }}</b></p>
             </div>
             <div class="modal-body">
                 <p class="text-dark">
