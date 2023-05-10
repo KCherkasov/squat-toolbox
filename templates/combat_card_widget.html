@@ -143,6 +143,61 @@
             </div>
         </div>
     </div>
+    <div class="text-center">
+        <p class="text-dark">
+            <b>{% if lang == 'ru' %}Перемещение{% else %}Movement{% endif %}:</b>
+        </p>
+    </div>
+    <div class="card-group justify-content-center align-self-center">
+        <div class="card justify-content-center w170">
+            <div class="charlist-inline justify-content-center w170 pt-3 align-self-center">
+                <div class="ps-3">
+                    <b>{% if lang == 'ru' %}Полу{% else %}Half{% endif %}</b>
+                </div>
+            </div>
+            <div class="justify-content-center align-self-center">
+                <button class="btn btn-outline-dark disabled align-self-center fs-4">
+                    {{ character.half_move }}
+                </button>
+            </div>
+        </div>
+        <div class="card justify-content-center w170">
+            <div class="charlist-inline justify-content-center w170 pt-3 align-self-center">
+                <div class="ps-3">
+                    <b>{% if lang == 'ru' %}Полное{% else %}Full{% endif %}</b>
+                </div>
+            </div>
+            <div class="justify-content-center align-self-center">
+                <button class="btn btn-outline-dark disabled align-self-center fs-4">
+                    {{ character.full_move }}
+                </button>
+            </div>
+        </div>
+        <div class="card justify-content-center w170">
+            <div class="charlist-inline justify-content-center w170 pt-3 align-self-center">
+                <div class="ps-3">
+                    <b>{% if lang == 'ru' %}Натиск{% else %}Charge{% endif %}</b>
+                </div>
+            </div>
+            <div class="justify-content-center align-self-center">
+                <button class="btn btn-outline-dark disabled align-self-center fs-4">
+                    {{ character.charge }}
+                </button>
+            </div>
+        </div>
+        <div class="card justify-content-center w170">
+            <div class="charlist-inline justify-content-center w170 pt-3 align-self-center">
+                <div class="ps-3">
+                    <b>{% if lang == 'ru' %}Бег{% else %}Run{% endif %}</b>
+                </div>
+            </div>
+            <div class="justify-content-center align-self-center">
+                <button class="btn btn-outline-dark disabled align-self-center fs-4">
+                    {{ character.run }}
+                </button>
+            </div>
+        </div>
+    </div>
     {% include 'combat_card_reminder.html' %}
 </div>
 
