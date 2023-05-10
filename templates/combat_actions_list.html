@@ -12,10 +12,12 @@
 
 <div class="mt-2 d-flex flex-column justify-content-center align-self-center talents-list">
     {% for ca_id, combat_action in facade.combat_actions.items %}
+    {% if forloop.counter0|divisibleby:3 %}<div class="card-group">{% endif %}
         {% if character %}
             {% include 'combat_action_widget.html' %}
         {% else %}
             {% include 'combat_action_gs_widget.html' %}
         {% endif %}
+    {% if forloop.counter|divisibleby:3 or forloop.last %}</div>{% endif %}
     {% endfor %}
 </div>
