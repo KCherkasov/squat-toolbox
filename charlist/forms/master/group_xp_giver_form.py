@@ -8,7 +8,7 @@ class GroupXPGiverForm(Form):
     def __init__(self, group: CharacterGroup, *args, **kwargs):
         super().__init__(*args, **kwargs)
         group_members = Character.objects.by_group(group)
-        self.fields['amount'] = forms.IntegerField(min=1, max=10000, label=u'Сколько опыта дать')
+        self.fields['amount'] = forms.IntegerField(min_value=1, max_value=10000, label=u'Сколько опыта дать')
         self.fields['amount'].group = 'how-many'
         for character in group_members:
             field_name = 'c' + str(character.id)

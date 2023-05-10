@@ -3,4 +3,4 @@ from django.forms import Form
 
 
 class InfluenceControlsForm(Form):
-    amount = forms.IntegerField(min=1, max=100)
+    amount = forms.IntegerField(min_value=1, max_value=100)

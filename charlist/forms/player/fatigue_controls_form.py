@@ -3,4 +3,4 @@ from django.forms import Form
 
 
 class FatigueControlsForm(Form):
-    amount = forms.IntegerField(min=1, max=20)
+    amount = forms.IntegerField(min_value=1, max_value=20)
