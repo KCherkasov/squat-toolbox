@@ -7,7 +7,7 @@
         <i>
             <a href="" class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
                data-bs-target="#c{{character.id}}-{{ combat_action.tag }}-{{ lang }}-info" title="Подробнее">
-                {{ combat_action.names:lang }}
+                {{ combat_action.names|get_by_dict_key:lang }}
             </a>
         </i>
     </p>
