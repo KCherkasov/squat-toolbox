@@ -75,7 +75,7 @@ urlpatterns = [
     path(r'character/<int:char_id>/upgrade', charviews.character_upgrade, name='character-upgrade'),
     path(r'character/<int:char_id>/processing', rt_views.upg_midlayer, name='character-upg-midlayer'),
     path(r'character/<int:char_id>/sessions', charviews.character_sessions_list, name='sessions-list-char'),
-    path(r'character/<int:char_id>/groups', charviews.groups_list_character, name='groups-list-char'),
+    path(r'character/<int:char_id>/groups', charviews.character_groups_list, name='groups-list-char'),
 
     path(r'master/campaigns', charviews.seasons_list, name='seasons-list'),
     path(r'master/campaign/create', charviews.create_season, name='create-season'),
