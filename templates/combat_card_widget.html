@@ -2,7 +2,7 @@
 {% load filters %}
 {% endblock %}
 
-<div class="align-self-center">
+<div class="d-flex flex-column align-self-center">
     <div class="text-center">
         <p class="text-dark">
             <b>{% if lang == 'ru' %}Основные параметры{% else %}Main parameters{% endif %}:</b>
@@ -113,6 +113,36 @@
                 </button>
             </div>
         </div>
+        <div class="card justify-content-center w170">
+            <div class="charlist-inline justify-content-center align-self-center w170 pt-3">
+                {% if hookups|get_by_dict_key:'IN' %}
+                <div class="btn-group dropend">
+                    <span class="position-absolute top-0 start-100 translate-middle btn btn-success dropdown-toggle badge rounded-circle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    </span>
+                    <ul class="dropdown-menu w400">
+                        {% for hint in hookups|get_by_dict_key:'IN' %}
+                        <li class="dropdown-item text-wrap">
+                            <p class="text-break">{{ hint.description|get_by_dict_key:lang }}
+                                <b>({% if lang == 'ru' %}от{% else %}from{% endif %}:{{ hint.talent_name|get_by_dict_key:lang }})</b>
+                            </p>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+                <div class="ps-3 text-center">
+                    <b>{% if lang == 'ru' %}Инициатива{% else %}Initiative{% endif %}</b>
+                </div>
+            </div>
+            <div class="justify-content-center align-self-center">
+                <button class="btn btn-outline-dark disabled align-self-center fs-4">
+                    {% with character.stats|get_by_dict_key:'ST_AG' as stat %}
+                        1d10+{{ stat.bonus }}
+                    {% endwith %}
+                </button>
+            </div>
+        </div>
     </div>
+    {% include 'combat_card_reminder.html' %}
 </div>
 

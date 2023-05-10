@@ -1,0 +1,84 @@
+{% load filters %}
+
+<div class="text-center">
+    <h5>{% If lang == 'ru' %}Памятка{% else %}Cheatsheet{% endif %}</h5>
+</div>
+
+<div class="d-flex flex-column justify-content-center align-self-center mt-2">
+    <div class="text-center">
+        <p>
+            {% if lang == 'ru' %}
+                В свой ход персонаж может:
+            {% else %}
+                During his turn, character can perform:
+            {% endif %}
+        </p>
+        <ul>
+            <li>
+                <b>
+                    1&nbsp;
+                    {% with facade.action_types|get_by_dict_key:'AT_FULL' as action %}
+                        {{ action.get_names()|get_by_dict_key:lang }}
+                    {% endwith %}
+                </b>
+            </li>
+            <li>
+                <b>
+                    2&nbsp;
+                    {% with facade.action_types|get_by_dict_key:'AT_HALF' as action %}
+                        {{ action.get_names()|get_by_dict_key:lang }}
+                    {% endwith %}
+                </b>
+            </li>
+            <li>
+                <b>
+                    {% if lang == 'ru' %}
+                        Начать/продолжить выполнять
+                    {% else %}
+                        Start/continue
+                    {% endif %}
+                    &nbsp;
+                    {% with facade.action_types|get_by_dict_key:'AT_EXT' as action %}
+                        {{ action.get_names()|get_by_dict_key:lang }}
+                    {% endwith %}
+                </b>
+            </li>
+        </ul>
+        <p>
+            {% with facade.action_types|get_by_dict_key:'AT_REACT' as action %}
+                <b>{{ action.get_names()|get_by_dict_key:lang }}</b>:&nbsp;
+                {% if lang == 'ru' %}
+                    действия данного типа могут быть применены в течение раунда, но <b>НЕ</b> в ход персонажа. По&nbsp;
+                    умолчанию (в отсутствие определенных <b>Талантов</b>) персонаж имеет <b>1 Реакцию</b> на раунд.&nbsp;
+                    <b>Реакции</b> обновляются с началом хода персонажа.
+                {% else %}
+                    actions of this type can be used during the combat round, but <b>NOT</b> during the character's turn. By&nbsp;
+                    default (if character hasn't some specific <b>Talents</b>), character has <b>1 Reaction</b> per combat round.&nbsp;
+                    <b>Reactions</b> restore at the beginning of character's turn.
+                {% endif %}
+            {% endwith %}
+        </p>
+    </div>
+    <div class="text-center">
+        <p><b>{% if lang == 'ru' %}Подтипы действий{% else %}Action subtypes{% endif %}</b>:</p>
+        <p>
+            {% if lang == 'ru' %}
+                Каждое <b>Действие</b> характеризуется одним или несколькими <b>Подтипами</b>. В&nbsp;
+                течение хода персонаж может использовать по 1 <b>Действию</b> с <b>Подтипами</b> <b>Атака</b> и <b>Концентрация</b>.
+            {% else %}
+            Every <b>Action</b> is annotated with <b>Subtypes</b>. Character can perform only 1 <b>Action</b> with <b>Attack</b> and <b>Concentration</b> <b>Subtypes</b>.
+            {% endif %}
+        </p>
+    </div>
+    <div class="text-center">
+        <p>
+            {% if lang == 'ru' %}
+                <b>ВАЖНО</b>: <b>Реакции</b> могут использоваться без оглядки на данное правило, поскольку они применяются не в ход пероснажа.
+            {% else %}
+                <b>IMPORTANT</b>: <b>Reactions</b> can be used regardless of this rule, as they aren't performed in character's turn.
+            {% endif %}
+        </p>
+    </div>
+</div>
+
+{% include 'combat_actions_list.html' %}

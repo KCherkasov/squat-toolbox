@@ -1,0 +1,21 @@
+{% load filters %}
+
+<div class="text-center mt-3">
+    <h5>
+        {% if lang == 'ru' %}
+            Список доступных Действий (чтобы прочитать о Действии, нажмите на его название).
+        {% else %}
+            Combat Actions list (click on the Action to see details).
+        {% endif %}
+    </h5>
+</div>
+
+<div class="mt-2">
+    {% for ca_id, combat_action in facade.combat_actions.items %}
+        {% if character %}
+            {% include 'combat_action_widget.html' %}
+        {% else %}
+            {% include 'combat_action_gs_widget.html' %}
+        {% endif %}
+    {% endfor %}
+</div>
