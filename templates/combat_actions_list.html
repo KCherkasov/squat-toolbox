@@ -9,9 +9,9 @@
         {% endif %}
     </h5>
 </div>
-
+<div class="d-flex flex-column justify-content-center align-self-center">
     {% for ca_id, combat_action in facade.combat_actions.items %}
-    {% if forloop.counter0|divisibleby:3 %}<div class="card-group align-self-center justify-content-center">{% endif %}
+    {% if forloop.counter0|divisibleby:3 %}<div class="card-group align-self-center justify-content-center flex-fill">{% endif %}
         {% if character %}
             {% include 'combat_action_widget.html' %}
         {% else %}
@@ -19,3 +19,4 @@
         {% endif %}
     {% if forloop.counter|divisibleby:3 or forloop.last %}</div>{% endif %}
     {% endfor %}
+</div>
