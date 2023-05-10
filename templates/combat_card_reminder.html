@@ -18,7 +18,7 @@
                 <b>
                     1&nbsp;
                     {% with facade.action_types|get_by_dict_key:'AT_FULL' as action %}
-                        {{ action.get_names()|get_by_dict_key:lang }}
+                        {{ action.get_names|get_by_dict_key:lang }}
                     {% endwith %}
                 </b>
             </li>
@@ -26,7 +26,7 @@
                 <b>
                     2&nbsp;
                     {% with facade.action_types|get_by_dict_key:'AT_HALF' as action %}
-                        {{ action.get_names()|get_by_dict_key:lang }}
+                        {{ action.get_names|get_by_dict_key:lang }}
                     {% endwith %}
                 </b>
             </li>
@@ -39,14 +39,14 @@
                     {% endif %}
                     &nbsp;
                     {% with facade.action_types|get_by_dict_key:'AT_EXT' as action %}
-                        {{ action.get_names()|get_by_dict_key:lang }}
+                        {{ action.get_names|get_by_dict_key:lang }}
                     {% endwith %}
                 </b>
             </li>
         </ul>
         <p>
             {% with facade.action_types|get_by_dict_key:'AT_REACT' as action %}
-                <b>{{ action.get_names()|get_by_dict_key:lang }}</b>:&nbsp;
+                <b>{{ action.get_names|get_by_dict_key:lang }}</b>:&nbsp;
                 {% if lang == 'ru' %}
                     действия данного типа могут быть применены в течение раунда, но <b>НЕ</b> в ход персонажа. По&nbsp;
                     умолчанию (в отсутствие определенных <b>Талантов</b>) персонаж имеет <b>1 Реакцию</b> на раунд.&nbsp;
