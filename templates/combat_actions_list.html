@@ -10,7 +10,7 @@
     </h5>
 </div>
 
-<div class="mt-2 d-flex flex-column justify-content-center align-self-center">
+<div class="mt-2 d-flex flex-column justify-content-center align-self-center skills-list">
     {% for ca_id, combat_action in facade.combat_actions.items %}
         {% if character %}
             {% include 'combat_action_widget.html' %}
