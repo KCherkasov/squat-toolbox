@@ -74,6 +74,8 @@ urlpatterns = [
     path(r'character/<int:char_id>/delete', charviews.character_delete, name='character-delete'),
     path(r'character/<int:char_id>/upgrade', charviews.character_upgrade, name='character-upgrade'),
     path(r'character/<int:char_id>/processing', rt_views.upg_midlayer, name='character-upg-midlayer'),
+    path(r'character/<int:char_id>/sessions', charviews.character_sessions_list, name='sessions-list-char'),
+    path(r'character/<int:char_id>/groups', charviews.groups_list_character, name='groups-list-char'),
 
     path(r'master/campaigns', charviews.seasons_list, name='seasons-list'),
     path(r'master/campaign/create', charviews.create_season, name='create-season'),
@@ -89,7 +91,7 @@ urlpatterns = [
     path(r'master/group/<str:group_id>/create-session-crossover', charviews.create_crossover_session,
          name='create-crossover-session'),
     path(r'master/session/<int:game_session_id>', charviews.session_view, name='session'),
-    path(r'master/sessions', charviews.sessions_list, name='sessions-list'),
+    path(r'master/sessions', charviews.sessions_list_master, name='sessions-list'),
 
     path(r'creation-data/<int:creation_id>/',
          charviews.resume_creation_edit, name='char-data-edit'),

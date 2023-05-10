@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import datetime
 import logging
-from urllib.parse import unquote
 from operator import itemgetter
+from urllib.parse import unquote
 
 from django.contrib.auth import get_user_model
 from django.contrib.auth import login
@@ -38,6 +38,13 @@ from charlist.forms.generation.homeworld_choice_form import HomeworldsChoiceForm
 from charlist.forms.generation.role_choice_form import RoleChoiceForm
 from charlist.forms.generation.stages import *
 from charlist.forms.generation.stat_distribution_form import StatDistributionForm
+from charlist.forms.master.create_game_session import CreateSessionForm
+from charlist.forms.master.create_group_form import CreateGroupForm
+from charlist.forms.master.create_season_form import CreateSeasonForm
+from charlist.forms.master.end_session_form import EndSessionForm
+from charlist.forms.master.group_xp_giver_form import GroupXPGiverForm
+from charlist.forms.master.influence_controls_form import InfluenceControlsForm
+from charlist.forms.master.initiative_line_maker import InitiativeLineMaker
 from charlist.forms.player_todos.command_parser import CommandParser
 from charlist.forms.player_todos.manual.decrease_stat_alt_form import DecreaseStatAltForm
 from charlist.forms.player_todos.manual.decrease_stat_roll_form import DecreaseStatRollForm
@@ -65,18 +72,6 @@ from charlist.forms.upgrading.stat_upgrade_form import StatUpgradeForm
 from charlist.forms.upgrading.talent_subtag_upgrade_form import TalentUpgradeSubtagForm
 from charlist.forms.upgrading.talent_upgrade_form import TalentUpgradeForm
 from charlist.rt_views import rt_flyweights, rt_commands_parser
-
-from charlist.forms.master.create_season_form import CreateSeasonForm
-from charlist.forms.master.create_group_form import CreateGroupForm
-from charlist.forms.master.create_game_session import CreateSessionForm
-from charlist.forms.master.end_session_form import EndSessionForm
-from charlist.forms.master.initiative_line_maker import InitiativeLineMaker
-from charlist.forms.master.influence_controls_form import InfluenceControlsForm
-from charlist.forms.master.group_xp_giver_form import GroupXPGiverForm
-
-from charlist.forms.player.fate_controls_form import FateControlsForm
-from charlist.forms.player.wound_controls_form import WoundControlsForm
-from charlist.forms.player.fatigue_controls_form import FatigueControlsForm
 
 
 class TokenGenerator(PasswordResetTokenGenerator):
@@ -1968,3 +1963,31 @@ def session_view(request, game_session_id):
                                                                'char_data': character_models, 'ifl_form': ifl_form,
                                                                'finish_form': finish_form, 'facts': facts,
                                                                'initiative_line': initiative_line, })
+
+
+def sessions_list_master(request):
+    if not request.user.is_master:
+        return HttpResponseRedirect(reverse('main'))
+    active_sessions = models.GameSession.objects.get_by_creator(request.user).get_active()
+    finished_sessions = models.GameSession.objects.get_by_creator(request.user).get_finished()
+    return TemplateResponse(request, 'sessions_list.html',
+                            {'version': VERSION, 'active': active_sessions,
+                             'finished': finished_sessions, })
+
+
+def character_sessions_list(request, char_id):
+    character = models.Character.objects.get(pk=char_id)
+    active_sessions = character.sessions.objects.get_active()
+    finished_sessions = character.sessions.objects.get_finished()
+    return TemplateResponse(request, 'sessions_list_char.html',
+                            {'version': VERSION, 'character': character.data_to_model(),
+                             'char_url': character.get_view_url(),
+                             'active': active_sessions, 'finished': finished_sessions, })
+
+
+def character_groups_list(request, char_id):
+    character = models.Character.objects.get(pk=char_id)
+    return TemplateResponse(request, 'groups_list_character.html',
+                            {'version': VERSION, 'character': character.data_to_model(),
+                             'char_url': character.get_view_url(),
+                             'groups': character.groups.all(), })
