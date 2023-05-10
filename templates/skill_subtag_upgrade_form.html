@@ -8,7 +8,7 @@
         {{ err }}
     </div>
 {% endfor %}
-    <div class="d-flex flex-row alert-{% if form.cost > character.xp_current %}secondary{% else %}{{ colour }}{% endif %} flex-fill">
+    <div class="d-flex flex-row alert-{{ colour }} flex-fill">
     <form class="form-horizontal" method="post" action="">
         {% csrf_token %}
         <div class="charlist-inline align-items-center mb-1">
@@ -38,7 +38,7 @@
             <input type="hidden" name="is_en" value="">
             {% endif %}
             <input type="hidden" name="cost" value="{{ form.cost }}">
-            <button class="btn btn-primary {% if form.cost > character.xp_current %}disabled{%endif%} ms-4"
+            <button class="btn btn-{% if form.cost > character.xp_current %}secondary disabled{% else %}primary{%endif%} ms-4"
                     name="upg-skill-subtag-confirm" type="submit">
                 {{ form.cost }}&nbsp;XP
             </button>

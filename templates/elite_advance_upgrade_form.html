@@ -46,7 +46,7 @@
             {% endif %}
             <input type="hidden" name="ea_tag" value="{{ form.ea_tag }}">
             <input type="hidden" name="cost" value="{{ form.cost }}">
-            <button class="btn btn-primary {% if form.cost > character.xp_current or not form.available %}disabled{%endif%} ms-4"
+            <button class="btn btn-{% if form.cost > character.xp_current or not form.available %}secondary disabled{% else %}primary{% endif %} ms-4"
                     name="upg-ea-confirm" type="submit">
                 {{ form.cost }}&nbsp;XP
             </button>
