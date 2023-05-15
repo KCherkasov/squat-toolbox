@@ -11,7 +11,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os.path
-import logging
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -95,6 +94,7 @@ CSRF_COOKIE_HTTPONLY = True
 
 
 CSP_FRAME_ANCESTORS = ['https://wiki.pandhammer.ru', 'https://kvcherk.pythonanywhere.com/', 'https://squat-toolbox.ru/']
+CSP_FRAME_SRC = ['https://docs.google.com']
 CSP_DEFAULT_SRC = ["'none'"]
 CSP_SCRIPT_SRC = [
     "'self'",
@@ -107,7 +107,7 @@ CSP_SCRIPT_SRC = [
 CSP_STYLE_SRC = ["'self'",
                  "https://cdn.jsdelivr.net", ]
 CSP_IMG_SRC = ["'self'",
-               "http://www.w3.org", ]
+               "http://www.w3.org", "'*'"]
 
 WSGI_APPLICATION = 'namegen.wsgi.application'
 
