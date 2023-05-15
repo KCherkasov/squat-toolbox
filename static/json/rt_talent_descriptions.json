@@ -78,8 +78,8 @@
         {
           "tag": "TL_CF_H1",
           "description": {
-            "ru": "При подсчете получаемого урона от падения персонаж уменьшает значение высоты, с которой он падает, на $AGB метров.",
-            "en": "Character automatically reduces the effective distance of all falls by a number of metres equal to his $AGB, ignoring this distance as if it did not exist."
+            "ru": "При подсчете получаемого урона от падения персонаж уменьшает значение высоты, с которой он падает, на свой бонус Ловкости в метрах.",
+            "en": "Character automatically reduces the effective distance of all falls by a number of metres equal to his Agility bonus, ignoring this distance as if it did not exist."
           },
           "targets": ["ST_AG"]
         },
@@ -175,7 +175,16 @@
         "ru": "Попытки заметить персонажа среди других людей, описать его или вспомнить какие-то подробности получают штраф -20.",
         "en": "Attempts to notice the character when amongst other people, or attempts to describe him or recall details incur a –20 penalty."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_UNRM_H1",
+          "description": {
+            "ru": "Попытки заметить персонажа среди других людей, описать его или вспомнить какие-то подробности получают штраф -20.",
+            "en": "Attempts to notice the character when amongst other people, or attempts to describe him or recall details incur a –20 penalty."
+          },
+          "targets": ["SK_STL", "SK_SCR", "SK_AWR"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_FEL", "A_SOC"],
       "prerequisites": [],
@@ -253,8 +262,8 @@
         {
           "tag": "TL_ENM_H1",
           "description": {
-            "ru": "Персонаж получает дополнительный штраф -10 на все проверки Общительности и Влияния, направленные на представителей группы $TL_SBT",
-            "en": "Character suffers an additional –10 penalty to Fellowship and Influence tests when dealing with following group: $TL_SBT."
+            "ru": "Персонаж получает дополнительный штраф -10 на все проверки Общительности и Влияния, направленные на представителей выбранной группы",
+            "en": "Character suffers an additional –10 penalty to Fellowship and Influence tests when dealing with these group members."
           },
           "targets": ["ST_FEL", "ST_IFL"]
         }
@@ -279,8 +288,8 @@
         {
           "tag": "TL_FS_H1",
           "description": {
-            "en": "He can summon to his hand an unsecured metal object weighing up to $MTP$BASE$WPB kg, and can summon such objects up to 40 metres distant.",
-            "ru": "Персонаж может призывать в свою руку незакреплённые металлические объекты, массой до $MTP$BASE$WPB кг с дистанции до 40 метров."
+            "en": "He can summon to his hand an unsecured metal object weighing up to twice his Willpower bonus kg, and can summon such objects up to 40 metres distant.",
+            "ru": "Персонаж может призывать в свою руку незакреплённые металлические объекты, массой до своего удвоенного бонуса Силы Воли в кг с дистанции до 40 метров."
           },
           "targets": ["ST_WP"],
           "base": 2
@@ -522,8 +531,8 @@
         {
           "tag": "TL_PR_H1",
           "description": {
-            "ru": "Персонаж получает бонус +10 ко всем проверкам Общительности и Влияния с представителями группы $TL_SBT и иногда может просить их об услугах.",
-            "en": "Character gains a +10 bonus to all Fellowship and Influence tests when interacting with group $TL_SBT, and can sometimes call upon them for favours."
+            "ru": "Персонаж получает бонус +10 ко всем проверкам Общительности и Влияния с представителями выбранных групп и иногда может просить их об услугах.",
+            "en": "Character gains a +10 bonus to all Fellowship and Influence tests when interacting with chosen groups, and can sometimes call upon them for favours."
           },
           "targets": ["ST_FEL", "ST_IFL"]
         }
@@ -605,8 +614,8 @@
         {
           "tag": "TL_SC_H1",
           "description": {
-            "ru": "Персонаж получает $TL_STACK дополнительных ран.",
-            "en": "The Acolyte gains an additional $TL_STACK wounds."
+            "ru": "Персонаж получает увеличивает свое максимальное количество ран на 1 каждый раз, когда берет этот талант.",
+            "en": "The Acolyte gains an additional wound every time he takes this talent."
           },
           "targets": ["WND_MAX"],
           "bonus": 1
@@ -767,10 +776,10 @@
         {
           "tag": "TL_WPT_H1",
           "description": {
-            "ru": "Взяв талант из этой группы, персонаж получает возможность без штрафов использовать любое оружие, связанное с выбранной специализацией, за исключением Тяжелого. Если персонаж использует оружие, таланта обращения с которым он не имеет, то он получает штраф -20 на все проверки Навыка Рукопашной или Навыка Стрельбы, совершенные с применением этого оружия. Персонаж может использовать оружие класса Тяжёлое без штрафа -20, только если у него есть как талант Выучка с Оружием (Тяжёлое), так и талант Выучки с оружием, той группы, к которой принадлежит конкретный образец тяжелого оружия (например, для стрельбы из лазпушки без штрафа, нужно обладать талантами Выучка с Оружием (Тяжёлое) и Выучка с Оружием (Лазерное)). Этот талант можно брать несколько раз, каждый раз с новой специализацией. Заметьте, что персонаж, не имеющий таланта Выучка с Оружием (Низкотехнологичное) может без штрафа управляться с оружием, что в определенных обстоятельствах функционирует как Низкотехнологичное (например, силовой меч с выключенным силовым полем считается обычным мечом (низкотехнологичным)), но персонаж, имеющий навык Выучка с Оружием (Силовое) и не имеющий Выучка с Оружием (Низкотехнологичное) может использовать этот меч без штрафов).",
-            "en": "The Acolyte can use all weapons with Class: Pistol, Basic, Melee, Throwing, and Vehicle within the group he has selected with this talent. When a character attempts to use a weapon he does not have the correct Weapon Training talent for, he suffers a –20 penalty to any relevant Weapon Skill or Ballistic Skill test. The character can only use weapons with Class: Heavy without suffering the –20 penalty if he has both Weapon Training in the appropriate group and Weapon Training (Heavy). This talent can be taken more than once, each time with a different Specialisation. Note that a character without the Weapon Training (Low-Tech) talent operating a weapon that functions as a Low-Tech weapon in certain circumstances does not suffer this penalty, so long as he has the applicable Weapon Training talent for the weapon (Power for a power sword, for example)."
+            "ru": "Взяв талант из этой группы, персонаж получает возможность без штрафов использовать любое оружие, связанное с выбранной специализацией, за исключением Тяжелого.",
+            "en": "The Acolyte can use all weapons with Class: Pistol, Basic, Melee, Throwing, and Vehicle within the group he has selected with this talent."
           },
-          "targets": ["ST_BS"]
+          "targets": ["ST_BS", "ST_WS"]
         }
       ],
       "tier": 1,
@@ -793,8 +802,8 @@
         {
           "tag": "TL_RST_H1",
           "description": {
-            "ru": "Персонаж получает бонус +10 ко всем проверкам, сделанным для сопротивления эффектам $TL_SUBTAG.",
-            "en": "Character gains a +10 bonus when making tests to resist effects of $TL_SUBTAG type."
+            "ru": "Персонаж получает бонус +10 ко всем проверкам, сделанным для сопротивления эффектам выбранных типов.",
+            "en": "Character gains a +10 bonus when making tests to resist effects of selected types."
           },
           "targets": ["ST_WP", "ST_T"]
         }
@@ -819,8 +828,8 @@
         {
           "tag": "TL_ARMG_H1",
           "description": {
-            "ru": "Он может получить дополнительные $INTB очков брони, которые аколит может распределить на те зоны, что обычно защищает доспех, до тех пор, пока он имеет как минимум один час в день на чистку, обслуживание и внесение незначительных модификаций. Бонус добавляется к броне, только когда персонаж носит её, ведь это результат его тренировок и мастерства в деле создания доспехов.",
-            "en": "The character gains an extra $INTB Armour points, which he can distribute to any locations that his armour would normally cover, as long as he has at least an hour each day to clean and repair it or make minor modifications. This bonus applies only to armour when the Acolyte is wearing it, as it combines his training with his skill at armoury."
+            "ru": "Он может получить дополнительное количество очков брони по бонусу Интеллекта, которые аколит может распределить на те зоны, что обычно защищает доспех, до тех пор, пока он имеет как минимум один час в день на чистку, обслуживание и внесение незначительных модификаций. Бонус добавляется к броне, только когда персонаж носит её, ведь это результат его тренировок и мастерства в деле создания доспехов.",
+            "en": "The character gains an extra Armour points equal to his Intelligence bonus, which he can distribute to any locations that his armour would normally cover, as long as he has at least an hour each day to clean and repair it or make minor modifications. This bonus applies only to armour when the Acolyte is wearing it, as it combines his training with his skill at armoury."
           },
           "targets": ["ST_T", "SK_TRD"]
         }
@@ -937,8 +946,8 @@
         {
           "tag": "TL_MGTR_H1",
           "description": {
-            "ru": "Аколит знаком с более эффективными способами использования своей левитационной катушки и может парить в воздухе 1к10+$MTP$BASE$TB минут. Он может передвигаться со скоростью Бега в качестве Полудействия и не получает урона от падения до тех пор, пока левитационная катушка работает. Каждое применение этого таланта поглощает половину энергии из катушки (поэтому он может быть применен дважды до того, как катушке потребуется подзарядка).",
-            "en": "The Acolyte has learned how to better use his implanted maglev coils, and can hover for a number of minutes equal to 1d10+$MTP$BASE$TB. He can move his Run speed when making a Half Move action and suffers no damage from falling if the coils are active. Each use drains half the power stored in the coils (therefore he can use the coils twice before recharging them)."
+            "ru": "Аколит знаком с более эффективными способами использования своей левитационной катушки и может парить в воздухе 1к10+удвоенный бонус Выносливости минут. Он может передвигаться со скоростью Бега в качестве Полудействия и не получает урона от падения до тех пор, пока левитационная катушка работает. Каждое применение этого таланта поглощает половину энергии из катушки (поэтому он может быть применен дважды до того, как катушке потребуется подзарядка).",
+            "en": "The Acolyte has learned how to better use his implanted maglev coils, and can hover for a number of minutes equal to 1d10+2xToughness bonus. He can move his Run speed when making a Half Move action and suffers no damage from falling if the coils are active. Each use drains half the power stored in the coils (therefore he can use the coils twice before recharging them)."
           },
           "targets": ["ST_INT", "ST_AG"],
           "base": 2
@@ -1404,7 +1413,7 @@
           "tag": "TL_HTRD_H1",
           "description": {
             "ru": "В сражении в ближнем бою с врагом, принадлежащим к группе, заслужившей его  ненависть, аколит получает бонус +10 к проверкам Навыка Рукопашной, направленным против этого врага.",
-            "en": "When fighting opponents of $TL_SUBTAG group in close combat, the Acolyte gains a +10 bonus to all Weapon Skill tests made against them."
+            "en": "When fighting opponents of belonging to chosen groups in close combat, the Acolyte gains a +10 bonus to all Weapon Skill tests made against them."
           },
           "targets": ["ST_WS"]
         },
@@ -1412,7 +1421,7 @@
           "tag": "TL_HTRD_H2",
           "description": {
             "ru": "Его ненависть настолько велика, что персонаж вынужден пройти Серьёзную (+0) проверку Силы Воли, чтобы попытаться отступить или сдаться в плен, если только противник не имеет существенного численного или качественного превосходства.",
-            "en": "The character finds it difficult to back down from a fight with $TL_SUBTAG, and must make a Challenging (+0) Willpower test to retreat or surrender when fighting them, unless suicidally outnumbered or outclassed."
+            "en": "The character finds it difficult to back down from a fight with members of hated groups, and must make a Challenging (+0) Willpower test to retreat or surrender when fighting them, unless suicidally outnumbered or outclassed."
           },
           "targets": ["ST_WP"]
         }
@@ -1573,8 +1582,8 @@
         {
           "tag": "TL_LMSH_H1",
           "description": {
-            "ru": "Персонаж всегда считается имеющим при себе оружие ближнего боя, наносящее 1к10+$WPB Энергетического урона, Пробиваемость 0 и имеющего качество Шоковое. Персонаж считается имеющим талант обращения с этим оружием. После применения этого таланта аколит должен преуспеть в проверке Выносливости или получить 1 уровень Усталости.",
-            "en": "The character always counts as being equipped with a melee weapon that inflicts 1d10 plus his $WPB in Energy damage, with Pen 0 and the Shocking quality. He always counts as having Weapon Training for it and after making this attack, he must pass a Toughness test or suffer 1 level of Fatigue."
+            "ru": "Персонаж всегда считается имеющим при себе оружие ближнего боя, наносящее 1к10+бонус Силы Воли Энергетического урона, Пробиваемость 0 и имеющего качество Шоковое. Персонаж считается имеющим талант обращения с этим оружием. После применения этого таланта аколит должен преуспеть в проверке Выносливости или получить 1 уровень Усталости.",
+            "en": "The character always counts as being equipped with a melee weapon that inflicts 1d10 plus his Willpower bonus in Energy damage, with Pen 0 and the Shocking quality. He always counts as having Weapon Training for it and after making this attack, he must pass a Toughness test or suffer 1 level of Fatigue."
           },
           "targets": ["ST_WS"]
         }
@@ -1915,8 +1924,8 @@
         {
           "tag": "TL_WWOD_H1",
           "description": {
-            "ru": "В качестве Полудействия персонаж может провести одно действие Стандартная Атака оружием ближнего боя против одного врага, плюс дополнительную Стандартную Атаку тем же оружием, нацеленную в другого врага, участвующего в той же схватке, что и первый (максимальное количество дополнительных атак равно $WSB).",
-            "en": "As a Half Action, the character may make one Standard Attack action with a melee weapon against a foe, plus one additional Standard Attack action with the same weapon targeting each other foe also engaged in melee combat with the character beyond the first (to a maximum number of $WSB attacks)."
+            "ru": "В качестве Полудействия персонаж может провести одно действие Стандартная Атака оружием ближнего боя против одного врага, плюс дополнительную Стандартную Атаку тем же оружием, нацеленную в другого врага, участвующего в той же схватке, что и первый (максимальное количество дополнительных атак равно бонусу Навыка Рукопашной).",
+            "en": "As a Half Action, the character may make one Standard Attack action with a melee weapon against a foe, plus one additional Standard Attack action with the same weapon targeting each other foe also engaged in melee combat with the character beyond the first (to a maximum number of attacks equal to character's Weapon Skill bonus)."
           },
           "targets": ["ST_WS"]
         }
@@ -1946,8 +1955,8 @@
         {
           "tag": "TL_ADFT_H1",
           "description": {
-            "ru": "Персонаж может уменьшить количество степеней провала проваленной проверке на Страх или Подавление на $WPB. Если итоговое количество степеней провала будет равно нулю или меньше, аколит считается прошедшим эту проверку с одной степенью успеха.",
-            "en": "The character can lower degrees of failure on a failed Fear or Pinning test by $WPB. If this reduces the result to zero or less, he counts as having passed the Fear test with 1 degree of success."
+            "ru": "Персонаж может уменьшить количество степеней провала проваленной проверке на Страх или Подавление на свой бонус Силы Воли. Если итоговое количество степеней провала будет равно нулю или меньше, аколит считается прошедшим эту проверку с одной степенью успеха.",
+            "en": "The character can lower degrees of failure on a failed Fear or Pinning test by his Willpower bonus. If this reduces the result to zero or less, he counts as having passed the Fear test with 1 degree of success."
           },
           "targets": ["ST_WP"]
         }
@@ -2021,8 +2030,8 @@
         {
           "tag": "TL_BOIW_H1",
           "description": {
-            "ru": "Он получает +$MTP$BASE$PR ко всем Встречным проверкам, направленным на защиту от психических сил.",
-            "en": "The character adds +$MTP$BASE$PR to any Opposed test he makes when defending against psychic powers."
+            "ru": "Он получает +5xПси-рейтинг ко всем Встречным проверкам, направленным на защиту от психических сил.",
+            "en": "The character adds +5хPsy-rating to any Opposed test he makes when defending against psychic powers."
           },
           "targets": ["PR", "ST_WP"],
           "base": 5
@@ -2096,8 +2105,8 @@
         {
           "tag": "TL_CRBL_H1",
           "description": {
-            "ru": "Персонаж добавляет $MTP$BASE$WSB к урону, наносимому в ближнем бою.",
-            "en": "The Acolyte adds $MTP$BASE$WSB to damage he inflicts with melee attacks."
+            "ru": "Персонаж добавляет половину своего бонуса Навыка Рукопашной к урону, наносимому в ближнем бою.",
+            "en": "The Acolyte adds half his Weapon Skill bonus to damage he inflicts with melee attacks."
           },
           "targets": ["ST_WS"],
           "base": 0.5
@@ -2128,8 +2137,8 @@
         {
           "tag": "TL_DTDL_H1",
           "description": {
-            "ru": "Когда атака персонажа в ближнем или дальнем бою (в зависимости от выбранной специализации) наносит Критический урон, персонаж добавляет $PERB к нанесенному урону.",
-            "en": "When the character’s close combat or ranged attack (depending on chosen specialization) inflicts Critical damage, he adds his $PERB to the damage result."
+            "ru": "Когда атака персонажа в ближнем или дальнем бою (в зависимости от выбранной специализации) наносит Критический урон, персонаж добавляет свой бонус Восприятия к нанесенному урону.",
+            "en": "When the character’s close combat or ranged attack (depending on chosen specialization) inflicts Critical damage, he adds his Perception bonus to the damage result."
           },
           "targets": ["ST_WS", "ST_BS"]
         }
@@ -2299,8 +2308,8 @@
         {
           "tag": "TL_HOCM_H1",
           "description": {
-            "ru": "При применении умения, связанного со склонностью Общение или Лидерство (такого как Обольщение, Командование или Запугивание) на дружественного НИП, радиус его применения увеличивается на расстояние, равное 100 x $FELB метров, вместо обычных 10 x $FELB метров.",
-            "en": "When targeting friendly NPCs through skills that have either the Social or Leadership Aptitudes (such as Charm, Command, and Intimidate), he can affect those within 100 times his $FELB in metres rather than 10 times $FELB."
+            "ru": "При применении умения, связанного со склонностью Общение или Лидерство (такого как Обольщение, Командование или Запугивание) на дружественного НИП, радиус его применения увеличивается на расстояние, равное 100 x бонус Общительности метров, вместо обычных 10 x бонус Общительности метров.",
+            "en": "When targeting friendly NPCs through skills that have either the Social or Leadership Aptitudes (such as Charm, Command, and Intimidate), he can affect those within 100 times his Fellowship bonus in metres rather than 10 times Fellowship bonus."
           },
           "targets": ["SK_CH", "SK_CMD", "SK_INTM"]
         }
@@ -2334,8 +2343,8 @@
         {
           "tag": "TL_HMBL_H1",
           "description": {
-            "ru": "Когда персонаж использует действие Атака всеми силами для нанесения одной атаки в ближнем бою, он может добавить $MTP$BASE$STRB к Пробиваемости оружия. Помимо\nэтого, для этой атаки оружие также считается имеющим качество Оглушающее (2), оно отображает всю сокрушительную мощь этого удара.",
-            "en": "When he uses an All Out Attack action to make a single melee attack, he can add $MTP$BASE$STRB to the weapon’s penetration. The attack also counts as having the Concussive (2) weapon quality, to represent the shocking force of the blow’s impact."
+            "ru": "Когда персонаж использует действие Атака всеми силами для нанесения одной атаки в ближнем бою, он может добавить половину бонуса Силы к Пробиваемости оружия. Помимо этого, для этой атаки оружие также считается имеющим качество Оглушающее (2), оно отображает всю сокрушительную мощь этого удара.",
+            "en": "When he uses an All Out Attack action to make a single melee attack, he can add half his Strength bonus to the weapon’s penetration. The attack also counts as having the Concussive (2) weapon quality, to represent the shocking force of the blow’s impact."
           },
           "targets": ["ST_WS", "ST_STR"],
           "base": 0.5
@@ -2414,8 +2423,8 @@
         {
           "tag": "TL_LMBL_H1",
           "description": {
-            "ru": "Персонаж всегда считается имеющим при себе оружие типа Пистолет с дальностью выстрела 10 м., стреляющий только в одиночном режиме и наносящий 1к10+$MTP$BASE$WPB Энергетического урона, имеющего Пробиваемость 0 и качество Шоковое. Персонаж считается имеющим талант обращения с этим оружием. После применения этого таланта аколит должен пройти проверку Выносливости или получить 1 уровень Усталости.",
-            "en": "The character always counts as being equipped with a Pistol weapon with a 10m range. This can only be used in single shot mode, and deals 1d10 plus $MTP$BASE$WPB bonus in Energy damage, with Pen 0 and the Shocking quality. The character always counts as having Weapon Training for this weapon and after making an attack with it, he must pass a Toughness test or suffer 1 level of Fatigue."
+            "ru": "Персонаж всегда считается имеющим при себе оружие типа Пистолет с дальностью выстрела 10 м., стреляющий только в одиночном режиме и наносящий 1к10+2xбонус Силы Воли Энергетического урона, имеющего Пробиваемость 0 и качество Шоковое. Персонаж считается имеющим талант обращения с этим оружием. После применения этого таланта аколит должен пройти проверку Выносливости или получить 1 уровень Усталости.",
+            "en": "The character always counts as being equipped with a Pistol weapon with a 10m range. This can only be used in single shot mode, and deals 1d10 plus 2xWillpower bonus bonus in Energy damage, with Pen 0 and the Shocking quality. The character always counts as having Weapon Training for this weapon and after making an attack with it, he must pass a Toughness test or suffer 1 level of Fatigue."
           },
           "targets": ["ST_BS"],
           "base": 2
@@ -2477,8 +2486,8 @@
         {
           "tag": "TL_MTSH_H1",
           "description": {
-            "ru": "Персонаж добавляет $MTP$BASE$BSB к урону от своих стрелковых атак.",
-            "en": "He adds $MTP$BASE$BSB to damage he inflicts with ranged weapons."
+            "ru": "Персонаж добавляет половину своего бонуса Навыка Стрельбы к урону от своих стрелковых атак.",
+            "en": "He adds half of his Ballistic Skill bonus to damage he inflicts with ranged weapons."
           },
           "targets": ["ST_BS"],
           "base": 0.5
@@ -2618,8 +2627,8 @@
         {
           "tag": "TL_SPRN_H1",
           "description": {
-            "ru": "Каждый раз при совершении действия Полное Движение, персонаж может дополнительно пройти $AGB метров. Кроме того, расстояние Бега аколита удваивается. Персонаж получает 1 уровень Усталости, если применяет этот талант два раунда подряд.",
-            "en": "When taking a Full Move action, the character can move an extra $AGB metres. Additionally, whenever he takes a Run action, he may move double the normal distance. If he did so in the previous round, however, he suffers 1 level of Fatigue."
+            "ru": "Каждый раз при совершении действия Полное Движение, персонаж может дополнительно пройти дистанцию в метрах, равную его бонусу Ловкости. Кроме того, расстояние Бега аколита удваивается. Персонаж получает 1 уровень Усталости, если применяет этот талант два раунда подряд.",
+            "en": "When taking a Full Move action, the character can move an extra distance equal to his Agility bonus in metres. Additionally, whenever he takes a Run action, he may move double the normal distance. If he did so in the previous round, however, he suffers 1 level of Fatigue."
           },
           "targets": ["ST_AG"]
         }
@@ -2769,8 +2778,8 @@
         {
           "tag": "TL_TRGT_H1",
           "description": {
-            "ru": "Каждый раз, получая Критический урон, персонаж уменьшает его значение на $TB (до минимума в 1).",
-            "en": "Whenever he suffers Critical damage (after reduction for Armour and Toughness), reduce the amount by his $TB (to a minimum of 1 damage)."
+            "ru": "Каждый раз, получая Критический урон, персонаж уменьшает его значение на свой бонус Выносливости (до минимума в 1).",
+            "en": "Whenever he suffers Critical damage (after reduction for Armour and Toughness), reduce the amount by his Toughness bonus (to a minimum of 1 damage)."
           },
           "targets": ["ST_T"]
         }
@@ -3172,8 +3181,8 @@
         {
           "tag": "TL_IOHW_H1",
           "description": {
-            "ru": "После успешной атаки демона (в том числе попадание психической силой) персонаж может потратить очко Судьбы чтобы увеличить урон первого попадания, которое наносится в рамках этой атаки, на $MTP$BASE$WPB очков. Этот дополнительный урон игнорирует броню и бонус Выносливости.",
-            "en": "After making a successful attack against a Daemon (this can include striking it with a psychic power), the character may spend a Fate point to increase the damage of the first hit he inflicts as part of that attack by $MTP$BASE$WPB. This additional damage ignores armour and Toughness bonus."
+            "ru": "После успешной атаки демона (в том числе попадание психической силой) персонаж может потратить очко Судьбы чтобы увеличить урон первого попадания, которое наносится в рамках этой атаки, на удвоенный бонус Силы Воли. Этот дополнительный урон игнорирует броню и бонус Выносливости.",
+            "en": "After making a successful attack against a Daemon (this can include striking it with a psychic power), the character may spend a Fate point to increase the damage of the first hit he inflicts as part of that attack by his Willpower bonus x2. This additional damage ignores armour and Toughness bonus."
           },
           "targets": ["ST_WS", "ST_WP"],
           "base": 2
@@ -3271,8 +3280,8 @@
         {
           "tag": "TL_OON_H1",
           "description": {
-            "ru": "При ближнем бое с одним противником (т.е. в этой схватке участвуют только два персонажа, а также ни один из них не был целью стрелковой атаки в течении последнего раунда) персонаж получает дополнительно $MTP$BASE$WSB степени успеха к пройденным проверкам Навыка Рукопашной.",
-            "en": "When fighting a single enemy in melee combat, the character scores extra $MTP$BASE$WSB degrees of success on successful Weapon Skill tests."
+            "ru": "При ближнем бое с одним противником (т.е. в этой схватке участвуют только два персонажа, а также ни один из них не был целью стрелковой атаки в течении последнего раунда) персонаж получает дополнительные степени успеха в половину своего бонуса Навыка Рукопашной к пройденным проверкам Навыка Рукопашной.",
+            "en": "When fighting a single enemy in melee combat, the character scores extra degrees of success equal to half his Weapon Skill bonus on successful Weapon Skill tests."
           },
           "targets": ["ST_WS"]
         }
@@ -3302,8 +3311,8 @@
         {
           "tag": "TL_ROB_H1",
           "description": {
-            "ru": "Один раз за раунд персонаж может за Полудействие провозгласить литании и воззвания, которые ослабляют демонов. До начала следующего хода демоны на расстоянии $WPB метров получают штраф -10 на проверки Силы Воли.",
-            "en": "Once per round as a Half Action, the character may speak the litanies and invocations to disrupt Daemons. Until the beginning of his next turn, Daemons within a $WPB metres distance suffer a –10 penalty to Willpower tests."
+            "ru": "Один раз за раунд персонаж может за Полудействие провозгласить литании и воззвания, которые ослабляют демонов. До начала следующего хода демоны на расстоянии, равном бонусу Силы Воли в метрах получают штраф -10 на проверки Силы Воли.",
+            "en": "Once per round as a Half Action, the character may speak the litanies and invocations to disrupt Daemons. Until the beginning of his next turn, Daemons within a distance equal to character's Willpower bonus in metres suffer a –10 penalty to Willpower tests."
           },
           "targets": ["ST_WP"]
         }
@@ -3856,8 +3865,8 @@
         {
           "tag": "TL_GRN_H1",
           "description": {
-            "ru": "Когда персонаж промахивается метательным оружием или оружием с чертой Взрыв, он может уменьшить расстояние, на которое оно отбрасывается, на $MTP$BASE$BSB метров.",
-            "en": "When the character misses with a thrown weapon or weapon with the Blast quality, he may reduce the distance it scatters by $MTP$BASE$BSB metres."
+            "ru": "Когда персонаж промахивается метательным оружием или оружием с чертой Взрыв, он может уменьшить расстояние, на которое оно отбрасывается, на половину бонуса Навыка Стрельбы в метрах.",
+            "en": "When the character misses with a thrown weapon or weapon with the Blast quality, he may reduce the distance it scatters by half his Ballistic Skill bonus metres."
           },
           "targets": ["ST_BS"],
           "base": 0.5
@@ -3889,7 +3898,7 @@
           "tag": "TL_HTPL_H1",
           "description": {
             "ru": "Когда аколиту удается пройти проверку Управления (или, в случае живого скакуна, Выживания), он может добровольно получить 1 уровень Усталости, чтобы добавить количество степеней успеха, равное половине его бонуса Ловкости. Когда Аколиту не удаётся пройти проверку Управление (или, в случае живого скакуна, Выживания), он может добровольно пострадать от 1 уровня Усталости, чтобы уменьшить степени провала на количество, равное его бонусу Ловкости до минимума в 1.",
-            "en": "When the Acolyte succeeds on an Operate test (or Survival test in the case of a living steed), he may voluntarily suffer 1 level of Fatigue to add $MTP$BASE$AGB degrees of success. When the Acolyte fails an Operate test (or Survival test in the case of a living steed), he may voluntarily suffer 1 level of Fatigue in order to reduce the degrees of failure by $AGB, to a minimum of 1."
+            "en": "When the Acolyte succeeds on an Operate test (or Survival test in the case of a living steed), he may voluntarily suffer 1 level of Fatigue to add half his Agility bonus degrees of success. When the Acolyte fails an Operate test (or Survival test in the case of a living steed), he may voluntarily suffer 1 level of Fatigue in order to reduce the degrees of failure by his Agility bonus, to a minimum of 1."
           },
           "targets": ["ST_AG", "SK_OPR", "SK_SRV"]
         }
@@ -3998,7 +4007,7 @@
           "tag": "TL_LXG_H1",
           "description": {
             "ru": "Персонаж может применить любое умение Лингвистики, которому он не обучен, нетренированным умением, как если бы оно не было Специальным.",
-            "en": "The character can attempt any Linguistics skill in which he is not trained as an untrained skill test as if it were not a Specialist skill."
+            "en": "The character can attempt any Speak Language skill in which he is not trained as an untrained skill test as if it were not a Specialist skill."
           },
           "targets": ["ST_INT", "SK_LNG"]
         }
@@ -4196,7 +4205,16 @@
         "ru": "Успешное прохождение теста Командования позволяет персонажу воздействовать на количество целей, равное 1d10+Бонус Общительности. Этот талант работает только на НИП и не оказывает воздействия на враждебные цели.",
         "en": "On a successful Command Test, the Explorer may affect a number of targets equal to 1d10 plus his Fellowship Bonus. This talent has no effect on hostile targets, and only affects NPCs"
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_AROA_H1",
+          "description": {
+            "ru": "Успешное прохождение теста Командования позволяет персонажу воздействовать на количество целей, равное 1d10+Бонус Общительности. Этот талант работает только на НИП и не оказывает воздействия на враждебные цели.",
+            "en": "On a successful Command Test, the Explorer may affect a number of targets equal to 1d10 plus his Fellowship Bonus. This talent has no effect on hostile targets, and only affects NPCs"
+          },
+          "targets": ["ST_FEL", "SK_CMD"]
+        }
+      ],
       "tier": 1,
       "aptitudes": ["A_FEL", "A_SOC"],
       "prerequisites": [
@@ -4218,7 +4236,16 @@
         "ru": "Для выполнения предварительных условий персонаж считается обладающим чертой Импланты Механикус. Он не получает ни одного из присущих этой черте эффектов, и у него не обязательно могут быть такие же импланты, а скорее эквивалентные устройства его собственного изобретения.",
         "en": "For the purpose of fulflling prerequisites, the Explorer counts as possessing the Mechanicus Implants Trait. He does not gain any of the normal effects of the Trait, and he may not necessarily have the same implants, but rather equivalent devices of his own devising."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_APMC_H1",
+          "description": {
+            "ru": "Для выполнения предварительных условий персонаж считается обладающим чертой Импланты Механикус. Он не получает ни одного из присущих этой черте эффектов, и у него не обязательно могут быть такие же импланты, а скорее эквивалентные устройства его собственного изобретения.",
+            "en": "For the purpose of fulflling prerequisites, the Explorer counts as possessing the Mechanicus Implants Trait. He does not gain any of the normal effects of the Trait, and he may not necessarily have the same implants, but rather equivalent devices of his own devising."
+          },
+          "targets": ["ST_INT", "SK_TECH"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_INT", "A_TECH"],
       "prerequisites": [
@@ -4245,7 +4272,16 @@
         "ru": "Когда персонаж получает Очки Порчи, общее количество полученных Очков Порчи уменьшается на 1 (до минимума в 0). Успешный тест Силы воли, предпринятый в качестве свободного действия, позволяет сбросить воздействие накопленной Порчи на один раунд.",
         "en": "Whenever the Explorer gains Corruption Points, reduce the total by 1, to a minimum of 0. With a successful Willpower Test, taken as a Free Action, he may ignore the effects of accumulated Corruption Points for 1 Round."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_ARCN_H1",
+          "description": {
+            "ru": "Когда персонаж получает Очки Порчи, общее количество полученных Очков Порчи уменьшается на 1 (до минимума в 0). Успешный тест Силы воли, предпринятый в качестве свободного действия, позволяет сбросить воздействие накопленной Порчи на один раунд.",
+            "en": "Whenever the Explorer gains Corruption Points, reduce the total by 1, to a minimum of 0. With a successful Willpower Test, taken as a Free Action, he may ignore the effects of accumulated Corruption Points for 1 Round."
+          },
+          "targets": ["CP"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_T", "A_DEF"],
       "prerequisites": [
@@ -4267,7 +4303,16 @@
         "ru": "Персонаж получает бонус +10 к любой попытке взаимодействия с сервиторами, а любое судно, на котором он служит, получает +1 к Моральному Духу экипажа из-за повышенной эффективности сервиторов.",
         "en": "He receives a +10 bonus to any attempt to communicate with servitors, and any vessel upon which he serves receives a +1 bonus to Crew Morale due to increased servitor effciency"
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_BNCH_H1",
+          "description": {
+            "ru": "Персонаж получает бонус +10 к любой попытке взаимодействия с сервиторами, а любое судно, на котором он служит, получает +1 к Моральному Духу экипажа из-за повышенной эффективности сервиторов.",
+            "en": "He receives a +10 bonus to any attempt to communicate with servitors, and any vessel upon which he serves receives a +1 bonus to Crew Morale due to increased servitor effciency"
+          },
+          "targets": ["SK_TECH", "SK_SEC"]
+        }
+      ],
       "tier": 1,
       "aptitudes": ["A_INT", "A_TECH"],
       "prerequisites": [],
@@ -4284,7 +4329,16 @@
         "ru": "Потратив Очко Судьбы на срабатывание Чистой Веры, персонаж может распространить свою невосприимчивость к демоническому присутствию на количество соратников, равное удвоенному бонусу Силы Воли. Также в качестве свободного действия персонаж может передать одно Очко Судьбы союзнику. Если оно не будет потрачено, то в конце столкновения вернётся к хозяину. Сжигая Очко Судьбы, персонаж и количество его союзников, равное его удвоенному Бонусу Силы воли, становятся невосприимчивы к воздействию демонического присутствия, Страха и Очков Порчи. Кроме того, все попавшие под действие этого таланта цели обретают бонус +10 к сопротивлению психическим атакам и другим видам психических манипуляций, а также получают только половину урона из психических и связанных с Варпом источников. Эти преимущества сохраняются до конца столкновения.",
         "en": "When spending a Fate Point to activate the Pure Faith Talent, the Explorer extends the immunity to daemonic presence to a number of targets equal to twice his Willpower Bonus. As a free action, he may bestow a single Fate Point to an ally. If the Fate Point is unspent, it returns at the end of the encounter. Upon burning a Fate Point, the Explorer and a number of allies equal to twice his Willpower Bonus become immune to the effects of daemonic presence, Fear Tests, and Corruption Points. In addition, all affected targets gain a +10 bonus on Tests made to resist psychic attack or any other form of psychic manipulation. In addition, affected targets take only half Damage from psychic and warp sources. These benefts last for the duration of the encounter."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_BLRD_H1",
+          "description": {
+            "ru": "Потратив Очко Судьбы на срабатывание Чистой Веры, персонаж может распространить свою невосприимчивость к демоническому присутствию на количество соратников, равное удвоенному бонусу Силы Воли. Также в качестве свободного действия персонаж может передать одно Очко Судьбы союзнику. Если оно не будет потрачено, то в конце столкновения вернётся к хозяину. Сжигая Очко Судьбы, персонаж и количество его союзников, равное его удвоенному Бонусу Силы воли, становятся невосприимчивы к воздействию демонического присутствия, Страха и Очков Порчи. Кроме того, все попавшие под действие этого таланта цели обретают бонус +10 к сопротивлению психическим атакам и другим видам психических манипуляций, а также получают только половину урона из психических и связанных с Варпом источников. Эти преимущества сохраняются до конца столкновения.",
+            "en": "When spending a Fate Point to activate the Pure Faith Talent, the Explorer extends the immunity to daemonic presence to a number of targets equal to twice his Willpower Bonus. As a free action, he may bestow a single Fate Point to an ally. If the Fate Point is unspent, it returns at the end of the encounter. Upon burning a Fate Point, the Explorer and a number of allies equal to twice his Willpower Bonus become immune to the effects of daemonic presence, Fear Tests, and Corruption Points. In addition, all affected targets gain a +10 bonus on Tests made to resist psychic attack or any other form of psychic manipulation. In addition, affected targets take only half Damage from psychic and warp sources. These benefts last for the duration of the encounter."
+          },
+          "targets": ["FP", "ST_WP"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_FEL", "A_LDR"],
       "prerequisites": [
@@ -4315,10 +4369,19 @@
         "en": "Chem geld"
       },
       "description": {
-        "ru": "Некоторые химические или хирургические процедуры, или просто могучая воля сделали персонажа устойчивым к большинству мирских искушений.\nПопытки соблазнить персонажа автоматически проваливаются, а направленные на него тесты Обаяния усложняются на одну ступень. Приобретая этот талант, персонаж получает одно очко Безумия.",
+        "ru": "Некоторые химические или хирургические процедуры, или просто могучая воля сделали персонажа устойчивым к большинству мирских искушений. Попытки соблазнить персонажа автоматически проваливаются, а направленные на него тесты Обаяния усложняются на одну ступень. Приобретая этот талант, персонаж получает одно очко Безумия.",
         "en": "Either chemical and surgical treatments or sheer will has rendered the Explorer immune to most mundane temptations. Seduction attempts against him automatically fail, and Charm Tests increase their Diffculty by one level. Taking this Talent causes one Insanity Point."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_CHGD_H1",
+          "description": {
+            "ru": "Некоторые химические или хирургические процедуры, или просто могучая воля сделали персонажа устойчивым к большинству мирских искушений. Попытки соблазнить персонажа автоматически проваливаются, а направленные на него тесты Обаяния усложняются на одну ступень. Приобретая этот талант, персонаж получает одно очко Безумия.",
+            "en": "Either chemical and surgical treatments or sheer will has rendered the Explorer immune to most mundane temptations. Seduction attempts against him automatically fail, and Charm Tests increase their Diffculty by one level. Taking this Talent causes one Insanity Point."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
       "tier": 1,
       "aptitudes": [],
       "prerequisites": [],
@@ -4335,7 +4398,16 @@
         "ru": "Цели вооружённого огнемётом персонажа получают штраф -20 на проверки Ловкости, совершённые, чтобы избежать возгорания.",
         "en": "The targets of his ﬂamer attacks take a –20 penalty their Agility Tests to escape its effects."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_CLPR_H1",
+          "description": {
+            "ru": "Цели вооружённого огнемётом персонажа получают штраф -20 на проверки Ловкости, совершённые, чтобы избежать возгорания.",
+            "en": "The targets of his ﬂamer attacks take a –20 penalty their Agility Tests to escape its effects."
+          },
+          "targets": ["ST_BS"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_BS", "A_OFF"],
       "prerequisites": [
@@ -4358,7 +4430,16 @@
         "ru": "Когда персонаж приобретает эту черту характера, он должен выбрать один из двух путей: либо договориться с ксеносами, либо разграбить их. Если он решит заключить сделку с ксеносами, он получит талант Связи (Ксенос), применимый к видам ксеносов, с которыми он имеет дело. К несчастью для персонажа, если он выберет этот путь, его действия привлекут внимание Ордо Ксенос и он обретает Врага (Инквизицию). Если персонаж выберет путь грабителя, он получает Врага (Ксенос), связанного с выбранной им инопланетной добычей. 'Торговцы' такого рода часто оказываются вовлеченными в насилие из-за своей добычи и в результате, как правило, ведут гораздо более воинственный образ жизни. Если персонаж выбирает этот путь, он получает талант Ненависти, применимый к этим конкретным ксеносам.",
         "en": "When an Explorer acquires this Trait, he must choose one of two paths, to either deal directly with the xenos or to pillage their culture. If he chooses to deal with the xenos of his trade, he gains the Peer (Xenos) talent applicable to the xenos species he deals with. Unfortunately for the Explorer, if he chooses this path, his actions draw the gaze of the Ordo Xenos. and he gains the Enemy (Inquisition). If the Explorer chooses the path of the pillager, they gain the Enemy (Xenos) talent associated with their chosen alien prey. Brokers of this sort often find themselves involved in violence with their prey and as a result tend to live much more martial lives. If the Explorer chooses this path, he receives the Hatred talent applicable to his particular xenos."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_CLTR_H1",
+          "description": {
+            "ru": "Когда персонаж приобретает эту черту характера, он должен выбрать один из двух путей: либо договориться с ксеносами, либо разграбить их. Если он решит заключить сделку с ксеносами, он получит талант Связи (Ксенос), применимый к видам ксеносов, с которыми он имеет дело. К несчастью для персонажа, если он выберет этот путь, его действия привлекут внимание Ордо Ксенос и он обретает Врага (Инквизицию). Если персонаж выберет путь грабителя, он получает Врага (Ксенос), связанного с выбранной им инопланетной добычей. 'Торговцы' такого рода часто оказываются вовлеченными в насилие из-за своей добычи и в результате, как правило, ведут гораздо более воинственный образ жизни. Если персонаж выбирает этот путь, он получает талант Ненависти, применимый к этим конкретным ксеносам.",
+            "en": "When an Explorer acquires this Trait, he must choose one of two paths, to either deal directly with the xenos or to pillage their culture. If he chooses to deal with the xenos of his trade, he gains the Peer (Xenos) talent applicable to the xenos species he deals with. Unfortunately for the Explorer, if he chooses this path, his actions draw the gaze of the Ordo Xenos. and he gains the Enemy (Inquisition). If the Explorer chooses the path of the pillager, they gain the Enemy (Xenos) talent associated with their chosen alien prey. Brokers of this sort often find themselves involved in violence with their prey and as a result tend to live much more martial lives. If the Explorer chooses this path, he receives the Hatred talent applicable to his particular xenos."
+          },
+          "targets": ["SK_FBL"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_FEL", "A_KNG"],
       "prerequisites": [
@@ -4383,9 +4464,18 @@
       },
       "description": {
         "ru": "Персонаж получает бонус +30 при встречных проверках Общительности или Допроса и -20 к любым тестам, основанным на Общительности, которые предпринимает, из-за нервирующего выражения лица. Персонаж устраняет все текущие Ментальные Расстройства, а также никогда не бросает по таблице ментальных травм - такие чувства ему сейчас недоступны. Также он должен тратить удвоенные очки опыта при попытке удалить Очки Безумия. Если Очки Безумия персонажа упадут ниже 10, то игрок может удалить этот талант, после согласования с Мастером.",
-        "en": "Grants a +30 bonus when opposing any Fellowship or Interrogation Test, and suffer –20 to any Fellowship based Tests they make, due to their unnerving countenance. The Explorer removes any current Mental Disorders and also never rolls on the Mental Trauma table—such feelings\nare beyond him now—but must pay double normal Experience Points when attempting to remove Insanity Points. Should a player’s Insanity Points drop below 10, then he may remove this Talent at the GM’s discretion."
+        "en": "Grants a +30 bonus when opposing any Fellowship or Interrogation Test, and suffer –20 to any Fellowship based Tests they make, due to their unnerving countenance. The Explorer removes any current Mental Disorders and also never rolls on the Mental Trauma table—such feelings are beyond him now—but must pay double normal Experience Points when attempting to remove Insanity Points. Should a player’s Insanity Points drop below 10, then he may remove this Talent at the GM’s discretion."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_CLSL_H1",
+          "description": {
+            "ru": "Персонаж получает бонус +30 при встречных проверках Общительности или Допроса и -20 к любым тестам, основанным на Общительности, которые предпринимает, из-за нервирующего выражения лица. Персонаж устраняет все текущие Ментальные Расстройства, а также никогда не бросает по таблице ментальных травм - такие чувства ему сейчас недоступны. Также он должен тратить удвоенные очки опыта при попытке удалить Очки Безумия. Если Очки Безумия персонажа упадут ниже 10, то игрок может удалить этот талант, после согласования с Мастером.",
+            "en": "Grants a +30 bonus when opposing any Fellowship or Interrogation Test, and suffer –20 to any Fellowship based Tests they make, due to their unnerving countenance. The Explorer removes any current Mental Disorders and also never rolls on the Mental Trauma table—such feelings are beyond him now—but must pay double normal Experience Points when attempting to remove Insanity Points. Should a player’s Insanity Points drop below 10, then he may remove this Talent at the GM’s discretion."
+          },
+          "targets": ["ST_WP", "ST_FEL", "SK_INTR"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_WP", "A_DEF"],
       "prerequisites": [
@@ -4407,7 +4497,16 @@
         "ru": "Перед прохождением теста Коммерции, Бартера или Обаяния персонаж может пройти тест Обмана, которому противостоят Сила Воли или Проницательности цели. Если проверка будет успешной, персонаж получит от цели некоторую жизненно важную информацию, и затем может провести Серьёзный (0) тест Проницательности, чтобы оценить важность полученной информации. В случае успеха персонаж получает бонус +5 к своей следующей проверке Коммерции или Обаяния против цели за каждое очко Бонуса Восприятия. Он получил информацию о цели, которая поможет ему в его подаче, переговорах или дипломатии.",
         "en": "Prior to making a Commerce, Barter, or Charm Test, the Charlatan may make a Deceive Test opposed by the target’s Willpower or Scrutiny. If the Deceive Test is a success, the Charlatan has hooked the target into giving up some vital information and the Charlatan may then make a Challenging (+0) Scrutiny Test to assess the importance of the information gained. If successful, the Charlatan gains a +5 bonus to his next Commerce or Charm Test against the target for each point of Perception Bonus. He has ascertained information about the target, which will aid him in his pitch, negotiations, or diplomacy."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_CLRD_H1",
+          "description": {
+            "ru": "Перед прохождением теста Коммерции или Обаяния персонаж может пройти тест Обмана, которому противостоят Сила Воли или Проницательности цели. Если проверка будет успешной, персонаж получит от цели некоторую жизненно важную информацию, и затем может провести Серьёзный (0) тест Проницательности, чтобы оценить важность полученной информации. В случае успеха персонаж получает бонус +5 к своей следующей проверке Коммерции или Обаяния против цели за каждое очко Бонуса Восприятия. Он получил информацию о цели, которая поможет ему в его подаче, переговорах или дипломатии.",
+            "en": "Prior to making a Commerce, or Charm Test, the Charlatan may make a Deceive Test opposed by the target’s Willpower or Scrutiny. If the Deceive Test is a success, the Charlatan has hooked the target into giving up some vital information and the Charlatan may then make a Challenging (+0) Scrutiny Test to assess the importance of the information gained. If successful, the Charlatan gains a +5 bonus to his next Commerce or Charm Test against the target for each point of Perception Bonus. He has ascertained information about the target, which will aid him in his pitch, negotiations, or diplomacy."
+          },
+          "targets": ["SK_CMR", "SK_DCV", "SK_CH"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_FEL", "A_SOC"],
       "prerequisites": [
@@ -4433,7 +4532,16 @@
         "ru": "Перед тем как бросать инициативу, все члены отряда могут заявить, что вместо своего Бонуса Ловкости будут использовать Бонус Интеллекта персонажа.",
         "en": "Before rolling initiative, all members of the group (including the character) add +1 to his Initiative Rolls. Any member of the group may also choose to use the Intelligence Bonus of the character for their initiative roll rather than their own Agility Bonus."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_CMFR_H1",
+          "description": {
+            "ru": "Перед тем как бросать инициативу, все члены отряда могут заявить, что вместо своего Бонуса Ловкости будут использовать Бонус Интеллекта персонажа.",
+            "en": "Before rolling initiative, all members of the group (including the character) add +1 to his Initiative Rolls. Any member of the group may also choose to use the Intelligence Bonus of the character for their initiative roll rather than their own Agility Bonus."
+          },
+          "targets": ["ST_INT", "IN"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_LDR", "A_INT"],
       "prerequisites": [
@@ -4455,7 +4563,16 @@
         "ru": "Позволяет персонажу проводить сложный (+0) тест Обаяния против Силы Воли в качестве полудействия против любого противника в ближнем бою в каждом раунде боя. В случае успеха он налагает штраф -10 на навык владения оружием своих врагов, увеличивая его на 5 за каждую степень успеха. Это наказание применяется в течение одного полного раунда. Несколько персонажей могут использовать этот талант с кумулятивным эффектом. По усмотрению Мастера, противники со Звериными, Демоническими, Потусторонними или Машинными чертами могут быть невосприимчивы к этому Таланту.",
         "en": "Allows the Explorer to make an opposed Challenging (+0) Charm versus Willpower Test as a Half Action against any foes in close combat each combat round. Should he win, his he imposes a –10 penalty to his foes’ Weapon Skill, increasing by 5 for every degree of success. This penalty applies for one full Round. Multiple Explorers may use this Talent with a cumulative effect. At the GM’s discretion, opponents with the Bestial, Daemonic, From Beyond, or Machine Trait are immune to this Talent."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_CMFL_H1",
+          "description": {
+            "ru": "Позволяет персонажу проводить сложный (+0) тест Обаяния против Силы Воли в качестве полудействия против любого противника в ближнем бою в каждом раунде боя. В случае успеха он налагает штраф -10 на навык владения оружием своих врагов, увеличивая его на 5 за каждую степень успеха. Это наказание применяется в течение одного полного раунда. Несколько персонажей могут использовать этот талант с кумулятивным эффектом. По усмотрению Мастера, противники со Звериными, Демоническими, Потусторонними или Машинными чертами могут быть невосприимчивы к этому Таланту.",
+            "en": "Allows the Explorer to make an opposed Challenging (+0) Charm versus Willpower Test as a Half Action against any foes in close combat each combat round. Should he win, his he imposes a –10 penalty to his foes’ Weapon Skill, increasing by 5 for every degree of success. This penalty applies for one full Round. Multiple Explorers may use this Talent with a cumulative effect. At the GM’s discretion, opponents with the Bestial, Daemonic, From Beyond, or Machine Trait are immune to this Talent."
+          },
+          "targets": ["ST_FEL", "SK_CH"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_FEL", "A_OFF"],
       "prerequisites": [
@@ -4482,10 +4599,19 @@
         "en": "Corrupted charge"
       },
       "description": {
-        "ru": "Урон, наносимый талантами Люмиеновый Шок и Люмиеновый Взрыв, этого персонажа, приобретает качество Силовое. Однако, если персонаж проваливает тест Фокусировки Энергии, чтобы активировать Силовое качество, он получает энергетический урон 1d5, игнорирующий Броню и Бонусом Выносливости.",
+        "ru": "Урон, наносимый талантами Люмиеновый Шок и Люмиеновый Взрыв, этого персонажа, приобретает качество Психосиловое. Однако, если персонаж проваливает тест Фокусировки Энергии, чтобы активировать Психосиловое качество, он получает энергетический урон 1d5, игнорирующий Броню и Бонусом Выносливости.",
         "en": "Damage from this character’s Luminen Shock and Luminen Blast Talents gains the Force Quality. If the character fails his Focus Power Test to activate the Force Quality, however, he suffers 1d5 Energy Damage not reduced by Armour or Toughness Bonus."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_CRCH_H1",
+          "description": {
+            "ru": "Урон, наносимый талантами Люмиеновый Шок и Люмиеновый Взрыв, этого персонажа, приобретает качество Психосиловое. Однако, если персонаж проваливает тест Фокусировки Энергии, чтобы активировать Психосиловое качество, он получает энергетический урон 1d5, игнорирующий Броню и Бонусом Выносливости.",
+            "en": "Damage from this character’s Luminen Shock and Luminen Blast Talents gains the Force Quality. If the character fails his Focus Power Test to activate the Force Quality, however, he suffers 1d5 Energy Damage not reduced by Armour or Toughness Bonus."
+          },
+          "targets": ["SK_TECH", "ST_WP"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_WP", "A_TECH"],
       "prerequisites": [
@@ -4512,7 +4638,16 @@
         "ru": "Когда стрелковая атака персонажа наносит Критический Урон, добавьте +2 к урону.",
         "en": "When his ranged attack causes Critical Damage, add +2 to the Damage."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_CRSHT_H1",
+          "description": {
+            "ru": "Когда стрелковая атака персонажа наносит Критический Урон, добавьте +2 к урону.",
+            "en": "When his ranged attack causes Critical Damage, add +2 to the Damage."
+          },
+          "targets": ["ST_BS"]
+        }
+      ],
       "tier": 1,
       "aptitudes": ["A_BS", "A_OFF"],
       "prerequisites": [
@@ -4534,7 +4669,16 @@
         "ru": "Когда атака персонажа в ближнем бою наносит Критический Урон, добавьте +4 к урону.",
         "en": "When the character’s melee attack causes Critical Damage, add +4 Damage."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_CRPST_H1",
+          "description": {
+            "ru": "Когда атака персонажа в ближнем бою наносит Критический Урон, добавьте +4 к урону.",
+            "en": "When the character’s melee attack causes Critical Damage, add +4 Damage."
+          },
+          "targets": ["ST_WS"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_WS", "A_OFF"],
       "prerequisites": [
@@ -4553,10 +4697,19 @@
         "en": "Deadeye shot"
       },
       "description": {
-        "ru": "Штраф за выстрел в определённую часть тела для персонажа составляет -10, а не -20.",
-        "en": "When making a called shot, the character takes a –10 penalty instead of –20."
+        "ru": "Штраф за атаку по определённой части тела для персонажа составляет -10, а не -20.",
+        "en": "When making a Called Shot, the character takes a –10 penalty instead of –20."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_DESH_H1",
+          "description": {
+            "ru": "Штраф за атаку по определённой части тела для персонажа составляет -10, а не -20.",
+            "en": "When making a Called Shot, the character takes a –10 penalty instead of –20."
+          },
+          "targets": ["ST_WS", "ST_BS"]
+        }
+      ],
       "tier": 1,
       "aptitudes": ["A_PER", "A_FIN"],
       "prerequisites": [
@@ -4578,7 +4731,16 @@
         "ru": "Персонаж получает бонус +10 ко всем тестам Запугивания и Допроса, но и штраф -10 ко всем проверкам Общительности, предпринятых не для угроз, например, в отношении детей, животных и пугливых персонажей.",
         "en": "He gains +10 bonus to all Intimidate or Interrogation Tests when he employs this Talent, but suffers a –10 penalty to Fellowship Tests when dealing with others in a non-threatening manner, such as animals, children, or the easily startled."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_DSVC_H1",
+          "description": {
+            "ru": "Персонаж получает бонус +10 ко всем тестам Запугивания и Допроса, но и штраф -10 ко всем проверкам Общительности, предпринятых не для угроз, например, в отношении детей, животных и пугливых персонажей.",
+            "en": "He gains +10 bonus to all Intimidate or Interrogation Tests when he employs this Talent, but suffers a –10 penalty to Fellowship Tests when dealing with others in a non-threatening manner, such as animals, children, or the easily startled."
+          },
+          "targets": ["ST_FEL", "SK_INTM", "SK_INTR"]
+        }
+      ],
       "tier": 1,
       "aptitudes": ["A_STR", "A_GEN"],
       "prerequisites": [],
@@ -4592,10 +4754,19 @@
         "en": "Divine ministration"
       },
       "description": {
-        "ru": "Предпринимая тест Медики, персонаж может потратить Очко Судьбы, чтобы восстановить количество урона, равное своему Бонусу Силы Воли вместо обычного количества. Это количество прибавляется к тому, что исцеляется обычным образом. Оказывая первую помощь Легко Раненому персонажу, он может восстановить ему количество урона, равное сумме бонусов своих Силы Воли и Интеллекта.\nТакже он может потратить Очко Судьбы, чтобы снять всю усталость с группы персонажей, чья численность равна или меньше его удвоенного Бонуса Силы Воли.\nКроме того, персонаж может сжечь очко судьбы, чтобы позволить только что погибшему персонажу выжить и быть просто критически раненым. Впрочем, у этой способности есть свои пределы – она спасёт от пули в брюхо, но не от обезглавления – и потому её применения нужно согласовать с Мастером. Если наложение рук не сможет спасти убитого, очко судьбы не потеряется.",
+        "ru": "Предпринимая тест Медики, персонаж может потратить Очко Судьбы, чтобы восстановить количество урона, равное своему Бонусу Силы Воли вместо обычного количества. Это количество прибавляется к тому, что исцеляется обычным образом. Оказывая первую помощь Легко Раненому персонажу, он может восстановить ему количество урона, равное сумме бонусов своих Силы Воли и Интеллекта. Также он может потратить Очко Судьбы, чтобы снять всю усталость с группы персонажей, чья численность равна или меньше его удвоенного Бонуса Силы Воли. Кроме того, персонаж может сжечь очко судьбы, чтобы позволить только что погибшему персонажу выжить и быть просто критически раненым. Впрочем, у этой способности есть свои пределы – она спасёт от пули в брюхо, но не от обезглавления – и потому её применения нужно согласовать с Мастером. Если наложение рук не сможет спасти убитого, очко судьбы не потеряется.",
         "en": "When testing Medicae, the Explorer may spend a Fate Point to restore an amount of Damage equal to his Willpower Bonus instead of the normal amount. This amount is then added to and multiplied in the normal way depending on the type of care. In the case of first aid to a Lightly Wounded character, the Explorer restores an amount of Damage equal to his Willpower Bonus plus his Intelligence Bonus. The Explorer may spend a Fate Point to remove all Fatigue from a number of people equal to twice his Willpower Bonus. The Explorer may burn a Fate Point to allow a character who has just died to have become Critically Wounded instead. This power has its limits though, (bullet in the chest—yes, decapitation—no) and it’s subject to the GM’s approval. If a use of the Divine Ministration fails to work in this way, the Fate Point is not lost."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_DVMN_H1",
+          "description": {
+            "ru": "Предпринимая тест Медики, персонаж может потратить Очко Судьбы, чтобы восстановить количество урона, равное своему Бонусу Силы Воли вместо обычного количества. Это количество прибавляется к тому, что исцеляется обычным образом. Оказывая первую помощь Легко Раненому персонажу, он может восстановить ему количество урона, равное сумме бонусов своих Силы Воли и Интеллекта. Также он может потратить Очко Судьбы, чтобы снять всю усталость с группы персонажей, чья численность равна или меньше его удвоенного Бонуса Силы Воли. Кроме того, персонаж может сжечь очко судьбы, чтобы позволить только что погибшему персонажу выжить и быть просто критически раненым. Впрочем, у этой способности есть свои пределы – она спасёт от пули в брюхо, но не от обезглавления – и потому её применения нужно согласовать с Мастером. Если наложение рук не сможет спасти убитого, очко судьбы не потеряется.",
+            "en": "When testing Medicae, the Explorer may spend a Fate Point to restore an amount of Damage equal to his Willpower Bonus instead of the normal amount. This amount is then added to and multiplied in the normal way depending on the type of care. In the case of first aid to a Lightly Wounded character, the Explorer restores an amount of Damage equal to his Willpower Bonus plus his Intelligence Bonus. The Explorer may spend a Fate Point to remove all Fatigue from a number of people equal to twice his Willpower Bonus. The Explorer may burn a Fate Point to allow a character who has just died to have become Critically Wounded instead. This power has its limits though, (bullet in the chest—yes, decapitation—no) and it’s subject to the GM’s approval. If a use of the Divine Ministration fails to work in this way, the Fate Point is not lost."
+          },
+          "targets": ["ST_INT", "ST_WP", "SK_MED", "FP"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_WP", "A_LDR"],
       "prerequisites": [
@@ -4617,7 +4788,16 @@
         "ru": "В бою персонаж игнорирует все эффекты ранений, Усталости и Оглушения. Это талант не предотвращает получение урона, но позволяет персонажу не обращать на него внимания во время боя. Этот талант не может предотвратить смерть.",
         "en": "He ignores the effects of injury, Fatigue, and Stunning during combat. This Talent does not prevent the Damage, but allows the character to temporarily ignore its effects for the duration of the combat. Death still affects him normally."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_DTUD_H1",
+          "description": {
+            "ru": "В бою персонаж игнорирует все эффекты ранений, Усталости и Оглушения. Это талант не предотвращает получение урона, но позволяет персонажу не обращать на него внимания во время боя. Этот талант не может предотвратить смерть.",
+            "en": "He ignores the effects of injury, Fatigue, and Stunning during combat. This Talent does not prevent the Damage, but allows the character to temporarily ignore its effects for the duration of the combat. Death still affects him normally."
+          },
+          "targets": ["ST_T", "ST_WP"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_T", "A_DEF"],
       "prerequisites": [
@@ -4639,7 +4819,16 @@
         "ru": "Находясь в контакте с подключенным и работающим механизмом, полностью заряженной батареей или генератором, персонаж может предпринять простой (+10) тест Выносливости. Успех снимает один уровень усталости и ещё один уровень усталости за каждую ступень успеха. Для применения этого таланта требуется одна минута медитации и чтение обрядовых песнопений.",
         "en": "Whilst in contact with a functioning, powered machine, or fully charged battery or power cell, the character may make an Ordinary (+10) Toughness Test. Success removes one level of Fatigue plus one additional level of Fatigue for each additional Degree of Success. This takes one minute of meditation and ritual  incantation."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_ELSC_H1",
+          "description": {
+            "ru": "Находясь в контакте с подключенным и работающим механизмом, полностью заряженной батареей или генератором, персонаж может предпринять простой (+10) тест Выносливости. Успех снимает один уровень усталости и ещё один уровень усталости за каждую ступень успеха. Для применения этого таланта требуется одна минута медитации и чтение обрядовых песнопений.",
+            "en": "Whilst in contact with a functioning, powered machine, or fully charged battery or power cell, the character may make an Ordinary (+10) Toughness Test. Success removes one level of Fatigue plus one additional level of Fatigue for each additional Degree of Success. This takes one minute of meditation and ritual  incantation."
+          },
+          "targets": ["ST_T"]
+        }
+      ],
       "tier": 1,
       "aptitudes": ["A_T", "A_TECH"],
       "prerequisites": [
@@ -4661,7 +4850,16 @@
         "ru": "Благодаря Электропривою, персонаж может подключаться в инфоразъёмам и общаться с машинными духами. Он получает бонус +10 к проверкам Обыденного знания, Сбора информации и Пользования техники, если подключен к инфоразъёму.",
         "en": "The Explorer may use his Electro Graft to access data ports and commune with machine spirits. This grants a +10 bonus to Common Lore, Inquiry, or Tech-Use Tests whilst connected to a data port."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_EGUS_H1",
+          "description": {
+            "ru": "Благодаря Электропривою, персонаж может подключаться в инфоразъёмам и общаться с машинными духами. Он получает бонус +10 к проверкам Обыденного знания, Сбора информации и Пользования техники, если подключен к инфоразъёму.",
+            "en": "The Explorer may use his Electro Graft to access data ports and commune with machine spirits. This grants a +10 bonus to Common Lore, Inquiry, or Tech-Use Tests whilst connected to a data port."
+          },
+          "targets": ["ST_INT", "SK_INQ", "SK_TECH", "SK_SEC", "SK_CML", "SK_SCL", "SK_FBL"]
+        }
+      ],
       "tier": 1,
       "aptitudes": ["A_INT", "A_TECH"],
       "prerequisites": [
@@ -4683,7 +4881,16 @@
         "ru": "Персонаж научился с толком использовать энергию, запасаемую в конденсаторной катушке. Он больше не получает Усталости при использовании талантов Люмиеновый Разряд, Люмиеновый Шок и Люмиеновый Взрыв.",
         "en": "The Explorer has learned to focus the power stored within his Potentia Coil with greater effciency. He no longer gains Fatigue from using Luminen Charge, Luminen Shock, and Luminen Blast."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_ENCC_H1",
+          "description": {
+            "ru": "Персонаж научился с толком использовать энергию, запасаемую в конденсаторной катушке. Он больше не получает Усталости при использовании талантов Люмиеновый Разряд, Люмиеновый Шок и Люмиеновый Взрыв.",
+            "en": "The Explorer has learned to focus the power stored within his Potentia Coil with greater effciency. He no longer gains Fatigue from using Luminen Charge, Luminen Shock, and Luminen Blast."
+          },
+          "targets": ["ST_INT", "SK_TECH"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_T", "A_TECH"],
       "prerequisites": [
@@ -4705,7 +4912,16 @@
         "ru": "Персонаж получает особенность Автостабилизация.",
         "en": "The Explorer gains the Auto-stablilised Trait."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_EBFR_H1",
+          "description": {
+            "ru": "Персонаж получает особенность Автостабилизация.",
+            "en": "The Explorer gains the Auto-stablilised Trait."
+          },
+          "targets": ["ST_T"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_T", "A_TECH"],
       "prerequisites": [
@@ -4727,7 +4943,16 @@
         "ru": "Один раз за игровую сессию персонаж с этим талантом может назначить другого персонажа, находящегося в пределах прямой видимости, целью своего бдения. Целью может быть только один персонаж. Один раз за столкновение он может провести Стандартную Атаку против выбранной цели в качестве реакции. На эту атаку накладывается преимущество Полного прицеливания.",
         "en": "Once per game session, an Explorer with this Talent may nominate another single character within line of sight as the target of his vigil. He may only have one such character targeted this way at a time. Once per Encounter, he may make a Standard Attack Action against the target of his vigil as a Reaction. He gains the benefits of a Full Action Aim Action for this attack."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_ETVG_H1",
+          "description": {
+            "ru": "Один раз за игровую сессию персонаж с этим талантом может назначить другого персонажа, находящегося в пределах прямой видимости, целью своего бдения. Целью может быть только один персонаж. Один раз за столкновение он может провести Стандартную Атаку против выбранной цели в качестве реакции. На эту атаку накладывается преимущество Полного прицеливания.",
+            "en": "Once per game session, an Explorer with this Talent may nominate another single character within line of sight as the target of his vigil. He may only have one such character targeted this way at a time. Once per Encounter, he may make a Standard Attack Action against the target of his vigil as a Reaction. He gains the benefits of a Full Action Aim Action for this attack."
+          },
+          "targets": ["ST_BS"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_PER", "A_OFF"],
       "prerequisites": [
@@ -4753,7 +4978,16 @@
         "ru": "При приобретении этого таланта персонаж немедленно увеличивает свой порог Судьбы на 1.",
         "en": "When this talent is acquired, the character immediately increases his Fate threshold by one."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_FTD_H1",
+          "description": {
+            "ru": "Максимальное количество Очков Судьбы увеличено на 1",
+            "en": "Fate points threshold increased by 1."
+          },
+          "targets": ["FP"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_WP", "A_KNG"],
       "prerequisites": [
@@ -4779,7 +5013,16 @@
         "ru": "Персонаж невосприимчив к воздействию Страха и Подавления, но отступление из боя для него требует успешного теста Силы воли.",
         "en": "He is immune to the effects of Fear and Pinning, but disengaging from combat or backing down from a fght requires a successful Willpower Test."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_FRLS_H1",
+          "description": {
+            "ru": "Персонаж невосприимчив к воздействию Страха и Подавления, но отступление из боя для него требует успешного теста Силы воли.",
+            "en": "He is immune to the effects of Fear and Pinning, but disengaging from combat or backing down from a fght requires a successful Willpower Test."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_WP", "A_DEF"],
       "prerequisites": [],
@@ -4793,10 +5036,19 @@
         "en": "Feedback screech"
       },
       "description": {
-        "ru": "Персонаж способен перегружать вживлённые ему вокс-синтезаторы, порождая ужасный звук, что выводит из строя и отвлекает врагов.\nВсе незащищённые существа в пределах тридцати метров, что способны слышать, должны пройти проверку Силы Воли или потерять полудействие в следующем ходу, отходя от непроизвольной реакции на жуткую какофонию.",
+        "ru": "Персонаж способен перегружать вживлённые ему вокс-синтезаторы, порождая ужасный звук, что выводит из строя и отвлекает врагов. Все незащищённые существа в пределах тридцати метров, что способны слышать, должны пройти проверку Силы Воли или потерять полудействие в следующем ходу, отходя от непроизвольной реакции на жуткую какофонию.",
         "en": "The Explorer can haywire his vox synthesisers, causing a hideous blast of noise that shocks and distracts others. All unprotected creatures within a 30-metre radius who have the ability to hear must make a Willpower Test or lose a Half Action on their next Turn as they involuntarily react to the cacophonous shriek."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_FBSC_H1",
+          "description": {
+            "ru": "Персонаж способен перегружать вживлённые ему вокс-синтезаторы, порождая ужасный звук, что выводит из строя и отвлекает врагов. Все незащищённые существа в пределах тридцати метров, что способны слышать, должны пройти проверку Силы Воли или потерять полудействие в следующем ходу, отходя от непроизвольной реакции на жуткую какофонию.",
+            "en": "The Explorer can haywire his vox synthesisers, causing a hideous blast of noise that shocks and distracts others. All unprotected creatures within a 30-metre radius who have the ability to hear must make a Willpower Test or lose a Half Action on their next Turn as they involuntarily react to the cacophonous shriek."
+          },
+          "targets": ["ST_WP", "SK_TECH"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_INT", "A_TECH"],
       "prerequisites": [
@@ -4818,7 +5070,16 @@
         "ru": "Потратив десять минут на изучение проблемы, персонаж получает бонус +10 к своему следующему тесту Интеллекта.",
         "en": "By spending ten minutes studying or analysing a problem, he gains a +10 bonus to his next Intelligence Test."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_FRST_H1",
+          "description": {
+            "ru": "Потратив десять минут на изучение проблемы, персонаж получает бонус +10 к своему следующему тесту Интеллекта.",
+            "en": "By spending ten minutes studying or analysing a problem, he gains a +10 bonus to his next Intelligence Test."
+          },
+          "targets": ["ST_INT"]
+        }
+      ],
       "tier": 1,
       "aptitudes": ["A_FLD", "A_INT"],
       "prerequisites": [
@@ -4840,7 +5101,16 @@
         "ru": "Персонаж может исподволь влиять на железосодержащие материалы, благодаря чему способен исправить заклинившее оружие в количестве, равному своему бонусу Интеллекта, в пределах десяти метров. Персонаж тратит Полное Действие и  должен пройти проверку Интеллекта, успех в которой означает, что персонажу удалось ублажить духов оружия.",
         "en": "Using the Explorer’s sacred ability to subtly affect ferrous materials, he can un-jam a number of weapons equal to his Intelligence Bonus, so long as they are within a  10-metre radius. A successful Intelligence Test indicates the character has  appeased the spirits of the weapons. This blessing requires a Full Action."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_GNBL_H1",
+          "description": {
+            "ru": "Персонаж может исподволь влиять на железосодержащие материалы, благодаря чему способен исправить заклинившее оружие в количестве, равному своему бонусу Интеллекта, в пределах десяти метров. Персонаж тратит Полное Действие и  должен пройти проверку Интеллекта, успех в которой означает, что персонажу удалось ублажить духов оружия.",
+            "en": "Using the Explorer’s sacred ability to subtly affect ferrous materials, he can un-jam a number of weapons equal to his Intelligence Bonus, so long as they are within a  10-metre radius. A successful Intelligence Test indicates the character has  appeased the spirits of the weapons. This blessing requires a Full Action."
+          },
+          "targets": ["ST_INT"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_BS", "A_INT"],
       "prerequisites": [
@@ -4862,7 +5132,16 @@
         "ru": "Будучи вооружён двумя пистолетами, персонаж уменьшает на 10 штраф за ведение боя двумя руками. Если персонаж также обладает талантом Амбидекстрия, штраф падает до 0.",
         "en": "When armed with two pistols, he reduces the penalty for Two-Weapon Fighting by –10. If he also possesses the Ambidextrous Talent, the penalty is reduced to 0."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_GNSL_H1",
+          "description": {
+            "ru": "Будучи вооружён двумя пистолетами, персонаж уменьшает на 10 штраф за ведение боя двумя руками. Если персонаж также обладает талантом Амбидекстрия, штраф падает до 0.",
+            "en": "When armed with two pistols, he reduces the penalty for Two-Weapon Fighting by –10. If he also possesses the Ambidextrous Talent, the penalty is reduced to 0."
+          },
+          "targets": ["ST_BS"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_BS", "A_FIN"],
       "prerequisites": [
@@ -4885,10 +5164,19 @@
         "en": "Iron discipline"
       },
       "description": {
-        "ru": "В присутствии персонажа, его подчинённые могут перебрасывать проваленные проверки Силы Воли, предпринятые против Страха и Подавления огнём.\nЭтот талант может воздействовать на количество НИП, не превышающее Бонус Силы Воли персонажа. Если персонаж официально командует группой, этот талант будет работать и на других персонажей, входящих в неё. Если персонаж руководит абордажем, он получает бонус +10 к проверкам Командования.",
+        "ru": "В присутствии персонажа, его подчинённые могут перебрасывать проваленные проверки Силы Воли, предпринятые против Страха и Подавления огнём. Этот талант может воздействовать на количество НИП, не превышающее Бонус Силы Воли персонажа. Если персонаж официально командует группой, этот талант будет работать и на других персонажей, входящих в неё. Если персонаж руководит абордажем, он получает бонус +10 к проверкам Командования.",
         "en": "Minions may reroll failed WP tests to resist Fear and pinning whilst in the Explorer’s presence. Affects WP bonus number of minions under his command. PCs may benefit if the character with the talent is the official leader. +10 to command tests when leading a boarding action."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_IRDS_H1",
+          "description": {
+            "ru": "В присутствии персонажа, его подчинённые могут перебрасывать проваленные проверки Силы Воли, предпринятые против Страха и Подавления огнём. Этот талант может воздействовать на количество НИП, не превышающее Бонус Силы Воли персонажа. Если персонаж официально командует группой, этот талант будет работать и на других персонажей, входящих в неё. Если персонаж руководит абордажем, он получает бонус +10 к проверкам Командования.",
+            "en": "Minions may reroll failed WP tests to resist Fear and pinning whilst in the Explorer’s presence. Affects WP bonus number of minions under his command. PCs may benefit if the character with the talent is the official leader. +10 to command tests when leading a boarding action."
+          },
+          "targets": ["ST_WP", "SK_CMD"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_FEL", "A_LDR"],
       "prerequisites": [
@@ -4946,9 +5234,18 @@
       },
       "description": {
         "ru": "Когда персонаж применяет Заявленный Выстрел и набирает количество степеней успеха при броске атаки, равное или превышающее Бонус Ловкости цели, он немедленно наносит цели критический урон 1d5 в дополнение к любому обычному урону. Используйте соответствующую таблицу критических ударов для определения типа нанесенного урона и места его нанесения. Любые модификаторы Критического Урона от талантов или других источников применяются как обычно. Однако Критический Урон, наносимый этой способностью, не суммируется с фактическим Критическим Уроном.",
-        "en": "When he makes a Called Shot attack and scores a number of Degrees of Success on the attack\nroll equal to or greater than the target’s Agility Bonus, he immediately inﬂicts a 1d5 critical damage result on the target in addition to any normal damage. Roll on the appropriate Critical Hit table for the damage type and location struck. Any modifers to critical damage from Talents or other sources apply as normal. However, the Critical Damage inﬂicted from this ability does not stack with actual Critical Hits."
+        "en": "When he makes a Called Shot attack and scores a number of Degrees of Success on the attack roll equal to or greater than the target’s Agility Bonus, he immediately inﬂicts a 1d5 critical damage result on the target in addition to any normal damage. Roll on the appropriate Critical Hit table for the damage type and location struck. Any modifers to critical damage from Talents or other sources apply as normal. However, the Critical Damage inﬂicted from this ability does not stack with actual Critical Hits."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_KLEY_H1",
+          "description": {
+            "ru": "Когда персонаж применяет Заявленный Выстрел и набирает количество степеней успеха при броске атаки, равное или превышающее Бонус Ловкости цели, он немедленно наносит цели критический урон 1d5 в дополнение к любому обычному урону. Используйте соответствующую таблицу критических ударов для определения типа нанесенного урона и места его нанесения. Любые модификаторы Критического Урона от талантов или других источников применяются как обычно. Однако Критический Урон, наносимый этой способностью, не суммируется с фактическим Критическим Уроном.",
+            "en": "When he makes a Called Shot attack and scores a number of Degrees of Success on the attack roll equal to or greater than the target’s Agility Bonus, he immediately inﬂicts a 1d5 critical damage result on the target in addition to any normal damage. Roll on the appropriate Critical Hit table for the damage type and location struck. Any modifers to critical damage from Talents or other sources apply as normal. However, the Critical Damage inﬂicted from this ability does not stack with actual Critical Hits."
+          },
+          "targets": ["ST_WS", "ST_AG", "ST_BS"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_PER", "A_OFF"],
       "prerequisites": [
@@ -4978,7 +5275,16 @@
         "ru": "При тестах Бдительности и определении внезапности, персонаж всегда считается находящимся настороже, даже когда спит. К сожалению, сон персонажа всегда неглубок и часто прерывается, отчего он бывает не в лучшем настроении после подъёма.",
         "en": "He is always assumed to be awake, even when asleep, for the purposes of Awareness Tests or surprise. Unfortunately, the character’s sleep is not deep and can be frequently interrupted, resulting in a less-than-cheery disposition when awake."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_LTSL_H1",
+          "description": {
+            "ru": "При тестах Бдительности и определении внезапности, персонаж всегда считается находящимся настороже, даже когда спит. К сожалению, сон персонажа всегда неглубок и часто прерывается, отчего он бывает не в лучшем настроении после подъёма.",
+            "en": "He is always assumed to be awake, even when asleep, for the purposes of Awareness Tests or surprise. Unfortunately, the character’s sleep is not deep and can be frequently interrupted, resulting in a less-than-cheery disposition when awake."
+          },
+          "targets": ["ST_PER", "SK_AWR"]
+        }
+      ],
       "tier": 1,
       "aptitudes": ["A_GEN", "A_PER"],
       "prerequisites": [
@@ -5000,7 +5306,16 @@
         "ru": "При определении инициативы, персонаж прибавляет к броску свой удвоенный Бонус Ловкости. Если персонаж обладает особенностью Сверхъестественная Ловкость, то при определении инициативы её показатель увеличивается на 1.",
         "en": "The character adds twice his Agility Bonus when rolling for Initiative. If he has Unnatural Agility, add +1 to the multiplier before factoring the bonus into the Initiative roll."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_LTRF_H1",
+          "description": {
+            "ru": "При определении инициативы, персонаж прибавляет к броску свой удвоенный Бонус Ловкости. Если персонаж обладает особенностью Сверхъестественная Ловкость, то при определении инициативы её показатель увеличивается на 1.",
+            "en": "The character adds twice his Agility Bonus when rolling for Initiative. If he has Unnatural Agility, add +1 to the multiplier before factoring the bonus into the Initiative roll."
+          },
+          "targets": ["ST_AG", "IN"]
+        }
+      ],
       "tier": 1,
       "aptitudes": ["A_AG", "A_FLD"],
       "prerequisites": [
@@ -5022,7 +5337,16 @@
         "ru": "За Полное действие, персонаж может предпринять тест Обаяния, чтобы распространить воздействие своего таланта Ненависть на союзников, находящихся в непосредственной близости. Успех в этом тесте принесёт бонус +10 к тестам Ближнего Боя против ненавистных врагов для одного союзника за каждое очко Бонуса Общительности персонажа. Воздействие литании длится до конца столкновения.",
         "en": "As a Full Action, the character may make a Charm Test to extend the effects of his Hatred Talent to any allies in the immediate vicinity. Success on the Test confers a +10 bonus to Weapon Skill when fghting hated foes to one target per point of the Explorer’s Fellowship Bonus. The effects last for the duration of the encounter."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_LTOH_H1",
+          "description": {
+            "ru": "За Полное действие, персонаж может предпринять тест Обаяния, чтобы распространить воздействие своего таланта Ненависть на союзников, находящихся в непосредственной близости. Успех в этом тесте принесёт бонус +10 к тестам Ближнего Боя против ненавистных врагов для одного союзника за каждое очко Бонуса Общительности персонажа. Воздействие литании длится до конца столкновения.",
+            "en": "As a Full Action, the character may make a Charm Test to extend the effects of his Hatred Talent to any allies in the immediate vicinity. Success on the Test confers a +10 bonus to Weapon Skill when fghting hated foes to one target per point of the Explorer’s Fellowship Bonus. The effects last for the duration of the encounter."
+          },
+          "targets": ["ST_FEL", "SK_CH"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_FEL", "A_LDR"],
       "prerequisites": [
@@ -5044,7 +5368,16 @@
         "ru": "Потратив свою Реакцию, персонаж может предпринять тест Пользования техники, чтобы задействовать этот талант. При этом он получает бонус +10 ко всем тестам Ближнего и Дальнего боя до конца своего следующего хода. Используя этот талант, персонаж должен пройти тест Выносливости или получит один уровень Усталости.",
         "en": "By using his Reaction for the Round, the character may make a Tech-Use Test to make use of this Talent. He gains a +10 bonus to all Weapon Skill and Ballistic Skill Tests until the end of his next Turn. The Explorer must pass a Toughness Test when he uses this ability or gain a level of Fatigue."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_LGIM_H1",
+          "description": {
+            "ru": "Потратив свою Реакцию, персонаж может предпринять тест Пользования техники, чтобы задействовать этот талант. При этом он получает бонус +10 ко всем тестам Ближнего и Дальнего боя до конца своего следующего хода. Используя этот талант, персонаж должен пройти тест Выносливости или получит один уровень Усталости.",
+            "en": "By using his Reaction for the Round, the character may make a Tech-Use Test to make use of this Talent. He gains a +10 bonus to all Weapon Skill and Ballistic Skill Tests until the end of his next Turn. The Explorer must pass a Toughness Test when he uses this ability or gain a level of Fatigue."
+          },
+          "targets": ["ST_T", "SK_TECH"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_T", "A_OFF"],
       "prerequisites": [],
@@ -5059,9 +5392,18 @@
       },
       "description": {
         "ru": "Успешный Серьёзный (+0) тест Навыка Стрельбы позволяет персонажу направить энергию на единственную цель в радиусе 10 метров. Это атака дальнего боя, от которой можно уклониться, но не блокировать полями или другими защитными устройствами. Если у цели есть какие-либо электрические устройства, включая энергетическое оружие и бионические системы, то они перестают работать в течение 1d5 раундов, как если бы их мощность иссякла. Если целью является транспортное средство, то оно немедленно получает критический урон, как при эффекте Праведной Ярости, вычитая единицу из результата критического урона (нулевой результат приводит к отсутствию критического урона).",
-        "en": "A successful Challenging (+0) Ballistic Skill Test allows him to direct the energy against a single targetwithin 10 metres. This is a ranged attack and can be Dodged but not blocked by Fields or other protective devices. If the target is carrying any electrical devices—including energy\nweapons and bionic systems—then they cease to operate for 1d5 rounds, as if their power had run out. If the target is a vehicle, then it immediately suffers a Critical Hit as if the user had scored Righteous Fury, subtracting one to the Critical Hit result (a result of zero results in no Critical Hit)."
+        "en": "A successful Challenging (+0) Ballistic Skill Test allows him to direct the energy against a single targetwithin 10 metres. This is a ranged attack and can be Dodged but not blocked by Fields or other protective devices. If the target is carrying any electrical devices—including energy weapons and bionic systems—then they cease to operate for 1d5 rounds, as if their power had run out. If the target is a vehicle, then it immediately suffers a Critical Hit as if the user had scored Righteous Fury, subtracting one to the Critical Hit result (a result of zero results in no Critical Hit)."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_LMDS_H1",
+          "description": {
+            "ru": "Успешный Серьёзный (+0) тест Навыка Стрельбы позволяет персонажу направить энергию на единственную цель в радиусе 10 метров. Это атака дальнего боя, от которой можно уклониться, но не блокировать полями или другими защитными устройствами. Если у цели есть какие-либо электрические устройства, включая энергетическое оружие и бионические системы, то они перестают работать в течение 1d5 раундов, как если бы их мощность иссякла. Если целью является транспортное средство, то оно немедленно получает критический урон, как при эффекте Праведной Ярости, вычитая единицу из результата критического урона (нулевой результат приводит к отсутствию критического урона).",
+            "en": "A successful Challenging (+0) Ballistic Skill Test allows him to direct the energy against a single targetwithin 10 metres. This is a ranged attack and can be Dodged but not blocked by Fields or other protective devices. If the target is carrying any electrical devices—including energy weapons and bionic systems—then they cease to operate for 1d5 rounds, as if their power had run out. If the target is a vehicle, then it immediately suffers a Critical Hit as if the user had scored Righteous Fury, subtracting one to the Critical Hit result (a result of zero results in no Critical Hit)."
+          },
+          "targets": ["ST_BS"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_BS", "A_TECH"],
       "prerequisites": [
@@ -5093,10 +5435,19 @@
         "en": "Luminen charge"
       },
       "description": {
-        "ru": "Успешно пройдя тест Выносливости и потратив минуту на медитацию и ритуальные песнопения, персонаж может запитать механизм энергией из своих внутренних накопителей. \nИспользуя этот талант, персонаж должен пройти проверку Выносливости или получить один уровень Усталости. Некоторые системы слишком велики или чужды, чтобы их можно было зарядить, сколько бы энергии не даровал Омниссия - окончательное решение всегда за Мастером.",
-        "en": "With a successful Toughness Test the character may recharge or power machinery with his internal coils. This requires one minute of meditation and ritual incantation. The diffculty of the Toughness Test varies depending on the nature of the powered system: (page 102 RT)\nThe Explorer must pass a Toughness Test when he uses this ability or gain a level of Fatigue. No matter the power bestowed by the Omnissiah, some systems are either too large or too alien for this Talent—the GM will be the final judge."
+        "ru": "Успешно пройдя тест Выносливости и потратив минуту на медитацию и ритуальные песнопения, персонаж может запитать механизм энергией из своих внутренних накопителей.  Используя этот талант, персонаж должен пройти проверку Выносливости или получить один уровень Усталости. Некоторые системы слишком велики или чужды, чтобы их можно было зарядить, сколько бы энергии не даровал Омниссия - окончательное решение всегда за Мастером.",
+        "en": "With a successful Toughness Test the character may recharge or power machinery with his internal coils. This requires one minute of meditation and ritual incantation. The diffculty of the Toughness Test varies depending on the nature of the powered system: (page 102 RT) The Explorer must pass a Toughness Test when he uses this ability or gain a level of Fatigue. No matter the power bestowed by the Omnissiah, some systems are either too large or too alien for this Talent—the GM will be the final judge."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_LMCH_H1",
+          "description": {
+            "ru": "Успешно пройдя тест Выносливости и потратив минуту на медитацию и ритуальные песнопения, персонаж может запитать механизм энергией из своих внутренних накопителей.  Используя этот талант, персонаж должен пройти проверку Выносливости или получить один уровень Усталости. Некоторые системы слишком велики или чужды, чтобы их можно было зарядить, сколько бы энергии не даровал Омниссия - окончательное решение всегда за Мастером.",
+            "en": "With a successful Toughness Test the character may recharge or power machinery with his internal coils. This requires one minute of meditation and ritual incantation. The diffculty of the Toughness Test varies depending on the nature of the powered system: (page 102 RT) The Explorer must pass a Toughness Test when he uses this ability or gain a level of Fatigue. No matter the power bestowed by the Omnissiah, some systems are either too large or too alien for this Talent—the GM will be the final judge."
+          },
+          "targets": ["ST_T"]
+        }
+      ],
       "tier": 1,
       "aptitudes": ["A_T", "A_TECH"],
       "prerequisites": [
@@ -5118,7 +5469,24 @@
         "ru": "Сила и Выносливость персонажа возрастают на 10, а Ловкость и Общительность падают на 5. Отныне он весит примерно в три раза больше, чем обычный человек того же размера, и теряет возможность плавать или держаться на воде (или иной жидкости, исключая ртуть). Кроме того, отныне персонаж может установить на каждый из имеющихся у него Стрелковых Механодендритов одно холодное оружие или один любой пистолет. Для использования этого оружия он должен иметь соответствующий талант.",
         "en": "The Explorer’s Strength and Toughness Characteristics are increased by +10, and his Agility and Fellowship are reduced by –5. His mass increases to three times that of a normal person, and he may no longer stay aﬂoat or swim in water or similar liquids. The character may mount a single pistol type or close combat weapon on any Ballistic Mechadendrites he posseses. He must still have the proper Talent to use the mounted weapon."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_MCAR_H1",
+          "description": {
+            "ru": "Сила и Выносливость персонажа возрастают на 10. Отныне он весит примерно в три раза больше, чем обычный человек того же размера, и теряет возможность плавать или держаться на воде (или иной жидкости, исключая ртуть). Кроме того, отныне персонаж может установить на каждый из имеющихся у него Стрелковых Механодендритов одно холодное оружие или один любой пистолет. Для использования этого оружия он должен иметь соответствующий талант.",
+            "en": "The Explorer’s Strength and Toughness Characteristics are increased by +10. His mass increases to three times that of a normal person, and he may no longer stay aﬂoat or swim in water or similar liquids. The character may mount a single pistol type or close combat weapon on any Ballistic Mechadendrites he posseses. He must still have the proper Talent to use the mounted weapon."
+          },
+          "targets": ["ST_T", "ST_STR"]
+        },
+        {
+          "tag": "TL_MCAR_H2",
+          "description": {
+            "ru": "Ловкость и Общительность персонажа падают на 5. Отныне он весит примерно в три раза больше, чем обычный человек того же размера, и теряет возможность плавать или держаться на воде (или иной жидкости, исключая ртуть).",
+            "en": "The Explorer’s Agility and Fellowship are reduced by –5. His mass increases to three times that of a normal person, and he may no longer stay aﬂoat or swim in water or similar liquids."
+          },
+          "targets": ["ST_AG", "ST_FEL"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_INT", "A_TECH"],
       "prerequisites": [
@@ -5144,7 +5512,16 @@
         "ru": "Если персонаж потратит в бою Полудействие, чтобы направить усилия своих соратников, никто из них не будет получать штрафов за численное превосходство до конца своего следующего хода. Отражая абордаж, персонаж может потратить Полудействие, командуя бойцами, что принесёт им бонус +10.",
         "en": "By spending a Half Action in combat to direct the efforts of his allies, none of them suffer the penalties for ganging up until his next Turn. If defending against a boarding action, a Half Action directs the efforts of his armsmen, granting them a +10 bonus in combat."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_MSCM_H1",
+          "description": {
+            "ru": "Если персонаж потратит в бою Полудействие, чтобы направить усилия своих соратников, никто из них не будет получать штрафов за численное превосходство до конца своего следующего хода. Отражая абордаж, персонаж может потратить Полудействие, командуя бойцами, что принесёт им бонус +10.",
+            "en": "By spending a Half Action in combat to direct the efforts of his allies, none of them suffer the penalties for ganging up until his next Turn. If defending against a boarding action, a Half Action directs the efforts of his armsmen, granting them a +10 bonus in combat."
+          },
+          "targets": ["SK_CMD"]
+        }
+      ],
       "tier": 1,
       "aptitudes": ["A_INT", "A_SOC"],
       "prerequisites": [],
@@ -5161,7 +5538,16 @@
         "ru": "Персонаж может потратить Очко Судьбы для того, чтобы автоматически преуспеть в тесте Пользования техники, направленном на то, чтобы усовершенствовать, починить или улучшить какой-либо механизм звёздного корабля, при этом потратив минимум времени.",
         "en": "He may spend a Fate Point for automatic success on a Tech-Use Test for enhancement, repair, or upgrade of starship systems, taking the minimum amount of time possible on the task."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_MSES_H1",
+          "description": {
+            "ru": "Персонаж может потратить Очко Судьбы для того, чтобы автоматически преуспеть в тесте Пользования техники, направленном на то, чтобы усовершенствовать, починить или улучшить какой-либо механизм звёздного корабля, при этом потратив минимум времени.",
+            "en": "He may spend a Fate Point for automatic success on a Tech-Use Test for enhancement, repair, or upgrade of starship systems, taking the minimum amount of time possible on the task."
+          },
+          "targets": ["SK_TECH", "FP"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_INT", "A_TECH"],
       "prerequisites": [
@@ -5217,7 +5603,16 @@
         "ru": "Проведя 10 минут в спокойствии и успешно пройдя проверку Силы Воли персонаж может снять один уровень Усталости.",
         "en": "Success on a Willpower Test and 10 minutes without interruptions removes one level of Fatigue."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_MDTN_H1",
+          "description": {
+            "ru": "Проведя 10 минут в спокойствии и успешно пройдя проверку Силы Воли персонаж может снять один уровень Усталости.",
+            "en": "Success on a Willpower Test and 10 minutes without interruptions removes one level of Fatigue."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
       "tier": 1,
       "aptitudes": ["A_WP", "A_DEF"],
       "prerequisites": [],
@@ -5234,7 +5629,16 @@
         "ru": "Персонаж натренировал свой интеллект так, чтобы он был подобен стальному капкану, который захлопывается при малейшей провокации со стороны пси-активных существ. Псайкеры, которые пытаются нарушить границы его разума, часто сталкиваются с запутанными образами и хитрыми ментальными уловками, которые оставляют их измотанными и дезориентированными. Персонаж может добавить 2хБонус Интеллекта к любому тесту Силы Воли, который он должен пройти, противодействуя психо-силе другого существа. Если он выиграет в этом противостоянии, псайкер, пытающийся воздействовать на его разум, получит один уровень усталости.",
         "en": "The Explorer has trained his intellect to be like a steel trap, and it snaps shut at the slightest provocation by psychic presences. Psykers who attempt to transgress the boundary of his mind often find themselves confronted by confusing images and cunning mental ruses that leave them exhausted and disoriented. The Explorer may add twice his Intelligence Bonus to any Opposed Willpower Test that he must make because of another creature’s psychic power. If he wins this Opposed Test, the psyker attempting to tamper with his mind gains one level of Fatigue."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_MTMZ_H1",
+          "description": {
+            "ru": "Персонаж натренировал свой интеллект так, чтобы он был подобен стальному капкану, который захлопывается при малейшей провокации со стороны пси-активных существ. Псайкеры, которые пытаются нарушить границы его разума, часто сталкиваются с запутанными образами и хитрыми ментальными уловками, которые оставляют их измотанными и дезориентированными. Персонаж может добавить 2хБонус Интеллекта к любому тесту Силы Воли, который он должен пройти, противодействуя психо-силе другого существа. Если он выиграет в этом противостоянии, псайкер, пытающийся воздействовать на его разум, получит один уровень усталости.",
+            "en": "The Explorer has trained his intellect to be like a steel trap, and it snaps shut at the slightest provocation by psychic presences. Psykers who attempt to transgress the boundary of his mind often find themselves confronted by confusing images and cunning mental ruses that leave them exhausted and disoriented. The Explorer may add twice his Intelligence Bonus to any Opposed Willpower Test that he must make because of another creature’s psychic power. If he wins this Opposed Test, the psyker attempting to tamper with his mind gains one level of Fatigue."
+          },
+          "targets": ["ST_WP", "ST_INT"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_WP", "A_INT"],
       "prerequisites": [
@@ -5258,9 +5662,18 @@
       },
       "description": {
         "ru": "Вокс-синтезаторы, обучение или природный талант позволяют персонажу в точности подражать чужому голосу. Персонаж должен сперва изучать нужный голос хотя бы час и знать язык, на котором тот говорит. Из-за физиологических различий и сложности большинства языков персонаж не может в точности копировать голоса ксеносов. Слушатели должны пройти Сложный (-10) тест Проницательности, чтобы распознать обман. Если для изучения голоса своей цели персонаж использовал вокс-записи или разговор по средствам связи, а не слышал живую речь, тест Проницательности становится Серьёзным (+0). Если слушатель ясно видит, что персонаж – не тот, за кого себя выдаёт, обман тут же раскрывается.",
-        "en": "Vox synthesisers, training or innate abilities allow the Explorer to accurately mimic the voice of another. He must study the voice patterns of his target for at least one hour for proper imitation, and speak the same language. He cannot accurately copy the voice of a xeno due to the difference in physiology and the subtle complexities of most alien languages. Listeners must succeed on a Diffcult (–10) Scrutiny Test to penetrate the deception. If the character studies used vox F127recordings, or comm-link conversations rather than in-person observation, the Difficulty of the Scrutiny Test is reduced to Challenging (+0). His deception automatically fails if the listener can clearly see he is not the imitated individual."
+        "en": "Vox synthesisers, training or innate abilities allow the Explorer to accurately mimic the voice of another. He must study the voice patterns of his target for at least one hour for proper imitation, and speak the same language. He cannot accurately copy the voice of a xeno due to the difference in physiology and the subtle complexities of most alien languages. Listeners must succeed on a Diffcult (–10) Scrutiny Test to penetrate the deception. If the character studies used vox recordings, or comm-link conversations rather than in-person observation, the Difficulty of the Scrutiny Test is reduced to Challenging (+0). His deception automatically fails if the listener can clearly see he is not the imitated individual."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_MMC_H1",
+          "description": {
+            "ru": "Вокс-синтезаторы, обучение или природный талант позволяют персонажу в точности подражать чужому голосу. Персонаж должен сперва изучать нужный голос хотя бы час и знать язык, на котором тот говорит. Из-за физиологических различий и сложности большинства языков персонаж не может в точности копировать голоса ксеносов. Слушатели должны пройти Сложный (-10) тест Проницательности, чтобы распознать обман. Если для изучения голоса своей цели персонаж использовал вокс-записи или разговор по средствам связи, а не слышал живую речь, тест Проницательности становится Серьёзным (+0). Если слушатель ясно видит, что персонаж – не тот, за кого себя выдаёт, обман тут же раскрывается.",
+            "en": "Vox synthesisers, training or innate abilities allow the Explorer to accurately mimic the voice of another. He must study the voice patterns of his target for at least one hour for proper imitation, and speak the same language. He cannot accurately copy the voice of a xeno due to the difference in physiology and the subtle complexities of most alien languages. Listeners must succeed on a Diffcult (–10) Scrutiny Test to penetrate the deception. If the character studies used vox F127recordings, or comm-link conversations rather than in-person observation, the Difficulty of the Scrutiny Test is reduced to Challenging (+0). His deception automatically fails if the listener can clearly see he is not the imitated individual."
+          },
+          "targets": ["SK_DCV", "SK_STL"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_FEL", "A_SOC"],
       "prerequisites": [],
@@ -5277,7 +5690,16 @@
         "ru": "Персонаж может перебрасывать проваленные тесты Силы воли, предпринятые для того, чтобы избежать подавления или освободиться от него.",
         "en": "He may re-roll failed Willpower Tests to avoid or recover from Pinning."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_NOS_H1",
+          "description": {
+            "ru": "Персонаж может перебрасывать проваленные тесты Силы воли, предпринятые для того, чтобы избежать подавления или освободиться от него.",
+            "en": "He may re-roll failed Willpower Tests to avoid or recover from Pinning."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
       "tier": 1,
       "aptitudes": ["A_WP", "A_DEF"],
       "prerequisites": [],
@@ -5291,10 +5713,19 @@
         "en": "Operative conditioning"
       },
       "description": {
-        "ru": "Персонаж получает Химическую Кастрацию и Ортопраксию. Он может использовать вопросы и методы допрашивающего, чтобы получить подробную информацию о характере, целях и мотивах самого допрашивающего и тех, на кого он работает.\nЕсли персонаж подвергается допросу и проходит проверку встречного допроса против Силы Воли, он может немедленно пройти Серьёзный (+0) тест F197a. В случае успеха и за каждую дополнительную степень успеха он может узнать одну деталь о своих похитителях (что он может узнать, а что нет, в конечном счете зависит от Мастера, но это должно быть что-то ценное).",
-        "en": "The Explorer gains the  Chem-geld and Orthoproxy talents. The Explorer may utilise an interrogator’s questions and techniques to garner detailed information about the nature, aims, and motivations of the interrogator himself and those he works for. If the Explorer is subjected to interrogation, and wins the opposed Interrogation versus Willpower Test, he may immediately make F197a Challenging (+0) Scrutiny Test. On a success and for every additional degree of success, he can learn one detail about his captors (what he can and cannot learn is ultimately up the GM, but it should be something valuable)."
+        "ru": "Персонаж получает Химическую Кастрацию и Ортопраксию. Он может использовать вопросы и методы допрашивающего, чтобы получить подробную информацию о характере, целях и мотивах самого допрашивающего и тех, на кого он работает. Если персонаж подвергается допросу и проходит проверку встречного допроса против Силы Воли, он может немедленно пройти Серьёзный (+0) тестa. В случае успеха и за каждую дополнительную степень успеха он может узнать одну деталь о своих похитителях (что он может узнать, а что нет, в конечном счете зависит от Мастера, но это должно быть что-то ценное).",
+        "en": "The Explorer gains the  Chem-geld and Orthoproxy talents. The Explorer may utilise an interrogator’s questions and techniques to garner detailed information about the nature, aims, and motivations of the interrogator himself and those he works for. If the Explorer is subjected to interrogation, and wins the opposed Interrogation versus Willpower Test, he may immediately make a Challenging (+0) Scrutiny Test. On a success and for every additional degree of success, he can learn one detail about his captors (what he can and cannot learn is ultimately up the GM, but it should be something valuable)."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_OPCN_H1",
+          "description": {
+            "ru": "Персонаж получает Химическую Кастрацию и Ортопраксию. Он может использовать вопросы и методы допрашивающего, чтобы получить подробную информацию о характере, целях и мотивах самого допрашивающего и тех, на кого он работает. Если персонаж подвергается допросу и проходит проверку встречного допроса против Силы Воли, он может немедленно пройти Серьёзный (+0) тестa. В случае успеха и за каждую дополнительную степень успеха он может узнать одну деталь о своих похитителях (что он может узнать, а что нет, в конечном счете зависит от Мастера, но это должно быть что-то ценное).",
+            "en": "The Explorer gains the  Chem-geld and Orthoproxy talents. The Explorer may utilise an interrogator’s questions and techniques to garner detailed information about the nature, aims, and motivations of the interrogator himself and those he works for. If the Explorer is subjected to interrogation, and wins the opposed Interrogation versus Willpower Test, he may immediately make a Challenging (+0) Scrutiny Test. On a success and for every additional degree of success, he can learn one detail about his captors (what he can and cannot learn is ultimately up the GM, but it should be something valuable)."
+          },
+          "targets": ["ST_WP", "SK_SCR"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_WP", "A_GEN"],
       "prerequisites": [],
@@ -5311,7 +5742,16 @@
         "ru": "Персонаж получает бонус +20 к проверкам Силы Воли при сопротивлении допросам или контролю разума.",
         "en": "He receives a +20 bonus to Willpower Tests made to resist mind control or interrogation."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_ORTH_H1",
+          "description": {
+            "ru": "Персонаж получает бонус +20 к проверкам Силы Воли при сопротивлении допросам или контролю разума.",
+            "en": "He receives a +20 bonus to Willpower Tests made to resist mind control or interrogation."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_WP", "A_DEF"],
       "prerequisites": [],
@@ -5328,7 +5768,16 @@
         "ru": "Персонаж получает бонус +2 к броскам инициативы. Мастер также может втайне бросать тесты Восприятия персонажа, определяя, не удалось ли тому заметить прячущихся врагов. Цена за постоянную бдительность – вечная нервозность и неспособность расслабиться.",
         "en": "The character gains a +2 bonus on Initiative rolls, and the GM may secretly Test his Perception to notice hidden threats. The price of his eternal vigilance is a twitchy disposition and the inability to relax."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_PRN_H1",
+          "description": {
+            "ru": "Персонаж получает бонус +2 к броскам инициативы. Мастер также может втайне бросать тесты Восприятия персонажа, определяя, не удалось ли тому заметить прячущихся врагов. Цена за постоянную бдительность – вечная нервозность и неспособность расслабиться.",
+            "en": "The character gains a +2 bonus on Initiative rolls, and the GM may secretly Test his Perception to notice hidden threats. The price of his eternal vigilance is a twitchy disposition and the inability to relax."
+          },
+          "targets": ["ST_PER", "IN"]
+        }
+      ],
       "tier": 1,
       "aptitudes": ["A_PER", "A_DEF"],
       "prerequisites": [],
@@ -5345,7 +5794,16 @@
         "ru": "Все языки для персонажа считаются базовыми умениями. Это не означает истинного знания данных языков – поэтому все тесты, задействующие этот талант, получают штраф -10 из-за того, что персонаж использует для перевода простейшие фразы и понятия.",
         "en": "He treats all languages as Basic Skills. This is not the same as true knowledge of the language, and tests using this Talent suffer a –10 penalty due to the simplistic nature of translation."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_PLG_H1",
+          "description": {
+            "ru": "Все языки для персонажа считаются базовыми умениями. Это не означает истинного знания данных языков – поэтому все тесты, задействующие этот талант, получают штраф -10 из-за того, что персонаж использует для перевода простейшие фразы и понятия.",
+            "en": "He treats all languages as Basic Skills. This is not the same as true knowledge of the language, and tests using this Talent suffer a –10 penalty due to the simplistic nature of translation."
+          },
+          "targets": ["SK_LNG", "ST_INT"]
+        }
+      ],
       "tier": 1,
       "aptitudes": ["A_INT", "A_SOC"],
       "prerequisites": [
@@ -5368,10 +5826,19 @@
         "en": "Purge the unclean"
       },
       "description": {
-        "ru": "В качестве полудействия персонаж может потратить Очко Судьбы на произнесение священных слов, чтобы отразить варп-сущность. Проведите встречную проверку Силы Воли против варп-сущности. Если проверка успешна, варп-сущность отбрасывается на расстояние в несколько метров, равное 2хБонус Силы Воли персонажа. Она не может приблизиться ближе, чем на это расстояние, в течение 2d5 раундов.\nВ качестве полного действия персонаж может потратить Очко Судьбы, чтобы провести обряд экзорцизма и изгнать сущность из носителя, пройдя встречную проверку Силы Воли против варп-сущности. Если тест пройден успешно, варп-сущность изгоняется из того, чем\\кем она овладела, и проявляется в пространстве, недалеко от её бывшего сосуда. Варп-сущность не может снова овладеть носителем в течение нескольких часов, равных 2хБонуса Силы Воли персонажа.\nВ качестве полного действия, персонаж может сжечь Точку Судьбы, чтобы произнести литании отвращения, для изгнания варп-сущности из реальности. Он должен находиться лицом к лицу с сущностью, а не просто думать об этом. Успешно пройдя тест Силы Воли наносит урон, равный его Бонусу Силы Воли, плюс Бонус Силы Воли за каждую степень успеха. При провале, варп-сущность получает урон равный Бонусу Силы Воли персонажа. Урон, наносимый таким образом, не учитывает Бонус Выносливости или Броню существа.",
-        "en": "As a half action, the Explorer may spend a Fate Point to intone holy words to repel a warp entity. Make an opposed Willpower Test against the warp entity. If the Test succeeds, the warp creature is repelled a distance of metres away equal to twice the character’s Willpower Bonus. It cannot approach closer than this distance for 2d5 Rounds.\nAs a full action, the Explorer may spend a Fate Point to speak the rites of exorcism and force out a possessing warp entity from its host. Make an opposed Willpower Test against the warp entity. If the Test succeeds, the warp entity is driven out of the thing it was possessing and manifests in an adjacent space to its former host.The warp entity may not possess the host again for a number of hours equal to twice character’s Willpower Bonus.\nAs a full action, the Explorer may burn a Fate Point to chant the litanies of detestation to purge a warp entity from reality. He must be actually confronting the thing and not just thinking about it. Test the character’s Willpower; if successful, he deals Damage equal to his Willpower Bonus, plus his Willpower Bonus for each Degree of Success. On a failed Test, the warp creature takes \ndamage equal to the character’s Willpower Bonus. Damage inﬂicted by this method is not reduced by the creature’s Toughness or Armour."
+        "ru": "В качестве полудействия персонаж может потратить Очко Судьбы на произнесение священных слов, чтобы отразить варп-сущность. Проведите встречную проверку Силы Воли против варп-сущности. Если проверка успешна, варп-сущность отбрасывается на расстояние в несколько метров, равное 2хБонус Силы Воли персонажа. Она не может приблизиться ближе, чем на это расстояние, в течение 2d5 раундов. В качестве полного действия персонаж может потратить Очко Судьбы, чтобы провести обряд экзорцизма и изгнать сущность из носителя, пройдя встречную проверку Силы Воли против варп-сущности. Если тест пройден успешно, варп-сущность изгоняется из того, чем\\кем она овладела, и проявляется в пространстве, недалеко от её бывшего сосуда. Варп-сущность не может снова овладеть носителем в течение нескольких часов, равных 2хБонуса Силы Воли персонажа. В качестве полного действия, персонаж может сжечь Точку Судьбы, чтобы произнести литании отвращения, для изгнания варп-сущности из реальности. Он должен находиться лицом к лицу с сущностью, а не просто думать об этом. Успешно пройдя тест Силы Воли наносит урон, равный его Бонусу Силы Воли, плюс Бонус Силы Воли за каждую степень успеха. При провале, варп-сущность получает урон равный Бонусу Силы Воли персонажа. Урон, наносимый таким образом, не учитывает Бонус Выносливости или Броню существа.",
+        "en": "As a half action, the Explorer may spend a Fate Point to intone holy words to repel a warp entity. Make an opposed Willpower Test against the warp entity. If the Test succeeds, the warp creature is repelled a distance of metres away equal to twice the character’s Willpower Bonus. It cannot approach closer than this distance for 2d5 Rounds. As a full action, the Explorer may spend a Fate Point to speak the rites of exorcism and force out a possessing warp entity from its host. Make an opposed Willpower Test against the warp entity. If the Test succeeds, the warp entity is driven out of the thing it was possessing and manifests in an adjacent space to its former host.The warp entity may not possess the host again for a number of hours equal to twice character’s Willpower Bonus. As a full action, the Explorer may burn a Fate Point to chant the litanies of detestation to purge a warp entity from reality. He must be actually confronting the thing and not just thinking about it. Test the character’s Willpower; if successful, he deals Damage equal to his Willpower Bonus, plus his Willpower Bonus for each Degree of Success. On a failed Test, the warp creature takes  damage equal to the character’s Willpower Bonus. Damage inﬂicted by this method is not reduced by the creature’s Toughness or Armour."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_PTUC_H1",
+          "description": {
+            "ru": "В качестве полудействия персонаж может потратить Очко Судьбы на произнесение священных слов, чтобы отразить варп-сущность. Проведите встречную проверку Силы Воли против варп-сущности. Если проверка успешна, варп-сущность отбрасывается на расстояние в несколько метров, равное 2хБонус Силы Воли персонажа. Она не может приблизиться ближе, чем на это расстояние, в течение 2d5 раундов. В качестве полного действия персонаж может потратить Очко Судьбы, чтобы провести обряд экзорцизма и изгнать сущность из носителя, пройдя встречную проверку Силы Воли против варп-сущности. Если тест пройден успешно, варп-сущность изгоняется из того, чем\\кем она овладела, и проявляется в пространстве, недалеко от её бывшего сосуда. Варп-сущность не может снова овладеть носителем в течение нескольких часов, равных 2хБонуса Силы Воли персонажа. В качестве полного действия, персонаж может сжечь Точку Судьбы, чтобы произнести литании отвращения, для изгнания варп-сущности из реальности. Он должен находиться лицом к лицу с сущностью, а не просто думать об этом. Успешно пройдя тест Силы Воли наносит урон, равный его Бонусу Силы Воли, плюс Бонус Силы Воли за каждую степень успеха. При провале, варп-сущность получает урон равный Бонусу Силы Воли персонажа. Урон, наносимый таким образом, не учитывает Бонус Выносливости или Броню существа.",
+            "en": "As a half action, the Explorer may spend a Fate Point to intone holy words to repel a warp entity. Make an opposed Willpower Test against the warp entity. If the Test succeeds, the warp creature is repelled a distance of metres away equal to twice the character’s Willpower Bonus. It cannot approach closer than this distance for 2d5 Rounds. As a full action, the Explorer may spend a Fate Point to speak the rites of exorcism and force out a possessing warp entity from its host. Make an opposed Willpower Test against the warp entity. If the Test succeeds, the warp entity is driven out of the thing it was possessing and manifests in an adjacent space to its former host.The warp entity may not possess the host again for a number of hours equal to twice character’s Willpower Bonus. As a full action, the Explorer may burn a Fate Point to chant the litanies of detestation to purge a warp entity from reality. He must be actually confronting the thing and not just thinking about it. Test the character’s Willpower; if successful, he deals Damage equal to his Willpower Bonus, plus his Willpower Bonus for each Degree of Success. On a failed Test, the warp creature takes  damage equal to the character’s Willpower Bonus. Damage inﬂicted by this method is not reduced by the creature’s Toughness or Armour."
+          },
+          "targets": ["FP", "ST_WP"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_WP", "A_OFF"],
       "prerequisites": [
@@ -5393,7 +5860,16 @@
         "ru": "Попав в засаду или подвергшись внезапной атаке врага, персонаж может пройти проверку Ловкости и, в случае успеха, действовать как обычно.",
         "en": "When surprised or ambushed, a successful Agility Test allows him to act normally."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_RPRC_H1",
+          "description": {
+            "ru": "Попав в засаду или подвергшись внезапной атаке врага, персонаж может пройти проверку Ловкости и, в случае успеха, действовать как обычно.",
+            "en": "When surprised or ambushed, a successful Agility Test allows him to act normally."
+          },
+          "targets": ["ST_AG"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_AG", "A_FLD"],
       "prerequisites": [
@@ -5415,7 +5891,16 @@
         "ru": "Персонаж получает бонус +10 к проверкам навыков взаимодействия с теми, кто понимает важность патента, такими как другие торговцы и официальные лица Империума.",
         "en": "The character gains a +10 bonus to Interaction Skill Tests with those who understand the importance of the warrant, such as other traders and Imperial offcials"
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_RNWR_H1",
+          "description": {
+            "ru": "Персонаж получает бонус +10 к проверкам навыков взаимодействия с теми, кто понимает важность патента, такими как другие торговцы и официальные лица Империума.",
+            "en": "The character gains a +10 bonus to Interaction Skill Tests with those who understand the importance of the warrant, such as other traders and Imperial offcials"
+          },
+          "targets": ["SK_INQ", "SK_CH", "SK_DCV", "SK_INTR", "SK_INTM", "SK_CMD"]
+        }
+      ],
       "tier": 1,
       "aptitudes": ["A_GEN", "A_GEN"],
       "prerequisites": [],
@@ -5432,7 +5917,16 @@
         "ru": "Сам Омниссия благословил вокс-блок персонажа, позволив ему служить инфразвуковые литургии, что вселяют страх и трепет. Все люди в пределах пятидесяти метров, независимо от того, могут ли они слышать, получают штраф -10 к своим следующим тестам умений. Успешный тест Силы Воли может снять воздействие этого таланта. Издавая этот инфразвук, персонаж не может общаться никаким образом. Ритуал требует двух минут песнопений и прерывать её считается очень дурным тоном. Люди, у которых нет особых аугментаций слуха, не могут слышать инфразвук, но все равно будут повергнуты в трепет, даже не понимая, что он исходит от персонажа.",
         "en": "The Omnissiah has augmetically blessed the Explorer’s voice box, allowing him to recite infrasonic liturgies that trigger awe and fear. All humans, regardless of their ability to hear, within a 50-metre radius feel a sense of dread and take a –10 penalty to their next Skill Test. Characters may ignore these effects with a successful Willpower Test. Whilst incanting the rite, the character may not talk or communicate with others. The rite requires two minutes of litanies, and it is considered very bad form to break off the recitation before completion. Humans without auditory implants cannot hear infrasonic sound, and though still affected, will not know the Explorer is speaking."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_RTAW_H1",
+          "description": {
+            "ru": "Сам Омниссия благословил вокс-блок персонажа, позволив ему служить инфразвуковые литургии, что вселяют страх и трепет. Все люди в пределах пятидесяти метров, независимо от того, могут ли они слышать, получают штраф -10 к своим следующим тестам умений. Успешный тест Силы Воли может снять воздействие этого таланта. Издавая этот инфразвук, персонаж не может общаться никаким образом. Ритуал требует двух минут песнопений и прерывать её считается очень дурным тоном. Люди, у которых нет особых аугментаций слуха, не могут слышать инфразвук, но все равно будут повергнуты в трепет, даже не понимая, что он исходит от персонажа.",
+            "en": "The Omnissiah has augmetically blessed the Explorer’s voice box, allowing him to recite infrasonic liturgies that trigger awe and fear. All humans, regardless of their ability to hear, within a 50-metre radius feel a sense of dread and take a –10 penalty to their next Skill Test. Characters may ignore these effects with a successful Willpower Test. Whilst incanting the rite, the character may not talk or communicate with others. The rite requires two minutes of litanies, and it is considered very bad form to break off the recitation before completion. Humans without auditory implants cannot hear infrasonic sound, and though still affected, will not know the Explorer is speaking."
+          },
+          "targets": ["SK_TECH"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_WP", "A_TECH"],
       "prerequisites": [
@@ -5454,7 +5948,16 @@
         "ru": "Инфразвуковые панихиды персонажа вселяют ужас в слабых. Все люди, независимо от их способности слышать, в радиусе 50ти метров относятся к персонажу так, как будто у него Рейтинг Страха 1. Произнося панихиду, он не может общаться каким-либо другим способом. Ритуал требует двухминутного повторения, и большинство людей не стали бы прерывать его до завершения. Люди без усиления слуха не могут слышать инфразвуковой звук и, хотя все еще подвержены воздействию, не будут знать, что говорит персонаж.",
         "en": "The Explorer’s infrasonic dirges cause terror in the weak. All humans, regardless of their ability to hear, within a 50-metre radius treat the character as if he has a Fear Rating of 1. While incanting the dirge, he may not communicate in any other way. The rite requires two minutes of chanting, and most would not consider halting the incantations prior to their completion. Humans without auditory augmentation cannot hear infrasonic sound, and though still affected, will not know the Explorer is speaking."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_RTFR_H1",
+          "description": {
+            "ru": "Инфразвуковые панихиды персонажа вселяют ужас в слабых. Все люди, независимо от их способности слышать, в радиусе 50ти метров относятся к персонажу так, как будто у него Рейтинг Страха 1. Произнося панихиду, он не может общаться каким-либо другим способом. Ритуал требует двухминутного повторения, и большинство людей не стали бы прерывать его до завершения. Люди без усиления слуха не могут слышать инфразвуковой звук и, хотя все еще подвержены воздействию, не будут знать, что говорит персонаж.",
+            "en": "The Explorer’s infrasonic dirges cause terror in the weak. All humans, regardless of their ability to hear, within a 50-metre radius treat the character as if he has a Fear Rating of 1. While incanting the dirge, he may not communicate in any other way. The rite requires two minutes of chanting, and most would not consider halting the incantations prior to their completion. Humans without auditory augmentation cannot hear infrasonic sound, and though still affected, will not know the Explorer is speaking."
+          },
+          "targets": ["SK_TECH"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_WP", "A_TECH"],
       "prerequisites": [
@@ -5476,7 +5979,16 @@
         "ru": "Персонаж заменил творческую половину своего мозга священной черепной схемой. Он больше не может испытывать эмоции и вместо этого принимает кристальную чистоту логики, что делает его невосприимчивым к Страху, Подавлению и любым эффектам, проистекающим из эмоционального расстройства. Мастер устранит все Ментальные Расстройства, которые больше не применяются, и назначит соответствующие новые такой же степени тяжести. Коллеги персонажа могут посчитать его несколько холодноватым, хотя другие последователи Омниссии будут рады его новообретённой свободе.",
         "en": "The Explorer has replaced the creative half of his brain with sacred cranial circuitry. He can no longer feel emotion, and instead embraces the crystal purity of logic, making him immune to Fear, Pinning and any effects that stem from emotional disturbance. The GM will remove any Mental Disorders that no longer apply, and grant appropriate new ones of equal severity. The character’s fellow Explorers may find him somewhat cold, though other followers of the Omnissiah will rejoice in his newfound freedom."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_RTPT_H1",
+          "description": {
+            "ru": "Персонаж заменил творческую половину своего мозга священной черепной схемой. Он больше не может испытывать эмоции и вместо этого принимает кристальную чистоту логики, что делает его невосприимчивым к Страху, Подавлению и любым эффектам, проистекающим из эмоционального расстройства. Мастер устранит все Ментальные Расстройства, которые больше не применяются, и назначит соответствующие новые такой же степени тяжести. Коллеги персонажа могут посчитать его несколько холодноватым, хотя другие последователи Омниссии будут рады его новообретённой свободе.",
+            "en": "The Explorer has replaced the creative half of his brain with sacred cranial circuitry. He can no longer feel emotion, and instead embraces the crystal purity of logic, making him immune to Fear, Pinning and any effects that stem from emotional disturbance. The GM will remove any Mental Disorders that no longer apply, and grant appropriate new ones of equal severity. The character’s fellow Explorers may find him somewhat cold, though other followers of the Omnissiah will rejoice in his newfound freedom."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_WP", "A_DEF"],
       "prerequisites": [
@@ -5498,7 +6010,16 @@
         "ru": "За Свободное действие персонаж может потратить два Очка Судьбы, дав другому персонажу в пределах 10 метров одно Очко Судьбы. Точно также, любой персонаж в 10 метрах может за Свободное действие потратить два очка Судьбы, дав этому персонажу одно Очко Судьбы. Этот талант не позволяет персонажу получить больше Очков Судьбы, чем его порог Судьбы.",
         "en": "The character may spend two Fate points as a Free Action to grant another character within 10 metres a Fate point. Likewise, any character in 10 metres may spend two Fate points as a Free Action to grant this character a Fate point. This does not allow characters to gain Fate points in excess of their Fate threshold."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_SHDS_H1",
+          "description": {
+            "ru": "За Свободное действие персонаж может потратить два Очка Судьбы, дав другому персонажу в пределах 10 метров одно Очко Судьбы. Точно также, любой персонаж в 10 метрах может за Свободное действие потратить два очка Судьбы, дав этому персонажу одно Очко Судьбы. Этот талант не позволяет персонажу получить больше Очков Судьбы, чем его порог Судьбы.",
+            "en": "The character may spend two Fate points as a Free Action to grant another character within 10 metres a Fate point. Likewise, any character in 10 metres may spend two Fate points as a Free Action to grant this character a Fate point. This does not allow characters to gain Fate points in excess of their Fate threshold."
+          },
+          "targets": ["FP"]
+        }
+      ],
       "tier": 1,
       "aptitudes": ["A_FEL", "A_LDR"],
       "prerequisites": [
@@ -5520,7 +6041,16 @@
         "ru": "Персонаж не получает обычного штрафа -20 при совершении Заявленного Выстрела. Этот талант заменяет эффект таланта Орлиный глаз.",
         "en": "When making a called shot, he does not incur the normal –20 penalty. This Talent replaces the effects of Deadeye Shot."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_SHSHT_H1",
+          "description": {
+            "ru": "Персонаж не получает обычного штрафа -20 при совершении Заявленного Выстрела. Этот талант заменяет эффект таланта Орлиный глаз.",
+            "en": "When making a called shot, he does not incur the normal –20 penalty. This Talent replaces the effects of Deadeye Shot."
+          },
+          "targets": ["ST_BS"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_BS", "A_OFF"],
       "prerequisites": [
@@ -5546,7 +6076,16 @@
         "ru": "Каждый раз когда персонаж получает любое количество очков Безумия, он может потратить Очко Судьбы и не получить их.",
         "en": "Whenever this character would gain any amount of Insanity points, he may spend a Fate  point to gain 0 instead."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_STCN_H1",
+          "description": {
+            "ru": "Каждый раз когда персонаж получает любое количество очков Безумия, он может потратить Очко Судьбы и не получить их.",
+            "en": "Whenever this character would gain any amount of Insanity points, he may spend a Fate  point to gain 0 instead."
+          },
+          "targets": ["FP", "IP"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_WP", "A_DEF"],
       "prerequisites": [
@@ -5565,10 +6104,19 @@
         "en": "Subversive programming"
       },
       "description": {
-        "ru": "В качестве полудействия персонаж может попытаться командовать существом с Машинными чертами и Интеллектом 20 или менее, пройдя встречную сложную (+0) проверку Пользования Техникой против Силы Воли. Если ему это удастся, существо должно следовать командам персонажа в следующем раунде. \nПерсонаж может продолжать сохранять контроль, затрачивая полудействие в последующих раундах. Если он решит сделать это, он должен провести еще одну встречную проверку после четырех раундов, чтобы сохранить связь. \nКоманды должны быть простыми и выполнимыми за один раунд. Некоторые примеры включают “Убегать”, “Падать” и “Атаковать ближайшую цель”.",
-        "en": "As a Half Action, the Explorer may attempt to command a creature with the Machine Trait and an Intelligence of 20 or less. Make an Opposed Challenging (+0) Tech-Use vs. Willpower Test. If\nhe succeeds, the creature must follow the Explorer’s commands for the following Round. The Explorer may continue to maintain control by spending a Half Action in subsequent Rounds. If he\nchooses to do this, he must make another opposed Test after four Rounds to maintain the link. The commands must be simple and achievable in one round. Some examples include “Flee,” “Fall,” and “Attack the closest target.”"
+        "ru": "В качестве полудействия персонаж может попытаться командовать существом с Машинными чертами и Интеллектом 20 или менее, пройдя встречную сложную (+0) проверку Пользования Техникой против Силы Воли. Если ему это удастся, существо должно следовать командам персонажа в следующем раунде.  Персонаж может продолжать сохранять контроль, затрачивая полудействие в последующих раундах. Если он решит сделать это, он должен провести еще одну встречную проверку после четырех раундов, чтобы сохранить связь. Команды должны быть простыми и выполнимыми за один раунд. Некоторые примеры включают “Убегать”, “Падать” и “Атаковать ближайшую цель”.",
+        "en": "As a Half Action, the Explorer may attempt to command a creature with the Machine Trait and an Intelligence of 20 or less. Make an Opposed Challenging (+0) Tech-Use vs. Willpower Test. If he succeeds, the creature must follow the Explorer’s commands for the following Round. The Explorer may continue to maintain control by spending a Half Action in subsequent Rounds. If he chooses to do this, he must make another opposed Test after four Rounds to maintain the link. The commands must be simple and achievable in one round. Some examples include “Flee,” “Fall,” and “Attack the closest target.”"
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_SBPG_H1",
+          "description": {
+            "ru": "В качестве полудействия персонаж может попытаться командовать существом с Машинными чертами и Интеллектом 20 или менее, пройдя встречную сложную (+0) проверку Пользования Техникой против Силы Воли. Если ему это удастся, существо должно следовать командам персонажа в следующем раунде.  Персонаж может продолжать сохранять контроль, затрачивая полудействие в последующих раундах. Если он решит сделать это, он должен провести еще одну встречную проверку после четырех раундов, чтобы сохранить связь. Команды должны быть простыми и выполнимыми за один раунд. Некоторые примеры включают “Убегать”, “Падать” и “Атаковать ближайшую цель”.",
+            "en": "As a Half Action, the Explorer may attempt to command a creature with the Machine Trait and an Intelligence of 20 or less. Make an Opposed Challenging (+0) Tech-Use vs. Willpower Test. If he succeeds, the creature must follow the Explorer’s commands for the following Round. The Explorer may continue to maintain control by spending a Half Action in subsequent Rounds. If he chooses to do this, he must make another opposed Test after four Rounds to maintain the link. The commands must be simple and achievable in one round. Some examples include “Flee,” “Fall,” and “Attack the closest target."
+          },
+          "targets": ["SK_TECH"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_INT", "A_TECH"],
       "prerequisites": [
@@ -5592,10 +6140,19 @@
         "en": "Sure strike"
       },
       "description": {
-        "ru": "Определяя зону попадания, куда угодил его удар в ближнем бою, персонаж может либо принять результат, выпавший на костях, либо поменять цифры местами, в зависимости от того, какая зона попадания предпочтительнее. \nК примеру, Видор наносит удар эльдарскому корсару и выбрасывает на костях 37, что знаменует попадание в правую ногу (зона попадания 73). Но поскольку он имеет талант Верный удар, то может перенаправить этот удар в торс (37).",
+        "ru": "Определяя зону попадания, куда угодил его удар в ближнем бою, персонаж может либо принять результат, выпавший на костях, либо поменять цифры местами, в зависимости от того, какая зона попадания предпочтительнее.  К примеру, Видор наносит удар эльдарскому корсару и выбрасывает на костях 37, что знаменует попадание в правую ногу (зона попадания 73). Но поскольку он имеет талант Верный удар, то может перенаправить этот удар в торс (37).",
         "en": "When determining hit location for a melee attack, he may use the dice as he rolled them or reverse them, choosing the location he prefers. For example, if Vidor rolls a 37 to hit an Eldar corsair, this would ordinarily strike the Right Leg (73). However, since he has the Sure Strike Talent, he could choose to hit the corsair in the Body (37)."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_SRST_H1",
+          "description": {
+            "ru": "Определяя зону попадания, куда угодил его удар в ближнем бою, персонаж может либо принять результат, выпавший на костях, либо поменять цифры местами, в зависимости от того, какая зона попадания предпочтительнее.  К примеру, Видор наносит удар эльдарскому корсару и выбрасывает на костях 37, что знаменует попадание в правую ногу (зона попадания 73). Но поскольку он имеет талант Верный удар, то может перенаправить этот удар в торс (37).",
+            "en": "When determining hit location for a melee attack, he may use the dice as he rolled them or reverse them, choosing the location he prefers. For example, if Vidor rolls a 37 to hit an Eldar corsair, this would ordinarily strike the Right Leg (73). However, since he has the Sure Strike Talent, he could choose to hit the corsair in the Body (37)."
+          },
+          "targets": ["ST_WS"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_WS", "A_OFF"],
       "prerequisites": [
@@ -5615,9 +6172,18 @@
       },
       "description": {
         "ru": "Когда Персонаж совершает атаку Заявленный Выстрел против врага, он может уменьшить наносимый им урон после вычитания Брони или Бонуса Выносливости цели на число, равное его Бонусу Восприятия, и нанести уровень усталости за каждое очко урона, уменьшенное таким образом. Кроме того, знакомство персонажа с не летальным оружием означает, что враги не получают обычных бонусов от брони, чтобы противостоять Ошеломляющему эффекту шокирующего оружия, и получают штраф -10, чтобы избежать любой атаки с качеством Ловушки.",
-        "en": "When the Explorer makes a Called Shot attack against an enemy, he may choose to reduce the\ndamage he inﬂicts after reduction by the target’s Armour or Toughness Bonus by a number equal to his Perception Bonus, and inﬂict a level of Fatigue for each point of damage reduced in this way. In addition, the Explorer’s familiarity with nonlethal weaponry means that enemies do not gain the usual bonuses from armour to resist the stunning effect of Shocking weapons, and suffer a –10 penalty to avoid or escape any attack with the Snare quality."
+        "en": "When the Explorer makes a Called Shot attack against an enemy, he may choose to reduce the damage he inﬂicts after reduction by the target’s Armour or Toughness Bonus by a number equal to his Perception Bonus, and inﬂict a level of Fatigue for each point of damage reduced in this way. In addition, the Explorer’s familiarity with nonlethal weaponry means that enemies do not gain the usual bonuses from armour to resist the stunning effect of Shocking weapons, and suffer a –10 penalty to avoid or escape any attack with the Snare quality."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_TTAL_H1",
+          "description": {
+            "ru": "Когда Персонаж совершает атаку Заявленный Выстрел против врага, он может уменьшить наносимый им урон после вычитания Брони или Бонуса Выносливости цели на число, равное его Бонусу Восприятия, и нанести уровень усталости за каждое очко урона, уменьшенное таким образом. Кроме того, знакомство персонажа с не летальным оружием означает, что враги не получают обычных бонусов от брони, чтобы противостоять Ошеломляющему эффекту шокирующего оружия, и получают штраф -10, чтобы избежать любой атаки с качеством Ловушки.",
+            "en": "When the Explorer makes a Called Shot attack against an enemy, he may choose to reduce the damage he inﬂicts after reduction by the target’s Armour or Toughness Bonus by a number equal to his Perception Bonus, and inﬂict a level of Fatigue for each point of damage reduced in this way. In addition, the Explorer’s familiarity with nonlethal weaponry means that enemies do not gain the usual bonuses from armour to resist the stunning effect of Shocking weapons, and suffer a –10 penalty to avoid or escape any attack with the Snare quality."
+          },
+          "targets": ["ST_WS", "ST_BS"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_PER", "A_OFF"],
       "prerequisites": [
@@ -5666,10 +6232,19 @@
         "en": "The Emperor protects"
       },
       "description": {
-        "ru": "Потратив Очко Судьбы, персонаж дает себе и нескольким (их количество равно Бонусу Силы Воли) союзникам, иммунитет к эффектам Страха и Подавления. Кроме того, на все действия в дальнем или ближнем бою, совершенные против персонажа и указанных союзников, налагается штраф -10. Эти преимущества сохраняются на протяжении всего столкновения. \nСжигая очко судьбы, персонаж может позволить союзнику (не самому себе) противостоять эффектам любой одиночной атаки, фактически позволяя союзнику выйти невредимым, как будто чудом. Очко Судьбы должно быть сожжено после нанесения удара, но до того, как будет нанесён урон.",
+        "ru": "Потратив Очко Судьбы, персонаж дает себе и нескольким (их количество равно Бонусу Силы Воли) союзникам, иммунитет к эффектам Страха и Подавления. Кроме того, на все действия в дальнем или ближнем бою, совершенные против персонажа и указанных союзников, налагается штраф -10. Эти преимущества сохраняются на протяжении всего столкновения.  Сжигая очко судьбы, персонаж может позволить союзнику (не самому себе) противостоять эффектам любой одиночной атаки, фактически позволяя союзнику выйти невредимым, как будто чудом. Очко Судьбы должно быть сожжено после нанесения удара, но до того, как будет нанесён урон.",
         "en": "By spending a Fate Point, the character grants himself and a number of allies equal to his Willpower Bonus immunity to the effects of Fear and Pinning. Additionally all ranged or close combat acts made against the character and the specifed allies are at a –10 modifer. These benefts last for the duration of the encounter. By burning a Fate point, the character may allow an ally (never himself ) to resist the effects of any single attack, effectively allowing the ally to emerge unscathed as if by a miracle. The Fate point must be burnt once the attack has hit but before Damage has been rolled."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_TEPR_H1",
+          "description": {
+            "ru": "Потратив Очко Судьбы, персонаж дает себе и нескольким (их количество равно Бонусу Силы Воли) союзникам, иммунитет к эффектам Страха и Подавления. Кроме того, на все действия в дальнем или ближнем бою, совершенные против персонажа и указанных союзников, налагается штраф -10. Эти преимущества сохраняются на протяжении всего столкновения.  Сжигая очко судьбы, персонаж может позволить союзнику (не самому себе) противостоять эффектам любой одиночной атаки, фактически позволяя союзнику выйти невредимым, как будто чудом. Очко Судьбы должно быть сожжено после нанесения удара, но до того, как будет нанесён урон.",
+            "en": "By spending a Fate Point, the character grants himself and a number of allies equal to his Willpower Bonus immunity to the effects of Fear and Pinning. Additionally all ranged or close combat acts made against the character and the specifed allies are at a –10 modifer. These benefts last for the duration of the encounter. By burning a Fate point, the character may allow an ally (never himself ) to resist the effects of any single attack, effectively allowing the ally to emerge unscathed as if by a miracle. The Fate point must be burnt once the attack has hit but before Damage has been rolled."
+          },
+          "targets": ["ST_WP", "FP"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_WP", "A_LDR"],
       "prerequisites": [
@@ -5691,7 +6266,16 @@
         "ru": "Этот талант дает персонажу Машинную характеристику с очками брони, равными количеству раз, сколько этот талант был получен. Персонаж может приобрести этот талант несколько раз в соответствии со своими карьерными успехами. В этом случае обратите внимание, сколько раз был взят этот талант, например, Плоть слаба 3.",
         "en": "This Talent grants the Explorer the Machine Trait (see page 365 RT) with Armour Points equal to the number of times this Talent has been taken. The Explorer may purchase this Talent multiple times in accordance with his Career Advances. In this  case, note the number of times this Talent has been taken, such as The Flesh is Weak 3."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_TFIW_H1",
+          "description": {
+            "ru": "Этот талант дает персонажу Машинную характеристику с очками брони, равными количеству раз, сколько этот талант был получен.",
+            "en": "This Talent grants the Explorer the Machine Trait (see page 365 RT) with Armour Points equal to the number of times this Talent has been taken."
+          },
+          "targets": ["ST_T"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_GEN", "A_TECH"],
       "prerequisites": [
@@ -5713,7 +6297,16 @@
         "ru": "Персонаж автоматически вспоминает все обычные факты и сведения, что он теоретически мог когда-либо узнать. Мастер может потребовать тест Интеллекта для того, чтобы персонаж припомнил мелкие детали или сложные и неясные ему вещи, вроде чертежей палубы космического скитальца или сложной пиктографии ксеносов.",
         "en": "He can automatically remember trivial facts or pieces of information that might feasibly have picked up in the past. When dealing with more detailed, complex, or obscure facts, such as the deck plans of a space hulk or a complex xeno pictograph, the GM may require an Intelligence Test."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_TTRC_H1",
+          "description": {
+            "ru": "Персонаж автоматически вспоминает все обычные факты и сведения, что он теоретически мог когда-либо узнать. Мастер может потребовать тест Интеллекта для того, чтобы персонаж припомнил мелкие детали или сложные и неясные ему вещи, вроде чертежей палубы космического скитальца или сложной пиктографии ксеносов.",
+            "en": "He can automatically remember trivial facts or pieces of information that might feasibly have picked up in the past. When dealing with more detailed, complex, or obscure facts, such as the deck plans of a space hulk or a complex xeno pictograph, the GM may require an Intelligence Test."
+          },
+          "targets": ["ST_INT"]
+        }
+      ],
       "tier": 1,
       "aptitudes": ["A_INT", "A_KNG"],
       "prerequisites": [
@@ -5733,9 +6326,18 @@
       },
       "description": {
         "ru": "Персонаж получает Пси-рейтинг 1 (или его Пси-рейтинг увеличивается на 1, если у него уже есть Пси-рейтинг) и использует раздел \"Псайкеры-отступники и колдуны\" таблицы 6-1: Психические Силы (основного свода правил Rogue Trader). Когда персонаж приобретает этот талант, он немедленно осваивает одну пси-дисциплину (как обсуждалось выше). В конечном счете персонаж может внедрить в свое тело до трех таких артефактов, каждый из которых дает доступ к определенной дисциплине, а также определяется игроком и Мастером. Если артефакт когда-либо будет удален, персонаж теряет психическую силу до тех пор, пока артефакт не будет возвращен ему (при условии, что он выживет после того, как его вырвут из его кибермантии). Однако каждый раз, когда он приобретает или заменяет артефакт, и каждый раз, когда он выполняет бросок в таблице 6-3: Опасности Варпа (Основного свода правил Rogue Trader), он получает 1d5 очков Порчи и 1d5 Энергетического Урона, игнорирующего Броню или Бонус Выносливости, в дополнение к любым другим результатам, как указано выше. Странное устройство приобретает все большую власть над его аугментированным разумом и телом.",
-        "en": "The character gains Psy Rating 1 (or his Psy Rating increases by 1 if he already has a Psy Rating), and uses the Renegade Psykers and Sorcerers section of Table 6-1: Psychic Strength on page 157 of the ROGUE TRADER Core Rulebook. When an Explorer gains this Talent, he immediately learns a single Psychic Technique (as discussed above). The Explorer may ultimately incorporate as many as three such Artefacts into his body, each giving access to a particular Technique as\ndetermined by the player and the GM. If the artefact is ever removed, the Explorer loses the psychic power until such time as the artefact is returned to him (provided he survives having it torn out of his cyber-mantle). Each time he acquires or replaces an artefact, however, and each time he rolls on Table 6–3: Perils of the Warp (see page 161 of the Rogue Trader Core Rulebook), he gains 1d5 Corruption Points and suffers 1d5 Energy Damage not reduced by Armour or Toughness Bonus in addition to any other results as the strange device gains an ever greater hold over his augmented mind and body."
+        "en": "The character gains Psy Rating 1 (or his Psy Rating increases by 1 if he already has a Psy Rating), and uses the Renegade Psykers and Sorcerers section of Table 6-1: Psychic Strength on page 157 of the ROGUE TRADER Core Rulebook. When an Explorer gains this Talent, he immediately learns a single Psychic Technique (as discussed above). The Explorer may ultimately incorporate as many as three such Artefacts into his body, each giving access to a particular Technique as determined by the player and the GM. If the artefact is ever removed, the Explorer loses the psychic power until such time as the artefact is returned to him (provided he survives having it torn out of his cyber-mantle). Each time he acquires or replaces an artefact, however, and each time he rolls on Table 6–3: Perils of the Warp (see page 161 of the Rogue Trader Core Rulebook), he gains 1d5 Corruption Points and suffers 1d5 Energy Damage not reduced by Armour or Toughness Bonus in addition to any other results as the strange device gains an ever greater hold over his augmented mind and body."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_UHDS_H1",
+          "description": {
+            "ru": "Персонаж получает Пси-рейтинг 1 (или его Пси-рейтинг увеличивается на 1, если у него уже есть Пси-рейтинг) и использует раздел \"Псайкеры-отступники и колдуны\" таблицы 6-1: Психические Силы (основного свода правил Rogue Trader). Когда персонаж приобретает этот талант, он немедленно осваивает одну пси-дисциплину (как обсуждалось выше). В конечном счете персонаж может внедрить в свое тело до трех таких артефактов, каждый из которых дает доступ к определенной дисциплине, а также определяется игроком и Мастером. Если артефакт когда-либо будет удален, персонаж теряет психическую силу до тех пор, пока артефакт не будет возвращен ему (при условии, что он выживет после того, как его вырвут из его кибермантии). Однако каждый раз, когда он приобретает или заменяет артефакт, и каждый раз, когда он выполняет бросок в таблице 6-3: Опасности Варпа (Основного свода правил Rogue Trader), он получает 1d5 очков Порчи и 1d5 Энергетического Урона, игнорирующего Броню или Бонус Выносливости, в дополнение к любым другим результатам, как указано выше. Странное устройство приобретает все большую власть над его аугментированным разумом и телом.",
+            "en": "The character gains Psy Rating 1 (or his Psy Rating increases by 1 if he already has a Psy Rating), and uses the Renegade Psykers and Sorcerers section of Table 6-1: Psychic Strength on page 157 of the ROGUE TRADER Core Rulebook. When an Explorer gains this Talent, he immediately learns a single Psychic Technique (as discussed above). The Explorer may ultimately incorporate as many as three such Artefacts into his body, each giving access to a particular Technique as determined by the player and the GM. If the artefact is ever removed, the Explorer loses the psychic power until such time as the artefact is returned to him (provided he survives having it torn out of his cyber-mantle). Each time he acquires or replaces an artefact, however, and each time he rolls on Table 6–3: Perils of the Warp (see page 161 of the Rogue Trader Core Rulebook), he gains 1d5 Corruption Points and suffers 1d5 Energy Damage not reduced by Armour or Toughness Bonus in addition to any other results as the strange device gains an ever greater hold over his augmented mind and body."
+          },
+          "targets": ["ST_WP", "PR"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_WP", "A_TECH"],
       "prerequisites": [
@@ -5762,7 +6364,16 @@
         "ru": "Когда персонаж тратит Очко Судьбы на повторный бросок Навыка Рукопашной, Навыка Стрельбы или встречной проверки Силы Воли против псайкера, он добавляет к результату повторного броска бонус, равный 5хБонус Силы Воли (максимум +30).",
         "en": "When the Explorer spends a Fate Point to re-roll a Weapon Skill, Ballistic Skill, or Opposed Willpower Test against a psyker, he adds a bonus equal to his Willpower Bonus multiplied by five (to a maximum of +30) to the result of the re-roll."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_UFRD_H1",
+          "description": {
+            "ru": "Когда персонаж тратит Очко Судьбы на повторный бросок Навыка Рукопашной, Навыка Стрельбы или встречной проверки Силы Воли против псайкера, он добавляет к результату повторного броска бонус, равный 5хБонус Силы Воли (максимум +30).",
+            "en": "When the Explorer spends a Fate Point to re-roll a Weapon Skill, Ballistic Skill, or Opposed Willpower Test against a psyker, he adds a bonus equal to his Willpower Bonus multiplied by five (to a maximum of +30) to the result of the re-roll."
+          },
+          "targets": ["ST_WP", "ST_WS", "ST_BS"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_WP", "A_OFF"],
       "prerequisites": [
@@ -5784,7 +6395,16 @@
         "ru": "Персонаж может перебрасывать любые проваленные тесты Силы Воли, предпринятые для того, чтобы избежать воздействия страха.",
         "en": "He may re-roll any failed Willpower Tests to avoid the effects of Fear."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_USFT_H1",
+          "description": {
+            "ru": "Персонаж может перебрасывать любые проваленные тесты Силы Воли, предпринятые для того, чтобы избежать воздействия страха.",
+            "en": "He may re-roll any failed Willpower Tests to avoid the effects of Fear."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_WP", "A_DEF"],
       "prerequisites": [],
@@ -5799,9 +6419,18 @@
       },
       "description": {
         "ru": "Персонаж получает бонус +20 ко всем тестам на Пользование Техникой и Безопасности, проведённым для получения несанкционированного доступа к электронной системе, такой как Когитатор или электронный замок, при условии, что персонаж может подключаться к ней напрямую с помощью своих имплантов.",
-        "en": "The Explorer gains a +20 bonus on all Tech-Use and Security Tests made to gain unauthorised\naccess to an electronic system such as a Cogitator or an electronic lock, so long as the character can connect directly to it using his implants."
+        "en": "The Explorer gains a +20 bonus on all Tech-Use and Security Tests made to gain unauthorised access to an electronic system such as a Cogitator or an electronic lock, so long as the character can connect directly to it using his implants."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_VLIN_H1",
+          "description": {
+            "ru": "Персонаж получает бонус +20 ко всем тестам на Пользование Техникой и Безопасности, проведённым для получения несанкционированного доступа к электронной системе, такой как Когитатор или электронный замок, при условии, что персонаж может подключаться к ней напрямую с помощью своих имплантов.",
+            "en": "The Explorer gains a +20 bonus on all Tech-Use and Security Tests made to gain unauthorised access to an electronic system such as a Cogitator or an electronic lock, so long as the character can connect directly to it using his implants."
+          },
+          "targets": ["SK_TECH", "SK_SEC"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_INT", "A_TECH"],
       "prerequisites": [
@@ -5828,7 +6457,16 @@
         "ru": "Способность персонажа действовать в трёхмерном пространстве даёт ему преимущество в космических сражениях. Он получает бонус +10 к тестам Навыка Стрельбы, когда ведёт огонь из корабельных орудий в бою.",
         "en": "The Explorer’s ability to conceptualise three-dimensional space gives him an advantage in starship combat, granting a +10 bonus to Ballistic Skill Tests made to fire a starship’s guns in combat."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_VDTC_H1",
+          "description": {
+            "ru": "Способность персонажа действовать в трёхмерном пространстве даёт ему преимущество в космических сражениях. Он получает бонус +10 к тестам Навыка Стрельбы, когда ведёт огонь из корабельных орудий в бою.",
+            "en": "The Explorer’s ability to conceptualise three-dimensional space gives him an advantage in starship combat, granting a +10 bonus to Ballistic Skill Tests made to fire a starship’s guns in combat."
+          },
+          "targets": ["ST_BS"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_INT", "A_FLD"],
       "prerequisites": [
@@ -5850,13 +6488,26 @@
         "ru": "Персонаж не может приобрести этот талант, если он проходил ритуал санкционирования. Делая бросок по таблице Психических Феноменов, персонаж может отказаться от выпавшего результата и бросить кости ещё раз без всяких модификаторов, но ценой 1d5 очков порчи.",
         "en": "The character may not select this Talent if he has undergone the Rite of Sanctioning. When rolling for Psychic Phenomenon, the Explorer may discard the die roll, suffer 1d5 Corruption Points, and then re-roll with no modifers."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_WPAF_H1",
+          "description": {
+            "ru": "Делая бросок по таблице Психических Феноменов, персонаж может отказаться от выпавшего результата и бросить кости ещё раз без всяких модификаторов, но ценой 1d5 очков порчи.",
+            "en": "When rolling for Psychic Phenomenon, the Explorer may discard the die roll, suffer 1d5 Corruption Points, and then re-roll with no modifers."
+          },
+          "targets": ["ST_WP"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_WP", "A_PSY"],
       "prerequisites": [
         {
           "tag": "PR",
           "value": 1
+        },
+        {
+          "tag": "TR_SNC",
+          "value": 0
         }
       ],
       "is_specialist": false,
@@ -5872,7 +6523,16 @@
         "ru": "Персонаж получает бонус +10 к любой проверке особого применения умения Сбор Информации (Расследование) или применения Сбора Информации как следственного умения.",
         "en": "The Explorer receives a +10 bonus to any Skill Test for Investigation or the Interview special use of the Inquiry Skill."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_WHSP_H1",
+          "description": {
+            "ru": "Персонаж получает бонус +10 к любой проверке особого применения умения Сбор Информации (Расследование) или применения Сбора Информации как следственного умения.",
+            "en": "The Explorer receives a +10 bonus to any Skill Test for Investigation or the Interview special use of the Inquiry Skill."
+          },
+          "targets": ["SK_INQ"]
+        }
+      ],
       "tier": 2,
       "aptitudes": ["A_INT", "A_SOC"],
       "prerequisites": [
@@ -5898,7 +6558,16 @@
         "ru": "Перед броском d100 при выполнении теста персонаж может потратить одно очко судьбы, которое засчитывается как результат броска 01 в этом броске.",
         "en": "Before rolling the d100 when making a test, the character may spend one Fate point to count as having rolled a result of 01 on that roll."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_WOEX_H1",
+          "description": {
+            "ru": "Перед броском d100 при выполнении теста персонаж может потратить одно очко судьбы, которое засчитывается как результат броска 01 в этом броске.",
+            "en": "Before rolling the d100 when making a test, the character may spend one Fate point to count as having rolled a result of 01 on that roll."
+          },
+          "targets": ["FP"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_WP", "A_KNG"],
       "prerequisites": [
@@ -5930,9 +6599,18 @@
       },
       "description": {
         "ru": "Совершая атаку, персонаж может потратить Очко Судьбы, чтобы нанести дополнительные 1d5 единиц урона. В любой момент, пока персонаж атакует, он может сжечь Очко Судьбы, чтобы применить Праведную Ярость к одной из успешных атак. Атака автоматически наносит максимальный урон +1d10 единиц дополнительного урона. Если результат второго броска равен 10, возможен дальнейший Урон.",
-        "en": "When making an attack, the Explorer may spend a Fate Point to deal an additional 1d5 points of Damage.At any time while the Explorer is attacking, he may burn a Fate Point to trigger \nRighteous Fury on a single successful attack. The attack automatically deals the maximum Damage for the weapon plus 1d10 points of Damage. If the second roll results in 10, further Damage is possible."
+        "en": "When making an attack, the Explorer may spend a Fate Point to deal an additional 1d5 points of Damage.At any time while the Explorer is attacking, he may burn a Fate Point to trigger  Righteous Fury on a single successful attack. The attack automatically deals the maximum Damage for the weapon plus 1d10 points of Damage. If the second roll results in 10, further Damage is possible."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_WOTR_H1",
+          "description": {
+            "ru": "Совершая атаку, персонаж может потратить Очко Судьбы, чтобы нанести дополнительные 1d5 единиц урона. В любой момент, пока персонаж атакует, он может сжечь Очко Судьбы, чтобы применить Праведную Ярость к одной из успешных атак. Атака автоматически наносит максимальный урон +1d10 единиц дополнительного урона. Если результат второго броска равен 10, возможен дальнейший Урон.",
+            "en": "When making an attack, the Explorer may spend a Fate Point to deal an additional 1d5 points of Damage.At any time while the Explorer is attacking, he may burn a Fate Point to trigger  Righteous Fury on a single successful attack. The attack automatically deals the maximum Damage for the weapon plus 1d10 points of Damage. If the second roll results in 10, further Damage is possible."
+          },
+          "targets": ["FP", "ST_WS"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_WP", "A_OFF"],
       "prerequisites": [
@@ -5954,7 +6632,16 @@
         "ru": "При применении исцеления персонаж всегда считается легкораненым и исцеляется с повышенной скоростью, убирая 2 единицы Урона в день.",
         "en": "When applying healing, he is always considered Lightly Wounded, and heals at an increased rate, removing 2 points of Damage per day."
       },
-      "hints": [],
+      "hints": [
+        {
+          "tag": "TL_ATSN_H1",
+          "description": {
+            "ru": "При применении исцеления персонаж всегда считается легкораненым и исцеляется с повышенной скоростью, убирая 2 единицы Урона в день.",
+            "en": "When applying healing, he is always considered Lightly Wounded, and heals at an increased rate, removing 2 points of Damage per day."
+          },
+          "targets": ["SK_MED", "ST_T"]
+        }
+      ],
       "tier": 3,
       "aptitudes": ["A_GEN", "A_GEN"],
       "prerequisites": [],
