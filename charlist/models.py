@@ -256,6 +256,9 @@ class Character(models.Model):
     def sessions_played(self):
         return len(self.sessions.all())
 
+    def notes_url(self):
+        return unquote(self.notes, encoding='utf-8', errors='replace')
+
 
 class CreationDataQuerySet(models.QuerySet):
     def with_owner(self):

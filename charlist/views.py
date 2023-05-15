@@ -45,6 +45,7 @@ from charlist.forms.master.end_session_form import EndSessionForm
 from charlist.forms.master.group_xp_giver_form import GroupXPGiverForm
 from charlist.forms.master.influence_controls_form import InfluenceControlsForm
 from charlist.forms.master.initiative_line_maker import InitiativeLineMaker
+from charlist.forms.player.add_doc_form import AddDocLinkForm
 from charlist.forms.player_todos.command_parser import CommandParser
 from charlist.forms.player_todos.manual.decrease_stat_alt_form import DecreaseStatAltForm
 from charlist.forms.player_todos.manual.decrease_stat_roll_form import DecreaseStatRollForm
@@ -1293,6 +1294,7 @@ def character_view(request, char_id):
     character_model = character.data_to_model()
     insanity_form = None
     corruption_form = None
+    link_form = None
     reminders = None
     if character_model.is_rt():
         facade = rt_flyweights
@@ -1303,6 +1305,7 @@ def character_view(request, char_id):
     if (request.user is not None) and (request.user == character.owner):
         if request.method == 'POST':
             parse_manual_cmds(request, character, character_model)
+        link_form = AddDocLinkForm({'link': character.notes_url()})
         insanity_form = GainInsanityRollForm()
         corruption_form = GainCorruptionRollForm()
         character_model = parser.process_character(character_model)
@@ -1325,6 +1328,8 @@ def character_view(request, char_id):
                                                         'hookups': character_model.make_hookups(facade),
                                                         'insanity_form': insanity_form,
                                                         'corruption_form': corruption_form,
+                                                        'notes': link_form,
+                                                        'notes_link': character.notes_url(),
                                                         'reminders': reminders,
                                                         'upg_view': character.get_upgrade_url(),
                                                         'is_owner': is_owner })
