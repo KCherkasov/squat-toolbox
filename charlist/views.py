@@ -1296,10 +1296,7 @@ def character_view(request, char_id):
     corruption_form = None
     link_form = None
     reminders = None
-    if character.notes_url() and (len(character.notes_url()) > 0):
-        notes_link = character.notes_url()
-    else:
-        notes_link = None
+    notes_link = None
     if character_model.is_rt():
         facade = rt_flyweights
         parser = rt_commands_parser
@@ -1309,11 +1306,21 @@ def character_view(request, char_id):
     if (request.user is not None) and (request.user == character.owner):
         if request.method == 'POST':
             parse_manual_cmds(request, character, character_model)
+            if 'char-link-change' in request.POST:
+                link_form = AddDocLinkForm(request.POST)
+                if link_form.is_valid():
+                    character.notes = link_form.cleaned_data['link']
+                    character.save()
+                return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
         link_form = AddDocLinkForm({'link': character.notes_url()})
         insanity_form = GainInsanityRollForm()
         corruption_form = GainCorruptionRollForm()
         character_model = parser.process_character(character_model)
         reminders = list()
+        if character.notes_url() and (character.notes_url()[:8] == 'https://'):
+            notes_link = character.notes_url()
+        else:
+            notes_link = None
         # TODO: controls (stats/skills/talents upgrading, XP gaining, etc.
         if len(character_model.pending()) > 0:
             for cmd in character_model.pending():
