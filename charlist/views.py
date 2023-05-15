@@ -1296,6 +1296,10 @@ def character_view(request, char_id):
     corruption_form = None
     link_form = None
     reminders = None
+    if character.notes_url() and (len(character.notes_url()) > 0):
+        notes_link = character.notes_url()
+    else:
+        notes_link = None
     if character_model.is_rt():
         facade = rt_flyweights
         parser = rt_commands_parser
@@ -1329,7 +1333,7 @@ def character_view(request, char_id):
                                                         'insanity_form': insanity_form,
                                                         'corruption_form': corruption_form,
                                                         'notes': link_form,
-                                                        'notes_link': character.notes_url(),
+                                                        'notes_link': notes_link,
                                                         'reminders': reminders,
                                                         'upg_view': character.get_upgrade_url(),
                                                         'is_owner': is_owner })

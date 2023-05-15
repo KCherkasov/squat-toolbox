@@ -161,7 +161,11 @@ Character sheet interactive mockup
                     <h4>{% if lang == 'ru' %}Заметки{% else %}Notes{% endif %}</h4>
                 </header>
                 <div>
+                    {% if notes_link %}
                     <iframe src="{{ notes_link }}" height="760 width="1200"></iframe>
+                    {% else %}
+                    <b>Ссылки на заметки пока нет.</b>
+                    {% endif %}
                 </div>
                 <div>
                     {% include 'player_notes_link_form.html' %}
