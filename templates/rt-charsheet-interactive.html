@@ -138,7 +138,7 @@ Character sheet interactive mockup
                 </div>
             </div>
 
-            <div class="tab-pane fade show" id="equipment-{{ lang }}" role="tabpanel" aria-labelledby="equipment-tag-{{ lang }}">
+            <div class="tab-pane fade show" id="equipment-{{ lang }}" role="tabpanel" aria-labelledby="equipment-tab-{{ lang }}">
                 <hr>
                 <header class="text-center">
                     <h4>{% if lang == 'ru' %}Имущество{% else %}Equipment{% endif %}</h4>
@@ -148,7 +148,7 @@ Character sheet interactive mockup
                 </div>
             </div>
 
-            <div class="tab-pane fade show" id="combat-{{ lang }}" role="tabpanel" aria-labelledby="combat-tag-{{ lang }}">
+            <div class="tab-pane fade show" id="combat-{{ lang }}" role="tabpanel" aria-labelledby="combat-tab-{{ lang }}">
                 <hr>
                 <header class="text-center">
                     <h4>{% if lang == 'ru' %}Боевой листок{% else %}Combat card{% endif %}</h4>
@@ -156,7 +156,7 @@ Character sheet interactive mockup
                 {% include 'combat_card_widget.html' %}
             </div>
             {% if is_owner %}
-            <div class="tab-pane fade show" id="notes-{{ lang }}" role="tabpanel" aria-labelledby="notes-tag-{{ lang }}">
+            <div class="tab-pane fade show" id="notes-{{ lang }}" role="tabpanel" aria-labelledby="notes-tab-{{ lang }}">
                 <header class="text-center">
                     <h4>{% if lang == 'ru' %}Заметки{% else %}Notes{% endif %}</h4>
                 </header>
