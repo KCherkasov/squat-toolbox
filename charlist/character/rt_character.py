@@ -154,6 +154,8 @@ class RTCharacterModel(object):
     def remove_fatigue(self, amount: int):
         if amount > 0:
             self.__fatigue[CURRENT_ID] -= amount
+            if self.__fatigue[CURRENT_ID] < 0:
+                self.__fatigue[CURRENT_ID] = 0
             return True
         else:
             return False

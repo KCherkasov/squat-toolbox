@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import json
 
-import charlist.constants.tags
 from charlist.character.helpers import *
 from charlist.character.skill import Skill
 from charlist.character.stat import Stat
@@ -170,6 +169,8 @@ class CharacterModel(object):
     def remove_fatigue(self, amount: int):
         if amount > 0:
             self.__fatigue[CURRENT_ID] -= amount
+            if self.__fatigue[CURRENT_ID] < 0:
+                self.__fatigue[CURRENT_ID] = 0
             return True
         else:
             return False
