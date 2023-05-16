@@ -1318,7 +1318,7 @@ def process_fatigue(request, character, character_model):
             character.save()
     if 'restoreFatigue' in request.POST:
         if form.is_valid():
-            character_model.restore_fatigue(form.cleaned_data.get('amount'))
+            character_model.remove_fatigue(form.cleaned_data.get('amount'))
             character.character_data = character_model.toJSON()
             character.save()
     return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
