@@ -7,14 +7,30 @@
         <b>{{ character.fatigue_current }}/{{ character.fatigue_cap }}</b>
     </div>
     {% if is_owner %}
-    <div class="charlist_inline ps-3">
-        <input type="range" min="0" max="{% mtp 2.0 character.fatigue_cap %}" step="1" value="0">
-        <button type="submit" name="restoreFatigue" class="btn btn-success">
-            {% if lang == 'ru' %}Восстановить{% else %}Restore{% endif %}
-        </button>
-        <button type="submit" name="gainFatigue" class="btn btn-danger">
-            {% if lang == 'ru' %}Получить{% else %}Gain{% endif %}
-        </button>
+    {% for err in fatigue_form.non_field_errors %}
+    <div class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        {{ err }}
     </div>
+    {% endfor %}
+    <form class="form-horizontal" method="post" action="">
+        {% csrf_token %}
+        <div class="charlist_inline ps-3">
+            {% for field in fatigue_form %}
+            <div class="form-group charlist-inline justify-content-center mt-2">
+                <label for="{{ field.name }}" class="col-sm-2 control-label">{{ field.label }}</label>
+                <div class="col-sm-5 ms-2">
+                    {{ field }}
+                </div>
+            </div>
+            {% endfor %}
+            <button type="submit" name="restoreFatigue" class="btn btn-success">
+                {% if lang == 'ru' %}Восстановить{% else %}Restore{% endif %}
+            </button>
+            <button type="submit" name="gainFatigue" class="btn btn-danger">
+                {% if lang == 'ru' %}Получить{% else %}Gain{% endif %}
+            </button>
+        </div>
+    </form>
     {% endif %}
 </div>

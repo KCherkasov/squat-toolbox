@@ -24,9 +24,22 @@
         <b>{{ character.fate_current }} {% if lang == 'ru' %}из{% else %}of{% endif %} {{ character.fate_cap }}</b>
     </div>
     {% if is_owner %}
-    <div class="charlist-inline ps-3">
-        <button class="btn btn-success {% if character.fate_current == 0 %}disabled{% endif %} ">{% if lang == 'ru' %}Потратить{% else %}Spend{% endif %}</button>
-        <button class="btn btn-danger">{% if lang == 'ru' %}Сжечь{% else %}Burn{% endif %}</button>
+    {% for err in fate_form.non_field_errors %}
+    <div class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        {{ err }}
     </div>
+    {% endfor %}
+    <form class="form-horizontal" action="" method="post">
+        {% csrf_token %}
+        <div class="charlist-inline ps-3">
+            <button class="btn btn-success {% if character.fate_current == 0 %}disabled{% endif %}" name="spend-fate">
+                {% if lang == 'ru' %}Потратить{% else %}Spend{% endif %}
+            </button>
+            <button class="btn btn-danger" name="burn-fate">
+                {% if lang == 'ru' %}Сжечь{% else %}Burn{% endif %}
+            </button>
+        </div>
+    </form>
     {% endif %}
 </div>

@@ -7,14 +7,30 @@
         <b>{{ character.wounds_current }}/{{ character.wounds_cap }}</b>
     </div>
     {% if is_owner %}
-    <div class="charlist-inline ps-3">
-        <input type="number">
-        <button type="submit" name="heal" class="btn btn-success">
-            {% if lang == 'ru' %}Вылечить{% else %}Heal{% endif %}
-        </button>
-        <button type="submit" name="wound" class="btn btn-danger">
-            {% if lang == 'ru' %}Нанести{% else %}Damage{% endif %}
-        </button>
+    {% for err in wounds_form.non_field_errors %}
+    <div class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        {{ err }}
     </div>
+    {% endfor %}
+    <form class="form-horizontal" method="post" action="">
+        {% csrf_token %}
+        <div class="charlist-inline ps-3">
+            {% for field in wounds_form %}
+            <div class="form-group charlist-inline justify-content-center mt-2">
+                <label for="{{ field.name }}" class="col-sm-2 control-label">{{ field.label }}</label>
+                <div class="col-sm-5 ms-2">
+                    {{ field }}
+                </div>
+            </div>
+            {% endfor %}
+            <button type="submit" name="heal" class="btn btn-success">
+                {% if lang == 'ru' %}Вылечить{% else %}Heal{% endif %}
+            </button>
+            <button type="submit" name="wound" class="btn btn-danger">
+                {% if lang == 'ru' %}Нанести{% else %}Damage{% endif %}
+            </button>
+        </div>
+    </form>
     {% endif %}
 </div>

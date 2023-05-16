@@ -46,6 +46,9 @@ from charlist.forms.master.group_xp_giver_form import GroupXPGiverForm
 from charlist.forms.master.influence_controls_form import InfluenceControlsForm
 from charlist.forms.master.initiative_line_maker import InitiativeLineMaker
 from charlist.forms.player.add_doc_form import AddDocLinkForm
+from charlist.forms.player.fate_controls_form import FateControlsForm
+from charlist.forms.player.fatigue_controls_form import FatigueControlsForm
+from charlist.forms.player.wound_controls_form import WoundControlsForm
 from charlist.forms.player_todos.command_parser import CommandParser
 from charlist.forms.player_todos.manual.decrease_stat_alt_form import DecreaseStatAltForm
 from charlist.forms.player_todos.manual.decrease_stat_roll_form import DecreaseStatRollForm
@@ -1288,12 +1291,61 @@ def upg_data_to_forms(character):
                 forms.get('psy').get('unavailable').get(school).append(PsyPowerUpgradeForm(power, cost, False))
     return forms
 
+
+@csrf_exempt
+def process_wounds(request, character, character_model):
+    form = WoundControlsForm(request.POST)
+    if 'wound' in request.POST:
+        if form.is_valid():
+            character_model.damage(form.cleaned_data.get('amount'))
+            character.character_data = character_model.toJSON()
+            character.save()
+    if 'heal' in request.POST:
+        if form.is_valid():
+            character_model.heal(form.cleaned_data.get('amount'))
+            character.character_data = character_model.toJSON()
+            character.save()
+    return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
+
+
+@csrf_exempt
+def process_fatigue(request, character, character_model):
+    form = FatigueControlsForm(request.POST)
+    if 'gainFatigue' in request.POST:
+        if form.is_valid():
+            character_model.add_fatigue(form.cleaned_data.get('amount'))
+            character.character_data = character_model.toJSON()
+            character.save()
+    if 'restoreFatigue' in request.POST:
+        if form.is_valid():
+            character_model.restore_fatigue(form.cleaned_data.get('amount'))
+            character.character_data = character_model.toJSON()
+            character.save()
+    return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
+
+
+@csrf_exempt
+def process_fate(request, character, character_model):
+    if 'spend-fate' in request.POST:
+        character_model.spend_fate()
+        character.character_data = character_model.toJSON()
+        character.save()
+    if 'burn-fate' in request.POST:
+        character_model.burn_fate()
+        character.character_data = character_model.toJSON()
+        character.save()
+    return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
+
+
 @csrf_exempt
 def character_view(request, char_id):
     character = models.Character.objects.get(pk=char_id)
     character_model = character.data_to_model()
     insanity_form = None
     corruption_form = None
+    wounds_form = None
+    fate_form = None
+    fatigue_form = None
     link_form = None
     reminders = None
     notes_link = None
@@ -1312,6 +1364,15 @@ def character_view(request, char_id):
                     character.notes = link_form.cleaned_data['link']
                     character.save()
                 return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': character.pk, }))
+            if ('wound' in request.POST) or ('heal' in request.POST):
+                return process_wounds(request, character, character_model)
+            if ('gainFatigue' in request.POST) or ('restoreFatigue' in request.POST):
+                return process_fatigue(request, character, character_model)
+            if ('spend-fate' in request.POST) or ('burn-fate' in request.POST):
+                return  process_fate(request, character, character_model)
+        wounds_form = WoundControlsForm()
+        fate_form = FateControlsForm()
+        fatigue_form = FatigueControlsForm()
         link_form = AddDocLinkForm({'link': character.notes_url()})
         insanity_form = GainInsanityRollForm()
         corruption_form = GainCorruptionRollForm()
@@ -1339,9 +1400,9 @@ def character_view(request, char_id):
                                                         'hookups': character_model.make_hookups(facade),
                                                         'insanity_form': insanity_form,
                                                         'corruption_form': corruption_form,
-                                                        'notes': link_form,
-                                                        'notes_link': notes_link,
-                                                        'reminders': reminders,
+                                                        'notes': link_form, 'wounds_form': wounds_form,
+                                                        'notes_link': notes_link, 'fate_form': fate_form,
+                                                        'reminders': reminders, 'fatigue_form': fatigue_form,
                                                         'upg_view': character.get_upgrade_url(),
                                                         'is_owner': is_owner })
 
