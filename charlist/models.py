@@ -165,6 +165,12 @@ class CharacterGroup(models.Model):
         return unquote(reverse('create-crossover-session', kwargs={'group_id': self.name_id}),
                        encoding='utf-8', errors='replace')
 
+    def group_notes(self):
+        return unquote(self.group_notes_url, encoding='utf-8', errors='replace')
+
+    def master_notes(self):
+        return unquote(self.master_notes_url, encoding='utf-8', errors='replace')
+
 
 class GameSessionQuerySet(models.QuerySet):
     def with_creator(self):

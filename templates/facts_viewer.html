@@ -1,0 +1,64 @@
+{% load filters %}
+
+{% for tag, fact_block in facts.items %}
+<div class="d-flex flex-column align-self-center">
+    {% for fact_key, fact in fact_block %}
+    <ul>
+        <li>
+            <p class="mb-1 ps-3">
+                <b>
+                    {% if not fact_key|starts_with:'SK' and not fact_key|starts_with:'TR' %}
+                    <a class="text-dark text-decoration-none" href=""
+                       data-bs-toggle="modal" data-bs-target="#fact-{{fact_key}}-popup">
+                        {% endif %}
+                        {{ fact_words|get_by_dict_key:fact_key }}
+                        {% if not fact_key|starts_with:'SK' and not fact_key|starts_with:'TR' %}
+                    </a>
+                    {% endif %}
+                </b>
+            </p>
+            <ul>
+                {% for fact_data in fact %}
+                <li>{{ fact_data }}{% if not forloop.last %};{% else %}.{% endif %}</li>
+                {% endfor %}
+            </ul>
+            {% if not fact_key|starts_with:'SK' and not fact_key|starts_with:'TR' %}
+            <div id="fact-{{ fact_key }}-popup" tabindex="-1"
+                 aria-labelledby="fact-{{ fact_key }}-popup-label">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            {% if fact_key|starts_with:'TL' %}
+                                {{ facade.talent_descriptions|get_by_dict_key:fact_key|get_tldescr_name:'en' }}
+                            {% endif %}
+                            {% if fact_key|starts_with:'TOT' %}
+                                {% with facade.trials|get_by_dict_key:fact_key as trial %}
+                                    {{ trial.name:get_by_dict_key:'en' }}
+                                {% endwith %}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="modal-body text-center">
+                        {% if fact_key|starts_with:'TL' %}
+                            {% with facade.talent_descriptions|get_by_dict_key:fact_key as talent %}
+                            {% for hint in talent.get_hints %}
+                                <p>{{ hint.get_description_en }}</p>
+                            {% endfor %}
+                            {% endwith %}
+                        {% endif %}
+                        {% if fact_key|starts_with:'TOT' %}
+                            {% with facade.trials|get_by_dict_key:fact_key as trial %}
+                            {% for hint in trial.hints %}
+                                <p>{{ hint.get_description_en }}</p>
+                            {% endfor %}
+                            {% endwith %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </li>
+    </ul>
+    {% endfor %}
+</div>
+{% endfor %}

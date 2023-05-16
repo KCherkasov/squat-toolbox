@@ -1,0 +1,56 @@
+{% load filters %}
+
+
+<div class="charlist-inline justify-content-center align-self-center">
+    <div>
+        <a role="button" class="btn btn-success" href="" data-bs-toggle="modal"
+           data-bs-target="#g{{group.id}}-give-xp">
+            Выдать опыт
+        </a>
+    </div>
+</div>
+
+<div class="modal fade" id="g{{group.id}}-give-xp" tabindex="-1"
+     aria-labelledby="g{{group.id}}-give-xp-label">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <b>Выдать опыт</b>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" method="post" action="">
+                    {% csrf_token %}
+                    {% regroup form by field.group as field_groups %}
+                    {% for group in field_groups %}
+                    <div class="card">
+                        <div class="card-body">
+                            <div>
+                                <p class="text-center card-title">
+                                    <b>
+                                        {{ form.group_names|get_by_dict_key:group.grouper }}
+                                    </b>
+                                </p>
+                                <p class="text-center card-subtitle">
+                                    {{ form.group_descriptions|get_by_dict_key:group.grouper}}
+                                </p>
+                            </div>
+                        {% for field in group.list %}
+                            <div class="form-group charlist-inline justify-content-center mt-2 align-self-center">
+                                <label for="{{ field.name }}" class="col-sm-2 control-label">{{ field.label }}</label>
+                                <div class="col-sm-5 ms-2">
+                                    {{ field }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                    <div class="form-group charlist-inline justify-content-center mt-2">
+                        <div class="col-sm-offset-2 col-sm-2">
+                            <button type="submit" class="btn btn-primary" name="group-give-xp">Выдать опыт</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+{% load filters %}
+
+<div class="card justify-content-center w170">
+    <div class="charlist-inline justify-content-center align-self-center w170 pt-3">
+        <div>
+            <b>{{ facade|get_short_stat:'ST_IFL'|get_short_stat_name:lang }}</b>
+        </div>
+    </div>
+    <div class="charlist-inline justify-content-center align-self-center">
+        <button class="btn btn-outline-dark disabled align-self-center fs-4 mb-2">
+            {{ group.group_ifl }}
+        </button>
+    </div>
+    {% if is_master or is_captain %}
+    <div class="charlist-inline justify-content-center align-self-center mt-1 mb-2">
+        <a href="" class="btn btn-primary" role="button" data-bs-toggle="modal"
+           data-bs-target="#g{{group.id}}-ifl-controls">
+            <b>Изменить</b>
+        </a>
+    </div>
+    {% endif %}
+</div>
+
+{% if is_master or is_captain %}
+<div class="modal fade" id="g{{group.id}}-ifl-controls" tabindex="-1"
+     aria-labelledby="g{{group.id}}-ifl-controls-label">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <b>Кто-то сумел навариться? Или на ком-то наварились?..</b>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" method="post" action="">
+                    {% csrf_token %}
+                    {% for field in ifl_form %}
+                    <div class="form-group charlist-inline justify-content-center mt-2">
+                        <div class="col-sm-5 ms-2">
+                            {{ field }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <div class="charlist-inline justify-content-center align-self-center">
+                        <button class="btn btn-success" type="submit" name="gain-ifl">
+                            Увеличить
+                        </button>
+                        <button class="btn btn-success" type="submit" name="gain-ifl">
+                            Потерять
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}

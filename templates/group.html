@@ -25,6 +25,12 @@ Group&nbsp;{{ group.name }}&nbsp;from&nbsp;{{ group.season.name }}&nbsp;campaign
                 {% include 'character_card_widget.html' %}
             {% endfor %}
         </div>
+        {% if is_master %}
+        <div class="text-center">
+            <h5>Компромат, то есть это, интересные факты: </h5>
+            {% include 'facts_viewer.html' %}
+        </div>
+        {% endif %}
     </div>
     <div class="d-flex flex-column justify-content-center align-self-center">
         <div class="text-center">
@@ -47,9 +53,7 @@ Group&nbsp;{{ group.name }}&nbsp;from&nbsp;{{ group.season.name }}&nbsp;campaign
                         <b class="text-dark">
                             <a href="" class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
                                data-bs-target="#g{{group.id}}-create-session-popup" title="Создать сессию">
-                                {% with facade.psy_powers|get_by_dict_key:form.pp_tag as power %}
-                                    {{ power.name|get_by_dict_key:lang }}
-                                {% endwith %}
+                                Запланировать сессию
                             </a>
                         </b>
                     </div>

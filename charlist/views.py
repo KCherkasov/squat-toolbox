@@ -83,6 +83,73 @@ class TokenGenerator(PasswordResetTokenGenerator):
         return force_str(user.pk) + force_str(timestamp) + force_str(user.is_active)
 
 
+fact_words = {
+    'SK_CML': u'Они думают, что что-то знают (коммонки):',
+    'SK_SCL': u'А этих даже чему-то учили (схоластика)',
+    'SK_FBL': u'Тааак... тут кое-кто накопал всякого. Вызнать бы еще, где... (форбидки)',
+    'SK_LNG': u'Они думают, что знают готик и не только:',
+    'SK_NVG': u'А эти считают, что не заблудятся (и где-то прячут третий глаз): ',
+    'SK_OPR': u'У них и водятлы есть!',
+    'SK_TRD': u'О, кружок народных умельцев!',
+    'TL_JD': u'Этих можно пугать только варп-хтонью:',
+    'TL_PR': u'Вы посмотрите, они даже знают, как себя вести, хотя бы в отдельно взятой компании:',
+    'TL_WS': u'Варп-нюхающие:',
+    'TL_LTSL': u'Кто-то плохо спит. Интересно почему?',
+    'TL_MDTN': u'Подобия монахов - говорят, медитировать умеют:',
+    'TL_FRLS': u'Номинация "Слабоумие или отвага?":',
+    'TL_UNRM': u'Мыши серые обыкновенные:',
+    'TL_ENM': u'Кто-то нажил себе врагов:',
+    'TL_KI': u'Да тут интуиты:',
+    'TL_QD': u'Мастера быстрого отхва...выхватывания:',
+    'TL_TKD': u'Ловцы человеков (и не только):',
+    'TL_RST': u'Обмазались резистами и думают, что это поможет:',
+    'TL_MGTR': u'Это кто разрешил не бояться лестниц? В смысле "они еще и летают"?!',
+    'TL_CMST': u'Это ж надо, так дрыном махать, и не окружить гадов:',
+    'TL_CNVG': u'Эт что, они ничему не удивляются? А сюрпризы зачем готовить тогда? Скучно...',
+    'TL_CNNT': u'Кто-то отрастил связей. Ну-ну, больше связей - больше компромата...',
+    'TL_CVUP': u'Смотри-ка кое-кто даже знает, как этими связями пользоваться:',
+    'TL_STMN': u'Надо ж было так накачать мозг, что у него мышцы появились, теперь туда лезть стремно...',
+    'TL_ADFT': u'Ярые веруны, настолько ярые, что ничего не боятся (наверняка врут):',
+    'TL_FOIN': u'Хорошая работа, эти настолько отчаялись, что готовы тратить фейты на прямые вопросы мастеру!',
+    'TL_INKN': u'Всезнаек развелось, плюнуть некуда!',
+    'TL_BG': u'Look out, sir! или ma\'m... Телохранители, в общем:',
+    'TL_DMH': u'Эти не только знают про демонов, но и любят их охотить:',
+    'TL_WTFN': u'Э, никто не предупреждал, что тут ведьмоловы! Нечестно!',
+    'TL_AMIM': u'Цельные послы. Кто и куда их послал почему-то не говорят...',
+    'TL_ARCH': u'Пылищу развели, тьфу, дышать нечем! Кто книжных червей из загона... то есть либрариума, выпустил?! ',
+    'TL_LXG': u'Человеки-переводчики, фу такими быть...',
+    'TL_XNS': u'Все понимаю, у всех разные пристрастия но в сортах гов...ксеносов копаться зачем?!',
+    'TL_INCN': u'Мало того, что сами сопротивляются безумию, так и другим обмазаться мешают!',
+    'TL_AGOC': u'Гляньте-ка, какие снобы, ничто-то их не берет...',
+    'TL_AROA': u'Смотри-ка, пыжатся, щеки надувают, пытаются авторитетом давить. Ну-ну...',
+    'TL_ARCN': u'Это кто разрешил сопротивляться корапту?! В смысле "никто не запрещал"?!',
+    'TL_CHGD': u'Самые ленивые, спокойные, жирные... стоп, мы не про фафта сейчас? Вашу ж мать...',
+    'TL_CLSL': u'Не-не-не-не, к этим отморозкам я близко не подойду!',
+    'TL_CLRD': u'Шарлатаны, мошенники, аферисты:',
+    'TL_CMFR': u'Так, где тут сборник анекдотов про ходящих строем - вон еще "формация" топает, с форматором во главе:',
+    'TL_DSVC': u'Какой чарующий голос (спойлер - нет):',
+    'TL_ETVG': u'Не просто параноики, эти еще шмальнуть могут без предупреждения, чего доброго. Ну их в зог...',
+    'TL_FRST': u'Аналитики, скучно с ними...',
+    'TL_IRDS': u'Дисциплина, дисциплина и дисциплина, задолбали...',
+    'TL_MSCM': u'Отцы-командиры... Спорим, на деле просто самые горластые в компании?',
+    'TL_MTMZ': u'Не, вот этим я в голову не полезу, не проси, там такое... до сих пор икается, брр...',
+    'TL_MMC': u'Птица-говорун, в смысле поют на разные голоса:',
+    'TL_OPCN': u'Настоящий оперативник может допросить допрашивающего... Ну вот эти так думают. Может, проверим?',
+    'TL_PRN': u'Параноики! Их так весело провоцировать!',
+    'TL_PLG': u'Полиглоты. А если подсунуть им тарабарщину, как быстро они поймут, что это не новый язык?',
+    'TL_RPRC': u'В смысле они отказываются стоять на месте, попав в засаду?!',
+    'TL_RNWR': u'Гляньте на этот патент! Блестит, пробы негде ставить!',
+    'TL_STCN': u'Скучные люди, сопротивляются безумию, зачем?',
+    'TL_WOEX': u'Осторожно, читеры!!! Потратят фейту и скажут, что у них запрещенное число на броске!'
+               u' Вот и что с ними делать?',
+    'TOT_HOW': u'Тут у кой-кого контры завелись, лютые зело. Как бы с ними свести...',
+    'TOT_PRGN': u'Вот это богатая биография - приводы, скандалы, интриги, расследования!'
+                u'Почему-то не любят посягательств на свою свободу, с чего бы это?',
+    'TOT_HGVD': u'Какой темперамент, прям плюнь - закипят! Или косо посмотри...'
+                u'Да с этими еще интереснее, чем с параноиками!'
+}
+
+
 account_activation_token = TokenGenerator()
 
 resources = ['aptitudes.json', 'stat_descriptions.json', 'skill_descriptions.json', 'talent_descriptions.json',
@@ -1809,8 +1876,11 @@ def group_view(request, group_id):
         facade = flyweights
 
     is_captain = False
+    is_player = False
     for character in characters:
         character_models[character.pk] = character.data_to_model()
+        if not is_player:
+            is_player = character.owner == request.user
         if (not is_captain) and group.is_rt:
             is_captain = (request.user == character.owner)\
                          and (character_models.get(character.pk).career_id() == 'CR_RT')
@@ -1821,17 +1891,25 @@ def group_view(request, group_id):
     finished_sessions = models.GameSession.objects.get_by_group(group).get_finished()
     ifl_form = None
     xp_form = None
+    group_notes_form = None
+    master_notes_form = None
     if is_master:
         ifl_form = InfluenceControlsForm()
         xp_form = GroupXPGiverForm(group)
+        master_notes_form = AddDocLinkForm({'link': group.master_notes()})
     if is_captain:
         ifl_form = InfluenceControlsForm()
+        group_notes_form = AddDocLinkForm({'link': group.group_notes()})
     facts = collect_facts(character_models, facade)
     return TemplateResponse(request, 'group.html', {'version': VERSION, 'group': group, 'facade': facade,
                                                     'characters': characters, 'char_data': character_models,
                                                     'is_master': is_master, 'is_captain': is_captain,
                                                     'active': active_sessions, 'finished': finished_sessions,
-                                                    'ifl_form': ifl_form, 'xp_form': xp_form, 'facts': facts })
+                                                    'ifl_form': ifl_form, 'xp_form': xp_form, 'facts': facts,
+                                                    'group_notes': group_notes_form,
+                                                    'master_notes': master_notes_form,
+                                                    'gr_notes_url': group.group_notes(),
+                                                    'ms_notes_url': group.master_notes()})
 
 
 def make_session_name(name: str, group: models.CharacterGroup):
