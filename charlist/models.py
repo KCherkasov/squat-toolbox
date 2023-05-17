@@ -179,6 +179,12 @@ class GameSessionQuerySet(models.QuerySet):
     def with_group(self):
         return self.prefetch_related('group')
 
+    def get_active(self):
+        return self.filter(finished=False)
+
+    def get_finished(self):
+        return self.filter(finished=True)
+
 
 class GameSessionManager(models.Manager):
     def queryset(self):
@@ -190,12 +196,6 @@ class GameSessionManager(models.Manager):
 
     def get_by_group(self, gid):
         return self.filter(base_group=gid)
-
-    def get_active(self):
-        return self.filter(finished=False)
-
-    def get_finished(self):
-        return self.filter(finished=True)
 
 
 class GameSession(models.Model):
