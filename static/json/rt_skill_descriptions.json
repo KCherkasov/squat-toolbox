@@ -108,7 +108,7 @@
         "ru": "Все умения группы Общие Знания отображают всю информацию, доступную обычному человеку о подразделениях, традициях, процедурах, знаменитостях и суевериях конкретного мира, группы, организации или расы. Эти знания глубже, чем просто информация о существовании объекта, что указывает на некоторый интерес к данной области. Данное умение отлично как от Учёных Знаний, отображающих более научные знания, получаемые путём изучения и исследований, так и от Запретных Знаний, показывающих сокрытые и запрещённые познания. Общие Знания имеют дело с обычными познаниями, получаемыми вследствие длительного контакта с культурой или областью.",
         "en": "All Common Lore skills represent the common knowledge an individual might know about the general information, procedures, divisions, traditions, famed individuals, and superstitions of a particular world, group, organisation, or race. Such information is deeper than mere knowledge of the subject’s existence, and more reflects a degree of familiarity that indicates a measure of dedicated interest in the area. This skill differs from Scholastic Lore, which represents scholarly learning one might gain through study and research, and Forbidden Lore, which involves hidden or proscribed knowledge. Common Lore deals with basic information gained from prolonged exposure to a culture or area."
       },
-      "azptitudes": ["A_INT", "A_GEN"],
+      "aptitudes": ["A_INT", "A_GEN"],
       "stats": ["ST_INT", "ST_FEL"],
       "is_specialist": true
     },
