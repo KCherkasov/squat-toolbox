@@ -38,6 +38,7 @@ Group&nbsp;{{ group.name }}&nbsp;from&nbsp;{{ group.season.name }}&nbsp;campaign
                 <h5>{% if group.is_rt %}Профит-фактор{% else %}Влияние{% endif %}{% if is_master %}&nbsp;и опыт{% endif %}</h5>
             </div>
             {% if is_master or is_captain %}
+            {% endif %}
             {% if is_master %}
                 {% include 'group_xp_giver.html' %}
             {% endif %}
