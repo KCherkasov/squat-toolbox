@@ -1867,7 +1867,7 @@ def group_view(request, group_id):
             return group_gain_influence(request, group)
         if 'ifl-loose-confirm' in request.POST:
             return group_loose_influence(request, group)
-        if 'end-session-confirm' in request.POST:
+        if 'group-give-xp' in request.POST:
             return group_gain_xp(request, group)
     characters = models.Character.objects.by_group(group)
     character_models = dict()
