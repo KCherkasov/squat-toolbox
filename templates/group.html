@@ -33,13 +33,15 @@ Group&nbsp;{{ group.name }}&nbsp;from&nbsp;{{ group.season.name }}&nbsp;campaign
                 {% endfor %}
             </div>
             {% if is_master %}
-            <div class="text-center">
+            <div class="text-center mt-3">
                 <h5>Компромат, то есть это, интересные факты: </h5>
+            </div>
+            <div class="mt-2 fact-viewer">
                 {% include 'facts_viewer.html' %}
             </div>
             {% endif %}
         </div>
-        <div class="card">
+        <div class="card ">
             <div class="text-center">
                 <h5>{% if group.is_rt %}Профит-фактор{% else %}Влияние{% endif %}{% if is_master %}&nbsp;и опыт{% endif %}</h5>
             </div>
