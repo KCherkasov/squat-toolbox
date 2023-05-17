@@ -1438,7 +1438,7 @@ def character_view(request, char_id):
             if ('gainFatigue' in request.POST) or ('restoreFatigue' in request.POST):
                 return process_fatigue(request, character, character_model)
             if ('spend-fate' in request.POST) or ('burn-fate' in request.POST):
-                return  process_fate(request, character, character_model)
+                return process_fate(request, character, character_model)
         wounds_form = WoundControlsForm()
         fate_form = FateControlsForm()
         fatigue_form = FatigueControlsForm()
@@ -1886,6 +1886,18 @@ def group_view(request, group_id):
             return group_loose_influence(request, group)
         if 'group-give-xp' in request.POST:
             return group_gain_xp(request, group)
+        if 'gr-link-change' in request.POST:
+            link_form = AddDocLinkForm(request.POST)
+            if link_form.is_valid():
+                group.group_notes_url = link_form.cleaned_data['link']
+                group.save()
+            return HttpResponseRedirect(reverse('group', kwargs={'group_id': group.name_id}))
+        if 'ms-link-change' in request.POST:
+            link_form = AddDocLinkForm(request.POST)
+            if link_form.is_valid():
+                group.master_notes_url = link_form.cleaned_data['link']
+                group.save()
+            return HttpResponseRedirect(reverse('group', kwargs={'group_id': group.name_id}))
     characters = models.Character.objects.by_group(group)
     character_models = dict()
     if group.is_rt:

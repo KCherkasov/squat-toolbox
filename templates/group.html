@@ -101,7 +101,7 @@ Group&nbsp;{{ group.name }}&nbsp;from&nbsp;{{ group.season.name }}&nbsp;campaign
     </div>
     <div>
         {% with master_notes as form %}
-            {% include 'player_notes_link_form.html' %}
+            {% include 'master_notes_link_form.html' %}
         {% endwith %}
     </div>
 </div>
@@ -122,7 +122,7 @@ Group&nbsp;{{ group.name }}&nbsp;from&nbsp;{{ group.season.name }}&nbsp;campaign
     {% if is_captain %}
     <div>
         {% with group_notes as form %}
-            {% include 'player_notes_link_form.html' %}
+            {% include 'group_notes_link_form.html' %}
         {% endwith %}
     </div>
     {% endif %}
