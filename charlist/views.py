@@ -1806,6 +1806,7 @@ def group_gain_xp(request, group: models.CharacterGroup):
             model = character.data_to_model()
             if form.cleaned_data.get('all') or form.cleaned_data.get('c'+str(character.pk)):
                 model.get_xp(amount)
+                model.restore_fate()
                 character.character_data = model.toJSON()
                 character.save()
     return HttpResponseRedirect(reverse('group', kwargs={'group_id': group.name_id}))
@@ -2041,10 +2042,16 @@ def make_initiative_line(request, participants, facade, session):
         parsed.sort(key=itemgetter('roll', 'stat', 'name'), reverse=True)
         ifl_form = InfluenceControlsForm()
         finish_form = EndSessionForm()
+        facts = collect_facts(participants, facade)
         return TemplateResponse(request, 'session_view.html', {'version': VERSION, 'session': session,
                                                                'char_data': participants, 'ifl_form': ifl_form,
-                                                               'finish_form': finish_form,
-                                                               'initiative_line': form, 'parsed': parsed, })
+                                                               'finish_form': finish_form, 'facts': facts,
+                                                               'initiative_line': form, 'parsed': parsed,
+                                                               'is_master': True, 'is_captain': False,
+                                                               'group_notes': None,
+                                                               'gr_notes_url': '',
+                                                               'ms_notes_url': session.base_group.master_notes()
+                                                               })
 
 
 @csrf_exempt
@@ -2052,6 +2059,7 @@ def session_view(request, game_session_id):
     session = models.GameSession.objects.get(pk=game_session_id)
     group_chars = list()
     crossover_chars = list()
+    char_urls = dict()
     participants = list()
     character_models = dict()
     if session.base_group.is_rt:
@@ -2066,6 +2074,7 @@ def session_view(request, game_session_id):
                 crossover_chars.append(character)
             model = character.data_to_model()
             character_models[character.pk] = model
+            char_urls[character.pk] = character.get_view_url()
             participants.append(model)
     if request.method == 'POST':
         if 'ifl-get-confirm' in request.POST:
@@ -2079,21 +2088,30 @@ def session_view(request, game_session_id):
         finish_form = None
         initiative_line = None
         ifl_form = None
+        is_captain = False
         for character in group_chars:
             if request.user == character.owner:
                 initiative_line = InitiativeLineMaker(participants, facade)
                 if character.is_rt and (character.data_to_model().career_id() == 'CR_RT'):
                     ifl_form = InfluenceControlsForm()
+                    is_captain = True
                 break
         for character in crossover_chars:
             if request.user == character.owner:
                 initiative_line = InitiativeLineMaker(participants, facade)
                 break
         facts = collect_facts(character_models, facade)
+        is_master = request.user == session.creator
+
         return TemplateResponse(request, 'session_view.html', {'version': VERSION, 'session': session,
                                                                'char_data': character_models, 'ifl_form': ifl_form,
                                                                'finish_form': finish_form, 'facts': facts,
-                                                               'initiative_line': initiative_line, })
+                                                               'initiative_line': None,
+                                                               'is_master': is_master, 'is_captain': is_captain,
+                                                               'group_notes': None, 'char_urls': char_urls,
+                                                               'gr_notes_url': session.base_group.group_notes(),
+                                                               'ms_notes_url': session.base_group.master_notes()
+                                                               })
     else:
         if request.user.is_master and (request.user == session.creator):
             ifl_form = InfluenceControlsForm()

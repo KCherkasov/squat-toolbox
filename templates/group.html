@@ -16,21 +16,32 @@ Group&nbsp;{{ group.name }}&nbsp;from&nbsp;{{ group.season.name }}&nbsp;campaign
     <p><i>{{ group.description }}</i></p>
 </header>
 <div class="d-flex flex-column justify-content-center align-self-center">
-    <div>
-        <div class="text-center">
-            <h5>Персонажи</h5>
+    <div class="card-group">
+        <div class="card">
+            <div class="text-center">
+                <h5>Персонажи</h5>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-self-center">
+                {% for character in characters %}
+                    {% include 'character_card_widget.html' %}
+                {% endfor %}
+            </div>
+            {% if is_master %}
+            <div class="text-center">
+                <h5>Компромат, то есть это, интересные факты: </h5>
+                {% include 'facts_viewer.html' %}
+            </div>
+            {% endif %}
         </div>
-        <div class="d-flex flex-column justify-content-center align-self-center">
-            {% for character in characters %}
-                {% include 'character_card_widget.html' %}
-            {% endfor %}
+        <div class="card">
+            <div class="text-center">
+                <h5>{% if group.is_rt %}Профит-фактор{% else %}Влияние{% endif %}{% if is_master %}&nbsp;и опыт{% endif %}</h5>
+            </div>
+            {% if is_master or is_captain %}
+            {% if is_master %}
+                {% include 'group_xp_giver.html' %}
+            {% endif %}
         </div>
-        {% if is_master %}
-        <div class="text-center">
-            <h5>Компромат, то есть это, интересные факты: </h5>
-            {% include 'facts_viewer.html' %}
-        </div>
-        {% endif %}
     </div>
     <div class="d-flex flex-column justify-content-center align-self-center">
         <div class="text-center">
@@ -42,7 +53,9 @@ Group&nbsp;{{ group.name }}&nbsp;from&nbsp;{{ group.season.name }}&nbsp;campaign
             </div>
             <div class="d-flex flex-column justify-content-center align-self-center">
                 {% for session in active %}
-
+                <div class="text-center">
+                    <a href="{{ session.get_url }}">{{ session.name }}</a>
+                </div>
                 {% empty %}
                 <div class="text-center text-dark">
                     <p><b>В настоящей момент у группы не запланировано игр.</b></p>
@@ -58,10 +71,10 @@ Group&nbsp;{{ group.name }}&nbsp;from&nbsp;{{ group.season.name }}&nbsp;campaign
                         </b>
                     </div>
                     <div class="modal fade" id="g{{group.id}}-create-session-popup" tabindex="-1"
-                         aria-labelledby="g{{group.id}}-create-session-popup">
+                         aria-labelledby="g{{group.id}}-create-session-popup-label">
                         <div class="modal-dialog" role="document">
                             <div class="modal-header">
-                                <b class="g{{group.id}}-create-session-popup">
+                                <b class="g{{group.id}}-create-session-popup-label">
                                     Создать сессию для группы {{ group.name }}
                                 </b>
                             </div>
@@ -95,7 +108,9 @@ Group&nbsp;{{ group.name }}&nbsp;from&nbsp;{{ group.season.name }}&nbsp;campaign
             </div>
             <div class="d-flex flex-column justify-content-center align-self-center">
                 {% for session in finished %}
-
+                <div class="text-center">
+                    <a href="{{ session.get_url }}">{{ session.name }}</a>
+                </div>
                 {% empty %}
                 <div class="text-center text-dark">
                     <p><b>Группа еще ни разу не играла.</b></p>
