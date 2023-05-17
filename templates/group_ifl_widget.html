@@ -34,12 +34,12 @@
                     {% csrf_token %}
                     {% for field in ifl_form %}
                     <div class="form-group charlist-inline justify-content-center mt-2">
-                        <div class="col-sm-5 ms-2">
+                        <div class="charlist-inline align-self-center justify-content-center col-sm-5 ms-2 mb-2">
                             {{ field }}
                         </div>
                     </div>
                     {% endfor %}
-                    <div class="charlist-inline justify-content-center align-self-center">
+                    <div class="charlist-inline justify-content-center align-self-center mt-2">
                         <button class="btn btn-success" type="submit" name="ifl-get-confirm">
                             Увеличить
                         </button>
