@@ -33,7 +33,7 @@
                             {% endif %}
                             {% if fact_key|starts_with:'TOT' %}
                                 {% with facade.trials|get_by_dict_key:fact_key as trial %}
-                                    {{ trial.name:get_by_dict_key:'en' }}
+                                    {{ trial.name|get_by_dict_key:'en' }}
                                 {% endwith %}
                             {% endif %}
                         </div>
