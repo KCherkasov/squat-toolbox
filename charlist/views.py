@@ -1814,7 +1814,7 @@ def group_gain_xp(request, group: models.CharacterGroup):
 
 def collect_facts(characters, facade):
     facts = {'spec_skills': dict(), 'psy': dict(), 'talents': dict()}
-    for character in characters:
+    for pk, character in characters.items():
         for skillt_tag, skill in character.skills().items():
             if skill.is_specialist():
                 if skill.tag() not in facts.get('spec_skills').keys():
