@@ -35,6 +35,7 @@
                     {% for field in ifl_form %}
                     <div class="form-group charlist-inline justify-content-center mt-2">
                         <div class="charlist-inline align-self-center justify-content-center col-sm-5 ms-2 mb-2">
+                            <label for="{{ field.name }}" class="col-sm-2 control-label">{{ field.label }}</label>
                             {{ field }}
                         </div>
                     </div>
