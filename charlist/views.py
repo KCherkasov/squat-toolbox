@@ -1854,7 +1854,7 @@ def collect_facts(characters, facade):
             if character.trial_id() in INTERESTING_TRIALS:
                 if character.trial_id() not in facts.get('trials'):
                     facts.get('trials')[character.trial_id()] = list()
-                facts.get('trials').get(character.trial_id).append(character.name())
+                facts.get('trials').get(character.trial_id()).append(character.name())
     return facts
 
 
