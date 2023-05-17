@@ -96,10 +96,10 @@ Session {{ session.name }} (Group&nbsp;{{ session.base_group.name }}&nbsp;from&n
 </div>
 <div class="charlist-inline justify-content-center align-self-center">
     <div>
-        <a role="button" class="btn btn-primary" href="{{ group.season.get_url }}">К кампании</a>
+        <a role="button" class="btn btn-primary" href="{{ session.base_group.get_url }}">К группе</a>
     </div>
     <div>
-        <a role="button" class="btn btn-success" href="{% url 'seasons-list' %}">К списку кампаний</a>
+        <a role="button" class="btn btn-success" href="{{ session.base_group.season.get_url }}">К кампании</a>
     </div>
 </div>
 {% if is_master %}
