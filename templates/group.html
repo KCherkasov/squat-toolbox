@@ -134,20 +134,20 @@ Group&nbsp;{{ group.name }}&nbsp;from&nbsp;{{ group.season.name }}&nbsp;campaign
         </div>
     </div>
 </div>
-<div class="charlist-inline justify-content-center align-self-center">
-    <div>
+<div class="charlist-inline justify-content-center align-self-center mt-2 mb-1">
+    <div class="me-2">
         <a role="button" class="btn btn-primary" href="{{ group.season.get_url }}">К кампании</a>
     </div>
-    <div>
+    <div class="ms-2">
         <a role="button" class="btn btn-success" href="{% url 'seasons-list' %}">К списку кампаний</a>
     </div>
 </div>
 {% if is_master %}
 <div class="charlist-inline justify-content-center align-self-center">
-    <div>
+    <div class="me-2 mt-1">
         <a role="button" class="btn btn-success" href="{{ group.get_edit_link }}">Редактировать</a>
     </div>
-    <div>
+    <div class="ms-2 mt-1">
         <a role="button" class="btn btn-danger" href="{{ group.get_delete_link }}">Удалить</a>
     </div>
 </div>
