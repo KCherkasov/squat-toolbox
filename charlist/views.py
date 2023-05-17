@@ -1843,7 +1843,8 @@ def collect_facts(characters, facade):
             if skill.tag() == 'SK_PSY':
                 if skill.tag() not in facts.get('psy').keys():
                     facts.get('psy')[skill.tag()] = list()
-                facts.get('psy').get(skill.tag()).append(character.name() + ' ' + str(skill.get_adv_bonus()))
+                if skill.get_adv_bonus() >= 0:
+                    facts.get('psy').get(skill.tag()).append(character.name() + ' ' + str(skill.get_adv_bonus()))
         for talent_tag, talent in character.talents().items():
             if (talent.tag() in INTERESTING_TALENTS) and (talent.tag() in facade.talent_descriptions().keys()):
                 if talent.tag() not in facts.get('talents').keys():

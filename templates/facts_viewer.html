@@ -20,6 +20,8 @@
             <ul>
                 {% for fact_data in fact %}
                 <li>{{ fact_data }}{% if not forloop.last %};{% else %}.{% endif %}</li>
+                {% empty %}
+                <li>Таких нет.</li>
                 {% endfor %}
             </ul>
             {% if not fact_key|starts_with:'SK' and not fact_key|starts_with:'TR' %}
