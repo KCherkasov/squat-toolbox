@@ -37,7 +37,6 @@
                                 {% endwith %}
                             {% endif %}
                         </div>
-                    </div>
                     <div class="modal-body text-center">
                         {% if fact_key|starts_with:'TL' %}
                             {% with facade.talent_descriptions|get_by_dict_key:fact_key as talent %}
@@ -53,6 +52,7 @@
                             {% endfor %}
                             {% endwith %}
                         {% endif %}
+                    </div>
                     </div>
                 </div>
             </div>
