@@ -1815,7 +1815,7 @@ def group_gain_xp(request, group: models.CharacterGroup):
 def collect_facts(characters, facade):
     facts = {'spec_skills': dict(), 'psy': dict(), 'talents': dict()}
     for character in characters:
-        for skill in character.skills():
+        for skillt_tag, skill in character.skills().items():
             if skill.is_specialist():
                 if skill.tag() not in facts.get('spec_skills').keys():
                     facts.get('spec_skills')[skill.tag()] = dict()
@@ -1828,7 +1828,7 @@ def collect_facts(characters, facade):
                 if skill.tag() not in facts.get('psy').keys():
                     facts.get('psy')[skill.tag()] = list()
                 facts.get('psy').get(skill.tag()).append(character.name() + ' ' + str(skill.get_adv_bonus()))
-        for talent in character.talents():
+        for talent_tag, talent in character.talents().items():
             if (talent.tag() in INTERESTING_TALENTS) and (talent.tag() in facade.talent_descriptions().keys()):
                 if talent.tag() not in facts.get('talents').keys():
                     facts.get('talents')[talent.tag()] = list()
@@ -1839,7 +1839,7 @@ def collect_facts(characters, facade):
                         name += ' ' + subtag + ','
                     name = name[:len(name) - 1] + ')'
                 facts.get('talents').get(talent.tag()).append(name)
-        for trait in character.traits():
+        for trait_tag, trait in character.traits().items():
             if trait.tag() == 'TR_PSY':
                 if trait.tag() not in facts.get('psy').keys():
                     facts.get('psy')[trait.tag()] = list()
