@@ -192,10 +192,10 @@ class GameSessionManager(models.Manager):
         return query.with_creator().with_group()
 
     def get_by_creator(self, uid):
-        return self.filter(creator=uid)
+        return self.queryset().filter(creator=uid)
 
     def get_by_group(self, gid):
-        return self.filter(base_group=gid)
+        return self.queryset().filter(base_group=gid)
 
 
 class GameSession(models.Model):
