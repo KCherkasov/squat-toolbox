@@ -126,3 +126,9 @@ h5.collapse-toggler {
     max-width: 1200px;
     min-height: 500px;
 }
+
+.fact-viewer {
+    min-width: 400px;
+    max-height: 700px;
+    overflow-y: auto;
+}
