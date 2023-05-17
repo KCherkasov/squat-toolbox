@@ -24,11 +24,11 @@ Group&nbsp;{{ group.name }}&nbsp;from&nbsp;{{ group.season.name }}&nbsp;campaign
             <div class="d-flex flex-column justify-content-center align-self-center">
                 {% for character in characters %}
                     <div>
-                        <a class="text-dark text-decoration-none" href="{{ character.get_view_url }}">
+                        <b><a class="fs-5" href="{{ character.get_view_url }}">
                             {% with char_data|get_by_dict_key:character.pk as char_mod %}
                                 {{ char_mod.name }}
                             {% endwith %}
-                        </a>
+                        </a></b>
                     </div>
                 {% endfor %}
             </div>
@@ -47,7 +47,9 @@ Group&nbsp;{{ group.name }}&nbsp;from&nbsp;{{ group.season.name }}&nbsp;campaign
                 {% include 'group_ifl_widget.html' %}
             {% endif %}
             {% if is_master %}
-                {% include 'group_xp_giver.html' %}
+                {% with xp_form as form %}
+                    {% include 'group_xp_giver.html' %}
+                {% endwith %}
             {% endif %}
         </div>
     </div>
@@ -81,6 +83,7 @@ Group&nbsp;{{ group.name }}&nbsp;from&nbsp;{{ group.season.name }}&nbsp;campaign
                     <div class="modal fade" id="g{{group.id}}-create-session-popup" tabindex="-1"
                          aria-labelledby="g{{group.id}}-create-session-popup-label">
                         <div class="modal-dialog" role="document">
+                            <div class="modal-content">
                             <div class="modal-header">
                                 <b class="g{{group.id}}-create-session-popup-label">
                                     Создать сессию для группы {{ group.name }}
@@ -105,6 +108,7 @@ Group&nbsp;{{ group.name }}&nbsp;from&nbsp;{{ group.season.name }}&nbsp;campaign
                                 </div>
                                 </div>
                             </div>
+                        </div>
                         </div>
                     </div>
                 {% endif %}
