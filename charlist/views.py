@@ -1802,13 +1802,27 @@ def group_gain_xp(request, group: models.CharacterGroup):
     if form.is_valid() and (request.user == group.creator):
         amount = int(form.cleaned_data.get('amount'))
         characters = models.Character.objects.by_group(group)
-        for character in characters:
-            model = character.data_to_model()
-            if form.cleaned_data.get('all') or form.cleaned_data.get('c'+str(character.pk)):
-                model.get_xp(amount)
-                model.restore_fate()
-                character.character_data = model.toJSON()
-                character.save()
+        for key, value in form.cleaned_data.items():
+            if (key == 'all') and value:
+                for character in characters:
+                    model = character.data_to_model()
+                    if value:
+                        model.get_xp(amount)
+                        model.restore_fate()
+                        character.character_data = model.toJSON()
+                        character.save()
+            else:
+                if key not in ['amount', 'all']:
+                    if value:
+                        cid = int(key[1:])
+                        character = models.Character.objects.get(pk=cid)
+                        if character:
+                            model = character.data_to_model()
+                            if value:
+                                model.get_xp(amount)
+                                model.restore_fate()
+                                character.character_data = model.toJSON()
+                                character.save()
     return HttpResponseRedirect(reverse('group', kwargs={'group_id': group.name_id}))
 
 
