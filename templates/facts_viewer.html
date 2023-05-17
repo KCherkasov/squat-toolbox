@@ -23,17 +23,17 @@
                 {% endfor %}
             </ul>
             {% if not fact_key|starts_with:'SK' and not fact_key|starts_with:'TR' %}
-            <div id="fact-{{ fact_key }}-popup" tabindex="-1"
+            <div id="fact-{{ fact_key }}-popup" tabindex="-1" class="modal fade"
                  aria-labelledby="fact-{{ fact_key }}-popup-label">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             {% if fact_key|starts_with:'TL' %}
-                                {{ facade.talent_descriptions|get_by_dict_key:fact_key|get_tldescr_name:'en' }}
+                                <b class="fact-{{ fact_key }}-popup-label">{{ facade.talent_descriptions|get_by_dict_key:fact_key|get_tldescr_name:'en' }}</b>
                             {% endif %}
                             {% if fact_key|starts_with:'TOT' %}
                                 {% with facade.trials|get_by_dict_key:fact_key as trial %}
-                                    {{ trial.name|get_by_dict_key:'en' }}
+                                    <b class="fact-{{ fact_key }}-popup-label">{{ trial.name|get_by_dict_key:'en' }}</b>
                                 {% endwith %}
                             {% endif %}
                         </div>
