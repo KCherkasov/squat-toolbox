@@ -1925,7 +1925,7 @@ def group_view(request, group_id):
                                                     'active': active_sessions, 'finished': finished_sessions,
                                                     'ifl_form': ifl_form, 'xp_form': xp_form, 'facts': facts,
                                                     'group_notes': group_notes_form, 'fact_words': fact_words,
-                                                    'master_notes': master_notes_form,
+                                                    'master_notes': master_notes_form, 'group_member': is_player,
                                                     'gr_notes_url': group.group_notes(),
                                                     'ms_notes_url': group.master_notes()})
 

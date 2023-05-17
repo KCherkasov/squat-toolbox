@@ -15,6 +15,34 @@ Group&nbsp;{{ group.name }}&nbsp;from&nbsp;{{ group.season.name }}&nbsp;campaign
     <h4>{{ group.name }}</h4>
     <p><i>{{ group.description }}</i></p>
 </header>
+
+<div class="charlist_container">
+    <div>
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" data-bs-toggle="tab" id="g-info-tab" href="#g-info-card" aria-current="page">
+                    Информация о группе
+                </a>
+            </li>
+            {% if is_master %}
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" data-bs-toggle="tab" id="m-notes-tab" href="#m-notes-card" aria-current="page">
+                    Заметки
+                </a>
+            </li>
+            {% endif %}
+            {% if is_master or group_member %}
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" data-bs-toggle="tab" id="g-notes-tab" href="#g-notes-card" aria-current="page">
+                    Заметки
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+
+<div class="tab-pane fade show charlist-container active" id="g-info-card" role="tabpanel" aria-labelledby="g-info-tab">
 <div class="d-flex flex-column justify-content-center align-self-center">
     <div class="card-group">
         <div class="card">
@@ -55,6 +83,52 @@ Group&nbsp;{{ group.name }}&nbsp;from&nbsp;{{ group.season.name }}&nbsp;campaign
             {% endif %}
         </div>
     </div>
+</div>
+</div>
+
+{% if is_master %}
+<div class="tab-pane fade show charlist-container" id="m-notes-card" role="tabpanel" aria-labelledby="m-notes-tab">
+    <header class="text-center">
+        <h4>Заметки</h4>
+    </header>
+    <div class="doc-embed">
+        {% if ms_notes_url %}
+            <iframe src="{{ ms_notes_url }}" height="760" width="1200"></iframe>
+        {% else %}
+            <b>Ссылки на заметки пока нет.</b>
+        {% endif %}
+    </div>
+    <div>
+        {% with master_notes as form %}
+            {% include 'player_notes_link_form.html' %}
+        {% endwith %}
+    </div>
+</div>
+{% endif %}
+
+{% if is_captain or group_member %}
+<div class="tab-pane fade show charlist-container" id="g-notes-card" role="tabpanel" aria-labelledby="g-notes-tab">
+    <header class="text-center">
+        <h4>Заметки</h4>
+    </header>
+    <div class="doc-embed">
+        {% if gr_notes_url %}
+            <iframe src="{{ gr_notes_url }}" height="760" width="1200"></iframe>
+        {% else %}
+            <b>Ссылки на заметки пока нет.</b>
+        {% endif %}
+    </div>
+    {% if is_captain %}
+    <div>
+        {% with group_notes as form %}
+            {% include 'player_notes_link_form.html' %}
+        {% endwith %}
+    </div>
+    {% endif %}
+</div>
+{% endif %}
+
+
     <div class="d-flex flex-column justify-content-center align-self-center mt-3">
         <div class="text-center">
             <h5>Сессии</h5>
