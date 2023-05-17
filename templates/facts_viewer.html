@@ -2,7 +2,7 @@
 
 {% for tag, fact_block in facts.items %}
 <div class="d-flex flex-column align-self-center">
-    {% for fact_key, fact in fact_block %}
+    {% for fact_key, fact in fact_block.items %}
     <ul>
         <li>
             <p class="mb-1 ps-3">
