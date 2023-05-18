@@ -2375,8 +2375,16 @@
         {
           "tag": "TL_INKN_H1",
           "description": {
-            "ru": "Считается, что аколит имеет все умения Общих и Учёных Знаний на уровне 1 (Знает), т.е. знает обо всём по чуть-чуть. Если позже он захочет улучшить одно из этих умений, то эти улучшения должны быть куплены за очки опыта, как обычно, начиная с уровня 1. Кроме того, персонаж получает дополнительную ступень успеха к любой успешно пройденной проверке Общих и Учёных Знаний – это результат его укоренившихся знаний.",
-            "en": "He counts as having all Common Lore and Scholastic Lore skills at rank 1 (Known)—basically, he knows something about everything. If he wishes to later improve his Lore skills, these advances must be bought using experience points (from rank 1) as normal. He also adds one degree of success to any successful Common or Scholastic Lore tests, due to his ingrained training."
+            "ru": "Персонаж может проходить проверки любых специализаций Общего и Ученого Знания. Если персонаж не имеет прокачки в специализации, по которой проходит проверку, проверка совершается со штрафом -10.",
+            "en": "Character can attempt any Common and Scholastic Lore test. If he has no advances in chosen specialization, the test gains -10 penalty."
+          },
+          "targets": ["ST_INT", "SK_CML", "SK_SCL"]
+        },
+        {
+          "tag": "TL_INKN_H2",
+          "description": {
+            "ru": "Персонаж получает дополнительную ступень успеха к любой успешно пройденной проверке Общих и Учёных Знаний – это результат его укоренившихся знаний.",
+            "en": "Character adds one degree of success to any successful Common or Scholastic Lore tests, due to his ingrained training."
           },
           "targets": ["ST_INT", "SK_CML", "SK_SCL"]
         }
