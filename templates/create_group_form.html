@@ -25,10 +25,6 @@
         {% csrf_token %}
         {% regroup form by field.group as field_groups %}
         {% for group in field_groups %}
-            {% with forloop as group_loop %}
-            {% if group_loop.first or group_loop.counter0|divisibleby:3 or group_loop.counter == 2 %}
-                <div class="card-group align-self-center justify-content-center">
-            {% endif %}
                     <div class="card">
                         <div class="card-body">
                             <div>
@@ -51,10 +47,6 @@
                         {% endfor %}
                         </div>
                     </div>
-                    {% if group_loop.counter|divisibleby:3 or group_loop.last or group.grouper == 'group-data' %}
-                </div>
-                    {% endif %}
-                {% endwith %}
         {% endfor %}
         <div class="form-group charlist-inline justify-content-center mt-2">
             <div class="col-sm-offset-2 col-sm-2">
