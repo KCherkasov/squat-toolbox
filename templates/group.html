@@ -76,9 +76,7 @@ Group&nbsp;{{ group.name }}&nbsp;from&nbsp;{{ group.season.name }}&nbsp;campaign
             <div class="text-center">
                 <h5>{% if group.is_rt %}Профит-фактор{% else %}Влияние{% endif %}{% if is_master %}&nbsp;и опыт{% endif %}</h5>
             </div>
-            {% if is_master or is_captain %}
-                {% include 'group_ifl_widget.html' %}
-            {% endif %}
+            {% include 'group_ifl_widget.html' %}
             {% if is_master %}
                 {% with xp_form as form %}
                     {% include 'group_xp_giver.html' %}
