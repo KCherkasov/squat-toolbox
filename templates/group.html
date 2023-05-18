@@ -47,14 +47,16 @@ Group&nbsp;{{ group.name }}&nbsp;from&nbsp;{{ group.season.name }}&nbsp;campaign
 <div class="d-flex flex-column justify-content-center align-self-center">
     <div class="card-group">
         <div class="card">
-            {% if is_master %}
             <div class="text-center mt-3">
-                <h5>Компромат, то есть это, интересные факты: </h5>
+                {% if is_master %}
+                    <h5>Компромат, то есть это, интересные факты: </h5>
+                {% else %}
+                    <h5>Перечень доблестей и достоинств, присущих членам сего собрания:</h5>
+                {% endif %}
             </div>
             <div class="mt-2 fact-viewer">
                 {% include 'facts_viewer.html' %}
             </div>
-            {% endif %}
         </div>
         <div class="card ">
             <div class="text-center">
