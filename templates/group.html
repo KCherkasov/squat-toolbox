@@ -7,7 +7,7 @@ Group&nbsp;{{ group.name }}&nbsp;from&nbsp;{{ group.season.name }}&nbsp;campaign
 {% endblock %}
 
 {% block title %}
-Чарник ver.{{ version }}&nbsp;|&nbsp;Master edition
+Чарник ver.{{ version }}{% if is_master %}&nbsp;|&nbsp;Master edition {% endif %}
 {% endblock %}
 
 {% block app_content %}
