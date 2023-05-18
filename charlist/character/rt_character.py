@@ -114,7 +114,10 @@ class RTCharacterModel(object):
         return self.__wounds
 
     def wounds_cap(self):
-        return self.__wounds[CAP_ID]
+        wnd = self.__wounds[CAP_ID]
+        if self.has_talent('TL_SC'):
+            wnd += self.talents().get('TL_SC').taken()
+        return wnd
 
     def wounds_current(self):
         return self.__wounds[CURRENT_ID]
@@ -129,8 +132,8 @@ class RTCharacterModel(object):
     def heal(self, hld: int):
         if hld > 0:
             self.__wounds[CURRENT_ID] += hld
-            if self.__wounds[CURRENT_ID] > self.__wounds[CAP_ID]:
-                self.__wounds[CURRENT_ID] = self.__wounds[CAP_ID]
+            if self.__wounds[CURRENT_ID] > self.wounds_cap():
+                self.__wounds[CURRENT_ID] = self.wounds_cap()
             return True
         else:
             return False
