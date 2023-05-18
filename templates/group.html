@@ -129,7 +129,7 @@ Group&nbsp;{{ group.name }}&nbsp;from&nbsp;{{ group.season.name }}&nbsp;campaign
 </div>
 {% endif %}
 </div>
-
+{% if never_happens %}
     <div class="d-flex flex-column justify-content-center align-self-center mt-3">
         <div class="text-center">
             <h5>Сессии</h5>
@@ -208,7 +208,7 @@ Group&nbsp;{{ group.name }}&nbsp;from&nbsp;{{ group.season.name }}&nbsp;campaign
             </div>
         </div>
     </div>
-</div>
+{% endif %}
 <div class="charlist-inline justify-content-center align-self-center mt-2 mb-1">
     <div class="me-2">
         <a role="button" class="btn btn-primary" href="{{ group.season.get_url }}">К кампании</a>
