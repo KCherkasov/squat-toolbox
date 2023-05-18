@@ -332,7 +332,7 @@ def signin(request):
         form = SignInForm(request.POST)
         if form.is_valid():
             login(request, form.cleaned_data['user'])
-            return HttpResponseRedirect(reverse('characters-list'))
+            return HttpResponseRedirect(reverse('main'))
         else:
             return HttpResponseRedirect(reverse('signin'))
     else:
