@@ -1,5 +1,8 @@
 {% load filters %}
 {% if reminders|length > 0 %}
+<div class="text-center">
+    <b>Ахтунг! Есть вещи, которые надо сделать:</b>
+</div>
 <div class="reminders-list">
     {% for reminder in reminders %}
         {% if forloop.counter0|divisibleby:3 %}

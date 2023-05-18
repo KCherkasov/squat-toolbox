@@ -63,8 +63,8 @@ Character sheet interactive mockup
                 <h3>{{ character.name }}</h3>
                 {% include 'xp_widget.html' %}
             </header>
-            {% if is_owner %}
-            <div class="justify-content-center">
+            {% if is_owner and reminders|length > 0 %}
+            <div class="justify-content-center alert-warning">
                 {% include 'reminders_widget.html' %}
             </div>
             {% endif %}
