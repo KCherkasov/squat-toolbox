@@ -13,7 +13,7 @@ class GroupXPGiverForm(Form):
         for character in group_members:
             field_name = 'c' + str(character.id)
             label = character.data_to_model().name() + ' (' + str(character.data_to_model().xp_total()) + ')'
-            self.fields[field_name] = forms.BooleanField(label=character.data_to_model().name(), required=False)
+            self.fields[field_name] = forms.BooleanField(label=label, required=False)
             self.fields[field_name].group = 'to-whom'
         self.fields['all'] = forms.BooleanField(label=u'Всем', required=False)
         self.fields['all'].group = 'to-whom'
