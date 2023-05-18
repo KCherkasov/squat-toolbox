@@ -1808,7 +1808,7 @@ def create_group(request, season_id):
         return HttpResponseRedirect(reverse('main'))
     season_name = unquote(season_id, encoding='utf-8', errors='replace')
     season = models.Season.objects.by_name_id(season_name)
-    characters = models.Character.objects.all()
+    characters = models.Character.objects.all().order_by('groups')
     if request.method == 'POST':
         form = CreateGroupForm(characters, request.POST)
         if form.is_valid():
