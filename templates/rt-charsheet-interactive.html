@@ -60,7 +60,17 @@ Character sheet interactive mockup
         </div>
         <div class="tab-content charsheet-card">
             <header class="text-center">
-                <h3>{{ character.name }}</h3>
+                <h3>
+                    {{ character.name }}
+                    {% if groups|length > 0 %}
+                        &nbsp;(Группы:
+                        {% for group in groups %}
+                            <a href="{{ group.get_url }}">{{ group.name }}</a>
+                            {% if not forloop.last %};&nbsp;{% endif %}
+                        {% endfor %}
+                        )
+                    {% endif %}
+                </h3>
                 {% include 'xp_widget.html' %}
             </header>
             {% if is_owner and reminders|length > 0 %}
