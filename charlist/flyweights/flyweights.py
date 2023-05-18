@@ -255,6 +255,9 @@ class Facade:
     def stat_tags(self):
         return charlist.constants.tags.STAT_TAGS
 
+    def stat_tags_gen(self):
+        return charlist.constants.tags.STAT_TAGS_GEN
+
     def skill_tags(self):
         return charlist.constants.tags.SKILL_TAGS
 

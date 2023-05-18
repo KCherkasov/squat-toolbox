@@ -300,6 +300,9 @@ class RTFacade:
     def stat_tags(self):
         return charlist.constants.tags.STAT_TAGS
 
+    def stat_tags_gen(self):
+        return charlist.constants.tags.RT_STAT_TAGS_GEN
+
     def skill_tags(self):
         return charlist.constants.tags.SKILL_TAGS
 
