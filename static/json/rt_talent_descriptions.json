@@ -2383,8 +2383,8 @@
         {
           "tag": "TL_INKN_H2",
           "description": {
-            "ru": "Персонаж получает дополнительную ступень успеха к любой успешно пройденной проверке Общих и Учёных Знаний – это результат его укоренившихся знаний.",
-            "en": "Character adds one degree of success to any successful Common or Scholastic Lore tests, due to his ingrained training."
+            "ru": "Персонаж получает дополнительную ступень успеха к любой успешно пройденной проверке Общих и Учёных Знаний в имеющихся специализациях – это результат его укоренившихся знаний.",
+            "en": "Character adds one degree of success to any successful Common or Scholastic Lore tests if he has advances in this specialization, due to his ingrained training."
           },
           "targets": ["ST_INT", "SK_CML", "SK_SCL"]
         }
