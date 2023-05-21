@@ -474,7 +474,8 @@
       "commands": [
         {
           "command": "IncreaseStat",
-          "tag": "ST_WP"
+          "tag": "ST_WP",
+          "amount": 5
         }
       ],
       "cost": 0
