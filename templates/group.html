@@ -213,9 +213,11 @@ Group&nbsp;{{ group.name }}&nbsp;from&nbsp;{{ group.season.name }}&nbsp;campaign
     <div class="me-2">
         <a role="button" class="btn btn-primary" href="{{ group.season.get_url }}">К кампании</a>
     </div>
+    {% if is_master %}
     <div class="ms-2">
         <a role="button" class="btn btn-success" href="{% url 'seasons-list' %}">К списку кампаний</a>
     </div>
+    {% endif %}
 </div>
 {% if is_master %}
 <div class="charlist-inline justify-content-center align-self-center">
