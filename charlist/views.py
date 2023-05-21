@@ -1911,7 +1911,7 @@ def collect_facts(characters, facade):
                     if subtag not in facts.get('spec_skills').get(skill.tag()).keys():
                         facts.get('spec_skills').get(skill.tag())[subtag] = list()
                     facts.get('spec_skills').get(skill.tag()).get(subtag).append(
-                        character.name() + ' ' + str(skill.get_adv_bonus_subtag(subtag)))
+                        character.name() + ' +' + str(skill.get_adv_bonus_subtag(subtag)))
             if skill.tag() == 'SK_PSY':
                 if skill.tag() not in facts.get('psy').keys():
                     facts.get('psy')[skill.tag()] = list()
