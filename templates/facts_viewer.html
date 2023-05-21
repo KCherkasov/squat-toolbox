@@ -18,11 +18,26 @@
                 </b>
             </p>
             <ul>
+                {% if fact_key|starts_with:'SK' and fact_key != 'SK_PSY' %}
+                {% for fact_subkey, fact_data in fact.items %}
+                <li>
+                    {{ fact_subkey }}
+                    <ul>
+                        {% for fact_row in fact_data %}
+                        <li>{{ fact_row }}{% if not forloop.last %};{% else %}.{% endif %}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% empty %}
+                <li>Таких нет.</li>
+                {% endfor %}
+                {% else %}
                 {% for fact_data in fact %}
                 <li>{{ fact_data }}{% if not forloop.last %};{% else %}.{% endif %}</li>
                 {% empty %}
                 <li>Таких нет.</li>
                 {% endfor %}
+                {% endif  %}
             </ul>
             {% if not fact_key|starts_with:'SK' and not fact_key|starts_with:'TR' %}
             <div id="fact-{{ fact_key }}-popup" tabindex="-1" class="modal fade"
