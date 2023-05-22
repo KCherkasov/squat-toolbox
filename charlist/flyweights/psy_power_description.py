@@ -93,22 +93,22 @@ class PsyPowerDescription(object):
 
     def parse_attack_effect(self):
         if self.is_attack():
-            effect = str(self.effect().get('count')).join('d').join(str(self.effect().get('dice')))
+            effect = str(self.effect().get('count')) + 'd' + str(self.effect().get('dice'))
             if 'bonus' in self.effect().keys():
                 if self.effect().get('bonus') == 'WPB' or self.effect().get('bonus') > 0:
-                    effect.join('+').join(str(self.effect().get('bonus')))
+                    effect += '+' + str(self.effect().get('bonus'))
             if 'pr_bonus' in self.effect().keys():
                 if self.effect().get('pr_bonus') > 0:
                     if self.effect().get('pr_bonus') > 1:
-                        effect.join('+').join(str(self.effect().get('pr_bonus'))).join('xPR')
+                        effect += '+' + str(self.effect().get('pr_bonus')) + 'xPR'
                     else:
-                        effect.join('+PR')
+                        effect += '+PR'
             if 'cp_bonus' in self.effect().keys():
                 if self.effect().get('cp_bonus') > 0:
                     if self.effect().get('cp_bonus') > 1:
-                        effect.join('+').join(str(self.effect().get('cp_bonus'))).join('xCPB')
+                        effect += '+' + str(self.effect().get('cp_bonus')) + 'xCPB'
                     else:
-                        effect.join('+CPB')
+                        effect += '+CPB'
         else:
             effect = None
         return effect
