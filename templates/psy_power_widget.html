@@ -109,11 +109,11 @@
                         <div>
                             <p class="text-dark">
                                 <b>{% if lang == 'ru' %}Дальность{% else %}Range{% endif %}</b>:&nbsp;
-                                {% if self.range > 0 %}
-                                    {% if self.range == 1 %}
+                                {% if self.base_range > 0 %}
+                                    {% if self.base_range == 1 %}
                                         {% if lang == 'ru' %}касание (1&nbsp;м){% else %}touch (1&nbsp;m){% endif %}
                                     {% else %}
-                                        {{ power.range }}xPR&nbsp;{% if lang == 'ru' %}м{% else %}m{% endif %}
+                                        {{ power.base_range }}xPR&nbsp;{% if lang == 'ru' %}м{% else %}m{% endif %}
                                     {% endif %}
                                 {% else %}
                                     {% if lang == 'ru' %}на себя{% else %}self{% endif %}
