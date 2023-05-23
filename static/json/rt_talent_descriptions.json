@@ -5383,7 +5383,7 @@
             "ru": "Потратив свою Реакцию, персонаж может предпринять тест Пользования техники, чтобы задействовать этот талант. При этом он получает бонус +10 ко всем тестам Ближнего и Дальнего боя до конца своего следующего хода. Используя этот талант, персонаж должен пройти тест Выносливости или получит один уровень Усталости.",
             "en": "By using his Reaction for the Round, the character may make a Tech-Use Test to make use of this Talent. He gains a +10 bonus to all Weapon Skill and Ballistic Skill Tests until the end of his next Turn. The Explorer must pass a Toughness Test when he uses this ability or gain a level of Fatigue."
           },
-          "targets": ["ST_T", "SK_TECH"]
+          "targets": ["ST_T", "SK_TECH", "ST_WS", "ST_BS"]
         }
       ],
       "tier": 3,
