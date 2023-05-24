@@ -1116,6 +1116,29 @@
       "hints": [],
       "is_stackable": false,
       "is_specialist": false
+    },
+    {
+      "tag": "TR_CTIM",
+      "name": {
+        "ru": "Кортикальный имплант",
+        "en": "Cortical implant"
+      },
+      "description": {
+        "ru": "Персонаж считается обладающим чертой Сверхъестественный Интеллект (2).",
+        "en": "The character is considered as having Unnatural Intelligence (2) trait."
+      },
+      "hints": [
+        {
+          "tag": "TR_CTIM_H1",
+          "description": {
+            "ru": "Персонаж считается обладающим чертой Сверхъестественный Интеллект (2).",
+            "en": "The character is considered as having Unnatural Intelligence (2) trait."
+          },
+          "targets": ["ST_INT"]
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
     }
   ]
 }

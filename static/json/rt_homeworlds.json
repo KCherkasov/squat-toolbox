@@ -21,7 +21,7 @@
       "bonus": {
         "tag": "RHW_DTWL_BONUS",
         "name": {
-          "ru": "",
+          "ru": "Бонус родного мира",
           "en": "Homeworld bonus"
         },
         "description": {
@@ -877,6 +877,73 @@
       "skill_choices": [],
       "talents": [],
       "talent_choices": []
+    },
+    {
+      "tag": "RHW_RVCL",
+      "name": {
+        "ru": "Клан Ворона",
+        "en": "Clan of the Raven"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_INT": 5,
+        "ST_T": 5,
+        "ST_FEL": -5
+      },
+      "fate": 3,
+      "blessing": 8,
+      "bonus": {
+        "tag": "RHW_RVCL_BONUS",
+        "name": {
+          "ru": "Око Хугина",
+          "en": "Hugin's eye"
+        },
+        "description": {
+          "ru": "Персонаж может перебрасывать проваленные проверки, связанные с взаимодействивем с массивами данных.",
+          "en": "Character can re-roll failed tests when interacting with data arrays."
+        },
+        "hints": [
+          {
+            "tag": "RHW_FGWL_BONUS_H1",
+            "description": {
+              "ru": "Персонаж может перебрасывать проваленные проверки, связанные с взаимодействивем с массивами данных.",
+              "en": "Character can re-roll failed tests when interacting with data arrays."
+            },
+            "targets": ["ST_INT", "SK_INQ", "SK_SEC"]
+          }
+        ],
+        "commands": [
+          {
+            "command": "IncreaseStatAlt",
+            "tag": ["ST_WS", "ST_BS", "ST_STR", "ST_T", "ST_AG", "ST_PER", "ST_INT", "ST_WP", "ST_FEL"],
+            "amount": 3
+          }
+        ]
+      },
+      "aptitude": "A_INT",
+      "wounds": 8,
+      "skills": [
+        {
+          "tag": "SK_CML",
+          "subtag": "Tech"
+        }
+      ],
+      "skill_choices": [],
+      "talents": [],
+      "talent_choices": [
+        [
+          {
+            "tag": "TL_TK"
+          },
+          {
+            "tag": "TL_WTC"
+          }
+        ]
+      ]
     }
   ]
 }
