@@ -53,7 +53,7 @@
         "en": "Charm is a measure of a character’s knack for impressing people and swaying their reactions. The acting character’s attitude is key in distinguishing between this and other types of Interaction skills. Charm requires the Acolyte to assume a non-hostile attitude and not make any explicit or implicit threats. Instead, the character’s persuasive efforts are dependent upon perceived generosity and good intentions. Such an approach may be completely foreign to some Acolytes, who find persuasion more appealing when matched with force or logic. Others, particularly those who come from luxury or who are masters of manipulation, might use this as their favoured approach to all problems."
       },
       "aptitudes": ["A_FEL", "A_SOC"],
-      "stats": ["ST_FEL", "ST_IFL"],
+      "stats": ["ST_FEL", "ST_IFL", "ST_INT"],
       "is_specialist": false
     },
     {
