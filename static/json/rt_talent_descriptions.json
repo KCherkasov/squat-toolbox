@@ -1764,7 +1764,7 @@
         },
         {
           "tag": "TL_RST",
-          "subtag": ["Psychic powers", "Психосилы"],
+          "subtag": ["Psychic powers", "Психосилы", "Psy", "Пси"],
           "value": 1
         }
       ],

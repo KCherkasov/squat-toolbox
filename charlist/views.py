@@ -1986,8 +1986,6 @@ def group_view(request, group_id):
         if (not is_captain) and group.is_rt:
             is_captain = (request.user == character.owner)\
                          and (character_models.get(character.pk).career_id() == 'CR_RT')
-            if is_captain:
-                break
     is_master = request.user == group.creator
     active_sessions = models.GameSession.objects.get_by_group(group).get_active()
     finished_sessions = models.GameSession.objects.get_by_group(group).get_finished()
