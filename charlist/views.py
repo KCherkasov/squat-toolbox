@@ -1691,6 +1691,8 @@ def parse_upgrades(request, character: models.Character, character_model):
 @csrf_exempt
 def character_upgrade(request, char_id):
     character = models.Character.objects.get(pk=char_id)
+    if request.user != character.owner:
+        return HttpResponseRedirect(reverse('character-details', kwargs={'char_id': char_id, }))
     if character.is_rt:
         return rt_views.character_upgrade(request, char_id)
     character_model = character.data_to_model()
