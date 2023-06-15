@@ -31,6 +31,7 @@ urlpatterns = [
     path(r'signup/', charviews.signup, name='signup'),
     path(r'signin/', charviews.signin, name='signin'),
     path(r'signout/', charviews.logout, name='logout'),
+    path(r'profile_edit/', charviews.profile_edit, name='profile_edit'),
     path(r'activate/<str:uidb64>/<str:token>/',
          charviews.activate, name='activate'),
     path(r'activate-pending/', charviews.signup_activate, name='signup-activate'),

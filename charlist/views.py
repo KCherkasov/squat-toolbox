@@ -17,6 +17,7 @@ from django.template.response import TemplateResponse
 from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.views.decorators.csrf import csrf_exempt
+from django.forms.models import model_to_dict
 
 import charlist.models as models
 from charlist import rt_views
@@ -29,6 +30,7 @@ from charlist.constants.constants import *
 from charlist.flyweights.flyweights import *
 from charlist.forms.authorization.signin import SignInForm
 from charlist.forms.authorization.signup import UserCreationForm
+from charlist.forms.authorization.edit import UserEditForm
 from charlist.forms.generation.background_choice_form import BackgroundChoiceForm
 from charlist.forms.generation.choices_form import ChoicesForm
 from charlist.forms.generation.creation_settings_form import CreationSettingsForm
@@ -294,6 +296,7 @@ def interactive_charsheet_mockup(request):
                                                                            'hookups': character.make_hookups(
                                                                                flyweights)})
 
+
 @csrf_exempt
 def signup(request):
     if request.method == 'POST':
@@ -326,6 +329,7 @@ def signup(request):
 def signup_activate(request):
     return TemplateResponse(request, 'activate.html', {'version': VERSION, })
 
+
 @csrf_exempt
 def signin(request):
     if request.method == 'POST':
@@ -338,6 +342,21 @@ def signin(request):
     else:
         form = SignInForm()
     return TemplateResponse(request, 'signin.html', {'version': VERSION, 'form': form, })
+
+
+@csrf_exempt
+def profile_edit(request):
+    if request.method == 'POST':
+        form = UserEditForm(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+            return HttpResponseRedirect(reverse('main'))
+        else:
+            HttpResponseRedirect(reverse('profile_edit'))
+    else:
+        user_dict = model_to_dict(request.user)
+        form = UserEditForm(user_dict)
+        return TemplateResponse(request, 'profile_edit.html', {'version': VERSION, 'form': form, })
 
 
 def logout(request):

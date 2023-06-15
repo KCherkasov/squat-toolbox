@@ -9,10 +9,13 @@ from django.core.exceptions import ValidationError
 
 from charlist.models import CharsheetUser
 
+choices = (['ru', u'Русский'], ['en', 'English'])
+
 
 class UserCreationForm(forms.ModelForm):
     password_set = forms.CharField(label=u'Пароль', min_length=10, widget=forms.PasswordInput)
     password_confirm = forms.CharField(label=u'Подтверждение пароля', widget=forms.PasswordInput)
+    preferable_language = forms.ChoiceField(label=u'Предпочитаемый язык', choices=choices)
 
     class Meta:
         model = CharsheetUser
@@ -29,6 +32,7 @@ class UserCreationForm(forms.ModelForm):
     def save(self, commit=True):
         user = super().save(commit=False)
         user.set_password(self.cleaned_data.get('password_set'))
+        user.preferable_language = self.cleaned_data.get('preferable_language')
         if commit:
             user.save()
         return user
