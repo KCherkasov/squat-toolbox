@@ -349,7 +349,8 @@ def profile_edit(request):
     if request.method == 'POST':
         form = UserEditForm(request.POST)
         if form.is_valid():
-            request.user.set_password(form.cleaned_data.get('password_set'))
+            if len(form.cleaned_data.get('password_set')) > 0:
+                request.user.set_password(form.cleaned_data.get('password_set'))
             request.user.preferable_language = form.cleaned_data.get('preferable_language')
             request.user.save()
             return HttpResponseRedirect(reverse('main'))
