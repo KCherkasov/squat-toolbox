@@ -349,14 +349,17 @@ def profile_edit(request):
     if request.method == 'POST':
         form = UserEditForm(request.POST)
         if form.is_valid():
-            form.save(commit=True)
+            request.user.set_password(form.cleaned_data.get('password_set'))
+            request.user.preferable_language = form.cleaned_data.get('preferable_language')
+            request.user.save()
             return HttpResponseRedirect(reverse('main'))
         else:
             HttpResponseRedirect(reverse('profile_edit'))
     else:
         user_dict = model_to_dict(request.user)
         form = UserEditForm(user_dict)
-        return TemplateResponse(request, 'profile_edit.html', {'version': VERSION, 'form': form, })
+        return TemplateResponse(request, 'profile_edit.html', {'version': VERSION, 'form': form,
+                                                               'uname': request.user.id, })
 
 
 def logout(request):
