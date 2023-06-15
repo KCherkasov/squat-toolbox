@@ -24,8 +24,8 @@ choices = (['ru', u'Русский'], ['en', 'English'])
 
 
 class UserEditForm(forms.Form):
-    password_set = forms.CharField(label=u'Пароль', min_length=10, widget=forms.PasswordInput)
-    password_confirm = forms.CharField(label=u'Подтверждение пароля', widget=forms.PasswordInput)
+    password_set = forms.CharField(label=u'Пароль', min_length=10, widget=forms.PasswordInput, required=False)
+    password_confirm = forms.CharField(label=u'Подтверждение пароля', widget=forms.PasswordInput, required=False)
     preferable_language = forms.ChoiceField(label=u'Предпочитаемый язык', choices=choices)
 
     def clean_password_confirm(self):
