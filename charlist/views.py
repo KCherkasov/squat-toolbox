@@ -355,7 +355,7 @@ def profile_edit(request):
             request.user.save()
             return HttpResponseRedirect(reverse('main'))
         else:
-            HttpResponseRedirect(reverse('profile_edit'))
+            return HttpResponseRedirect(reverse('profile_edit'))
     else:
         user_dict = model_to_dict(request.user)
         form = UserEditForm(user_dict)
