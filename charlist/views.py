@@ -355,7 +355,8 @@ def profile_edit(request):
             request.user.save()
             return HttpResponseRedirect(reverse('main'))
         else:
-            return HttpResponseRedirect(reverse('profile_edit'))
+            return TemplateResponse(request, 'profile_edit.html', {'version': VERSION, 'form': form,
+                                                                   'uname': request.user.id, })
     else:
         user_dict = model_to_dict(request.user)
         form = UserEditForm(user_dict)
