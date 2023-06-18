@@ -31,7 +31,14 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <b id="c{{character.id}}-{{ talent_key }}-{{ lang }}-info-label">
-                        {{ facade|get_talent_description:talent_key|get_tldescr_name:lang }}
+                        {{ facade|get_talent_description:talent_key|get_tldescr_name:lang }}&nbsp;(
+                        {% for apt in talent.get_aptitudes %}
+                        {% with facade.aptitudes|get_by_dict_key:apt as aptitude %}
+                            {% if lang == 'ru' %}{{ aptitude.get_name_ru }}{% else %}{{ aptitude.get_name_en }}{% endif %}
+                        {% endwith %}
+                        {% if not forloop.last %};&nbsp;{% endif %}
+                        {% endfor %}
+                        )
                     </b>
                 </div>
                 <div class="modal-body">
