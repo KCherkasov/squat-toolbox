@@ -144,7 +144,7 @@
                     <hr>
                     <div class="card card-body">
                         <p class="card-text">
-                            {{ power.parse_attack }}&nbsp;{{ power.effect|get_by_dict_key:'type'|get_by_dict_key:lang }}
+                            {{ power.parse_attack_effect }}&nbsp;{{ power.effect|get_by_dict_key:'type'|get_by_dict_key:lang }}
                             &nbsp;{% if lang == 'ru' %}Прб{% else %}Pen{% endif %}:&nbsp;{{ power.effect|get_by_dict_key:'pen' }}
                             {% if power.effect|has_key:'cp_pen' %}
                                 +{{ power.effect|get_by_dict_key:'pr_pen' }}xPR
