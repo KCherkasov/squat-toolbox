@@ -143,7 +143,14 @@ Character sheet interactive mockup
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <b id="c{{character.id}}-{{ tl_tag }}-{{ lang }}-upg-info-label">
-                                                                {{ tal.name|get_by_dict_key:lang }}
+
+                        {{ tal.name|get_by_dict_key:lang }}&nbsp;(
+                        {% for apt in tal.get_aptitudes %}
+                        {% with facade.aptitudes|get_by_dict_key:apt as aptitude %}
+                            {% if lang == 'ru' %}{{ aptitude.get_name_ru }}{% else %}{{ aptitude.get_name_en }}{% endif %}
+                        {% endwith %}
+                        {% if not forloop.last %};&nbsp;{% endif %}
+                        {% endfor %}
                                                             </b>
                                                         </div>
                                                         <div class="modal-body">
@@ -222,7 +229,14 @@ Character sheet interactive mockup
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <b id="c{{character.id}}-{{ tl_tag }}-{{ lang }}-upg-info-label">
-                                                                {{ tal.name|get_by_dict_key:lang }}
+
+                        {{ tal.name|get_by_dict_key:lang }}&nbsp;(
+                        {% for apt in tal.get_aptitudes %}
+                        {% with facade.aptitudes|get_by_dict_key:apt as aptitude %}
+                            {% if lang == 'ru' %}{{ aptitude.get_name_ru }}{% else %}{{ aptitude.get_name_en }}{% endif %}
+                        {% endwith %}
+                        {% if not forloop.last %};&nbsp;{% endif %}
+                        {% endfor %}
                                                             </b>
                                                         </div>
                                                         <div class="modal-body">
