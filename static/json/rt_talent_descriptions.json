@@ -2847,7 +2847,7 @@
           "value": 45
         }
       ],
-      "is_specialist": true,
+      "is_specialist": false,
       "is_stackable": false
     },
     {
@@ -6222,7 +6222,7 @@
         "en": "The Explorer has a natural affnity for a particular Skill. He chooses any one Skill and gains +10 bonus to Tests made using that Skill."
       },
       "hints": [],
-      "tier": 1,
+      "tier": 2,
       "aptitudes": ["A_INT", "A_KNG"],
       "prerequisites": [
         {
