@@ -3325,7 +3325,7 @@
           "targets": ["ST_WP"]
         }
       ],
-      "tier": 3,
+      "tier": 2,
       "aptitudes": ["A_OFF", "A_WP"],
       "prerequisites": [
         {
