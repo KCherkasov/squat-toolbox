@@ -23,6 +23,12 @@ class TrialAndTravail(object):
     def name(self):
         return self.__name
 
+    def name_en(self):
+        return self.__name.get('en')
+
+    def name_ru(self):
+        return self.__name.get('ru')
+
     def hints(self):
         return self.__hints
 
