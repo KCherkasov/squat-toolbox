@@ -33,10 +33,10 @@
     <form class="form-horizontal" action="" method="post">
         {% csrf_token %}
         <div class="charlist-inline ps-3">
-            <button class="btn btn-success {% if character.fate_current == 0 %}disabled{% endif %}" name="spend-fate">
+            <button class="btn btn-success {% if character.fate_current == 0 %}disabled{% endif %}" name="spend-fate" type="submit">
                 {% if lang == 'ru' %}Потратить{% else %}Spend{% endif %}
             </button>
-            <button class="btn btn-danger" name="burn-fate">
+            <button class="btn btn-danger" name="burn-fate" type="submit">
                 {% if lang == 'ru' %}Сжечь{% else %}Burn{% endif %}
             </button>
         </div>
