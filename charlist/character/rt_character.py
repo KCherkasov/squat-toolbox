@@ -209,8 +209,8 @@ class RTCharacterModel(object):
     def burn_fate(self):
         if self.__fate[CAP_ID] > 0:
             self.__fate[CAP_ID] -= 1
-            if self.__fate[CURRENT_ID] > self.__fate[CAP_ID]:
-                self.__fate[CAP_ID] = self.__fate[CURRENT_ID]
+            if self.__fate[CAP_ID] > self.__fate[CURRENT_ID]:
+                self.__fate[CURRENT_ID] = self.__fate[CAP_ID]
             return True
         else:
             return False
