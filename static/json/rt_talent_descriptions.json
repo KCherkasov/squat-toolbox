@@ -5324,7 +5324,7 @@
           "targets": ["ST_AG", "IN"]
         }
       ],
-      "tier": 1,
+      "tier": 2,
       "aptitudes": ["A_AG", "A_FLD"],
       "prerequisites": [
         {
