@@ -1139,6 +1139,29 @@
       ],
       "is_stackable": false,
       "is_specialist": false
+    },
+    {
+      "tag": "TR_AMFR",
+      "name": {
+        "ru": "Друг Аморе",
+        "en": "Friend of Amore"
+      },
+      "description": {
+        "ru": "При взаимодействии с Аморе персонажа не попытаются обокрасть или обмануть, при торговле с Аморе - будут сделаны скидки. Также персонаж считается обладающим талантом Связи(Аморе).",
+        "en": "Amore won't try to deceive the character or to steal from him. If the character will trade with Amores, the discounts will be offered. Also the character is considered as having Peer(Amore) talent."
+      },
+      "hints": [
+        {
+          "tag": "TR_CTIM_H1",
+          "description": {
+        "ru": "При взаимодействии с Аморе персонажа не попытаются обокрасть или обмануть, при торговле с Аморе - будут сделаны скидки. Также персонаж считается обладающим талантом Связи(Аморе).",
+        "en": "Amore won't try to deceive the character or to steal from him. If the character will trade with Amores, the discounts will be offered. Also the character is considered as having Peer(Amore) talent."
+          },
+          "targets": ["ST_INT"]
+        }
+      ],
+      "is_stackable": false,
+      "is_specialist": false
     }
   ]
 }
