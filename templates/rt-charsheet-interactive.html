@@ -16,7 +16,7 @@ Character sheet interactive mockup
         <ul class="nav nav-tabs" role="tablist">
             {% for lang in facade.langs %}
             <li class="nav-item" role="presentation">
-                <a class="nav-link {% if forloop.first %}active{% endif %}" data-bs-toggle="tab" id="{{ lang }}-tab" href="#{{ lang }}-card" aria-current="page">
+                <a class="nav-link {% if lang == user.preferable_language %}active{% endif %}" data-bs-toggle="tab" id="{{ lang }}-tab" href="#{{ lang }}-card" aria-current="page">
                     {% if lang == 'ru' %}Русский{% else %}English{% endif %}
                 </a>
             </li>
