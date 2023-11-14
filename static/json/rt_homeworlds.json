@@ -944,6 +944,67 @@
           }
         ]
       ]
+    },
+    {
+      "tag": "RHW_FXCL",
+      "name": {
+        "ru": "Клан Лиса",
+        "en": "Clan of the Fox"
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "stat_mods": {
+        "ST_WP": 5,
+        "ST_PER": 5,
+        "ST_STR": -5
+      },
+      "fate": 2,
+      "blessing": 7,
+      "bonus": {
+        "tag": "RHW_FXCL_BONUS",
+        "name": {
+          "ru": "Лисье чутье",
+          "en": "Fox's senses"
+        },
+        "description": {
+          "ru": "Персонаж получает +10 к проверкам Выживания на обнаружение/выслеживание биологических объектов.",
+          "en": "Character has +10 bonus on Survival checks to detect biological objects."
+        },
+        "hints": [
+          {
+            "tag": "RHW_FXCL_BONUS_H1",
+            "description": {
+              "ru": "Персонаж получает +10 к проверкам Выживания на обнаружение/выслеживание биологических объектов.",
+              "en": "Character has +10 bonus on Survival checks to detect biological objects."
+            },
+            "targets": ["SK_SRV"]
+          }
+        ],
+        "commands": []
+      },
+      "aptitude": "A_FLD",
+      "wounds": 7,
+      "skills": [
+        {
+          "tag": "SK_CML",
+          "subtag": "Tech"
+        }
+      ],
+      "skill_choices": [],
+      "talents": [],
+      "talent_choices": [
+        [
+          {
+            "tag": "TL_TK"
+          },
+          {
+            "tag": "TL_WTC"
+          }
+        ]
+      ]
     }
   ]
 }

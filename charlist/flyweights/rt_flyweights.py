@@ -311,3 +311,15 @@ class RTFacade:
 
     def bad_eas(self):
         return RT_BAD_EAS
+
+    def map_talent_openings(self):
+        tl_map = dict()
+        for tl_key, tl in self.__talent_descriptions.items():
+            tl_map[tl_key] = list()
+            for tlk, tld in self.__talent_descriptions.items():
+                if tl_key != tlk:
+                    for prereq in tld.get_prerequisites():
+                        if prereq.tag == tl_key:
+                            tl_map.get(tl_key).append(tlk)
+        return tl_map
+
