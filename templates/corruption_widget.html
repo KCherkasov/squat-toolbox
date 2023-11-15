@@ -26,7 +26,7 @@
         {% if is_owner %}
         <button class="btn btn-danger" role="button" data-bs-toggle="modal"
                 data-bs-target="#gain-corruption-modal-{{ character.id }}">
-            Получить
+            {% if lang == 'ru' %}Получить{% else %}Gain{% endif %}
         </button>
         <div class="modal fade" id="gain-corruption-modal-{{ character.id }}" tabindex="-1"
              aria-labelledby="gain-corruption-modal-{{ character.id }}-label">
