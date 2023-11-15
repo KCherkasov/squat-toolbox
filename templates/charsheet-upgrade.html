@@ -11,12 +11,13 @@ Character sheet interactive mockup
 {% endblock %}
 
 {% block app_content %}
+{% with user.prefereable_language as pl %}
 <div class="charlist_container">
     <div>
         <ul class="nav nav-tabs" role="tablist">
             {% for lang in facade.langs %}
             <li class="nav-item" role="presentation">
-                <a class="nav-link {% if lang == 'ru' %}{% if not is_en %}active{%endif%}{% else %}{% if is_en %}active{% endif %}{% endif %}" data-bs-toggle="tab" id="{{ lang }}-tab" href="#{{ lang }}-card" aria-current="page">
+                <a class="nav-link {% if lang == pl %}active{% endif %}" data-bs-toggle="tab" id="{{ lang }}-tab" href="#{{ lang }}-card" aria-current="page">
                     {% if lang == 'ru' %}Русский{% else %}English{% endif %}
                 </a>
             </li>
@@ -26,7 +27,7 @@ Character sheet interactive mockup
 </div>
 <div class="tab-content charlist_container">
     {% for lang in facade.langs %}
-        <div class="tab-pane fade show charlist-container {% if lang == 'ru' %}{% if not is_en %}active{%endif%}{% else %}{% if is_en %}active{% endif %}{% endif %}"
+        <div class="tab-pane fade show charlist-container {% if lang == pl %}active{% endif %}"
              id="{{ lang }}-card" role="tabpanel" aria-labelledby="{{lang}}-tab">
             <div class="charsheet-card">
                 <header class="text-center">
@@ -342,4 +343,5 @@ Character sheet interactive mockup
         </div>
     {% endfor %}
 </div>
+{% endwith %}
 {% endblock %}
