@@ -51,7 +51,13 @@
                 {% with facade.psy_powers|get_by_dict_key:form.pp_tag as power %}
                 <div class="modal-header">
                     <b id="c{{character.id}}-{{ form.pp_tag }}-{{ lang }}-info-label">
-                        {{ power.name|get_by_dict_key:lang }}
+                        {% if lang == 'ru' %}
+                            {{ power.name|get_by_dict_key:'ru' }}&nbsp;/&nbsp;
+                            {{ power.name|get_by_dict_key:'en' }}&nbsp;(
+                        {% else %}
+                            {{ power.name|get_by_dict_key:'en' }}&nbsp;/&nbsp;
+                            {{ power.name|get_by_dict_key:'ru' }}&nbsp;(
+                        {% endif %}
                     </b>
                 </div>
                 <div class="modal-body">
