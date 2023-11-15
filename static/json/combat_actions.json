@@ -1,6 +1,13 @@
 {
   "types": [
     {
+      "tag": "AT_FREE",
+      "name": {
+        "ru": "Свободное действие",
+        "en": "Free action"
+      }
+    },
+    {
       "tag": "AT_FULL",
       "name": {
         "ru": "Полное действие",
