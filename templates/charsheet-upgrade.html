@@ -145,7 +145,13 @@ Character sheet interactive mockup
                                                         <div class="modal-header">
                                                             <b id="c{{character.id}}-{{ tl_tag }}-{{ lang }}-upg-info-label">
 
-                        {{ tal.name|get_by_dict_key:lang }}&nbsp;(
+                        {% if lang == 'ru' %}
+                            {{ tal.name|get_by_dict_key:'ru' }}&nbsp;/&nbsp;
+                            {{ tal.name|get_by_dict_key:'en' }}&nbsp;(
+                        {% else %}
+                            {{ tal.name|get_by_dict_key:'en' }}&nbsp;/&nbsp;
+                            {{ tal.name|get_by_dict_key:'ru' }}&nbsp;(
+                        {% endif %}
                         {% for apt in tal.get_aptitudes %}
                         {% with facade.aptitudes|get_by_dict_key:apt as aptitude %}
                             {% if lang == 'ru' %}{{ aptitude.get_name_ru }}{% else %}{{ aptitude.get_name_en }}{% endif %}
