@@ -30,18 +30,26 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
+                    {% with user.preferable_language as pl %}
                     <b id="c{{character.id}}-{{ talent_key }}-{{ lang }}-info-label">
-                        {{ facade|get_talent_description:talent_key|get_tldescr_name:lang }}&nbsp;(
+                        {% if pl == 'ru' %}
+                            {{ facade|get_talent_description:talent_key|get_tldescr_name:'ru' }}&nbsp;/&nbsp;
+                            {{ facade|get_talent_description:talent_key|get_tldescr_name:'en' }}&nbsp;(
+                        {% else %}
+                            {{ facade|get_talent_description:talent_key|get_tldescr_name:'en' }}&nbsp;/&nbsp;
+                            {{ facade|get_talent_description:talent_key|get_tldescr_name:'ru' }}&nbsp;(
+                        {% endif %}
                         {% with facade|get_talent_description:talent_key as tal %}
                         {% for apt in tal.get_aptitudes %}
                         {% with facade.aptitudes|get_by_dict_key:apt as aptitude %}
-                            {% if lang == 'ru' %}{{ aptitude.get_name_ru }}{% else %}{{ aptitude.get_name_en }}{% endif %}
+                            {% if pl == 'ru' %}{{ aptitude.get_name_ru }}{% else %}{{ aptitude.get_name_en }}{% endif %}
                         {% endwith %}
                         {% if not forloop.last %};&nbsp;{% endif %}
                         {% endfor %}
                         {% endwith %}
                         )
                     </b>
+                    {% endwith %}
                 </div>
                 <div class="modal-body">
                     <div class="charlist-inline">
