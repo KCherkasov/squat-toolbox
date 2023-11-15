@@ -24,10 +24,10 @@
                     <b id="c{{character.id}}-{{ pp_key }}-{{ lang }}-info-label">
                         {% if lang == 'ru' %}
                             {{ power.name|get_by_dict_key:'ru' }}&nbsp;/&nbsp;
-                            {{ power.name|get_by_dict_key:'en' }}&nbsp;(
+                            {{ power.name|get_by_dict_key:'en' }}
                         {% else %}
                             {{ power.name|get_by_dict_key:'en' }}&nbsp;/&nbsp;
-                            {{ power.name|get_by_dict_key:'ru' }}&nbsp;(
+                            {{ power.name|get_by_dict_key:'ru' }}
                         {% endif %}
                     </b>
                 </div>
