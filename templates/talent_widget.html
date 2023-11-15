@@ -30,9 +30,8 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    {% with user.preferable_language as pl %}
                     <b id="c{{character.id}}-{{ talent_key }}-{{ lang }}-info-label">
-                        {% if pl == 'ru' %}
+                        {% if lang == 'ru' %}
                             {{ facade|get_talent_description:talent_key|get_tldescr_name:'ru' }}&nbsp;/&nbsp;
                             {{ facade|get_talent_description:talent_key|get_tldescr_name:'en' }}&nbsp;(
                         {% else %}
@@ -49,7 +48,6 @@
                         {% endwith %}
                         )
                     </b>
-                    {% endwith %}
                 </div>
                 <div class="modal-body">
                     <div class="charlist-inline">
