@@ -43,7 +43,7 @@
                                 <div>
                                 {% for upg_no in facade.sk_adv_range %}
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="c{{ character.id }}-upg-{{ upg_no }}-{{ skill_key }}-{{ subskill|escape_spaces }}" value="{{ upg_no }}" {% if upg_no <= adv %}checked{% endif %} disabled>
+                                        <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="c{{ character.id }}-upg-{{ upg_no }}-{{ skill_key }}-{{ subskill|escape_spaces }}-{{ lang }}" value="{{ upg_no }}" {% if upg_no <= adv %}checked{% endif %} disabled>
                                     </div>
                                 {% endfor %}
                                 </div>
@@ -76,7 +76,7 @@
         {% else %}
         {% for upg_no in facade.sk_adv_range %}
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="c{{ character.id }}-upg-{{ upg_no }}-{{ skill_key }}" value="{{ upg_no }}" {% if upg_no <= skill.advances %}checked{% endif %} disabled>
+            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="c{{ character.id }}-upg-{{ upg_no }}-{{ skill_key }}-{{ lang }}" value="{{ upg_no }}" {% if upg_no <= skill.advances %}checked{% endif %} disabled>
         </div>
         {% endfor %}
         {% endif %}
