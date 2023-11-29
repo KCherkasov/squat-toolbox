@@ -53,6 +53,7 @@ resources = ['aptitudes.json', 'rt_stat_descriptions.json', 'rt_skill_descriptio
              'rt_homeworlds.json', 'rt_birthrights.json', 'rt_lures.json', 'rt_trials.json', 'rt_motivations.json',
              'rt_careers.json']
 rt_flyweights = RTFacade(resources)
+rt_flyweights.map_talent_openings()
 rt_commands_parser = CommandParser(rt_flyweights)
 
 
