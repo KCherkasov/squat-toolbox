@@ -25,14 +25,14 @@
         </div>
         {% if is_owner %}
         <button class="btn btn-danger" role="button" data-bs-toggle="modal"
-                data-bs-target="#gain-corruption-modal-{{ character.id }}">
+                data-bs-target="#gain-corruption-modal-{{ character.id }}-{{lang}}">
             {% if lang == 'ru' %}Получить{% else %}Gain{% endif %}
         </button>
-        <div class="modal fade" id="gain-corruption-modal-{{ character.id }}" tabindex="-1"
-             aria-labelledby="gain-corruption-modal-{{ character.id }}-label">
+        <div class="modal fade" id="gain-corruption-modal-{{ character.id }}-{{lang}}" tabindex="-1"
+             aria-labelledby="gain-corruption-modal-{{ character.id }}-{{lang}}-label">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header" id="gain-corruption-modal-{{ character.id }}-label">
+                    <div class="modal-header" id="gain-corruption-modal-{{ character.id }}-{{lang}}-label">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
                     </div>
                     <div class="modal-body">
