@@ -229,6 +229,42 @@
       "keywords": ["KW_CON"]
     },
     {
+      "tag": "PP_RGN",
+      "name": {
+        "ru": "Регенерация",
+        "en": "Regeneration"
+      },
+      "description": {
+        "ru": ["Одна из вершин мастерства биоманта, эта психосила позволяет псайкеру исцелять плоть с феноменальной скоростью, позволяя в мгновение ока залечить практически любое несмертельное ранение. Эту способность непросто освоить, однако результат того стоит - с помощью Регенерации можно буквально заново вырастить утраченные части тела и органы."],
+        "en": ["One of the pinnacles of a biomancer’s abilities, this power allows psyker to knit flesh back together at a phenomenal rate, letting him swiftly overcome any non-fatal injury. This is a hard ability to master, but the rewards are great — Regenerate can eventually regrow lost limbs and organs."]
+      },
+      "school": "PS_BIO",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Каждый раунд боя, в течение которого действует данная психосила, псайкер получает ПР/2 уровней усталости и исцеляет себе или одной цели, которой может коснуться, ПР Ран, начиная с Критического Урона. Когда Раны будут полностью восстановлены, начнется регенерация утраченных органов, конечностей и т.д. Восстановление одной утраченной конечности/органа эквивалентно исцелению 7 Ран сверх максимального. Чтобы регенерировать части тела, замененные на аугментику, нужно сперва снять заменяющие их импланты. Применение этой психосилы невероятно утомительно, и использовать её в следующий раз псайкер сможет не ранее чем через 12 часов."],
+        "en": ["Each Round this power is active, the psyker gains PR/2 Fatigue levels, recovering PR Wounds to himself or a single target he can physically touch (removing Critical Damage first). Once all Wounds are restored, regrowth of the lost organs, limbs, and so on begins. To restore a single lost limb/organ psyker has to heal 7 Wounds over the target's Wounds cap. Limbs and organs replaced by cybernetics do not regrow unless the bionic is first removed."]
+      },
+      "cost": 500,
+      "prerequisites": [
+        {
+          "tag": "PR",
+          "value": 5
+        },
+        {
+          "tag": "PP_END",
+          "value": 1
+        }
+      ],
+      "sustainable": true,
+      "sustain": "AT_HALF",
+      "focus_check": "ST_WP",
+      "focus_mod": -20,
+      "focus_opposed": false,
+      "range": 0,
+      "action": "AT_FULL",
+      "keywords": ["KW_CON"]
+    },
+    {
       "tag": "PP_HMR",
       "name": {
         "ru": "Кровоизлияние",
@@ -1316,7 +1352,7 @@
         },
         "pen": 2,
         "pr_pen": 0,
-        "traits": []
+        "traits": ["Snare(PR/2)"]
       },
       "cost": 300,
       "prerequisites": [
