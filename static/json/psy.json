@@ -256,7 +256,7 @@
         }
       ],
       "sustainable": true,
-      "sustain": "AT_HALF",
+      "sustain": "AT_FULL",
       "focus_check": "ST_WP",
       "focus_mod": -20,
       "focus_opposed": false,
