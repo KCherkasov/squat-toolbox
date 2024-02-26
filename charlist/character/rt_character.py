@@ -29,7 +29,7 @@ class RTCharacterModel(object):
                  apts: List[str], stats: Dict[str, Stat],
                  skills: Dict[str, Skill], talents: Dict[str, Talent],
                  traits: Dict[str, Trait], psy: List[str], equipment: List[str],
-                 disorders: List[str], malignancies: List[str],
+                 disorders: List[Dict[str, str]], malignancies: List[str],
                  mutations: List[str], pending: List[Dict], completed: List[str],
                  used_stats: List[str], cp_tests: int, ip_tests: int, cmd_count: int = 0):
         self.__cid = cid
