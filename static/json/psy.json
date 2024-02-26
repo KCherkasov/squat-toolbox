@@ -1622,7 +1622,7 @@
       },
       "description": {
         "ru": "Псайкер может использовать свои навыки телекинетика, чтобы поднять себя в воздух. К моменту, когда псайкер становится способен освоить эту психосилу, он уже способен поддерживать тонкую концентрацию, дабы отсечь внешние отвлекающие факторы и оставаться сфокусированным на задаче",
-        "en": "The psyker is able to call upon his telekinetic abilities to be\nable to lift himself into the air. By the time a psyker learns\nthis power, he is able to maintain his delicate concentration\nto block outside distractions and keep his focus on the task\nat hand."
+        "en": "The psyker is able to call upon his telekinetic abilities to be able to lift himself into the air. By the time a psyker learns this power, he is able to maintain his delicate concentration to block outside distractions and keep his focus on the task at hand."
       },
       "school": "PS_TLK",
       "type": "PT_BUFF",
@@ -1632,8 +1632,8 @@
           "Псайкер может попытаться использовать эту психосилу, чтобы поднимать в воздух предметы или других существ. Чтобы определить максимальный вес, который псайкер способен поднять с помощью этой психосилы, проконсультируйтесь с таблицей 'Носимы, Поднимаемый и Толкаемый вес' Основной книги правил, используя сумму Бонуса Силы Воли и Бонуса Интеллекта вместа суммы Бонуса Силы и Бонуса Выносливости. Максимальный Поднимаемый вес будет являться максимальным весом объекта, который псайкер способен левитировать, все, что тяжелее этого значения, псайкер не способен поднять в воздух"
         ],
         "en": [
-          "By making a Focus Power Test, the psyker is\nable to levitate himself up to a height equal to his\nPsy Rating. This power is not flight, but merely\na vertical movement.",
-          "The psyker can also use\nthis power to lift objects or others into the air as well. To determine how much weight the psyker can\nlevitate with this power, consult Table 'Carrying,\nLifting & Pushing'. Instead of using the psyker’s Strength Bonus and\nToughness Bonus, use his Willpower Bonus and Intelligence\nBonus. The maximum lifting weight is the total amount of\nweight the psyker can levitate — anything over that limit and\nthe psyker is unable to lift it."
+          "By making a Focus Power Test, the psyker is able to levitate himself up to a height equal to his Psy Rating. This power is not flight, but merely a vertical movement.",
+          "The psyker can also use this power to lift objects or others into the air as well. To determine how much weight the psyker can levitate with this power, consult Table 'Carrying, Lifting & Pushing'. Instead of using the psyker’s Strength Bonus and Toughness Bonus, use his Willpower Bonus and Intelligence Bonus. The maximum lifting weight is the total amount of weight the psyker can levitate — anything over that limit and the psyker is unable to lift it."
         ]
       },
       "cost": 400,
@@ -3070,7 +3070,7 @@
       },
       "description": {
         "ru": "С пси-рейтингом 1-3 псайкеру становится комфортно манипулировать жгучим холодом, которым войд воздействует на души, позволяя псайкеру обнаружить признаки жизни и разума за бортом пустотного судна. Псайкер пси-рейтинга 4-6 иногда может неосознанно ощутить аномалии и признаки жизни в войде в пределах нескольких километров от пустотного судна, на котором он находится. Псайкер пси-рейтинга 7 и выше способен интуитивно реагировать на всё, что нарушает нормальное течение войда в пределах пустотной единицы от корабля.",
-        "en": "At Psy Rating 1–3, the psyker gains a greater\ndegree of comfort in dealing with the harsh chill that the empty\nvoid inflicts upon the soul. In doing so, he may detect hints of life\nand mental activity within the void beyond the vessel’s hull. At\nPsy Rating 4–6, the psyker may sometimes become unconsciously\naware of any anomalies or signs of life in the void within several\nVUs of his craft. At Psy Rating 7+, the psyker often has an\nintuitive reaction to all things which disrupt the ebb and flow of\nthe void throughout his current system. Efforts to explore space\nseem intuitive, but planetary atmospheres feel unnatural."
+        "en": "At Psy Rating 1–3, the psyker gains a greater degree of comfort in dealing with the harsh chill that the empty void inflicts upon the soul. In doing so, he may detect hints of life and mental activity within the void beyond the vessel’s hull. At Psy Rating 4–6, the psyker may sometimes become unconsciously aware of any anomalies or signs of life in the void within several VUs of his craft. At Psy Rating 7+, the psyker often has an intuitive reaction to all things which disrupt the ebb and flow of the void throughout his current system. Efforts to explore space seem intuitive, but planetary atmospheres feel unnatural."
       },
       "school": "PS_CRK",
       "cost": 0,
@@ -3082,9 +3082,9 @@
           "Псайкер пси-рейтинга 7 и выше способен интуитивно реагировать на всё, что нарушает нормальное течение войда в пределах пустотной единицы от корабля."
         ],
         "en": [
-          "At Psy Rating 1–3, the psyker gains a greater\ndegree of comfort in dealing with the harsh chill that the empty\nvoid inflicts upon the soul. In doing so, he may detect hints of life\nand mental activity within the void beyond the vessel’s hull.",
-          "At\nPsy Rating 4–6, the psyker may sometimes become unconsciously\naware of any anomalies or signs of life in the void within several\nVUs of his craft.",
-          "At Psy Rating 7+, the psyker often has an\nintuitive reaction to all things which disrupt the ebb and flow of\nthe void throughout his current system. Efforts to explore space\nseem intuitive, but planetary atmospheres feel unnatural."
+          "At Psy Rating 1–3, the psyker gains a greater degree of comfort in dealing with the harsh chill that the empty void inflicts upon the soul. In doing so, he may detect hints of life and mental activity within the void beyond the vessel’s hull.",
+          "At Psy Rating 4–6, the psyker may sometimes become unconsciously aware of any anomalies or signs of life in the void within several VUs of his craft.",
+          "At Psy Rating 7+, the psyker often has an intuitive reaction to all things which disrupt the ebb and flow of the void throughout his current system. Efforts to explore space seem intuitive, but planetary atmospheres feel unnatural."
         ]
       },
       "prerequisites": [],
@@ -3105,13 +3105,13 @@
       },
       "description": {
         "ru": "Начав постигать пути Пустоты, псайкер должен первым делом освоить выживание в том окружении, что стремятся постичь, без пустотных скафандров. Важнейшим шагом в этом направлении является обучение превозмоганию угроз, связанных с нахождением в безвоздушном пространстве без необходимых для поддержания жизни источников тепла. Освоение психических манипуляций, необходимых для создания и поддержания пригодных для выживания условий, является своеобразным ритуалом посвящения для стремящихся овладеть криокинезом. Для некоторых псайкеров этим первым шагом становится их интуитивная реакция, исходящая из их понимания Пустоты и побуждающая создать пригодные для жизни условия. Некоторые же, однако, осваивают данную технику, буквально находясь на грани жизни и смерти - например, будучи выброшенными за пределы корабля при разгерметизации корпуса. ",
-        "en": "As psykers begin to embrace the ways of the Void, they must\nfirst grasp the necessities for unprotected survival amidst the very\nenvironment that they seek to master. The most crucial first step to\nthis is learning to overcome the risks inherent in survival without\na pressurised atmosphere and without the warmth necessary\nfor life. Establishing the necessary techniques for calling forth\na survivable environment from the depths of the Warp is a rite\nof passage for those who seek to master the Voidfrost Discipline.\nFor some psykers, this first step is simply an intuitive reaction—\ntheir understanding of the void naturally compels them to create\na liveable environment. However, some psykers inadvertently\nexhibit this ability under life and death conditions—such as\nbeing involuntarily expelled from their vessel."
+        "en": "As psykers begin to embrace the ways of the Void, they must first grasp the necessities for unprotected survival amidst the very environment that they seek to master. The most crucial first step to this is learning to overcome the risks inherent in survival without a pressurised atmosphere and without the warmth necessary for life. Establishing the necessary techniques for calling forth a survivable environment from the depths of the Warp is a rite of passage for those who seek to master the Voidfrost Discipline. For some psykers, this first step is simply an intuitive reaction— their understanding of the void naturally compels them to create a liveable environment. However, some psykers inadvertently exhibit this ability under life and death conditions—such as being involuntarily expelled from their vessel."
       },
       "school": "PS_CRK",
       "type": ["PT_BUFF"],
       "effect": {
         "ru": ["Потратив полное действие, псайкер может сфокусировать свои силы, чтобы извлечь из Варпа энергию и с ее помощью оградить себя от обжигающего холода и пустоты войда. Использование этой техники требует прохождения проверки Фокусировки Силы. При успехе псайкер создает сферу, наполненную воздухом, внутри которой достаточно тепло, чтобы обеспечить выживание псайкера на протяжении ПР часов. Каждая Степень Успеха на проверке Фокусировки Силы позволяет псайкеру защитить одно дополнительное живое существо, находящееся в пределах сферы на период действия психосилы."],
-        "en": ["As a Full Action, the psyker is able to focus his energy, to draw\npower from the Warp to ward against the isolation and chill of\nthe void. Implementing this Technique requires a Focus Power\nTest. On success, the psyker creates a bubble of warmth and air\nwhich permits the psyker to survive unprotected in a vacuum for a number of hours\nequal to the Psy Rating used to activate the power. Every Degree\nof Success enables the psyker to protect one additional person\nwithin the bubble for the power’s duration."]
+        "en": ["As a Full Action, the psyker is able to focus his energy, to draw power from the Warp to ward against the isolation and chill of the void. Implementing this Technique requires a Focus Power Test. On success, the psyker creates a bubble of warmth and air which permits the psyker to survive unprotected in a vacuum for a number of hours equal to the Psy Rating used to activate the power. Every Degree of Success enables the psyker to protect one additional person within the bubble for the power’s duration."]
       },
       "cost": 100,
       "prerequisites": [
@@ -3136,7 +3136,7 @@
       },
       "description": {
         "ru": "В глубинах войда пустотным судам случается терпеть калечащие экипаж бедствия вдали от помощи. Благодаря своим штудиям, направленным на постижение войда, псайкер, освоивший эту психосилу, способен заключить себя или союзника в леденящие объятия Пустоты, стабилизируя состояние цели и позволяя ей пережить наиболее суровые и неблагоприятные условия в течение некоторого времени. Эта психосилы требует филигранного контроля и тонкой фокусировки для достижения желаемого эффекта, потому ее нельзя применить на кого-то против воли. Однако, в критической ситуации некоторые псайкеры использовали эту психосилу, чтобы замедлить и дезориентировать атакующих.",
-        "en": "Within the depths of the void, it is not uncommon for a vessel\nto suffer a catastrophe that leaves its crew injured and the\ncraft distant from any aid. By exercising his understanding\nof the void, a psyker who has mastered this power can wrap\nhimself or an ally in the void’s icy embrace, stabilizing the\ntarget and allowing it to survive the harshest of conditions for\nsome time. This technique requires delicate focus to take its\nfull effect, and so it cannot place an unwilling target into the\nprotective sleep it grants to allies. However, in a pinch, some\n psykers have used it to slow and disorient attackers."
+        "en": "Within the depths of the void, it is not uncommon for a vessel to suffer a catastrophe that leaves its crew injured and the craft distant from any aid. By exercising his understanding of the void, a psyker who has mastered this power can wrap himself or an ally in the void’s icy embrace, stabilizing the target and allowing it to survive the harshest of conditions for some time. This technique requires delicate focus to take its full effect, and so it cannot place an unwilling target into the protective sleep it grants to allies. However, in a pinch, some  psykers have used it to slow and disorient attackers."
       },
       "school": "PS_CRK",
       "type": ["PT_BUFF"],
@@ -3146,8 +3146,8 @@
           "Если же псайкер преуспевает в проверке Фокусировки Силы при попытке использовать данную психосилу на сопротивляющуюся цель, та должна пройти проверку Выносливости +0. Если цель проваливает проверку, она получает 1 Уровень Усталости, а ее скорость перемещения ополовинивается до конца Раунда."
         ],
         "en": [
-          "The psyker activates this Technique with a Focus Power\nTest. If he succeeds and his target is a willing ally, the target’s\ncore body temperature drops and all of his metabolic processes\nvirtually cease. The character immediately enters a trance, which\nlasts for a number of days up to the Psy Rating at which the\npower was activated (the psyker chooses the number of days at\nthe time of activation). For this time, the target does not need\nto breath or eat, ignores environment effects including that of\nthe vacuum, and he does not need to roll to survive ongoing\nnegative effects such as Blood Loss. Each Degree of Success on\nthe Focus Power Test doubles the maximum potential duration.\nCharacters under the effects of Embrace of Emptiness appear\ndead to all mundane senses. Further, they may not take any\nActions, nor may they exit this state until its duration expires or\nthey have the assistance of a psyker trained in this Technique.",
-          "If he succeeds but the target chooses to resist the Technique,\nthe target must make a Challenging (+0) Toughness Test.\nIf it fails, it gains 1 level of Fatigue and its movement speed is\nhalved until the end of its next Turn."
+          "The psyker activates this Technique with a Focus Power Test. If he succeeds and his target is a willing ally, the target’s core body temperature drops and all of his metabolic processes virtually cease. The character immediately enters a trance, which lasts for a number of days up to the Psy Rating at which the power was activated (the psyker chooses the number of days at the time of activation). For this time, the target does not need to breath or eat, ignores environment effects including that of the vacuum, and he does not need to roll to survive ongoing negative effects such as Blood Loss. Each Degree of Success on the Focus Power Test doubles the maximum potential duration. Characters under the effects of Embrace of Emptiness appear dead to all mundane senses. Further, they may not take any Actions, nor may they exit this state until its duration expires or they have the assistance of a psyker trained in this Technique.",
+          "If he succeeds but the target chooses to resist the Technique, the target must make a Challenging (+0) Toughness Test. If it fails, it gains 1 level of Fatigue and its movement speed is halved until the end of its next Turn."
         ]
       },
       "cost": 100,
@@ -3175,7 +3175,7 @@
         "ru": "Целью многих псайкеры, осваивающих Криокинез, является возможность обнаружения других разумных на просторах войда. Это во многом является попыткой выйти за пределы их изоляции, как, к примеру, те Астропаты, чей долг состоит в несении службы в наиболее удаленных от остального человечества уголках галактики. Чем дальше и дольше эти индивиды продолжают устремлять свои разумы в Пустоту, тем более восприимчивыми они становятся к любым признакам разумной жизни, становясь способными обнаружить даже ксеносов.",
         "en": "Many psykers who embrace the Cryokinesis Discipline do so as part of an effort to find other minds amongst the expanse of the void. This is typically a reaction to their desperate need for respite from their isolation — particularly common among those Astropaths who man facilities that are distant from all of humanity. As these characters continue to extend their minds into the void, they become ever more capable at identifying any signs of sentient life — including the minds of xenos."
       },
-      "school": "PS_PYR",
+      "school": "PS_CRK",
       "type": ["PT_BUFF"],
       "effect": {
         "ru": [
@@ -3185,10 +3185,10 @@
           "3+ Степени Успеха: Псайкер может идентифицировать виды разумных, которых он ощущает, даже если он ни разу не встречал таких существ."
         ],
         "en": [
-          "A psyker who activates this power extends his mind deeply\ninto the void, searching for any other active minds. With a\nsuccessful Focus Power Test, the direction and distance to any\nconcentrations of sentient life within range are immediately\nidentified, regardless of any shielding or attempts at concealment.\nRefer to the text below for specific results. Note also\nthat the psyker becomes vulnerable while using this ability and\nsuffers a –20 penalty to resist any invasive Psychic Techniques.",
-          "1 Degree of Success: The psyker senses the\ndirection and approximate\ndistance to the living minds.",
-          "2 Degrees of Success: The psyker detects the rough\nnumber of living minds within\na reasonable margin of error,\nbut no specifics about their\nspecies.",
-          "3+ Degrees of Success: The psyker is able to identify\nthe species of the minds he\nsenses, even if he is unfamiliar\nwith that species."
+          "A psyker who activates this power extends his mind deeply into the void, searching for any other active minds. With a successful Focus Power Test, the direction and distance to any concentrations of sentient life within range are immediately identified, regardless of any shielding or attempts at concealment. Refer to the text below for specific results. Note also that the psyker becomes vulnerable while using this ability and suffers a –20 penalty to resist any invasive Psychic Techniques.",
+          "1 Degree of Success: The psyker senses the direction and approximate distance to the living minds.",
+          "2 Degrees of Success: The psyker detects the rough number of living minds within a reasonable margin of error, but no specifics about their species.",
+          "3+ Degrees of Success: The psyker is able to identify the species of the minds he senses, even if he is unfamiliar with that species."
         ]
       },
       "cost": 200,
@@ -3214,7 +3214,7 @@
       },
       "description": {
         "ru": "Когда псайкер постигнет природу холода Пустоты достаточно глубоко, у него может открыться способность призывать этот холод по своей воле. Первым шагом на этом пути является умение вытягивать тепло из предметов и существ, прокладывая промороженную до основания дорожку между собой и целью. Такая атака на первый взгляд может показаться медлительной, однако она ускоряется в мгновение ока, стоит псайкеру лишь указать собранной силе ее цель. Кроме того, увернуться от такой атаки крайне непросто, ведь псайкер способен усилием мысли менять направление атаки, загоняя цель в постепенно сужающуюся ледяную клетку.",
-        "en": "As a psyker’s relationship to the dark chill of the void\ngrows stronger, he often gains the ability to draw upon its\ninherent nature. One of the first stages of this process is in the\nmastery of a technique that siphons warmth from objects or\nindividuals into himself, ripping the heat out of any objects\nbetween himself and his target, creating a frozen path straight\nto his foe. The attack seems slow-moving at first, but rapidly\naccelerates as the psyker directs it on towards the object of his\nenmity. It is also notoriously difficult to avoid this power, as\nthe psyker can easily redirect the trail of frost with his mind,\ntrapping his foe within an ever-strinking cage of cold."
+        "en": "As a psyker’s relationship to the dark chill of the void grows stronger, he often gains the ability to draw upon its inherent nature. One of the first stages of this process is in the mastery of a technique that siphons warmth from objects or individuals into himself, ripping the heat out of any objects between himself and his target, creating a frozen path straight to his foe. The attack seems slow-moving at first, but rapidly accelerates as the psyker directs it on towards the object of his enmity. It is also notoriously difficult to avoid this power, as the psyker can easily redirect the trail of frost with his mind, trapping his foe within an ever-strinking cage of cold."
       },
       "school": "PS_CRK",
       "type": ["PT_BOLT"],
@@ -3226,9 +3226,9 @@
             "Цель, получившая урон от этой психосилы (после вычитания Брони и Бонуса Выносливости), должна пройти проверку Выносливости +0 или ее скорость перемещения будет ополовинена до конца следующего Раунда."
           ],
           "en": [
-            "The psyker chooses an enemy within range and line of\nsight and then makes a Focus Power Test. If he succeeds, the\npsyker begins to rapidly drain the heat from any surface or\nobject that both he and his opponent are touching. The pulse\nof cold ignores cover and travels in a line towards the target\nacross the surface that connects the two, additionally inflicting ne\nlevel of Fatigue on the target.",
-            "It may be Dodged as normal,\nbut the target suffers a –5 penalty to this Test for each Degree\nof Success that the psyker scored on his Focus Power Test if\nthe target is still touching the connecting surface at the end of\nhis Dodge.",
-            "Targets that suffer Damage from this attack (after\nreductions for Armour and Toughness Bonus) must make a\nChallenging (+0) Toughness Test or have their movement\nrate halved (rounding up) until the end of the next Round."
+            "The psyker chooses an enemy within range and line of sight and then makes a Focus Power Test. If he succeeds, the psyker begins to rapidly drain the heat from any surface or object that both he and his opponent are touching. The pulse of cold ignores cover and travels in a line towards the target across the surface that connects the two, additionally inflicting ne level of Fatigue on the target.",
+            "It may be Dodged as normal, but the target suffers a –5 penalty to this Test for each Degree of Success that the psyker scored on his Focus Power Test if the target is still touching the connecting surface at the end of his Dodge.",
+            "Targets that suffer Damage from this attack (after reductions for Armour and Toughness Bonus) must make a Challenging (+0) Toughness Test or have their movement rate halved (rounding up) until the end of the next Round."
           ]
         },
         "dice": 5,
@@ -3266,7 +3266,7 @@
       },
       "description": {
         "ru": "Пустота спокойна и тиха, но это безлюдная тишина может оказаться смертельной. Тяжело выжить без укрытия от безжизненной пустоты. Некоторые псайкеры осваивают этот разрушительный аспект Пустоты как средство уничтожения врагов, поддерживая внутреннее спокойствие через контакт с обжигающим холодом Пустоты",
-        "en": "The void is tranquil, but that desolate quiet can kill. Life\ncan hardly survive without some shelter from the lifeless\nemptiness. Some psykers embrace this destructive nature as a\nmethod to overcome their foes, while they maintain their own\ncomposure through contact with the icy chill of the void."
+        "en": "The void is tranquil, but that desolate quiet can kill. Life can hardly survive without some shelter from the lifeless emptiness. Some psykers embrace this destructive nature as a method to overcome their foes, while they maintain their own composure through contact with the icy chill of the void."
       },
       "school": "PS_CRK",
       "type": ["PT_BAR"],
@@ -3277,8 +3277,8 @@
             "Снаряды получают бонус к Пробиванию Брони, равный Уровням Усталости цели. Получив Урон от психосилы (после вычитания Брони и Бонуса Выносливости), цель должна пройти проверку Выносливости +0 или получить 1 Уровень Усталости."
           ],
           "en": [
-            "The psyker focuses his will as a cluster of energy bolts.\nThese bolts are a physical manifestation of the cold energy\ndrawn from the depths of the void. These bolts first appear\nnear the psyker, then must physically travel the distance to\nhis target or targets. If the Focus Power Test succeeds, then\nthe psyker produces one psychic bolt for the initial success,\nplus one for every two additional Degrees of Success, which\nhe may distribute amongst any number of targets within Psy\nRating metres of his original target. The number of bolts\ncannot exceed the psyker’s effective Psy Rating. Breathstealing\nBarrage hits as long as the psyker passes his Focus Power\nTest, and targets may Dodge as normal.",
-            "Bolts gain an additional bonus to Penetration equal to\nthe target’s current level of Fatigue. Each target that suffers\nDamage from one of these bolts (after reductions for Armour\nand Toughness Bonus) must make a Challenging (+0)\nToughness Test or gain one level of Fatigue"
+            "The psyker focuses his will as a cluster of energy bolts. These bolts are a physical manifestation of the cold energy drawn from the depths of the void. These bolts first appear near the psyker, then must physically travel the distance to his target or targets. If the Focus Power Test succeeds, then the psyker produces one psychic bolt for the initial success, plus one for every two additional Degrees of Success, which he may distribute amongst any number of targets within Psy Rating metres of his original target. The number of bolts cannot exceed the psyker’s effective Psy Rating. Breathstealing Barrage hits as long as the psyker passes his Focus Power Test, and targets may Dodge as normal.",
+            "Bolts gain an additional bonus to Penetration equal to the target’s current level of Fatigue. Each target that suffers Damage from one of these bolts (after reductions for Armour and Toughness Bonus) must make a Challenging (+0) Toughness Test or gain one level of Fatigue"
           ]
         },
         "dice": 10,
@@ -3317,7 +3317,7 @@
       },
       "description": {
         "ru": "Объятия Пустоты могут предложить утешение одинокому псайкеру, но те кто берется постичь ее пути вскоре узнают, что она может быть могучим союзником. Холод Пустоты предлагает мириады возможностей тем, чье единство с ней столь сильно, что ее природа становится частью их сути. Одной из важнейших способностей, даруемых войдом, является умение поразить разум врага сущностью Пустоты, заставляя его сражаться с собственной бесполезностью и незначительностью перед лицом гигантской, холодной вселенной. Если псайкер, пришедший к пониманию природы Пустоты, может найти такие откровения утешающими, всем прочим будет очень непросто найти что-то приятное в такой перспективе.",
-        "en": "The embrace of the void can offer comfort to an isolated\npsyker, but those who master its ways soon discover that it can\nalso be a powerful ally. The chill of the void offers a myriad of\noptions to those who commune with it to such a degree that\nits nature becomes an inherent part of their psyche. Critical\namong these abilities is the knack for inflicting the void’s\nessence upon a foe’s mind by forcing him to confront his\ninsignificance in the vast, cold universe. While a psyker who\nhas come to understand the nature of the void may find such\ntruths comforting, other individuals who are less accustomed\nto the perspective rarely find it so pleasant."
+        "en": "The embrace of the void can offer comfort to an isolated psyker, but those who master its ways soon discover that it can also be a powerful ally. The chill of the void offers a myriad of options to those who commune with it to such a degree that its nature becomes an inherent part of their psyche. Critical among these abilities is the knack for inflicting the void’s essence upon a foe’s mind by forcing him to confront his insignificance in the vast, cold universe. While a psyker who has come to understand the nature of the void may find such truths comforting, other individuals who are less accustomed to the perspective rarely find it so pleasant."
       },
       "school": "PS_CRK",
       "type": ["PT_BUFF"],
@@ -3327,8 +3327,8 @@
           "Псайкер может предпочесть заморозить любую цель, потерявшую сознание из-за полученных от этой психосилы Уровней Усталости. Замороженная цель не дышит и не страдает от эффектов войда пока не очнется. Однако замороженную цель легко расколоть на часть, ударив по ней с должной силой - она считается обладающей Выносливостью 0 против Ударного Урона."
         ],
         "en": [
-          "The psyker activates this Technique with a Focus Power Test,\nchoosing a target point for the centre of the attack. All living\ncreatures (but not Daemons, machines, or other non-living\nentities) except the psyker within a number of metres equal to his\nPsy Rating around the chosen point resist the Technique with an\nOpposed Willpower Test. Targets that fail this Opposed Test\nsuffer one level of Fatigue, plus one level of Fatigue per three\nDegrees by which they failed the Test. The psyker gains one level\nof Fatigue for each target in the radius that resists the Technique.",
-          "The psyker may choose to have any target that passes\ninto unconsciousness because of levels of Fatigue gained from\nthis Technique freeze solid. Until it regains consciousness, a\ncreature frozen this way does not need to breath and suffers\nno ill effects from the vacuum. However, also shatters if struck\nwith sufficient force, and therefore counts its Toughness as 0\nagainst any Impact Damage that it suffers."
+          "The psyker activates this Technique with a Focus Power Test, choosing a target point for the centre of the attack. All living creatures (but not Daemons, machines, or other non-living entities) except the psyker within a number of metres equal to his Psy Rating around the chosen point resist the Technique with an Opposed Willpower Test. Targets that fail this Opposed Test suffer one level of Fatigue, plus one level of Fatigue per three Degrees by which they failed the Test. The psyker gains one level of Fatigue for each target in the radius that resists the Technique.",
+          "The psyker may choose to have any target that passes into unconsciousness because of levels of Fatigue gained from this Technique freeze solid. Until it regains consciousness, a creature frozen this way does not need to breath and suffers no ill effects from the vacuum. However, also shatters if struck with sufficient force, and therefore counts its Toughness as 0 against any Impact Damage that it suffers."
         ]
       },
       "cost": 300,
@@ -3354,9 +3354,9 @@
       },
       "description": {
         "ru": "Через дисциплину, практику и самовнушение псайкер может стать воплощением холода Пустоты. С помощью этой техники он может не только жить в изоляции, но и найти единение с Пустотой. Освоивший эту психосилу псайкер может не только выживать, но и нормально действовать без тепла, пригодной для дыхания атмосферы и гравитации, а также может использовать эту психсилу для игнорирования эффектов экстремально низких температур и токсичной атмосферы.",
-        "en": "Through discipline, practice, and self-affirmation a psyker can\ncome to embody the chill of the void. In doing so, he can learn\nnot just to dwell within its isolation, but to find unity with the\nemptiness in doing so. A character who masters this ability\nbecomes capable of surviving and acting normally without\nwarmth, pressure, or breathable air, and can also use this power\nto blunt the effects of extreme cold or toxic atmospheres."
+        "en": "Through discipline, practice, and self-affirmation a psyker can come to embody the chill of the void. In doing so, he can learn not just to dwell within its isolation, but to find unity with the emptiness in doing so. A character who masters this ability becomes capable of surviving and acting normally without warmth, pressure, or breathable air, and can also use this power to blunt the effects of extreme cold or toxic atmospheres."
       },
-      "school": "PS_PYR",
+      "school": "PS_CRK",
       "type": ["PT_BUFF"],
       "effect": {
         "ru": [
@@ -3364,8 +3364,8 @@
           "Кроме того, псайкер источает леденящую ауру, проникающую в самую его суть и вымораживающую дух из тех, кто пытается на него напасть. Любое существо, пытающееся провести Рукопашную Атаку по персонажу, должно сперва пройти проверку Выносливости +0 с дополнительным штрафом в -5 за каждую Степень Успеха, полученную псайкером на проверке Фокусировки Силы. В случае провала, существо получает штраф -10 на проводимую атаку и 1 Уровень Усталости, поскольку холод, источаемый псайкером начинает промораживать его до костей."
         ],
         "en": [
-          "The psyker enters a brief trance state and makes a Focus\nPower Test; if he succeeds, the Technique activates. For as long\nas he sustains the Technique, the psyker has no need for air\nor warmth. For this time, he is also immune to all effects of\nsuffocation and vacuum and gains the benefits of the Resistance (Cold) and\nResistance (Poison) Talents for the duration of the ability.",
-          "Further, he expresses a chilling aura that pervades his\nvery being and rips the breath from those who strike at him.\nWhenever any creature would make a Melee Attack against him,\nthat creature must first make a Challenging (+0) Toughness\nTest with a –5 Penalty for each Degree of Success the psyker\nscored on his Focus Power Test. If the creature fails, it suffers a\n–10 Penalty on the attack and gains one level of Fatigue as the\ncold radiating from the psyker saps its strength."
+          "The psyker enters a brief trance state and makes a Focus Power Test; if he succeeds, the Technique activates. For as long as he sustains the Technique, the psyker has no need for air or warmth. For this time, he is also immune to all effects of suffocation and vacuum and gains the benefits of the Resistance (Cold) and Resistance (Poison) Talents for the duration of the ability.",
+          "Further, he expresses a chilling aura that pervades his very being and rips the breath from those who strike at him. Whenever any creature would make a Melee Attack against him, that creature must first make a Challenging (+0) Toughness Test with a –5 Penalty for each Degree of Success the psyker scored on his Focus Power Test. If the creature fails, it suffers a –10 Penalty on the attack and gains one level of Fatigue as the cold radiating from the psyker saps its strength."
         ]
       },
       "cost": 400,
@@ -3392,14 +3392,14 @@
       },
       "description": {
         "ru": "Воистину талантливых криокинетиков крайне мало, но об освоивших путь Пустоты до конца ходят легенды. Если верить слухам, температура в помещениях падает, когда такой псайкер входит, а его взор способен намертво заморозить человека. Однако наиболее пугающие истории рассказывают о поистине редких адептах криокинеза, способных призвать леденящие ветры из темнейших глубин войда на своих врагов, окружая их намерзающими слоями льда и промораживающими их кровь пока та все еще движется по венам. Смерть попавших под эту психосилу быстра и мучительна, их часы воздействия Пустоты обрушиваются на их тела в мгновение ока, разрушая и раскалывая их на части в буйстве беспощадного эфирного шторма. Эта психосила невероятно редка, но успела породить бесчисленные кошмары в памяти видевших ее. Немногим дано рассказать об ужасном опыте попадания под ее воздействие, ибо мало кому из оказавшихся в ловушке безжалостного взрыва удается выжить, чтобы об этом рассказать.",
-        "en": "There are few prodigies of the Voidfrost Discipline, but\nlegends circulate of those who have completely mastered\nits ways. The stories tell that they drop the temperature in\na room with their entrance and can freeze a man solid with\na stare. The most terrifying of these tales are likely based\nupon the few psykers capable of using techniques like\nthis one upon their opponents. The psyker is said to draw\na chill wind from the lightless depths of the void down\nupon his foes, surrounding them with enveloping layers\nof ice and freezing their blood even as it pumps through\ntheir veins. Targets of this power die an agonising and\nrapid death, wracked by hours of exposure in the blink\nof an eye, shattering or crumbling in the unforgiving\nethereal gale. This is a rare power, yet it has caused\ncountless nightmares for those who have seen it used.\nFew can speak firsthand of the horror it inflicts upon its\ntargets, for those who find themselves trapped within its\npitiless blast rarely survive to recount the tale."
+        "en": "There are few prodigies of the Voidfrost Discipline, but legends circulate of those who have completely mastered its ways. The stories tell that they drop the temperature in a room with their entrance and can freeze a man solid with a stare. The most terrifying of these tales are likely based upon the few psykers capable of using techniques like this one upon their opponents. The psyker is said to draw a chill wind from the lightless depths of the void down upon his foes, surrounding them with enveloping layers of ice and freezing their blood even as it pumps through their veins. Targets of this power die an agonising and rapid death, wracked by hours of exposure in the blink of an eye, shattering or crumbling in the unforgiving ethereal gale. This is a rare power, yet it has caused countless nightmares for those who have seen it used. Few can speak firsthand of the horror it inflicts upon its targets, for those who find themselves trapped within its pitiless blast rarely survive to recount the tale."
       },
       "school": "PS_CRK",
       "type": ["PT_BLAST"],
       "effect": {
         "description": {
           "ru": ["Псайкер выбирает точку в поле зрения и в пределах дальности действия психосилы, затем проходит проверку Фокусировки Силы, в случае успеха которой все цели в радиусе 2хПР метров от выбранной точки оказываются поражены психосилой. От поражения можно попытаться Уклониться как от Атаки по Области. Пораженные психосилой получают дополнительный урон по числу имеющихся Уровней Усталости вдобавок к прописанному урону от психосилы. Кроме того, атака считается обладаюшей качеством Обездвиживающее(1), поскольку потоки холода и намерзающий лед сжимаются вокруг всего, что попало под удар психосилы."],
-          "en": ["The psyker begins by nominating a single point within\nrange and line of sight. If he succeeds on his Focus Power\nTest, then each target within a radius 2xPR metres around the point he chooses is hit by the Technique.\nAttempts to Dodge Freeze the Soul are resolved in the same\nway as attempts to Dodge an Area Effect Attack. Anything hit by\nthe attack suffers the Damage equal to the\nnumber of levels of Fatigue it currently has as an additional bonus to the Psychic Power's damage. In addition, the\nattack has the Snare Quality, as the bands of frost and ice\nclose around anything caught in the blast."]
+          "en": ["The psyker begins by nominating a single point within range and line of sight. If he succeeds on his Focus Power Test, then each target within a radius 2xPR metres around the point he chooses is hit by the Technique. Attempts to Dodge Freeze the Soul are resolved in the same way as attempts to Dodge an Area Effect Attack. Anything hit by the attack suffers the Damage equal to the number of levels of Fatigue it currently has as an additional bonus to the Psychic Power's damage. In addition, the attack has the Snare Quality, as the bands of frost and ice close around anything caught in the blast."]
         },
         "dice": 10,
         "count": 2,
