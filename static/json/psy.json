@@ -560,6 +560,63 @@
       "keywords": ["KW_CON"]
     },
     {
+      "tag": "PP_FRSH",
+      "name": {
+        "ru": "Предзнаменование",
+        "en": "Foreshadow"
+      },
+      "description": {
+        "ru": "Вглядываясь на короткое мгновение в будущее, псайкер\nспособен увидеть возможные исходы и потенциальные\nопасности.",
+        "en": "Peering in to the future for a brief instant, the psyker is able to\nsee possible outcomes and potential dangers."
+      },
+      "school": "PS_DIV",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["До окончания следующего хода псайкер\nполучает бонус +(5 x эффективный Пси-рейтинг) к одному\nброску на умение. Эта техника не считается\nподдерживаемой."],
+        "en": ["Until the end of\nthe next turn, the psyker gains a bonus to one Skill Test\nequal to 5 times his effective Psy Rating. Using Foreshadow\ndoes not count as sustaining a Psychic Technique."]
+      },
+      "cost": 100,
+      "prerequisites": [],
+      "sustainable": false,
+      "focus_check": "ST_WP",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": 0,
+      "action": "AT_HALF",
+      "keywords": ["KW_CON"]
+    },
+    {
+      "tag": "PP_AGR",
+      "name": {
+        "ru": "Гадание",
+        "en": "Augury"
+      },
+      "description": {
+        "ru": "Читая Таро Императора, разложенные на конкретного\nчеловека, псайкер может понять, какие проблемы ждут\nтого впереди.",
+        "en": "By reading the Emperor’s Tarot for a specific individual,\nthe psyker can grant insight into what troubles lay ahead."
+      },
+      "school": "PS_DIV",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": ["Должен быть задан конкретный вопрос,\nоднако он может быть как подробным, например «Что\nмы должны сделать, чтобы победить ксеносов на Хоре?»\nили не очень – «Как я смогу получить большую\nприбыль?». После этого псайкер должен начать читать\nТаро Императора для субъекта, когда они оба\nсконцентрируются на заданном вопросе. По прошествии\nэтого времени (обычно 30 минут, однако некоторые\nответы интерпретировать придётся дольше), псайкеру\nнужно совершить проверку Психонауки. За каждые две\nСтепени успеха он получит больше информации. Однако\nк любому результату бросков по таблице Психический Феномен, брошенным из-за этой техники, также\nнеобходимо прибавить +10."],
+        "en": ["A\nspecific question must be asked, though it can be as detailed\nas “What must we overcome to defeat the xenos on Choir?”\nor as broad as “How can I turn a greater profit?” After that,\nthe psyker will read the Emperor’s Tarot for the subject as\nthey both concentrate on the question asked. At the end of\nthis time, typically 30 minutes—though some readings take\nlonger to interpret—the psyker makes a Psyniscience Test.\nEvery two degrees of success reveals more information.\nHowever, any rolls on the Psychic Phenemona chart that are\nprovoked from this technique also add +10."]
+      },
+      "cost": 200,
+      "prerequisites": [
+        {
+          "tag": "PP_FRSH",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "SK_PSY",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": 0,
+      "action": "AT_RIT",
+      "keywords": ["KW_CON"]
+    },
+    {
       "tag": "PP_FBD",
       "name": {
         "ru": "Предчувствие",
