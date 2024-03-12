@@ -596,7 +596,7 @@
         "en": "By reading the Emperor’s Tarot for a specific individual, the psyker can grant insight into what troubles lay ahead."
       },
       "school": "PS_DIV",
-      "type": ["PT_BUFF"],
+      "type": ["PT_RIT"],
       "effect": {
         "ru": ["Должен быть задан конкретный вопрос, однако он может быть как подробным, например «Что мы должны сделать, чтобы победить ксеносов на Хоре?» или не очень – «Как я смогу получить большую прибыль?». После этого псайкер должен начать читать Таро Императора для субъекта, когда они оба сконцентрируются на заданном вопросе. По прошествии этого времени (обычно 30 минут, однако некоторые ответы интерпретировать придётся дольше), псайкеру нужно совершить проверку Психонауки. За каждые две Степени успеха он получит больше информации. Однако к любому результату бросков по таблице Психический Феномен, брошенным из-за этой техники, также необходимо прибавить +10."],
         "en": ["A specific question must be asked, though it can be as detailed as “What must we overcome to defeat the xenos on Choir?” or as broad as “How can I turn a greater profit?” After that, the psyker will read the Emperor’s Tarot for the subject as they both concentrate on the question asked. At the end of this time, typically 30 minutes—though some readings take longer to interpret—the psyker makes a Psyniscience Test. Every two degrees of success reveals more information. However, any rolls on the Psychic Phenemona chart that are provoked from this technique also add +10."]
@@ -613,7 +613,7 @@
       "focus_mod": 0,
       "focus_opposed": false,
       "range": 0,
-      "action": "AT_RIT",
+      "action": "AT_EXT",
       "keywords": ["KW_CON"]
     },
     {
