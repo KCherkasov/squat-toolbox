@@ -1851,6 +1851,9 @@ def create_group(request, season_id):
                         character = models.Character.objects.get(pk=cid)
                         if character:
                             character.groups.add(group)
+                            model = character.data_to_model()
+                            model.restore_fate()
+                            character.character_data = model.toJSON()
                             character.save()
             return HttpResponseRedirect(reverse('season', kwargs={'season_id': season_id, }))
         else:
