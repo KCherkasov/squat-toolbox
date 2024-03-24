@@ -115,7 +115,7 @@ SP_INHERIT = 'SP_INHERIT'
 SKILL_SPECS = [SP_CLIMBING,      SP_MIGHT,         SP_RIDING,         SP_RUNNING,          SP_SWIMMING,
                SP_HEARING,       SP_SIGHT,         SP_SMELL,          SP_TASTE,            SP_TOUCH,
                SP_PSYNISCIENCE,  SP_LOCKPICKING,   SP_PICKPOCKET,     SP_SLEIGHT_OF_HANDS, SP_DEFUSE,
-               SP_COMPOSURE,     SP_FEAR,          SP_PSYCHIC,        SP_ENDURANCE,        SP_POISON,
+               SP_COMPOSURE,     SP_FEAR,          SP_PSYCHIC,        SP_ENDURANCE,        SP_POISON, SP_PAIN,
                SP_PEOPLE,        SP_SURROUNDINGS,  SP_CIPHERS,        SP_HIGH_GOTHIC,      SP_EVALUATION,
                SP_INVESTIGATION, SP_ACADEMICS,     SP_ADEPTUS_TERRA,  SP_SECTOR,           SP_THEOLOGY,
                SP_MED_ANIMAL,    SP_HUMAN,         SP_BRAWLING,       SP_ONE_HANDED,       SP_TWO_HANDED,
