@@ -7,8 +7,8 @@
         "en": "Climbing"
       },
       "description": {
-        "ru": "Отточенное умение быстро и безопасно\nподниматься по вертикальным поверхностям – очень\nполезно на диких мирах и в ульях. Это ценная способ-\nность в бою, если вам нужно взобраться на верх серво-\nгрузовика, чтобы сбросить вниз еретического демагога.",
-        "en": "Practised ability to safely and efficiently\ntraverse vertical surfaces. Frequently useful on both\nFeral and Hive Worlds. Valuable in combat if one\nhas to scale the side of a servo-hauler to get the drop\non a heretical demagogue."
+        "ru": "Отточенное умение быстро и безопасно подниматься по вертикальным поверхностям – очень полезно на диких мирах и в ульях. Это ценная способность в бою, если вам нужно взобраться на верх сервогрузовика, чтобы сбросить вниз еретического демагога.",
+        "en": "Practised ability to safely and efficiently traverse vertical surfaces. Frequently useful on both Feral and Hive Worlds. Valuable in combat if one has to scale the side of a servo-hauler to get the drop on a heretical demagogue."
       },
       "parent": "SK_ATHL",
       "restricted": false,
@@ -21,8 +21,8 @@
         "en": "Might"
       },
       "description": {
-        "ru": "Эта специализация позволяет поднимать\nбольшой вес, ломать предметы и подолгу нести груз. В\nуместных обстоятельствах Атлетика (Мощь) может\nприменяться вместо Выдержки (Запугивание).",
-        "en": "Advanced capacity for moving greater\nweight, breaking physical objects, and enduring\nheavy loads. In appropriate circumstances, an\nAthletics (Might) Test can be used in place of a\nPresence (Intimidation) Test to achieve similar\naims."
+        "ru": "Эта специализация позволяет поднимать большой вес, ломать предметы и подолгу нести груз. В уместных обстоятельствах Атлетика (Мощь) может применяться вместо Выдержки (Запугивание).",
+        "en": "Advanced capacity for moving greater weight, breaking physical objects, and enduring heavy loads. In appropriate circumstances, an Athletics (Might) Test can be used in place of a Presence (Intimidation) Test to achieve similar aims."
       },
       "parent": "SK_ATHL",
       "restricted": false,
@@ -35,8 +35,8 @@
         "en": "Riding"
       },
       "description": {
-        "ru": "Позволяет ездить на лошадях или\nподходящих ксенозверях, а также вести на них бой.",
-        "en": "Increased aptitude in piloting equines,\nor their xenos equivalents. All but essential for\ncontrolling such beasts in combat."
+        "ru": "Позволяет ездить на лошадях или подходящих ксенозверях, а также вести на них бой.",
+        "en": "Increased aptitude in piloting equines, or their xenos equivalents. All but essential for controlling such beasts in combat."
       },
       "parent": "SK_ATHL",
       "restricted": false,
@@ -49,8 +49,8 @@
         "en": "Running"
       },
       "description": {
-        "ru": "Эта специализация позволяет быстро передвигаться\nна большие расстояния – полезно, чтобы поймать\nубегающего врага или самому сбежать от тех, кто\nоказался не по зубам.",
-        "en": "Greater capability for moving at speed\nover longer distances. Useful for catching fleeing\nfoes, and escaping from dangerous opponents."
+        "ru": "Эта специализация позволяет быстро передвигаться на большие расстояния – полезно, чтобы поймать убегающего врага или самому сбежать от тех, кто оказался не по зубам.",
+        "en": "Greater capability for moving at speed over longer distances. Useful for catching fleeing foes, and escaping from dangerous opponents."
       },
       "parent": "SK_ATHL",
       "restricted": false,
@@ -63,8 +63,8 @@
         "en": "Swimming"
       },
       "description": {
-        "ru": "Лучшая специализация для того, чтобы\nуверенно чувствовать себя в воде или иной\nжидкости. Необходима на мирах-океанах,\nсовершенно не нужна в пустынях.",
-        "en": "Better aptitude at swimming through\nliquids, typically water. Essential on some worlds\nwith planet-spanning oceans, and almost\nunknown on others."
+        "ru": "Лучшая специализация для того, чтобы уверенно чувствовать себя в воде или иной жидкости. Необходима на мирах-океанах, совершенно не нужна в пустынях.",
+        "en": "Better aptitude at swimming through liquids, typically water. Essential on some worlds with planet-spanning oceans, and almost unknown on others."
       },
       "parent": "SK_ATHL",
       "restricted": false,
@@ -77,8 +77,8 @@
         "en": "Sight"
       },
       "description": {
-        "ru": "Умение лучше замечать детали и кажущиеся\nневажными особенности.",
-        "en": "Advanced capacity for perceiving important\ndetails and training in noticing elements that seem\neven a little incongruous."
+        "ru": "Умение лучше замечать детали и кажущиеся неважными особенности.",
+        "en": "Advanced capacity for perceiving important details and training in noticing elements that seem even a little incongruous."
       },
       "parent": "SK_AWR",
       "restricted": false,
@@ -91,8 +91,8 @@
         "en": "Hearing"
       },
       "description": {
-        "ru": "Возможность вовремя услышать необычные звуки,\nвыделяющиеся на фоне остальных, понять, что они\nзначат, и отследить источник.",
-        "en": "Facility for detecting and identifying\nunusual sounds that stand out from local ambient\nones. Greater ability to determine where a sound\noriginated from."
+        "ru": "Возможность вовремя услышать необычные звуки, выделяющиеся на фоне остальных, понять, что они значат, и отследить источник.",
+        "en": "Facility for detecting and identifying unusual sounds that stand out from local ambient ones. Greater ability to determine where a sound originated from."
       },
       "parent": "SK_AWR",
       "restricted": false,
@@ -105,8 +105,8 @@
         "en": "Smell"
       },
       "description": {
-        "ru": "Склонность определять выделяющиеся или\ndнеобычные запахи. Некоторые редкие аугментации или\nгенетические улучшения позволяют даже выслеживать\nжертв по запаху.",
-        "en": "Aptitude for noting and identifying\nparticularly distinct or unusual aromas. Some rare\naugmentations and genetic enhancements allow\nthose imbued with them to track others entirely by\nscent alone."
+        "ru": "Склонность определять выделяющиеся или dнеобычные запахи. Некоторые редкие аугментации или генетические улучшения позволяют даже выслеживать жертв по запаху.",
+        "en": "Aptitude for noting and identifying particularly distinct or unusual aromas. Some rare augmentations and genetic enhancements allow those imbued with them to track others entirely by scent alone."
       },
       "parent": "SK_AWR",
       "restricted": false,
@@ -119,8 +119,8 @@
         "en": "Taste"
       },
       "description": {
-        "ru": "Превосходное умение распознавать вкусы – в том\nчисле почувствовать яд или наркотик.",
-        "en": "Superior ability to discern various flavours,\nincluding the signs of certain poisons and drugs."
+        "ru": "Превосходное умение распознавать вкусы – в том числе почувствовать яд или наркотик.",
+        "en": "Superior ability to discern various flavours, including the signs of certain poisons and drugs."
       },
       "parent": "SK_AWR",
       "restricted": false,
@@ -133,8 +133,8 @@
         "en": "Touch"
       },
       "description": {
-        "ru": "Умение воспринимать необычные вибрации,\nчто могут говорить о движении подземных машин или\nогне орудий, а также способность наощупь распознавать\nткани и необычные материалы. Полезно, чтобы поймать\nза руку карманника.",
-        "en": "Capacity to feel unusual vibrations which\nindicate the passage of subterranean vehicles and\nweapon systems. Trained to discern the origin of\nfabrics and unusual materials by feel. Useful for\ndetecting pickpockets."
+        "ru": "Умение воспринимать необычные вибрации, что могут говорить о движении подземных машин или огне орудий, а также способность наощупь распознавать ткани и необычные материалы. Полезно, чтобы поймать за руку карманника.",
+        "en": "Capacity to feel unusual vibrations which indicate the passage of subterranean vehicles and weapon systems. Trained to discern the origin of fabrics and unusual materials by feel. Useful for detecting pickpockets."
       },
       "parent": "SK_AWR",
       "restricted": false,
@@ -147,8 +147,8 @@
         "en": "Psyniscience"
       },
       "description": {
-        "ru": "Псайкеры могут исполь-\nзовать свою связь с Имматериумом, чтобы обна-\nруживать его воздействие на тварный мир. Это позво-\nляет им отслеживать появление сущностей Варпа или\nдаже вычислять других псайкеров, если те применяют\nсвои способности и черпают силу из Эмпиреев. Чтобы\nприобрести такую специализацию, персонаж должен\nиметь талант Псайкер (см. стр. 114).\nВпрочем, долгое воздействие на персонажа варп-фено-\nменов – хороший повод позволить игроку\nприобрести одно улучшение Психического\nчутья.",
-        "en": "Psykers can be trained\nto use their connection to the immaterium in order\nto discern areas where realspace is being, or has\nbeen, disrupted due to the intrusion of the warp.\nThis allows them to detect the presence of warp\nentities and even locate other psykers, so long as\nthey draw on the empyrean to use their psychic\nabilities. Psyniscience requires the Psyker Talent\n(see page 114), though prolonged exposure\nto warp phenomena and at the GM's\ndiscretion may allow others to take a\nsingle advance in this skill."
+        "ru": "Псайкеры могут использовать свою связь с Имматериумом, чтобы обнаруживать его воздействие на тварный мир. Это позволяет им отслеживать появление сущностей Варпа или даже вычислять других псайкеров, если те применяют свои способности и черпают силу из Эмпиреев. Чтобы приобрести такую специализацию, персонаж должен иметь талант Псайкер (см. стр. 114). Впрочем, долгое воздействие на персонажа варп-феноменов – хороший повод позволить игроку приобрести одно улучшение Психического чутья.",
+        "en": "Psykers can be trained to use their connection to the immaterium in order to discern areas where realspace is being, or has been, disrupted due to the intrusion of the warp. This allows them to detect the presence of warp entities and even locate other psykers, so long as they draw on the empyrean to use their psychic abilities. Psyniscience requires the Psyker Talent (see page 114), though prolonged exposure to warp phenomena and at the GM's discretion may allow others to take a single advance in this skill."
       },
       "parent": "SK_AWR",
       "restricted": true,
@@ -161,8 +161,8 @@
         "en": "Lockpicking"
       },
       "description": {
-        "ru": "опыт открывания механических запоров\nбез ключей. Сложные замки, в которых обитают\nмашинные духи, скорее потребуют проверки Техники\n(Безопасность).",
-        "en": "Experience in the art of opening\nmechanical locks without keys. Locks sophisticated\nenough to have a machine spirit likely requires a\nTech (Security) Test to convince them to open."
+        "ru": "опыт открывания механических запоров без ключей. Сложные замки, в которых обитают машинные духи, скорее потребуют проверки Техники (Безопасность).",
+        "en": "Experience in the art of opening mechanical locks without keys. Locks sophisticated enough to have a machine spirit likely requires a Tech (Security) Test to convince them to open."
       },
       "parent": "SK_DEX",
       "restricted": false,
@@ -175,8 +175,8 @@
         "en": "Pickpocket"
       },
       "description": {
-        "ru": "Умение незаметно обчищать чужие\nкарманы, сумки, рюкзаки и т. д. Также это умение\nможно применять, чтобы подбрасывать улики. Как\nправило, карманным кражам противостоит\nБдительность (Осязание).",
-        "en": "Competence in pilfering the contents\nof others’ pockets, bags, backpacks, etc. without\ntheir noticing. Can also be used in reverse to place\n(incriminating) items within. Pickpocket is usually\nopposed by Awareness (Touch)."
+        "ru": "Умение незаметно обчищать чужие карманы, сумки, рюкзаки и т. д. Также это умение можно применять, чтобы подбрасывать улики. Как правило, карманным кражам противостоит Бдительность (Осязание).",
+        "en": "Competence in pilfering the contents of others’ pockets, bags, backpacks, etc. without their noticing. Can also be used in reverse to place (incriminating) items within. Pickpocket is usually opposed by Awareness (Touch)."
       },
       "parent": "SK_DEX",
       "restricted": false,
@@ -189,8 +189,8 @@
         "en": "Sleight of hands"
       },
       "description": {
-        "ru": "Умение показывать\nфокусы с исчезновением и появлением предметов, даже\nбудучи в центре внимания. Мастер может скрыть\nоружие со свойством Незаметное, даже при обыске. Как\nправило, этому умению противостоит Бдительность\n(Зрение).",
-        "en": "Training in performing tricks\nof prestidigitation and secreting various items\neven while being observed. A master can conceal\na weapon with the Subtle Trait even while being\nsearched. Sleight of Hand is usually opposed by\nAwareness (Sight)."
+        "ru": "Умение показывать фокусы с исчезновением и появлением предметов, даже будучи в центре внимания. Мастер может скрыть оружие со свойством Незаметное, даже при обыске. Как правило, этому умению противостоит Бдительность (Зрение).",
+        "en": "Training in performing tricks of prestidigitation and secreting various items even while being observed. A master can conceal a weapon with the Subtle Trait even while being searched. Sleight of Hand is usually opposed by Awareness (Sight)."
       },
       "parent": "SK_DEX",
       "restricted": false,
@@ -203,8 +203,8 @@
         "en": "Defuse"
       },
       "description": {
-        "ru": "Заучивание приёмов и\nмолитв, необходимых, чтобы обезвредить взрывное\nустройство или разрядить ловушку. Обезвреживание\nтребует хотя бы одного улучшения Техники (см. стр. 101)",
-        "en": "Practical rote instruction\nin the various techniques and prayers used to\nharmlessly deactivate explosive devices and disarm\ntrap mechanisms. Defuse requires at least 1 Advance\nin the Tech Skill (see page 101)."
+        "ru": "Заучивание приёмов и молитв, необходимых, чтобы обезвредить взрывное устройство или разрядить ловушку. Обезвреживание требует хотя бы одного улучшения Техники (см. стр. 101)",
+        "en": "Practical rote instruction in the various techniques and prayers used to harmlessly deactivate explosive devices and disarm trap mechanisms. Defuse requires at least 1 Advance in the Tech Skill (see page 101)."
       },
       "parent": "SK_DEX",
       "restricted": true,
@@ -216,8 +216,8 @@
         "en": "Composure"
       },
       "description": {
-        "ru": "Это умение не терять голову от чужого\nобаяния, не боятся угроз и давления. Никакие\nискушения не заставят его обладателей потерять себя.",
-        "en": "Practised at resisting charm,\nintimidation, and other social pressures. Those with\nstrong Composure are gifted at maintaining their\nintegrity in the face of temptation."
+        "ru": "Это умение не терять голову от чужого обаяния, не боятся угроз и давления. Никакие искушения не заставят его обладателей потерять себя.",
+        "en": "Practised at resisting charm, intimidation, and other social pressures. Those with strong Composure are gifted at maintaining their integrity in the face of temptation."
       },
       "parent": "SK_DIS",
       "restricted": false,
@@ -230,8 +230,8 @@
         "en": "Fear"
       },
       "description": {
-        "ru": "Умение справляться с ужасом, что вызывают\nеретические и осквернённые существа. Как правило эта\nспециализация помогает бороться с состоянием Страх.",
-        "en": "Mentally hardened to stand firm in the face of\nthe unnatural fear caused by exposure to heretical\nand corrupt beings. Fear is often used to resist and\nrecover from the Frightened Condition."
+        "ru": "Умение справляться с ужасом, что вызывают еретические и осквернённые существа. Как правило эта специализация помогает бороться с состоянием Страх.",
+        "en": "Mentally hardened to stand firm in the face of the unnatural fear caused by exposure to heretical and corrupt beings. Fear is often used to resist and recover from the Frightened Condition."
       },
       "parent": "SK_DIS",
       "restricted": false,
@@ -244,8 +244,8 @@
         "en": "Psychic"
       },
       "description": {
-        "ru": "Дополнительная подготовка, позволяющая\nсопротивляться различным психосилам, что влияют на\nразум или подчиняют его.",
-        "en": "Advanced training in mentally resisting\nvarious psychic powers that can unduly influence or\nsuborn one’s mind."
+        "ru": "Дополнительная подготовка, позволяющая сопротивляться различным психосилам, что влияют на разум или подчиняют его.",
+        "en": "Advanced training in mentally resisting various psychic powers that can unduly influence or suborn one’s mind."
       },
       "parent": "SK_PSY",
       "restricted": false,
@@ -257,8 +257,8 @@
         "en": "Endurance"
       },
       "description": {
-        "ru": "Trained to go without sleep for\nsignificantly extended periods, pushing on through\nexhaustion due to greater stamina.",
-        "en": "Умение подолгу не спать и справляться с\nусталостью."
+        "ru": "Trained to go without sleep for significantly extended periods, pushing on through exhaustion due to greater stamina.",
+        "en": "Умение подолгу не спать и справляться с усталостью."
       },
       "parent": "SK_FORT",
       "restricted": false,
@@ -271,8 +271,8 @@
         "en": "Pain"
       },
       "description": {
-        "ru": "Развитая способность переносить пытки и\nисполнять свой долг, несмотря на ранения, развитая\nболезненными упражнениями.",
-        "en": "Increased capability for resisting torture and\ndoing one’s duty despite injuries, due to extensive\ntraining in withstanding pain."
+        "ru": "Развитая способность переносить пытки и исполнять свой долг, несмотря на ранения, развитая болезненными упражнениями.",
+        "en": "Increased capability for resisting torture and doing one’s duty despite injuries, due to extensive training in withstanding pain."
       },
       "parent": "SK_FORT",
       "restricted": false,
@@ -285,8 +285,8 @@
         "en": "Poison"
       },
       "description": {
-        "ru": "Сопротивляемость, выработанная точно отмерен-\nными дозами токсинов, а также опыт, позволяющий\nосознанно действовать в состоянии отравления.",
-        "en": "Precise exposure to a variety of toxins helps\nbuild up resistance, as well as granting experience in\nhow to focus and continue to act effectively, despite\nhaving been poisoned."
+        "ru": "Сопротивляемость, выработанная точно отмеренными дозами токсинов, а также опыт, позволяющий осознанно действовать в состоянии отравления.",
+        "en": "Precise exposure to a variety of toxins helps build up resistance, as well as granting experience in how to focus and continue to act effectively, despite having been poisoned."
       },
       "parent": "SK_FORT",
       "restricted": false,
@@ -299,8 +299,8 @@
         "en": "People"
       },
       "description": {
-        "ru": "Понимание закономерностей человеческого пове-\nдения, что позволяет распознавать ложь, скрытность и\nстранное поведение. Это умение часто используется\nпротив Взаимопонимания (Обман",
-        "en": "Extensive practice in studying patterns of\nHuman behaviour, allowing one to notice when\nsomeone is lying, hiding something, or acting\nstrangely. This skill is often used to oppose Rapport\n(Deception)."
+        "ru": "Понимание закономерностей человеческого поведения, что позволяет распознавать ложь, скрытность и странное поведение. Это умение часто используется против Взаимопонимания (Обман",
+        "en": "Extensive practice in studying patterns of Human behaviour, allowing one to notice when someone is lying, hiding something, or acting strangely. This skill is often used to oppose Rapport (Deception)."
       },
       "parent": "SK_INT",
       "restricted": false,
@@ -313,8 +313,8 @@
         "en": "Surroundings"
       },
       "description": {
-        "ru": "Такая подготовка позволяет «читать» окру-\nжение, подмечать всё необычное в обстановке, обращать\nвнимание на тихие шаги, неясные фигуры или зловещее\nповедение.",
-        "en": "Training in learning to continually\nread the surrounding environment, noting unusual\nmistakes in layout, furtive steps, concealed shapes,\nor ominous patterns of behaviour which indicate\nsomething is wrong."
+        "ru": "Такая подготовка позволяет «читать» окружение, подмечать всё необычное в обстановке, обращать внимание на тихие шаги, неясные фигуры или зловещее поведение.",
+        "en": "Training in learning to continually read the surrounding environment, noting unusual mistakes in layout, furtive steps, concealed shapes, or ominous patterns of behaviour which indicate something is wrong."
       },
       "parent": "SK_INT",
       "restricted": false,
@@ -327,8 +327,8 @@
         "en": "Ciphers"
       },
       "description": {
-        "ru": "Умение определять, взламывать и применять\nписьменные коды. Некоторые шифрованные послания\nне скрывают своей природы, и для их чтения нужен\nтолько ключ; другие тщательно замаскированы под\nобычные письма.",
-        "en": "Training in identifying, deciphering, and\nusing secret writing codes. Some ciphers are clearly\ncoded communications that may require a literary\nkey of some kind to unlock, others are messages\ncarefully disguised within other writings."
+        "ru": "Умение определять, взламывать и применять письменные коды. Некоторые шифрованные послания не скрывают своей природы, и для их чтения нужен только ключ; другие тщательно замаскированы под обычные письма.",
+        "en": "Training in identifying, deciphering, and using secret writing codes. Some ciphers are clearly coded communications that may require a literary key of some kind to unlock, others are messages carefully disguised within other writings."
       },
       "parent": "SK_LNG",
       "restricted": false,
@@ -341,8 +341,8 @@
         "en": "High Gothic"
       },
       "description": {
-        "ru": "Владение церемониальным язы-\nком Империума, что применяется лишь в высших кругах\nобщества – имперских службах, благородных домах или\nАдептус Механикус. Самые древние исторические\nдокументы и самые древние тайны зачастую хранятся в\nинфохранилищах на высоком готике.",
-        "en": "Familiarity with the formal language\nof the Imperium, spoken only in rarefied circles.\nKnowledge of High Gothic is held within the various\nbranches of the Imperium, the Adeptus Mechanicus,\nand some older noble houses. The eldest histories of\nthe Imperium, along with its most ancient secrets,\nare often preserved within datavaults in formal\nHigh Gothic."
+        "ru": "Владение церемониальным языком Империума, что применяется лишь в высших кругах общества – имперских службах, благородных домах или Адептус Механикус. Самые древние исторические документы и самые древние тайны зачастую хранятся в инфохранилищах на высоком готике.",
+        "en": "Familiarity with the formal language of the Imperium, spoken only in rarefied circles. Knowledge of High Gothic is held within the various branches of the Imperium, the Adeptus Mechanicus, and some older noble houses. The eldest histories of the Imperium, along with its most ancient secrets, are often preserved within datavaults in formal High Gothic."
       },
       "parent": "SK_LNG",
       "restricted": false,
@@ -355,8 +355,8 @@
         "en": "Evaluation"
       },
       "description": {
-        "ru": "Способность примерно определять ценность\nвещей, исходя из их видимых качеств. Очень полезно\nпри покупке или продаже оружия или снаряжения, либо\nоценке прочности здания или устройства.",
-        "en": "The ability to assess relative worth\nbased on perceived qualities. Useful for determining\nthe value of practical goods and equipment, or the\nsoundness of a given structure or device."
+        "ru": "Способность примерно определять ценность вещей, исходя из их видимых качеств. Очень полезно при покупке или продаже оружия или снаряжения, либо оценке прочности здания или устройства.",
+        "en": "The ability to assess relative worth based on perceived qualities. Useful for determining the value of practical goods and equipment, or the soundness of a given structure or device."
       },
       "parent": "SK_LOG",
       "restricted": false,
@@ -369,8 +369,8 @@
         "en": "Investigation"
       },
       "description": {
-        "ru": "Умение замечать улики на месте преступле-\nния, изучать тела, выстраивать картину произошедшего\nи связывать её с вовлечёнными сторонами. Также\nвключает познания в судебной экспертизе – например,\nумелый следователь может по брызгам крови опознать\nорудие убийства, направление удара и время, когда было\nсовершено преступление.",
-        "en": "Training on how to read a crime\nscene for clues as to what occurred, including\ninferring whom the parties involved might be, as\nwell as drawing pertinent information from any\ncorpse present. Includes some forensic knowledge,\nsuch as knowing how to assess the angle of a strike\nand the sort of weapons used due to the angle of\nblood splatters, as well as time since the attack by\nstudying how congealed the gore is."
+        "ru": "Умение замечать улики на месте преступления, изучать тела, выстраивать картину произошедшего и связывать её с вовлечёнными сторонами. Также включает познания в судебной экспертизе – например, умелый следователь может по брызгам крови опознать орудие убийства, направление удара и время, когда было совершено преступление.",
+        "en": "Training on how to read a crime scene for clues as to what occurred, including inferring whom the parties involved might be, as well as drawing pertinent information from any corpse present. Includes some forensic knowledge, such as knowing how to assess the angle of a strike and the sort of weapons used due to the angle of blood splatters, as well as time since the attack by studying how congealed the gore is."
       },
       "parent": "SK_LOG",
       "restricted": false,
@@ -383,8 +383,8 @@
         "en": "Academics"
       },
       "description": {
-        "ru": "Знания искусств, экономики, книг и\nместных планетарных культур, а также умение писать на\nнизком готике. Обычно такое доступно лишь\nлюдям с большими деньгами или связями.",
-        "en": "Grants the ability to write Low Gothic\nalong with some knowledge of arts, economics,\nbooks, and local planetary culture. Generally\nreserved for more connected or well-to-do members\nof the Imperium."
+        "ru": "Знания искусств, экономики, книг и местных планетарных культур, а также умение писать на низком готике. Обычно такое доступно лишь людям с большими деньгами или связями.",
+        "en": "Grants the ability to write Low Gothic along with some knowledge of arts, economics, books, and local planetary culture. Generally reserved for more connected or well-to-do members of the Imperium."
       },
       "parent": "SK_LORE",
       "restricted": false,
@@ -397,8 +397,8 @@
         "en": "Adeptus Terra"
       },
       "description": {
-        "ru": "Это знания не только о самом Адептус\nТерра, но и о множестве иных столпов Империума. Это\nне значит, что обладатель такой специализации\nпоимённо знает всех чиновников определённой службы,\nно позволяет понимать роль и ответственность каждого\nАдептус, их положение в Империуме и их самых\nизвестных представителей.",
-        "en": "Knowledge not only of the Adeptus\nTerra itself, but of the many Adepta that make up\nthe structure of the Imperium. This specialisation\ndoes not necessarily confer knowledge of any but\nthe most well known members of any particular\norganisation, but it does cover knowledge of the\nroles and responsibilities of these organisations and\ntheir position with the Imperium at large."
+        "ru": "Это знания не только о самом Адептус Терра, но и о множестве иных столпов Империума. Это не значит, что обладатель такой специализации поимённо знает всех чиновников определённой службы, но позволяет понимать роль и ответственность каждого Адептус, их положение в Империуме и их самых известных представителей.",
+        "en": "Knowledge not only of the Adeptus Terra itself, but of the many Adepta that make up the structure of the Imperium. This specialisation does not necessarily confer knowledge of any but the most well known members of any particular organisation, but it does cover knowledge of the roles and responsibilities of these organisations and their position with the Imperium at large."
       },
       "parent": "SK_LORE",
       "restricted": false,
@@ -411,8 +411,8 @@
         "en": "Sector"
       },
       "description": {
-        "ru": "Широкие познания об определённом секторе\n(его нужно выбрать, когда вы впервые приобретаете эту\nспециализацию). К примеру, Знания (Сектор Махарий)\nпозволяют персонажу много знать о субсекторах,\nважных персонах и месте Махария в Империуме. Вы\nможете иметь несколько специализаций, связанных с\nразными секторами и развивать их отдельно.",
-        "en": "Broad knowledge about a particular Sector,\nwhich must be chosen when this specialisation is first\ntaken. For example, Lore (Macharian Sector) would\ncover the subsectors, power structures, important\nfigures, and general place of the Macharian Sector\nwithin the wider Imperium. It is possible to take this\nspecialisation more than once. Each time you do so,\nchoose another sector."
+        "ru": "Широкие познания об определённом секторе (его нужно выбрать, когда вы впервые приобретаете эту специализацию). К примеру, Знания (Сектор Махарий) позволяют персонажу много знать о субсекторах, важных персонах и месте Махария в Империуме. Вы можете иметь несколько специализаций, связанных с разными секторами и развивать их отдельно.",
+        "en": "Broad knowledge about a particular Sector, which must be chosen when this specialisation is first taken. For example, Lore (Macharian Sector) would cover the subsectors, power structures, important figures, and general place of the Macharian Sector within the wider Imperium. It is possible to take this specialisation more than once. Each time you do so, choose another sector."
       },
       "parent": "SK_LORE",
       "restricted": false,
@@ -425,8 +425,8 @@
         "en": "Theology"
       },
       "description": {
-        "ru": "Понимание Имперской веры, её\nизводов и толкований, кое-какие сведения о культе\nМеханикус, а также поверхностные знания о\nеретических сектах, но никогда – о запретных культах.\nБогословие требует хотя бы одного улучшения Языков\n(Высокий готический).",
-        "en": "Training in the Imperial\nCreed, including various sects and interpretations.\nPassing knowledge of the Cult Mechanicus. Only\ncursory knowledge at best of any heretical sects\nof the Imperial Creed and none whatsoever of\nany forbidden cults. Theology requires at least 1\nAdvance in Linguistics (High Gothic)."
+        "ru": "Понимание Имперской веры, её изводов и толкований, кое-какие сведения о культе Механикус, а также поверхностные знания о еретических сектах, но никогда – о запретных культах. Богословие требует хотя бы одного улучшения Языков (Высокий готический).",
+        "en": "Training in the Imperial Creed, including various sects and interpretations. Passing knowledge of the Cult Mechanicus. Only cursory knowledge at best of any heretical sects of the Imperial Creed and none whatsoever of any forbidden cults. Theology requires at least 1 Advance in Linguistics (High Gothic)."
       },
       "parent": "SK_LORE",
       "restricted": true,
@@ -439,8 +439,8 @@
         "en": "Animals"
       },
       "description": {
-        "ru": "Подготовка персонажа касалась умения\nраспознавать болезни и раны животных и лечить их.\nВетеринар хорошо знает их анатомию, повадки и то,\nкакие продукты из них можно получить.",
-        "en": "Studied in the medical arts that deal\nspecifically with the prevention and treatment of\ndisease and injuries to animals. Includes extensive\nknowledge of their anatomies, patterns of behaviour,\nand products derived from them."
+        "ru": "Подготовка персонажа касалась умения распознавать болезни и раны животных и лечить их. Ветеринар хорошо знает их анатомию, повадки и то, какие продукты из них можно получить.",
+        "en": "Studied in the medical arts that deal specifically with the prevention and treatment of disease and injuries to animals. Includes extensive knowledge of their anatomies, patterns of behaviour, and products derived from them."
       },
       "parent": "SK_MED",
       "restricted": false,
@@ -453,8 +453,8 @@
         "en": "Human"
       },
       "description": {
-        "ru": "Расширенный курс по лечению людей. Такие\nзнания позволят оказать первую помощь, остановить\nкровь или не дать тяжёлым ранам свести пациента в\nмогилу. Несмотря на слово «Люди», эта специализация\nработает и на недолюдей, вроде огринов, ратлингов и\nвыходцев из Лиг Вотанна.",
-        "en": "Advanced training in treating disease and\ninjuries in Humans. Used for first aid, stabilising\nthe heavily injured, and stopping bleeding. Despite\nthe name, it will work on Abhumans such as\nRatlings, Ogryn, and Kin of the Leagues of Votann."
+        "ru": "Расширенный курс по лечению людей. Такие знания позволят оказать первую помощь, остановить кровь или не дать тяжёлым ранам свести пациента в могилу. Несмотря на слово «Люди», эта специализация работает и на недолюдей, вроде огринов, ратлингов и выходцев из Лиг Вотанна.",
+        "en": "Advanced training in treating disease and injuries in Humans. Used for first aid, stabilising the heavily injured, and stopping bleeding. Despite the name, it will work on Abhumans such as Ratlings, Ogryn, and Kin of the Leagues of Votann."
       },
       "parent": "SK_MED",
       "restricted": false,
@@ -467,8 +467,8 @@
         "en": "Brawling"
       },
       "description": {
-        "ru": "Владение жестоким искусством драться\nголыми руками. Оно поможет расправляться с врагами\nпри помощи рук, кастетов или даже могучих силовых\nкулаков (см. стр. 128).",
-        "en": "Experience in the brutal art of pugilism.\nCovers everything from fighting with bare hands\nor brass knuckles, through to inflicting devastating\nblows with a mighty Power Fist (page 128)."
+        "ru": "Владение жестоким искусством драться голыми руками. Оно поможет расправляться с врагами при помощи рук, кастетов или даже могучих силовых кулаков (см. стр. 128).",
+        "en": "Experience in the brutal art of pugilism. Covers everything from fighting with bare hands or brass knuckles, through to inflicting devastating blows with a mighty Power Fist (page 128)."
       },
       "parent": "SK_MELEE",
       "restricted": false,
@@ -481,8 +481,8 @@
         "en": "One-handed"
       },
       "description": {
-        "ru": "Владение мечами, топорами,\nбулавами и другим холодным оружием, что можно\nудерживать одной рукой.",
-        "en": "Extensive training in the use of\nswords, axes, maces, and other melee weapons that\ncan be used with a single hand."
+        "ru": "Владение мечами, топорами, булавами и другим холодным оружием, что можно удерживать одной рукой.",
+        "en": "Extensive training in the use of swords, axes, maces, and other melee weapons that can be used with a single hand."
       },
       "parent": "SK_MELEE",
       "restricted": false,
@@ -495,8 +495,8 @@
         "en": "Two-handed"
       },
       "description": {
-        "ru": "Владение очень длинными мечами,\nогромными топорами, тяжёлыми булавами и другими\nорудиями убийства, что нужно удерживать двумя\nруками, а также древковым оружием, вроде копий и\nалебард.",
-        "en": "Extensive training in the use of larger\nswords, bigger axes, heavier maces, and other melee\nweapons that require two hands to use, along with\nvarious polearms such as spears and halberds."
+        "ru": "Владение очень длинными мечами, огромными топорами, тяжёлыми булавами и другими орудиями убийства, что нужно удерживать двумя руками, а также древковым оружием, вроде копий и алебард.",
+        "en": "Extensive training in the use of larger swords, bigger axes, heavier maces, and other melee weapons that require two hands to use, along with various polearms such as spears and halberds."
       },
       "parent": "SK_MELEE",
       "restricted": false,
@@ -509,8 +509,8 @@
         "en": "Surface"
       },
       "description": {
-        "ru": "Умение прокладывать курс на поверхности\nпланеты и следовать ему, чтобы добраться в точку\nназначения наилучшим способом.",
-        "en": "Training in plotting and following a likely\ncourse over land or sea in order to reach a chosen\ndestination in the most efficient way possible."
+        "ru": "Умение прокладывать курс на поверхности планеты и следовать ему, чтобы добраться в точку назначения наилучшим способом.",
+        "en": "Training in plotting and following a likely course over land or sea in order to reach a chosen destination in the most efficient way possible."
       },
       "parent": "SK_NAV",
       "restricted": false,
@@ -523,8 +523,8 @@
         "en": "Tracking"
       },
       "description": {
-        "ru": "Умение не только брать след и идти по нему, но и\nпонимать, скольких жертв преследуешь, налегке ли они\nпутешествуют, спешат ли и т. д.",
-        "en": "Extensive training in how to read the\nmarks left by the passage of others, in order to\nfollow them, but also to determine information such\nas their numbers, if they are carrying a heavy load\nor travelling light, if they were in a hurry, and so on."
+        "ru": "Умение не только брать след и идти по нему, но и понимать, скольких жертв преследуешь, налегке ли они путешествуют, спешат ли и т. д.",
+        "en": "Extensive training in how to read the marks left by the passage of others, in order to follow them, but also to determine information such as their numbers, if they are carrying a heavy load or travelling light, if they were in a hurry, and so on."
       },
       "parent": "SK_NAV",
       "restricted": false,
@@ -537,8 +537,8 @@
         "en": "Void"
       },
       "description": {
-        "ru": "Обладание необычными знаниями, позволяю-\nщими прокладывать курс между небесными телами в\nпределах системы и следовать ему.",
-        "en": "Capacity with the unusual knowledge of how\nto plot and follow a course between celestial bodies\nwithin a system."
+        "ru": "Обладание необычными знаниями, позволяющими прокладывать курс между небесными телами в пределах системы и следовать ему.",
+        "en": "Capacity with the unusual knowledge of how to plot and follow a course between celestial bodies within a system."
       },
       "parent": "SK_NAV",
       "restricted": false,
@@ -551,8 +551,8 @@
         "en": "Warp"
       },
       "description": {
-        "ru": "способность прокладывать курс через\nварповороты и течения Имматериума. Это умение осно-\nвано на чутье не меньше, чем на знании, ведь невозмож-\nно ориентироваться в Варпе, не видя его. Такая специ-\nализация доступна лишь навигаторам из Навис Ноби-\nлите. Чтобы применять это умение необходим талант\nНаследник (Навис Нобилите) (см. стр. 113).",
-        "en": "The ability to plot a course\nthrough the uncertain eddies and currents of the\nimmaterium. A skill based on feeling as much as\nknowledge, it is impossible to accurately navigate\nthe warp without the ability to perceive it, which\nis why this skill is held exclusively by the mutant\nNavigators of the Navis Nobilite. Using this skill\nrequires the Inheritor (Navis Nobilite) Talent (see\npage 113)."
+        "ru": "способность прокладывать курс через варповороты и течения Имматериума. Это умение основано на чутье не меньше, чем на знании, ведь невозможно ориентироваться в Варпе, не видя его. Такая специализация доступна лишь навигаторам из Навис Нобилите. Чтобы применять это умение необходим талант Наследник (Навис Нобилите) (см. стр. 113).",
+        "en": "The ability to plot a course through the uncertain eddies and currents of the immaterium. A skill based on feeling as much as knowledge, it is impossible to accurately navigate the warp without the ability to perceive it, which is why this skill is held exclusively by the mutant Navigators of the Navis Nobilite. Using this skill requires the Inheritor (Navis Nobilite) Talent (see page 113)."
       },
       "parent": "SK_NAV",
       "restricted": true,
@@ -565,8 +565,8 @@
         "en": "Aeronautica"
       },
       "description": {
-        "ru": "умение водить воздушную технику – от\nтранспортных челноков до боевых самолётов. Эта\nспециализация позволяет также поднять машину на\nорбиту планеты, но не совершать сложные манёвры вне\nатмосферы.",
-        "en": "Advanced training in how to operate\nflying vehicles, from transports to combat aircraft.\nThis specialisation is sufficient for taking capable\ncraft from orbit down to a planet, but not for\nperforming complex manoeuvres outside of a\nplanet's atmosphere."
+        "ru": "умение водить воздушную технику – от транспортных челноков до боевых самолётов. Эта специализация позволяет также поднять машину на орбиту планеты, но не совершать сложные манёвры вне атмосферы.",
+        "en": "Advanced training in how to operate flying vehicles, from transports to combat aircraft. This specialisation is sufficient for taking capable craft from orbit down to a planet, but not for performing complex manoeuvres outside of a planet's atmosphere."
       },
       "parent": "SK_PILOT",
       "restricted": false,
@@ -579,8 +579,8 @@
         "en": "Civilian"
       },
       "description": {
-        "ru": "Умение водить невоенную назем-\nную технику, вроде грузовозов или личных мобилей.",
-        "en": "Advanced training in how to operate nonmilitary\nground vehicles such as cargo haulers or\npersonal transports."
+        "ru": "Умение водить невоенную наземную технику, вроде грузовозов или личных мобилей.",
+        "en": "Advanced training in how to operate nonmilitary ground vehicles such as cargo haulers or personal transports."
       },
       "parent": "SK_PILOT",
       "restricted": false,
@@ -593,8 +593,8 @@
         "en": "Military"
       },
       "description": {
-        "ru": "умение водить танки и\nдругую наземную военную технику. Обычно такому учат\nлишь наставники Астра Милитарум и лишь персонажей\nопределённого статуса.",
-        "en": "Advanced training in how\nto operate military ground vehicles, such as tanks.\nTypically, training in this specialisation is given\nby Astra Militarum instructors, to characters of\nsufficient rank."
+        "ru": "умение водить танки и другую наземную военную технику. Обычно такому учат лишь наставники Астра Милитарум и лишь персонажей определённого статуса.",
+        "en": "Advanced training in how to operate military ground vehicles, such as tanks. Typically, training in this specialisation is given by Astra Militarum instructors, to characters of sufficient rank."
       },
       "parent": "SK_PILOT",
       "restricted": true,
@@ -607,8 +607,8 @@
         "en": "Minor voidships"
       },
       "description": {
-        "ru": "Умение водить\nпустотные истребители и космические лихтеры. Обычно\nтакому учат лишь наставники Имперского Флота и лишь\nперсонажей определённого статуса.",
-        "en": "Advanced training in\noperating smaller space vessels, from void fighters to\ntransports. Typically, training in this specialisation\nis given by Imperial Navy instructors, to characters\nof sufficient rank."
+        "ru": "Умение водить пустотные истребители и космические лихтеры. Обычно такому учат лишь наставники Имперского Флота и лишь персонажей определённого статуса.",
+        "en": "Advanced training in operating smaller space vessels, from void fighters to transports. Typically, training in this specialisation is given by Imperial Navy instructors, to characters of sufficient rank."
       },
       "parent": "SK_PILOT",
       "restricted": true,
@@ -621,8 +621,8 @@
         "en": "Major voidships"
       },
       "description": {
-        "ru": "Умение управлять настоящими кораблями Имперских флотилий –\nкрейсерами, эсминцами, фрегатами и другими судами.\nОбычно такому учат лишь наставники Имперского\nВоенного Флота и лишь персонажей определённого\nстатуса.",
-        "en": "Training in how to\noperate the truly vast ships of the Imperial Fleet —\nCruisers, Destroyers, Frigates, and similar. Typically,\ntraining in this specialisation is given by Imperial\nNavy instructors, to characters of sufficient rank."
+        "ru": "Умение управлять настоящими кораблями Имперских флотилий – крейсерами, эсминцами, фрегатами и другими судами. Обычно такому учат лишь наставники Имперского Военного Флота и лишь персонажей определённого статуса.",
+        "en": "Training in how to operate the truly vast ships of the Imperial Fleet — Cruisers, Destroyers, Frigates, and similar. Typically, training in this specialisation is given by Imperial Navy instructors, to characters of sufficient rank."
       },
       "parent": "SK_PILOT",
       "restricted": true,
@@ -635,8 +635,8 @@
         "en": "Interrogation"
       },
       "description": {
-        "ru": "Умение применять множество методов получать\nответы. Умелый дознаватель может оказывать давление\nсамыми разными приёмами – скрытными и явными –\nчтобы вытянуть сведения из допрашиваемого, даже если\nтот готов сотрудничать. Речь не о пытках, хотя долгий\nдопрос может быть очень выматывающим. Броскам\nдознавателя цель противопоставляет Дисциплину\n(Самообладание) или Стойкость (Боль).",
-        "en": "Aptitude in a variety of techniques\ndesigned to elicit answers out of a subject. A skilled\ninterrogator implies pressure in many ways, subtle\nand not, in order to discover as much information\nas they can, even when a subject is cooperative.\nInterrogation is not physical torture, though\nundergoing a long interrogation may certainly feel\nagonising. Interrogation is opposed by the target's\nDiscipline (Composure) or Endurance (Pain)."
+        "ru": "Умение применять множество методов получать ответы. Умелый дознаватель может оказывать давление самыми разными приёмами – скрытными и явными – чтобы вытянуть сведения из допрашиваемого, даже если тот готов сотрудничать. Речь не о пытках, хотя долгий допрос может быть очень выматывающим. Броскам дознавателя цель противопоставляет Дисциплину (Самообладание) или Стойкость (Боль).",
+        "en": "Aptitude in a variety of techniques designed to elicit answers out of a subject. A skilled interrogator implies pressure in many ways, subtle and not, in order to discover as much information as they can, even when a subject is cooperative. Interrogation is not physical torture, though undergoing a long interrogation may certainly feel agonising. Interrogation is opposed by the target's Discipline (Composure) or Endurance (Pain)."
       },
       "parent": "SK_PRES",
       "restricted": false,
@@ -649,8 +649,8 @@
         "en": "Intimidation"
       },
       "description": {
-        "ru": "Умение применять завуалированные или\nнедвусмысленные угрозы (физической расправой или\nиными ужасными карами), чтобы заставить цель сделать\nили рассказать что-либо. Жертва противостоит\nзапугиванию при помощи Дисциплины\n(Самообладание). Если одна сторона такого разговора\nпревосходит другую размером (см. стр. 201), то она\nполучает преимущество в проверке.",
-        "en": "Applying pressure through threats,\nsubtle or blatant, that physical chastisement and\nother dire fates await those that fail to do as they are\ntold or confess all they know. Intimidation is often\nopposed by Discipline (Composure). If one party is\nof a larger Size (page 201) than the other, the larger\ncreature gains Advantage on this Test."
+        "ru": "Умение применять завуалированные или недвусмысленные угрозы (физической расправой или иными ужасными карами), чтобы заставить цель сделать или рассказать что-либо. Жертва противостоит запугиванию при помощи Дисциплины (Самообладание). Если одна сторона такого разговора превосходит другую размером (см. стр. 201), то она получает преимущество в проверке.",
+        "en": "Applying pressure through threats, subtle or blatant, that physical chastisement and other dire fates await those that fail to do as they are told or confess all they know. Intimidation is often opposed by Discipline (Composure). If one party is of a larger Size (page 201) than the other, the larger creature gains Advantage on this Test."
       },
       "parent": "SK_PRES",
       "restricted": false,
@@ -663,8 +663,8 @@
         "en": "Leadership"
       },
       "description": {
-        "ru": "Подготовка, позволяющая добиваться от\nподчинённых работы с полной отдачей. Его можно\nприменять, чтобы убедить горстку клерков закончить\nдлинный отчёт в нужный срок или вселить в отряд\nотчаявшихся солдат отвагу и повести на штурм\nукреплений.",
-        "en": "Trained to inspire others to put in their\nbest efforts to achieve a desired goal. This can range\nanywhere from motivating a few clerks to finish\na long survey in record time, to giving a group of\ndesperate soldiers the courage to charge a fortified\nenemy bunker."
+        "ru": "Подготовка, позволяющая добиваться от подчинённых работы с полной отдачей. Его можно применять, чтобы убедить горстку клерков закончить длинный отчёт в нужный срок или вселить в отряд отчаявшихся солдат отвагу и повести на штурм укреплений.",
+        "en": "Trained to inspire others to put in their best efforts to achieve a desired goal. This can range anywhere from motivating a few clerks to finish a long survey in record time, to giving a group of desperate soldiers the courage to charge a fortified enemy bunker."
       },
       "parent": "SK_PRES",
       "restricted": false,
@@ -677,8 +677,8 @@
         "en": "Long guns"
       },
       "description": {
-        "ru": "Обширная подготовка по применению\nлазганов, дробовиков, автоганов, мельт и тому подоб-\nного оружия.",
-        "en": "Extensive training in the use of\nlonger firearms, such as lasguns, shotguns, bolters,\nautoguns, meltaguns, and similar ranged weapons."
+        "ru": "Обширная подготовка по применению лазганов, дробовиков, автоганов, мельт и тому подобного оружия.",
+        "en": "Extensive training in the use of longer firearms, such as lasguns, shotguns, bolters, autoguns, meltaguns, and similar ranged weapons."
       },
       "parent": "SK_RNG",
       "restricted": false,
@@ -691,8 +691,8 @@
         "en": "Ordnance"
       },
       "description": {
-        "ru": "Обширная подготовка по применению\nтяжёлого оружия – лазпушек, тяжёлых болтеров, ракет-\nных установок и других средств нести смерть и разруше-\nние.",
-        "en": "Extensive training in the use of heavier\nranged weaponry, such as lascannons, heavy bolters,\nmissile launchers, and similarly devastating means\nof causing death and destruction."
+        "ru": "Обширная подготовка по применению тяжёлого оружия – лазпушек, тяжёлых болтеров, ракетных установок и других средств нести смерть и разрушение.",
+        "en": "Extensive training in the use of heavier ranged weaponry, such as lascannons, heavy bolters, missile launchers, and similarly devastating means of causing death and destruction."
       },
       "parent": "SK_RNG",
       "restricted": false,
@@ -705,8 +705,8 @@
         "en": "Pistols"
       },
       "description": {
-        "ru": "Обширная подготовка по применению лаз-\nпистолетов, болт-пистолетов, стаб-револьверов, авто-\nпистолетов и им подобного оружия.",
-        "en": "Extensive training in the use of handguns,\nsuch as laspistols, bolt pistols, autopistols, stub\nrevolvers, and similar firearms."
+        "ru": "Обширная подготовка по применению лазпистолетов, болт-пистолетов, стаб-револьверов, автопистолетов и им подобного оружия.",
+        "en": "Extensive training in the use of handguns, such as laspistols, bolt pistols, autopistols, stub revolvers, and similar firearms."
       },
       "parent": "SK_RNG",
       "restricted": false,
@@ -719,8 +719,8 @@
         "en": "Throwing"
       },
       "description": {
-        "ru": "Обширная подготовка по приме-\nнению гранат, метательных ножей и им подобного\nоружия.",
-        "en": "Extensive training in the use of hurled\nweapons, such as grenades and throwing knives."
+        "ru": "Обширная подготовка по применению гранат, метательных ножей и им подобного оружия.",
+        "en": "Extensive training in the use of hurled weapons, such as grenades and throwing knives."
       },
       "parent": "SK_RNG",
       "restricted": false,
@@ -733,8 +733,8 @@
         "en": "Animals"
       },
       "description": {
-        "ru": "Персонаж хорошо ладит с животными и\nумеет о них заботиться. Это полезно, когда имеешь дело\nсо сторожевыми канидами – например, их можно\nзаставить прекратить лаять или отдать другую команду.",
-        "en": "Aptitude for gaining the friendship and\naffection of simple beasts, along with the knowledge\nof how to care for them. Useful for interacting\nwith guardian canids to, for example, issue one a\ncommand, or get a hostile one to stop barking."
+        "ru": "Персонаж хорошо ладит с животными и умеет о них заботиться. Это полезно, когда имеешь дело со сторожевыми канидами – например, их можно заставить прекратить лаять или отдать другую команду.",
+        "en": "Aptitude for gaining the friendship and affection of simple beasts, along with the knowledge of how to care for them. Useful for interacting with guardian canids to, for example, issue one a command, or get a hostile one to stop barking."
       },
       "parent": "SK_RAP",
       "restricted": false,
@@ -747,8 +747,8 @@
         "en": "Charm"
       },
       "description": {
-        "ru": "персонаж умеет быть очень приятным\nсобеседником, что помогает ему просить новых друзей\nоб одолжениях. Как правило, этому умению\nпротивостоит Дисциплина (Самообладание).",
-        "en": "Skilled at being exceedingly agreeable and\npleasant company, leading to increased ability to\nmake ‘reasonable’ requests of one’s new friends.\nCharm is often opposed by Discipline (Composure)."
+        "ru": "персонаж умеет быть очень приятным собеседником, что помогает ему просить новых друзей об одолжениях. Как правило, этому умению противостоит Дисциплина (Самообладание).",
+        "en": "Skilled at being exceedingly agreeable and pleasant company, leading to increased ability to make ‘reasonable’ requests of one’s new friends. Charm is often opposed by Discipline (Composure)."
       },
       "parent": "SK_RAP",
       "restricted": false,
@@ -761,8 +761,8 @@
         "en": "Deception"
       },
       "description": {
-        "ru": "Персонаж много практиковался врать или\nспециально учился этому. Как правило, этому умению\nпротивостоит Чутьё.",
-        "en": "Well-practised, or specifically trained,\nto deceive without flinching. Deception is often\nopposed by Intuition."
+        "ru": "Персонаж много практиковался врать или специально учился этому. Как правило, этому умению противостоит Чутьё.",
+        "en": "Well-practised, or specifically trained, to deceive without flinching. Deception is often opposed by Intuition."
       },
       "parent": "SK_RAP",
       "restricted": false,
@@ -775,8 +775,8 @@
         "en": "Haggle"
       },
       "description": {
-        "ru": "Мастер древнего искусства торга всегда заключит\nлучшую сделку. Как правило, этому умению\nпротивостоит Дисциплина (Самообладание) или Логика\n(Оценка).",
-        "en": "Versed in the ancient art of bargaining for\nthe best deal. Haggle is often opposed by either\nDiscipline (Composure) or Logic (Evaluation)."
+        "ru": "Мастер древнего искусства торга всегда заключит лучшую сделку. Как правило, этому умению противостоит Дисциплина (Самообладание) или Логика (Оценка).",
+        "en": "Versed in the ancient art of bargaining for the best deal. Haggle is often opposed by either Discipline (Composure) or Logic (Evaluation)."
       },
       "parent": "SK_RAP",
       "restricted": false,
@@ -789,8 +789,8 @@
         "en": "Inquiry"
       },
       "description": {
-        "ru": "Природный навык или подготовка поз-\nволяют персонажу выуживать нужные данные из спле-\nтен и дружеских разговоров, а также задавать верные\nвопросы. Как правило, этому умению противостоит\nДисциплина (Самообладание) или Выдержка\n(Запугивание).",
-        "en": "Trained, or naturally skilled, at getting\nanswers out of others via gossip, friendly\nconversation, or pointed questions. Inquiry can\nbe opposed by either Discipline (Composure) or\nPresence (Intimidation)."
+        "ru": "Природный навык или подготовка позволяют персонажу выуживать нужные данные из сплетен и дружеских разговоров, а также задавать верные вопросы. Как правило, этому умению противостоит Дисциплина (Самообладание) или Выдержка (Запугивание).",
+        "en": "Trained, or naturally skilled, at getting answers out of others via gossip, friendly conversation, or pointed questions. Inquiry can be opposed by either Discipline (Composure) or Presence (Intimidation)."
       },
       "parent": "SK_RAP",
       "restricted": false,
@@ -803,8 +803,8 @@
         "en": "Acrobatics"
       },
       "description": {
-        "ru": "Гимнастическая подготовка, что позволяет\nизящно прыгать, перекатываться и кувыркаться. Её\nможно использовать, чотбы стремительно преодолевать\nпересечённую местность.",
-        "en": "Training in gymnastic exercises, with\nincreased capacity for gracefully jumping, rolling,\nand tumbling. Can be used to swiftly traverse\notherwise difficult terrain."
+        "ru": "Гимнастическая подготовка, что позволяет изящно прыгать, перекатываться и кувыркаться. Её можно использовать, чотбы стремительно преодолевать пересечённую местность.",
+        "en": "Training in gymnastic exercises, with increased capacity for gracefully jumping, rolling, and tumbling. Can be used to swiftly traverse otherwise difficult terrain."
       },
       "parent": "SK_RFL",
       "restricted": false,
@@ -817,8 +817,8 @@
         "en": "Balance"
       },
       "description": {
-        "ru": "Умение всегда держаться на ногах, будь под\nними неровная земля, лужа скользкого масла или\nковарная тропинка.",
-        "en": "Practice in keeping on one’s feet, despite\nuncertain ground, pools of slippery unguents, or\ntreacherous walkways."
+        "ru": "Умение всегда держаться на ногах, будь под ними неровная земля, лужа скользкого масла или коварная тропинка.",
+        "en": "Practice in keeping on one’s feet, despite uncertain ground, pools of slippery unguents, or treacherous walkways."
       },
       "parent": "SK_RFL",
       "restricted": false,
@@ -831,8 +831,8 @@
         "en": "Dodge"
       },
       "description": {
-        "ru": "Умение избегать ранений и несчастных\nслучаев, уворачиваясь от опасностей. Эту специализа-\nцию можно применять, чтобы защищаться от стрелко-\nвых атак и атак в ближнем бою. Конечно, неаугменти-\nрованный человек не сумеет ускользнуть от пули, но\nможет быстро убраться с линии огня.",
-        "en": "Capacity for avoiding injury or accident\nthrough quick movements designed to sidestep\nthe danger. Can be used to defend yourself in\ncombat against melee and ranged attacks. While the\nunaugmented cannot directly dodge bullets, they\ncan avoid being shot by swiftly removing themselves\nfrom the line of fire."
+        "ru": "Умение избегать ранений и несчастных случаев, уворачиваясь от опасностей. Эту специализацию можно применять, чтобы защищаться от стрелковых атак и атак в ближнем бою. Конечно, неаугментированный человек не сумеет ускользнуть от пули, но может быстро убраться с линии огня.",
+        "en": "Capacity for avoiding injury or accident through quick movements designed to sidestep the danger. Can be used to defend yourself in combat against melee and ranged attacks. While the unaugmented cannot directly dodge bullets, they can avoid being shot by swiftly removing themselves from the line of fire."
       },
       "parent": "SK_RFL",
       "restricted": false,
@@ -845,8 +845,8 @@
         "en": "Conceal"
       },
       "description": {
-        "ru": "Умение маскировать места и предметы так,\nчтобы их никто не нашёл. Обычно применяется против\nБдительности (Зрение) или Чутья (Окружение).",
-        "en": "Aptitude for knowing how to obscure\nplaces and objects so that others cannot easily find\nthem. Conceal is often opposed by either Awareness\n(Sight) or Intuition (Surroundings)."
+        "ru": "Умение маскировать места и предметы так, чтобы их никто не нашёл. Обычно применяется против Бдительности (Зрение) или Чутья (Окружение).",
+        "en": "Aptitude for knowing how to obscure places and objects so that others cannot easily find them. Conceal is often opposed by either Awareness (Sight) or Intuition (Surroundings)."
       },
       "parent": "SK_STL",
       "restricted": false,
@@ -859,8 +859,8 @@
         "en": "Hide"
       },
       "description": {
-        "ru": "Способность оставаться невидимым\nили незаметным для других – прячась в ксенорастениях\nили смешиваясь с толпой. Обычно применяется против\nБдительности (Зрение).",
-        "en": "Competence at becoming unseen or\nunremarked by others, such as when camouflaged\namidst xenofoliage or tailing someone through a\ncrowd. Hide is usually opposed by an observor's\nAwareness (Sight)."
+        "ru": "Способность оставаться невидимым или незаметным для других – прячась в ксенорастениях или смешиваясь с толпой. Обычно применяется против Бдительности (Зрение).",
+        "en": "Competence at becoming unseen or unremarked by others, such as when camouflaged amidst xenofoliage or tailing someone through a crowd. Hide is usually opposed by an observor's Awareness (Sight)."
       },
       "parent": "SK_STL",
       "restricted": false,
@@ -873,8 +873,8 @@
         "en": "Move silently"
       },
       "description": {
-        "ru": "Персонаж учился двигаться, не\nиздавая шума и не привлекая внимания. Обычно\nприменяется против Бдительности (Слух).",
-        "en": "Trained facility for moving\nsoundlessly and avoiding drawing attention. Move\nSilently is usually opposed by Awareness (Hearing)."
+        "ru": "Персонаж учился двигаться, не издавая шума и не привлекая внимания. Обычно применяется против Бдительности (Слух).",
+        "en": "Trained facility for moving soundlessly and avoiding drawing attention. Move Silently is usually opposed by Awareness (Hearing)."
       },
       "parent": "SK_STL",
       "restricted": false,
@@ -887,8 +887,8 @@
         "en": "Augmetics"
       },
       "description": {
-        "ru": "Умение применять и чинить разные\nтипы имплантатов. Зачастую аугметика – это механи-\nческие и электрические протезы, что заменяют части\nтела, иногда превосходя органические «оригиналы», а\nиногда открывая совершенно новые возможности. Что-\nбы приобрести эту специализацию, персонаж должен\nиметь хотя бы одно улучшение Медики.",
-        "en": "Studied in the use and\nrepair of different types of augmetic devices. Most\naugmetics are mechanical or electrical augmetic\nsubstitutes for Human biological parts, many with\nenhanced capacities, though some offer entirely new\ncapabilities. Augmetics requires at least 1 Advance\nin the Medicae Skill."
+        "ru": "Умение применять и чинить разные типы имплантатов. Зачастую аугметика – это механические и электрические протезы, что заменяют части тела, иногда превосходя органические «оригиналы», а иногда открывая совершенно новые возможности. Чтобы приобрести эту специализацию, персонаж должен иметь хотя бы одно улучшение Медики.",
+        "en": "Studied in the use and repair of different types of augmetic devices. Most augmetics are mechanical or electrical augmetic substitutes for Human biological parts, many with enhanced capacities, though some offer entirely new capabilities. Augmetics requires at least 1 Advance in the Medicae Skill."
       },
       "parent": "SK_TECH",
       "restricted": true,
@@ -901,8 +901,8 @@
         "en": "Engineering"
       },
       "description": {
-        "ru": "Знания о конструкции, применении и\nремонте технологических и механических устройств. Эта\nспециализация позволяет и конструировать такие пред-\nметы, а также оружие и взрывчатку. В Империуме Адеп-\nтус Механикус считают эту область знания исключитель-\nно своей епархией и карают самоучек. Помните, впро-\nчем, что для того, чтобы собрать или починить устрой-\nство, пользуясь заученными ритуалами, эта специализа-\nция не требуется.",
-        "en": "Knowledge of the construction, use,\nand restoration of technological and mechanical\ndevices. Encompasses the crafting of such items,\nas well as weapons and explosives. Within the\nImperium, the Adeptus Mechanicus considers this\nentire branch of knowledge to be their exclusive\nright and will punish those who use it, or even study\nit, without their sanction. Notably, an individual\nthat knows only how to assemble or repair a device\nby rote need not have this Specialisation."
+        "ru": "Знания о конструкции, применении и ремонте технологических и механических устройств. Эта специализация позволяет и конструировать такие предметы, а также оружие и взрывчатку. В Империуме Адептус Механикус считают эту область знания исключительно своей епархией и карают самоучек. Помните, впрочем, что для того, чтобы собрать или починить устройство, пользуясь заученными ритуалами, эта специализация не требуется.",
+        "en": "Knowledge of the construction, use, and restoration of technological and mechanical devices. Encompasses the crafting of such items, as well as weapons and explosives. Within the Imperium, the Adeptus Mechanicus considers this entire branch of knowledge to be their exclusive right and will punish those who use it, or even study it, without their sanction. Notably, an individual that knows only how to assemble or repair a device by rote need not have this Specialisation."
       },
       "parent": "SK_TECH",
       "restricted": false,
@@ -915,8 +915,8 @@
         "en": "Security"
       },
       "description": {
-        "ru": "Умение общаться с машинными духами,\nчто управляют системами доступа, дверьми, терморегу-\nляторами, орудиями и тому подобными устройствами, и\nприказывать им, искусно применяя древний и современ-\nный двоичный код, а также всевозможные способы\nизвлечения сведения из защищённых инфохранилищ.\nМало кто за пределами Адептус Механикус владеет\nтаким искусством.",
-        "en": "Knowledge of how to interact with the\nMachine Spirits that control security devices, along\nwith whatever other systems have been linked to the\nsame, such as doors, thermo-regulators, weapons\nsystems, and so forth, in order to direct them in\nspecific ways. Accomplished through the use of\nbinary codes, modern and ancient, along with\nvarious techniques used to sift information from\ndatavaults, secured or otherwise. A Specialisation\nknown to few outside the Adeptus Mechanicus."
+        "ru": "Умение общаться с машинными духами, что управляют системами доступа, дверьми, терморегуляторами, орудиями и тому подобными устройствами, и приказывать им, искусно применяя древний и современный двоичный код, а также всевозможные способы извлечения сведения из защищённых инфохранилищ. Мало кто за пределами Адептус Механикус владеет таким искусством.",
+        "en": "Knowledge of how to interact with the Machine Spirits that control security devices, along with whatever other systems have been linked to the same, such as doors, thermo-regulators, weapons systems, and so forth, in order to direct them in specific ways. Accomplished through the use of binary codes, modern and ancient, along with various techniques used to sift information from datavaults, secured or otherwise. A Specialisation known to few outside the Adeptus Mechanicus."
       },
       "parent": "SK_TECH",
       "restricted": false,
