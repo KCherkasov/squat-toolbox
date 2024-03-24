@@ -10,3 +10,4 @@ admin.site.register(models.CreationData)
 admin.site.register(models.Season)
 
 admin.site.register(models.CharacterGroup)
+admin.site.register(models.Purse)
