@@ -1886,7 +1886,11 @@ def group_delete(request, group_id):
 def group_gain_influence(request, group: models.CharacterGroup):
     form = InfluenceControlsForm(request.POST)
     if form.is_valid():
-        group.group_ifl += int(form.cleaned_data.get('amount'))
+        amount = int(form.cleaned_data.get('amount'))
+        if group.purse:
+            group.purse.cash += amount
+        else:
+            group.group_ifl += amount
         group.save()
     return HttpResponseRedirect(reverse('group', kwargs={'group_id': group.name_id}))
 
@@ -1895,7 +1899,11 @@ def group_gain_influence(request, group: models.CharacterGroup):
 def group_loose_influence(request, group: models.CharacterGroup):
     form = InfluenceControlsForm(request.POST)
     if form.is_valid():
-        group.group_ifl -= int(form.cleaned_data.get('amount'))
+        amount = int(form.cleaned_data.get('amount'))
+        if group.purse:
+            group.purse.cash -= amount
+        else:
+            group.group_ifl -= amount
         group.save()
     return HttpResponseRedirect(reverse('group', kwargs={'group_id': group.name_id}))
 
