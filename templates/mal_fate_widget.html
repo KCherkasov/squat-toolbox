@@ -2,9 +2,9 @@
 <div class="card card-body" id="c{{ character.id }}-fate-{{ lang }}">
     <div class="charlist-inline align-content-center">
         <header class="pe-3">
-            <b>
+            <h5>
                 {% if lang == 'ru' %}Очки Судьбы{% else %}Fate points{% endif %}:
-            </b>
+            </h5>
         </header>
         {% if hookups %}
         {% if hookups|get_by_dict_key:'FP' %}
@@ -41,7 +41,7 @@
     {% endfor %}
     <form class="form-horizontal" action="" method="post">
         {% csrf_token %}
-        <div class="charlist-inline ps-3">
+        <div class="charlist-inline">
             <button class="btn btn-success {% if character.fate_current == 0 or is_test %}disabled{% endif %}" name="spend-fate" type="submit">
                 {% if lang == 'ru' %}Потратить{% else %}Spend{% endif %}
             </button>
