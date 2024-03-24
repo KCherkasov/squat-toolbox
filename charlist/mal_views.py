@@ -31,6 +31,10 @@ def mal_character_mock_view(request):
     for skill_tag in SKILL_TAGS:
         specs = dict()
         skills[skill_tag] = MalSkill(skill_tag, int(rnd.randrange(IM_ZERO, IM_SKILL_ADV_CAP)), specs)
+    for spec_tag, descr in mal_flyweights.specialization_descriptions().items():
+        spec = MalSpecialization(spec_tag, int(rnd.randrange(IM_ZERO, IM_SKILL_ADV_CAP)))
+        if spec.advances() > IM_ZERO:
+            skills.get(descr.parent).gain_specialization(spec)
     wounds = (stats.get(ST_STRENGTH).bonus() + stats.get(ST_TOUGHNESS).bonus()
               + stats.get(ST_TOUGHNESS).bonus() + stats.get(ST_WILLPOWER).bonus())
     character_model = MalCharacterModel(IM_ZERO, "Test Maledictum Character", [100, 0], [3, 3],

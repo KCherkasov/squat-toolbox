@@ -89,6 +89,55 @@
                             </td>
                             {% endwith %}
                         </tr>
+                        {% for spec_tag, spec in skill.specializations.items %}
+                            {% if forloop.first %}
+                                <tr>
+                                    <td scope="row" colspan="5">
+                                        <a data-bs-toggle="collapse" role="button" aria-expanded="false"
+                                           aria-controls="c{{ character.id }}-{{ skill_tag }}-specs-{{ lang }}"
+                                           href="#c{{ character.id }}-{{ skill_tag }}-specs-{{ lang }}">
+                                            <i>{% if lang == 'ru' %}Специализации{% else %}Specializations{% endif %}</i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="collapse" id="c{{ character.id }}-{{ skill_tag }}-specs-{{ lang }}">
+                                    <td colspan="5">
+                                        <table class="table align-middle text-center">
+                                            <thead>
+                                                <th scope="col">{% if lang == 'ru' %}Название{% else %}Name{% endif %}</th>
+                                                <th scope="col">{% if lang == 'ru' %}Навык{% else %}Skill{% endif %}</th>
+                                                <th scope="col">{% if lang == 'ru' %}Улучш.{% else %}Adv.{% endif %}</th>
+                                                <th scope="col">{% if lang == 'ru' %}Итого{% else %}Total{% endif %}</th>
+                                            </thead>
+                                            <tbody>
+                            {% endif %}
+                                                <tr>
+                                                    {% with facade.skill_descriptions|get_by_dict_key:skill_tag as skill_descr %}
+                                                    <th scope="row">
+                                                        {% if spec.is_custom %}
+                                                            {{ spec_tag }}
+                                                        {% else %}
+                                                            {% with facade.skill_specializations|get_by_dict_key:spec_tag as spec_descr %}
+                                                                {% if lang == 'ru' %}
+                                                                    {{ spec_descr.get_name_ru }}
+                                                                {% else %}
+                                                                    {{ spec_descr.get_name_en }}
+                                                                {% endif %}
+                                                            {% endwith %}
+                                                        {% endif %}
+                                                    </th>
+                                                    <td>{% get_skill_diff character skill_tag skill_descr.stat %}</td>
+                                                    <td>{{ spec.adv_bonus }}</td>
+                                                    <td>{% get_subskill_diff character skill_tag spec_tag skill_descr.stat %}</td>
+                                                    {% endwith %}
+                                                </tr>
+                            {% if forloop.last %}
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
             {% if forloop.counter|divisibleby:10 or forloop.last %}
                     </tbody>
                 </table>
