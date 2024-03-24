@@ -21,18 +21,18 @@
                             <th scope="row">
                                 <i>
                                     {% if lang == 'ru' %}
-                                        {{ skill_descr.get_short_name_ru }}
+                                        {{ skill_descr.get_name_ru }}
                                     {% else %}
-                                        {{ skill_descr.get_short_name_en }}
+                                        {{ skill_descr.get_name_en }}
                                     {% endif %}
                                 </i>
                             </th>
                             <td>
                                 {% with facade.stat_descriptions|get_by_dict_key:skill_descr.stat as stat %}
                                 {% if lang == 'ru' %}
-                                    {{ stat.get_name_ru }}
+                                    {{ stat.get_short_name_ru }}
                                 {% else %}
-                                    {{ stat.get_name_en }}
+                                    {{ stat.get_short_name_en }}
                                 {% endif %}
                                 {% endwith %}
                             </td>
