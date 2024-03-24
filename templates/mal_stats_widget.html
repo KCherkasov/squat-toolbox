@@ -11,15 +11,15 @@
             <thead>
                 <th></th>
                 {% for stat_key in facade.stat_tags %}
+                    {% with facade.stat_descriptions|get_by_dict_key:stat_key as stat %}
                     <th scope="col" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-html="true" title="{% if lang == 'ru'%}<strong>{{ stat.get_name_ru }}</strong><br><hr><br><p>{{ stat.get_description_ru }}</p>{% else %}<strong>{{ stat.get_name_en }}</strong><br><hr><br><p>{{ stat.get_description_en }}</p>{% endif %}">
-                        {% with facade.stat_descriptions|get_by_dict_key:stat_key as stat %}
-                            {% if lang == 'ru' %}
-                                {{ stat.get_short_name_ru }}
-                            {% else %}
-                                {{ stat.get_short_name_en }}
-                            {% endif %}
-                        {% endwith %}
+                        {% if lang == 'ru' %}
+                            {{ stat.get_short_name_ru }}
+                        {% else %}
+                            {{ stat.get_short_name_en }}
+                        {% endif %}
                     </th>
+                    {% endwith %}
                 {% endfor %}
             </thead>
             <tbody>
