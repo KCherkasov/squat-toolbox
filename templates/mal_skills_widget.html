@@ -110,7 +110,7 @@
                 <tbody>
                     {% for skill_tag, skill in character.skills.items %}
                         {% with facade.skill_descriptions|get_by_dict_key:skill_tag as skill_descr %}
-                        {% for spec_tag, spec in skill.specializations %}
+                        {% for spec_tag, spec in skill.specializations.items %}
                             <tr>
                                 <th scope="row">
                                     {% if spec.is_custom %}
