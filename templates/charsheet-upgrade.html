@@ -45,16 +45,16 @@ Character sheet interactive mockup
                     {% include 'xp_widget.html' %}
                 </header>
                 <div class="card card-body charlist-inline justify-content-center">
-                    <div class="card alert-success p-2 me-2">
+                    <div class="card text-bg-success p-2 me-2">
                         <b class="text-dark">2&nbsp;{% if lang == 'ru' %} совпадающих склонности{% else %}matching aptitudes{% endif %}</b>
                     </div>
-                    <div class="card alert-warning p-2 me-2">
+                    <div class="card text-bg-warning p-2 me-2">
                         <b class="text-dark">1&nbsp;{% if lang == 'ru' %} совпадающая склонность{% else %}matching aptitudes{% endif %}</b>
                     </div>
-                    <div class="card alert-danger p-2">
+                    <div class="card text-bg-danger p-2">
                         <b class="text-dark">{% if lang == 'ru' %}нет совпадающих склонностей{% else %}no matching aptitudes{% endif %}</b>
                     </div>
-                    <div class="card alert-secondary p-2">
+                    <div class="card text-bg-secondary p-2">
                         <b class="text-dark">{% if lang == 'ru' %}не хватает опыта {% else %}not enough XP {% endif %}</b>
                     </div>
                 </div>
