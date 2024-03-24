@@ -67,8 +67,8 @@
         "en": "Intuition"
       },
       "description": {
-        "ru": "Intuition is the skill used when noting that something seems amiss with a person or place. It is used for reading social cues and body language, as well as noticing when the arrangement or the feel of a location is somehow wrong. Those trained at recognising when something is off can use the errant subtleties to discern something of what is actually going on. This skill covers detecting body language or similar patterns of behaviour. Examples include recognising social missteps or noting when the ceremonial murals have been hung incorrectly.",
-        "en": "Чутьё применяется, когда с собеседником или местом, в котором находится персонаж, что-то не так. Оно помогает читать социальные сигналы, воспринимать язык тела и замечать отклонения от нормальности. Люди с развитым Чутьём могут улавливать это и делать выводы. Например, персонаж может осознать допущенные этикетные промашки или заметить, что фрески установлены в неверном порядке."
+        "ru": "Чутьё применяется, когда с собеседником или местом, в котором находится персонаж, что-то не так. Оно помогает читать социальные сигналы, воспринимать язык тела и замечать отклонения от нормальности. Люди с развитым Чутьём могут улавливать это и делать выводы. Например, персонаж может осознать допущенные этикетные промашки или заметить, что фрески установлены в неверном порядке.",
+        "en": "Intuition is the skill used when noting that something seems amiss with a person or place. It is used for reading social cues and body language, as well as noticing when the arrangement or the feel of a location is somehow wrong. Those trained at recognising when something is off can use the errant subtleties to discern something of what is actually going on. This skill covers detecting body language or similar patterns of behaviour. Examples include recognising social missteps or noting when the ceremonial murals have been hung incorrectly."
       },
       "stat": "ST_PER"
     },
