@@ -27,7 +27,7 @@ def mal_character_mock_view(request):
     rnd = Random(datetime.datetime.now())
     for stat_id in STAT_TAGS_GEN:
         stats[stat_id] = MalStat(stat_id, IM_BASE_STAT + int(rnd.randrange(IM_ONE, IM_D10))
-                                 + int(rnd.randrange(IM_ONE, IM_D10)), IM_ZERO)
+                                 + int(rnd.randrange(IM_ONE, IM_D10)), int(rnd.randrange(IM_ZERO, IM_D10)))
     skills = dict()
     character_model = MalCharacterModel(IM_ZERO, "Test Maledictum Character", [100, 0], [3, 3],
                                         [10, 10], stats, skills)
