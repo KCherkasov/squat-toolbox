@@ -149,6 +149,7 @@ class CharacterGroup(models.Model):
     is_mal = models.BooleanField(default=False)
     group_ifl = models.PositiveIntegerField(default=25)
     sessions_count = models.PositiveIntegerField(default=0)
+    purse = models.ForeignKey(Purse, null=True, blank=True, on_delete=models.CASCADE)
 
     objects = CharacterGroupManager()
 
