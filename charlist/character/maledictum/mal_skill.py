@@ -30,6 +30,9 @@ class MalSkill(object):
     def advances(self):
         return self.__advances * IM_ADVANCE_STEP
 
+    def is_upgradeable(self):
+        return self.__advances < IM_SKILL_ADV_CAP
+
     def upgrade(self):
         self.__advances += IM_ONE
 

@@ -28,6 +28,9 @@ def mal_character_mock_view(request):
         stats[stat_id] = MalStat(stat_id, IM_BASE_STAT + int(rnd.randrange(IM_ONE, IM_D10))
                                  + int(rnd.randrange(IM_ONE, IM_D10)), int(rnd.randrange(IM_ZERO, IM_D10)))
     skills = dict()
+    for skill_tag in SKILL_TAGS:
+        specs = dict()
+        skills[skill_tag] = MalSkill(skill_tag, int(rnd.randrange(IM_ZERO, IM_SKILL_ADV_CAP)), specs)
     wounds = (stats.get(ST_STRENGTH).bonus() + stats.get(ST_TOUGHNESS).bonus()
               + stats.get(ST_TOUGHNESS).bonus() + stats.get(ST_WILLPOWER).bonus())
     character_model = MalCharacterModel(IM_ZERO, "Test Maledictum Character", [100, 0], [3, 3],
