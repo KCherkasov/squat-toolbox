@@ -14,7 +14,7 @@
                     {% with facade.stat_descriptions|get_by_dict_key:stat_key as stat %}
                     <th scope="col">
                         <a href="" class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
-                           data-bs-target="#c{{ character.id }}-{{ stat.tag }}-{{ lang }}-info" title="Подробнее">
+                           data-bs-target="#c{{ character.id }}-{{ stat.get_tag }}-{{ lang }}-info" title="Подробнее">
                         {% if lang == 'ru' %}
                             {{ stat.get_short_name_ru }}
                         {% else %}
@@ -22,13 +22,13 @@
                         {% endif %}
                         </a>
                     </th>
-                    <div class="modal fade" id="c{{ character.id }}-{{ stat.tag }}-{{ lang }}-info" tabindex="-1"
-                         aria-labelledby="c{{ character.id }}-{{ stat.tag }}-{{ lang }}-info-label">
+                    <div class="modal fade" id="c{{ character.id }}-{{ stat.get_tag }}-{{ lang }}-info" tabindex="-1"
+                         aria-labelledby="c{{ character.id }}-{{ stat.get_tag }}-{{ lang }}-info-label">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5  class="modal-title text-center"
-                                         id="c{{ character.id }}-{{ stat.tag }}-{{ lang }}-info-label">
+                                         id="c{{ character.id }}-{{ stat.get_tag }}-{{ lang }}-info-label">
                                         <strong>
                                             {% if lang == 'ru' %}
                                                 {{ stat.get_name_ru }}
