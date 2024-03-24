@@ -117,7 +117,7 @@
                                                         {% if spec.is_custom %}
                                                             {{ spec_tag }}
                                                         {% else %}
-                                                            {% with facade.skill_specializations|get_by_dict_key:spec_tag as spec_descr %}
+                                                            {% with facade.specialization_descriptions|get_by_dict_key:spec_tag as spec_descr %}
                                                                 {% if lang == 'ru' %}
                                                                     {{ spec_descr.get_name_ru }}
                                                                 {% else %}
