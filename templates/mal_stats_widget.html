@@ -12,13 +12,41 @@
                 <th></th>
                 {% for stat_key in facade.stat_tags %}
                     {% with facade.stat_descriptions|get_by_dict_key:stat_key as stat %}
-                    <th scope="col" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-html="true" title="{% if lang == 'ru'%}<strong>{{ stat.get_name_ru }}</strong><br><hr><br><p>{{ stat.get_description_ru }}</p>{% else %}<strong>{{ stat.get_name_en }}</strong><br><hr><br><p>{{ stat.get_description_en }}</p>{% endif %}">
+                    <th scope="col">
+                        <a href="" class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
+                           data-bs-target="#c{{ character.id }}-{{ stat.tag }}-{{ lang }}-info" title="Подробнее">
                         {% if lang == 'ru' %}
                             {{ stat.get_short_name_ru }}
                         {% else %}
                             {{ stat.get_short_name_en }}
                         {% endif %}
+                        </a>
                     </th>
+                    <div class="modal fade" id="c{{ character.id }}-{{ stat.tag }}-{{ lang }}-info" tabindex="-1"
+                         aria-labelledby="c{{ character.id }}-{{ stat.tag }}-{{ lang }}-info-label">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <strong id="c{{ character.id }}-{{ stat.tag }}-{{ lang }}-info-label">
+                                        {% if lang == 'ru' %}
+                                            {{ stat.get_name_ru }}
+                                        {% else %}
+                                            {{ stat.get_name_en }}
+                                        {% endif %}
+                                    </strong>
+                                </div>
+                                <div class="modal-body">
+                                    <p class="card-text">
+                                        {% if lang == 'ru' %}
+                                            {{ stat.get_description_ru }}
+                                        {% else %}
+                                            {{  stat.get_description_en }}
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     {% endwith %}
                 {% endfor %}
             </thead>
