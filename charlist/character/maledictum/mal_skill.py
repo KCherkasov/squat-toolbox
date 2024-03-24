@@ -36,6 +36,18 @@ class MalSkill(object):
     def specialization(self, tag: str):
         return self.__specializations.get(tag)
 
+    def has_specialization(self, tag: str):
+        return tag in self.__specializations.keys()
+
+    def gain_specialization(self, spec: MalSpecialization):
+        if spec.tag() not in self.__specializations.keys():
+            self.__specializations[spec.tag()] = spec
+
+    def upgrade_specialization(self, tag: str):
+        if self.has_specialization(tag):
+            if self.__specializations.get(tag).is_upgradeable():
+                self.__specializations.get(tag).upgrade()
+
     @classmethod
     def from_json(cls, sdata):
         data = json.loads(sdata)
