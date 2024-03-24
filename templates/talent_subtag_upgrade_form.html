@@ -8,7 +8,7 @@
         {{ err }}
     </div>
 {% endfor %}
-    <form class="form-horizontal alert-{{ colour }} flex-grow-1" method="post" action="">
+    <form class="form-horizontal text-bg-{{ colour }} flex-grow-1" method="post" action="">
         {% csrf_token %}
         <div class="charlist-inline align-items-center mb-1">
             <input type="hidden" name="tl_tag" value="{{ form.tl_tag }}">
