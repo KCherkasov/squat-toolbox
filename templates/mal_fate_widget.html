@@ -6,6 +6,7 @@
                 {% if lang == 'ru' %}Очки Судьбы{% else %}Fate points{% endif %}:
             </b>
         </header>
+        {% if hookups %}
         {% if hookups|get_by_dict_key:'FP' %}
         <div class="btn-group dropend">
             <span class="position-absolute top-0 start-100 translate-middle btn btn-success dropdown-toggle badge rounded-circle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -18,6 +19,7 @@
                 {% endfor %}
             </ul>
         </div>
+        {% endif %}
         {% endif %}
     </div>
     <table class="table text-center">
