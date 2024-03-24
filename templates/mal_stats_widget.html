@@ -25,8 +25,8 @@
                     <div class="modal fade" id="c{{ character.id }}-{{ stat.tag }}-{{ lang }}-info" tabindex="-1"
                          aria-labelledby="c{{ character.id }}-{{ stat.tag }}-{{ lang }}-info-label">
                         <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content text-center">
-                                <div class="modal-header">
+                            <div class="modal-content">
+                                <div class="modal-header text-center">
                                     <strong id="c{{ character.id }}-{{ stat.tag }}-{{ lang }}-info-label">
                                         {% if lang == 'ru' %}
                                             {{ stat.get_name_ru }}
