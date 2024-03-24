@@ -97,6 +97,7 @@ class Season(models.Model):
     description = models.TextField(max_length=5000, default=u'', verbose_name=u'Краткое описание')
     creator = models.ForeignKey(CharsheetUser, on_delete=models.CASCADE)
     master_notes = models.CharField(max_length=1000, default=u'', blank=True)
+    purse = models.ForeignKey(Purse, blank=True)
 
     objects = SeasonManager()
 
