@@ -28,7 +28,9 @@
                         {% if lang == 'ru' %} База {% else %} Base {% endif %}
                     </th>
                     {% for stat in facade.stat_tags %}
-                        <td>{{ stat.get_base }}</td>
+                        {% with character.stats|get_by_dict_key:stat as c_stat %}
+                        <td>{{ c_stat.get_base }}</td>
+                        {% endwith %}
                     {% endfor %}
                 </tr>
                 <tr>
@@ -36,7 +38,9 @@
                         {% if lang == 'ru' %} Улучшения {% else %} Advances {% endif %}
                     </th>
                     {% for stat in facade.stat_tags %}
-                        <td>{{ stat.advances }}</td>
+                        {% with character.stats|get_by_dict_key:stat as c_stat %}
+                        <td>{{ c_stat.advances }}</td>
+                        {% endwith %}
                     {% endfor %}
                 </tr>
                 <tr>
@@ -44,7 +48,9 @@
                         {% if lang == 'ru' %} Значение {% else %} Value {% endif %}
                     </th>
                     {% for stat in facade.stat_tags %}
-                        <td class="fs-5"><strong class="fs-4">{{ stat.bonus }}</strong>{{ stat.residue }}</td>
+                        {% with character.stats|get_by_dict_key:stat as c_stat %}
+                        <td class="fs-5"><strong class="fs-4">{{ c_stat.bonus }}</strong>{{ c_stat.residue }}</td>
+                        {% endwith %}
                     {% endfor %}
                 </tr>
             </tbody>

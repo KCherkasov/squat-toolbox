@@ -32,22 +32,22 @@
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link active" data-bs-toggle="tab" id="c{{ character.cid }}-general-tab-{{ lang }}" href="#c{{ character.cid }}-general-{{ lang }}" aria-current="page">
-
+                                    {% if lang == 'ru' %}Карточка персонажа{% else %}Character card{% endif %}
                                 </a>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link active" data-bs-toggle="tab" id="c{{ character.cid }}-psy-tab-{{ lang }}" href="#c{{ character.cid }}-psy-{{ lang }}" aria-current="page">
-
+                                    {% if lang == 'ru' %}Психосилы{% else %}Psychic powers{% endif %}
                                 </a>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" data-bs-toggle="tab" id="c{{ character.cid }}-equipment-tab-{{ lang }}" href="#c{{ character.cid }}-equipment-{{ lang }}" aria-current="page">
-
+                                    {% if lang == 'ru' %}Имущество{% else %}Equipment{% endif %}
                                 </a>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link active" data-bs-toggle="tab" id="c{{ character.cid }}-combat-tab-{{ lang }}" href="#c{{ character.cid }}-combat-{{ lang }}" aria-current="page">
-
+                                    {% if lang == 'ru' %}Боевой листок{% else %}Combat card{% endif %}
                                 </a>
                             </li>
                             {% if is_owner %}
