@@ -8,7 +8,7 @@
         {{ err }}
     </div>
 {% endfor %}
-    <div class="d-flex flex-row text-bg-{{ colour }} flex-fill">
+    <div class="d-flex flex-row alert alert-{{ colour }} flex-fill">
     <form class="form-horizontal" method="post" action="">
         {% csrf_token %}
         <div class="charlist-inline align-items-center mb-1">

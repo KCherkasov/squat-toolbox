@@ -45,16 +45,16 @@ Character sheet interactive mockup
                     {% include 'xp_widget.html' %}
                 </header>
                 <div class="card card-body charlist-inline justify-content-center">
-                    <div class="card text-bg-success p-2 me-2">
+                    <div class="card alert alert-success p-2 me-2">
                         <b class="text-dark">2&nbsp;{% if lang == 'ru' %} совпадающих склонности{% else %}matching aptitudes{% endif %}</b>
                     </div>
-                    <div class="card text-bg-warning p-2 me-2">
+                    <div class="card alert alert-warning p-2 me-2">
                         <b class="text-dark">1&nbsp;{% if lang == 'ru' %} совпадающая склонность{% else %}matching aptitudes{% endif %}</b>
                     </div>
-                    <div class="card text-bg-danger p-2">
+                    <div class="card alert alert-danger p-2">
                         <b class="text-dark">{% if lang == 'ru' %}нет совпадающих склонностей{% else %}no matching aptitudes{% endif %}</b>
                     </div>
-                    <div class="card text-bg-secondary p-2">
+                    <div class="card alert alert-secondary p-2">
                         <b class="text-dark">{% if lang == 'ru' %}не хватает опыта {% else %}not enough XP {% endif %}</b>
                     </div>
                 </div>
@@ -92,7 +92,7 @@ Character sheet interactive mockup
                         {% for form_map in forms|get_by_dict_key:'skills'|get_by_dict_key:'spec' %}
                             {% with form_map|get_by_dict_key:'skill_tag' as skill_tag %}
                             {% with form_map|get_by_dict_key:'colour' as colour %}
-                                <div class="card card-body charlist-content justify-content-center align-items-center align-self-center alert-{{ colour }} d-flex flex-column w400-skill">
+                                <div class="card card-body charlist-content justify-content-center align-items-center align-self-center alert alert-{{ colour }} d-flex flex-column w400-skill">
                                     <div>
                                         <b class="text-dark">{{ facade|get_skill_description:skill_tag|get_skdescr_name:lang }}</b>
                                     </div>
@@ -130,7 +130,7 @@ Character sheet interactive mockup
                                         {% with form_map|get_by_dict_key:'tl_tag' as tl_tag %}
                                         {% with form_map|get_by_dict_key:'colour' as colour %}
                                         {% with facade.talent_descriptions|get_by_dict_key:tl_tag as tal %}
-                                        <div class="card card-body charlist-content justify-content-center align-items-center align-self-center alert-{{ colour }} w300">
+                                        <div class="card card-body charlist-content justify-content-center align-items-center align-self-center alert alert-{{ colour }} w300">
                                             <div>
                                                 <a href="" class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
                                                    data-bs-target="#c{{character.id}}-{{ tl_tag }}-{{ lang }}-upg-info" title="Подробнее">
@@ -223,7 +223,7 @@ Character sheet interactive mockup
                                         {% with form_map|get_by_dict_key:'tl_tag' as tl_tag %}
                                         {% with form_map|get_by_dict_key:'colour' as colour %}
                                         {% with facade.talent_descriptions|get_by_dict_key:tl_tag as tal %}
-                                        <div class="card card-body charlist-content justify-content-center align-items-center align-self-center alert-{{ colour }} w300">
+                                        <div class="card card-body charlist-content justify-content-center align-items-center align-self-center alert alert-{{ colour }} w300">
                                             <div>
                                                 <a href="" class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
                                                    data-bs-target="#c{{character.id}}-{{ tl_tag }}-{{ lang }}-upg-info" title="Подробнее">
