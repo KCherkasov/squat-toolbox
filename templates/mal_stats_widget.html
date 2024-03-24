@@ -11,7 +11,7 @@
             <thead>
                 <th></th>
                 {% for stat_key in facade.stat_tags %}
-                    <th scope="col">
+                    <th scope="col" data-bs-toggle="tooltip" data-bs-placement="right" title="{% if lang == 'ru'%}{{ stat.get_description_ru }}{% else %}{{ stat.get_description_en }}{% endif %}">
                         {% with facade.stat_descriptions|get_by_dict_key:stat_key as stat %}
                             {% if lang == 'ru' %}
                                 {{ stat.get_short_name_ru }}
