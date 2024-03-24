@@ -1,0 +1,39 @@
+{% load filters %}
+<div class="card card-body im-fate-widget" id="c{{ character.id }}-wounds-{{ lang }}">
+    <header class="text-center">
+        <h5>
+            {% if lang == 'ru' %}Раны{% else %}Wounds{% endif %}
+        </h5>
+    </header>
+    <div class="charlist-content align-content-center">
+    <table class="table text-center">
+        <thead>
+            <th scope="col fs-4">{% if lang == 'ru' %}Текущее{% else %}Current{% endif %}</th>
+            <th scope="col fs-4">{% if lang == 'ru' %}Всего{% else %}Maximum{% endif %}</th>
+        </thead>
+        <tr class="fs-3">
+            <td>{{ character.wounds_current }}</td>
+            <td>{{ character.wounds_cap }}</td>
+        </tr>
+    </table>
+    {% if is_owner or is_test %}
+    {% for err in fate_form.non_field_errors %}
+    <div class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        {{ err }}
+    </div>
+    {% endfor %}
+    <form class="form-horizontal" action="" method="post">
+        {% csrf_token %}
+        <div class="charlist-inline justify-content-around">
+            <button class="btn btn-success {% if is_test %}disabled{% endif %}" name="heal" type="submit">
+                {% if lang == 'ru' %}Вылечить{% else %}Heal{% endif %}
+            </button>
+            <button class="btn btn-danger {% if is_test %}disabled{% endif %}" name="wound" type="submit">
+                {% if lang == 'ru' %}Нанести{% else %}Damage{% endif %}
+            </button>
+        </div>
+    </form>
+    {% endif %}
+    </div>
+</div>
