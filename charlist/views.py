@@ -1890,6 +1890,7 @@ def group_gain_influence(request, group: models.CharacterGroup):
         amount = int(form.cleaned_data.get('amount'))
         if group.purse:
             group.purse.cash += amount
+            group.purse.save()
         else:
             group.group_ifl += amount
         group.save()
@@ -1903,6 +1904,7 @@ def group_loose_influence(request, group: models.CharacterGroup):
         amount = int(form.cleaned_data.get('amount'))
         if group.purse:
             group.purse.cash -= amount
+            group.purse.save()
         else:
             group.group_ifl -= amount
         group.save()
