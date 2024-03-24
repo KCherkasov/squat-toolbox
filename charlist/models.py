@@ -245,11 +245,12 @@ class Character(models.Model):
     character_data = models.CharField(max_length=25000)
     notes = models.TextField(max_length=1000, default="", blank=True)
     is_rt = models.BooleanField(default=False)
+    is_mal = models.BooleanField(default=False)
 
     objects = CharacterManager()
 
     def data_to_model(self):
-        return CharacterDecoder.decode(str(self.character_data), self.is_rt)
+        return CharacterDecoder.decode(str(self.character_data), self.is_rt, self.is_mal)
 
     def get_view_url(self):
         return unquote(reverse('character-details', kwargs={'char_id': self.pk}), encoding='utf-8', errors='replace')

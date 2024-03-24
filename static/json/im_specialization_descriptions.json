@@ -1,0 +1,926 @@
+{
+  "descriptions": [
+    {
+      "tag": "SP_CLM",
+      "name": {
+        "ru": "Лазанье",
+        "en": "Climbing"
+      },
+      "description": {
+        "ru": "Отточенное умение быстро и безопасно\nподниматься по вертикальным поверхностям – очень\nполезно на диких мирах и в ульях. Это ценная способ-\nность в бою, если вам нужно взобраться на верх серво-\nгрузовика, чтобы сбросить вниз еретического демагога.",
+        "en": "Practised ability to safely and efficiently\ntraverse vertical surfaces. Frequently useful on both\nFeral and Hive Worlds. Valuable in combat if one\nhas to scale the side of a servo-hauler to get the drop\non a heretical demagogue."
+      },
+      "parent": "SK_ATHL",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_MGT",
+      "name": {
+        "ru": "Мощь",
+        "en": "Might"
+      },
+      "description": {
+        "ru": "Эта специализация позволяет поднимать\nбольшой вес, ломать предметы и подолгу нести груз. В\nуместных обстоятельствах Атлетика (Мощь) может\nприменяться вместо Выдержки (Запугивание).",
+        "en": "Advanced capacity for moving greater\nweight, breaking physical objects, and enduring\nheavy loads. In appropriate circumstances, an\nAthletics (Might) Test can be used in place of a\nPresence (Intimidation) Test to achieve similar\naims."
+      },
+      "parent": "SK_ATHL",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_RID",
+      "name": {
+        "ru": "Верховая езда",
+        "en": "Riding"
+      },
+      "description": {
+        "ru": "Позволяет ездить на лошадях или\nподходящих ксенозверях, а также вести на них бой.",
+        "en": "Increased aptitude in piloting equines,\nor their xenos equivalents. All but essential for\ncontrolling such beasts in combat."
+      },
+      "parent": "SK_ATHL",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_RUN",
+      "name": {
+        "ru": "Бег",
+        "en": "Running"
+      },
+      "description": {
+        "ru": "Эта специализация позволяет быстро передвигаться\nна большие расстояния – полезно, чтобы поймать\nубегающего врага или самому сбежать от тех, кто\nоказался не по зубам.",
+        "en": "Greater capability for moving at speed\nover longer distances. Useful for catching fleeing\nfoes, and escaping from dangerous opponents."
+      },
+      "parent": "SK_ATHL",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_SWM",
+      "name": {
+        "ru": "Плавание",
+        "en": "Swimming"
+      },
+      "description": {
+        "ru": "Лучшая специализация для того, чтобы\nуверенно чувствовать себя в воде или иной\nжидкости. Необходима на мирах-океанах,\nсовершенно не нужна в пустынях.",
+        "en": "Better aptitude at swimming through\nliquids, typically water. Essential on some worlds\nwith planet-spanning oceans, and almost\nunknown on others."
+      },
+      "parent": "SK_ATHL",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_SGT",
+      "name": {
+        "ru": "Зрение",
+        "en": "Sight"
+      },
+      "description": {
+        "ru": "Умение лучше замечать детали и кажущиеся\nневажными особенности.",
+        "en": "Advanced capacity for perceiving important\ndetails and training in noticing elements that seem\neven a little incongruous."
+      },
+      "parent": "SK_AWR",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_HRN",
+      "name": {
+        "ru": "Слух",
+        "en": "Hearing"
+      },
+      "description": {
+        "ru": "Возможность вовремя услышать необычные звуки,\nвыделяющиеся на фоне остальных, понять, что они\nзначат, и отследить источник.",
+        "en": "Facility for detecting and identifying\nunusual sounds that stand out from local ambient\nones. Greater ability to determine where a sound\noriginated from."
+      },
+      "parent": "SK_AWR",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_SML",
+      "name": {
+        "ru": "Обоняние",
+        "en": "Smell"
+      },
+      "description": {
+        "ru": "Склонность определять выделяющиеся или\ndнеобычные запахи. Некоторые редкие аугментации или\nгенетические улучшения позволяют даже выслеживать\nжертв по запаху.",
+        "en": "Aptitude for noting and identifying\nparticularly distinct or unusual aromas. Some rare\naugmentations and genetic enhancements allow\nthose imbued with them to track others entirely by\nscent alone."
+      },
+      "parent": "SK_AWR",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_TST",
+      "name": {
+        "ru": "Вкус",
+        "en": "Taste"
+      },
+      "description": {
+        "ru": "Превосходное умение распознавать вкусы – в том\nчисле почувствовать яд или наркотик.",
+        "en": "Superior ability to discern various flavours,\nincluding the signs of certain poisons and drugs."
+      },
+      "parent": "SK_AWR",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_TCH",
+      "name": {
+        "ru": "Осязание",
+        "en": "Touch"
+      },
+      "description": {
+        "ru": "Умение воспринимать необычные вибрации,\nчто могут говорить о движении подземных машин или\nогне орудий, а также способность наощупь распознавать\nткани и необычные материалы. Полезно, чтобы поймать\nза руку карманника.",
+        "en": "Capacity to feel unusual vibrations which\nindicate the passage of subterranean vehicles and\nweapon systems. Trained to discern the origin of\nfabrics and unusual materials by feel. Useful for\ndetecting pickpockets."
+      },
+      "parent": "SK_AWR",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_AWR_PSY",
+      "name": {
+        "ru": "Психическое чутьё",
+        "en": "Psyniscience"
+      },
+      "description": {
+        "ru": "Псайкеры могут исполь-\nзовать свою связь с Имматериумом, чтобы обна-\nруживать его воздействие на тварный мир. Это позво-\nляет им отслеживать появление сущностей Варпа или\nдаже вычислять других псайкеров, если те применяют\nсвои способности и черпают силу из Эмпиреев. Чтобы\nприобрести такую специализацию, персонаж должен\nиметь талант Псайкер (см. стр. 114).\nВпрочем, долгое воздействие на персонажа варп-фено-\nменов – хороший повод позволить игроку\nприобрести одно улучшение Психического\nчутья.",
+        "en": "Psykers can be trained\nto use their connection to the immaterium in order\nto discern areas where realspace is being, or has\nbeen, disrupted due to the intrusion of the warp.\nThis allows them to detect the presence of warp\nentities and even locate other psykers, so long as\nthey draw on the empyrean to use their psychic\nabilities. Psyniscience requires the Psyker Talent\n(see page 114), though prolonged exposure\nto warp phenomena and at the GM's\ndiscretion may allow others to take a\nsingle advance in this skill."
+      },
+      "parent": "SK_AWR",
+      "restricted": true,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_LPK",
+      "name": {
+        "ru": "Взлом замков",
+        "en": "Lockpicking"
+      },
+      "description": {
+        "ru": "опыт открывания механических запоров\nбез ключей. Сложные замки, в которых обитают\nмашинные духи, скорее потребуют проверки Техники\n(Безопасность).",
+        "en": "Experience in the art of opening\nmechanical locks without keys. Locks sophisticated\nenough to have a machine spirit likely requires a\nTech (Security) Test to convince them to open."
+      },
+      "parent": "SK_DEX",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_PPKT",
+      "name": {
+        "ru": "Карманные кражи",
+        "en": "Pickpocket"
+      },
+      "description": {
+        "ru": "Умение незаметно обчищать чужие\nкарманы, сумки, рюкзаки и т. д. Также это умение\nможно применять, чтобы подбрасывать улики. Как\nправило, карманным кражам противостоит\nБдительность (Осязание).",
+        "en": "Competence in pilfering the contents\nof others’ pockets, bags, backpacks, etc. without\ntheir noticing. Can also be used in reverse to place\n(incriminating) items within. Pickpocket is usually\nopposed by Awareness (Touch)."
+      },
+      "parent": "SK_DEX",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_SOH",
+      "name": {
+        "ru": "Ловкость рук",
+        "en": "Sleight of hands"
+      },
+      "description": {
+        "ru": "Умение показывать\nфокусы с исчезновением и появлением предметов, даже\nбудучи в центре внимания. Мастер может скрыть\nоружие со свойством Незаметное, даже при обыске. Как\nправило, этому умению противостоит Бдительность\n(Зрение).",
+        "en": "Training in performing tricks\nof prestidigitation and secreting various items\neven while being observed. A master can conceal\na weapon with the Subtle Trait even while being\nsearched. Sleight of Hand is usually opposed by\nAwareness (Sight)."
+      },
+      "parent": "SK_DEX",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_DFS",
+      "name": {
+        "ru": "Обезвреживание ловушек",
+        "en": "Defuse"
+      },
+      "description": {
+        "ru": "Заучивание приёмов и\nмолитв, необходимых, чтобы обезвредить взрывное\nустройство или разрядить ловушку. Обезвреживание\nтребует хотя бы одного улучшения Техники (см. стр. 101)",
+        "en": "Practical rote instruction\nin the various techniques and prayers used to\nharmlessly deactivate explosive devices and disarm\ntrap mechanisms. Defuse requires at least 1 Advance\nin the Tech Skill (see page 101)."
+      },
+      "parent": "SK_DEX",
+      "restricted": true,
+      "forbidden": false
+    },{
+      "tag": "SP_CMP",
+      "name": {
+        "ru": "Самообладание",
+        "en": "Composure"
+      },
+      "description": {
+        "ru": "Это умение не терять голову от чужого\nобаяния, не боятся угроз и давления. Никакие\nискушения не заставят его обладателей потерять себя.",
+        "en": "Practised at resisting charm,\nintimidation, and other social pressures. Those with\nstrong Composure are gifted at maintaining their\nintegrity in the face of temptation."
+      },
+      "parent": "SK_DIS",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_FEAR",
+      "name": {
+        "ru": "Страх",
+        "en": "Fear"
+      },
+      "description": {
+        "ru": "Умение справляться с ужасом, что вызывают\nеретические и осквернённые существа. Как правило эта\nспециализация помогает бороться с состоянием Страх.",
+        "en": "Mentally hardened to stand firm in the face of\nthe unnatural fear caused by exposure to heretical\nand corrupt beings. Fear is often used to resist and\nrecover from the Frightened Condition."
+      },
+      "parent": "SK_DIS",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_DSC_PSY",
+      "name": {
+        "ru": "Психосилы",
+        "en": "Psychic"
+      },
+      "description": {
+        "ru": "Дополнительная подготовка, позволяющая\nсопротивляться различным психосилам, что влияют на\nразум или подчиняют его.",
+        "en": "Advanced training in mentally resisting\nvarious psychic powers that can unduly influence or\nsuborn one’s mind."
+      },
+      "parent": "SK_PSY",
+      "restricted": false,
+      "forbidden": false
+    },{
+      "tag": "SP_END",
+      "name": {
+        "ru": "Выносливость",
+        "en": "Endurance"
+      },
+      "description": {
+        "ru": "Trained to go without sleep for\nsignificantly extended periods, pushing on through\nexhaustion due to greater stamina.",
+        "en": "Умение подолгу не спать и справляться с\nусталостью."
+      },
+      "parent": "SK_FORT",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_PAIN",
+      "name": {
+        "ru": "Боль",
+        "en": "Pain"
+      },
+      "description": {
+        "ru": "Развитая способность переносить пытки и\nисполнять свой долг, несмотря на ранения, развитая\nболезненными упражнениями.",
+        "en": "Increased capability for resisting torture and\ndoing one’s duty despite injuries, due to extensive\ntraining in withstanding pain."
+      },
+      "parent": "SK_FORT",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_PSN",
+      "name": {
+        "ru": "Яды",
+        "en": "Poison"
+      },
+      "description": {
+        "ru": "Сопротивляемость, выработанная точно отмерен-\nными дозами токсинов, а также опыт, позволяющий\nосознанно действовать в состоянии отравления.",
+        "en": "Precise exposure to a variety of toxins helps\nbuild up resistance, as well as granting experience in\nhow to focus and continue to act effectively, despite\nhaving been poisoned."
+      },
+      "parent": "SK_FORT",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_PPL",
+      "name": {
+        "ru": "Люди",
+        "en": "People"
+      },
+      "description": {
+        "ru": "Понимание закономерностей человеческого пове-\nдения, что позволяет распознавать ложь, скрытность и\nстранное поведение. Это умение часто используется\nпротив Взаимопонимания (Обман",
+        "en": "Extensive practice in studying patterns of\nHuman behaviour, allowing one to notice when\nsomeone is lying, hiding something, or acting\nstrangely. This skill is often used to oppose Rapport\n(Deception)."
+      },
+      "parent": "SK_INT",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_SRN",
+      "name": {
+        "ru": "Окружение",
+        "en": "Surroundings"
+      },
+      "description": {
+        "ru": "Такая подготовка позволяет «читать» окру-\nжение, подмечать всё необычное в обстановке, обращать\nвнимание на тихие шаги, неясные фигуры или зловещее\nповедение.",
+        "en": "Training in learning to continually\nread the surrounding environment, noting unusual\nmistakes in layout, furtive steps, concealed shapes,\nor ominous patterns of behaviour which indicate\nsomething is wrong."
+      },
+      "parent": "SK_INT",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_CPR",
+      "name": {
+        "ru": "Шифры",
+        "en": "Ciphers"
+      },
+      "description": {
+        "ru": "Умение определять, взламывать и применять\nписьменные коды. Некоторые шифрованные послания\nне скрывают своей природы, и для их чтения нужен\nтолько ключ; другие тщательно замаскированы под\nобычные письма.",
+        "en": "Training in identifying, deciphering, and\nusing secret writing codes. Some ciphers are clearly\ncoded communications that may require a literary\nkey of some kind to unlock, others are messages\ncarefully disguised within other writings."
+      },
+      "parent": "SK_LNG",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_HGT",
+      "name": {
+        "ru": "Высокий готик",
+        "en": "High Gothic"
+      },
+      "description": {
+        "ru": "Владение церемониальным язы-\nком Империума, что применяется лишь в высших кругах\nобщества – имперских службах, благородных домах или\nАдептус Механикус. Самые древние исторические\nдокументы и самые древние тайны зачастую хранятся в\nинфохранилищах на высоком готике.",
+        "en": "Familiarity with the formal language\nof the Imperium, spoken only in rarefied circles.\nKnowledge of High Gothic is held within the various\nbranches of the Imperium, the Adeptus Mechanicus,\nand some older noble houses. The eldest histories of\nthe Imperium, along with its most ancient secrets,\nare often preserved within datavaults in formal\nHigh Gothic."
+      },
+      "parent": "SK_LNG",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_EVL",
+      "name": {
+        "ru": "Оценка",
+        "en": "Evaluation"
+      },
+      "description": {
+        "ru": "Способность примерно определять ценность\nвещей, исходя из их видимых качеств. Очень полезно\nпри покупке или продаже оружия или снаряжения, либо\nоценке прочности здания или устройства.",
+        "en": "The ability to assess relative worth\nbased on perceived qualities. Useful for determining\nthe value of practical goods and equipment, or the\nsoundness of a given structure or device."
+      },
+      "parent": "SK_LOG",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_INV",
+      "name": {
+        "ru": "Расследование",
+        "en": "Investigation"
+      },
+      "description": {
+        "ru": "Умение замечать улики на месте преступле-\nния, изучать тела, выстраивать картину произошедшего\nи связывать её с вовлечёнными сторонами. Также\nвключает познания в судебной экспертизе – например,\nумелый следователь может по брызгам крови опознать\nорудие убийства, направление удара и время, когда было\nсовершено преступление.",
+        "en": "Training on how to read a crime\nscene for clues as to what occurred, including\ninferring whom the parties involved might be, as\nwell as drawing pertinent information from any\ncorpse present. Includes some forensic knowledge,\nsuch as knowing how to assess the angle of a strike\nand the sort of weapons used due to the angle of\nblood splatters, as well as time since the attack by\nstudying how congealed the gore is."
+      },
+      "parent": "SK_LOG",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_ACDM",
+      "name": {
+        "ru": "Схоластика",
+        "en": "Academics"
+      },
+      "description": {
+        "ru": "Знания искусств, экономики, книг и\nместных планетарных культур, а также умение писать на\nнизком готике. Обычно такое доступно лишь\nлюдям с большими деньгами или связями.",
+        "en": "Grants the ability to write Low Gothic\nalong with some knowledge of arts, economics,\nbooks, and local planetary culture. Generally\nreserved for more connected or well-to-do members\nof the Imperium."
+      },
+      "parent": "SK_LORE",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_ADTR",
+      "name": {
+        "ru": "Адептус Терра",
+        "en": "Adeptus Terra"
+      },
+      "description": {
+        "ru": "Это знания не только о самом Адептус\nТерра, но и о множестве иных столпов Империума. Это\nне значит, что обладатель такой специализации\nпоимённо знает всех чиновников определённой службы,\nно позволяет понимать роль и ответственность каждого\nАдептус, их положение в Империуме и их самых\nизвестных представителей.",
+        "en": "Knowledge not only of the Adeptus\nTerra itself, but of the many Adepta that make up\nthe structure of the Imperium. This specialisation\ndoes not necessarily confer knowledge of any but\nthe most well known members of any particular\norganisation, but it does cover knowledge of the\nroles and responsibilities of these organisations and\ntheir position with the Imperium at large."
+      },
+      "parent": "SK_LORE",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_SCT",
+      "name": {
+        "ru": "Сектор",
+        "en": "Sector"
+      },
+      "description": {
+        "ru": "Широкие познания об определённом секторе\n(его нужно выбрать, когда вы впервые приобретаете эту\nспециализацию). К примеру, Знания (Сектор Махарий)\nпозволяют персонажу много знать о субсекторах,\nважных персонах и месте Махария в Империуме. Вы\nможете иметь несколько специализаций, связанных с\nразными секторами и развивать их отдельно.",
+        "en": "Broad knowledge about a particular Sector,\nwhich must be chosen when this specialisation is first\ntaken. For example, Lore (Macharian Sector) would\ncover the subsectors, power structures, important\nfigures, and general place of the Macharian Sector\nwithin the wider Imperium. It is possible to take this\nspecialisation more than once. Each time you do so,\nchoose another sector."
+      },
+      "parent": "SK_LORE",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_THLG",
+      "name": {
+        "ru": "Теология",
+        "en": "Theology"
+      },
+      "description": {
+        "ru": "Понимание Имперской веры, её\nизводов и толкований, кое-какие сведения о культе\nМеханикус, а также поверхностные знания о\nеретических сектах, но никогда – о запретных культах.\nБогословие требует хотя бы одного улучшения Языков\n(Высокий готический).",
+        "en": "Training in the Imperial\nCreed, including various sects and interpretations.\nPassing knowledge of the Cult Mechanicus. Only\ncursory knowledge at best of any heretical sects\nof the Imperial Creed and none whatsoever of\nany forbidden cults. Theology requires at least 1\nAdvance in Linguistics (High Gothic)."
+      },
+      "parent": "SK_LORE",
+      "restricted": true,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_MED_ANM",
+      "name": {
+        "ru": "Животные",
+        "en": "Animals"
+      },
+      "description": {
+        "ru": "Подготовка персонажа касалась умения\nраспознавать болезни и раны животных и лечить их.\nВетеринар хорошо знает их анатомию, повадки и то,\nкакие продукты из них можно получить.",
+        "en": "Studied in the medical arts that deal\nspecifically with the prevention and treatment of\ndisease and injuries to animals. Includes extensive\nknowledge of their anatomies, patterns of behaviour,\nand products derived from them."
+      },
+      "parent": "SK_MED",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_HMN",
+      "name": {
+        "ru": "Люди",
+        "en": "Human"
+      },
+      "description": {
+        "ru": "Расширенный курс по лечению людей. Такие\nзнания позволят оказать первую помощь, остановить\nкровь или не дать тяжёлым ранам свести пациента в\nмогилу. Несмотря на слово «Люди», эта специализация\nработает и на недолюдей, вроде огринов, ратлингов и\nвыходцев из Лиг Вотанна.",
+        "en": "Advanced training in treating disease and\ninjuries in Humans. Used for first aid, stabilising\nthe heavily injured, and stopping bleeding. Despite\nthe name, it will work on Abhumans such as\nRatlings, Ogryn, and Kin of the Leagues of Votann."
+      },
+      "parent": "SK_MED",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_BRWL",
+      "name": {
+        "ru": "Кулачный бой",
+        "en": "Brawling"
+      },
+      "description": {
+        "ru": "Владение жестоким искусством драться\nголыми руками. Оно поможет расправляться с врагами\nпри помощи рук, кастетов или даже могучих силовых\nкулаков (см. стр. 128).",
+        "en": "Experience in the brutal art of pugilism.\nCovers everything from fighting with bare hands\nor brass knuckles, through to inflicting devastating\nblows with a mighty Power Fist (page 128)."
+      },
+      "parent": "SK_MELEE",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_OHD",
+      "name": {
+        "ru": "Одноручное",
+        "en": "One-handed"
+      },
+      "description": {
+        "ru": "Владение мечами, топорами,\nбулавами и другим холодным оружием, что можно\nудерживать одной рукой.",
+        "en": "Extensive training in the use of\nswords, axes, maces, and other melee weapons that\ncan be used with a single hand."
+      },
+      "parent": "SK_MELEE",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_THD",
+      "name": {
+        "ru": "Двуручное",
+        "en": "Two-handed"
+      },
+      "description": {
+        "ru": "Владение очень длинными мечами,\nогромными топорами, тяжёлыми булавами и другими\nорудиями убийства, что нужно удерживать двумя\nруками, а также древковым оружием, вроде копий и\nалебард.",
+        "en": "Extensive training in the use of larger\nswords, bigger axes, heavier maces, and other melee\nweapons that require two hands to use, along with\nvarious polearms such as spears and halberds."
+      },
+      "parent": "SK_MELEE",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_SRF",
+      "name": {
+        "ru": "Поверхность",
+        "en": "Surface"
+      },
+      "description": {
+        "ru": "Умение прокладывать курс на поверхности\nпланеты и следовать ему, чтобы добраться в точку\nназначения наилучшим способом.",
+        "en": "Training in plotting and following a likely\ncourse over land or sea in order to reach a chosen\ndestination in the most efficient way possible."
+      },
+      "parent": "SK_NAV",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_TRK",
+      "name": {
+        "ru": "Чтение следов",
+        "en": "Tracking"
+      },
+      "description": {
+        "ru": "Умение не только брать след и идти по нему, но и\nпонимать, скольких жертв преследуешь, налегке ли они\nпутешествуют, спешат ли и т. д.",
+        "en": "Extensive training in how to read the\nmarks left by the passage of others, in order to\nfollow them, but also to determine information such\nas their numbers, if they are carrying a heavy load\nor travelling light, if they were in a hurry, and so on."
+      },
+      "parent": "SK_NAV",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_VOID",
+      "name": {
+        "ru": "Пустота",
+        "en": "Void"
+      },
+      "description": {
+        "ru": "Обладание необычными знаниями, позволяю-\nщими прокладывать курс между небесными телами в\nпределах системы и следовать ему.",
+        "en": "Capacity with the unusual knowledge of how\nto plot and follow a course between celestial bodies\nwithin a system."
+      },
+      "parent": "SK_NAV",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_WRP",
+      "name": {
+        "ru": "Варп",
+        "en": "Warp"
+      },
+      "description": {
+        "ru": "способность прокладывать курс через\nварповороты и течения Имматериума. Это умение осно-\nвано на чутье не меньше, чем на знании, ведь невозмож-\nно ориентироваться в Варпе, не видя его. Такая специ-\nализация доступна лишь навигаторам из Навис Ноби-\nлите. Чтобы применять это умение необходим талант\nНаследник (Навис Нобилите) (см. стр. 113).",
+        "en": "The ability to plot a course\nthrough the uncertain eddies and currents of the\nimmaterium. A skill based on feeling as much as\nknowledge, it is impossible to accurately navigate\nthe warp without the ability to perceive it, which\nis why this skill is held exclusively by the mutant\nNavigators of the Navis Nobilite. Using this skill\nrequires the Inheritor (Navis Nobilite) Talent (see\npage 113)."
+      },
+      "parent": "SK_NAV",
+      "restricted": true,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_AER",
+      "name": {
+        "ru": "Аэронавтика",
+        "en": "Aeronautica"
+      },
+      "description": {
+        "ru": "умение водить воздушную технику – от\nтранспортных челноков до боевых самолётов. Эта\nспециализация позволяет также поднять машину на\nорбиту планеты, но не совершать сложные манёвры вне\nатмосферы.",
+        "en": "Advanced training in how to operate\nflying vehicles, from transports to combat aircraft.\nThis specialisation is sufficient for taking capable\ncraft from orbit down to a planet, but not for\nperforming complex manoeuvres outside of a\nplanet's atmosphere."
+      },
+      "parent": "SK_PILOT",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_CIV",
+      "name": {
+        "ru": "Гражданская техника",
+        "en": "Civilian"
+      },
+      "description": {
+        "ru": "Умение водить невоенную назем-\nную технику, вроде грузовозов или личных мобилей.",
+        "en": "Advanced training in how to operate nonmilitary\nground vehicles such as cargo haulers or\npersonal transports."
+      },
+      "parent": "SK_PILOT",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_MIL",
+      "name": {
+        "ru": "Военная техника",
+        "en": "Military"
+      },
+      "description": {
+        "ru": "умение водить танки и\nдругую наземную военную технику. Обычно такому учат\nлишь наставники Астра Милитарум и лишь персонажей\nопределённого статуса.",
+        "en": "Advanced training in how\nto operate military ground vehicles, such as tanks.\nTypically, training in this specialisation is given\nby Astra Militarum instructors, to characters of\nsufficient rank."
+      },
+      "parent": "SK_PILOT",
+      "restricted": true,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_MNR_VDS",
+      "name": {
+        "ru": "Малые пустотные суда",
+        "en": "Minor voidships"
+      },
+      "description": {
+        "ru": "Умение водить\nпустотные истребители и космические лихтеры. Обычно\nтакому учат лишь наставники Имперского Флота и лишь\nперсонажей определённого статуса.",
+        "en": "Advanced training in\noperating smaller space vessels, from void fighters to\ntransports. Typically, training in this specialisation\nis given by Imperial Navy instructors, to characters\nof sufficient rank."
+      },
+      "parent": "SK_PILOT",
+      "restricted": true,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_MJR_VDS",
+      "name": {
+        "ru": "Крупные пустотные суда",
+        "en": "Major voidships"
+      },
+      "description": {
+        "ru": "Умение управлять настоящими кораблями Имперских флотилий –\nкрейсерами, эсминцами, фрегатами и другими судами.\nОбычно такому учат лишь наставники Имперского\nВоенного Флота и лишь персонажей определённого\nстатуса.",
+        "en": "Training in how to\noperate the truly vast ships of the Imperial Fleet —\nCruisers, Destroyers, Frigates, and similar. Typically,\ntraining in this specialisation is given by Imperial\nNavy instructors, to characters of sufficient rank."
+      },
+      "parent": "SK_PILOT",
+      "restricted": true,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_INTRG",
+      "name": {
+        "ru": "Допрос",
+        "en": "Interrogation"
+      },
+      "description": {
+        "ru": "Умение применять множество методов получать\nответы. Умелый дознаватель может оказывать давление\nсамыми разными приёмами – скрытными и явными –\nчтобы вытянуть сведения из допрашиваемого, даже если\nтот готов сотрудничать. Речь не о пытках, хотя долгий\nдопрос может быть очень выматывающим. Броскам\nдознавателя цель противопоставляет Дисциплину\n(Самообладание) или Стойкость (Боль).",
+        "en": "Aptitude in a variety of techniques\ndesigned to elicit answers out of a subject. A skilled\ninterrogator implies pressure in many ways, subtle\nand not, in order to discover as much information\nas they can, even when a subject is cooperative.\nInterrogation is not physical torture, though\nundergoing a long interrogation may certainly feel\nagonising. Interrogation is opposed by the target's\nDiscipline (Composure) or Endurance (Pain)."
+      },
+      "parent": "SK_PRES",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_INTM",
+      "name": {
+        "ru": "Запугивание",
+        "en": "Intimidation"
+      },
+      "description": {
+        "ru": "Умение применять завуалированные или\nнедвусмысленные угрозы (физической расправой или\nиными ужасными карами), чтобы заставить цель сделать\nили рассказать что-либо. Жертва противостоит\nзапугиванию при помощи Дисциплины\n(Самообладание). Если одна сторона такого разговора\nпревосходит другую размером (см. стр. 201), то она\nполучает преимущество в проверке.",
+        "en": "Applying pressure through threats,\nsubtle or blatant, that physical chastisement and\nother dire fates await those that fail to do as they are\ntold or confess all they know. Intimidation is often\nopposed by Discipline (Composure). If one party is\nof a larger Size (page 201) than the other, the larger\ncreature gains Advantage on this Test."
+      },
+      "parent": "SK_PRES",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_LDR",
+      "name": {
+        "ru": "Лидерство",
+        "en": "Leadership"
+      },
+      "description": {
+        "ru": "Подготовка, позволяющая добиваться от\nподчинённых работы с полной отдачей. Его можно\nприменять, чтобы убедить горстку клерков закончить\nдлинный отчёт в нужный срок или вселить в отряд\nотчаявшихся солдат отвагу и повести на штурм\nукреплений.",
+        "en": "Trained to inspire others to put in their\nbest efforts to achieve a desired goal. This can range\nanywhere from motivating a few clerks to finish\na long survey in record time, to giving a group of\ndesperate soldiers the courage to charge a fortified\nenemy bunker."
+      },
+      "parent": "SK_PRES",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_LNGN",
+      "name": {
+        "ru": "Длинноствольное оружие",
+        "en": "Long guns"
+      },
+      "description": {
+        "ru": "Обширная подготовка по применению\nлазганов, дробовиков, автоганов, мельт и тому подоб-\nного оружия.",
+        "en": "Extensive training in the use of\nlonger firearms, such as lasguns, shotguns, bolters,\nautoguns, meltaguns, and similar ranged weapons."
+      },
+      "parent": "SK_RNG",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_ORDN",
+      "name": {
+        "ru": "Тяжелое вооружение",
+        "en": "Ordnance"
+      },
+      "description": {
+        "ru": "Обширная подготовка по применению\nтяжёлого оружия – лазпушек, тяжёлых болтеров, ракет-\nных установок и других средств нести смерть и разруше-\nние.",
+        "en": "Extensive training in the use of heavier\nranged weaponry, such as lascannons, heavy bolters,\nmissile launchers, and similarly devastating means\nof causing death and destruction."
+      },
+      "parent": "SK_RNG",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_PST",
+      "name": {
+        "ru": "Пистолеты",
+        "en": "Pistols"
+      },
+      "description": {
+        "ru": "Обширная подготовка по применению лаз-\nпистолетов, болт-пистолетов, стаб-револьверов, авто-\nпистолетов и им подобного оружия.",
+        "en": "Extensive training in the use of handguns,\nsuch as laspistols, bolt pistols, autopistols, stub\nrevolvers, and similar firearms."
+      },
+      "parent": "SK_RNG",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_THR",
+      "name": {
+        "ru": "Метательное",
+        "en": "Throwing"
+      },
+      "description": {
+        "ru": "Обширная подготовка по приме-\nнению гранат, метательных ножей и им подобного\nоружия.",
+        "en": "Extensive training in the use of hurled\nweapons, such as grenades and throwing knives."
+      },
+      "parent": "SK_RNG",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_RAP_ANML",
+      "name": {
+        "ru": "Животные",
+        "en": "Animals"
+      },
+      "description": {
+        "ru": "Персонаж хорошо ладит с животными и\nумеет о них заботиться. Это полезно, когда имеешь дело\nсо сторожевыми канидами – например, их можно\nзаставить прекратить лаять или отдать другую команду.",
+        "en": "Aptitude for gaining the friendship and\naffection of simple beasts, along with the knowledge\nof how to care for them. Useful for interacting\nwith guardian canids to, for example, issue one a\ncommand, or get a hostile one to stop barking."
+      },
+      "parent": "SK_RAP",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_CHR",
+      "name": {
+        "ru": "Обаяние",
+        "en": "Charm"
+      },
+      "description": {
+        "ru": "персонаж умеет быть очень приятным\nсобеседником, что помогает ему просить новых друзей\nоб одолжениях. Как правило, этому умению\nпротивостоит Дисциплина (Самообладание).",
+        "en": "Skilled at being exceedingly agreeable and\npleasant company, leading to increased ability to\nmake ‘reasonable’ requests of one’s new friends.\nCharm is often opposed by Discipline (Composure)."
+      },
+      "parent": "SK_RAP",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_DCP",
+      "name": {
+        "ru": "Обман",
+        "en": "Deception"
+      },
+      "description": {
+        "ru": "Персонаж много практиковался врать или\nспециально учился этому. Как правило, этому умению\nпротивостоит Чутьё.",
+        "en": "Well-practised, or specifically trained,\nto deceive without flinching. Deception is often\nopposed by Intuition."
+      },
+      "parent": "SK_RAP",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_HGL",
+      "name": {
+        "ru": "Торг",
+        "en": "Haggle"
+      },
+      "description": {
+        "ru": "Мастер древнего искусства торга всегда заключит\nлучшую сделку. Как правило, этому умению\nпротивостоит Дисциплина (Самообладание) или Логика\n(Оценка).",
+        "en": "Versed in the ancient art of bargaining for\nthe best deal. Haggle is often opposed by either\nDiscipline (Composure) or Logic (Evaluation)."
+      },
+      "parent": "SK_RAP",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_INQ",
+      "name": {
+        "ru": "Сбор сведений",
+        "en": "Inquiry"
+      },
+      "description": {
+        "ru": "Природный навык или подготовка поз-\nволяют персонажу выуживать нужные данные из спле-\nтен и дружеских разговоров, а также задавать верные\nвопросы. Как правило, этому умению противостоит\nДисциплина (Самообладание) или Выдержка\n(Запугивание).",
+        "en": "Trained, or naturally skilled, at getting\nanswers out of others via gossip, friendly\nconversation, or pointed questions. Inquiry can\nbe opposed by either Discipline (Composure) or\nPresence (Intimidation)."
+      },
+      "parent": "SK_RAP",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_ACR",
+      "name": {
+        "ru": "Акробатика",
+        "en": "Acrobatics"
+      },
+      "description": {
+        "ru": "Гимнастическая подготовка, что позволяет\nизящно прыгать, перекатываться и кувыркаться. Её\nможно использовать, чотбы стремительно преодолевать\nпересечённую местность.",
+        "en": "Training in gymnastic exercises, with\nincreased capacity for gracefully jumping, rolling,\nand tumbling. Can be used to swiftly traverse\notherwise difficult terrain."
+      },
+      "parent": "SK_RFL",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_BLN",
+      "name": {
+        "ru": "Равновесие",
+        "en": "Balance"
+      },
+      "description": {
+        "ru": "Умение всегда держаться на ногах, будь под\nними неровная земля, лужа скользкого масла или\nковарная тропинка.",
+        "en": "Practice in keeping on one’s feet, despite\nuncertain ground, pools of slippery unguents, or\ntreacherous walkways."
+      },
+      "parent": "SK_RFL",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_DDG",
+      "name": {
+        "ru": "Уклонение",
+        "en": "Dodge"
+      },
+      "description": {
+        "ru": "Умение избегать ранений и несчастных\nслучаев, уворачиваясь от опасностей. Эту специализа-\nцию можно применять, чтобы защищаться от стрелко-\nвых атак и атак в ближнем бою. Конечно, неаугменти-\nрованный человек не сумеет ускользнуть от пули, но\nможет быстро убраться с линии огня.",
+        "en": "Capacity for avoiding injury or accident\nthrough quick movements designed to sidestep\nthe danger. Can be used to defend yourself in\ncombat against melee and ranged attacks. While the\nunaugmented cannot directly dodge bullets, they\ncan avoid being shot by swiftly removing themselves\nfrom the line of fire."
+      },
+      "parent": "SK_RFL",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_CNCL",
+      "name": {
+        "ru": "Маскировка",
+        "en": "Conceal"
+      },
+      "description": {
+        "ru": "Умение маскировать места и предметы так,\nчтобы их никто не нашёл. Обычно применяется против\nБдительности (Зрение) или Чутья (Окружение).",
+        "en": "Aptitude for knowing how to obscure\nplaces and objects so that others cannot easily find\nthem. Conceal is often opposed by either Awareness\n(Sight) or Intuition (Surroundings)."
+      },
+      "parent": "SK_STL",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_HIDE",
+      "name": {
+        "ru": "Невидимка",
+        "en": "Hide"
+      },
+      "description": {
+        "ru": "Способность оставаться невидимым\nили незаметным для других – прячась в ксенорастениях\nили смешиваясь с толпой. Обычно применяется против\nБдительности (Зрение).",
+        "en": "Competence at becoming unseen or\nunremarked by others, such as when camouflaged\namidst xenofoliage or tailing someone through a\ncrowd. Hide is usually opposed by an observor's\nAwareness (Sight)."
+      },
+      "parent": "SK_STL",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_MVSL",
+      "name": {
+        "ru": "Бесшумное перемещение",
+        "en": "Move silently"
+      },
+      "description": {
+        "ru": "Персонаж учился двигаться, не\nиздавая шума и не привлекая внимания. Обычно\nприменяется против Бдительности (Слух).",
+        "en": "Trained facility for moving\nsoundlessly and avoiding drawing attention. Move\nSilently is usually opposed by Awareness (Hearing)."
+      },
+      "parent": "SK_STL",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_AUG",
+      "name": {
+        "ru": "Аугметика",
+        "en": "Augmetics"
+      },
+      "description": {
+        "ru": "Умение применять и чинить разные\nтипы имплантатов. Зачастую аугметика – это механи-\nческие и электрические протезы, что заменяют части\nтела, иногда превосходя органические «оригиналы», а\nиногда открывая совершенно новые возможности. Что-\nбы приобрести эту специализацию, персонаж должен\nиметь хотя бы одно улучшение Медики.",
+        "en": "Studied in the use and\nrepair of different types of augmetic devices. Most\naugmetics are mechanical or electrical augmetic\nsubstitutes for Human biological parts, many with\nenhanced capacities, though some offer entirely new\ncapabilities. Augmetics requires at least 1 Advance\nin the Medicae Skill."
+      },
+      "parent": "SK_TECH",
+      "restricted": true,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_ENG",
+      "name": {
+        "ru": "Инженерное дело",
+        "en": "Engineering"
+      },
+      "description": {
+        "ru": "Знания о конструкции, применении и\nремонте технологических и механических устройств. Эта\nспециализация позволяет и конструировать такие пред-\nметы, а также оружие и взрывчатку. В Империуме Адеп-\nтус Механикус считают эту область знания исключитель-\nно своей епархией и карают самоучек. Помните, впро-\nчем, что для того, чтобы собрать или починить устрой-\nство, пользуясь заученными ритуалами, эта специализа-\nция не требуется.",
+        "en": "Knowledge of the construction, use,\nand restoration of technological and mechanical\ndevices. Encompasses the crafting of such items,\nas well as weapons and explosives. Within the\nImperium, the Adeptus Mechanicus considers this\nentire branch of knowledge to be their exclusive\nright and will punish those who use it, or even study\nit, without their sanction. Notably, an individual\nthat knows only how to assemble or repair a device\nby rote need not have this Specialisation."
+      },
+      "parent": "SK_TECH",
+      "restricted": false,
+      "forbidden": false
+    },
+    {
+      "tag": "SP_SEC",
+      "name": {
+        "ru": "Безопасность",
+        "en": "Security"
+      },
+      "description": {
+        "ru": "Умение общаться с машинными духами,\nчто управляют системами доступа, дверьми, терморегу-\nляторами, орудиями и тому подобными устройствами, и\nприказывать им, искусно применяя древний и современ-\nный двоичный код, а также всевозможные способы\nизвлечения сведения из защищённых инфохранилищ.\nМало кто за пределами Адептус Механикус владеет\nтаким искусством.",
+        "en": "Knowledge of how to interact with the\nMachine Spirits that control security devices, along\nwith whatever other systems have been linked to the\nsame, such as doors, thermo-regulators, weapons\nsystems, and so forth, in order to direct them in\nspecific ways. Accomplished through the use of\nbinary codes, modern and ancient, along with\nvarious techniques used to sift information from\ndatavaults, secured or otherwise. A Specialisation\nknown to few outside the Adeptus Mechanicus."
+      },
+      "parent": "SK_TECH",
+      "restricted": false,
+      "forbidden": false
+    }
+  ]
+}

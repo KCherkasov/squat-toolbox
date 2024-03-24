@@ -1,0 +1,139 @@
+{
+  "descriptions": [
+    {
+      "tag": "ST_WS",
+      "name": {
+        "ru": "Навык Рукопашной",
+        "en": "Weapon Skill"
+      },
+      "short_name": {
+        "ru": "НР",
+        "en": "WS"
+      },
+      "description": {
+        "ru": "Определяет компетентность персонажа во всех формах ближнего боя. Персонажи с высоким значением Навыка Рукопашной отличные воины, смертоносные как с цепным мечом, так и с голыми руками.",
+        "en": "Weapon Skill measures a character’s competence in all forms of close-quarters combat. Characters with high Weapon Skill values are excellent warriors, renowned with a chainsword or even their bare hands."
+      }
+    },
+    {
+      "tag": "ST_BS",
+      "name": {
+        "ru": "Навык Стрельбы",
+        "en": "Ballistic Skill"
+      },
+      "short_name": {
+        "ru": "НС",
+        "en": "BS"
+      },
+      "description": {
+        "ru": "Отображает точность стрельбы персонажа из всего стрелкового оружия. Персонажи с высоким значением Навыка Стрельбы прекрасные стрелки, опасные и вблизи, и в сотне метров от цели.",
+        "en": "Ballistic Skill measures a character’s accuracy with all forms of ranged weapons. A high Ballistic Skill indicates a character is an excellent marksman, someone to be rightly feared in a fire-fight or shootout."
+      }
+    },
+    {
+      "tag": "ST_STR",
+      "name": {
+        "ru": "Сила",
+        "en": "Strength"
+      },
+      "short_name": {
+        "ru": "Сил",
+        "en": "Str"
+      },
+      "description": {
+        "ru": "Измеряет мышцы и физическую силу персонажа. Высокая Сила позволяет персонажу поднимать тяжести и сильнее бить противника.",
+        "en": "Strength measures a character’s muscle and physical power. A high Strength characteristic value allows a character to lift heavier objects and punch a foe harder."
+      }
+    },
+    {
+      "tag": "ST_T",
+      "name": {
+        "ru": "Выносливость",
+        "en": "Toughness"
+      },
+      "short_name": {
+        "ru": "Выг",
+        "en": "Tgh"
+      },
+      "description": {
+        "ru": "Определяет здоровье, стойкость и сопротивляемость персонажа. Исключительно Выносливые персонажи могут проигнорировать даже убийственные удары и лучше сопротивляться ядовитым атакам.",
+        "en": "Toughness measures a character’s health, stamina, and resistance. Exceptionally Tough characters can shrug off otherwise damaging weapon hits and better withstand poisonous attacks."
+      }
+    },
+    {
+      "tag": "ST_AG",
+      "name": {
+        "ru": "Ловкость",
+        "en": "Agility"
+      },
+      "short_name": {
+        "ru": "Лов",
+        "en": "Ag"
+      },
+      "description": {
+        "ru": "Измеряет скорость, рефлексы и чувство равновесия персонажа. Высокая Ловкость позволяет персонажу изящно управлять техникой или удерживать равновесие на скользкой поверхности. Также эта характеристика определяет скорость передвижения персонажа, чем выше бонус Ловкости, тем дальше персонаж может передвинуться.",
+        "en": "This measures a character’s quickness, reflex, and poise. High Agility can allow a character to manipulate delicate machinery with finesse, or keep his footing when crossing treacherous terrain. This characteristic also determines a character’s movement rate; the higher the Agility bonus, the farther he can move each turn."
+      }
+    },
+    {
+      "tag": "ST_INT",
+      "name": {
+        "ru": "Интеллект",
+        "en": "Intelligence"
+      },
+      "short_name": {
+        "ru": "Инт",
+        "en": "Int"
+      },
+      "description": {
+        "ru": "Отображает проницательность, сообразительность и общее образование персонажа. Персонаж с высоким Интеллектом может вспомнить огромные объёмы данных, собрать эзотерические ключи и узнать, является ли древняя реликвия археотека подлинной или нет.",
+        "en": "Intelligence measures a character’s acumen, reason, and general knowledge. A character with a strong Intelligence value can recall huge volumes of data, correlate esoteric clues, or determine if an ancient archaeotech relic is genuine or not."
+      }
+    },
+    {
+      "tag": "ST_PER",
+      "name": {
+        "ru": "Восприятие",
+        "en": "Perception"
+      },
+      "short_name": {
+        "ru": "Вос",
+        "en": "Per"
+      },
+      "description": {
+        "ru": "Определяет бдительность персонажа и остроту его органов чувств. Персонаж с высоким Восприятием способен найти пустую болтерную гильзу посреди подульевого болота или определить, когда ему лгут.",
+        "en": "This measures a character’s awareness and the acuteness of his senses. A character who has a high Perception value can pick out a stray bolter shell casing left amidst an underhive morass, or tell when someone is being deceitful."
+      }
+    },
+    {
+      "tag": "ST_WP",
+      "name": {
+        "ru": "Сила воли",
+        "en": "Willpower"
+      },
+      "short_name": {
+        "ru": "Вол",
+        "en": "Wil"
+      },
+      "description": {
+        "ru": "Измеряет ментальную силу и стойкость. Высокая Сила Воли позволит персонажу взять под контроль почти бунтующую толпу хаб-рабочих или допросить захваченного еретика. Кроме того, она часто используется при применении психических сил или сопротивлении им.",
+        "en": "Willpower measures a character’s mental strength and resilience. High Willpower allows a character to exert control over a crowd of near-rioting hab workers or interrogate a captured heretic. It is also often used when wielding and resisting psychic powers."
+      }
+    },
+    {
+      "tag": "ST_FEL",
+      "name": {
+        "ru": "Общительность",
+        "en": "Fellowship"
+      },
+      "short_name": {
+        "ru": "Общ",
+        "en": "Fel"
+      },
+      "description": {
+        "ru": "Отображает убедительность персонажа, его умение вести за собой и силу личности. Высокая Общительность позволяет персонажу втереться в доверие к кузнечным чернорабочим или торговаться с умелым продавцом.",
+        "en": "Fellowship measures a character’s persuasiveness, ability to lead, and force of personality. Having a strong Fellowship makes for a character who can ingratiate himself into a gathering of suspicious forge menials or make skilled trades with wily vendors."
+      }
+    }
+  ]
+}

@@ -4,6 +4,7 @@ VERSION = '1.0.946a'
 
 RU = 'ru'
 EN = 'en'
+RE = 'ruen'
 
 LANGS = [RU, EN]
 

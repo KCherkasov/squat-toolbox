@@ -21,6 +21,7 @@ from django.forms.models import model_to_dict
 
 import charlist.models as models
 from charlist import rt_views
+from charlist import mal_views
 from charlist.character.character import CharacterModel
 from charlist.character.skill import Skill
 from charlist.character.stat import Stat

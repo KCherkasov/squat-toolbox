@@ -70,6 +70,9 @@ class CharacterModel(object):
     def is_rt(self):
         return False
 
+    def is_im(self):
+        return False
+
     def id(self):
         return self.__cid
 

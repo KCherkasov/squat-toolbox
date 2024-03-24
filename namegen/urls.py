@@ -20,6 +20,7 @@ from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
 
 from charlist import rt_views
+from charlist import mal_views
 from charlist import views as charviews
 from namegen import views, settings
 
@@ -106,6 +107,8 @@ urlpatterns = [
     path(r'charsheet/test/', charviews.aptitudes_test, name='charsheet-test'),
     path(r'charsheet/mockup/', charviews.charsheet_mockup, name='charsheet-mockup'),
     path(r'charsheet/mockup-interactive/', charviews.interactive_charsheet_mockup, name='interactive-mockup'),
+
+    path(r'test/mal-charsheet-mockup/', mal_views.mal_character_mock_view, name='im-interactive-mockup'),
 
     path('api/namegen/get', views.get_name),
     path('api/namegen/ver', views.get_namegen_version),

@@ -1,0 +1,244 @@
+{
+  "descriptions": [
+    {
+      "tag": "SK_ATHL",
+      "name": {
+        "ru": "Атлетика",
+        "en": "Athletics"
+      },
+      "description": {
+        "ru": "Атлетика отражает физическую подготовку персонажа и его способность преодолевать препятствия – в том числе опасные для нетренированного человека. Улучшение этого умения может означать, что герой постоянно тренируется и развивает физические способности – здесь играют важную роль умение владеть своим телом, мышечная память и способность оценивать риск. Также умелый атлет учится работать с подходящим снаряжением и понимает не только, как применять его наилучшим образом, но и когда какую экипировку стоит использовать.",
+        "en": "Athletics represents physical training and preparedness to overcome a broad range of obstacles, including many challenges that can be dangerous for the untrained. When learning Athletics, characters undertake training regimens that rely heavily upon physical aptitudes. Body awareness, muscle memory, and risk assessment all can play major roles. Athletics includes training with necessary survival tools to aid the practitioner in knowing not just how to use a tool most effectively, but when to choose the best one from an array of options."
+      },
+      "stat": "ST_STR"
+    },
+    {
+      "tag": "SK_AWR",
+      "name": {
+        "ru": "Бдительность",
+        "en": "Awareness"
+      },
+      "description": {
+        "ru": "Это умение показывает внимательность персонажа и его владение своими органами чувств. Он может заметить небольшие изменения или неуместные в конкретных обстоятельствах явления. Персонажи с развитой Бдительностью намеренно оттачивали свои чувства и учились обращать внимание на мелкие детали, что постороннему покажутся ничтожными – это могут быть изменения давления, температуры, появление новых запахов или даже фонового шума.",
+        "en": "Awareness measures a character’s ability to notice their surroundings with all of their senses. This includes recognising when things change, but also when things seem contextually out of place due to social and environmental factors. Characters who focus on Awareness diligently hone their senses, often noting subtle changes that seem trivial to the uninitiated. This can include changes in pressure, temperature, subtle aromas, and even the patterns of a location’s environmental noise."
+      },
+      "stat": "ST_PER"
+    },
+    {
+      "tag": "SK_DEX",
+      "name": {
+        "ru": "Проворство",
+        "en": "Dexterity"
+      },
+      "description": {
+        "ru": "Это умение отражает способность персонажа выполнять тонкую работу и моторику его пальцев – в том числе умение обращаться с маленькими инструментами, где необходима точность движений. Этот навык пригодится при использовании большинства технологических устройств, но некоторые осваивают его для подлых дел, вроде взлома замков и карманных краж. Ключевое свойство, что объединяет эти занятия – необходимость быстрых и скоординированных движений пальцев.",
+        "en": "Dexterity is a measure of a character’s ability to perform delicate, fine motor function. This includes working with small tools and precise manipulations. The skill is vital for performing maintenance works on most technological devices, but some master the art for more nefarious purposes such as deception and thievery. The key connection between these distinct tasks is the ability to carefully and quickly make delicate small motions in a refined way."
+      },
+      "stat": "ST_AG"
+    },
+    {
+      "tag": "SK_DIS",
+      "name": {
+        "ru": "Дисциплина",
+        "en": "Discipline"
+      },
+      "description": {
+        "ru": "Это умение говорит о способности персонажа сопротивляться внешнему давлению. Обычно для этого нужна определённая степень самоконтроля – особенно в случае опасности – а потому она становится ценным оружием, способным защитить от тьмы. Демоны, псайкеры, мутанты и ксеносы являют собой соблазны для ума, духа и плоти, а поддаться им – значит осквернить себя без надежды на искупление. Самый аскетичный и дисциплинированный праведник всегда должен быть начеку, ибо даже маленький шажок к удобству и довольству может привести к ереси.",
+        "en": "Discipline is a measure of a character’s ability to stubbornly resist outside influences. This usually requires a high degree of self-control, particularly in stressful situations, and thus makes it a valuable tool in a person’s arsenal to protect them from the dangers of the darkness. The daemon, the psyker, the mutant, and the xenos all offer temptations of the mind, the spirit, and the flesh, and succumbing to any of these can lead to irredeemable levels of corruption. The faithful must remain vigilant in their asceticism and self-control. Otherwise, even the slightest misstep toward comfort and complacency can grant a toehold to heresy."
+      },
+      "stat": "ST_WP"
+    },
+    {
+      "tag": "SK_FORT",
+      "name": {
+        "ru": "Стойкость",
+        "en": "Fortitude"
+      },
+      "description": {
+        "ru": "Стойкость отражает умение персонажа переживать физические нагрузки – яды, усталость и болезни. В Махарие хватает суровых планет, на которых живут люди, а отсутствие Стойкости часто означает смерть. Развитие этого навыка подразумевает, что герой привыкает терпеть боль, принимает малые дозы ядов, постится и учится обходиться без сна, тем самым закаляя организм и приучая его к невзгодам.",
+        "en": "Fortitude is a measure of a person’s ability to deal with physical suffering. This includes ailments, toxins, and exhaustion. Humanity makes its home on many harsh worlds within the Macharian Sector, and a lack of Fortitude can mean the difference between life and death. Actively training this skill can include toiling through pain, ingesting small amounts of various toxins, and extended fasting and exercises in sleep deprivation. In doing so, the body becomes better able to endure and overcome those dangers."
+      },
+      "stat": "ST_T"
+    },
+    {
+      "tag": "SK_INT",
+      "name": {
+        "ru": "Чутье",
+        "en": "Intuition"
+      },
+      "description": {
+        "ru": "Intuition is the skill used when noting that something seems amiss with a person or place. It is used for reading social cues and body language, as well as noticing when the arrangement or the feel of a location is somehow wrong. Those trained at recognising when something is off can use the errant subtleties to discern something of what is actually going on. This skill covers detecting body language or similar patterns of behaviour. Examples include recognising social missteps or noting when the ceremonial murals have been hung incorrectly.",
+        "en": "Чутьё применяется, когда с собеседником или местом, в котором находится персонаж, что-то не так. Оно помогает читать социальные сигналы, воспринимать язык тела и замечать отклонения от нормальности. Люди с развитым Чутьём могут улавливать это и делать выводы. Например, персонаж может осознать допущенные этикетные промашки или заметить, что фрески установлены в неверном порядке."
+      },
+      "stat": "ST_PER"
+    },
+    {
+      "tag": "SK_LNG",
+      "name": {
+        "ru": "Лингвистика",
+        "en": "Linguistics"
+      },
+      "description": {
+        "ru": "Этот навык отражает способность персонажа понимать устную и письменную речь на другом языке и переводить её. Обладатели развитого умения могут знать больше языков и бегло говорить на них. Люди изучают сами языки, их историю и развитие – это не только упрощает общение, но и позволяет понимать местные наречия или подмечать исторические несоответствия в текстах. Персонажу не обойтись без Лингвистики, когда нужно понять смутное послание или взломать сложный шифр. Все подданные Империума умеют говорить на низком готическом.",
+        "en": "Linguistics measures the character’s ability to understand and translate written and spoken languages. Those who are more adept at this skill are more fluent in the languages they know and may also know a broader range of tongues. Individuals study languages and their history. This improves their proficiency with the languages they use every day. It also helps them decipher localised changes and historic inconsistencies to reveal the author’s intent. That knowledge is critical for reconciling confusing missives and decoding complex ciphers. All citizens of the Imperium are automatically fluent in spoken Low Gothic."
+      },
+      "stat": "ST_INT"
+    },
+    {
+      "tag": "SK_LOG",
+      "name": {
+        "ru": "Логика",
+        "en": "Logic"
+      },
+      "description": {
+        "ru": "Этот навык отражает умение персонажа логически мыслить, а также анализировать и решать сложные задачи. Это требует учитывать доступные сведения и вычислять отсутствующие звенья головоломки или решать загадки. Кроме того, это умение означает знакомство героя с математикой и позволяет наскоро оценивать цену и качество предметов.",
+        "en": "Logic represents the character’s ability to use deduction and understanding to analyse and resolve complex problems. It depends upon the knack to assemble observable information and identify the missing pieces or to puzzle out how they fit together. This includes a functional familiarity with mathematics, but also delves into swiftly assessing relative values and qualities."
+      },
+      "stat": "ST_INT"
+    },
+    {
+      "tag": "SK_LORE",
+      "name": {
+        "ru": "Знание",
+        "en": "Lore"
+      },
+      "description": {
+        "ru": "Это умение показывает, много ли персонаж знает по определённой теме. Некоторые знания могут прийти с житейским опытом, но многие другие нужно кропотливо изучать. Иногда невежество – лучшая защита от Тьмы, но её понимание может помочь найти способ победить.",
+        "en": "Lore measures how much a character knows about a particular topic. While some of this knowledge can come from perception and practical experience, much of it must come from careful study. Ignorance is sometimes an effective defence against the Darkness, but understanding can also help one learn how to overcome it."
+      },
+      "stat": "ST_INT"
+    },
+    {
+      "tag": "SK_MED",
+      "name": {
+        "ru": "Медицина",
+        "en": "Medicae"
+      },
+      "description": {
+        "ru": "Этот навык отражает познания героя в медицинском искусстве и умение его применять – как на поле боя, так и к хорошо оснащённом госпитале. Правильная первая помощь может сильно повлиять на ход исцеления, а вовремя перевязанная рана, обработанный ожог или распознанный ксенояд позволит пациенту отделаться мелкими неудобствами, а не ложиться в могилу. Большинство агентов умеют оказывать первую помощь, но некоторые учатся работать с более сложными ранами. Конечно, не каждый, кто получал подготовку, может с толком применять её на практике в поле.",
+        "en": "Medicae represents knowledge of proper medical treatments, both in the field and in a fully equipped hospital. Immediate response to trauma can be a huge factor in recovery, and so recognising and appropriately treating an injury in the field — a wound, a burn, or a xenos poison — is often the difference between a minor inconvenience and an early grave. Most agents have basic training in first aid, but some are prepared to deal with far more complex injuries. Of course, not everyone who receives training is able to put those skills into practice in the field."
+      },
+      "stat": "ST_INT"
+    },
+    {
+      "tag": "SK_MELEE",
+      "name": {
+        "ru": "Ближний бой",
+        "en": "Melee"
+      },
+      "description": {
+        "ru": "Хотя на полях брани сорок первого тысячелетия воины часто обмениваются чудовищно опустошительными залпами, судьба многих сражений решается, когда группа отчаянных бойцов бросается в беспощадный ближний бой. Вдали от войн рукопашная часто происходит в тёмных переулках, на забитых людьми маглевах или в казармах, где нет времени и места перезаряжать винтовку и некуда метнуть гранату – порой из неприятностей проще выпутаться (или впутаться в них) с помощью, ножа, кулаков или удавки.",
+        "en": "While battlefields of the 41st Millennium are often defined by exchanges of horrifically destructive ranged fire, many battles have been won or lost by the actions of brave or reckless soldiers who throw themselves into fierce melee. Away from the battlefield, fights often take place in cramped, dark confines — in dark alleys, cramped maglevs, or barrack blocks where there is neither space nor time to load a rifle or throw a grenade. Sometimes the best option is to stab, strangle, and gouge your way out of (or into) trouble."
+      },
+      "stat": "ST_WS"
+    },
+    {
+      "tag": "SK_NAV",
+      "name": {
+        "ru": "Ориентирование",
+        "en": "Navigation"
+      },
+      "description": {
+        "ru": "Ориентирование – это умение читать карты и использовать имеющиеся сведения, чтобы спланировать простой переход или целую систему снабжения. Путешествия никогда не происходят по той прямой линии, что можно нарисовать на карте. Ландшафт, погода, движение, дороги (если таковые вообще есть) и местная флора и фауна могут оказаться важными критериями при составлении курса и путешествии. Странствия в космосе требуют сложных расчётов из-за постоянного движения планет и других небесных тел, а чтобы ориентироваться в Варпе, необходимы способности, недоступные обычным людям.",
+        "en": "Navigation is the skill of reading maps and contextualising the information for everything from simple trips to complex logistics. Travel between locations is more complicated than simply looking at a map and drawing a straight line. Even for routine surface travel terrain, weather conditions, traffic patterns, roads (should they even exist), and local wildlife are all important criteria for considering the best route to reach a destination. Travel through space adds vastly more complexity to any calculations due to the movement of planets involved as well as any intervening bodies, while travel through the warp requires abilities far beyond normal Humans."
+      },
+      "stat": "ST_INT"
+    },
+    {
+      "tag": "SK_PILOT",
+      "name": {
+        "ru": "Пилотирование",
+        "en": "Piloting"
+      },
+      "description": {
+        "ru": "Это умение отражает способность персонажа управлять машиной, танком или кораблём в напряжённых обстоятельствах – высадить истребительную команду на вершину осыпающегося шпиля, уйти от налётчиков-ксеносов или пробить скалоходом стену санктума, где собираются еретики. Умелый пилот знает, когда можно преступить священную технику безопасности и потребовать от машинного духа большего. Вне напряжённой обстановки обладатели этого умения могут вести машину безо всяких проверок.",
+        "en": "Piloting represents a character's knack for controlling the movements of a vehicle under stressful conditions. Dropping a kill team on a crumbling spiretop, outpacing xenos raiders, or ramming a Ridgerunner through the wall of a heretical cult’s sanctum. An accomplished pilot ideally knows how and when to safely push their vehicle beyond the sacred recommended safety limits of the vehicle’s Machine Spirit. Outside of such stressful situations, characters with this Skill can normally pilot a vehicle without requiring a Test."
+      },
+      "stat": "ST_AG"
+    },
+    {
+      "tag": "SK_PRES",
+      "name": {
+        "ru": "Выдержка",
+        "en": "Presence"
+      },
+      "description": {
+        "ru": "Это умение отражает способность героя руководить действиями других людей или подавлять их своим авторитетом. Поза, одежда, манера речи – всё идёт в дело. Зачастую звука комиссарских шагов достаточно, чтобы затихла целая казарма гвардейцев, а бывалый махарийский вигил может одним холодным требованием рассеять толпу бунтовщиков. В конечном счёте умение применять этот навык происходит из практики, подготовки и степени знакомства с теми, кем командуешь.",
+        "en": "Presence measures a person’s ability to direct the actions of others or extract information from them, simply through their comportment. Posture, dress, and style of speech all contribute to success in such attempts. The mere clip of a Commissar’s boots is often enough to hush an entire barracks of Militarum troopers, while an icily delivered ultimatum may be all it takes for a seasoned Macharian Vigilite to disperse a crowd of desperate rioters. Ultimately, however, maintaining the correct bearing comes from practice, training, and familiarity with the subject."
+      },
+      "stat": "ST_WP"
+    },
+    {
+      "tag": "SK_PSY",
+      "name": {
+        "ru": "Психическое мастерство",
+        "en": "Psychic mastery"
+      },
+      "description": {
+        "ru": "Это умение отражает способность персонажа управлять сверхъестественными силами Варпа. Применяя известные ему приёмы, он пытается сосредоточить частицу бесконечной мощи Имматериума, чтобы преобразовать реальность сообразно своим желанием. При этом псайкеры ставят на кон свои души – а зачастую тела и души всех, кто оказался поблизости. Искусный псайкер может снизить такой риск, но каждое применение такой мощи таит опасность.",
+        "en": "Psychic Mastery represents a character’s abilities to call on the unnatural forces of the warp to do their bidding. Through these techniques, they attempt to carefully focus a finite portion of the boundless power that exists within the immaterium to transform reality as per their desires. In the process, they endanger their very souls—and often the bodies and souls of everyone nearby. While an accomplished psyker might mitigate this risk, every use poses danger."
+      },
+      "stat": "ST_WP"
+    },
+    {
+      "tag": "SK_RNG",
+      "name": {
+        "ru": "Стрельба",
+        "en": "Ranged"
+      },
+      "description": {
+        "ru": "По всему сектору Махарий и по всему Империуму треск лазгана или оглушительный взрыв точно нацеленного болтерного снаряда оканчивает разногласия куда чаще, чем мог бы даже надеяться сосчитать чиновник Администратума. Умелый снайпер кладёт конец пылкой проповеди еретика, бандит поливает переулок огнём автогана, чтобы прикрыть своё отступление – так или иначе, умение обращаться со стрелковым оружием может значит разницу между жизнью и смертью.",
+        "en": "Across the Macharian Sector and throughout the Imperium, the snap of a lasgun or the deafening explosion of a well aimed bolter shell have ended more disagreements than the efforts of every Administratum clerk could ever hope to count. From the well trained sniper ending the rousing sermon of a heretical preacher, to the ganger hastily spraying an alleyway with a burst of autogun fire to cover their retreat, expertise with a ranged weapon can mean the difference between life and death."
+      },
+      "stat": "ST_BS"
+    },
+    {
+      "tag": "SK_RAP",
+      "name": {
+        "ru": "Взаимопонимание",
+        "en": "Rapport"
+      },
+      "description": {
+        "ru": "Это умение показывает, насколько хорошо персонаж умеет убеждать других людей делать то, чего они не хотят. Порой это требует пообещать услуг в будущем или хотя бы намекнуть на них. В других случаях вопрос могут решить деньги и ценности. В любом случае найти общий язык всегда проще, если ваш собеседник понимает, что это ему выгодно. Когда одна из сторон видит, что останется ни с чем, переговоры сильно осложняются. Взаимопонимание позволяет персонажам добиваться желаемого, не прибегая у угрозам. Имперский гвардеец, которому нужна запасная батарея, должен знать, как выбить её у интенданта, а проповедник Министорума – как сыграть на страхах своих прихожан. Порой слов недостаточно, но пригоршня соляров или обещания помощи помогут скрепить сделку.",
+        "en": "Rapport measures a character’s knack for getting other people to do something they otherwise might not. Sometimes this requires promises of future favours—or at least the implication of them. In other cases, money or other assets may change hands. Typically, though, the negotiations become easier the more the subject of the persuasive efforts expects to benefit from the exchange. When the benefits become more one-sided, then negotiations can be far more challenging. Rapport allows characters to get away with doing what they want without resorting to threats. A Militarum trooper wheedling an extra power pack from the stores should know just how to ask the quartermaster to ignore the oversight, while a Ministorum Preacher would do well to learn exactly which of his congregations fears to play upon in order to whip them into a frenzy. In some cases words alone are not enough, and a handful of solars or a promise of future aid must be supplied to seal the deal."
+      },
+      "stat": "ST_FEL"
+    },
+    {
+      "tag": "SK_RFL",
+      "name": {
+        "ru": "Рефлексы",
+        "en": "Reflexes"
+      },
+      "description": {
+        "ru": "Иногда единственный способ избежать удара или пули – это постараться с ними разминуться. Рефлексы говорят именно о такой способности и общей проворности. Зачастую ловкости достаточно, чтобы избежать раны, а порой она превращает катастрофу в триумф. Обладатели быстрых рефлексов могут действовать впереди своих мыслей.",
+        "en": "Sometimes the only way to avoid an attack, or survive an accident, is to not be there when it happens; Reflexes represents this ability as well as physical adroitness in general. Often this is enough to mitigate an injury, and sometimes it can mean the difference between disaster and triumph. Some who hone this skill learn to respond through muscle memory before they even fully recognise a threat."
+      },
+      "stat": "ST_AG"
+    },
+    {
+      "tag": "SK_STL",
+      "name": {
+        "ru": "Скрытность",
+        "en": "Stealth"
+      },
+      "description": {
+        "ru": "Скрытность отражает способность персонажа оставаться незаметным. На открытых пространствах это требует умения сливаться с к окружением, а в многолюдном ульевом квартале проще прятаться в тенях или прямо среди людей. Так или иначе, навык позволяет герою пойти туда, где его не ждут, и узнать чужие секреты, никому не выдавая своего присутствия. Персонаж, что умеет оставаться незамеченным – ключевой исполнитель для множества заданий, где требуется действовать тайно.",
+        "en": "Stealth is a measure of a character’s ability to go unnoticed. In an open wilderness, this likely means blending in with the surroundings, whereas within a crowded hab it might mean clinging to the shadows or just attempting to look like everyone else. In either circumstance, the character has the opportunity to go places where they are not wanted and to uncover secrets without others recognising that they have surrendered them. Characters who can move freely without being noticed are often essential in many missions, especially where a measure of discretion is involved."
+      },
+      "stat": "ST_AG"
+    },
+    {
+      "tag": "SK_TECH",
+      "name": {
+        "ru": "Техника",
+        "en": "Tech"
+      },
+      "description": {
+        "ru": "Это умение указывает на способность персонажа использовать технологические устройства и чинить их. В Империуме этим занимается почти исключительно Адептус Механикус, хотя не входящие в их орден люди порой учатся применять, ремонтировать или даже переделывать устройства. Таких хватает в криминальных картелях, на диких мирах или в местах, где нет должного представительства техножрецов, хотя умения самоучек не сравнятся с догматичными, но эффективными знаниями и опытом настоящего техножреца. Вы можете использовать это умение, чтобы починить снаряжение – например, броню, повреждённую разрывающим оружием (см. стр. 125). Как правило, вам потребуется бросать длительную проверку Техники (см. стр. 190), которая будет требовать одного успеха за каждую сотню соляров, что стоит вещь, и позволит предпринимать один бросок в час. К примеру, чтобы починить повреждённый флак-жилет потребуется средняя (+0) проверка Техники (Инженерное дело), в которой нужно набрать пять успехов, бросая кости каждый час. Так или иначе, ведущий может изменить все эти показатели.",
+        "en": "Tech is a measure of a character’s ability to use and repair technological devices. Within the Imperium of Man, this falls squarely under the purview of the Adeptus Mechanicus. In spite of this, people outside that order can acquire a knack for using, repairing, and even modifying technologies. Those within criminal cartels, on feral worlds, or in areas without proper Mechanicus access are among such individuals, though they will likely never match the expertise and knowledge of the rote (but often quite effective) techniques of an actual Tech-Priest. You can use the Tech Skill to repair equipment, such as armour damaged by the Rend Trait (page 125). Typically, repairing technology is an Extended Tech Test (page 190) requiring a number of SL equal to the value of the item in solars divided by 100, with one Test allowed per hour. For example, to repair a ruined Flak Vest you would make a Challenging (+0) Extended Tech (Engineering) Test requiring a total of 5 SL, with one Test allowed per hour. All of these variables may be modified by the Gamemaster."
+      },
+      "stat": "ST_INT"
+    }
+  ]
+}

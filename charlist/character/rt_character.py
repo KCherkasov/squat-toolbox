@@ -70,6 +70,9 @@ class RTCharacterModel(object):
     def is_rt(self):
         return True
 
+    def is_im(self):
+        return False
+
     def id(self):
         return self.__cid
 

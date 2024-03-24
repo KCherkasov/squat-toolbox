@@ -1,5 +1,9 @@
 {% if character.is_rt %}
     {% include 'rt-charsheet-interactive.html' %}
 {% else %}
-    {% include 'charsheet-mockup-interactive.html' %}
+    {% if character.is_mal %}
+        {% include 'mal-charsheet-interactive.html' %}
+    {% else %}
+        {% include 'charsheet-mockup-interactive.html' %}
+    {% endif %}
 {% endif %}

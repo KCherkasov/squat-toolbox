@@ -1,0 +1,103 @@
+{% extends 'charlist_main.html' %}
+
+{% load filters %}
+
+{% block pg_title %}
+    Character sheet interactive mockup (Imperium Maledictum)
+{% endblock %}
+
+{% block title %}
+Чарник ver.{{ version }}&nbsp;|&nbsp;{% if character.is_rt %}RT2.0{% else %}{% if character.is_mal %}IM{% else %}DH2{% endif %}{% endif %}
+{% endblock %}
+
+{% block app_content %}
+    {% with user.preferable_language as pl %}
+        <div class="charlist-container">
+            <div>
+               <ul class="nav nav-tabs" role="tablist">
+                   {% for lang in facade.langs %}
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link {% if pl %}{% if lang == pl %}active{% endif %}{% else %}{% if forloop.first %}active{% endif %}{% endif %}" data-bs-toggle="tab" id="c{{ character.cid }}-{{ lang }}-tab" href="#c{{ character.cid }}-{{ lang }}-card" aria-current="page">
+                                {% if lang == 'ru' %}Русский{% else %}English{% endif %}
+                            </a>
+                        </li>
+                   {% endfor %}
+               </ul>
+            </div>
+        </div>
+        <div class="tab-content charlist-container">
+            {% for lang in facade.langs %}
+                <div class="tab-pane fade show charlist-container {% if pl %}{% if lang == pl %}active{% endif %}{% else %}{% if forloop.first %}active{% endif %}{% endif %}" id="c{{ character.cid }}-{{ lang }}-card" role="tabpanel" aria-labelledby="c{{ character.cid }}-{{lang}}-tab">
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" data-bs-toggle="tab" id="c{{ character.cid }}-general-tab-{{ lang }}" href="#c{{ character.cid }}-general-{{ lang }}" aria-current="page">
+
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" data-bs-toggle="tab" id="c{{ character.cid }}-psy-tab-{{ lang }}" href="#c{{ character.cid }}-psy-{{ lang }}" aria-current="page">
+
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" data-bs-toggle="tab" id="c{{ character.cid }}-equipment-tab-{{ lang }}" href="#c{{ character.cid }}-equipment-{{ lang }}" aria-current="page">
+
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" data-bs-toggle="tab" id="c{{ character.cid }}-combat-tab-{{ lang }}" href="#c{{ character.cid }}-combat-{{ lang }}" aria-current="page">
+
+                                </a>
+                            </li>
+                            {% if is_owner %}
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" data-bs-toggle="tab" id="c{{ character.cid }}-notes-tab-{{ lang }}" href="#c{{ character.cid }}-notes-{{ lang }}" aria-current="page">
+                                    {% if lang == 'ru' %}Заметки{% else %}Player notes{% endif %}
+                                </a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <div class="tab-content charsheet-card">
+                        <header class="text-center">
+                            <h3>
+                                {{ character.name }}
+                                {% if groups|length > 0 %}
+                                    &nbsp;(Группы:
+                                    {% for group in groups %}
+                                        <a href="{{ group.get_url }}">{{ group.name }}</a>
+                                        {% if not forloop.last %};&nbsp;{% endif %}
+                                    {% endfor %}
+                                    )
+                                {% endif %}
+                            </h3>
+                            {% include 'xp_widget.html' %}
+                        </header>
+                        {% if is_owner and reminders|length > 0 %}
+                        <div class="justify-content-center alert-warning">
+                            {% include 'reminders_widget.html' %}
+                        </div>
+                        {% endif %}
+                        <div class="tab-pane fade show charlist-container active justify-content-center" id="c{{ character.cid }}-general-{{ lang }}" role="tabpanel" aria-labelledby="c{{ character.cid }}-general-tab-{{ lang }}">
+                            <hr>
+                            <header class="text-center">
+                                <h4>{% if lang == 'ru' %}Карточка персонажа{% else %}Character card{% endif %}</h4>
+                            </header>
+                            <div class="charlist-content">
+                                <div class="charlist-inline justify-content-center">
+                                    <div class="card card-body">
+
+                                    </div>
+                                    <div class="card card-body">
+                                        {% include 'fate_widget.html' %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endwith %}
+{% endblock %}

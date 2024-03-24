@@ -1,0 +1,53 @@
+{% load filters %}
+
+<div class="card card-body" id="stats-{{ lang }}">
+    <header class="text-center">
+        <h5>
+            {% if lang == 'ru' %}Характеристики{% else %}Characteristics{% endif %}
+        </h5>
+    </header>
+    <div class="charlist-content">
+        <table class="table">
+            <thead>
+                <th></th>
+                {% for stat_key in facade.stat_tags %}
+                    <th scope="col">
+                        {% with facade.stat_descriptions|get_by_dict_key:stat_key as stat %}
+                            {% if lang == 'ru' %}
+                                {{ stat.get_short_name_ru }}
+                            {% else %}
+                                {{ stat.get_short_name_en }}
+                            {% endwith %}
+                        {% endwith %}
+                    </th>
+                {% endfor %}
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">
+                        {% if lang == 'ru' %} База {% else %} Base {% endif %}
+                    </th>
+                    {% for stat in facade.stat_tags %}
+                        <td>{{ stat.get_base }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <th scope="row">
+                        {% if lang == 'ru' %} Улучшения {% else %} Advances {% endif %}
+                    </th>
+                    {% for stat in facade.stat_tags %}
+                        <td>{{ stat.advances }}</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <th scope="row">
+                        {% if lang == 'ru' %} Значение {% else %} Value {% endif %}
+                    </th>
+                    {% for stat in facade.stat_tags %}
+                        <td class="fs-5"><strong class="fs-4">{{ stat.bonus }}</strong>{{ stat.residue }}</td>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
