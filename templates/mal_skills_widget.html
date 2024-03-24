@@ -28,6 +28,7 @@
                                 </i>
                             </th>
                             <td>
+                                <b>
                                 {% with facade.stat_descriptions|get_by_dict_key:skill_descr.stat as stat %}
                                 {% if lang == 'ru' %}
                                     {{ stat.get_short_name_ru }}
@@ -35,6 +36,7 @@
                                     {{ stat.get_short_name_en }}
                                 {% endif %}
                                 {% endwith %}
+                                </b>
                             </td>
                             <td>
                                 {% with character.stats|get_by_dict_key:skill_descr.stat as stat %}
