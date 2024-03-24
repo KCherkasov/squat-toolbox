@@ -29,8 +29,10 @@ def mal_character_mock_view(request):
         stats[stat_id] = MalStat(stat_id, IM_BASE_STAT + int(rnd.randrange(IM_ONE, IM_D10))
                                  + int(rnd.randrange(IM_ONE, IM_D10)), int(rnd.randrange(IM_ZERO, IM_D10)))
     skills = dict()
+    wounds = stats.get(ST_STRENGTH).bonus() + stats.get(ST_TOUGHNESS).bonus()\
+              + stats.get(ST_TOUGHNESS).bonus() + stats.get(ST_WILLPOWER).bonus()
     character_model = MalCharacterModel(IM_ZERO, "Test Maledictum Character", [100, 0], [3, 3],
-                                        [10, 10], stats, skills)
+                                        wounds, stats, skills)
     return TemplateResponse(request, "charsheet.html", {'version': VERSION, 'facade': mal_flyweights,
                                                         'character': character_model, 'is_test': True,
                                                         })
