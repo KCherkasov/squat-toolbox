@@ -131,7 +131,7 @@
                                         {% endwith %}
                                     {% endif %}
                                 </th>
-                                {% if spec.is_custom %}
+                                {% if not spec.is_custom %}
                                     {% with facade.specialization_descriptions|get_by_dict_key:spec_tag as spec_descr %}
                                         <div class="modal fade" id="c{{ character.id }}-{{ spec_tag }}-{{ lang }}-info" tabindex="-1"
                                              aria-labelledby="c{{ character.id }}-{{ spec_tag }}-{{ lang }}-info-label">
