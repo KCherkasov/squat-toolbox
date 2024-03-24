@@ -13,7 +13,7 @@ from charlist.character.maledictum.mal_specialization import MalSpecialization
 
 class MalCharacterModel(object):
     def __init__(self, cid: int, name: str, xp: List[int],
-                 fate: List[int], wounds: List[int],
+                 fate: List[int], wounds: int,
                  stats: Dict[str, MalStat],
                  skills: Dict[str, MalSkill]):
         self.__cid = cid
@@ -95,28 +95,32 @@ class MalCharacterModel(object):
         if amount > IM_ZERO:
             self.__fate[IM_CAP_ID] += amount
 
+    def initiative(self):
+        return self.__stats.get(ST_AGILITY).bonus() + self.__stats.get(ST_PERCEPTION).bonus()
+
     def wounds(self):
         return self.__wounds
 
     def wounds_cap(self):
-        wnd = self.__wounds[IM_CAP_ID]
+        wnd = self.__stats.get(ST_STRENGTH).bonus() + self.__stats.get(ST_TOUGHNESS).bonus()\
+               + self.__stats.get(ST_TOUGHNESS).bonus() + self.__stats.get(ST_WILLPOWER).bonus()
         return wnd
 
     def wounds_current(self):
-        return self.__wounds[IM_CUR_ID]
+        return self.__wounds
 
     def damage(self, dmg: int):
         if dmg > IM_ZERO:
-            self.__wounds[IM_CUR_ID] -= dmg
+            self.__wounds -= dmg
             return True
         else:
             return False
 
     def heal(self, hld: int):
         if hld > IM_ZERO:
-            self.__wounds[IM_CUR_ID] += hld
-            if self.__wounds[IM_CUR_ID] > self.wounds_cap():
-                self.__wounds[IM_CUR_ID] = self.wounds_cap()
+            self.__wounds += hld
+            if self.__wounds > self.wounds_cap():
+                self.__wounds = self.wounds_cap()
             return True
         else:
             return False

@@ -32,5 +32,5 @@ def mal_character_mock_view(request):
     character_model = MalCharacterModel(IM_ZERO, "Test Maledictum Character", [100, 0], [3, 3],
                                         [10, 10], stats, skills)
     return TemplateResponse(request, "charsheet.html", {'version': VERSION, 'facade': mal_flyweights,
-                                                        'character': character_model,
+                                                        'character': character_model, 'is_test': True,
                                                         })

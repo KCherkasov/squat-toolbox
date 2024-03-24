@@ -1,0 +1,52 @@
+{% load filters %}
+<div class="card card-body" id="c{{ character.id }}-fate-{{ lang }}">
+    <div class="charlist-inline align-content-center">
+        <header class="pe-3">
+            <b>
+                {% if lang == 'ru' %}Очки Судьбы{% else %}Fate points{% endif %}:
+            </b>
+        </header>
+        {% if hookups|get_by_dict_key:'FP' %}
+        <div class="btn-group dropend">
+            <span class="position-absolute top-0 start-100 translate-middle btn btn-success dropdown-toggle badge rounded-circle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            </span>
+            <ul class="dropdown-menu w400">
+                {% for hint in hookups|get_by_dict_key:'FP' %}
+                <li class="dropdown-item text-wrap">
+                    <p class="text-break">{{ hint.description|get_by_dict_key:lang }} <b>({% if lang == 'ru' %}от{% else %}from{% endif %}:{{ hint.talent_name|get_by_dict_key:lang }})</b></p>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+    <table class="table text-center">
+        <thead>
+            <th scope="col">{% if lang == 'ru' %}Текущее{% else %}Current{% endif %}</th>
+            <th scope="col">{% if lang == 'ru' %}Всего{% else %}Total{% endif %}</th>
+        </thead>
+        <tr class="fs-3">
+            <td>{{ character.fate_current }}</td>
+            <td>{{ character.fate_cap }}</td>
+        </tr>
+    </table>
+    {% if is_owner or is_test %}
+    {% for err in fate_form.non_field_errors %}
+    <div class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        {{ err }}
+    </div>
+    {% endfor %}
+    <form class="form-horizontal" action="" method="post">
+        {% csrf_token %}
+        <div class="charlist-inline ps-3">
+            <button class="btn btn-success {% if character.fate_current == 0 or is_test %}disabled{% endif %}" name="spend-fate" type="submit">
+                {% if lang == 'ru' %}Потратить{% else %}Spend{% endif %}
+            </button>
+            <button class="btn btn-danger {% if is_test %}disabled{% endif %}" name="burn-fate" type="submit">
+                {% if lang == 'ru' %}Сжечь{% else %}Burn{% endif %}
+            </button>
+        </div>
+    </form>
+    {% endif %}
+</div>
