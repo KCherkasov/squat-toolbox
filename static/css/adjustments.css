@@ -132,3 +132,12 @@ h5.collapse-toggler {
     max-height: 700px;
     overflow-y: auto;
 }
+
+.im-stats-widget {
+    min-width: 600px;
+}
+
+.im-fate-widget {
+    max-width: 220px;
+    min-width: 200px;
+}
