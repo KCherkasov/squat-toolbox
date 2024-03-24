@@ -17,7 +17,7 @@
                <ul class="nav nav-tabs" role="tablist">
                    {% for lang in facade.langs %}
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link {% if pl %}{% if lang == pl %}active{% endif %}{% else %}{% if forloop.first %}active{% endif %}{% endif %}" data-bs-toggle="tab" id="c{{ character.cid }}-{{ lang }}-tab" href="#c{{ character.cid }}-{{ lang }}-card" aria-current="page">
+                            <a class="nav-link {% if pl %}{% if lang == pl %}active{% endif %}{% else %}{% if forloop.first %}active{% endif %}{% endif %}" data-bs-toggle="tab" id="c{{ character.id }}-{{ lang }}-tab" href="#c{{ character.id }}-{{ lang }}-card" aria-current="page">
                                 {% if lang == 'ru' %}Русский{% else %}English{% endif %}
                             </a>
                         </li>
@@ -27,32 +27,32 @@
         </div>
         <div class="tab-content charlist-container">
             {% for lang in facade.langs %}
-                <div class="tab-pane fade show charlist-container {% if pl %}{% if lang == pl %}active{% endif %}{% else %}{% if forloop.first %}active{% endif %}{% endif %}" id="c{{ character.cid }}-{{ lang }}-card" role="tabpanel" aria-labelledby="c{{ character.cid }}-{{lang}}-tab">
+                <div class="tab-pane fade show charlist-container {% if pl %}{% if lang == pl %}active{% endif %}{% else %}{% if forloop.first %}active{% endif %}{% endif %}" id="c{{ character.id }}-{{ lang }}-card" role="tabpanel" aria-labelledby="c{{ character.id }}-{{lang}}-tab">
                     <div>
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link active" data-bs-toggle="tab" id="c{{ character.cid }}-general-tab-{{ lang }}" href="#c{{ character.cid }}-general-{{ lang }}" aria-current="page">
+                                <a class="nav-link active" data-bs-toggle="tab" id="c{{ character.id }}-general-tab-{{ lang }}" href="#c{{ character.id }}-general-{{ lang }}" aria-current="page">
                                     {% if lang == 'ru' %}Карточка персонажа{% else %}Character card{% endif %}
                                 </a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link active" data-bs-toggle="tab" id="c{{ character.cid }}-psy-tab-{{ lang }}" href="#c{{ character.cid }}-psy-{{ lang }}" aria-current="page">
+                                <a class="nav-link" data-bs-toggle="tab" id="c{{ character.id }}-psy-tab-{{ lang }}" href="#c{{ character.id }}-psy-{{ lang }}" aria-current="page">
                                     {% if lang == 'ru' %}Психосилы{% else %}Psychic powers{% endif %}
                                 </a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link" data-bs-toggle="tab" id="c{{ character.cid }}-equipment-tab-{{ lang }}" href="#c{{ character.cid }}-equipment-{{ lang }}" aria-current="page">
+                                <a class="nav-link" data-bs-toggle="tab" id="c{{ character.id }}-equipment-tab-{{ lang }}" href="#c{{ character.id }}-equipment-{{ lang }}" aria-current="page">
                                     {% if lang == 'ru' %}Имущество{% else %}Equipment{% endif %}
                                 </a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link active" data-bs-toggle="tab" id="c{{ character.cid }}-combat-tab-{{ lang }}" href="#c{{ character.cid }}-combat-{{ lang }}" aria-current="page">
+                                <a class="nav-link" data-bs-toggle="tab" id="c{{ character.id }}-combat-tab-{{ lang }}" href="#c{{ character.id }}-combat-{{ lang }}" aria-current="page">
                                     {% if lang == 'ru' %}Боевой листок{% else %}Combat card{% endif %}
                                 </a>
                             </li>
                             {% if is_owner %}
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link" data-bs-toggle="tab" id="c{{ character.cid }}-notes-tab-{{ lang }}" href="#c{{ character.cid }}-notes-{{ lang }}" aria-current="page">
+                                <a class="nav-link" data-bs-toggle="tab" id="c{{ character.id }}-notes-tab-{{ lang }}" href="#c{{ character.id }}-notes-{{ lang }}" aria-current="page">
                                     {% if lang == 'ru' %}Заметки{% else %}Player notes{% endif %}
                                 </a>
                             </li>
@@ -79,7 +79,7 @@
                             {% include 'reminders_widget.html' %}
                         </div>
                         {% endif %}
-                        <div class="tab-pane fade show charlist-container active justify-content-center" id="c{{ character.cid }}-general-{{ lang }}" role="tabpanel" aria-labelledby="c{{ character.cid }}-general-tab-{{ lang }}">
+                        <div class="tab-pane fade show charlist-container active justify-content-center" id="c{{ character.id }}-general-{{ lang }}" role="tabpanel" aria-labelledby="c{{ character.id }}-general-tab-{{ lang }}">
                             <hr>
                             <header class="text-center">
                                 <h4>{% if lang == 'ru' %}Карточка персонажа{% else %}Character card{% endif %}</h4>
