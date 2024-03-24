@@ -7,7 +7,7 @@
     <div class="charlist-inline">
         {% for skill_tag, skill in character.skills.items %}
             {% if forloop.counter0|divisibleby:10 or forloop.first %}
-                <table class="table w-auto table-fixed align-middle table-striped text-center">
+                <table class="table table-fixed align-middle table-striped text-center">
                     <thead>
                         <th scope="col" class="th-lg">{% if lang == 'ru'%}Умение{% else %}Skill{% endif %}</th>
                         <th scope="col" colspan="2">{% if lang == 'ru' %}Характеристика{% else %}Characteristic{% endif %}</th>
