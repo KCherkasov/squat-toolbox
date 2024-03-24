@@ -1,9 +1,9 @@
 {% load filters %}
-<div class="card card-body" id="c{{ character.id }}-fate-{{ lang }}">
+<div class="card card-body justify-content-center" id="c{{ character.id }}-fate-{{ lang }}">
     <div class="charlist-inline">
         <header class="text-center pe-3">
             <h5>
-                {% if lang == 'ru' %}Очки Судьбы{% else %}Fate points{% endif %}:
+                {% if lang == 'ru' %}Очки Судьбы{% else %}Fate points{% endif %}
             </h5>
         </header>
         {% if hookups %}
@@ -24,8 +24,8 @@
     </div>
     <table class="table text-center">
         <thead>
-            <th scope="col">{% if lang == 'ru' %}Текущее{% else %}Current{% endif %}</th>
-            <th scope="col">{% if lang == 'ru' %}Всего{% else %}Total{% endif %}</th>
+            <th scope="col fs-4">{% if lang == 'ru' %}Текущее{% else %}Current{% endif %}</th>
+            <th scope="col fs-4">{% if lang == 'ru' %}Всего{% else %}Total{% endif %}</th>
         </thead>
         <tr class="fs-3">
             <td>{{ character.fate_current }}</td>
