@@ -27,6 +27,9 @@ class MalCharacterModel(object):
     def is_rt(self):
         return False
 
+    def is_im(self):
+        return True
+
     def id(self):
         return self.__cid
 
