@@ -34,6 +34,7 @@ class MalFacade:
             json.load(open(fname_to_path(resources_paths[SPEC_DESCR_ID]), 'r', encoding='utf-8')))
         self.__specialization_descriptions = to_map(specializations)
         self.__langs = MAL_LANGS
+        self.__stat_tags = STAT_TAGS_GEN
 
     def stat_descriptions(self):
         return self.__stat_descriptions
@@ -46,3 +47,6 @@ class MalFacade:
 
     def langs(self):
         return self.__langs
+
+    def stat_tags(self):
+        return self.__stat_tags
