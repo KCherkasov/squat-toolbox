@@ -1844,6 +1844,7 @@ def create_group(request, season_id):
                                                          description=form.cleaned_data.get('description'),
                                                          is_rt=form.cleaned_data.get('is_rt'))
             group.name_id = group.make_name_id()
+            group.purse = season.purse
             group.save()
             for key, value in form.cleaned_data.items():
                 if key not in ['creator', 'name', 'description', 'is_rt']:
