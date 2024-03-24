@@ -160,7 +160,7 @@ class MalCharacterModel(object):
     def get_skill_diff(self, tag: str, stat: str):
         if (tag not in self.skills().keys()) or (stat not in self.stats().keys()):
             return None
-        diff = self.stats().get(stat).value() + self.skills().get(tag).advances()
+        diff = self.stats().get(stat).value() + self.skills().get(tag).adv_bonus()
         return diff
 
     def get_subskill_diff(self, tag: str, subskill: str, stat: str):
@@ -168,7 +168,7 @@ class MalCharacterModel(object):
                 or (not self.skills().get(tag).has_specialization(subskill)) \
                 or (stat not in self.stats().keys()):
             return None
-        diff = self.stats().get(stat).value() + self.skills().get(tag).specialization_advances(subskill)
+        diff = self.stats().get(stat).value() + self.skills().get(tag).specialization_adv_bonus(subskill)
         return diff
 
     @classmethod

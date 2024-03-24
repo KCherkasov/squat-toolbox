@@ -28,6 +28,9 @@ class MalSkill(object):
         return self.__tag
 
     def advances(self):
+        return self.__advances
+
+    def adv_bonus(self):
         return self.__advances * IM_SKILL_ADVANCE
 
     def is_upgradeable(self):
@@ -45,11 +48,11 @@ class MalSkill(object):
     def has_specialization(self, tag: str):
         return tag in self.__specializations.keys()
 
-    def specialization_advances(self, tag: str):
+    def specialization_adv_bonus(self, tag: str):
         if self.has_specialization(tag):
-            return self.advances() + self.specialization(tag).advances()
+            return self.adv_bonus() + self.specialization(tag).adv_bonus()
         else:
-            return self.advances()
+            return self.adv_bonus()
 
     def gain_specialization(self, spec: MalSpecialization):
         if spec.tag() not in self.__specializations.keys():

@@ -16,6 +16,9 @@ class MalSpecialization(object):
         return self.__tag
 
     def advances(self):
+        return self.__advances
+
+    def adv_bonus(self):
         return self.__advances * IM_SKILL_ADVANCE
 
     def is_upgradeable(self):
