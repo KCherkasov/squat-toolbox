@@ -15,11 +15,13 @@
                     <th scope="col">
                         <a href="" class="text-dark text-decoration-none" role="button" data-bs-toggle="modal"
                            data-bs-target="#c{{ character.id }}-{{ stat.get_tag }}-{{ lang }}-info" title="Подробнее">
-                        {% if lang == 'ru' %}
-                            {{ stat.get_short_name_ru }}
-                        {% else %}
-                            {{ stat.get_short_name_en }}
-                        {% endif %}
+                            <i>
+                                {% if lang == 'ru' %}
+                                    {{ stat.get_short_name_ru }}
+                                {% else %}
+                                    {{ stat.get_short_name_en }}
+                                {% endif %}
+                            </i>
                         </a>
                     </th>
                     <div class="modal fade" id="c{{ character.id }}-{{ stat.get_tag }}-{{ lang }}-info" tabindex="-1"
