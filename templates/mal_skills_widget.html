@@ -126,7 +126,12 @@
                                                 {% else %}
                                                     {{ spec_descr.get_name_en }}
                                                 {% endif %}
-                                                {% if spec_descr.restricted %}<sup>*</sup>{% endif %}
+                                                {% if spec_descr.restricted %}
+                                                    *
+                                                    {% if spec_descr.forbidden %}
+                                                        *
+                                                    {% endif %}
+                                                {% endif %}
                                             </i>
                                         </a>
                                         {% endwith %}
