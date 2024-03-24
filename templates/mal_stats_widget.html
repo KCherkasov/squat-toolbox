@@ -1,6 +1,6 @@
 {% load filters %}
 
-<div class="card card-body" id="stats-{{ lang }}">
+<div class="card card-body" id="c{{ character.id }}-stats-{{ lang }}">
     <header class="text-center">
         <h5>
             {% if lang == 'ru' %}Характеристики{% else %}Characteristics{% endif %}
@@ -26,8 +26,9 @@
                          aria-labelledby="c{{ character.id }}-{{ stat.tag }}-{{ lang }}-info-label">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
-                                <div class="modal-header text-center">
-                                    <h5  id="c{{ character.id }}-{{ stat.tag }}-{{ lang }}-info-label">
+                                <div class="modal-header">
+                                    <h5  class="modal-title text-center"
+                                         id="c{{ character.id }}-{{ stat.tag }}-{{ lang }}-info-label">
                                         <strong>
                                             {% if lang == 'ru' %}
                                                 {{ stat.get_name_ru }}
