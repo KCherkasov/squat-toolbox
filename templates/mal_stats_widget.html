@@ -27,13 +27,15 @@
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header text-center">
-                                    <strong id="c{{ character.id }}-{{ stat.tag }}-{{ lang }}-info-label">
-                                        {% if lang == 'ru' %}
-                                            {{ stat.get_name_ru }}
-                                        {% else %}
-                                            {{ stat.get_name_en }}
-                                        {% endif %}
-                                    </strong>
+                                    <h5  id="c{{ character.id }}-{{ stat.tag }}-{{ lang }}-info-label">
+                                        <strong>
+                                            {% if lang == 'ru' %}
+                                                {{ stat.get_name_ru }}
+                                            {% else %}
+                                                {{ stat.get_name_en }}
+                                            {% endif %}
+                                        </strong>
+                                    </h5>
                                 </div>
                                 <div class="modal-body">
                                     <p class="card-text">
