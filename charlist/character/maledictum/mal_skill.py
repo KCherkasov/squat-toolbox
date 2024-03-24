@@ -21,14 +21,17 @@ class MalSkill(object):
         self.__advances = advances
         self.__specializations = specializations
 
+    def rowspan(self):
+        return len(self.__specializations.keys()) + IM_TWO
+
     def tag(self):
         return self.__tag
 
     def advances(self):
-        return self.__advances
+        return self.__advances * IM_ADVANCE_STEP
 
     def upgrade(self):
-        self.__advances += IM_ADVANCE_STEP
+        self.__advances += IM_ONE
 
     def specializations(self):
         return self.__specializations
@@ -38,6 +41,12 @@ class MalSkill(object):
 
     def has_specialization(self, tag: str):
         return tag in self.__specializations.keys()
+
+    def specialization_advances(self, tag: str):
+        if self.has_specialization(tag):
+            return self.advances() + self.specialization(tag).advances()
+        else:
+            return self.advances()
 
     def gain_specialization(self, spec: MalSpecialization):
         if spec.tag() not in self.__specializations.keys():

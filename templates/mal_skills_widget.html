@@ -1,0 +1,56 @@
+{% load filters %}
+
+<div class="card card-body" id="c{{ character.id }}-skills-{{ lang }}">
+    <header class="text-center">
+        <h5>{% if lang == 'ru' %}Умения{% else %}Skills{% endif %}</h5>
+    </header>
+    <div class="charlist-inline">
+        {% for skill_tag, skill in character.skills.items %}
+            {% if forloop.counter0|divisibleby:9 %}
+                <table class="table text-center">
+                    <thead>
+                        <th scope="col">{% if lang == 'ru'%}Умение{% else %}Skill{% endif %}</th>
+                        <th scope="col" colspan="2">{% if lang == 'ru' %}Характеристика{% else %}Characteristic{% endif %}</th>
+                        <th scope="col">{% if lang == 'ru' %}Улучш.{% else %}Adv.{% endif %}</th>
+                        <th scope="col">{% if lang == 'ru' %}Итого{% else %}Total{% endif %}</th>
+                    </thead>
+                    <tbody>
+            {% endif %}
+                        <tr>
+                            {% with facade.skill_descriptions|get_by_dict_key:skill_tag as skill_descr %}
+                            <th scope="row">
+                                <i>
+                                    {% if lang == 'ru' %}
+                                        {{ skill_descr.get_name_ru }}
+                                    {% else %}
+                                        {{ skill_descr.get_name_en }}
+                                    {% endif %}
+                                </i>
+                            </th>
+                            <td>
+                                {% with facade.stat_descriptions|get_by_dict_key:skill_descr.stat as stat %}
+                                {% if lang == 'ru' %}
+                                    {{ stat.get_name_ru }}
+                                {% else %}
+                                    {{ stat.get_name_en }}
+                                {% endif %}
+                                {% endwith %}
+                            </td>
+                            <td>
+                                {% with character.stats|get_by_dict_key:skill_descr.stat as stat %}
+                                    {{ stat.value }}
+                                {% endwith %}
+                            </td>
+                            <td>{{ skill.advances }}</td>
+                            <td>
+                                {% get_skill_diff character skill_tag skill_descr.stat %}
+                            </td>
+                            {% endwith %}
+                        </tr>
+            {% if forloop.counter|divisibleby:9 or forloop.last %}
+                    </tbody>
+                </table>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

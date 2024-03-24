@@ -157,6 +157,20 @@ class MalCharacterModel(object):
     def skill(self, tag: str):
         return self.skills().get(tag)
 
+    def get_skill_diff(self, tag: str, stat: str):
+        if (tag not in self.skills().keys()) or (stat not in self.stats().keys()):
+            return None
+        diff = self.stats().get(stat).value() + self.skills().get(tag).advances()
+        return diff
+
+    def get_subskill_diff(self, tag: str, subskill: str, stat: str):
+        if (tag not in self.skills().keys()) \
+                or (not self.skills().get(tag).has_specialization(subskill)) \
+                or (stat not in self.stats().keys()):
+            return None
+        diff = self.stats().get(stat).value() + self.skills().get(tag).specialization_advances(subskill)
+        return diff
+
     @classmethod
     def from_json(cls, sdata: str):
         data = json.loads(sdata)

@@ -16,10 +16,10 @@ class MalSpecialization(object):
         return self.__tag
 
     def advances(self):
-        return self.__advances
+        return self.__advances * IM_ADVANCE_STEP
 
     def upgrade(self):
-        self.__advances += IM_ADVANCE_STEP
+        self.__advances += IM_ONE
 
     def is_upgradeable(self):
         return self.__advances < IM_SKILL_ADV_CAP

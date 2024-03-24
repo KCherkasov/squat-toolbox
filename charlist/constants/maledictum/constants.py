@@ -4,6 +4,7 @@ JSON_INDENT = 4
 
 IM_ZERO = 0
 IM_ONE = 1
+IM_TWO = 2
 
 IM_CUR_ID = 0
 IM_CAP_ID = 1

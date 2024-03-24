@@ -35,6 +35,7 @@ class MalFacade:
         self.__specialization_descriptions = to_map(specializations)
         self.__langs = MAL_LANGS
         self.__stat_tags = STAT_TAGS_GEN
+        self.__skill_tags = SKILL_TAGS
 
     def stat_descriptions(self):
         return self.__stat_descriptions
@@ -50,3 +51,6 @@ class MalFacade:
 
     def stat_tags(self):
         return self.__stat_tags
+
+    def skill_tags(self):
+        return self.__skill_tags
