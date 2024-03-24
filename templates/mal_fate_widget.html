@@ -42,7 +42,7 @@
     {% endfor %}
     <form class="form-horizontal" action="" method="post">
         {% csrf_token %}
-        <div class="charlist-inline">
+        <div class="charlist-inline justify-content-around">
             <button class="btn btn-success {% if character.fate_current == 0 or is_test %}disabled{% endif %}" name="spend-fate" type="submit">
                 {% if lang == 'ru' %}Потратить{% else %}Spend{% endif %}
             </button>
