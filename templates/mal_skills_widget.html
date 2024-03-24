@@ -5,7 +5,7 @@
         <h5>{% if lang == 'ru' %}Умения и специализации{% else %}Skills and specializations{% endif %}</h5>
     </header>
     <div class="charlist-inline">
-        <div class="card card-body" id="c{{ character.id }}-skills-{{ lang }}">
+        <div class="card card-body im-skills-widget" id="c{{ character.id }}-skills-{{ lang }}">
             <header class="text-center">
                 <h5>{% if lang == 'ru' %}Умения{% else %}Skills{% endif %}</h5>
             </header>
@@ -96,7 +96,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="card card-body" id="c{{ character.id }}-specs-{{ lang }}">
+        <div class="card card-body im-specs-widget" id="c{{ character.id }}-specs-{{ lang }}">
             <header class="text-center">
                 <h5>{% if lang == 'ru' %}Специализации{% else %}Specializations{% endif %}</h5>
             </header>

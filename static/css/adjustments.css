@@ -141,3 +141,15 @@ h5.collapse-toggler {
     max-width: 220px;
     min-width: 200px;
 }
+
+.im-stats-widget {
+    min-width: 550px;
+    max-width: 600px;
+}
+
+.im-specs-widget {
+    min-width: 550px;
+    max-width: 600px;
+    max-height: 1020px;
+    overflow-y: auto;
+}
