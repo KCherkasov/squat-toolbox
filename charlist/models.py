@@ -67,6 +67,10 @@ class CharsheetUser(AbstractBaseUser):
         pass
 
 
+class Purse(models.Model):
+    cash = models.PositiveIntegerField(default=25)
+
+
 class SeasonQuerySet(models.QuerySet):
     def with_creator(self):
         return self.prefetch_related('creator')
@@ -141,6 +145,7 @@ class CharacterGroup(models.Model):
     master_notes_url = models.TextField(max_length=500, default='', blank=True)
     group_notes_url = models.TextField(max_length=500, default='', blank=True)
     is_rt = models.BooleanField(default=False)
+    is_mal = models.BooleanField(default=False)
     group_ifl = models.PositiveIntegerField(default=25)
     sessions_count = models.PositiveIntegerField(default=0)
 
