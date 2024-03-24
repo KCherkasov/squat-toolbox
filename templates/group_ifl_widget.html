@@ -8,7 +8,7 @@
     </div>
     <div class="charlist-inline justify-content-center align-self-center">
         <button class="btn btn-outline-dark disabled align-self-center fs-4 mb-2">
-            {{ group.group_ifl }}&nbsp;{% if group.purse %}({{ group.purse.cash }}){% endif %}
+            {% if group.purse %}{{ group.purse.cash }}{% else %}{{ group.group_ifl }}{% endif %}
         </button>
     </div>
     {% if is_master or is_captain %}
