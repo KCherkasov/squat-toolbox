@@ -21,10 +21,7 @@
                 {% if fact_key|starts_with:'SK' and fact_key != 'SK_PSY' %}
                 {% for fact_subkey, fact_data in fact.items %}
                 <li>
-                    {{ fact_subkey }}(
-                    {% for fact_row in fact_data %}
-                    {{ fact_row }}{% if not forloop.last %};&nbsp;{% endif %}
-                    {% endfor %})
+                    {{ fact_subkey }}({% for fact_row in fact_data %}{{ fact_row }}{% if not forloop.last %};&nbsp;{% endif %}{% endfor %})
                 </li>
                 {% empty %}
                 <li>Таких нет.</li>
