@@ -20,7 +20,7 @@ class GainTraitCommand(BaseCommand):
                 character.pending().append(data.get('alt'))
                 return character
             if ('taken' in data.keys()) and (tr.is_stackable()):
-                taken = data.get('taken')
+                taken = str(data.get('taken'))
                 if not taken.isnumeric():
                     if taken == 'CPB':
                         taken = character.corruption_bonus()
@@ -28,6 +28,8 @@ class GainTraitCommand(BaseCommand):
                         taken = character.stats().get(charlist.constants.tags.ST_WILLPOWER).bonus()
                     if 'modifier' in data.keys():
                         taken = round(taken * data.get('modifier'))
+                else:
+                    taken = int(taken)
             if tr.is_specialist():
                 subtag = data.get('subtag')
                 if tr.is_stackable() and (taken is not None):
