@@ -163,7 +163,7 @@ class ChoicesForm(Form):
                     else:
                         name += trait.get('subtag') + ')'
                 if trdesc.is_stackable():
-                    name += '(' + trait.get('taken') + ')'
+                    name += '(' + str(trait.get('taken')) + ')'
                 bg_traits.append((i, name))
                 i += 1
         self.fields['background_traits'].choices = bg_traits
