@@ -1202,7 +1202,7 @@ def gain_mutation_choice(request, character_model, character: models.Character):
         if choice not in character_model.mutations():
             character_model.mutations().append(choice)
             character_model = clean_completed(character_model, request)
-            for cmd in flyweights.mutations().get(choice):
+            for cmd in flyweights.mutations().get(choice).get_commands():
                 character_model.pending().append(cmd)
             character.character_data = character_model.toJSON()
             character.save()
