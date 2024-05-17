@@ -1004,11 +1004,11 @@
         ],
         "commands": [
           {
-            "command": "GainCorruption",
+            "command": "GainCorruptionRoll",
             "value": 10
           },
           {
-            "command": "GainRndMutation",
+            "command": "GainMutation",
             "dices": 5
           }
         ]
