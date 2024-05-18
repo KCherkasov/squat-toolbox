@@ -221,7 +221,7 @@
         "en": "The Logic skill represents the ability to think rationally, solve puzzles, and dissect information clearly and quickly. It can be applied to analyse complex statistics, architectural anomalies, or even achieve some degree of understanding with regards to complex technologies. This skill encompasses the character’s basic functional understanding of mathematics, physics, and engineering."
       },
       "aptitudes": ["A_INT", "A_KNG"],
-      "stats": ["ST_INT", "ST_AG"],
+      "stats": ["ST_INT"],
       "is_specialist": false
     },
     {
