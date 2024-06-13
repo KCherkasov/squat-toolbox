@@ -53,7 +53,7 @@ ORIGIN_DESCR_ID = 3
 MAL_RESOURCES = [
     "im_stat_descriptions.json",
     "im_skill_descriptions.json",
-    "im_specialization_descriptions.json"
+    "im_specialization_descriptions.json",
     "im_origins.json"
 ]
 
