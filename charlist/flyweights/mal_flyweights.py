@@ -56,7 +56,7 @@ class MalFacade:
     def origin_by_roll(self, roll: int):
         origin = None
         for tag, orig in self.origins().items():
-            if (roll >= orig.roll_range[IM_CUR_ID]) and (roll <= orig.roll_range[IM_CAP_ID]):
+            if (roll >= orig.roll_range()[IM_CUR_ID]) and (roll <= orig.roll_range()[IM_CAP_ID]):
                 origin = orig
                 break
         return origin
@@ -64,7 +64,7 @@ class MalFacade:
     def origin_tag_by_roll(self, roll: int):
         tag = None
         for key, origin in self.origins().keys():
-            if (roll >= origin.roll_range[IM_CUR_ID]) and (roll <= origin.roll_range[IM_CAP_ID]):
+            if (roll >= origin.roll_range()[IM_CUR_ID]) and (roll <= origin.roll_range()[IM_CAP_ID]):
                 tag = key
                 break
         return tag
