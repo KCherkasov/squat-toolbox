@@ -29,7 +29,7 @@ def mal_character_mock_view(request):
     chosen_stat = int(rnd.randrange(IM_ZERO, len(origin.stat_choice()) - IM_ONE))
     for stat_id in STAT_TAGS_GEN:
         base = IM_BASE_STAT
-        if (stat_id == origin.bonus_stat()) or (stat_id == origin.stat_choice()[chosen_stat]):
+        if (stat_id == origin.stat_bonus()) or (stat_id == origin.stat_choice()[chosen_stat]):
             base += IM_ORIGIN_STAT_BONUS
         stats[stat_id] = MalStat(stat_id, base + int(rnd.randrange(IM_ONE, IM_D10))
                                  + int(rnd.randrange(IM_ONE, IM_D10)), int(rnd.randrange(IM_ZERO, IM_D10)))
