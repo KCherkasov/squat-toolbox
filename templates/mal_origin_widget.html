@@ -6,7 +6,7 @@
             {% if lang == 'ru' %}Происхождение{% else %}Origin{% endif %}:&nbsp;
             <a class="text-dark text-decoration-none" data-bs-toggle="modal" href="" role="button"
                data-bs-target="#originInfo-{{ lang }}" title="Подробнее">
-               <i>{% if lang == 'ru' %}{{ origin.get_name_ru }}{% else %}origin.get_name_en{% endif %}</i>
+               <i>{% if lang == 'ru' %}{{ origin.get_name_ru }}{% else %}{{ origin.get_name_en }}{% endif %}</i>
             </a>
         </b>
     </div>
@@ -15,11 +15,11 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <b>{% if lang == 'ru' %}{{ origin.get_name_ru }}{% else %}origin.get_name_en{% endif %}</b>
+                <b>{% if lang == 'ru' %}{{ origin.get_name_ru }}{% else %}{{ origin.get_name_en }}{% endif %}</b>
             </div>
             <hr>
             <div class="modal-body">
-                <p>{% if lang == 'ru' %}{{ origin.get_description_ru }}{% else %}origin.get_description_en{% endif %}</p>
+                <p>{% if lang == 'ru' %}{{ origin.get_description_ru }}{% else %}{{ origin.get_description_en }}{% endif %}</p>
             </div>
         </div>
     </div>
