@@ -9,6 +9,7 @@ from charlist.constants.maledictum.constants import *
 from charlist.flyweights.maledictum.mal_stat_description import MalStatDescription
 from charlist.flyweights.maledictum.mal_skill_description import MalSkillDescription
 from charlist.flyweights.maledictum.mal_specialzation_description import MalSpecializationDescription
+from charlist.flyweights.maledictum.mal_origin import MalOrigin
 
 
 def to_map(lst):
@@ -33,6 +34,9 @@ class MalFacade:
         specializations = MalSpecializationDescription.from_file(
             json.load(open(fname_to_path(resources_paths[SPEC_DESCR_ID]), 'r', encoding='utf-8')))
         self.__specialization_descriptions = to_map(specializations)
+        origins = MalOrigin.from_file(
+            json.load(open(fname_to_path(resources_paths[ORIGIN_DESCR_ID]), 'r', encoding='utf-8')))
+        self.__origins = to_map(origins)
         self.__langs = MAL_LANGS
         self.__stat_tags = STAT_TAGS_GEN
         self.__skill_tags = SKILL_TAGS
@@ -45,6 +49,25 @@ class MalFacade:
 
     def specialization_descriptions(self):
         return self.__specialization_descriptions
+
+    def origins(self):
+        return self.__origins
+
+    def origin_by_roll(self, roll: int):
+        origin = None
+        for tag, orig in self.origins().items():
+            if (roll >= orig.roll_range[IM_CUR_ID]) and (roll <= orig.roll_range[IM_CAP_ID]):
+                origin = orig
+                break
+        return origin
+
+    def origin_tag_by_roll(self, roll: int):
+        tag = None
+        for key, origin in self.origins().keys():
+            if (roll >= origin.roll_range[IM_CUR_ID]) and (roll <= origin.roll_range[IM_CAP_ID]):
+                tag = key
+                break
+        return tag
 
     def langs(self):
         return self.__langs

@@ -24,8 +24,14 @@ mal_flyweights = MalFacade()
 def mal_character_mock_view(request):
     stats = dict()
     rnd = Random(datetime.datetime.now())
+    origin_roll = int(rnd.randrange(IM_ONE, IM_D100))
+    origin = mal_flyweights.origin_by_roll(origin_roll)
+    chosen_stat = int(rnd.randrange(IM_ZERO, len(origin.stat_choice() - IM_ONE)))
     for stat_id in STAT_TAGS_GEN:
-        stats[stat_id] = MalStat(stat_id, IM_BASE_STAT + int(rnd.randrange(IM_ONE, IM_D10))
+        base = IM_BASE_STAT
+        if (stat_id == origin.bonus_stat()) or (stat_id == origin.stat_choice()[chosen_stat]):
+            base += IM_ORIGIN_STAT_BONUS
+        stats[stat_id] = MalStat(stat_id, base + int(rnd.randrange(IM_ONE, IM_D10))
                                  + int(rnd.randrange(IM_ONE, IM_D10)), int(rnd.randrange(IM_ZERO, IM_D10)))
     skills = dict()
     for skill_tag in SKILL_TAGS:
@@ -37,8 +43,8 @@ def mal_character_mock_view(request):
             skills.get(descr.parent()).gain_specialization(spec)
     wounds = (stats.get(ST_STRENGTH).bonus() + stats.get(ST_TOUGHNESS).bonus()
               + stats.get(ST_TOUGHNESS).bonus() + stats.get(ST_WILLPOWER).bonus())
-    character_model = MalCharacterModel(IM_ZERO, "Test Maledictum Character", [100, 0], [3, 3],
-                                        wounds, stats, skills)
+    character_model = MalCharacterModel(IM_ZERO, "Test Maledictum Character", [100, 0], origin.get_tag(),
+                                        [3, 3], wounds, stats, skills)
     return TemplateResponse(request, "charsheet.html", {'version': VERSION, 'facade': mal_flyweights,
                                                         'character': character_model, 'is_test': True,
                                                         })

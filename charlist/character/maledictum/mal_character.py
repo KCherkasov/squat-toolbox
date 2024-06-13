@@ -13,12 +13,14 @@ from charlist.character.maledictum.mal_specialization import MalSpecialization
 
 class MalCharacterModel(object):
     def __init__(self, cid: int, name: str, xp: List[int],
+                 origin: str,
                  fate: List[int], wounds: int,
                  stats: Dict[str, MalStat],
                  skills: Dict[str, MalSkill]):
         self.__cid = cid
         self.__name = name
         self.__xp = xp
+        self.__origin = origin
         self.__fate = fate
         self.__wounds = wounds
         self.__stats = stats
@@ -62,6 +64,9 @@ class MalCharacterModel(object):
             self.__xp[IM_CUR_ID] -= amount
             self.__xp[IM_SPENT_ID] += amount
             return True
+
+    def origin(self):
+        return self.__origin
 
     def fate(self):
         return self.__fate

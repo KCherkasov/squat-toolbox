@@ -10,6 +10,8 @@ IM_CUR_ID = 0
 IM_CAP_ID = 1
 IM_SPENT_ID = 1
 
+IM_ORIGIN_STAT_BONUS = 5
+
 IM_DEFAULT_ADVANCE = 0
 IM_ADVANCE_STEP = 1
 
@@ -46,11 +48,13 @@ RESOURCES_PATH = 'static/json/'
 STATS_DESCR_ID = 0
 SKILL_DESCR_ID = 1
 SPEC_DESCR_ID = 2
+ORIGIN_DESCR_ID = 3
 
 MAL_RESOURCES = [
     "im_stat_descriptions.json",
     "im_skill_descriptions.json",
     "im_specialization_descriptions.json"
+    "im_origins.json"
 ]
 
 MAL_LANGS = ['ru', 'en']
