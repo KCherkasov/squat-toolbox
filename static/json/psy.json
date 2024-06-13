@@ -937,6 +937,53 @@
       "keywords": ["KW_CON"]
     },
     {
+      "tag": "PP_PSM",
+      "name": {
+        "ru": "Психометрия",
+        "en": "Psychometry"
+      },
+      "description": {
+        "ru": "Обучение чтению карт Таро составляет важную часть постижения умения выявлять слова Императора в психических образах. Изучение этой способности позволит псайкеру узнавать больше информации о других по грубым психическим следам, которые те оставляют на предметах и местах окружающей обстановки.",
+        "en": "Learning to read the Tarot is in part the act of learning to divine the Emperor’s word from psychic impressions. Refining this skill allows the psyker to learn more about others from the crude psychic traces they leave behind on objects and places in the world around them."
+      },
+      "school": "PS_DIV",
+      "type": ["PT_BUFF"],
+      "effect": {
+        "ru": [
+          "В простейшей форме этой силы псайкер может получить общее впечатление от объекта или области за счет поддержания психического контакта и проверок Психонауки. Получение какой-либо большей информации за исключением испытанных здесь сильнейших эмоций требует времени, и чем дольше псайкер остаётся в данной зоне, тем больше данных окажется в его распоряжении. Это время зависит от чистой силы псайкера, и поэтому он может вычитать из каждого уровня число раундов, равное его Пси-рейтингу. Пример: псайкер с Пси-рейтингом 5 получит первый результат на 5 Раунде, второй на 10-ом и так далее.",
+          "10 Раундов (~1 минута): Псайкер может определить сильнейшие эмоции, связанные с областью или объектом;",
+          "20 Раундов (~2 минуты): Псайкер может увидеть общие очертания существа, которые испытал эти эмоции;",
+          "30 Раундов (~3 минуты): Псайкер получает чёткое изображение человека, которые испытал эти эмоции;",
+          "40 Раундов (~4 минуты): Псайкер способен определить род занятий существа (т.е. Карьеру и примерное количество Очков Опыта);",
+          "50 Раундов (~5 минут): Псайкер может определить имя существа;",
+          "+10 Раундов (+1 минутa): Псайкер узнаёт дополнительный факт о существе, определенный Мастером."
+        ],
+        "en": [
+          "In its simplest form, the psyker can gain rough impressions from an object or a general area by maintaining physical contact and making a Psyniscience Test. More information beyond the strongest emotions requires time, and the longer the psyker stays in a given area, the more information he can ascertain. These numbers are modified by the raw strength of the psyker, and he may subtract a number of rounds equal to his Psy Rating from each result level. Example: A psyker with Psy Rating 5 will get the first result in 5 rounds, the second result in 10, etc.",
+          "10 Rounds (approx. 1 minute): The psyker can detect the strongest emotion associated with the area or object;",
+          "20 Rounds (approx. 2 minutes): The psyker can see the general features of the person who experienced the emotion;",
+          "30 Rounds (approx. 3 minutes): The psyker gets a clear image of the person who experienced the emotion;",
+          "40 Rounds (approx. 4 minutes): The psyker is able to identify the person’s occupation (e.g. Career and amount of Experience Points);",
+          "50 Rounds (approx. 5 minutes): The psyker can now determine the name of the person;",
+          "+10 Rounds (+approx. 1 minute): The psyker discovers an additional fact about the person as determined by the Game Master.."
+        ]
+      },
+      "cost": 200,
+      "prerequisites": [
+        {
+          "tag": "PP_AGR",
+          "value": 1
+        }
+      ],
+      "sustainable": false,
+      "focus_check": "SK_PSY",
+      "focus_mod": 0,
+      "focus_opposed": false,
+      "range": 1,
+      "action": "AT_EXT",
+      "keywords": ["KW_CON"]
+    },
+    {
       "tag": "PP_CTR",
       "name": {
         "ru": "Прижигание",

@@ -6655,6 +6655,37 @@
       "prerequisites": [],
       "is_specialist": false,
       "is_stackable": false
+    },
+    {
+      "tag": "TL_WPST",
+      "name": {
+        "ru": "Варп-стабильность",
+        "en": "Warp-stable"
+      },
+      "description": {
+        "ru": "Выберите один результат из таблицы Психических Феномен (кроме Перил). Когда персонаж совершает бросок по таблице Психических Феномен, он может по желанию заменить результат броска на выбранную Феномену. Замена невозможна, если на броске выпали Перила.",
+        "en": "Choose one result on the Psychic Phenomena chart (other than Perils of the Warp). When rolling for Psychic Phenomena, the Explorer may substitute his trademark result for the effect rolled on the table, so long as he does not roll Perils of the Warp."
+      },
+      "hints": [
+        {
+          "tag": "TL_WPST_H1",
+          "description": {
+            "ru": "Выберите один результат из таблицы Психических Феномен (кроме Перил). Когда персонаж совершает бросок по таблице Психических Феномен, он может по желанию заменить результат броска на выбранную Феномену. Замена невозможна, если на броске выпали Перила.",
+        "en": "Choose one result on the Psychic Phenomena chart (other than Perils of the Warp). When rolling for Psychic Phenomena, the Explorer may substitute his trademark result for the effect rolled on the table, so long as he does not roll Perils of the Warp."
+          },
+          "targets": ["ST_WP", "SK_PSY"]
+        }
+      ],
+      "tier": 2,
+      "aptitudes": ["A_WP", "A_PSY"],
+      "prerequisites": [
+        {
+          "tag": "PR",
+          "value": 1
+        }
+      ],
+      "is_specialist": false,
+      "is_stackable": false
     }
   ]
 }
