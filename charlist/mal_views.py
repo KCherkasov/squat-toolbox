@@ -26,7 +26,7 @@ def mal_character_mock_view(request):
     rnd = Random(datetime.datetime.now())
     origin_roll = int(rnd.randrange(IM_ONE, IM_D100))
     origin = mal_flyweights.origin_by_roll(origin_roll)
-    chosen_stat = int(rnd.randrange(IM_ZERO, len(origin.stat_choice() - IM_ONE)))
+    chosen_stat = int(rnd.randrange(IM_ZERO, len(origin.stat_choice()) - IM_ONE))
     for stat_id in STAT_TAGS_GEN:
         base = IM_BASE_STAT
         if (stat_id == origin.bonus_stat()) or (stat_id == origin.stat_choice()[chosen_stat]):
