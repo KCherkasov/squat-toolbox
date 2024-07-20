@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-import json
 
 from typing import Dict
 
-from charlist.constants.tags import *
+from charlist.constants.maledictum.tags import *
 from charlist.constants.maledictum.constants import *
 
 from charlist.flyweights.core.object_description import ObjectDescription
@@ -34,12 +33,12 @@ class MalSpecializationDescription(ObjectDescription):
     @classmethod
     def from_file(cls, fdata):
         spec_descriptions = list()
-        for spec in fdata['descriptions']:
+        for spec in fdata[DESCR_TAG]:
             spec_descriptions.append(MalSpecializationDescriptionModel.from_json(spec))
         result_descriptions = list()
         for spec_model in spec_descriptions:
             result_descriptions.append(cls.from_model(spec_model))
-        if len(result_descriptions) > 0:
+        if len(result_descriptions) > IM_ZERO:
             return result_descriptions
         else:
             return None

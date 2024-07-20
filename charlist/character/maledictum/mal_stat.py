@@ -67,10 +67,10 @@ class MalStat(object):
         return total
 
     def get_cost_5(self):
-        return self.get_batch_cost(5)
+        return self.get_batch_cost(IM_STAT_ADV_FIVE)
 
     def get_cost_10(self):
-        return self.get_batch_cost(10)
+        return self.get_batch_cost(IM_STAT_ADV_TEN)
 
     @classmethod
     def from_json(cls, sdata):

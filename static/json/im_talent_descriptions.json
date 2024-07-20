@@ -1,0 +1,1202 @@
+{
+  "talents": [
+    {
+      "tag": "TL_ACSN",
+      "name": {
+        "ru": "Обостренные чувства",
+        "en": "Acute sense"
+      },
+      "description": {
+        "ru": "Одно из ваших основных чувств развито лучше обычного,\nчто позволяет вам замечать то, что пропустили бы другие.",
+        "en": "One of your primary five senses is highly developed,\nallowing you to spot what others miss."
+      },
+      "hints": [
+        {
+          "tag": "TL_ACSN_H1",
+          "description": {
+            "ru": "Вы можете предпринимать проверки Восприятия, чтобы\nзаметить обычно незаметные вещи, если это связанно с\nвыбранным чувством, когда вам укажет ведущий.\nНапример, вы можете заметить маленький сервочереп на\nогромном расстоянии, почуять почти не имеющий запаха\nяд, услышать дыхание сидящего в засаде бандита, прочесть\nпечатный текст наощупь или определить на вкус, что два\nпайка были выпущены на разных мануфакторумах.",
+            "en": "You may make\nPerception Tests to detect normally imperceptible\ndetails with the associated sense, as dictated by the\nGM. This could include seeing a lone Servo-Skull at an\nincredible distance, detecting the presence of a nearodourless\npoison, hearing the breath of a motionless\nganger hidden in the next room, reading printed text\nby touch, or knowing by taste alone that two ration\npackages come from different manufactorums."
+          },
+          "targets": ["ST_PER", "SK_AWR"]
+        }
+      ],
+      "prerequisites": [],
+      "specializations": ["SP_HRN", "SP_SGT", "SP_SML", "SP_TST", "SP_TCH"],
+      "is_stackable": true
+    },
+    {
+      "tag": "TL_ADAC",
+      "name": {
+        "ru": "Прилив адреналина",
+        "en": "Adrenaline Acceleration"
+      },
+      "description": {
+        "ru": "Когда ваша жизнь в опасности, вы способны двигаться\nочень быстро.",
+        "en": "You are capable of impressive bursts of speed when\nyour life is on the line."
+      },
+      "hints": [
+        {
+          "tag": "TL_ADAC_H1",
+          "description": {
+            "ru": "Если вы получаете критическую рану, ваша Скорость возрастает на шаг до конца Столкновения.",
+            "en": "If you have a Critical Wound\n your Speed increases by one step until the\nend of the Encounter."
+          },
+          "targets": ["WND"]
+        },
+        {
+          "tag": "TL_ADAC_H2",
+          "description": {
+            "ru": "Также вы получаете преимущество в проверках Атлетики,\nпредпринятых в ходе Погони или Бегства.",
+            "en": "You have Advantage on\nAthletics Tests made during a Pursuit or\nwhile Fleeing."
+          },
+          "targets": ["SK_ATHL"]
+        }
+      ],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_AGAT",
+      "name": {
+        "ru": "Проворные удары",
+        "en": "Agile attacks"
+      },
+      "description": {
+        "ru": "Вы полагаетесь не на силу, а на скорость и точность ударов.",
+        "en": "Speed and accuracy make your attacks more potent\nthan powerful blows."
+      },
+      "hints": [
+        {
+          "tag": "TL_AGAT_H1",
+          "description": {
+            "ru": "Вы можете использовать бонус Ловкости вместо бонуса\nСилы, когда подсчитываете урон от холодного оружия со\nсвойством Незаметное.",
+            "en": "You may use your Agility Bonus\ninstead of your Strength Bonus when calculating\ndamage for melee weapons with the Subtle Trait."
+          },
+          "targets": ["SK_MELEE", "ST_WS", "ST_AG"]
+        }
+      ],
+      "prerequisites": [
+        {
+          "conditions": [
+            {
+              "tag": "ST_AG",
+              "value": 45
+            }
+          ]
+        },
+        {
+          "conditions": [
+            {
+              "tag": "SK_MELEE",
+              "value": 2
+            }
+          ]
+        }
+      ],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_AOA",
+      "name": {
+        "ru": "Аура власти",
+        "en": "Air of authority"
+      },
+      "description": {
+        "ru": "Вы излучаете уверенность и готовность повелевать, а одно\nваше присутствие подавляет.",
+        "en": "You exude confidence and command, your mere\npresence influential to many."
+      },
+      "hints": [
+        {
+          "tag": "TL_AOA_H1",
+          "description": {
+            "ru": "Когда вы в первый раз\nсталкиваетесь с некой группой, вы можете предпринять\nсреднюю (+0) проверку Взаимопонимания или Выдержки. В случае успеха вы получаете +1 к влиянию на эту\nгруппу до конца задания.",
+            "en": "The first time you meet a\ngroup, you can make a Challenging (+0) Presence or\nRapport Test. On a success, you gain +1 Influence with\nthat group until the end of the mission."
+          },
+          "targets": ["SK_PRES", "SK_RAP", "IFL"]
+        }
+      ],
+      "prerequisites": [
+        {
+          "conditions": [
+            {
+              "tag": "SK_PRES",
+              "value": 2
+            }
+          ]
+        }
+      ],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_AMB",
+      "name": {
+        "ru": "Амбидекстр",
+        "en": "Ambidextrous"
+      },
+      "description": {
+        "ru": "Вы одинаково хорошо умеете действовать обеими руками.",
+        "en": "You can use both hands equally well."
+      },
+      "hints": [
+        {
+          "tag": "TL_AMB_H1",
+          "description": {
+            "ru": "Вы одинаково хорошо умеете действовать обеими руками и\nне получаете штрафа за применение неосновной руки.",
+            "en": "You can use both hands equally well, and suffer no\npenalty for doing something with your ‘off ’ hand."
+          },
+          "targets": ["SK_MELEE", "SK_RNG"]
+        },
+        {
+          "tag": "TL_AMB_H2",
+          "description": {
+            "ru": "Вы можете сражаться одноручным холодным\nоружием и пистолетом одновременно, не получая штрафа.",
+            "en": "As\na result, you may wield a one-handed melee weapon\nand a pistol at the same time without penalty to attacks\nwith either."
+          },
+          "targets": ["SK_MELEE", "SK_RNG"]
+        }
+      ],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_APAN",
+      "name": {
+        "ru": "Прикладная анатомия",
+        "en": "Applied anatomy"
+      },
+      "description": {
+        "ru": "Ваши познания в физиологии позволяют вам лучше раз-\nбираться в ранениях и их причинах. Обычно это помогает\nих лечить, но полезно и для того, чтобы таковые причинять.",
+        "en": "Your knowledge of physiology gives you a keen\nfamiliarity with injuries and how they are caused.\nThough that usually helps you treat them, it also aids\nyour understanding of how to inflict them."
+      },
+      "hints": [
+        {
+          "tag": "TL_APAN_H1",
+          "description": {
+            "ru": "Когда вы наносите Критическое Попадание или Критическую Рану, вы можете увеличить серьёзность нанесённой\nраны на количество приобретённых Улучшений Медики.",
+            "en": "When\nyou inflict a Critical Hit or Critical Wound, you may\nincrease its rolled severity by your Advances in the\nMedicae Skill."
+          },
+          "targets": ["SK_MED", "SK_RNG", "SK_MELEE"]
+        }
+      ],
+      "prerequisites": [
+        {
+          "conditions": [
+            {
+              "tag": "SK_MED",
+              "value": 2
+            }
+          ]
+        }
+      ],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_ART",
+      "name": {
+        "ru": "Человек искусства",
+        "en": "Artistic"
+      },
+      "description": {
+        "ru": "У вас врождённая способность к искусствам.",
+        "en": "You have a natural talent for the arts."
+      },
+      "hints": [
+        {
+          "tag": "TL_ART_H1",
+          "description": {
+            "ru": "Вы вы получаете +2 Степени Успеха на проверки,\nсвязанные с: Литератор - чтением или письмом – например, чтобы\nсоставить сборник исчерпывающих доказательств или\nпонять, на какие саги ссылается хитро зашифрованное\nпослание; Живописец - с рисованием – например, чтобы сделать\nнабросок чьего-то лица, определить художника, что\nнарисовал фреску, или выявить подделку; Музыкант - пением или исполнением музыки – например, чтобы\nпеть в хоре или определить, на какой планете родился\nчеловек, по мелодии, что он напевает себе под нос; Актер - актёрской игрой и театром – например, чтобы устроить\nдраматичное представление или определить, что человек\nносит униформу, сшитую не для него.",
+            "en": "Adds +2 SL to any tests related to: Literature - reading or\nwriting, such as cataloguing a comprehensive and\npersuasive evidential case or recognizing which\nImperial sagas are being referenced in an ingeniously\ncoded message; Painting - painting\nor drawing, such as creating a sketch of a person\nof interest or identifying the artist of an Imperial\nfresco and that it is a forgery; Music - singing or\nperforming music, such as leading a religious chorus\nor surmising which planet in a particular sub-sector\nsomeone is from based on the tunes they hum; acting or\nperforming, such as dramatically depicting a\ncharacter or identifying whether someone is wearing\na uniform that was not made for them."
+          },
+          "targets": ["SK_INT", "SK_LNG", "SK_LORE", "SK_LOG", "SK_RAP", "SK_STL", "SK_RFL"]
+        }
+      ],
+      "prerequisites": [],
+      "specializations": ["Literature", "Painting", "Music", "Theatre"],
+      "is_stackable": true
+    },
+    {
+      "tag": "TL_ATAS",
+      "name": {
+        "ru": "Старательный помощник",
+        "en": "Attentive assistant"
+      },
+      "description": {
+        "ru": "Вы готовы уверенно и толково помогать даже в том, в чём\nне разбираетесь.",
+        "en": "You are a dutiful assistant, rendering aid with efficiency\nand aplomb even when the activity would normally\nbe outside your skillset."
+      },
+      "hints": [
+        {
+          "tag": "TL_ATAS_H1",
+          "description": {
+            "ru": "Вы можете использовать действие Помощь, чтобы помочь кому-либо, даже если не имеете\nулучшений в нужном умении. Кроме того, имея улучшения\nи помогая другим, вы приносите товарищу +1 Степень успеха дополнительно.",
+            "en": "You can use the Help Action\n to assist someone even if you do not have\nAdvances in the Skill being Tested. Additionally, if you\ndo have an Advance, they gain +1 SL on the Test."
+          },
+          "targets": ["SK_ANY"]
+        }
+      ],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_BLNK",
+      "name": {
+        "ru": "Пустой",
+        "en": "Blank"
+      },
+      "description": {
+        "ru": "Вы – психически пустой человек, один из крайне редких\nбездушных, наделённых геном парии, что отрезает вас от\nВарпа. Вы не отражаетесь в Имматериуме, отчего псайкеры\nи демоны боятся вас. Вы нарушаете доступ к Имматериуму\nдля всех вокруг себя. Обычным людям вы кажетесь\nжутковатым, а долгое соседство с вами может вызвать\nголовную боль или тошноту.",
+        "en": "You are a Psychic Blank, one of the extremely rare\nSoulless. Psychic nulls like you carry the Pariah Gene,\nwhich denies you a psychic connection to the warp.\nWithout that link, you have no presence within the\nimmaterium, rendering you anathema to nearby psykers\nand daemons. You curtail access to the immaterium\nin your immediate area. Ordinary Humans find your\npresence disturbing, and may even suffer headaches or\nnausea from prolonged exposure to you."
+      },
+      "hints": [
+        {
+          "tag": "TL_BLNK_H1",
+          "description": {
+            "ru": "Вы автоматически проходите все встречные проверки\nпротив психосил. Считается, что в этой проверке вы\nнабрали +1 Степень Успеха.",
+            "en": "You automatically win any Opposed Test to resist a\nPsychic Power. Your result is always a Success (+1 SL)."
+          },
+          "targets": ["SK_DIS"]
+        },
+        {
+          "tag": "TL_BLNK_H2",
+          "description": {
+            "ru": "Вас нельзя заметить одним только Психическим чутьём.",
+            "en": "You cannot be detected through Psyniscience alone."
+          },
+          "targets": ["SK_AWR", "SK_STL", "SK_DIS"]
+        },
+        {
+          "tag": "TL_BLNK_H3",
+          "description": {
+            "ru": "",
+            "en": ""
+          },
+          "targets": ["SK_DIS"]
+        },
+        {
+          "tag": "TL_BLNK_H4",
+          "description": {
+            "ru": "",
+            "en": ""
+          },
+          "targets": ["SK_DIS"]
+        },
+        {
+          "tag": "TL_BLNK_H5",
+          "description": {
+            "ru": "",
+            "en": ""
+          },
+          "targets": ["SK_DIS"]
+        },
+        {
+          "tag": "TL_BLNK_H6",
+          "description": {
+            "ru": "",
+            "en": ""
+          },
+          "targets": ["SK_DIS"]
+        },
+        {
+          "tag": "TL_BLNK_H7",
+          "description": {
+            "ru": "",
+            "en": ""
+          },
+          "targets": ["SK_DIS"]
+        },
+        {
+          "tag": "TL_BLNK_H8",
+          "description": {
+            "ru": "",
+            "en": ""
+          },
+          "targets": ["SK_DIS"]
+        }
+      ],
+      "prerequisites": [
+        {
+          "tag": "TL_PSY",
+          "value": 0
+        }
+      ],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    },
+    {
+      "tag": "TL_",
+      "name": {
+        "ru": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "en": ""
+      },
+      "hints": [],
+      "prerequisites": [],
+      "specializations": [],
+      "is_stackable": false
+    }
+  ]
+}

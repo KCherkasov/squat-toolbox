@@ -43,18 +43,28 @@ STAT_UPG_COSTS = {
     80: 320
 }
 
+PREFIX_LENGTH = 2
+
+PREREQ_STAT_PREFIX = 'ST'
+PREREQ_SKILL_PREFIX = 'SK'
+PREREQ_SPEC_PREFIX = 'SP'
+PREREQ_TALENT_PREFIX = 'TL'
+PREREQ_FACTION_PREFIX = 'FC'
+
 RESOURCES_PATH = 'static/json/'
 
 STATS_DESCR_ID = 0
 SKILL_DESCR_ID = 1
 SPEC_DESCR_ID = 2
 ORIGIN_DESCR_ID = 3
+TALENT_DESCR_ID = 4
 
 MAL_RESOURCES = [
     "im_stat_descriptions.json",
     "im_skill_descriptions.json",
     "im_specialization_descriptions.json",
-    "im_origins.json"
+    "im_origins.json",
+    "im_talent_descriptions.json"
 ]
 
 MAL_LANGS = ['ru', 'en']

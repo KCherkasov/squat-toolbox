@@ -21,10 +21,12 @@ class MalCharacterModel(object):
         self.__name = name
         self.__xp = xp
         self.__origin = origin
+        self.__faction = "FC_MOCKUP"  # TODO: remove mockup once factions will be ready
         self.__fate = fate
         self.__wounds = wounds
         self.__stats = stats
         self.__skills = skills
+        self.__talents = dict()  # TODO: remove mockup once talents will be ready
 
     def is_rt(self):
         return False
@@ -67,6 +69,9 @@ class MalCharacterModel(object):
 
     def origin(self):
         return self.__origin
+
+    def faction(self):
+        return self.__faction
 
     def fate(self):
         return self.__fate
@@ -175,6 +180,12 @@ class MalCharacterModel(object):
             return None
         diff = self.stats().get(stat).value() + self.skills().get(tag).specialization_adv_bonus(subskill)
         return diff
+
+    def talents(self):
+        return self.__talents
+
+    def has_talent(self, tag: str):
+        return tag in self.talents().keys()
 
     @classmethod
     def from_json(cls, sdata: str):

@@ -2,7 +2,7 @@
 
 from typing import Dict, List
 
-from charlist.constants.constants import *
+from charlist.constants.maledictum.tags import *
 from charlist.constants.maledictum.constants import *
 
 from charlist.flyweights.core.object_description import ObjectDescription
@@ -34,10 +34,10 @@ class MalOrigin(ObjectDescription):
     @classmethod
     def from_file(cls, fdata):
         origins = list()
-        for origin in fdata['origins']:
+        for origin in fdata[ORIGINS_TAG]:
             origins.append(MalOriginModel.from_json(origin))
         result_origins = list()
-        if len(origins) > 0:
+        if len(origins) > IM_ZERO:
             for model in origins:
                 result_origins.append(cls.from_model(model))
         else:

@@ -2,7 +2,8 @@
 
 from typing import Dict
 
-from charlist.constants.constants import *
+from charlist.constants.maledictum.constants import *
+from charlist.constants.maledictum.tags import *
 from charlist.flyweights.core.object_description import ObjectDescription
 from charlist.flyweights.models.maledictum.mal_skill_description_model import MalSkillDescriptionModel
 
@@ -24,10 +25,10 @@ class MalSkillDescription(ObjectDescription):
     @classmethod
     def from_file(cls, fdata):
         skill_descriptions = list()
-        for skill_description in fdata['descriptions']:
+        for skill_description in fdata[DESCR_TAG]:
             skill_descriptions.append(MalSkillDescriptionModel.from_json(skill_description))
         result_descriptions = list()
-        if len(skill_descriptions) > 0:
+        if len(skill_descriptions) > IM_ZERO:
             for skill_description in skill_descriptions:
                 result_descriptions.append(cls.from_model(skill_description))
         else:
